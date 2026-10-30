@@ -110,3 +110,8 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - `FN_HANDLE_RESOLVE = 0x2284800` proven (Strategic Apply path + live hash sim 17/17).
 - `calling/handle.py` RO helper added.
 - Safe-enable still open (no Post proof / midflight Move). **Posting DISABLED**.
+
+## Phase 2aw (helpers / ABI)
+
+- Live roster: handle + province helpers 17/17.
+- Post ABI documented; `allow_post()` still hard-denies. **Posting DISABLED**.

@@ -32,6 +32,7 @@ python clausewitz_win.py status
 
 ## What works
 
+- Phase 2aw: RO handle/province helpers + Post ABI notes; writes DISABLED
 - Phase 2av: FN_HANDLE_RESOLVE proven (0x2284800); writes DISABLED
 - Phase 2au: GS province resolve proven (CArmy+0x28 / CProvince+0xa4); writes DISABLED
 - Phase 2at: DummyServer ring embed + ALLOW_POST stub; handle resolve open; writes DISABLED

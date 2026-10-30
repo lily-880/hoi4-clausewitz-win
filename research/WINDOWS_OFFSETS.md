@@ -1275,3 +1275,9 @@ Posting **DISABLED**.
 | HANDLE_TYPE_TABLE | `0x34FFC00` | types `< 0x64` |
 | payload | `object+0x10` | caller subtracts `0x10` |
 | live | 17/17 HAI armies type `0x33` | |
+
+## Phase 2aw — RO helpers + Post ABI notes
+
+Posting **DISABLED**. Helpers: `calling/handle.py`, `calling/province.py`.
+
+Post entry `0x22C41E0(session, cmd)` → DummyServer sink `0x23F5CD0`; enable only after checklist + non-destructive proof.
