@@ -1,0 +1,44 @@
+{
+  "phase": "2cs",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "cmds_below_1_0": 0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "A. land_cmd_post_path_index_2cs_recipe \u2014 pick command/role; read observe_steps.",
+    "B. land_role_post_path_matrix_2cs_recipe \u2014 role playbook + preferred cores.",
+    "C. land_offensive_line_post_path_2cs_recipe \u2014 OL execute/IsValid observe playbook.",
+    "D. land_live_army_subject_observe_2cs_recipe \u2014 Haiti army rows RO (no Post).",
+    "E. land_live_focus_fn_verify_2cs_recipe \u2014 focus-core IsValid/Execute prologues RO.",
+    "F. land_midflight_move_watcher_readiness_2cs_recipe \u2014 watcher + session counters RO.",
+    "G. Confirm tool-gate CLOSED / allow_post False / speed pause|1x.",
+    "H. STOP \u2014 never enable ALLOW_POST / never inject / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2cs",
+    "role_post_path_matrix_2cs",
+    "confidence_report_2cs",
+    "checklist_2cs",
+    "offensive_line_post_path_2cs",
+    "midflight_move_watcher_readiness_2cs",
+    "live_army_subject_observe_2cs",
+    "live_focus_fn_verify_2cs"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "wake user / inject input"
+  ]
+}

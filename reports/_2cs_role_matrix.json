@@ -1,0 +1,413 @@
+{
+  "attack": {
+    "n_cmds": 7,
+    "cmds": [
+      "CSupportAttackCommand",
+      "CRailwayGunManualOrderCommand",
+      "CRailwayGunSetNameCommand",
+      "CAiDiscardForceConcentrationTargetCommand",
+      "CAiOnFailedInvasionCommand",
+      "CAiStoreForceConcentrationTargetCommand",
+      "CAiStoreTotalWantedNrDivisionsCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "attack_core",
+      "army_subject_pair_adjacent_core",
+      "railwaygun_manual_core",
+      "railwaygun_name_core"
+    ],
+    "representative_command": "CSupportAttackCommand",
+    "representative_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "representative_named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=attack; avg_conf=1.0; n=7.",
+      "2. Start from representative CSupportAttackCommand; required_gates=['0x1e1510', '0x2607890'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "cancel_abort": {
+    "n_cmds": 2,
+    "cmds": [
+      "CMassCancelMovementCommand",
+      "CCancelMovementCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "cancel_abort_core"
+    ],
+    "representative_command": "CMassCancelMovementCommand",
+    "representative_gates": [
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "representative_named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=cancel_abort; avg_conf=1.0; n=2.",
+      "2. Start from representative CMassCancelMovementCommand; required_gates=['0x2284800', '0x2348bf0', '0x25c3770'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "frontline": {
+    "n_cmds": 15,
+    "cmds": [
+      "COrderNewFrontCommand",
+      "COrderInsertFrontCommand",
+      "COrderSetPathCommand",
+      "COrderReshapeCommand",
+      "COrderConnectCommand",
+      "COrderReconnectCommand",
+      "COrderSetCollapseCommand",
+      "COrderAddNewCompletePlanCommand",
+      "COrderExecuteCommand",
+      "COrderBlockSectionsCommand",
+      "COrderChildFrontRatioCommand",
+      "COrderReorderChildFrontCommand",
+      "COrderSetInvasionSourceCommand",
+      "COrderSetParadropSourceCommand",
+      "COrderSetParadropTargetCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "frontline_core",
+      "frontline_bbb_core",
+      "frontline_collapse_core"
+    ],
+    "representative_command": "COrderExecuteCommand",
+    "representative_gates": [
+      "0xbbb1e0"
+    ],
+    "representative_named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=frontline; avg_conf=1.0; n=15.",
+      "2. Start from representative COrderExecuteCommand; required_gates=['0xbbb1e0'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "garrison": {
+    "n_cmds": 3,
+    "cmds": [
+      "CCreateAreaDefenseCommand",
+      "CEditAreaDefenseStateCommand",
+      "CSetAreaDefenseSettingCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "garrison_core",
+      "garrison_bbb_core"
+    ],
+    "representative_command": "CCreateAreaDefenseCommand",
+    "representative_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "representative_named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=garrison; avg_conf=1.0; n=3.",
+      "2. Start from representative CCreateAreaDefenseCommand; required_gates=['0x2284800', '0xbbb1e0'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "move": {
+    "n_cmds": 17,
+    "cmds": [
+      "CMassMoveCommand",
+      "CMoveArmiesInTheaterCommand",
+      "CMoveArmyGroupInTheaterCommand",
+      "CSetArmyTemplateCommand",
+      "CSetQuickDeployPreferenceCommand",
+      "CMoveCommand",
+      "CSetArmyFakeTemplateCommand",
+      "CSetRepairOrderCommand",
+      "CSetDivisionNameCommand",
+      "CSetObsoleteDivisionTemplateCommand",
+      "CBuildRailwayCommand",
+      "CDeleteUnitCommand",
+      "CMergeArmiesCommand",
+      "CSetPendingReassignTargetCommand",
+      "CTransportUnitCommand",
+      "CRequestExpeditionariesCommand",
+      "CAmendForeignManpowerActionCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "move_army_core",
+      "move_theater_core",
+      "move_c07b80_core",
+      "army_subject_pair_adjacent_core",
+      "move_armygroup_theater_core",
+      "move_amend_manpower_core"
+    ],
+    "representative_command": "CMoveCommand",
+    "representative_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "representative_named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=move; avg_conf=1.0; n=17.",
+      "2. Start from representative CMoveCommand; required_gates=['0x1e1510', '0x2607890'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "order_group": {
+    "n_cmds": 56,
+    "cmds": [
+      "CSetOrderGroupExecutionTypeCommand",
+      "CSetOrderGroupCohesionTypeCommand",
+      "CSetOrderGroupMotorizationCommand",
+      "CSetOrderGroupNameCommand",
+      "CCollapseConveyorCommand",
+      "COrderGroupCommand",
+      "COrderNewRootCommand",
+      "COrderAssignCommand",
+      "COrderUnassignCommand",
+      "COrderDeleteCommand",
+      "CAssignToArmyGroupCommand",
+      "CRemoveFromArmyGroupCommand",
+      "CSetOrderGroupIconAndColorCommand",
+      "CSetOrderGroupLeaderProximityCommand",
+      "CSetOrderGroupOrdersInstanceNamesCommand",
+      "CAutoMergeOrdersCommand",
+      "CDeleteOrderGroupCommand",
+      "COrderDeleteAllCommand",
+      "CArmyGroupCommand",
+      "CSetArmyLeaderCommand",
+      "COrderEditRootCommand",
+      "COrderMembersFairSplitCommand",
+      "COrderMergeRootsCommand",
+      "COrderSetTrainingCommand",
+      "CSetOrdersLinkCommand",
+      "CSetArmyLeaderPreferredTacticCommand",
+      "CAddConveyorLineCommand",
+      "CChangeConveyorPositionCommand",
+      "CCreateConveyorCommand",
+      "CCreateConveyorExtendedCommand",
+      "CDeployConveyorCommand",
+      "CDeployConveyorLineCommand",
+      "CRemoveConveyorCommand",
+      "CRemoveConveyorLineCommand",
+      "CSetConveyorGroupCommand",
+      "CSetConveyorLocationCommand",
+      "CSetConveyorNameCommand",
+      "CSetConveyorPriorityCommand",
+      "CSetConveyorSeriesCommand",
+      "CChangeConveyorTemplateCommand",
+      "CSetDeploymentLineNameCommand",
+      "CUpgradeDivisionOfficerCommand",
+      "CLearnTraitCommand",
+      "CUpdateLeaderSeenTraitsCountCommand",
+      "CClearRepairPinsCommand",
+      "CCreateUnitLeaderCommand",
+      "CPromoteUnitLeaderCommand",
+      "CQueueUnitActionCommand",
+      "CSelectionGroupCommand",
+      "CSetPreferredTacticCommand",
+      "CSetUnitNameCommand",
+      "CUpdateLeaderSeenAdvisorRolesCountCommand",
+      "CGiveMedalCommand",
+      "CTriggerAbilityCommand",
+      "CRetireCharacterCommand",
+      "CReinstateExileCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "order_group_core",
+      "order_group_bbb_core",
+      "order_group_leader_core",
+      "order_group_conveyor_core",
+      "army_subject_pair_adjacent_core",
+      "order_group_orders_link_core",
+      "order_group_create_leader_core",
+      "order_group_preferred_tactic_core",
+      "order_group_reinstate_exile_core"
+    ],
+    "representative_command": "CSetOrderGroupExecutionTypeCommand",
+    "representative_gates": [
+      "0x2284800"
+    ],
+    "representative_named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=order_group; avg_conf=1.0; n=56.",
+      "2. Start from representative CSetOrderGroupExecutionTypeCommand; required_gates=['0x2284800'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "retreat": {
+    "n_cmds": 6,
+    "cmds": [
+      "COrderNewFallbackCommand",
+      "COrderReplaceFallbackCommands",
+      "CSetSelectedArmyGroupFallback",
+      "CCancelRunningAwayCommand",
+      "CWithdrawArmyHqCommand",
+      "CDeployArmyHqCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "representative_command": "COrderNewFallbackCommand",
+    "representative_gates": [
+      "0xbbb1e0"
+    ],
+    "representative_named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=retreat; avg_conf=1.0; n=6.",
+      "2. Start from representative COrderNewFallbackCommand; required_gates=['0xbbb1e0'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "strategic": {
+    "n_cmds": 4,
+    "cmds": [
+      "CToggleStrategicDeploymentCommand",
+      "CStrategicRedeploymentCommand",
+      "CReorderPinnedStrategicRegionCommand",
+      "CTogglePinnedStrategicRegionCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "strategic_redeploy_core",
+      "strategic_pin_core",
+      "strategic_unit_redeploy_core"
+    ],
+    "representative_command": "CStrategicRedeploymentCommand",
+    "representative_gates": [
+      "0x2607890"
+    ],
+    "representative_named_gates": {
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=strategic; avg_conf=1.0; n=4.",
+      "2. Start from representative CStrategicRedeploymentCommand; required_gates=['0x2607890'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  },
+  "theater": {
+    "n_cmds": 11,
+    "cmds": [
+      "CAssignToTheaterGroupCommand",
+      "CDisbandTheaterGroupCommand",
+      "CReorderTheatersCommand",
+      "CSetTheaterGroupNameCommand",
+      "CSetTheaterGroupPriorityCommand",
+      "CSetCountryGarrisonPriorityCommand",
+      "CSetCountryReinforcementPriorityCommand",
+      "CSetCountryGarrisonTemplateCommand",
+      "CSetMainGarrisonTemplateCommand",
+      "CSetStateGarrisonTemplateCommand",
+      "CSetTheatreCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "soft_unnamed_gates": [],
+    "cmds_with_unnamed_execute": [],
+    "preferred_cores_touching_role": [
+      "theater_core",
+      "theater_garrison_prio_core",
+      "theater_reorder_core",
+      "theater_main_garrison_template_core",
+      "theater_state_garrison_template_core",
+      "theater_set_theatre_core"
+    ],
+    "representative_command": "CAssignToTheaterGroupCommand",
+    "representative_gates": [
+      "0x18dde70"
+    ],
+    "representative_named_gates": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=theater; avg_conf=1.0; n=11.",
+      "2. Start from representative CAssignToTheaterGroupCommand; required_gates=['0x18dde70'].",
+      "3. Cross-check preferred_cores touching this role (docs only).",
+      "4. For move/attack/strategic: pair with live army_subject observation recipe.",
+      "5. Midflight watcher remains RO armed; no input.",
+      "6. STOP \u2014 never Post / never open tool-gate."
+    ]
+  }
+}

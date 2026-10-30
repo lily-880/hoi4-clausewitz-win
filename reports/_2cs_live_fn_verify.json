@@ -1,0 +1,142 @@
+{
+  "move": {
+    "command": "CMoveCommand",
+    "layout_ref": "MOVE",
+    "subject_recipe": "army_subjects.move_action_recipe",
+    "notes": "Primary land move; CUnitMoveAction@+0x28; IsValid thunks to action",
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_rva": "0x13fc990",
+    "isvalid_rva": "0x14002f0",
+    "vt_rva": "0x2a2c790",
+    "execute_prologue": "488b41284883c12848ff6048cccccccc",
+    "isvalid_prologue": "488b41284883c12848ff6050cccccccc",
+    "vt_slot_isvalid": "f002a645f77f0000",
+    "vt_slot_execute": "90c9a545f77f0000",
+    "gates_live": {
+      "0x1e1510": {
+        "name": "isvalid_army_subject_gate_a",
+        "prologue": "488b41104885c0741d488379",
+        "readable": true
+      },
+      "0x2607890": {
+        "name": "isvalid_army_subject_gate_b",
+        "prologue": "488bc14c8d1566879ffd4983",
+        "readable": true
+      }
+    },
+    "allow_post": false
+  },
+  "strategic_redeploy": {
+    "command": "CStrategicRedeploymentCommand",
+    "layout_ref": "STRATEGIC",
+    "subject_recipe": "army_subjects.strategic_redeploy_recipe",
+    "notes": "CUnitStrategicMoveAction@+0x28; ser tokens proven 2bt",
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_rva": "0x13fc990",
+    "isvalid_rva": "0x1402260",
+    "vt_rva": "0x2a2d818",
+    "execute_prologue": "488b41284883c12848ff6048cccccccc",
+    "isvalid_prologue": "488b41284883c12833d248ff6050cccc",
+    "vt_slot_isvalid": "6022a645f77f0000",
+    "vt_slot_execute": "90c9a545f77f0000",
+    "gates_live": {
+      "0x2607890": {
+        "name": "isvalid_army_subject_gate_b",
+        "prologue": "488bc14c8d1566879ffd4983",
+        "readable": true
+      }
+    },
+    "allow_post": false
+  },
+  "cancel_movement": {
+    "command": "CCancelMovementCommand",
+    "layout_ref": "CANCEL",
+    "subject_recipe": "army_subjects.cancel_movement_recipe",
+    "notes": "Cancel ongoing move path; units vector@+0x28",
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "execute_rva": "0x13fbbd0",
+    "isvalid_rva": "0x13fed40",
+    "vt_rva": "0x2a2c9b8",
+    "execute_prologue": "48896c2418564883ec2033ed488bf139",
+    "isvalid_prologue": "48895c241048896c2418488974242057",
+    "vt_slot_isvalid": "40eda545f77f0000",
+    "vt_slot_execute": "d0bba545f77f0000",
+    "gates_live": {
+      "0x2284800": {
+        "name": "isvalid_field_gate_primary",
+        "prologue": "4883ec288b013d6812000076",
+        "readable": true
+      },
+      "0x2348bf0": {
+        "name": "isvalid_cancel_pair_gate_a",
+        "prologue": "0fb60569dcde00c3cccccccc",
+        "readable": true
+      },
+      "0x25c3770": {
+        "name": "isvalid_cancel_pair_gate_b",
+        "prologue": "48895c241048897424185741",
+        "readable": true
+      }
+    },
+    "allow_post": false
+  },
+  "attack_support": {
+    "command": "CSupportAttackCommand",
+    "layout_ref": "SUPPORT_ATTACK",
+    "subject_recipe": "army_subjects.support_attack_recipe",
+    "notes": "validate handle@+0x28 via 0x57f7b0; gates 60/80 FALSE",
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_rva": "0x13fdd00",
+    "isvalid_rva": "0x1402270",
+    "vt_rva": "0x2a2cb28",
+    "execute_prologue": "48895c241048896c2418488974242057",
+    "isvalid_prologue": "48895c24104889742418574883ec3048",
+    "vt_slot_isvalid": "7022a645f77f0000",
+    "vt_slot_execute": "00dda545f77f0000",
+    "gates_live": {
+      "0x1e1510": {
+        "name": "isvalid_army_subject_gate_a",
+        "prologue": "488b41104885c0741d488379",
+        "readable": true
+      },
+      "0x2607890": {
+        "name": "isvalid_army_subject_gate_b",
+        "prologue": "488bc14c8d1566879ffd4983",
+        "readable": true
+      }
+    },
+    "allow_post": false
+  }
+}

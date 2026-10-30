@@ -2355,3 +2355,189 @@ def land_offensive_line_post_path_2cr_recipe(command_name: str | None = None) ->
         "note": "OL execute paths observe-only; never Post.",
     }
 
+
+# --- Phase 2cs: Post-readiness usability — live observe + OL/role/midflight docs (READ-ONLY) ---
+
+def land_cmd_post_path_index_2cs_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Per-command Post readiness index 2cs (usability observe_steps). Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = pr.get("cmd_post_path_index_2cs") or pr.get("cmd_post_path_index_2cr") or {}
+    out = {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "commands": {},
+        "note": "Confidence saturated at 1.0; usability observe_steps only. Do not Post.",
+    }
+    for n, meta in idx.items():
+        if command_name and n != command_name:
+            continue
+        if role and meta.get("role") != role:
+            continue
+        out["commands"][n] = meta
+    out["count"] = len(out["commands"])
+    confs = [v.get("post_path_confidence") or 0 for v in out["commands"].values()]
+    out["avg_post_path_confidence"] = round(sum(confs) / max(1, len(confs)), 3) if confs else 0
+    out["cmds_below_1_0"] = sum(1 for c in confs if c < 1.0)
+    return out
+
+
+def land_role_post_path_matrix_2cs_recipe(role: str | None = None) -> dict:
+    """Role matrix + observe playbooks 2cs. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    matrix = pr.get("role_post_path_matrix_2cs") or {}
+    if role:
+        return {
+            "phase": "2cs",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "role": role,
+            "slice": matrix.get(role),
+            "note": "Role observe playbook only; never Post.",
+        }
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "roles": matrix,
+        "n_roles": len(matrix),
+        "note": "All-role playbooks; never Post.",
+    }
+
+
+def land_confidence_report_2cs_recipe(role: str | None = None) -> dict:
+    """Confidence report 2cs (saturated) + optional role filter. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2cs") or {})
+    matrix = pr.get("role_post_path_matrix_2cs") or {}
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "report": rep,
+        "role_slice": matrix.get(role) if role else None,
+        "note": "No Capstone churn; usability phase; never Post.",
+    }
+
+
+def land_post_readiness_checklist_2cs_recipe(command_name: str | None = None) -> dict:
+    """2cs operator checklist + optional cmd slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cs") or {})
+    idx = pr.get("cmd_post_path_index_2cs") or {}
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "operator_sequence": checklist.get("operator_sequence"),
+        "command_slice": idx.get(command_name) if command_name else None,
+        "do_not": checklist.get("do_not") or [],
+        "note": "Operator usability checklist only; never Post.",
+    }
+
+
+def land_offensive_line_post_path_2cs_recipe(command_name: str | None = None) -> dict:
+    """Deepened OL post-path observe playbooks 2cs. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ol = dict(pr.get("offensive_line_post_path_2cs") or {})
+    if command_name:
+        ol = {command_name: ol[command_name]} if command_name in ol else {}
+    confs = [v.get("post_path_confidence") or 0 for v in ol.values()]
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "count": len(ol),
+        "avg_post_path_confidence": round(sum(confs) / max(1, len(confs)), 3) if confs else 0,
+        "commands": ol,
+        "note": "OL observe playbooks; never Post.",
+    }
+
+
+def land_midflight_move_watcher_readiness_2cs_recipe() -> dict:
+    """Midflight Move watcher readiness docs + last live counters. RO only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    doc = dict(pr.get("midflight_move_watcher_readiness_2cs") or {})
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "readiness": doc,
+        "note": "Watcher RO armed; never inject / never Post / never 5x.",
+    }
+
+
+def land_live_army_subject_observe_2cs_recipe(limit: int = 8) -> dict:
+    """Return cached 2cs Haiti army RO observation (+ docs-only field recipes). Never Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2cs") or {})
+    armies = list(obs.get("armies") or [])[: max(0, int(limit))]
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "country_tag_filter": obs.get("country_tag_filter"),
+        "armies_found": obs.get("armies_found"),
+        "armies": armies,
+        "field_recipes_docs_only": obs.get("field_recipes_docs_only"),
+        "note": obs.get("note") or "Live RO army scan snapshot; never alloc/Post/WPM.",
+    }
+
+
+def land_live_focus_fn_verify_2cs_recipe(role: str | None = None) -> dict:
+    """Focus-core IsValid/Execute prologue live verify snapshot 2cs. RO only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    fv = dict(pr.get("live_focus_fn_verify_2cs") or {})
+    if role:
+        return {
+            "phase": "2cs",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "role": role,
+            "slice": fv.get(role),
+            "note": "Prologue bytes observe-only; never patch.",
+        }
+    return {
+        "phase": "2cs",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "roles": fv,
+        "n_roles": len(fv),
+        "note": "Focus FN verify snapshot; never Post.",
+    }
+

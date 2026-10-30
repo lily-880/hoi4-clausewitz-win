@@ -1,0 +1,112 @@
+{
+  "phase": "2cs",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "watcher_proc": "{\n    \"Id\":  36128,\n    \"ProcessName\":  \"python\",\n    \"StartTime\":  \"\\/Date(1793399301648)\\/\"\n}",
+  "speed_rule": "pause or 1x only; never 5x; no input injection",
+  "stubbed": {
+    "midflight_CMoveCommand": "stubbed \u2014 capture path armed RO, no inject",
+    "ring_embed": "stubbed",
+    "ALLOW_POST": "DISABLED",
+    "command_queue_tool_gate": "CLOSED_NOT_OPENED"
+  },
+  "live_session_counters": {
+    "G_SESSION": "0x1ef8f7b2b70",
+    "server": "0x1efeb828970",
+    "drain": 777220,
+    "exec": 13,
+    "stage_count": 0,
+    "executing_flag": 0,
+    "pending": 0,
+    "note": "RO counters only; never Post / never inject."
+  },
+  "prior_ready_snapshot": {
+    "caught_army_move": false,
+    "captures": [],
+    "last_counters": {
+      "drain": 269233,
+      "exec": 13,
+      "seq": 15,
+      "stage_count": 0
+    },
+    "note": "Armed RO watcher. Empty captures expected while paused with no user right-click."
+  },
+  "observe_steps": [
+    "1. Confirm watcher pid 36128 alive RO (no input).",
+    "2. Confirm Haiti paused or 1x; NEVER 5x.",
+    "3. Read session drain/exec/stage counters RO.",
+    "4. CMoveCommand / CStrategicRedeploymentCommand / CCancelMovementCommand post-path conf=1.0 in index.",
+    "5. Ring embed + Post remain stubbed; tool-gate CLOSED.",
+    "6. Empty captures expected while paused with no user right-click.",
+    "7. STOP \u2014 never inject move, never Post, never wake user."
+  ],
+  "move_cmd_post_path": {
+    "CMoveCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "execute_calls_n": 12,
+      "unnamed_execute_remaining": []
+    },
+    "CMassMoveCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "execute_calls_n": 3,
+      "unnamed_execute_remaining": []
+    },
+    "CStrategicRedeploymentCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "execute_calls_n": 12,
+      "unnamed_execute_remaining": []
+    },
+    "CCancelMovementCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770"
+      ],
+      "named_gates": {
+        "0x2284800": "isvalid_field_gate_primary",
+        "0x2348bf0": "isvalid_cancel_pair_gate_a",
+        "0x25c3770": "isvalid_cancel_pair_gate_b"
+      },
+      "execute_calls_n": 4,
+      "unnamed_execute_remaining": []
+    },
+    "CSupportAttackCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "execute_calls_n": 5,
+      "unnamed_execute_remaining": []
+    }
+  }
+}

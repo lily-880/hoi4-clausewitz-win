@@ -692,3 +692,18 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cs (overnight RO) — Post-readiness usability (live observe + OL/role/midflight docs)
+
+- **HEAD parent**: `5aa04e7` (2cr). Focus: usability after confidence saturation. **LAND 121/121 unchanged**. No Capstone naming churn.
+- **Helpers**: **308 unchanged**. **Named**: **658** unchanged.
+- **Confidence**: avg **1.000** (unchanged); below 1.0: **0**.
+- **Live Haiti army observe**: **22** armies (tag=15) with handle/province_id_ok; docs-only move/attack/strategic field recipes.
+- **Focus FN verify**: move / strategic_redeploy / cancel_movement / attack_support — Execute/IsValid prologues + required gates readable.
+- **Midflight Move watcher**: pid **36128** alive RO; session drain/exec counters read; CMove path stubbed; no inject.
+- **OL post-path**: 25 cmds with observe playbooks (named execute/IsValid maps).
+- **Role matrix**: 9 roles with observe playbooks + preferred-core links.
+- **Operator checklist**: sequenced A–H usability steps; allow_post False.
+- **Artifacts**: `cmd_post_path_index_2cs`, `role_post_path_matrix_2cs`, `confidence_report_2cs`, `checklist_2cs`, `offensive_line_post_path_2cs`, `midflight_move_watcher_readiness_2cs`, `live_army_subject_observe_2cs`, `live_focus_fn_verify_2cs`.
+- **Recipes**: index/matrix/confidence/checklist/OL/midflight/live_army/live_fn_verify `_2cs_recipe`.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user.
+
