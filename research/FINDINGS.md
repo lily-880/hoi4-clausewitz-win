@@ -1,26 +1,27 @@
 # Findings — Windows Phase 1
 
-**Date:** 2026-10-30 (Asia/Shanghai)  
-**Machine:** LAPTOP (Windows 11 家庭版 25H2, build 26200)  
+**Date:** 2026-10-30 ~ 2026-10-31 (Asia/Shanghai)  
+**Machine:** LAPTOP-6FQIF6OJ (Windows 11 家庭版 25H2, build 26200)  
 **Game:** `D:\STEAM\steam\steamapps\common\Hearts of Iron IV\hoi4.exe`  
-**Version:** 1.19.4.0 Operation Postern (exe mtime 2026-10-29 22:51 Asia/Shanghai)  
-**Exe size:** 56530040 bytes (~53.9 MiB)
+**Launcher version string:** 1.19.4.1 (pin: 1.19.4.x Operation Postern)  
+**Exe size:** 56530040 bytes  
+**Preferred PE ImageBase:** `0x140000000`  
+**SizeOfImage:** `0x38a3000` (~56 MB)  
+**Sections:** `.text` `.rdata` `.data` `.pdata` `.rsrc` `.reloc`
 
-## Proven
+## Proven on PC
 
-- Install path detection including `D:\STEAM\steam\...`
-- PE32+ parse of `hoi4.exe` (see `python clausewitz_win.py peinfo` on the PC)
-- Live attach via `ReadProcessMemory` when the game is running (doctor/status)
-- Read-only default; write path hard-gated
+- `python clausewitz_win.py peinfo` — OK
+- `python clausewitz_win.py doctor` — OK (RESULT: ready Phase 1); game was not running at first check
+- Install path: `Documents\Paradox Interactive\Hearts of Iron IV\clausewitz_win`
+- GitHub: https://github.com/lily-880/hoi4-clausewitz-win
 
-## Not proven (blocked on RE)
+## Not proven yet
 
-- `G_GAMESTATE` / idler / country tag DB RVAs for this PE
-- MSVC RTTI class index
-- `CCommandQueue::Post` calling convention + address
-- Any division organisation / province live fields on Windows heap
+- Live `status` string scans (need running `hoi4.exe`)
+- Any `G_*` / `FN_*` Windows RVAs
+- Command queue posting
 
-## Parallel track
+## Safety
 
-Script-side Vision Channel mod still useful for coarse daily state while memory RE proceeds.
-Do not disable Auto Kessel / Vision Channel when installing this tool.
+Read-only default. Vision Channel / Auto Kessel untouched.
