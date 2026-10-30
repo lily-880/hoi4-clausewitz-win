@@ -1,5 +1,5 @@
 {
-  "phase": "2bq",
+  "phase": "2br",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -13,7 +13,7 @@
     {
       "id": "midflight_move_sample",
       "status": "stubbed",
-      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2bo overnight; no injection)."
+      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2br overnight; no injection)."
     },
     {
       "id": "action_flag_names",
@@ -48,7 +48,7 @@
     {
       "id": "drain_execute_edges",
       "status": "closed",
-      "note": "2bn: 6CC/726/725/empty-ring drain advance/recreate 0x22d8ad0/factory 0x35011e0 documented"
+      "note": "2bn+2br: 6CC/726/725/empty-ring; SessionUpdate set/clear 6cc+inc 6c8+sticky F8; Dummy drain ring a0/b8/c0/c8/pending 60/68"
     },
     {
       "id": "post_gate_analysis",
@@ -63,7 +63,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED; 2bo safer analysis only \u2014 midflight+ALLOW_POST+recreate still block"
+      "note": "DISABLED; 2br deepen only \u2014 midflight+ALLOW_POST+recreate still block"
     },
     {
       "id": "network_execlist_path",
@@ -98,12 +98,12 @@
     {
       "id": "isvalid_paths",
       "status": "closed",
-      "note": "2bo: wrap 0x22d8ea0 + vt+0x48 live Move/Strategic/Cancel/Orders/Pause; Pause IsValid TRUE"
+      "note": "2bo+2br: wrap + Move/Strategic/Cancel/Orders/Pause + EXTRA land/naval 8 + ORDERS 10; Pause TRUE"
     },
     {
       "id": "remaining_army_orders",
-      "status": "partial",
-      "note": "2bo: 15 RTTI+factory stubs in REMAINING_ARMY_ORDERS; serialize/clone still stubbed"
+      "status": "closed",
+      "note": "2bp serdes/clone/gettypeid 15/15; 2br IsValid/Execute kinds FN reconfirmed + EXTRA fields"
     }
   ],
   "enable_when": [
@@ -125,7 +125,7 @@
       "id": "serialize_recreate_roundtrip",
       "status": "structural_sticky_ok_inprocess_stubbed",
       "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring",
-      "note": "2bq sticky StartGame structural serdes+factory/recreate RO; ring embed still needs Post/midflight"
+      "note": "2bq sticky StartGame structural serdes+factory/recreate RO; 2br sticky still live; ring embed still needs Post/midflight"
     },
     {
       "id": "CLAUSEWITZ_ALLOW_POST",
@@ -173,5 +173,18 @@
     "allow_post": false,
     "midflight_watcher_pid": 29656,
     "ring_empty": true
+  },
+  "notes_2br": {
+    "ts": "2026-10-31T05:53:53",
+    "extra_fields_isvalid": "8/8",
+    "orders_isvalid": "10/10",
+    "remaining_kinds": "15/15",
+    "session_drain_execute_edges": "live-matched",
+    "sticky_startgame": "live via wrapper+0",
+    "isvalid_paths": 24,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "allow_post": false,
+    "midflight_watcher_pid": 29656,
+    "ring_embed": "STUBBED"
   }
 }

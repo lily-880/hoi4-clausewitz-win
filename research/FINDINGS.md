@@ -238,3 +238,23 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+
+## Phase 2br (overnight RO — layouts / IsValid / Execute / drain+session / hygiene)
+
+### Works
+- `EXTRA_ARMY_COMMANDS` **8/8**: field maps + `isvalid_kind=FN` + live vt+0x48/0x50 kinds; all documented in `ISVALID_PATHS`.
+- `ORDERS` **10/10**: `isvalid` RVAs + kinds FN; `ISVALID_PATHS` notes for each.
+- `REMAINING_ARMY_ORDERS` **15/15** IsValid/Execute kinds reconfirmed FN.
+- `SESSION_EDGES` + deepened `DRAIN_EDGES` + `EXECUTE_EDGES`: Post prologue 725/3c/6cc/726; SessionUpdate set/clear 6cc, inc 6c8, write sticky F8; Dummy drain ring lock/idx/pending + clone-via-vt+0x68.
+- Sticky StartGame still **live** via `sess+0xF8` wrapper → `wrapper+0` cmd (vt `0x2a5f448`, tid `0x359e`); durable while paused.
+- `ISVALID_PATHS` expanded **24** entries (was core Move/Strategic/Cancel/OEC/Pause).
+- Tool-gate **CLOSED_NOT_OPENED**. `allow_post` False. Watcher **29656** armed; tick=1; no input.
+- Checklist hygiene: `remaining_army_orders` → closed (serdes 2bp + kinds 2br).
+
+### Stubbed
+- In-process serialize→recreate→ring embed (needs Post/midflight).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

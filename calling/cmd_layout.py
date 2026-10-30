@@ -192,30 +192,40 @@ ORDERS = {
         "factory": 0x18d0070,
         "vt": 0x2A85468, "type_id": 0x3040, "size": 0x38,
         "clone": 0x18CDBD0, "serialize": 0x18E87C0, "deserialize": 0x18E2100, "execute": 0x18D6430,
+        "isvalid": 0x18def40,
+        "isvalid_kind": "FN",
         "fields": {"order_index": 0x30, "execute_order": 0x34, "all": 0x35},
     },
     "COrderAssignCommand": {
         "factory": 0x18cfca0,
         "vt": 0x2A84498, "type_id": 0x303E, "size": 0x50,
         "clone": 0x18CD5B0, "serialize": 0x18E80F0, "deserialize": 0x18E1A70, "execute": 0x18D41B0,
+        "isvalid": 0x18de900,
+        "isvalid_kind": "FN",
         "fields": {"units_data": 0x28, "units_count": 0x34, "order_index": 0x48, "assign_to_minimum_order": 0x4C},
     },
     "COrderUnassignCommand": {
         "factory": 0x18d09b0,
         "vt": 0x2A84550, "type_id": 0x304D, "size": 0x50,
         "clone": 0x18CEBB0, "serialize": 0x18E91B0, "deserialize": 0x18E2EE0, "execute": 0x18DB050,
+        "isvalid": 0x18e01d0,
+        "isvalid_kind": "FN",
         "fields": {"units_data": 0x28, "units_count": 0x34, "unassign_group": 0x48, "unassign_army_group_instances": 0x49},
     },
     "COrderDeleteCommand": {
         "factory": 0x18cffa0,
         "vt": 0x2A843E0, "type_id": 0x303F, "size": 0x38,
         "clone": 0x18CDA90, "serialize": 0x18E86E0, "deserialize": 0x18E1FE0, "execute": 0x18D5FE0,
+        "isvalid": 0x18deee0,
+        "isvalid_kind": "FN",
         "fields": {"order_index": 0x30},
     },
     "COrderNewFrontCommand": {
         "factory": 0x18d0340,
         "vt": 0x2A84B10, "type_id": 0x3327, "size": 0x70,
         "clone": 0x18CE0E0, "serialize": 0x18E8AF0, "deserialize": 0x18E25C0, "execute": 0x18D9000,
+        "isvalid": 0x18df4e0,
+        "isvalid_kind": "FN",
         "fields": {
             "sub_group": 0x30, "units_data": 0x38, "units_count": 0x44,
             "path": 0x50, "attach": 0x68, "split_from": 0x6C, "blitz": 0x6D, "withdraw": 0x6E,
@@ -225,27 +235,37 @@ ORDERS = {
         "factory": 0x18d03d0,
         "vt": 0x2A84DF0, "type_id": 0x3328, "size": 0x70,
         "clone": 0x18CE200, "serialize": 0x18E8BF0, "deserialize": 0x18E26D0, "execute": 0x18D99C0,
+        "isvalid": 0x18df570,
+        "isvalid_kind": "FN",
     },
     "COrderNewFallbackCommand": {
         "factory": 0x18d02c0,
         "vt": 0x2A84C80, "type_id": 0x33D7, "size": 0x60,
         "clone": 0x18CDFF0, "serialize": 0x18E8A60, "deserialize": 0x18E2500, "execute": 0x18D8FC0,
+        "isvalid": 0x18df4b0,
+        "isvalid_kind": "FN",
     },
     "COrderGroupCommand": {
         "factory": 0x18d00d0,
         "vt": 0x2A83D68, "type_id": 0x2ECF, "size": 0x60,
         "clone": 0x18CDC70, "serialize": 0x18E8830, "deserialize": 0x18E21D0, "execute": 0x18D64F0,
+        "isvalid": 0x18defe0,
+        "isvalid_kind": "FN",
         "fields": {"theatre": 0x48, "theater_group": 0x50, "army_group": 0x58},
     },
     "CArmyGroupCommand": {
         "factory": 0x18cf710,
         "vt": 0x2A83ED8, "type_id": 0x3861, "size": 0x80,
         "clone": 0x18CCCC0, "serialize": 0x18E7A50, "deserialize": 0x18E0E60, "execute": 0x18D25D0,
+        "isvalid": 0x18ddf70,
+        "isvalid_kind": "FN",
     },
     "CSetArmyLeaderCommand": {
         "factory": 0x18d0ba0,
         "vt": 0x2A85520, "type_id": 0x3051, "size": 0x40,
         "clone": 0x18CEF00, "serialize": 0x18E9390, "deserialize": 0x18E3210, "execute": 0x18DB2C0,
+        "isvalid": 0x18e04d0,
+        "isvalid_kind": "FN",
         "fields": {"leader": 0x28, "deploy_army_hq": 0x38},
     },
 }
@@ -325,6 +345,93 @@ ISVALID_PATHS = {
         "rva": 0x188D90,  # mov al,1; ret
         "kind": "TRUE",
         "notes": "Always-valid — NEVER_POST; pause/unpause is speed-adjacent",
+    },
+    # EXTRA land/naval IsValid (RO 2br)
+    "CMoveArmiesInTheaterCommand": {
+        "rva": 0x18DE7E0,
+        "kind": "FN",
+        "notes": "Vector count@+0x34; walks handles@+0x28 via resolve; empty→fail",
+    },
+    "CMoveArmyGroupInTheaterCommand": {
+        "rva": 0x18DE8A0,
+        "kind": "FN",
+        "notes": "Thunk: rcx+=0x28; call helper 0x10f12f0 (group handle valid?)",
+    },
+    "CCancelRunningAwayCommand": {
+        "rva": 0x13EED30,
+        "kind": "FN",
+        "notes": "Thunk rcx+=0x28 → unit-vector helper; empty count@+0x34 fails",
+    },
+    "CRailwayGunManualOrderCommand": {
+        "rva": 0xF01F50,
+        "kind": "FN",
+        "notes": "Feature/session gates + subject@+0x28/+0x40",
+    },
+    "CSetQuickDeployPreferenceCommand": {
+        "rva": 0x19D43A0,
+        "kind": "FN",
+        "notes": "Preference tag@+0x40 count; walks handles@+0x28 count@+0x34",
+    },
+    "CSetCountryGarrisonPriorityCommand": {
+        "rva": 0x11F26A0,
+        "kind": "FN",
+        "notes": "country@+0x28 >0 AND priority@+0x2c <=2 → TRUE else FALSE (tight)",
+    },
+    "CNavalMoveCommand": {
+        "rva": 0x13EE960,
+        "kind": "FN",
+        "notes": "Fleet/ship count@+0x40 must be >0; feature gates",
+    },
+    "CMoveShipsCommand": {
+        "rva": 0x1400300,
+        "kind": "FN",
+        "notes": "Ship counts@+0x40/+0x44; resolve helper 0xc57080; complex multi-gate",
+    },
+    # ORDERS IsValid (RO 2br)
+    "COrderAssignCommand": {
+        "rva": 0x18DE900,
+        "kind": "FN",
+        "notes": "Header/subject checks @+0x10/+0x18; count@+0x34",
+    },
+    "COrderUnassignCommand": {
+        "rva": 0x18E01D0,
+        "kind": "FN",
+        "notes": "Subject cluster@+0x40",
+    },
+    "COrderDeleteCommand": {
+        "rva": 0x18DEEE0,
+        "kind": "FN",
+        "notes": "Order id pair@+0x28/+0x2c/+0x30",
+    },
+    "COrderNewFrontCommand": {
+        "rva": 0x18DF4E0,
+        "kind": "FN",
+        "notes": "Front geometry @+0x28..+0x30 + flags@+0x5c/+0x68",
+    },
+    "COrderNewRootCommand": {
+        "rva": 0x18DF570,
+        "kind": "FN",
+        "notes": "Root handles@+0x48/+0x4c",
+    },
+    "COrderNewFallbackCommand": {
+        "rva": 0x18DF4B0,
+        "kind": "FN",
+        "notes": "Fallback field@+0x54",
+    },
+    "COrderGroupCommand": {
+        "rva": 0x18DEFE0,
+        "kind": "FN",
+        "notes": "Group/subject @+0x10/+0x18/+0x30/+0x3c/+0x50",
+    },
+    "CArmyGroupCommand": {
+        "rva": 0x18DDF70,
+        "kind": "FN",
+        "notes": "Army-group ids @+0x10/+0x18/+0x3c/+0x48/+0x50",
+    },
+    "CSetArmyLeaderCommand": {
+        "rva": 0x18E04D0,
+        "kind": "FN",
+        "notes": "Leader/army handles @+0x10/+0x18/+0x28..+0x34",
     },
 }
 
@@ -450,6 +557,65 @@ DRAIN_EDGES = {
     "sticky_postexec_wrapper": 0xF8,
     "empty_ring_drain_advances": True,
     "recreate": 0x22D8AD0,
+    # DummyServer drain 0x23f64e0 (rbx=server) — RO 2br
+    "ring_lock_a0": 0xA0,
+    "ring_ptr_b8": 0xB8,
+    "ring_idx_c0": 0xC0,
+    "ring_slot_c8": 0xC8,
+    "pending_list_60": 0x60,
+    "pending_count_68": 0x68,
+    "drain_clones_via_vt68": True,
+    "drain_dtor_via_vt0": True,
+}
+
+# Session / Post / SessionUpdate edges (RO 2br). Not a Post enable.
+SESSION_EDGES = {
+    "g_session": 0x34FFBE8,
+    "tick": 0x84,
+    "seq_or_count_60": 0x60,
+    "auth_skip_3c": 0x3C,
+    "gate_725": 0x725,
+    "executing_6cc": 0x6CC,
+    "exec_counter_6c8": 0x6C8,
+    "defer_726": 0x726,
+    "sticky_wrapper_f8": 0xF8,
+    "sticky_wrapper_layout": {
+        "cmd_ptr": 0x0,
+        "note": "sess+0xF8 is wrapper not raw CCommand; wrapper+0->cmd; StartGame durable while paused (2br)",
+    },
+    "post_prologue_0x22c41e0": {
+        "early_drop_if": "r8b==0 AND session+0x725==0 AND vt+0x80==0 AND vt+0x60==0",
+        "success_path": [
+            "cmd+0xc = session.tick(+0x84)",
+            "cmd+0x18 word from session+0x60-derived",
+            "check session+0x3c / +0x6cc / +0x726",
+            "vt+0x80 / auth vt+0x90 paths",
+        ],
+        "during_exec_drop": "session+0x6CC && !session+0x726",
+    },
+    "session_update_0x22c6410": {
+        "set_6cc_before_execute": True,
+        "clear_6cc_after_execute": True,
+        "inc_6c8": True,
+        "write_sticky_f8": True,
+        "execute_site_a": 0x22C6C9D,
+    },
+}
+
+# Execute path edges (vt+0x50). RO 2br — never call from tooling.
+EXECUTE_EDGES = {
+    "vt_off": 0x50,
+    "wrap_via_session_update": True,
+    "site_a": 0x22C6C9D,
+    "loop_b": 0x22C4710,
+    "note": "Execute only after drain->pending; never call from tooling",
+    "kinds_summary": {
+        "EXTRA_ARMY": "all FN (land/naval)",
+        "ORDERS": "all FN",
+        "REMAINING": "all FN",
+        "NEVER_POST_Pause": "FN (IsValid TRUE) — ban",
+        "STARTGAME": "FN — already executed; sticky residual",
+    },
 }
 
 
@@ -466,9 +632,15 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x18de7e0,
         "execute": 0x18d36c0,
         "gettypeid": 0x18dca50,
-        "factory_idx": 5990,
-        "kind": "land",
-        "type_id_kind": "imm",
+        "factory_idx": 0x1766,
+        "kind": 'land',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "units_vec": 0x28,
+            "units_count": 0x34,
+            "theater_or_dest": 0x40,
+        },
     },
     "CMoveArmyGroupInTheaterCommand": {
         "type_id": 0x3a8f,
@@ -481,9 +653,14 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x18de8a0,
         "execute": 0x18d3b90,
         "gettypeid": 0x18dca60,
-        "factory_idx": 5991,
-        "kind": "land",
-        "type_id_kind": "imm",
+        "factory_idx": 0x1767,
+        "kind": 'land',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "group_handle": 0x28,
+            "theater_or_dest": 0x30,
+        },
     },
     "CCancelRunningAwayCommand": {
         "type_id": 0x3bb4,
@@ -496,9 +673,13 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x13eed30,
         "execute": 0x13fbca0,
         "gettypeid": 0x13fe2e0,
-        "factory_idx": 6284,
-        "kind": "land",
-        "type_id_kind": "imm",
+        "factory_idx": 0x188c,
+        "kind": 'land',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "units_vec": 0x28,
+        },
     },
     "CRailwayGunManualOrderCommand": {
         "type_id": 0x4da0,
@@ -511,9 +692,15 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0xf01f50,
         "execute": 0xf01900,
         "gettypeid": 0xf01cb0,
-        "factory_idx": 10872,
-        "kind": "land",
-        "type_id_kind": "imm",
+        "factory_idx": 0x2a78,
+        "kind": 'land',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "subject": 0x28,
+            "extra_30": 0x30,
+            "order_or_prov": 0x40,
+        },
     },
     "CSetQuickDeployPreferenceCommand": {
         "type_id": 0x3a1c,
@@ -526,9 +713,17 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x19d43a0,
         "execute": 0x19d1790,
         "gettypeid": 0x19d3390,
-        "factory_idx": 5876,
-        "kind": "land",
-        "type_id_kind": "imm",
+        "factory_idx": 0x16f4,
+        "kind": 'land',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "handles_vec": 0x28,
+            "handles_count": 0x34,
+            "pref_tag": 0x40,
+            "flag_44": 0x44,
+            "word_18": 0x18,
+        },
     },
     "CSetCountryGarrisonPriorityCommand": {
         "type_id": 0x4ab4,
@@ -541,9 +736,14 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x11f26a0,
         "execute": 0x11e5980,
         "gettypeid": 0x2490d0,
-        "factory_idx": 10124,
-        "kind": "land",
-        "type_id_kind": "mem",
+        "factory_idx": 0x278c,
+        "kind": 'land',
+        "type_id_kind": 'mem',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "country": 0x28,
+            "priority": 0x2c,
+        },
     },
     "CNavalMoveCommand": {
         "type_id": 0x3178,
@@ -556,9 +756,16 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x13ee960,
         "execute": 0x13e6f00,
         "gettypeid": 0x13ebff0,
-        "factory_idx": 3664,
-        "kind": "naval_air",
-        "type_id_kind": "imm",
+        "factory_idx": 0xe50,
+        "kind": 'naval_air',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "ships_vec": 0x28,
+            "ships_count": 0x34,
+            "fleet_count": 0x40,
+            "flags_44": 0x44,
+        },
     },
     "CMoveShipsCommand": {
         "type_id": 0x3324,
@@ -571,9 +778,16 @@ EXTRA_ARMY_COMMANDS = {
         "isvalid": 0x1400300,
         "execute": 0x13fc9a0,
         "gettypeid": 0x13fe360,
-        "factory_idx": 4092,
-        "kind": "naval_air",
-        "type_id_kind": "imm",
+        "factory_idx": 0xffc,
+        "kind": 'naval_air',
+        "type_id_kind": 'imm',
+        "isvalid_kind": 'FN',
+        "fields": {
+            "ships_vec": 0x28,
+            "count_a": 0x40,
+            "count_b": 0x44,
+            "dest_cluster": 0x48,
+        },
     },
 }
 
