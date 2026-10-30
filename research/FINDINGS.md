@@ -736,3 +736,19 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Artifacts**: `cmd_post_path_index_2cu`, `role_post_path_matrix_2cu`, `role_observe_2cu`, `confidence_report_2cu`, `checklist_2cu`, `offensive_line_post_path_2cu`, `midflight_move_watcher_readiness_2cu`, `live_army_subject_observe_2cu`.
 - **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2cu_recipe` (live army defaults CArmy-only).
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / promote rejected org offsets.
+
+## Phase 2cv (overnight RO) — CArmy theatre/namegroup deepen
+
+- **HEAD parent**: `4156493` (2cu). Focus: CArmy-only deepen (theatre/namegroup); org stays rejected; movement_dest not invented. **LAND 121/121 unchanged**. No Capstone naming churn.
+- **Helpers**: **308 unchanged**. **Named**: **658** unchanged.
+- **Confidence**: avg **1.000** (unchanged); below 1.0: **0**.
+- **Live CArmy links (new)**: `CArmy+0x2a0` → **CTheatre** (17/17; 1 shared theatre); `CArmy+0x340` → **CNameGroupMember**; display name at `CNameGroupMember+0x60` (e.g. `1a División de Infantería`).
+- **CTheatre fields**: country_tag `@0x0c`/`@0x48` (=15); province `@0xe8` → CProvince.
+- **Also**: `CArmy+0x478` → CArmyRequests (RTTI noted).
+- **Org/str**: still **REJECTED** (0/17 CArmy nonzero at 0x520/0x6ec). Do not revive.
+- **movement_dest**: still **empty** (paused; midflight captures=0).
+- **Role observe**: retreat/frontline/theater (+…) with theatre live crosslink + field_map docs.
+- **OL / midflight / checklist**: refreshed; allow_post False.
+- **Artifacts**: `cmd_post_path_index_2cv`, `role_post_path_matrix_2cv`, `role_observe_2cv`, `confidence_report_2cv`, `checklist_2cv`, `offensive_line_post_path_2cv`, `midflight_move_watcher_readiness_2cv`, `live_army_subject_observe_2cv`.
+- **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2cv_recipe`.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / revive rejected org offsets.
