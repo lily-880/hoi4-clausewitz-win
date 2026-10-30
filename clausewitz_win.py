@@ -124,7 +124,7 @@ def cmd_status(args):
         strings.append({"needle": s.decode("ascii", "replace"), "hits": [hex(h) for h in hits]})
     proven["string_hits_in_image"] = strings
     # Session classification (G_IDLER type — not mere GS presence)
-    from gamestate import detect_session, try_global_summary
+    from gamestate import detect_session, try_global_summary, probe_player_armies
     from pe import PE
     pe = None
     try:
@@ -149,9 +149,19 @@ def cmd_status(args):
         proven["campaign"] = camp.get("verified") or {}
         proven["campaign_fields_raw"] = {
             k: camp.get("fields", {}).get(k)
-            for k in ("player_tag_raw", "date_year_hypothesis", "date_aux_0x47c", "divisions_count", "divisions_note")
+            for k in ("player_tag_raw", "date_year_hypothesis", "date_aux_0x47c", "divisions_count", "divisions_note", "armies_count", "armies_note")
         }
-    proven["phase"] = "2g"
+        # In-game: fill armies_count from CO_ARMIES@0x290 (CArmy*)
+        if session.get("in_game") and pe is not None:
+            gs_val = (proven["gamestate_probe"] or {}).get("value")
+            if gs_val:
+                armies = probe_player_armies(p, pe, int(gs_val, 16))
+                proven["armies"] = armies
+                if armies.get("ok"):
+                    proven["campaign"]["armies_count"] = armies["armies_count"]
+                    proven["campaign_fields_raw"]["armies_count"] = armies["armies_count"]
+                    proven["campaign_fields_raw"]["armies_note"] = armies.get("note")
+    proven["phase"] = "2h"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0

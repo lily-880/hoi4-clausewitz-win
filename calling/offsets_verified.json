@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2f-idler-slot-frontend",
+  "status": "phase2h-ingame-paused-hai",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -9,21 +9,34 @@
       "vptr_rva": "0x279f168",
       "countries_count": 440,
       "player_tag": 15,
-      "majors_count": 3,
+      "majors_count": 7,
       "date_year_hypothesis": 1936,
-      "same_object_after_ws_growth": true,
-      "pid": 30600,
-      "note": "Stable across menu->campaign WS growth in-process; re-check after new PID / game update"
+      "pid": 31364,
+      "note": "Stable across FrontEnd and InGame; re-check after patch"
     },
     "G_IDLER": {
       "rva": "0x33ddb08",
-      "live_class_this_session": "CFrontEndIdler",
-      "vptr_rva": "0x29c6d30",
+      "live_class_this_session": "CInGameIdler",
+      "vptr_rva": "0x29e5838",
       "queue_field": "0x530",
       "queue_field_live_type": "CGameApplication",
       "queue_field_live_vt90": "0x1b14f0",
-      "queue_field_live_vt90_role": "setter(+0x380 CSession*) — NOT Post",
-      "note": "Slot holds CFrontEndIdler in lobby/frontend; expect CInGameIdler when map UI active (re-verify). Type at +0x530 is session-dependent."
+      "queue_field_live_vt90_role": "setter(+0x380 CSession*) \u2014 NOT Post (BOTH frontend and in-game)",
+      "note": "In-game confirmed via -start_tag=HAI -start_speed=0 -noai. +0x530 is Application \u2014 Post hyp REJECTED; need new queue lead."
+    },
+    "CO_ARMIES": {
+      "country_offset": "0x290",
+      "elem_rtti": ".?AVCArmy@@",
+      "sizes_seen": [
+        17,
+        50,
+        17
+      ],
+      "sessions": [
+        "hands_off Haiti",
+        "paused -start_tag=HAI"
+      ],
+      "note": "armies_count not division count; units-inside TBD"
     }
   },
   "FN_CMD_QUEUE_POST": null,

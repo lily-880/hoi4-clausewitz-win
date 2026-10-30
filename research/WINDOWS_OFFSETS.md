@@ -57,7 +57,7 @@ python clausewitz_win.py status
 | divisions_count | — | **stubbed** — see dead ends |
 | GS_PAUSE_HOURS `0x908` | Linux | **invalid** on Windows (pointer-looking) |
 | CO_STATES | Country+`0x460` | **matches Linux** (CState* arrays; vptr `0x29b4d38`) |
-| CO_ARMIES `0x290` | Linux | **empty / not CArmy*** on Windows live majors+player this sample |
+| CO_ARMIES `0x290` | Country+`0x290` | **verified in-game** (`CArmy*`; see Phase 2h) |
 
 ## Command queue — DISABLED (Phase 2e stronger RE)
 
@@ -184,7 +184,54 @@ When in-game: resolve `idler+0x530` RTTI + vt+`0x90` **READ-ONLY**; optional hea
 
 ### USER ACTION
 
-**Load a campaign or save until the HOI4 map UI is visible**, then re-run `status` / `phase2g_session_postpath.py` once. Do not poll.
+Agent path: `python scripts/launch_into_map.py` (paused HAI). Avoid old saves / `-hands_off` for long RE. Then `status` / `phase2g_session_postpath.py` once (no `--heap` by default).
+
+
+﻿## Phase 2h — map reached (paused Haiti 1.19.4) + armies promoted
+
+### How we got onto the map (no user click)
+
+| Attempt | Result |
+|---------|--------|
+| `-start_save=POL_1943_04_01_03` | **Failed** — save incompatible with 1.19.4; stayed FrontEnd |
+| `-hands_off` | **Map OK** but forced **max speed** (CPU delta ~25/3s; fans) — do not leave running |
+| Space / `-` hotkeys while hands_off | Did **not** stick (still fast) |
+| `-start_tag=HAI -start_speed=0 -noai` | **Map OK**, cool (CPU delta ~2/3s) — **preferred for RE** |
+
+Tool: `python scripts/launch_into_map.py` (default = paused Haiti). Avoid `-hands_off` for long sessions.
+
+### In-game Post-path (READ-ONLY) — still DISABLED
+
+| Step | Result |
+|------|--------|
+| `G_IDLER` | **`CInGameIdler`** (`0x29e5838`) — session gate proven |
+| Idler+`0x530` | Still **`CGameApplication`** (`0x2796308`) |
+| App vt+`0x90` | `0x1b14f0` setter — **REJECT as Post** (frontend **and** in-game) |
+| `FN_CMD_QUEUE_POST` | **null** — `+0x530` queue hypothesis **dead**; need new lead |
+| command_queue | **DISABLED** |
+
+### Armies — promoted
+
+| Field | Value |
+|-------|-------|
+| Country+`0x290` | **`CPdxArray<CArmy*>`** — first_rtti `.?AVCArmy@@` |
+| Sizes seen | 17 (paused HAI), 17→50 (hands_off while simming) |
+| status | `campaign.armies_count` via `probe_player_armies` |
+| divisions_count | still **stubbed** (units inside armies TBD) |
+| Country+`0x1b8` | `CReferencedDivisionTemplate*` array (live) |
+
+### RE throttle
+
+- Prefer paused game (`-start_speed=0` / Space).
+- Do **not** default to `phase2g --heap` / full-heap scans; batch light probes; pause between heavy work.
+- `phase2f` full-heap can hang — use `--skip-heap` or kill if stuck.
+
+### Next proof steps (still read-only)
+
+1. Find real command-queue object (not App at `+0x530`) — scan InGameIdler other fields / CCommand soft-call graph.
+2. Characterize a callee that takes `CCommand*` and enqueues — only then set `FN_CMD_QUEUE_POST`.
+3. Walk `CArmy` → units for true divisions_count.
+4. Keep posting **DISABLED** until independent proof.
 
 
 ## Write gate
@@ -203,4 +250,5 @@ python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
 python scripts/phase2f_idler_postpath.py [--out research/re-dumps/phase2f_idler.json] [--skip-heap]
 python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/phase2g.json]
 python scripts/session_probe.py
+python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```

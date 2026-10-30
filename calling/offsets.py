@@ -43,6 +43,9 @@ HYPOTHESIS_STRUCT = {
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
     "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
     "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year — not full date
+    # Country (CCountry) — verified in-game via -hands_off (Haiti 1936), two samples
+    "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50 while hands_off ran
+    "CO_DIV_TEMPLATES": 0x1B8,  # CPdxArray<CReferencedDivisionTemplate*> (live)
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.
@@ -61,7 +64,7 @@ PROVEN_STATIC = {
     "CArmyGroup_vtable": 0x29CEE28,
     "CArmyGroup_vtable_mi": [0x29CEEA0],
     "CUnit_vtable": 0x29CFAC0,
-    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90 loads [this+0x530]
+    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90 loads [this+0x530]; LIVE=CGameApplication BOTH sessions — NOT queue
     "CInGameIdler_vt_post_wrapper": 0xE34E90,
     "CFrontEndIdler_vt_forward": 0xB8DCA0,  # same [this+0x530]->jmp[rax+0x90] shape
     "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380

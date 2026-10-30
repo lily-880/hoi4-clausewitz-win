@@ -289,8 +289,9 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
             "G_IDLER is CFrontEndIdler (lobby/frontend). Gamestate may already be "
             "allocated, but armies are not spawned and Post-path +0x530 points at "
             "CGameApplication (setter), not a command queue. "
-            "USER ACTION: load a campaign or save until the map UI is visible, then "
-            "re-run: python clausewitz_win.py status   or   "
+            "USER ACTION: get onto the map (agent: python scripts/launch_into_map.py "
+            "--hands-off; same-version -start_save=NAME only). Then re-run: "
+            "python clausewitz_win.py status   or   "
             "python scripts/phase2g_session_postpath.py"
         )
         return out
@@ -304,6 +305,61 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
     )
     return out
 
+
+
+
+def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
+    """READ-ONLY: player CCountry + CO_ARMIES (0x290) CArmy* array.
+
+    Promoted after two in-game samples via `-hands_off` (sizes 17 then 50,
+    first_rtti=.?AVCArmy@@). Divisions-inside-armies still TBD.
+    """
+    out: Dict[str, Any] = {"ok": False, "armies_count": None, "armies_offset": hex(O.HYPOTHESIS_STRUCT.get("CO_ARMIES", 0x290))}
+    if not gs_ptr or gs_ptr < 0x10000:
+        out["reason"] = "bad gs"
+        return out
+    countries = _pdx_array(p, gs_ptr + O.HYPOTHESIS_STRUCT["GS_COUNTRIES"])
+    tag_blob = p.try_read(gs_ptr + O.HYPOTHESIS_STRUCT["GS_PLAYER_TAG"], 4)
+    if not tag_blob:
+        out["reason"] = "no tag"
+        return out
+    tag = struct.unpack_from("<i", tag_blob, 0)[0]
+    out["player_tag"] = tag
+    if not countries or not (50 <= countries["size"] <= 2000):
+        out["reason"] = "countries implausible"
+        return out
+    if not (0 <= tag < countries["size"]):
+        out["reason"] = "bad tag"
+        return out
+    cptr = struct.unpack_from("<Q", p.try_read(countries["data"] + tag * 8, 8) or b"\0"*8, 0)[0]
+    out["country_ptr"] = hex(cptr) if cptr else None
+    if not cptr:
+        out["reason"] = "null country"
+        return out
+    off = O.HYPOTHESIS_STRUCT.get("CO_ARMIES", 0x290)
+    arr = _pdx_array(p, cptr + off)
+    out["array"] = arr
+    if not arr or not (0 < arr["size"] <= 2000 and arr["size"] <= arr["capacity"] <= 4000):
+        out["reason"] = "army array empty/implausible (need map / CInGameIdler)"
+        return out
+    # confirm first elem RTTI when pe available
+    first_rtti = None
+    try:
+        elem = struct.unpack_from("<Q", p.try_read(arr["data"], 8) or b"\0"*8, 0)[0]
+        if elem and pe is not None:
+            vt = struct.unpack_from("<Q", p.try_read(elem, 8) or b"\0"*8, 0)[0]
+            if vt and p.base <= vt < p.base + getattr(p, "image_size", 0x4000000):
+                first_rtti = _rtti_name_from_vtable(pe, vt - p.base)
+    except Exception:
+        pass
+    out["first_rtti"] = first_rtti
+    if first_rtti and "CArmy" not in first_rtti:
+        out["reason"] = "first elem not CArmy: %s" % first_rtti
+        return out
+    out["ok"] = True
+    out["armies_count"] = arr["size"]
+    out["note"] = "CO_ARMIES@0x290 CArmy* — verified in-game (-hands_off); not division count"
+    return out
 
 
 def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
@@ -353,9 +409,11 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (
-        "stubbed — need G_IDLER=CInGameIdler (map). Frontend: 0 CArmy/CArmyGroup/CUnit "
-        "heap hits (~6.5GB). CO_ARMIES@0x290 empty. Phase 2g"
+        "stubbed — units-inside-armies TBD. Use probe_player_armies for CO_ARMIES@0x290 "
+        "(CArmy*, verified in-game via -hands_off). Frontend: array empty."
     )
+    out["fields"]["armies_count"] = None
+    out["fields"]["armies_note"] = "filled by status when in_game via probe_player_armies"
     return out
 
 

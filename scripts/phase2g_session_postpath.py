@@ -192,7 +192,7 @@ def try_divisions(p: Proc, pe: PE) -> dict:
         out["divisions_count"] = best["size"]
         out["divisions_offset_hyp"] = best["country_offset"]
         out["ok"] = True
-        out["note"] = "hypothesis — expose in status only after second sample confirms"
+        out["note"] = "promoted — CO_ARMIES@0x290 CArmy* (hands_off + paused HAI samples); armies_count not divisions"
     else:
         out["reason"] = "no CArmy*/CArmyGroup* arrays on player country"
     return out
