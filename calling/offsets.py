@@ -47,6 +47,8 @@ HYPOTHESIS_STRUCT = {
     "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50; Windows CArmy == division-level
     "CO_DIV_TEMPLATES": 0x1B8,  # CPdxArray<CReferencedDivisionTemplate*> (live)
     "CO_FLEETS": 0x278,  # CPdxArray<CFleet*> (live Haiti)
+    "CO_THEATRES": 0x168,  # CPdxArray<CTheatre*> (live HAI+majors)
+    "CO_STATES": 0x460,  # CPdxArray<CState*> (live HAI+majors; twin@0x478 same size peacetime)
     # CArmy fields (division-like on Windows 1.19.4 — all 17/17 paused HAI)
     "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
     "CA_PROVINCE": 0x1F0,  # CProvince*

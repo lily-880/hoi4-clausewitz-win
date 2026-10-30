@@ -306,6 +306,42 @@ Tool: `python scripts/phase2j_cmd_execute_graph.py --live` (no full-heap). Live 
 3. Keep posting **DISABLED**.
 
 
+
+
+## Phase 2k — store/2-hop Execute graph + theatres/states
+
+Tool: `python scripts/phase2k_cmd_store_graph.py --live` (no full-heap). Live paused HAI (+ light major sweeps).
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| 2-hop soft from CCommand LEAs | Hop1 tops still destroy/refcount (`0x25a00d8`/`0x25a009c`); new mid-hits characterized; **not** Post |
+| Store-near-LEA / store+context soft fns | 10 candidates documented (field stores + calls/vt) — **unproven**; several call type-id registry `0x2284800` or bad-disasm outsides |
+| OEC override deep | Slot `0x48`/`0x50` hit registry + helpers; no container enqueue of live `CCommand*` |
+| `Failed to execute` LEAs | Near string/CRT helpers (`0x254aa00` …) — **not** Post |
+| Idler Command* arrays | **none** |
+| Managerish RTTI | Still only `*IndustrialOrgTrait*QueueCommand` / `CCommandHelper` |
+| Prior dead-ends | Hold: idler+`0x530`, `CDummyServer`, no `CCommandQueue`, type-id registry ≠ queue |
+
+**Do not promote** store+context soft helpers as `FN_CMD_QUEUE_POST`.
+
+### Newly proven status fields
+
+| Field | Source | Sample (paused HAI) |
+|-------|--------|---------------------|
+| `theatres_count` | Country+`0x168` `CTheatre*` | 1 (also 1 on sampled majors) |
+| `states_count` | Country+`0x460` `CState*` | 26 (majors vary; twin@`0x478` same size peacetime — left unpromoted) |
+
+Air wings / characters: RTTI present (`CAirWing`, `CCharacter`, `CUnitLeader`) but **no** typed ptr array in country `0x100..0x480` on HAI or 3 majors — not promoted.
+
+### Next (still RO)
+
+1. Narrow any single store-candidate with a live before/after command under debugger (out of RPM-light scope).
+2. Hunt air/character containers outside country object or via nested theatre.
+3. Keep posting **DISABLED**.
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

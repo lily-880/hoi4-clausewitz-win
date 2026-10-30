@@ -436,12 +436,20 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
     tc, tr = _count_typed_array(
         cptr, O.HYPOTHESIS_STRUCT.get("CO_DIV_TEMPLATES", 0x1B8), "ReferencedDivisionTemplate"
     )
+    thc, thr = _count_typed_array(cptr, O.HYPOTHESIS_STRUCT.get("CO_THEATRES", 0x168), "CTheatre")
+    stc, str_ = _count_typed_array(cptr, O.HYPOTHESIS_STRUCT.get("CO_STATES", 0x460), "CState")
     if fc is not None:
         out["fleets_count"] = fc
         out["fleets_rtti"] = fr
     if tc is not None:
         out["div_templates_count"] = tc
         out["div_templates_rtti"] = tr
+    if thc is not None:
+        out["theatres_count"] = thc
+        out["theatres_rtti"] = thr
+    if stc is not None:
+        out["states_count"] = stc
+        out["states_rtti"] = str_
     return out
 
 
