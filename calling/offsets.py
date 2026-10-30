@@ -100,6 +100,8 @@ PROVEN_STATIC = {
     "FN_CMD_QUEUE_CLEAR_DUMMY": 0x23F5AD0,  # CDummyServer vt+0x48: clear list+ring
     "CDummyServer_RING": 0xA0,  # concurrent ring (lock/buf/cap/idx)
     "CDummyServer_PENDING": 0x58,  # linked list head after drain
+    "G_SESSION": 0x34FFBE8,  # Phase 2ay live == App+0x380 CSession*
+    "G_COMMAND_QUEUE": 0x34FFBE8,  # alias of G_SESSION
     "G_POST_LISTENERS": 0x3667BE8,  # ptr to CServer* array fan-out
     "G_POST_LISTENER_COUNT": 0x3667BF4,
     # Phase 2r — Execute tick (READ-ONLY; posting still DISABLED)

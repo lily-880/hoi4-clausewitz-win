@@ -115,3 +115,20 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 
 - Live roster: handle + province helpers 17/17.
 - Post ABI documented; `allow_post()` still hard-denies. **Posting DISABLED**.
+
+
+## Phase 2ax / 2ay / 2az (2026-10-31 Asia/Shanghai)
+
+### Works
+- Live SP pipeline: `FN_CMD_QUEUE_POST 0x22c41e0` → DummyServer sink `0x23f5cd0` (ring `+0xa0`) → drain `0x23f64e0` (pending `+0x58`) → SessionUpdate `0x22c6410` Execute site A `0x22c6c9d` (`cmd.vt+0x50`) + loop B `0x22c4710` (execlist `+0x40`).
+- `G_SESSION` / `G_COMMAND_QUEUE` = `0x34FFBE8` live-matches `App+0x380` (Haiti SP, pid 2880).
+- `calling/post_abi.py` documents ABI; `post_command()` hard-denies.
+- Full-heap command VT census (paused): no live Move/Strategic/Cancel (expected); drain counter advances on ticks.
+- Scripts: `phase2ax_drain_execute.py`, `phase2ay_pipeline.py`, `phase2az_midflight_poll.py`.
+
+### Stubbed / refused
+- Mid-flight `CMoveCommand` sample still open (lists empty at 50ms poll; SP frees inside tick).
+- **Posting DISABLED** — checklist gaps `no_tooling_post` + `midflight_move_sample` remain.
+
+### Safety
+pause/1x only; never 5x; no WriteProcessMemory enqueue.

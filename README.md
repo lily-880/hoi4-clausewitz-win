@@ -115,4 +115,6 @@ HOI4 was still in **frontend** (`G_IDLER` 鈫?`CFrontEndIdler`) with live GS but
 **You must load a campaign/save until the map is visible**, then re-run `status` or `phase2g_session_postpath.py` once (no polling).
 Posting stays DISABLED until `FN_CMD_QUEUE_POST` is proven on a live `CInGameIdler`.
 
+### Phase 2ay note
 
+`G_SESSION=0x34FFBE8` live-proven. Post→Execute SP pipeline documented in `calling/post_abi.py`. **Posting still DISABLED.**

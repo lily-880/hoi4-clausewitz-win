@@ -1281,3 +1281,21 @@ Posting **DISABLED**.
 Posting **DISABLED**. Helpers: `calling/handle.py`, `calling/province.py`.
 
 Post entry `0x22C41E0(session, cmd)` → DummyServer sink `0x23F5CD0`; enable only after checklist + non-destructive proof.
+
+
+## Phase 2ay — Post→Execute pipeline + G_SESSION (RO)
+
+Posting **DISABLED**. Speed: pause/1x only; never 5x.
+
+| Symbol | Value | Notes |
+|--------|-------|-------|
+| `G_SESSION` / `G_COMMAND_QUEUE` | `0x34FFBE8` | live == App+0x380 CSession* |
+| `FN_CMD_QUEUE_POST` | `0x22C41E0` | 625 E8 call sites |
+| Sink Dummy `vt+0x28` | `0x23F5CD0` | ring embed `+0xA0` |
+| Drain Dummy `vt+0x30` | `0x23F64E0` | virtual-only (0 E8 xrefs); pending `+0x58` |
+| Session update | `0x22C6410` | state==2 |
+| Execute site A | `0x22C6C9D` | `cmd.vt+0x50` |
+| Execute loop B | `0x22C4710` | execlist `+0x40` |
+| `CDummyServer` VT | `0x2BCB040` | live Haiti |
+
+Reports: `reports/phase2ay_pipeline.json`, `reports/phase2az_midflight.json`.

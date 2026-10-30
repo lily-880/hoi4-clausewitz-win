@@ -1,0 +1,71 @@
+{
+  "phase": "2ay",
+  "posting": "DISABLED",
+  "command_queue": "DISABLED",
+  "speed_rule": "pause or 1x only; never 5x",
+  "FN_CMD_QUEUE_POST": "0x22c41e0",
+  "gaps": [
+    {
+      "id": "no_tooling_post",
+      "status": "open",
+      "note": "Tooling has never called Post \u2014 independent non-destructive proof missing"
+    },
+    {
+      "id": "midflight_move_sample",
+      "status": "open",
+      "note": "SP Dummy frees army cmds inside tick; UI click or hook still needed (RO)"
+    },
+    {
+      "id": "action_flag_names",
+      "status": "closed",
+      "note": "2am/2an/2aq token names"
+    },
+    {
+      "id": "strategic_serialize",
+      "status": "closed",
+      "note": "Phase 2aq"
+    },
+    {
+      "id": "order_cmd_layouts",
+      "status": "closed",
+      "note": "Phase 2ar"
+    },
+    {
+      "id": "army_handle_province",
+      "status": "closed",
+      "note": "Phase 2as CHandle@CArmy+0x18 type 0x33; CProvince+0xa4 id hyp"
+    },
+    {
+      "id": "FN_HANDLE_RESOLVE",
+      "status": "closed",
+      "note": "0x2284800 hash lookup; 17/17 HAI"
+    },
+    {
+      "id": "command_queue_tool_gate",
+      "status": "open",
+      "note": "DISABLED until checklist closed"
+    },
+    {
+      "id": "network_execlist_path",
+      "status": "n/a_sp",
+      "note": "DummyServer SP"
+    },
+    {
+      "id": "ring_embed",
+      "status": "closed",
+      "note": "DummyServer+0xa0 embed; sink add rbx,0xa0"
+    },
+    {
+      "id": "ALLOW_POST_gate",
+      "status": "closed",
+      "note": "config.allow_post stub always False"
+    }
+  ],
+  "enable_when": [
+    "Independent non-destructive Post proof on live SP DummyServer path",
+    "At least one mid-flight CMoveCommand captured + serialize round-trip understood",
+    "Explicit CLAUSEWITZ_ALLOW_POST=1 gate (separate from ALLOW_WRITE)",
+    "Never auto-enable inside per-tick loops"
+  ],
+  "notes_2ay": "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open"
+}
