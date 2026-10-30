@@ -126,6 +126,11 @@ PROVEN_STATIC = {
     "COrderExecuteCommand_EXECUTE": 0x18D6430,
     "CCommand_VT_EARLY_0x60": 0x60,  # Post early gate; Move stubs to false
     "CCommand_VT_EARLY_0x80": 0x80,
+    "CStartGameCommand_VT": 0x2A5F448,
+    "CStartGameCommand_SIZE": 0x28,
+    "CStartGameCommand_EXECUTE": 0x16DE180,
+    "CCommand_STUB_TRUE": 0x188D90,  # mov al,1;ret — StartGame early/post-exec
+    "CCommand_STUB_FALSE": 0x11D530,  # xor al,al;ret — Move early-drop
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

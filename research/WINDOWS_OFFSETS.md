@@ -773,6 +773,24 @@ Posting **DISABLED**.
 
 Tool: `scripts/phase2y_heap_scan.py [--live]`
 
+## Phase 2z — CStartGameCommand live post-exec; early-gate TRUE (writes DISABLED)
+
+Sticky `session+0xf8` node while paused: **`.?AVCStartGameCommand@@`**
+
+| Item | Value |
+|------|-------|
+| vt | `0x2a5f448` |
+| size | `0x28` |
+| Execute | `0x16de180` |
+| `vt+0x60` / `+0x80` | `0x188d90` (`mov al,1; ret`) **TRUE** |
+| contrast | `CMoveCommand` uses `0x11d530` (`xor al,al; ret`) **FALSE** |
+
+Explains sticky post-exec list (`vt+0x60` also gates clone after Execute). Live sample: tick `+0xc=1`, seq `+0x1c=14`, `+0x1a=0`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2z_startgame.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
