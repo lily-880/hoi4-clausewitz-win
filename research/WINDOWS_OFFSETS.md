@@ -441,6 +441,53 @@ No new status offsets this slice (air/character already in 2m).
 3. Keep posting **DISABLED**.
 
 
+
+
+## Phase 2o — string/soft Post hunt + session post gate (read-only)
+
+Session: paused/in-game `CInGameIdler` (pid 31364, HAI). **Never 5x.** Posting **DISABLED**.
+
+### Works
+
+| Item | Result |
+|------|--------|
+| String LEA + nearby E8 catalog | `scripts/phase2o_string_hunt.py` → `research/re-dumps/phase2o_strings.json` |
+| 2n ctor-caller hyp dig | `0x254aa00` fmt; `0x25a0390` getter; `0xbbb080` registry; `0x25c3770` untyped — **not Post** |
+| AI post wrappers | `0x2b5f10` / `0x2b6050` / `0x2b80c0` — strings *IsCommandsAllowed* / *post AI command* / *invalid command* |
+| **App+`0x380`** | **`CSession*`** (live RTTI) |
+| **Idler vt+`0x88`** | Forwards via `+0x530` → **App vt+`0x88`** = getter `[App+0x380]` → `CSession*` |
+| **Session post gate hyp** | RVA **`0x22c41e0`** — 625 E8 callers; drop strings *Dropped command* / *posted during command execution* / *sender not authorized* |
+| Gate success sink | `server = [session+0x40]`; **`call [server.vt+0x28](cmd)`** — live `CDummyServer`, method **`0x23f5cd0`** |
+
+### Stubbed / not promoted
+
+| Item | Status |
+|------|--------|
+| `FN_CMD_QUEUE_POST` | **null** — gate+sink call chain is strong, but **enqueue write** into a typed queue is not yet proven (`CDummyServer` may execute-in-place) |
+| Posting | **DISABLED** |
+| `RunCommandQueue` string | SDL/GL render — dead |
+| `Failed to post order!` | Military *order* path — not CCommand queue |
+| `posted_commands` | Telemetry field name |
+
+### Proven struct (safe to cite; not a Post RVA)
+
+| Symbol | Value |
+|--------|-------|
+| `CGameApplication_SESSION` | `+0x380` → `CSession*` |
+| `CGameApplication_vt88_session_getter` | `0x17f880` |
+| `CSession_SERVER` | `+0x40` → `CServer*` (`CDummyServer` in SP) |
+| `CInGameIdler_vt88_session_forward` | `0xb8e390` |
+| `HYP_SESSION_POST_GATE` | `0x22c41e0` (hyp only) |
+| `HYP_DUMMYSERVER_VT28_SINK` | `0x23f5cd0` (hyp only) |
+
+### Next (still RO)
+
+1. Prove `CDummyServer`/`CServer` vt+`0x28` either enqueues into a typed buffer or executes in-place (disasm `0x23f5cd0` callees `0x22d8ad0` / `0x6d01e0`).
+2. If a real queue buffer is found, only then set `FN_CMD_QUEUE_POST` (likely the gate `0x22c41e0` or the server method).
+3. Keep posting **DISABLED**; game pause/1x only.
+
+Tools: `scripts/phase2o_post_hyps.py`, `scripts/phase2o_string_hunt.py`.
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

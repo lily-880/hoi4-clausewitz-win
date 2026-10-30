@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2n-heap-cmd-owners-post-still-null",
+  "status": "phase2o-session-post-gate-hyp-post-still-null",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -22,7 +22,7 @@
       "queue_field_live_type": "CGameApplication",
       "queue_field_live_vt90": "0x1b14f0",
       "queue_field_live_vt90_role": "setter(+0x380 CSession*) \u2014 NOT Post (BOTH frontend and in-game)",
-      "note": "In-game via -start_tag=HAI -start_speed=0 -noai. +0x530 is Application \u2014 Post hyp REJECTED. Phase 2i: typed idler fields are UI/gfx only; CSession has only CDummyServer; no CCommandQueue RTTI; GS/idler have no Command* arrays. FN_CMD_QUEUE_POST stays null."
+      "note": "In-game via -start_tag=HAI -start_speed=0 -noai. +0x530 is CGameApplication \u2014 NOT queue. Phase 2o: App+0x380=CSession*; idler.vt+0x88 returns that CSession*; AI posts call 0x22c41e0(session,cmd) then server(session+0x40).vt+0x28. FN_CMD_QUEUE_POST stays null."
     },
     "CO_ARMIES": {
       "country_offset": "0x290",
@@ -198,6 +198,54 @@
         "size": 2361,
         "note": "role TBD"
       }
+    },
+    "FN_CMD_QUEUE_POST_hunt_2o": {
+      "result": null,
+      "posting": "DISABLED",
+      "strong_hyp_gate": {
+        "rva": "0x22c41e0",
+        "role": "CSession command post/drop gate (625 E8 callers; 132 after idler.vt+0x88)",
+        "success_sink": "mov rcx,[session+0x40]; call [rax+0x28]  # CServer/CDummyServer vt+0x28",
+        "dummy_server_vt28": "0x23f5cd0",
+        "not_promoted_reason": "enqueue write into a typed queue not yet proven; CDummyServer may execute-in-place in SP"
+      },
+      "proven_struct": {
+        "CGameApplication_plus_0x380": "CSession* (live RTTI)",
+        "CInGameIdler_vt_0x88": "forward [this+0x530] -> App.vt+0x88 = getter [App+0x380] -> CSession*",
+        "CGameApplication_vt_0x88": "0x17f880 mov rax,[rcx+0x380]; ret",
+        "CSession_plus_0x40": "CServer* (live CDummyServer in SP)"
+      },
+      "ai_post_wrappers": [
+        "0x2b5f10",
+        "0x2b6050",
+        "0x2b80c0"
+      ],
+      "ai_strings": [
+        "PostingCountry.GetCountry().GetAI()->IsCommandsAllowed()",
+        "Trying to post AI command when game hasn't started",
+        "AI tried to post an invalid command: %s"
+      ],
+      "drop_strings_in_0x22c41e0": [
+        "Dropped command: ",
+        "Dropped (posted during command execution): ",
+        "Dropped (sender not authorized): "
+      ],
+      "rejected": {
+        "0x254aa00": "fmt/assert helper",
+        "0x25a0390": "global byte getter",
+        "0x25c3770": "unproven ctor-caller soft (still not Post)",
+        "0xbbb080": "type-id registry path",
+        "0x22c41e0_as_only_logger": "superseded \u2014 it is the post/drop GATE; still not promoted to FN",
+        "RunCommandQueue": "SDL/GL render string",
+        "Failed to post order": "military order path, not CCommand queue",
+        "posted_commands/sent_commands": "telemetry field names",
+        "idler_plus_0x530_as_queue": "still REJECTED (CGameApplication)"
+      },
+      "notes": [
+        "String LEA hunt completed (phase2o_string_hunt.py)",
+        "Ctor-caller hyps from 2n demoted/classified via phase2o_post_hyps.py + dig",
+        "Posting stays DISABLED until server vt+0x28 enqueue semantics proven"
+      ]
     }
   },
   "FN_CMD_QUEUE_POST": null,

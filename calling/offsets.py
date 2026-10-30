@@ -89,7 +89,13 @@ PROVEN_STATIC = {
     "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90/+0x78/+0x80/+0x88 load [this+0x530]; LIVE=CGameApplication — NOT queue (2m vt scan confirms)
     "CInGameIdler_vt_post_wrapper": 0xE34E90,
     "CFrontEndIdler_vt_forward": 0xB8DCA0,  # same [this+0x530]->jmp[rax+0x90] shape
-    "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380
+    "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380 (CSession*)
+    "CGameApplication_vt88_session_getter": 0x17F880,  # mov rax,[rcx+0x380]; ret — CSession*
+    "CGameApplication_SESSION": 0x380,  # CSession* (live RTTI)
+    "CSession_SERVER": 0x40,  # CServer* (live CDummyServer in SP)
+    "CInGameIdler_vt88_session_forward": 0xB8E390,  # [this+0x530]->App.vt+0x88
+    "HYP_SESSION_POST_GATE": 0x22C41E0,  # strong hyp; NOT promoted to FN_CMD_QUEUE_POST
+    "HYP_DUMMYSERVER_VT28_SINK": 0x23F5CD0,  # CDummyServer vt+0x28; SP post sink hyp
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,
