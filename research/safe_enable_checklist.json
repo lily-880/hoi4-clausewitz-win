@@ -1,5 +1,5 @@
 {
-  "phase": "2bm",
+  "phase": "2bn",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -13,7 +13,7 @@
     {
       "id": "midflight_move_sample",
       "status": "stubbed",
-      "note": "Still stubbed. Watcher ready: scripts/phase2bm_midflight_ready.py (RO, no input). Needs real user right-click."
+      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2bn overnight)."
     },
     {
       "id": "action_flag_names",
@@ -28,7 +28,7 @@
     {
       "id": "order_cmd_layouts",
       "status": "closed",
-      "note": "2ar + 2bm live: 10/10 Order* Execute vt slots match"
+      "note": "2ar+2bm+2bn: 10/10 Order Execute + serialize vt+0xa0 + deserialize vt+0xa8 + clone sizes + factories live"
     },
     {
       "id": "army_handle_province",
@@ -36,14 +36,34 @@
       "note": "Phase 2as CHandle@CArmy+0x18 type 0x33; CProvince+0xa4 id hyp"
     },
     {
+      "id": "army_subject_wiring",
+      "status": "closed",
+      "note": "2bn calling/army_subjects.py: HAI handles type 0x33 + province id 17+/17+; Move/Strategic recipes RO only"
+    },
+    {
       "id": "FN_HANDLE_RESOLVE",
       "status": "closed",
       "note": "0x2284800 hash lookup; 17/17 HAI"
     },
     {
+      "id": "drain_execute_edges",
+      "status": "closed",
+      "note": "2bn: 6CC/726/725/empty-ring drain advance/recreate 0x22d8ad0/factory 0x35011e0 documented"
+    },
+    {
+      "id": "post_gate_analysis",
+      "status": "closed",
+      "note": "2bn safer analysis: 725==1 necessary not sufficient; serialize/recreate + ALLOW_POST + midflight still block enable"
+    },
+    {
+      "id": "never_post_speed",
+      "status": "closed",
+      "note": "cmd_layout.NEVER_POST live-verified Increase/Decrease/SetGameSpeed/HourlyTick/Ping"
+    },
+    {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED until midflight Move captured AND CLAUSEWITZ_ALLOW_POST=1 explicit"
+      "note": "DISABLED until midflight Move + CLAUSEWITZ_ALLOW_POST=1"
     },
     {
       "id": "network_execlist_path",
@@ -84,28 +104,34 @@
     {
       "id": "midflight_CMoveCommand",
       "status": "STUBBED",
-      "must": "Capture at least one live mid-flight CMoveCommand (or Strategic) with action embed fields; watcher armed as phase2bm_midflight_ready.py"
+      "must": "Live mid-flight CMoveCommand/Strategic sample; watcher armed"
+    },
+    {
+      "id": "serialize_recreate_roundtrip",
+      "status": "open",
+      "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring"
     },
     {
       "id": "CLAUSEWITZ_ALLOW_POST",
       "status": "hard-deny",
-      "must": "Explicit env/config CLAUSEWITZ_ALLOW_POST=1 separate from ALLOW_WRITE; allow_post() currently always False"
+      "must": "Explicit CLAUSEWITZ_ALLOW_POST=1; allow_post always False now"
     },
     {
       "id": "no_guess_writes",
       "status": "policy",
-      "must": "Never WriteProcessMemory / Post on guessed layouts; only after midflight sample + gate"
+      "must": "No WriteProcessMemory/Post on guessed layouts"
     },
     {
       "id": "never_speed_cmds",
       "status": "policy",
-      "must": "Never Post CSet/Increase/DecreaseGameSpeed or HourlyTick (5x ban)"
+      "must": "Never Post NEVER_POST set (speed/HourlyTick/Ping)"
     },
     {
       "id": "tool_gate",
       "status": "open",
-      "must": "command_queue_tool_gate stays DISABLED until above closed"
+      "must": "command_queue_tool_gate stays DISABLED"
     }
   ],
-  "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED."
+  "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
+  "notes_2bn": "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED."
 }

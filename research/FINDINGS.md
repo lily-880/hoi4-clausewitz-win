@@ -172,3 +172,20 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 **Posting DISABLED.** pause/1x only; never 5x.
 
+
+## Phase 2bn (2026-10-31 Asia/Shanghai) — Order serialize / army wiring / drain edges / Post-gate analysis
+
+### Works
+- `scripts/phase2bn_live_re.py` **12/12** RO: Order* **10/10** Execute + `vt+0xa0` serialize + `vt+0xa8` deserialize + clone sizes + typeid factory probes; Move/Cancel/Chat serialize RVAs; HAI army wiring **17+** handle+province; drain edges (`+0x6CC`/`+0x726`/`+0x725`/empty-ring drain); speed/HourlyTick banlist live.
+- `calling/army_subjects.py` — RO recipes for Move/Strategic subjects from `CArmy+0x18` / `+0x28`.
+- `calling/cmd_layout.py` — factories, serialize/deserialize, `FACTORY_TABLE`, `DRAIN_EDGES`, `NEVER_POST`.
+- Safer Post-gate analysis: `session+0x725==1` necessary **not** sufficient; serialize/recreate + `ALLOW_POST` + midflight still block.
+- Midflight watcher re-armed background RO (`phase2bm_midflight_ready.py`, no input).
+- 2bc still **18/18**; `allow_post` False.
+
+### Stubbed
+- `midflight_move_sample` unchanged.
+
+### Posting
+**DISABLED.** Never 5x. No guess writes.
+
