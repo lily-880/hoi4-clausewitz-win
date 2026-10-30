@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ag-typeid-factory-table-action-fields-writes-still-disabled",
+  "status": "phase2ah-payload-read-0xa8-action-deser-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -567,6 +567,16 @@
           "if": "nonzero"
         }
       ],
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ah": {
+      "CCommand_vt_0xa0": "WRITE payload",
+      "CCommand_vt_0xa8": "READ payload",
+      "Move_write_thunk": "0x1404590 -> action.vt+0xc0",
+      "Move_read_thunk": "0x1403570 -> action.vt+0xb8 0x12c3340",
+      "Cancel_serialize": "0x1404130",
+      "Chat_serialize": "0x13d7fa0",
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }

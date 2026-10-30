@@ -934,6 +934,24 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ag_factory_table.py [--live]`
 
+## Phase 2ah — Payload Read `vt+0xa8` + action deserialize (writes DISABLED)
+
+Shared Write `0x22d9390` ends `call [rax+0xa0]`; shared Read `0x22d90f0` tag `0x41` path `call [rax+0xa8]`.
+
+| Cmd | Write `vt+0xa0` | Read `vt+0xa8` |
+|-----|-----------------|----------------|
+| CMoveCommand | `0x1404590` → action `vt+0xc0` `0x12c3920` | `0x1403570` → action `vt+0xb8` `0x12c3340` |
+| CCancelMovement | `0x1404130` (handles `+0x28`/`+0x34` tag `0x28a3`; byte `+0x40` tag `0x368f`) | (symmetric) |
+| CChatCommand | `0x13d7fa0` (string `+0x28` tag `0xdd`) | (symmetric) |
+
+Action deserialize `0x12c3340` is a tag-switch into the same fields as serialize (`+0x10/+0x18/+0x30/+0x50..`).
+
+Round-trip RO chain: Write header → payload `0xa0` → Dummy Post `0x22d8ad0` recreate via factory table → Read header → payload `0xa8` → ring `server+0xa0` → drain → Execute.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ah_deserialize.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
