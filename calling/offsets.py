@@ -40,6 +40,8 @@ HYPOTHESIS_STRUCT = {
     "GS_MAJORS": 0x328,
     "GS_TAG2INDEX": 0x340,
     "GS_PLAYER_TAG": 0x518,
+    "GS_STRATEGIC_AIR_MANAGER": 0x690,  # CStrategicAirManager* (live RTTI)
+    "GS_CHARACTER_MANAGER": 0x6A8,  # CCharacterManager* (live RTTI)
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
     "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
     "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year — not full date
@@ -56,6 +58,13 @@ HYPOTHESIS_STRUCT = {
     "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
     "CA_PROVINCE": 0x1F0,  # CProvince*
     "CA_DIV_TEMPLATE": 0x3B8,  # CReferencedDivisionTemplate*
+    # CStrategicAirManager (via GS_STRATEGIC_AIR_MANAGER)
+    "SAM_STRATEGIC_AIRS": 0x30,  # CPdxArray<CStrategicAir*> (live world=440)
+    "SAM_AIR_BASES": 0x90,  # CPdxArray<CAirBase*> (live world=1082)
+    "SAM_AIR_BASES_FILTERED": 0xD8,  # CPdxArray<CAirBase*> (live=14; role TBD)
+    # CCharacterManager (via GS_CHARACTER_MANAGER)
+    "CM_CHARACTERS": 0x10,  # CPdxArray<CCharacter*> (live world=9661)
+    "CM_CHARACTERS_ACTIVE": 0x28,  # CPdxArray<CCharacter*> (live=2361; role TBD)
     # CTheatre fields (primary theatre from CO_THEATRES)
     "TH_FRONTS": 0x50,  # CPdxArray<CFront*> (live HAI=6, major0=10)
     "TH_ARMIES": 0x68,  # CPdxArray<CArmy*> (live HAI=17 matches CO_ARMIES)
@@ -77,7 +86,7 @@ PROVEN_STATIC = {
     "CArmyGroup_vtable": 0x29CEE28,
     "CArmyGroup_vtable_mi": [0x29CEEA0],
     "CUnit_vtable": 0x29CFAC0,
-    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90 loads [this+0x530]; LIVE=CGameApplication BOTH sessions — NOT queue
+    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90/+0x78/+0x80/+0x88 load [this+0x530]; LIVE=CGameApplication — NOT queue (2m vt scan confirms)
     "CInGameIdler_vt_post_wrapper": 0xE34E90,
     "CFrontEndIdler_vt_forward": 0xB8DCA0,  # same [this+0x530]->jmp[rax+0x90] shape
     "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380

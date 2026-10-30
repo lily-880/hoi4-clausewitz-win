@@ -501,7 +501,7 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     if not gs_ptr or gs_ptr < 0x10000:
         out["error"] = "bad gs_ptr"
         return out
-    blob = p.try_read(gs_ptr, 0x600)
+    blob = p.try_read(gs_ptr, 0x700)
     if not blob or len(blob) < 0x520:
         out["error"] = "short read"
         return out
@@ -543,6 +543,54 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     )
     out["fields"]["armies_count"] = None
     out["fields"]["armies_note"] = "filled by status when in_game via probe_player_armies"
+
+    # GS-level managers (Phase 2m): CStrategicAirManager@+0x690, CCharacterManager@+0x6a8
+    # Counts use size sanity only here (RTTI proven live in phase2m dump; no pe in this fn).
+    air_off = O.HYPOTHESIS_STRUCT.get("GS_STRATEGIC_AIR_MANAGER", 0x690)
+    char_off = O.HYPOTHESIS_STRUCT.get("GS_CHARACTER_MANAGER", 0x6A8)
+    if len(blob) >= char_off + 8:
+        air_mgr = struct.unpack_from("<Q", blob, air_off)[0]
+        char_mgr = struct.unpack_from("<Q", blob, char_off)[0]
+    else:
+        mgr_blob = p.try_read(gs_ptr + 0x690, 0x30)
+        air_mgr = struct.unpack_from("<Q", mgr_blob, 0)[0] if mgr_blob and len(mgr_blob) >= 8 else 0
+        char_mgr = (
+            struct.unpack_from("<Q", mgr_blob, 0x6A8 - 0x690)[0]
+            if mgr_blob and len(mgr_blob) >= 0x20
+            else 0
+        )
+    out["fields"]["strategic_air_manager"] = hex(air_mgr) if air_mgr else None
+    out["fields"]["character_manager"] = hex(char_mgr) if char_mgr else None
+
+    def _world_count(obj: int, off: int, lo: int, hi: int):
+        if not obj or obj < 0x10000:
+            return None
+        arr = _pdx_array(p, obj + off)
+        if not arr:
+            return None
+        if lo <= arr["size"] <= hi and arr["size"] <= arr["capacity"] <= max(hi * 2, hi + 4096):
+            return arr["size"]
+        return None
+
+    if air_mgr and air_mgr >= 0x10000:
+        ac = _world_count(air_mgr, O.HYPOTHESIS_STRUCT.get("SAM_STRATEGIC_AIRS", 0x30), 1, 2000)
+        if ac is not None:
+            out["verified"]["strategic_airs_count"] = ac
+            out["verified"]["strategic_air_manager"] = hex(air_mgr)
+        bc = _world_count(air_mgr, O.HYPOTHESIS_STRUCT.get("SAM_AIR_BASES", 0x90), 1, 5000)
+        if bc is not None:
+            out["verified"]["air_bases_count"] = bc
+    if char_mgr and char_mgr >= 0x10000:
+        cc = _world_count(char_mgr, O.HYPOTHESIS_STRUCT.get("CM_CHARACTERS", 0x10), 100, 30000)
+        if cc is not None:
+            out["verified"]["characters_count"] = cc
+            out["verified"]["character_manager"] = hex(char_mgr)
+        ca = _world_count(char_mgr, O.HYPOTHESIS_STRUCT.get("CM_CHARACTERS_ACTIVE", 0x28), 1, 30000)
+        if ca is not None:
+            out["verified"]["characters_active_count"] = ca
+            out["fields"]["characters_active_note"] = (
+                "CM+0x28 CCharacter* subset; role unproven — count only"
+            )
     return out
 
 

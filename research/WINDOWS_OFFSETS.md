@@ -375,6 +375,41 @@ Tool: `python scripts/phase2l_post_leads.py --live`. Live paused HAI.
 2. Keep posting **DISABLED**.
 
 
+
+
+## Phase 2m — idler/App/GS vtable Post-slot hyps + GS air/character managers
+
+Tool: `python scripts/phase2m_vt_post_slots.py --live` (+ manager sweep). Live paused HAI.
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| Idler/App/GS/CGS vtable slot scoring | Interesting slots found; **none** independently proven as Post |
+| Idler slots `0x78`/`0x80`/`0x88` | Still load `[this+0x530]` → App — **REJECTED** |
+| GS vt `0x78` / CGS vt `0x0` | Soft `0x6b8880` + RIP `G_IDLER` — not typed queue |
+| Entity LEAs (`CCharacter`/`CUnitLeader`/`CEquipmentVariant`) | Soft tops SSO/registry/destroy — **not** Post |
+| `CAirWing` LEA | Not found in image |
+
+### Newly proven status fields
+
+| Field | Source | Sample (paused HAI world) |
+|-------|--------|---------------------------|
+| `strategic_air_manager` | GS+`0x690` `CStrategicAirManager*` | live RTTI |
+| `strategic_airs_count` | SAM+`0x30` `CStrategicAir*` | 440 |
+| `air_bases_count` | SAM+`0x90` `CAirBase*` | 1082 |
+| `character_manager` | GS+`0x6a8` `CCharacterManager*` | live RTTI |
+| `characters_count` | CM+`0x10` `CCharacter*` | 9661 |
+| `characters_active_count` | CM+`0x28` `CCharacter*` | 2361 (role TBD) |
+
+SAM+`0xd8` also `CAirBase*` (size 14) — not promoted to status (role unproven).
+
+### Next (still RO)
+
+1. Country-scoped air wings / leaders (filter world arrays by tag) — light, bounded.
+2. Keep posting **DISABLED**.
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
