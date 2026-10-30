@@ -333,5 +333,56 @@
     "allow_post": false,
     "watcher": 36128,
     "posting": "DISABLED"
+  },
+  "notes_2cd": {
+    "phase": "2cd",
+    "when": "2026-10-31 06:36 Asia/Shanghai",
+    "land_focus": "121/121",
+    "exe_proofs": "121/121",
+    "isvalid_paths": 134,
+    "shared_helpers": 40,
+    "helper_by_class": {
+      "field_predicate": 14,
+      "flag_gate": 1,
+      "inline_predicate": 4,
+      "wide_object_walk": 3,
+      "dispatcher_or_composite": 16,
+      "string_annotated": 2
+    },
+    "isvalid_gate_helpers": 39,
+    "execute_body_helpers": 22,
+    "named_helpers": [
+      "gamestate_instance_guard",
+      "gamestate_instance_guard_b",
+      "gamestate_instance_guard_c",
+      "gamestate_instance_guard_d",
+      "gamestate_instance_guard_e",
+      "thread_is_main_thread",
+      "get_order_instance",
+      "deployment_train_gate",
+      "division_subunit_type_check"
+    ],
+    "post_implications": [
+      "ThreadIsMainThread (0x23c3a0) must hold at any future Post \u2014 observe only; never patch",
+      "gamestate_instance_guard* family gates many IsValid paths \u2014 Post candidates must pass live IsValid first",
+      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes \u2014 subject must be live order id",
+      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges \u2014 land Post recipes must carry valid subunit/type",
+      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds \u2014 treat as shared plumbing not command-specific fields",
+      "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
+    ],
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "watcher_pid": 36128,
+    "tick": 1,
+    "posting": "DISABLED",
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "command_queue_tool_gate enable",
+      "ALLOW_POST",
+      "CLAUSEWITZ_ALLOW_POST",
+      "helper_patch",
+      "Post_inject"
+    ]
   }
 }

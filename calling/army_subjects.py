@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2cb",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2cd",
     }
 
 
@@ -1054,4 +1054,26 @@ def ai_force_concentration_recipe(subject_handle: list[int] | tuple[int, int],
         "target_off": 0x30,
         "target": target,
         "posting": "DISABLED",
+    }
+
+
+def land_post_readiness_recipe() -> dict[str, Any]:
+    """RO snapshot of SHARED_LAND_HELPERS / LAND_POST_READINESS — never posts."""
+    try:
+        import cmd_layout as _cl
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    return {
+        "phase": pr.get("phase") or sh.get("phase"),
+        "helper_count": len((sh.get("helpers") or {})),
+        "by_class": pr.get("by_class") or sh.get("by_class"),
+        "named_helpers": pr.get("named_helpers"),
+        "isvalid_gate_helpers": pr.get("isvalid_gate_helpers"),
+        "execute_body_helpers": pr.get("execute_body_helpers"),
+        "requirements_before_any_post": pr.get("requirements_before_any_post"),
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
     }

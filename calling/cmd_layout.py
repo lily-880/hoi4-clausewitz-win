@@ -344,7 +344,14 @@ ISVALID_PATHS = {
             "0x57f7b0",
             "0x1e1510",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "COrderNewFallbackCommand": {
         "isvalid": 26080432,
@@ -369,7 +376,20 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc416b0",
+            "0xc415b0",
+            "0x10b5f10",
+            "0x10b4e50"
+        ],
+        "named_helpers": []
     },
     "COrderReplaceFallbackCommands": {
         "isvalid": 26080432,
@@ -392,7 +412,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetSelectedArmyGroupFallback": {
         "isvalid": 26085168,
@@ -413,7 +440,16 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0xbbb1e0",
             "0x2284800"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0"
+        ],
+        "execute_body_helpers": [
+            "0x10b5f10",
+            "0x25694b0"
+        ],
+        "named_helpers": []
     },
     "CCancelRunningAwayCommand": {
         "isvalid": 20901168,
@@ -438,7 +474,14 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CWithdrawArmyHqCommand": {
         "isvalid": 20981696,
@@ -461,7 +504,19 @@ ISVALID_PATHS = {
             "0x25a05a4",
             "0x12b330",
             "0xc734f0"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0xbbb1e0",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0xc47980",
+            "0x12b330"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CMassMoveCommand": {
         "isvalid": 20970400,
@@ -484,7 +539,18 @@ ISVALID_PATHS = {
             "0xc55940",
             "0x1b8180",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CToggleStrategicDeploymentCommand": {
         "isvalid": 20981184,
@@ -504,7 +570,17 @@ ISVALID_PATHS = {
             "0x1b8180",
             "0x2607890",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x11f240",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CMoveArmiesInTheaterCommand": {
         "isvalid": 26077152,
@@ -519,7 +595,13 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0xbbb1e0",
             "0x2284800"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CMoveArmyGroupInTheaterCommand": {
         "isvalid": 26077344,
@@ -533,7 +615,12 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x10f12f0",
             "0xbbb1e0"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0xbbb1e0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CMassCancelMovementCommand": {
         "isvalid": 18811408,
@@ -554,6 +641,19 @@ ISVALID_PATHS = {
             "0x2348bf0",
             "0x2284800",
             "0x25c3770"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "COrderNewFrontCommand": {
@@ -579,7 +679,20 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc416b0",
+            "0xc415b0",
+            "0x10b5f10",
+            "0x10b4e50"
+        ],
+        "named_helpers": []
     },
     "COrderInsertFrontCommand": {
         "isvalid": 26079792,
@@ -604,7 +717,21 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc416b0",
+            "0xc415b0",
+            "0x10b5f10",
+            "0x10b4e50",
+            "0x25694b0"
+        ],
+        "named_helpers": []
     },
     "COrderSetPathCommand": {
         "isvalid": 26083072,
@@ -621,7 +748,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderReshapeCommand": {
         "isvalid": 26080960,
@@ -640,7 +776,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderConnectCommand": {
         "isvalid": 26078544,
@@ -665,6 +810,21 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0xc416b0",
+            "0xc415b0",
+            "0x10b4e50"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "COrderReconnectCommand": {
@@ -690,6 +850,20 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0x10b5f10",
+            "0x10b4e50"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "COrderSetCollapseCommand": {
@@ -714,6 +888,21 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x10f12f0",
             "0x2284800"
+        ],
+        "post_gate_candidates": [
+            "0x2284800"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0x57f7b0",
+            "0xc416b0",
+            "0xc415b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "get_order_instance"
         ]
     },
     "COrderAddNewCompletePlanCommand": {
@@ -737,7 +926,18 @@ ISVALID_PATHS = {
             "0x57f7b0",
             "0x2284800",
             "0x1b8180"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0xbbb1e0",
+            "0x1e1510",
+            "0x11f240",
+            "0x57f7b0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "COrderExecuteCommand": {
         "isvalid": 26079040,
@@ -753,7 +953,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "CAssignToTheaterGroupCommand": {
         "isvalid": 28393920,
@@ -774,7 +983,15 @@ ISVALID_PATHS = {
             "0x25c3770",
             "0x18dde70",
             "0x16d9250"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CDisbandTheaterGroupCommand": {
         "isvalid": 28394672,
@@ -797,7 +1014,10 @@ ISVALID_PATHS = {
         ],
         "isvalid_calls": [
             "0xd73540"
-        ]
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CReorderTheatersCommand": {
         "isvalid": 28394672,
@@ -812,7 +1032,10 @@ ISVALID_PATHS = {
         ],
         "isvalid_calls": [
             "0xd73540"
-        ]
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetTheaterGroupNameCommand": {
         "isvalid": 28394848,
@@ -824,7 +1047,10 @@ ISVALID_PATHS = {
         ],
         "isvalid_calls": [
             "0x18dde70"
-        ]
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetTheaterGroupPriorityCommand": {
         "isvalid": 28394896,
@@ -838,7 +1064,12 @@ ISVALID_PATHS = {
             "0x18dde70",
             "0x2284e60",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetOrderGroupExecutionTypeCommand": {
         "isvalid": 26075888,
@@ -852,7 +1083,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetOrderGroupCohesionTypeCommand": {
         "isvalid": 26075888,
@@ -866,7 +1104,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetOrderGroupMotorizationCommand": {
         "isvalid": 26075888,
@@ -884,6 +1129,17 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "CSetOrderGroupNameCommand": {
@@ -900,7 +1156,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CCollapseConveyorCommand": {
         "isvalid": 29562480,
@@ -931,6 +1194,32 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "division_subunit_type_check",
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "COrderGroupCommand": {
@@ -958,6 +1247,19 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x22aea40",
             "0x12b330"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x1e1510",
+            "0xc07b80",
+            "0x25a00d8",
+            "0x57f7b0",
+            "0x12b330",
+            "0x22aea40"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "COrderNewRootCommand": {
@@ -983,6 +1285,23 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0x57f7b0",
+            "0xc416b0",
+            "0xc415b0",
+            "0x10b5f10",
+            "0xc40490",
+            "0x10b4e50"
+        ],
+        "named_helpers": [
+            "get_order_instance"
         ]
     },
     "COrderAssignCommand": {
@@ -1012,6 +1331,23 @@ ISVALID_PATHS = {
             "0x2284800",
             "0xbbb1e0",
             "0x1b8180"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0xbbb1e0",
+            "0x1e1510",
+            "0x11f240",
+            "0x57f7b0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc08580",
+            "0xc415b0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "COrderUnassignCommand": {
@@ -1031,6 +1367,16 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0xbbb1e0",
             "0x2284800"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "COrderDeleteCommand": {
@@ -1056,6 +1402,18 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CAssignToArmyGroupCommand": {
@@ -1080,7 +1438,12 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x10f12f0",
             "0xbbb1e0"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0xbbb1e0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CRemoveFromArmyGroupCommand": {
         "isvalid": 26084112,
@@ -1105,6 +1468,18 @@ ISVALID_PATHS = {
             "0x2348bf0",
             "0x2284800",
             "0x25c3770"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetOrderGroupIconAndColorCommand": {
@@ -1119,7 +1494,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetOrderGroupLeaderProximityCommand": {
         "isvalid": 26075888,
@@ -1137,6 +1519,17 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "CSetOrderGroupOrdersInstanceNamesCommand": {
@@ -1153,7 +1546,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CAutoMergeOrdersCommand": {
         "isvalid": 26075840,
@@ -1175,6 +1575,18 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc416b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "get_order_instance"
         ]
     },
     "CDeleteOrderGroupCommand": {
@@ -1193,6 +1605,17 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "COrderDeleteAllCommand": {
@@ -1218,6 +1641,20 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c"
         ]
     },
     "CArmyGroupCommand": {
@@ -1245,6 +1682,23 @@ ISVALID_PATHS = {
             "0x2348bf0",
             "0x2284800",
             "0x25c3770"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80",
+            "0xc08580",
+            "0xc416b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "get_order_instance",
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b"
         ]
     },
     "CDeployArmyHqCommand": {
@@ -1273,6 +1727,23 @@ ISVALID_PATHS = {
             "0x22aea40",
             "0x1e1510",
             "0x25a04c0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0xbbb1e0",
+            "0x1e1510",
+            "0xc07b80",
+            "0x11f240",
+            "0x25a00d8",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b"
         ]
     },
     "CSetArmyLeaderCommand": {
@@ -1304,6 +1775,19 @@ ISVALID_PATHS = {
             "0xc47980",
             "0x13f83b0",
             "0x14027c0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0x25c3770",
+            "0xc47980",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetArmyTemplateCommand": {
@@ -1338,6 +1822,25 @@ ISVALID_PATHS = {
             "0x34c220",
             "0xc66f80",
             "0x12b330"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x1e1510",
+            "0xc07b80",
+            "0x11f240",
+            "0x25a00d8",
+            "0x12b330"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CRailwayGunManualOrderCommand": {
@@ -1358,7 +1861,16 @@ ISVALID_PATHS = {
             "0x2348bf0",
             "0x2284800",
             "0x25c3770"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetCountryGarrisonPriorityCommand": {
         "isvalid": 18818720,
@@ -1374,6 +1886,17 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x3b65a0",
             "0xac1e20"
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CSetCountryReinforcementPriorityCommand": {
@@ -1390,6 +1913,17 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x3b65a0",
             "0xac1e20"
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CSetQuickDeployPreferenceCommand": {
@@ -1408,6 +1942,16 @@ ISVALID_PATHS = {
             "0xc07b80",
             "0x741370",
             "0xcf4da0"
+        ],
+        "post_gate_candidates": [
+            "0xc07b80"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_b"
         ]
     },
     "CMoveCommand": {
@@ -1442,6 +1986,22 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeeda70"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510",
+            "0xc07b80",
+            "0x11f240",
+            "0x25c3770"
+        ],
+        "execute_body_helpers": [
+            "0x25694b0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "CStrategicRedeploymentCommand": {
@@ -1467,7 +2027,16 @@ ISVALID_PATHS = {
             "0x57f7b0",
             "0x1e1510",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [
+            "0x25694b0"
+        ],
+        "named_helpers": []
     },
     "CCancelMovementCommand": {
         "isvalid": 20966720,
@@ -1489,7 +2058,18 @@ ISVALID_PATHS = {
             "0x2607890",
             "0x1e1510",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "COrderBlockSectionsCommand": {
         "isvalid": 26078384,
@@ -1505,7 +2085,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderChildFrontRatioCommand": {
         "isvalid": 26078416,
@@ -1521,7 +2110,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderEditRootCommand": {
         "isvalid": 26078944,
@@ -1536,7 +2134,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "COrderMembersFairSplitCommand": {
         "isvalid": 26079904,
@@ -1561,7 +2166,17 @@ ISVALID_PATHS = {
             "0x2284800",
             "0x25c3770",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc40230",
+            "0x25c3770"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0x25694b0"
+        ],
+        "named_helpers": []
     },
     "COrderMergeRootsCommand": {
         "isvalid": 26080112,
@@ -1587,7 +2202,17 @@ ISVALID_PATHS = {
             "0x25c3770",
             "0xc40230",
             "0x10bc180"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc40230",
+            "0x25c3770"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0x10b4e50"
+        ],
+        "named_helpers": []
     },
     "COrderReorderChildFrontCommand": {
         "isvalid": 26080816,
@@ -1612,7 +2237,16 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderSetInvasionSourceCommand": {
         "isvalid": 26081168,
@@ -1646,6 +2280,29 @@ ISVALID_PATHS = {
             "0x22aea40",
             "0x25a05a4",
             "0x1216a0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0xbbb1e0",
+            "0x25a0390",
+            "0xc40230",
+            "0xc07b80",
+            "0x25a00d8",
+            "0x22aea40"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0x57f7b0",
+            "0xc416b0",
+            "0xc415b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "get_order_instance",
+            "gamestate_instance_guard_b"
         ]
     },
     "COrderSetParadropSourceCommand": {
@@ -1675,6 +2332,23 @@ ISVALID_PATHS = {
             "0x219250",
             "0xc40230",
             "0x10bf130"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0xbbb1e0",
+            "0x25a0390",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0x57f7b0",
+            "0xc416b0",
+            "0xc415b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "get_order_instance"
         ]
     },
     "COrderSetParadropTargetCommand": {
@@ -1696,7 +2370,18 @@ ISVALID_PATHS = {
             "0x219250",
             "0xc40230",
             "0x10be690"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0xbbb1e0",
+            "0x25a0390",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230"
+        ],
+        "named_helpers": []
     },
     "COrderSetTrainingCommand": {
         "isvalid": 26083200,
@@ -1711,7 +2396,14 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x1e1510",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0xbbb1e0",
+            "0x1e1510"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetOrdersLinkCommand": {
         "isvalid": 26085088,
@@ -1724,7 +2416,10 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x10f12f0",
             "0x10b9f10"
-        ]
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetArmyLeaderPreferredTacticCommand": {
         "isvalid": 18818560,
@@ -1746,6 +2441,17 @@ ISVALID_PATHS = {
             "0xc47a80",
             "0x2284800",
             "0xc675d0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CSetArmyFakeTemplateCommand": {
@@ -1772,6 +2478,23 @@ ISVALID_PATHS = {
             "0x2284800",
             "0x25c3770",
             "0xce5f30"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x74adb0"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CAddConveyorLineCommand": {
@@ -1800,6 +2523,24 @@ ISVALID_PATHS = {
             "0xc07b80",
             "0x1693c0",
             "0xd6fe90"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80",
+            "0xd472f0",
+            "0xd6fe90",
+            "0x1c31490"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate"
         ]
     },
     "CChangeConveyorPositionCommand": {
@@ -1831,6 +2572,29 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CCreateConveyorCommand": {
@@ -1865,6 +2629,24 @@ ISVALID_PATHS = {
             "0x164c870",
             "0xbf4ce0",
             "0xbf4af0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80",
+            "0x74adb0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "division_subunit_type_check",
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "gamestate_instance_guard_b"
         ]
     },
     "CCreateConveyorExtendedCommand": {
@@ -1896,6 +2678,32 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "division_subunit_type_check",
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CDeployConveyorCommand": {
@@ -1923,6 +2731,30 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CDeployConveyorLineCommand": {
@@ -1952,6 +2784,27 @@ ISVALID_PATHS = {
             "0x25a0390",
             "0xeebbd0",
             "0xc08100"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0xd472f0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "gamestate_instance_guard_d"
         ]
     },
     "CRemoveConveyorCommand": {
@@ -1979,6 +2832,30 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CRemoveConveyorLineCommand": {
@@ -2008,6 +2885,27 @@ ISVALID_PATHS = {
             "0x25a0390",
             "0xeebbd0",
             "0xc08100"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0xd472f0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_e",
+            "gamestate_instance_guard_d"
         ]
     },
     "CSetConveyorGroupCommand": {
@@ -2039,6 +2937,30 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CSetConveyorLocationCommand": {
@@ -2073,6 +2995,26 @@ ISVALID_PATHS = {
             "0x25a0390",
             "0xeebbd0",
             "0xc08100"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0xd472f0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_d"
         ]
     },
     "CSetConveyorNameCommand": {
@@ -2095,6 +3037,18 @@ ISVALID_PATHS = {
         ],
         "isvalid_calls": [
             "0x1c31490"
+        ],
+        "post_gate_candidates": [
+            "0x1c31490"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetConveyorPriorityCommand": {
@@ -2116,6 +3070,18 @@ ISVALID_PATHS = {
         ],
         "isvalid_calls": [
             "0x1c31490"
+        ],
+        "post_gate_candidates": [
+            "0x1c31490"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetConveyorSeriesCommand": {
@@ -2137,6 +3103,18 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x1c31490",
             "0x2284e60"
+        ],
+        "post_gate_candidates": [
+            "0x1c31490"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300",
+            "0xd4b2c0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CChangeConveyorTemplateCommand": {
@@ -2163,6 +3141,27 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xeebbd0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07b80",
+            "0x74adb0",
+            "0xbea570",
+            "0xbf3360",
+            "0xeebbd0"
+        ],
+        "execute_body_helpers": [
+            "0xd472f0",
+            "0x1c32980"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_e",
+            "division_subunit_type_check",
+            "gamestate_instance_guard_b",
+            "deployment_train_gate",
+            "gamestate_instance_guard_d"
         ]
     },
     "CSetCountryGarrisonTemplateCommand": {
@@ -2184,6 +3183,17 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x3b65a0",
             "0xac1e20"
+        ],
+        "post_gate_candidates": [],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CSetMainGarrisonTemplateCommand": {
@@ -2204,6 +3214,22 @@ ISVALID_PATHS = {
             "0x74adb0",
             "0xc07b80",
             "0x25a00d8"
+        ],
+        "post_gate_candidates": [
+            "0xc07b80",
+            "0x25a00d8",
+            "0x74adb0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CSetStateGarrisonTemplateCommand": {
@@ -2228,6 +3254,22 @@ ISVALID_PATHS = {
             "0x254aa00",
             "0x25a0390",
             "0xc08580"
+        ],
+        "post_gate_candidates": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_c"
         ]
     },
     "CRailwayGunSetNameCommand": {
@@ -2246,7 +3288,15 @@ ISVALID_PATHS = {
             "0x2284800",
             "0x2348bf0",
             "0x25c3770"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetDeploymentLineNameCommand": {
         "isvalid": 29563088,
@@ -2276,6 +3326,25 @@ ISVALID_PATHS = {
             "0x25a0390",
             "0xeebbd0",
             "0xc08100"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0xd472f0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xd472f0",
+            "0xd47300"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_d"
         ]
     },
     "CSetRepairOrderCommand": {
@@ -2297,6 +3366,21 @@ ISVALID_PATHS = {
             "0x3321f0",
             "0x1b7950",
             "0x6cad90"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CUpgradeDivisionOfficerCommand": {
@@ -2321,6 +3405,20 @@ ISVALID_PATHS = {
             "0xc08580",
             "0xc07b80",
             "0x7251b0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80",
+            "0xc08580",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b"
         ]
     },
     "CSetDivisionNameCommand": {
@@ -2341,7 +3439,14 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSetObsoleteDivisionTemplateCommand": {
         "isvalid": 29547792,
@@ -2368,6 +3473,21 @@ ISVALID_PATHS = {
             "0x164c870",
             "0xbf4ce0",
             "0xbf4af0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80",
+            "0x74adb0"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "division_subunit_type_check",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CBuildRailwayCommand": {
@@ -2395,6 +3515,21 @@ ISVALID_PATHS = {
             "0x581900",
             "0x57c580",
             "0x25a00d8"
+        ],
+        "post_gate_candidates": [
+            "0xc07b80",
+            "0x25a00d8"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CLearnTraitCommand": {
@@ -2419,6 +3554,22 @@ ISVALID_PATHS = {
             "0x12b330",
             "0xc07b80",
             "0x25a00d8"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0xc07b80",
+            "0x11f240",
+            "0x25a00d8",
+            "0x12b330"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_b"
         ]
     },
     "CUpdateLeaderSeenTraitsCountCommand": {
@@ -2443,6 +3594,17 @@ ISVALID_PATHS = {
             "0xc08580",
             "0xc50d50",
             "0x1e25c0"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0xc08580"
+        ],
+        "execute_body_helpers": [
+            "0x10b5f10",
+            "0x25694b0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "CAiDiscardForceConcentrationTargetCommand": {
@@ -2459,6 +3621,17 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "CAiOnFailedInvasionCommand": {
@@ -2476,6 +3649,18 @@ ISVALID_PATHS = {
             "0x2607890",
             "0x254aa00",
             "0x25a0390"
+        ],
+        "post_gate_candidates": [
+            "0x254aa00",
+            "0x2607890",
+            "0x25a0390",
+            "0x1e1510"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "CAiStoreForceConcentrationTargetCommand": {
@@ -2492,6 +3677,17 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "CAiStoreTotalWantedNrDivisionsCommand": {
@@ -2508,6 +3704,17 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     },
     "CClearRepairPinsCommand": {
@@ -2525,6 +3732,21 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CCreateAreaDefenseCommand": {
@@ -2545,6 +3767,18 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc47980"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc47980"
+        ],
+        "execute_body_helpers": [
+            "0xc416b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "get_order_instance"
         ]
     },
     "CCreateUnitLeaderCommand": {
@@ -2569,6 +3803,18 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0xc07b80",
             "0x7251b0"
+        ],
+        "post_gate_candidates": [
+            "0xc07b80"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b"
         ]
     },
     "CDeleteUnitCommand": {
@@ -2597,6 +3843,23 @@ ISVALID_PATHS = {
             "0x25a009c",
             "0x12b330",
             "0x25a00d8"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240",
+            "0x25a00d8",
+            "0x57f7b0",
+            "0x12b330"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "thread_is_main_thread"
         ]
     },
     "CEditAreaDefenseStateCommand": {
@@ -2622,6 +3885,19 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc416b0",
+            "0xc40490"
+        ],
+        "named_helpers": [
+            "get_order_instance"
         ]
     },
     "CMergeArmiesCommand": {
@@ -2647,7 +3923,18 @@ ISVALID_PATHS = {
             "0xc55940",
             "0x1b8180",
             "0x11f240"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240",
+            "0x25c3770",
+            "0x2348bf0",
+            "0x1b8180"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CPromoteUnitLeaderCommand": {
         "isvalid": 20974640,
@@ -2670,6 +3957,17 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CQueueUnitActionCommand": {
@@ -2692,6 +3990,19 @@ ISVALID_PATHS = {
             "0x1e1510",
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread"
         ]
     },
     "CReorderPinnedStrategicRegionCommand": {
@@ -2708,7 +4019,13 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x254aa00",
             "0x25a0390"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x254aa00",
+            "0x25a0390"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CSelectionGroupCommand": {
         "isvalid": 18818272,
@@ -2731,6 +4048,18 @@ ISVALID_PATHS = {
             "0xc47a80",
             "0x2284800",
             "0xc675d0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x22aea40"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "CSetAreaDefenseSettingCommand": {
@@ -2756,6 +4085,18 @@ ISVALID_PATHS = {
             "0xbbb1e0",
             "0x2284800",
             "0xc40230"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+        ],
+        "execute_body_helpers": [
+            "0xc40230",
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetPendingReassignTargetCommand": {
@@ -2773,6 +4114,16 @@ ISVALID_PATHS = {
             "0xc47a80",
             "0x1e1510",
             "0x2607890"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetPreferredTacticCommand": {
@@ -2797,6 +4148,20 @@ ISVALID_PATHS = {
             "0xc07b80",
             "0x73ee00",
             "0x707bc0"
+        ],
+        "post_gate_candidates": [
+            "0xc07b80"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CSetTheatreCommand": {
@@ -2812,6 +4177,17 @@ ISVALID_PATHS = {
             "0x57f7b0",
             "0x1e1510",
             "0x2607890"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [
+            "0xc07620"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard"
         ]
     },
     "CSetUnitNameCommand": {
@@ -2830,7 +4206,16 @@ ISVALID_PATHS = {
             "0x25c3770",
             "0x1e1510",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x2607890",
+            "0x1e1510",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CTogglePinnedStrategicRegionCommand": {
         "isvalid": 32447184,
@@ -2846,7 +4231,13 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x254aa00",
             "0x25a0390"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x254aa00",
+            "0x25a0390"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CTransportUnitCommand": {
         "isvalid": 20980320,
@@ -2861,7 +4252,14 @@ ISVALID_PATHS = {
             "0x57f7b0",
             "0x1e1510",
             "0x2607890"
-        ]
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x1e1510",
+            "0x57f7b0"
+        ],
+        "execute_body_helpers": [],
+        "named_helpers": []
     },
     "CUpdateLeaderSeenAdvisorRolesCountCommand": {
         "isvalid": 26085248,
@@ -2885,6 +4283,17 @@ ISVALID_PATHS = {
             "0xc08580",
             "0xc50d50",
             "0x1e25c0"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0xc08580"
+        ],
+        "execute_body_helpers": [
+            "0x10b5f10",
+            "0x25694b0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c"
         ]
     },
     "wrap": 36540064,
@@ -2970,6 +4379,21 @@ ISVALID_PATHS = {
             "0xc08580",
             "0x716bc0",
             "0x2c2100"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc07b80",
+            "0xc08580"
+        ],
+        "execute_body_helpers": [
+            "0xc08580",
+            "0x22aea40"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b",
+            "gamestate_instance_guard_c"
         ]
     },
     "CGiveMedalCommand": {
@@ -3002,6 +4426,19 @@ ISVALID_PATHS = {
             "0x717370",
             "0x14e3900",
             "0x14e2d60"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80",
+            "0x25c3770",
+            "0x2348bf0"
+        ],
+        "execute_body_helpers": [
+            "0xc08580"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_c",
+            "gamestate_instance_guard_b"
         ]
     },
     "CTriggerAbilityCommand": {
@@ -3036,6 +4473,25 @@ ISVALID_PATHS = {
             "0x581900",
             "0x254aa00",
             "0x5829b0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0x254aa00",
+            "0x2607890",
+            "0x1e1510",
+            "0xc07b80",
+            "0x11f240",
+            "0x25c3770",
+            "0x25a00d8"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b",
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_b"
         ]
     },
     "CRetireCharacterCommand": {
@@ -3065,6 +4521,21 @@ ISVALID_PATHS = {
             "0xc07b80",
             "0x734ad0",
             "0x11721d0"
+        ],
+        "post_gate_candidates": [
+            "0x2284800",
+            "0xc07b80"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "gamestate_instance_guard_c",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CReinstateExileCommand": {
@@ -3097,6 +4568,23 @@ ISVALID_PATHS = {
             "0x73aab0",
             "0x1217a0",
             "0x120530"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0xc07b80",
+            "0x11f240",
+            "0x25a00d8",
+            "0x12b330",
+            "0x120530"
+        ],
+        "execute_body_helpers": [
+            "0xc07620",
+            "0x23c3a0"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard",
+            "thread_is_main_thread",
+            "gamestate_instance_guard_b"
         ]
     },
     "CAmendForeignManpowerActionCommand": {
@@ -3113,6 +4601,16 @@ ISVALID_PATHS = {
         "isvalid_calls": [
             "0x2607890",
             "0x11f240"
+        ],
+        "post_gate_candidates": [
+            "0x2607890",
+            "0x11f240"
+        ],
+        "execute_body_helpers": [
+            "0xc07b80"
+        ],
+        "named_helpers": [
+            "gamestate_instance_guard_b"
         ]
     }
 }
@@ -3528,6 +5026,3408 @@ EXECUTE_EDGES = {
 }
 
 # Safer tool-gate analysis only (RO 2bs). Gate stays CLOSED_NOT_OPENED — never enable here.
+
+SHARED_LAND_HELPERS = {
+    "phase": "2cd",
+    "posting": "DISABLED",
+    "note": "RO catalog of shared IsValid/Execute helpers; never patch/hook for Post",
+    "helpers": {
+        "0x2284800": {
+            "hits": 185,
+            "class": "field_predicate",
+            "size": 49,
+            "calls": [
+                "0x2282810"
+            ],
+            "field_offs": [],
+            "caller_count": 106,
+            "caller_groups": {
+                "frontline_group": 18,
+                "attack_group": 3,
+                "retreat_group": 5,
+                "cancel_abort_group": 3,
+                "move_group": 13,
+                "theater_group": 11,
+                "strategic_group": 2,
+                "order_group_group": 51
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x254aa00": {
+            "hits": 74,
+            "class": "flag_gate",
+            "size": 170,
+            "calls": [
+                "0x254aae0"
+            ],
+            "field_offs": [
+                "0x8",
+                "0x10",
+                "0x18",
+                "0x20",
+                "0x68",
+                "0x60",
+                "0x28",
+                "0x40",
+                "0x48",
+                "0x50",
+                "0x58"
+            ],
+            "caller_count": 62,
+            "caller_groups": {
+                "frontline_group": 8,
+                "attack_group": 6,
+                "retreat_group": 3,
+                "cancel_abort_group": 2,
+                "move_group": 6,
+                "strategic_group": 3,
+                "order_group_group": 32,
+                "theater_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x2607890": {
+            "hits": 65,
+            "class": "inline_predicate",
+            "size": 47,
+            "calls": [],
+            "field_offs": [],
+            "caller_count": 58,
+            "caller_groups": {
+                "frontline_group": 5,
+                "attack_group": 5,
+                "retreat_group": 5,
+                "cancel_abort_group": 2,
+                "move_group": 12,
+                "theater_group": 6,
+                "strategic_group": 4,
+                "order_group_group": 19
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xbbb1e0": {
+            "hits": 53,
+            "class": "field_predicate",
+            "size": 43,
+            "calls": [
+                "0x2348bf0"
+            ],
+            "field_offs": [],
+            "caller_count": 46,
+            "caller_groups": {
+                "frontline_group": 18,
+                "attack_group": 1,
+                "retreat_group": 5,
+                "theater_group": 2,
+                "move_group": 1,
+                "order_group_group": 19
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x25a0390": {
+            "hits": 53,
+            "class": "field_predicate",
+            "size": 416,
+            "calls": [],
+            "field_offs": [
+                "0x58",
+                "0x18",
+                "0x20",
+                "0x10",
+                "0x8",
+                "0x50",
+                "0x28",
+                "0x60",
+                "0x68"
+            ],
+            "caller_count": 46,
+            "caller_groups": {
+                "frontline_group": 4,
+                "attack_group": 3,
+                "cancel_abort_group": 2,
+                "retreat_group": 1,
+                "move_group": 6,
+                "strategic_group": 3,
+                "order_group_group": 26,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc40230": {
+            "hits": 47,
+            "class": "wide_object_walk",
+            "size": 237,
+            "calls": [
+                "0x10af200"
+            ],
+            "field_offs": [
+                "0x8",
+                "0x10",
+                "0x18",
+                "0xa4",
+                "0x98",
+                "0xbc",
+                "0xb0",
+                "0xd4",
+                "0xc8",
+                "0x1b8",
+                "0x30",
+                "0x38",
+                "0x40"
+            ],
+            "caller_count": 27,
+            "caller_groups": {
+                "frontline_group": 16,
+                "retreat_group": 2,
+                "order_group_group": 9
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc07620": {
+            "hits": 46,
+            "class": "dispatcher_or_composite",
+            "size": 296,
+            "calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08720"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x40",
+                "0x28",
+                "0x20",
+                "0x58",
+                "0x48"
+            ],
+            "caller_count": 46,
+            "caller_groups": {
+                "frontline_group": 5,
+                "move_group": 5,
+                "order_group_group": 30,
+                "theater_group": 6
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_pInstance && \"gamestate unitilialized\"",
+                "_ThreadForbidCount == 0 && \"Curr"
+            ]
+        },
+        "0x1e1510": {
+            "hits": 35,
+            "class": "inline_predicate",
+            "size": 39,
+            "calls": [],
+            "field_offs": [
+                "0x10",
+                "0x18"
+            ],
+            "caller_count": 35,
+            "caller_groups": {
+                "frontline_group": 1,
+                "attack_group": 5,
+                "cancel_abort_group": 2,
+                "retreat_group": 2,
+                "move_group": 10,
+                "strategic_group": 1,
+                "order_group_group": 13,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc07b80": {
+            "hits": 34,
+            "class": "dispatcher_or_composite",
+            "size": 296,
+            "calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08720"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x40",
+                "0x28",
+                "0x20",
+                "0x58",
+                "0x48"
+            ],
+            "caller_count": 33,
+            "caller_groups": {
+                "frontline_group": 1,
+                "attack_group": 4,
+                "retreat_group": 1,
+                "move_group": 7,
+                "order_group_group": 19,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_pInstance && \"gamestate unitilialized\"",
+                "_ThreadForbidCount == 0 && \"Curr"
+            ]
+        },
+        "0xc08580": {
+            "hits": 31,
+            "class": "string_annotated",
+            "size": 289,
+            "calls": [
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x50",
+                "0x28",
+                "0x20",
+                "0x58",
+                "0x40",
+                "0x48"
+            ],
+            "caller_count": 29,
+            "caller_groups": {
+                "retreat_group": 1,
+                "move_group": 6,
+                "order_group_group": 16,
+                "theater_group": 5,
+                "cancel_abort_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_pInstance && \"gamestate unitilialized\"",
+                "_ThreadForbidCount == 0 && \"Curr"
+            ]
+        },
+        "0x11f240": {
+            "hits": 29,
+            "class": "dispatcher_or_composite",
+            "size": 371,
+            "calls": [
+                "0x25a009c",
+                "0x2607890",
+                "0x25a00d8"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x70",
+                "0x50",
+                "0x18",
+                "0x58",
+                "0x60",
+                "0x27"
+            ],
+            "caller_count": 29,
+            "caller_groups": {
+                "frontline_group": 1,
+                "attack_group": 3,
+                "cancel_abort_group": 2,
+                "retreat_group": 2,
+                "move_group": 9,
+                "strategic_group": 1,
+                "order_group_group": 11
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x25c3770": {
+            "hits": 26,
+            "class": "field_predicate",
+            "size": 70,
+            "calls": [],
+            "field_offs": [
+                "0x10",
+                "0x18",
+                "0x50",
+                "0x38",
+                "0x40"
+            ],
+            "caller_count": 24,
+            "caller_groups": {
+                "frontline_group": 2,
+                "attack_group": 2,
+                "retreat_group": 1,
+                "move_group": 4,
+                "strategic_group": 1,
+                "order_group_group": 11,
+                "theater_group": 1,
+                "cancel_abort_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x25a00d8": {
+            "hits": 24,
+            "class": "field_predicate",
+            "size": 69,
+            "calls": [
+                "0x25a133c"
+            ],
+            "field_offs": [
+                "0x30",
+                "0x8"
+            ],
+            "caller_count": 22,
+            "caller_groups": {
+                "frontline_group": 1,
+                "retreat_group": 2,
+                "move_group": 4,
+                "order_group_group": 14,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xd472f0": {
+            "hits": 21,
+            "class": "dispatcher_or_composite",
+            "size": 575,
+            "calls": [
+                "0xd473a0",
+                "0xbea570",
+                "0xc07620",
+                "0xd72470",
+                "0x7172e0",
+                "0x25a009c",
+                "0xa0abe0",
+                "0xd4a400",
+                "0xd48640",
+                "0x2607890"
+            ],
+            "field_offs": [
+                "0x20",
+                "0x38",
+                "0x8",
+                "0x78",
+                "0x84",
+                "0x30",
+                "0xb8",
+                "0x10",
+                "0x40",
+                "0x18",
+                "0x28",
+                "0x50",
+                "0x48",
+                "0x80",
+                "0x88"
+            ],
+            "caller_count": 16,
+            "caller_groups": {
+                "order_group_group": 16
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc47980": {
+            "hits": 18,
+            "class": "inline_predicate",
+            "size": 63,
+            "calls": [],
+            "field_offs": [
+                "0x88",
+                "0x68"
+            ],
+            "caller_count": 17,
+            "caller_groups": {
+                "frontline_group": 2,
+                "retreat_group": 2,
+                "order_group_group": 13
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x23c3a0": {
+            "hits": 18,
+            "class": "dispatcher_or_composite",
+            "size": 387,
+            "calls": [
+                "0x2556a60",
+                "0x254aa00",
+                "0x19d980"
+            ],
+            "field_offs": [
+                "0x58",
+                "0x30",
+                "0x50",
+                "0x28",
+                "0x20",
+                "0xc",
+                "0x8",
+                "0x10",
+                "0x60",
+                "0x38",
+                "0xd0"
+            ],
+            "caller_count": 18,
+            "caller_groups": {
+                "move_group": 6,
+                "order_group_group": 6,
+                "theater_group": 5,
+                "cancel_abort_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "ThreadIsMainThread()"
+            ]
+        },
+        "0x2348bf0": {
+            "hits": 17,
+            "class": "field_predicate",
+            "size": 71,
+            "calls": [],
+            "field_offs": [
+                "0x58"
+            ],
+            "caller_count": 17,
+            "caller_groups": {
+                "attack_group": 2,
+                "move_group": 4,
+                "strategic_group": 1,
+                "order_group_group": 7,
+                "theater_group": 1,
+                "cancel_abort_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x57f7b0": {
+            "hits": 14,
+            "class": "field_predicate",
+            "size": 58,
+            "calls": [
+                "0x2348bf0",
+                "0x2284800"
+            ],
+            "field_offs": [],
+            "caller_count": 14,
+            "caller_groups": {
+                "frontline_group": 4,
+                "attack_group": 1,
+                "move_group": 2,
+                "strategic_group": 1,
+                "order_group_group": 5,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x12b330": {
+            "hits": 13,
+            "class": "field_predicate",
+            "size": 98,
+            "calls": [
+                "0x2607890"
+            ],
+            "field_offs": [
+                "0x18",
+                "0x10",
+                "0x48",
+                "0x50"
+            ],
+            "caller_count": 13,
+            "caller_groups": {
+                "retreat_group": 2,
+                "move_group": 3,
+                "order_group_group": 8
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x74adb0": {
+            "hits": 13,
+            "class": "field_predicate",
+            "size": 43,
+            "calls": [
+                "0x2348bf0"
+            ],
+            "field_offs": [],
+            "caller_count": 13,
+            "caller_groups": {
+                "retreat_group": 1,
+                "move_group": 3,
+                "order_group_group": 8,
+                "theater_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xd47300": {
+            "hits": 13,
+            "class": "dispatcher_or_composite",
+            "size": 559,
+            "calls": [
+                "0xd473a0",
+                "0xbea570",
+                "0xc07620",
+                "0xd72470",
+                "0x7172e0",
+                "0x25a009c",
+                "0xa0abe0",
+                "0xd4a400",
+                "0xd48640",
+                "0x2607890"
+            ],
+            "field_offs": [
+                "0x38",
+                "0x8",
+                "0x20",
+                "0x78",
+                "0x84",
+                "0x30",
+                "0xb8",
+                "0x10",
+                "0x40",
+                "0x18",
+                "0x28",
+                "0x50",
+                "0x48",
+                "0x80",
+                "0x88"
+            ],
+            "caller_count": 13,
+            "caller_groups": {
+                "order_group_group": 13
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc416b0": {
+            "hits": 12,
+            "class": "dispatcher_or_composite",
+            "size": 95,
+            "calls": [
+                "0x25a009c",
+                "0xc07620",
+                "0x10adc70"
+            ],
+            "field_offs": [
+                "0x8",
+                "0x10",
+                "0x40",
+                "0x3c",
+                "0x1b0",
+                "0x30",
+                "0x38"
+            ],
+            "caller_count": 12,
+            "caller_groups": {
+                "frontline_group": 8,
+                "retreat_group": 1,
+                "order_group_group": 3
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x18e580": {
+            "hits": 11,
+            "class": "field_predicate",
+            "size": 253,
+            "calls": [
+                "0x2607890"
+            ],
+            "field_offs": [
+                "0x18",
+                "0xc",
+                "0x8",
+                "0x50",
+                "0x58",
+                "0x10",
+                "0x60"
+            ],
+            "caller_count": 11,
+            "caller_groups": {
+                "frontline_group": 3,
+                "retreat_group": 1,
+                "theater_group": 1,
+                "move_group": 1,
+                "order_group_group": 5
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xbea570": {
+            "hits": 11,
+            "class": "string_annotated",
+            "size": 136,
+            "calls": [
+                "0x254aa00"
+            ],
+            "field_offs": [
+                "0x1d4",
+                "0x48",
+                "0x28",
+                "0x20"
+            ],
+            "caller_count": 9,
+            "caller_groups": {
+                "move_group": 1,
+                "order_group_group": 8
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "Invalid division subunit type"
+            ]
+        },
+        "0xbf3360": {
+            "hits": 11,
+            "class": "dispatcher_or_composite",
+            "size": 795,
+            "calls": [
+                "0xc07b80",
+                "0xd732c0",
+                "0x2607890",
+                "0x11f770",
+                "0x11f240",
+                "0x12b330",
+                "0x25a00d8"
+            ],
+            "field_offs": [
+                "0x1dc",
+                "0x18",
+                "0x10",
+                "0x8",
+                "0x7f",
+                "0xb",
+                "0x58",
+                "0xf",
+                "0xb4",
+                "0x6f",
+                "0xa8",
+                "0x20",
+                "0x67",
+                "0xf0",
+                "0x90"
+            ],
+            "caller_count": 11,
+            "caller_groups": {
+                "order_group_group": 11
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xeebbd0": {
+            "hits": 11,
+            "class": "dispatcher_or_composite",
+            "size": 909,
+            "calls": [
+                "0xeeece0",
+                "0xa260a0",
+                "0xa260b0",
+                "0xc07b80",
+                "0x737ee0",
+                "0xc07090",
+                "0xc08580",
+                "0x7349e0",
+                "0xd9cc40",
+                "0xeef4c0",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x18",
+                "0xb0",
+                "0xb8",
+                "0xd2",
+                "0xc0",
+                "0x60",
+                "0xd0",
+                "0x30",
+                "0x78",
+                "0x188",
+                "0x58",
+                "0x1f0",
+                "0x28",
+                "0x20",
+                "0xa4"
+            ],
+            "caller_count": 11,
+            "caller_groups": {
+                "order_group_group": 11
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_pInstance && \"gamestate unitilialized\"",
+                "_ThreadForbidCount == 0 && \"Curr"
+            ]
+        },
+        "0x1c32980": {
+            "hits": 10,
+            "class": "dispatcher_or_composite",
+            "size": 699,
+            "calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x2556a60",
+                "0x19d980",
+                "0xbbe510"
+            ],
+            "field_offs": [
+                "0x50",
+                "0x28",
+                "0x20",
+                "0x58",
+                "0x30",
+                "0xb8",
+                "0xc",
+                "0x8",
+                "0x10",
+                "0x60",
+                "0xd0"
+            ],
+            "caller_count": 10,
+            "caller_groups": {
+                "order_group_group": 10
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_pInstance && \"gamestate unitilialized\"",
+                "_ThreadForbidCount == 0 && \"Curr",
+                "ThreadIsMainThread()"
+            ]
+        },
+        "0xc415b0": {
+            "hits": 9,
+            "class": "dispatcher_or_composite",
+            "size": 115,
+            "calls": [
+                "0x18c8960",
+                "0x18deee0",
+                "0x18d5fe0"
+            ],
+            "field_offs": [
+                "0x8",
+                "0xa4",
+                "0x98",
+                "0x30",
+                "0x20",
+                "0x70"
+            ],
+            "caller_count": 9,
+            "caller_groups": {
+                "frontline_group": 6,
+                "retreat_group": 1,
+                "order_group_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xd72b50": {
+            "hits": 9,
+            "class": "inline_predicate",
+            "size": 47,
+            "calls": [],
+            "field_offs": [
+                "0x54",
+                "0x48"
+            ],
+            "caller_count": 9,
+            "caller_groups": {
+                "order_group_group": 9
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x10b5f10": {
+            "hits": 8,
+            "class": "field_predicate",
+            "size": 158,
+            "calls": [
+                "0x10cb860",
+                "0x254aa00"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x48",
+                "0x40",
+                "0x28",
+                "0x20"
+            ],
+            "caller_count": 8,
+            "caller_groups": {
+                "frontline_group": 3,
+                "retreat_group": 2,
+                "order_group_group": 3
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xc40490": {
+            "hits": 8,
+            "class": "dispatcher_or_composite",
+            "size": 347,
+            "calls": [
+                "0xc40230",
+                "0x254aa00",
+                "0x121d60",
+                "0xc41150",
+                "0xc40e40",
+                "0xc77b70",
+                "0xc475c0"
+            ],
+            "field_offs": [
+                "0x18",
+                "0x20",
+                "0x10",
+                "0xa4",
+                "0x98",
+                "0x40",
+                "0x28",
+                "0x48",
+                "0x19f",
+                "0x1c4",
+                "0x44",
+                "0x1c8",
+                "0x88",
+                "0x30",
+                "0x1b8",
+                "0x1a1"
+            ],
+            "caller_count": 8,
+            "caller_groups": {
+                "frontline_group": 5,
+                "order_group_group": 3
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "GetOrderInstance( pInst->GetInst"
+            ]
+        },
+        "0x120530": {
+            "hits": 8,
+            "class": "field_predicate",
+            "size": 88,
+            "calls": [
+                "0x25a00d8"
+            ],
+            "field_offs": [
+                "0x18",
+                "0x10"
+            ],
+            "caller_count": 8,
+            "caller_groups": {
+                "move_group": 2,
+                "order_group_group": 6
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xd4b2c0": {
+            "hits": 8,
+            "class": "wide_object_walk",
+            "size": 23,
+            "calls": [],
+            "field_offs": [
+                "0x48",
+                "0x94"
+            ],
+            "caller_count": 8,
+            "caller_groups": {
+                "order_group_group": 8
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": False,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0xd6fe90": {
+            "hits": 8,
+            "class": "dispatcher_or_composite",
+            "size": 933,
+            "calls": [
+                "0xbf5900",
+                "0xbea570",
+                "0xc07b80",
+                "0x22aea40",
+                "0x12b330",
+                "0x1216a0",
+                "0x25a00d8",
+                "0xbf3360",
+                "0xc08580",
+                "0x254aa00",
+                "0xbf37f0",
+                "0xd70330",
+                "0x1a12cf0",
+                "0xd6fc30"
+            ],
+            "field_offs": [
+                "0x8",
+                "0x10",
+                "0x20",
+                "0x18",
+                "0x1d0",
+                "0x1b4",
+                "0xf",
+                "0x27",
+                "0x1f",
+                "0x1e0",
+                "0x118",
+                "0x19c",
+                "0x190",
+                "0x28",
+                "0x77",
+                "0x110"
+            ],
+            "caller_count": 8,
+            "caller_groups": {
+                "order_group_group": 8
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "DEPLOYMENT_CANNOT_TRAIN_HQ",
+                "DEPLOYMENT_CANNOT_TRAIN_SPECIAL_UNITS"
+            ]
+        },
+        "0x1c31490": {
+            "hits": 8,
+            "class": "field_predicate",
+            "size": 43,
+            "calls": [
+                "0x2348bf0"
+            ],
+            "field_offs": [],
+            "caller_count": 8,
+            "caller_groups": {
+                "order_group_group": 8
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x10b4e50": {
+            "hits": 7,
+            "class": "wide_object_walk",
+            "size": 226,
+            "calls": [
+                "0x121d60"
+            ],
+            "field_offs": [
+                "0x18",
+                "0x48",
+                "0x40",
+                "0x1f8",
+                "0x1ec",
+                "0x1e0",
+                "0x50"
+            ],
+            "caller_count": 7,
+            "caller_groups": {
+                "frontline_group": 4,
+                "retreat_group": 1,
+                "order_group_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x2607f30": {
+            "hits": 7,
+            "class": "field_predicate",
+            "size": 83,
+            "calls": [],
+            "field_offs": [],
+            "caller_count": 7,
+            "caller_groups": {
+                "frontline_group": 1,
+                "retreat_group": 1,
+                "move_group": 1,
+                "strategic_group": 1,
+                "order_group_group": 3
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": False,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x25694b0": {
+            "hits": 7,
+            "class": "dispatcher_or_composite",
+            "size": 354,
+            "calls": [
+                "0x25cead4",
+                "0x254aa00",
+                "0x25a079c"
+            ],
+            "field_offs": [
+                "0x10",
+                "0x18",
+                "0x8",
+                "0x58",
+                "0x50",
+                "0x28",
+                "0x20",
+                "0x60"
+            ],
+            "caller_count": 7,
+            "caller_groups": {
+                "frontline_group": 1,
+                "retreat_group": 1,
+                "move_group": 1,
+                "strategic_group": 1,
+                "order_group_group": 3
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "_BufferSize > 0 && \"Buffers not initialized\"",
+                "_pStart && \"Failed to allocate scratch buffer\""
+            ]
+        },
+        "0x1b8180": {
+            "hits": 7,
+            "class": "dispatcher_or_composite",
+            "size": 348,
+            "calls": [
+                "0x25a009c",
+                "0x2607890",
+                "0x25a00d8"
+            ],
+            "field_offs": [
+                "0x20",
+                "0x10",
+                "0x40",
+                "0x18",
+                "0x48",
+                "0x50",
+                "0x27",
+                "0x58"
+            ],
+            "caller_count": 7,
+            "caller_groups": {
+                "frontline_group": 1,
+                "move_group": 3,
+                "strategic_group": 1,
+                "order_group_group": 1,
+                "cancel_abort_group": 1
+            },
+            "post_readiness": {
+                "touches_cmd_fields": False,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": []
+        },
+        "0x22aea40": {
+            "hits": 7,
+            "class": "dispatcher_or_composite",
+            "size": 316,
+            "calls": [
+                "0x254aa00",
+                "0x25c3b30",
+                "0x22ae310",
+                "0x11f030"
+            ],
+            "field_offs": [
+                "0x18",
+                "0x20",
+                "0x78",
+                "0x28",
+                "0x10",
+                "0x58",
+                "0x70",
+                "0x48",
+                "0x38",
+                "0x30",
+                "0x50"
+            ],
+            "caller_count": 7,
+            "caller_groups": {
+                "frontline_group": 1,
+                "retreat_group": 2,
+                "move_group": 2,
+                "order_group_group": 2
+            },
+            "post_readiness": {
+                "touches_cmd_fields": True,
+                "looks_like_isvalid_gate": True,
+                "looks_like_execute_body_helper": True,
+                "safe_to_observe_only": True,
+                "do_not_patch": True,
+                "do_not_hook_for_post": True
+            },
+            "lea_strings": [
+                "pStr"
+            ]
+        }
+    },
+    "by_class": {
+        "field_predicate": 14,
+        "flag_gate": 1,
+        "inline_predicate": 4,
+        "wide_object_walk": 3,
+        "dispatcher_or_composite": 16,
+        "string_annotated": 2
+    },
+    "offensive_line_cmds": {
+        "COrderNewFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "inline_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x2607890",
+                "0x10b5f10"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10"
+            ]
+        },
+        "COrderInsertFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x25c3770",
+                "0x2607f30",
+                "0x254aa00",
+                "0x25a0390",
+                "0x18e580",
+                "0x25694b0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x25694b0"
+            ]
+        },
+        "COrderSetPathCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderReshapeCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "inline_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x2607890"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderConnectCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x2607890",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0xc07620"
+            ]
+        },
+        "COrderReconnectCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0x18e580",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0xc07620"
+            ]
+        },
+        "COrderSetCollapseCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0x254aa00",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0x2284800"
+            ],
+            "post_gate_candidates": [
+                "0x2284800"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderAddNewCompletePlanCommand": {
+            "execute_helper_classes": [
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ],
+            "execute_body_helpers": []
+        },
+        "COrderExecuteCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderBlockSectionsCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderChildFrontRatioCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderReorderChildFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "field_predicate",
+                "field_predicate",
+                "inline_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e580",
+                "0x25c3770",
+                "0x2607890",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderSetInvasionSourceCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0x254aa00",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x22aea40",
+                "0x25a00d8",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x22aea40",
+                "0x25a00d8",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderSetParadropSourceCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderSetParadropTargetCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "CCreateAreaDefenseCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "inline_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc416b0",
+                "0xc40490"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ],
+            "execute_body_helpers": [
+                "0xc416b0",
+                "0xc40490"
+            ]
+        },
+        "CEditAreaDefenseStateCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "field_predicate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0xbbb1e0",
+                "0xc416b0",
+                "0xc40490"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc416b0",
+                "0xc40490"
+            ]
+        },
+        "CSetAreaDefenseSettingCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc47980",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc07620"
+            ]
+        },
+        "CSupportAttackCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "inline_predicate",
+                "inline_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_helpers": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ],
+            "post_gate_candidates": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ],
+            "execute_body_helpers": []
+        },
+        "CRailwayGunManualOrderCommand": {
+            "execute_helper_classes": [
+                "flag_gate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ],
+            "post_gate_candidates": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ],
+            "execute_body_helpers": []
+        },
+        "CRailwayGunSetNameCommand": {
+            "execute_helper_classes": [
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ],
+            "execute_body_helpers": []
+        },
+        "CAiDiscardForceConcentrationTargetCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiOnFailedInvasionCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiStoreForceConcentrationTargetCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiStoreTotalWantedNrDivisionsCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        }
+    }
+}
+
+LAND_POST_READINESS = {
+    "phase": "2cd",
+    "posting": "DISABLED",
+    "allow_post": False,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "note": "Readiness map only \u2014 never enable Post / ALLOW_POST / tool gate from this catalog",
+    "shared_helper_count": 40,
+    "by_class": {
+        "field_predicate": 14,
+        "flag_gate": 1,
+        "inline_predicate": 4,
+        "wide_object_walk": 3,
+        "dispatcher_or_composite": 16,
+        "string_annotated": 2
+    },
+    "named_helpers": {
+        "0xc07620": "gamestate_instance_guard",
+        "0xc07b80": "gamestate_instance_guard_b",
+        "0xc08580": "gamestate_instance_guard_c",
+        "0xeebbd0": "gamestate_instance_guard_d",
+        "0x1c32980": "gamestate_instance_guard_e",
+        "0x23c3a0": "thread_is_main_thread",
+        "0xc40490": "get_order_instance",
+        "0xd6fe90": "deployment_train_gate",
+        "0xbea570": "division_subunit_type_check"
+    },
+    "isvalid_gate_helpers": [
+        "0x10b4e50",
+        "0x10b5f10",
+        "0x11f240",
+        "0x120530",
+        "0x12b330",
+        "0x18e580",
+        "0x1b8180",
+        "0x1c31490",
+        "0x1c32980",
+        "0x1e1510",
+        "0x2284800",
+        "0x22aea40",
+        "0x2348bf0",
+        "0x23c3a0",
+        "0x254aa00",
+        "0x25694b0",
+        "0x25a00d8",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x2607f30",
+        "0x57f7b0",
+        "0x74adb0",
+        "0xbbb1e0",
+        "0xbea570",
+        "0xbf3360",
+        "0xc07620",
+        "0xc07b80",
+        "0xc08580",
+        "0xc40230",
+        "0xc40490",
+        "0xc415b0",
+        "0xc416b0",
+        "0xc47980",
+        "0xd472f0",
+        "0xd47300",
+        "0xd6fe90",
+        "0xd72b50",
+        "0xeebbd0"
+    ],
+    "execute_body_helpers": [
+        "0x10b4e50",
+        "0x10b5f10",
+        "0x11f240",
+        "0x1b8180",
+        "0x1c32980",
+        "0x22aea40",
+        "0x23c3a0",
+        "0x25694b0",
+        "0x57f7b0",
+        "0xbf3360",
+        "0xc07620",
+        "0xc07b80",
+        "0xc08580",
+        "0xc40230",
+        "0xc40490",
+        "0xc415b0",
+        "0xc416b0",
+        "0xd472f0",
+        "0xd47300",
+        "0xd4b2c0",
+        "0xd6fe90",
+        "0xeebbd0"
+    ],
+    "offensive_line": {
+        "COrderNewFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "inline_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x2607890",
+                "0x10b5f10"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10"
+            ]
+        },
+        "COrderInsertFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x25c3770",
+                "0x2607f30",
+                "0x254aa00",
+                "0x25a0390",
+                "0x18e580",
+                "0x25694b0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x25694b0"
+            ]
+        },
+        "COrderSetPathCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderReshapeCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "inline_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x2607890"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderConnectCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x2607890",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0xc07620"
+            ]
+        },
+        "COrderReconnectCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0x18e580",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0xc07620"
+            ]
+        },
+        "COrderSetCollapseCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0x254aa00",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0x2284800"
+            ],
+            "post_gate_candidates": [
+                "0x2284800"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderAddNewCompletePlanCommand": {
+            "execute_helper_classes": [
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ],
+            "execute_body_helpers": []
+        },
+        "COrderExecuteCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderBlockSectionsCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderChildFrontRatioCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderReorderChildFrontCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "field_predicate",
+                "field_predicate",
+                "inline_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e580",
+                "0x25c3770",
+                "0x2607890",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "COrderSetInvasionSourceCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "flag_gate",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "dispatcher_or_composite",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0x254aa00",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x22aea40",
+                "0x25a00d8",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x22aea40",
+                "0x25a00d8",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderSetParadropSourceCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite",
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x57f7b0"
+            ]
+        },
+        "COrderSetParadropTargetCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "flag_gate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230"
+            ]
+        },
+        "CCreateAreaDefenseCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "inline_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc416b0",
+                "0xc40490"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ],
+            "execute_body_helpers": [
+                "0xc416b0",
+                "0xc40490"
+            ]
+        },
+        "CEditAreaDefenseStateCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "flag_gate",
+                "field_predicate",
+                "dispatcher_or_composite",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0xbbb1e0",
+                "0xc416b0",
+                "0xc40490"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc416b0",
+                "0xc40490"
+            ]
+        },
+        "CSetAreaDefenseSettingCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "wide_object_walk",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "wide_object_walk"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0xc40230",
+                "0xc47980",
+                "0xc07620"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ],
+            "execute_body_helpers": [
+                "0xc40230",
+                "0xc07620"
+            ]
+        },
+        "CSupportAttackCommand": {
+            "execute_helper_classes": [
+                "field_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "inline_predicate",
+                "inline_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_helpers": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ],
+            "post_gate_candidates": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ],
+            "execute_body_helpers": []
+        },
+        "CRailwayGunManualOrderCommand": {
+            "execute_helper_classes": [
+                "flag_gate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "flag_gate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ],
+            "post_gate_candidates": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ],
+            "execute_body_helpers": []
+        },
+        "CRailwayGunSetNameCommand": {
+            "execute_helper_classes": [
+                "field_predicate"
+            ],
+            "isvalid_helper_classes": [
+                "field_predicate",
+                "field_predicate",
+                "field_predicate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0x2284800"
+            ],
+            "isvalid_helpers": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ],
+            "post_gate_candidates": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ],
+            "execute_body_helpers": []
+        },
+        "CAiDiscardForceConcentrationTargetCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiOnFailedInvasionCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "flag_gate",
+                "field_predicate"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiStoreForceConcentrationTargetCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        },
+        "CAiStoreTotalWantedNrDivisionsCommand": {
+            "execute_helper_classes": [
+                "dispatcher_or_composite",
+                "flag_gate"
+            ],
+            "isvalid_helper_classes": [
+                "inline_predicate",
+                "inline_predicate",
+                "dispatcher_or_composite"
+            ],
+            "execute_helpers": [
+                "0xc07b80",
+                "0x254aa00"
+            ],
+            "isvalid_helpers": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "post_gate_candidates": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ],
+            "execute_body_helpers": [
+                "0xc07b80"
+            ]
+        }
+    },
+    "requirements_before_any_post": [
+        "CLAUSEWITZ_ALLOW_POST remains unset/false",
+        "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+        "midflight watcher RO only \u2014 no inject",
+        "never HourlyTick / GameSpeed writes",
+        "IsValid gate helpers observed but not patched",
+        "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+    ],
+    "named_helper_deep": {
+        "gamestate_instance_guard": {
+            "rva": "0xc07620",
+            "class": "dispatcher_or_composite",
+            "hits": 46,
+            "n_insns": 24,
+            "n_calls": 1,
+            "strings": None
+        },
+        "gamestate_instance_guard_b": {
+            "rva": "0xc07b80",
+            "class": "dispatcher_or_composite",
+            "hits": 34,
+            "n_insns": 24,
+            "n_calls": 1,
+            "strings": None
+        },
+        "gamestate_instance_guard_c": {
+            "rva": "0xc08580",
+            "class": "string_annotated",
+            "hits": 31,
+            "n_insns": 25,
+            "n_calls": 1,
+            "strings": None
+        },
+        "gamestate_instance_guard_d": {
+            "rva": "0xeebbd0",
+            "class": "dispatcher_or_composite",
+            "hits": 11,
+            "n_insns": 80,
+            "n_calls": 7,
+            "strings": None
+        },
+        "gamestate_instance_guard_e": {
+            "rva": "0x1c32980",
+            "class": "dispatcher_or_composite",
+            "hits": 10,
+            "n_insns": 24,
+            "n_calls": 1,
+            "strings": None
+        },
+        "thread_is_main_thread": {
+            "rva": "0x23c3a0",
+            "class": "dispatcher_or_composite",
+            "hits": 18,
+            "n_insns": 27,
+            "n_calls": 2,
+            "strings": None
+        },
+        "get_order_instance": {
+            "rva": "0xc40490",
+            "class": "dispatcher_or_composite",
+            "hits": 8,
+            "n_insns": 47,
+            "n_calls": 2,
+            "strings": None
+        },
+        "deployment_train_gate": {
+            "rva": "0xd6fe90",
+            "class": "dispatcher_or_composite",
+            "hits": 8,
+            "n_insns": 80,
+            "n_calls": 7,
+            "strings": None
+        },
+        "division_subunit_type_check": {
+            "rva": "0xbea570",
+            "class": "string_annotated",
+            "hits": 11,
+            "n_insns": 5,
+            "n_calls": 0,
+            "strings": None
+        }
+    },
+    "top_hitters_deep": {
+        "0x2284800": {
+            "class": "field_predicate",
+            "hits": 185,
+            "n_insns": 15,
+            "n_calls": 1
+        },
+        "0x254aa00": {
+            "class": "flag_gate",
+            "hits": 74,
+            "n_insns": 52,
+            "n_calls": 2
+        },
+        "0x2607890": {
+            "class": "inline_predicate",
+            "hits": 65,
+            "n_insns": 9,
+            "n_calls": 0
+        }
+    },
+    "post_implications": [
+        "ThreadIsMainThread (0x23c3a0) must hold at any future Post \u2014 observe only; never patch",
+        "gamestate_instance_guard* family gates many IsValid paths \u2014 Post candidates must pass live IsValid first",
+        "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes \u2014 subject must be live order id",
+        "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges \u2014 land Post recipes must carry valid subunit/type",
+        "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds \u2014 treat as shared plumbing not command-specific fields",
+        "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
+    ],
+    "live": {
+        "land_focus": "121/121",
+        "exe_proofs": "121/121",
+        "isvalid_paths": 134,
+        "shared_helpers": 40,
+        "named_helpers": 9,
+        "isvalid_gate_helpers": 39,
+        "execute_body_helpers": 22,
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+        "watcher_pid": 36128,
+        "tick": 1
+    }
+}
+
+
 TOOL_GATE_PREDICATES = {
     "status": "CLOSED_NOT_OPENED",
     "allow_post": False,
@@ -4104,7 +9004,7 @@ LAND_ARMY_FOCUS = {
             "subject_recipe": "army_subjects.support_attack_recipe",
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "handle": 40,
                 "province": 48,
@@ -4136,7 +9036,26 @@ LAND_ARMY_FOCUS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderNewFallbackCommand": {
             "name": "COrderNewFallbackCommand",
@@ -4172,7 +9091,7 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8'] | Phase 2cd helpers gates=3 body=5",
             "layout_alias": "ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -4209,7 +9128,37 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0x10b5f10"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderReplaceFallbackCommands": {
             "name": "COrderReplaceFallbackCommands",
@@ -4245,7 +9194,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
@@ -4279,7 +9228,28 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x18e580",
+                    "0x25c3770",
+                    "0x2607890",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetSelectedArmyGroupFallback": {
             "name": "CSetSelectedArmyGroupFallback",
@@ -4310,7 +9280,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50'] | Phase 2cd helpers gates=2 body=2",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -4337,7 +9307,30 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "CCancelRunningAwayCommand": {
             "name": "CCancelRunningAwayCommand",
@@ -4347,7 +9340,7 @@ LAND_ARMY_FOCUS = {
             "vt": 44225848,
             "size": 48,
             "factory": 20950336,
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80'] | Phase 2cd helpers gates=3 body=0",
             "subject_recipe": "army_subjects.cancel_running_away_recipe",
             "fields": {
                 "units_handle": 40,
@@ -4393,7 +9386,26 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CWithdrawArmyHqCommand": {
             "name": "CWithdrawArmyHqCommand",
@@ -4424,7 +9436,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs []",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs [] | Phase 2cd helpers gates=9 body=0",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_handle": 40,
@@ -4454,7 +9466,35 @@ LAND_ARMY_FOCUS = {
                 "0x25a05a4",
                 "0x12b330",
                 "0xc734f0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0xc47980",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc47980",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMassMoveCommand": {
             "name": "CMassMoveCommand",
@@ -4498,7 +9538,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48'] | Phase 2cd helpers gates=7 body=0",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "units_vec": 40,
@@ -4541,7 +9581,32 @@ LAND_ARMY_FOCUS = {
                 "0xc55940",
                 "0x1b8180",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CToggleStrategicDeploymentCommand": {
             "name": "CToggleStrategicDeploymentCommand",
@@ -4584,7 +9649,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28'] | Phase 2cd helpers gates=6 body=0",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -4623,7 +9688,31 @@ LAND_ARMY_FOCUS = {
                 "0x1b8180",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMoveArmiesInTheaterCommand": {
             "name": "CMoveArmiesInTheaterCommand",
@@ -4665,7 +9754,7 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0'] | Phase 2cd helpers gates=2 body=0",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -4698,7 +9787,24 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMoveArmyGroupInTheaterCommand": {
             "name": "CMoveArmyGroupInTheaterCommand",
@@ -4731,7 +9837,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98'] | Phase 2cd helpers gates=1 body=0",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -4754,7 +9860,21 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0xbbb1e0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0"
+                ],
+                "post_gate_candidates": [
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMassCancelMovementCommand": {
             "name": "CMassCancelMovementCommand",
@@ -4791,7 +9911,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -4823,7 +9943,34 @@ LAND_ARMY_FOCUS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "COrderNewFrontCommand": {
             "name": "COrderNewFrontCommand",
@@ -4869,7 +10016,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=5",
             "field_map": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -4914,7 +10061,37 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0x10b5f10"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderInsertFrontCommand": {
             "name": "COrderInsertFrontCommand",
@@ -4955,7 +10132,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec']",
+            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec'] | Phase 2cd helpers gates=3 body=6",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -4995,7 +10172,42 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x10b5f10",
+                    "0x25c3770",
+                    "0x2607f30",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x18e580",
+                    "0x25694b0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "COrderSetPathCommand": {
             "name": "COrderSetPathCommand",
@@ -5035,7 +10247,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -5066,7 +10278,27 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderReshapeCommand": {
             "name": "COrderReshapeCommand",
@@ -5107,7 +10339,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -5141,7 +10373,28 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderConnectCommand": {
             "name": "COrderConnectCommand",
@@ -5187,7 +10440,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50'] | Phase 2cd helpers gates=3 body=5",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -5232,7 +10485,38 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderReconnectCommand": {
             "name": "COrderReconnectCommand",
@@ -5276,7 +10560,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0'] | Phase 2cd helpers gates=3 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -5319,7 +10603,37 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0x18e580",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderSetCollapseCommand": {
             "name": "COrderSetCollapseCommand",
@@ -5353,7 +10667,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0'] | Phase 2cd helpers gates=1 body=6",
             "field_map": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -5386,7 +10700,38 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderAddNewCompletePlanCommand": {
             "name": "COrderAddNewCompletePlanCommand",
@@ -5427,7 +10772,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30'] | Phase 2cd helpers gates=7 body=0",
             "field_map": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -5466,7 +10811,32 @@ LAND_ARMY_FOCUS = {
                 "0x57f7b0",
                 "0x2284800",
                 "0x1b8180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0x1b8180"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderExecuteCommand": {
             "name": "COrderExecuteCommand",
@@ -5505,7 +10875,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -5534,7 +10904,27 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "CAssignToTheaterGroupCommand": {
             "name": "CAssignToTheaterGroupCommand",
@@ -5573,7 +10963,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39'] | Phase 2cd helpers gates=4 body=0",
             "field_map": {
                 "subject_at_28": 40,
                 "theater_or_group": 60,
@@ -5608,7 +10998,26 @@ LAND_ARMY_FOCUS = {
                 "0x25c3770",
                 "0x18dde70",
                 "0x16d9250"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CDisbandTheaterGroupCommand": {
             "name": "CDisbandTheaterGroupCommand",
@@ -5636,7 +11045,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28'] | Phase 2cd helpers gates=0 body=0",
             "field_map": {
                 "theater_handle": 40,
                 "arg0": 48,
@@ -5662,7 +11071,16 @@ LAND_ARMY_FOCUS = {
             ],
             "isvalid_calls": [
                 "0xd73540"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CReorderTheatersCommand": {
             "name": "CReorderTheatersCommand",
@@ -5693,7 +11111,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40'] | Phase 2cd helpers gates=0 body=0",
             "field_map": {
                 "theater_vec": 40,
                 "count_or_id": 48,
@@ -5714,7 +11132,17 @@ LAND_ARMY_FOCUS = {
             ],
             "isvalid_calls": [
                 "0xd73540"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetTheaterGroupNameCommand": {
             "name": "CSetTheaterGroupNameCommand",
@@ -5741,7 +11169,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30'] | Phase 2cd helpers gates=0 body=0",
             "field_map": {
                 "theater_group": 40,
                 "name_sso": 48,
@@ -5755,7 +11183,16 @@ LAND_ARMY_FOCUS = {
             ],
             "isvalid_calls": [
                 "0x18dde70"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetTheaterGroupPriorityCommand": {
             "name": "CSetTheaterGroupPriorityCommand",
@@ -5785,7 +11222,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30'] | Phase 2cd helpers gates=1 body=0",
             "field_map": {
                 "theater_group": 40,
                 "priority": 48,
@@ -5804,7 +11241,20 @@ LAND_ARMY_FOCUS = {
                 "0x18dde70",
                 "0x2284e60",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupExecutionTypeCommand": {
             "name": "CSetOrderGroupExecutionTypeCommand",
@@ -5832,7 +11282,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "order_group": 40,
                 "execution_type": 48,
@@ -5849,7 +11299,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "name": "CSetOrderGroupCohesionTypeCommand",
@@ -5876,7 +11343,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "order_group": 40,
                 "cohesion_type": 48,
@@ -5892,7 +11359,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupMotorizationCommand": {
             "name": "CSetOrderGroupMotorizationCommand",
@@ -5929,7 +11413,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "order_group": 40,
                 "motorization": 48,
@@ -5959,7 +11443,31 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetOrderGroupNameCommand": {
             "name": "CSetOrderGroupNameCommand",
@@ -5992,7 +11500,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "order_group": 40,
                 "name_sso": 48,
@@ -6016,7 +11524,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CCollapseConveyorCommand": {
             "name": "CCollapseConveyorCommand",
@@ -6057,7 +11582,7 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c'] | Phase 2cd helpers gates=9 body=5",
             "field_map": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
@@ -6104,7 +11629,56 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "COrderGroupCommand": {
             "name": "COrderGroupCommand",
@@ -6142,7 +11716,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48'] | Phase 2cd helpers gates=7 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -6181,7 +11755,34 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x22aea40",
                 "0x12b330"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x1e1510",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x57f7b0",
+                    "0x12b330",
+                    "0x22aea40"
+                ],
+                "execute_body_helpers": [],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderNewRootCommand": {
             "name": "COrderNewRootCommand",
@@ -6222,7 +11823,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0'] | Phase 2cd helpers gates=3 body=7",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -6262,7 +11863,45 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0xc40490",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderAssignCommand": {
             "name": "COrderAssignCommand",
@@ -6300,7 +11939,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f'] | Phase 2cd helpers gates=7 body=3",
             "field_map": {
                 "units_data": 40,
                 "units_count": 52,
@@ -6341,7 +11980,43 @@ LAND_ARMY_FOCUS = {
                 "0x2284800",
                 "0xbbb1e0",
                 "0x1b8180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x2607890",
+                    "0x18e580",
+                    "0xc08580",
+                    "0xc415b0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x1b8180"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc08580",
+                    "0xc415b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "COrderUnassignCommand": {
             "name": "COrderUnassignCommand",
@@ -6379,7 +12054,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120'] | Phase 2cd helpers gates=2 body=1",
             "layout_alias": "ORDERS",
             "field_map": {
                 "units_data": 40,
@@ -6412,7 +12087,27 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderDeleteCommand": {
             "name": "COrderDeleteCommand",
@@ -6453,7 +12148,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28'] | Phase 2cd helpers gates=3 body=2",
             "layout_alias": "ORDERS",
             "field_map": {
                 "order_index": 48,
@@ -6495,7 +12190,33 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25a0390",
+                    "0x254aa00",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CAssignToArmyGroupCommand": {
             "name": "CAssignToArmyGroupCommand",
@@ -6532,7 +12253,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48'] | Phase 2cd helpers gates=1 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_c": 48,
@@ -6567,7 +12288,24 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0xbbb1e0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x25a00d8",
+                    "0x2348bf0",
+                    "0x25c3770"
+                ],
+                "isvalid": [
+                    "0xbbb1e0"
+                ],
+                "post_gate_candidates": [
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CRemoveFromArmyGroupCommand": {
             "name": "CRemoveFromArmyGroupCommand",
@@ -6606,7 +12344,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "army_or_units": 40,
                 "group": 48,
@@ -6644,7 +12382,32 @@ LAND_ARMY_FOCUS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetOrderGroupIconAndColorCommand": {
             "name": "CSetOrderGroupIconAndColorCommand",
@@ -6673,7 +12436,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "order_group": 40,
                 "icon_or_color": 48,
@@ -6691,7 +12454,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupLeaderProximityCommand": {
             "name": "CSetOrderGroupLeaderProximityCommand",
@@ -6722,7 +12502,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "order_group": 40,
                 "proximity": 48,
@@ -6746,7 +12526,31 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "name": "CSetOrderGroupOrdersInstanceNamesCommand",
@@ -6777,7 +12581,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "order_group": 40,
                 "names_blob": 48,
@@ -6799,7 +12603,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CAutoMergeOrdersCommand": {
             "name": "CAutoMergeOrdersCommand",
@@ -6833,7 +12654,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -6864,7 +12685,32 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CDeleteOrderGroupCommand": {
             "name": "CDeleteOrderGroupCommand",
@@ -6895,7 +12741,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "order_group": 40,
                 "subject_or_handle": 40,
@@ -6919,7 +12765,29 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderDeleteAllCommand": {
             "name": "COrderDeleteAllCommand",
@@ -6951,7 +12819,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58'] | Phase 2cd helpers gates=3 body=3",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -6983,7 +12851,38 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xc07620",
+                    "0xbbb1e0",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CArmyGroupCommand": {
             "name": "CArmyGroupCommand",
@@ -7022,7 +12921,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60'] | Phase 2cd helpers gates=4 body=4",
             "field_map": {
                 "payload_28": 40,
                 "payload_2c": 44,
@@ -7063,7 +12962,43 @@ LAND_ARMY_FOCUS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0xc47980",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0xc07b80"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80",
+                    "0xc08580",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CDeployArmyHqCommand": {
             "name": "CDeployArmyHqCommand",
@@ -7100,7 +13035,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c'] | Phase 2cd helpers gates=11 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -7140,7 +13075,45 @@ LAND_ARMY_FOCUS = {
                 "0x22aea40",
                 "0x1e1510",
                 "0x25a04c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x74adb0",
+                    "0xc07b80",
+                    "0x22aea40",
+                    "0x1e1510",
+                    "0x25a00d8",
+                    "0x12b330",
+                    "0xc47980",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetArmyLeaderCommand": {
             "name": "CSetArmyLeaderCommand",
@@ -7177,7 +13150,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=5 body=1",
             "field_map": {
                 "leader": 40,
                 "deploy_army_hq": 56,
@@ -7220,7 +13193,34 @@ LAND_ARMY_FOCUS = {
                 "0xc47980",
                 "0x13f83b0",
                 "0x14027c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x2348bf0",
+                    "0x25c3770",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x25c3770",
+                    "0xc47980",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetArmyTemplateCommand": {
             "name": "CSetArmyTemplateCommand",
@@ -7259,7 +13259,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg8": 88
             },
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67'] | Phase 2cd helpers gates=11 body=2",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -7307,7 +13307,49 @@ LAND_ARMY_FOCUS = {
                 "0x34c220",
                 "0xc66f80",
                 "0x12b330"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0xc07b80",
+                    "0x22aea40",
+                    "0x120530",
+                    "0x254aa00",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CRailwayGunManualOrderCommand": {
             "name": "CRailwayGunManualOrderCommand",
@@ -7344,7 +13386,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg5": 68
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54'] | Phase 2cd helpers gates=5 body=0",
             "field_map": {
                 "subject": 40,
                 "extra_30": 48,
@@ -7376,7 +13418,30 @@ LAND_ARMY_FOCUS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetCountryGarrisonPriorityCommand": {
             "name": "CSetCountryGarrisonPriorityCommand",
@@ -7409,7 +13474,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=0 body=3",
             "field_map": {
                 "country": 40,
                 "priority": 44,
@@ -7433,7 +13498,26 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetCountryReinforcementPriorityCommand": {
             "name": "CSetCountryReinforcementPriorityCommand",
@@ -7466,7 +13550,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=0 body=3",
             "field_map": {
                 "country": 40,
                 "priority": 44,
@@ -7490,7 +13574,26 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetQuickDeployPreferenceCommand": {
             "name": "CSetQuickDeployPreferenceCommand",
@@ -7527,7 +13630,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38'] | Phase 2cd helpers gates=1 body=1",
             "field_map": {
                 "handles_vec": 40,
                 "handles_count": 52,
@@ -7557,7 +13660,26 @@ LAND_ARMY_FOCUS = {
                 "0xc07b80",
                 "0x741370",
                 "0xcf4da0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CMoveCommand": {
             "name": "CMoveCommand",
@@ -7590,7 +13712,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60'] | Phase 2cd helpers gates=10 body=1",
             "field_map": {
                 "unit_move_action": 40,
                 "subject_or_handle": 40,
@@ -7639,7 +13761,44 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeeda70"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0xc07b80",
+                    "0x2348bf0",
+                    "0x25c3770",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CStrategicRedeploymentCommand": {
             "name": "CStrategicRedeploymentCommand",
@@ -7671,7 +13830,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "strategic_action": 40,
                 "subject_or_handle": 40,
@@ -7710,7 +13869,30 @@ LAND_ARMY_FOCUS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "CCancelMovementCommand": {
             "name": "CCancelMovementCommand",
@@ -7742,7 +13924,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4'] | Phase 2cd helpers gates=7 body=0",
             "field_map": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -7778,7 +13960,32 @@ LAND_ARMY_FOCUS = {
                 "0x2607890",
                 "0x1e1510",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderBlockSectionsCommand": {
             "name": "COrderBlockSectionsCommand",
@@ -7814,7 +14021,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -7841,7 +14048,27 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderChildFrontRatioCommand": {
             "name": "COrderChildFrontRatioCommand",
@@ -7877,7 +14104,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -7904,7 +14131,27 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderEditRootCommand": {
             "name": "COrderEditRootCommand",
@@ -7936,7 +14183,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -7958,7 +14205,25 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderMembersFairSplitCommand": {
             "name": "COrderMembersFairSplitCommand",
@@ -7995,7 +14260,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -8032,7 +14297,35 @@ LAND_ARMY_FOCUS = {
                 "0x2284800",
                 "0x25c3770",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0x2607f30",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x18e580",
+                    "0x25694b0",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "COrderMergeRootsCommand": {
             "name": "COrderMergeRootsCommand",
@@ -8070,7 +14363,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -8109,7 +14402,32 @@ LAND_ARMY_FOCUS = {
                 "0x25c3770",
                 "0xc40230",
                 "0x10bc180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0x10b4e50",
+                    "0xbbb1e0",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderReorderChildFrontCommand": {
             "name": "COrderReorderChildFrontCommand",
@@ -8144,7 +14462,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -8179,7 +14497,31 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x18e580",
+                    "0x25c3770",
+                    "0x2607890",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderSetInvasionSourceCommand": {
             "name": "COrderSetInvasionSourceCommand",
@@ -8222,7 +14564,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0'] | Phase 2cd helpers gates=8 body=6",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8274,7 +14616,53 @@ LAND_ARMY_FOCUS = {
                 "0x22aea40",
                 "0x25a05a4",
                 "0x1216a0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc40230",
+                    "0x22aea40",
+                    "0x25a00d8",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230",
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x22aea40"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "get_order_instance",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderSetParadropSourceCommand": {
             "name": "COrderSetParadropSourceCommand",
@@ -8313,7 +14701,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0'] | Phase 2cd helpers gates=5 body=5",
             "field_map": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -8356,7 +14744,44 @@ LAND_ARMY_FOCUS = {
                 "0x219250",
                 "0xc40230",
                 "0x10bf130"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderSetParadropTargetCommand": {
             "name": "COrderSetParadropTargetCommand",
@@ -8397,7 +14822,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg8": 88
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40'] | Phase 2cd helpers gates=5 body=1",
             "field_map": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -8434,7 +14859,31 @@ LAND_ARMY_FOCUS = {
                 "0x219250",
                 "0xc40230",
                 "0x10be690"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderSetTrainingCommand": {
             "name": "COrderSetTrainingCommand",
@@ -8469,7 +14918,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "training_flag": 48,
@@ -8494,7 +14943,24 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrdersLinkCommand": {
             "name": "CSetOrdersLinkCommand",
@@ -8522,7 +14988,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10'] | Phase 2cd helpers gates=0 body=0",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -8538,7 +15004,16 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0x10b9f10"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x25a00d8"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetArmyLeaderPreferredTacticCommand": {
             "name": "CSetArmyLeaderPreferredTacticCommand",
@@ -8574,7 +15049,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48'] | Phase 2cd helpers gates=1 body=2",
             "field_map": {
                 "leader_or_army": 40,
                 "tactic": 48,
@@ -8607,7 +15082,30 @@ LAND_ARMY_FOCUS = {
                 "0xc47a80",
                 "0x2284800",
                 "0xc675d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetArmyFakeTemplateCommand": {
             "name": "CSetArmyFakeTemplateCommand",
@@ -8642,7 +15140,7 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10'] | Phase 2cd helpers gates=7 body=2",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -8678,7 +15176,42 @@ LAND_ARMY_FOCUS = {
                 "0x2284800",
                 "0x25c3770",
                 "0xce5f30"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CAddConveyorLineCommand": {
             "name": "CAddConveyorLineCommand",
@@ -8716,7 +15249,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58'] | Phase 2cd helpers gates=5 body=3",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -8757,7 +15290,43 @@ LAND_ARMY_FOCUS = {
                 "0xc07b80",
                 "0x1693c0",
                 "0xd6fe90"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x254aa00",
+                    "0x25a00d8",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07b80",
+                    "0xd6fe90"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xd472f0",
+                    "0xd6fe90",
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate"
+                ]
+            }
         },
         "CChangeConveyorPositionCommand": {
             "name": "CChangeConveyorPositionCommand",
@@ -8794,7 +15363,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38'] | Phase 2cd helpers gates=9 body=3",
             "field_map": {
                 "subject_or_vec": 40,
                 "position": 48,
@@ -8837,7 +15406,52 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x254aa00",
+                    "0x25a00d8",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CCreateConveyorCommand": {
             "name": "CCreateConveyorCommand",
@@ -8871,7 +15485,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c'] | Phase 2cd helpers gates=3 body=5",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8914,7 +15528,42 @@ LAND_ARMY_FOCUS = {
                 "0x164c870",
                 "0xbf4ce0",
                 "0xbf4af0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CCreateConveyorExtendedCommand": {
             "name": "CCreateConveyorExtendedCommand",
@@ -8952,7 +15601,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=5",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -8996,7 +15645,56 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CDeployConveyorCommand": {
             "name": "CDeployConveyorCommand",
@@ -9035,7 +15733,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -9076,7 +15774,52 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CDeployConveyorLineCommand": {
             "name": "CDeployConveyorLineCommand",
@@ -9114,7 +15857,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=13 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -9156,7 +15899,52 @@ LAND_ARMY_FOCUS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CRemoveConveyorCommand": {
             "name": "CRemoveConveyorCommand",
@@ -9190,7 +15978,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
@@ -9226,7 +16014,52 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980",
+                    "0xd47300"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CRemoveConveyorLineCommand": {
             "name": "CRemoveConveyorLineCommand",
@@ -9264,7 +16097,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=13 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -9306,7 +16139,52 @@ LAND_ARMY_FOCUS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorGroupCommand": {
             "name": "CSetConveyorGroupCommand",
@@ -9345,7 +16223,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70'] | Phase 2cd helpers gates=9 body=5",
             "field_map": {
                 "subject_or_vec": 40,
                 "group": 48,
@@ -9390,7 +16268,53 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorLocationCommand": {
             "name": "CSetConveyorLocationCommand",
@@ -9428,7 +16352,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=13 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "location": 48,
@@ -9475,7 +16399,50 @@ LAND_ARMY_FOCUS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorNameCommand": {
             "name": "CSetConveyorNameCommand",
@@ -9513,7 +16480,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -9548,7 +16515,31 @@ LAND_ARMY_FOCUS = {
             ],
             "isvalid_calls": [
                 "0x1c31490"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetConveyorPriorityCommand": {
             "name": "CSetConveyorPriorityCommand",
@@ -9586,7 +16577,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "priority": 48,
@@ -9620,7 +16611,31 @@ LAND_ARMY_FOCUS = {
             ],
             "isvalid_calls": [
                 "0x1c31490"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetConveyorSeriesCommand": {
             "name": "CSetConveyorSeriesCommand",
@@ -9658,7 +16673,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "field_map": {
                 "subject_or_vec": 40,
                 "series": 48,
@@ -9692,7 +16707,31 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x1c31490",
                 "0x2284e60"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CChangeConveyorTemplateCommand": {
             "name": "CChangeConveyorTemplateCommand",
@@ -9731,7 +16770,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60'] | Phase 2cd helpers gates=9 body=2",
             "field_map": {
                 "subject_or_vec": 40,
                 "template": 48,
@@ -9771,7 +16810,47 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25a00d8",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetCountryGarrisonTemplateCommand": {
             "name": "CSetCountryGarrisonTemplateCommand",
@@ -9810,7 +16889,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58'] | Phase 2cd helpers gates=0 body=3",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -9845,7 +16924,28 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetMainGarrisonTemplateCommand": {
             "name": "CSetMainGarrisonTemplateCommand",
@@ -9880,7 +16980,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8'] | Phase 2cd helpers gates=3 body=3",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -9910,7 +17010,36 @@ LAND_ARMY_FOCUS = {
                 "0x74adb0",
                 "0xc07b80",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetStateGarrisonTemplateCommand": {
             "name": "CSetStateGarrisonTemplateCommand",
@@ -9949,7 +17078,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34'] | Phase 2cd helpers gates=3 body=3",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -9987,7 +17116,38 @@ LAND_ARMY_FOCUS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xc08580"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07620",
+                    "0x2284800",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CRailwayGunSetNameCommand": {
             "name": "CRailwayGunSetNameCommand",
@@ -10024,7 +17184,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18'] | Phase 2cd helpers gates=4 body=0",
             "field_map": {
                 "subject": 40,
                 "name_sso": 48,
@@ -10054,7 +17214,26 @@ LAND_ARMY_FOCUS = {
                 "0x2284800",
                 "0x2348bf0",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x2348bf0",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetDeploymentLineNameCommand": {
             "name": "CSetDeploymentLineNameCommand",
@@ -10092,7 +17271,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54'] | Phase 2cd helpers gates=13 body=3",
             "field_map": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -10135,7 +17314,48 @@ LAND_ARMY_FOCUS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetRepairOrderCommand": {
             "name": "CSetRepairOrderCommand",
@@ -10174,7 +17394,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "field_map": {
                 "subject": 40,
                 "order_or_flag": 48,
@@ -10209,7 +17429,34 @@ LAND_ARMY_FOCUS = {
                 "0x3321f0",
                 "0x1b7950",
                 "0x6cad90"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CUpgradeDivisionOfficerCommand": {
             "name": "CUpgradeDivisionOfficerCommand",
@@ -10244,7 +17491,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38'] | Phase 2cd helpers gates=4 body=1",
             "field_map": {
                 "subject": 40,
                 "officer_or_id": 48,
@@ -10278,7 +17525,35 @@ LAND_ARMY_FOCUS = {
                 "0xc08580",
                 "0xc07b80",
                 "0x7251b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xc08580",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc08580",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetDivisionNameCommand": {
             "name": "CSetDivisionNameCommand",
@@ -10316,7 +17591,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38'] | Phase 2cd helpers gates=3 body=0",
             "field_map": {
                 "division": 40,
                 "name_sso": 48,
@@ -10349,7 +17624,24 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetObsoleteDivisionTemplateCommand": {
             "name": "CSetObsoleteDivisionTemplateCommand",
@@ -10388,7 +17680,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40'] | Phase 2cd helpers gates=3 body=2",
             "field_map": {
                 "template": 40,
                 "flag": 48,
@@ -10429,7 +17721,35 @@ LAND_ARMY_FOCUS = {
                 "0x164c870",
                 "0xbf4ce0",
                 "0xbf4af0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CBuildRailwayCommand": {
             "name": "CBuildRailwayCommand",
@@ -10470,7 +17790,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg5": 68
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38'] | Phase 2cd helpers gates=2 body=3",
             "field_map": {
                 "from_to_or_vec": 40,
                 "extra": 48,
@@ -10513,7 +17833,36 @@ LAND_ARMY_FOCUS = {
                 "0x581900",
                 "0x57c580",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0xc07620",
+                    "0x25a00d8",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CLearnTraitCommand": {
             "name": "CLearnTraitCommand",
@@ -10552,7 +17901,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48'] | Phase 2cd helpers gates=7 body=1",
             "field_map": {
                 "leader": 40,
                 "trait": 48,
@@ -10590,7 +17939,40 @@ LAND_ARMY_FOCUS = {
                 "0x12b330",
                 "0xc07b80",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x2607890",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CUpdateLeaderSeenTraitsCountCommand": {
             "name": "CUpdateLeaderSeenTraitsCountCommand",
@@ -10625,7 +18007,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8'] | Phase 2cd helpers gates=2 body=2",
             "field_map": {
                 "leader": 40,
                 "subject_or_handle": 40,
@@ -10659,7 +18041,32 @@ LAND_ARMY_FOCUS = {
                 "0xc08580",
                 "0xc50d50",
                 "0x1e25c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CAiDiscardForceConcentrationTargetCommand": {
             "name": "CAiDiscardForceConcentrationTargetCommand",
@@ -10701,7 +18108,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "execute_calls": [
                 "0xc07b80",
                 "0x716bc0",
@@ -10711,7 +18118,29 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiOnFailedInvasionCommand": {
             "name": "CAiOnFailedInvasionCommand",
@@ -10757,7 +18186,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20'] | Phase 2cd helpers gates=4 body=1",
             "execute_calls": [
                 "0xc07b80",
                 "0x716bc0",
@@ -10768,7 +18197,31 @@ LAND_ARMY_FOCUS = {
                 "0x2607890",
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiStoreForceConcentrationTargetCommand": {
             "name": "CAiStoreForceConcentrationTargetCommand",
@@ -10810,7 +18263,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "execute_calls": [
                 "0xc07b80",
                 "0x716bc0",
@@ -10820,7 +18273,29 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiStoreTotalWantedNrDivisionsCommand": {
             "name": "CAiStoreTotalWantedNrDivisionsCommand",
@@ -10862,7 +18337,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "execute_calls": [
                 "0xc07b80",
                 "0x716bc0",
@@ -10872,7 +18347,29 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CClearRepairPinsCommand": {
             "name": "CClearRepairPinsCommand",
@@ -10918,7 +18415,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "execute_calls": [
                 "0xc07620",
                 "0xed7020",
@@ -10929,7 +18426,34 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CCreateAreaDefenseCommand": {
             "name": "CCreateAreaDefenseCommand",
@@ -10971,7 +18495,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38'] | Phase 2cd helpers gates=3 body=2",
             "execute_calls": [
                 "0x2284800",
                 "0xc416b0",
@@ -10985,7 +18509,31 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CCreateUnitLeaderCommand": {
             "name": "CCreateUnitLeaderCommand",
@@ -11025,7 +18573,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0']",
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0'] | Phase 2cd helpers gates=1 body=2",
             "execute_calls": [
                 "0xc07620",
                 "0x7394e0",
@@ -11043,7 +18591,30 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0xc07b80",
                 "0x7251b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CDeleteUnitCommand": {
             "name": "CDeleteUnitCommand",
@@ -11105,7 +18676,7 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8'] | Phase 2cd helpers gates=7 body=2",
             "execute_calls": [
                 "0x2284800",
                 "0x254aa00",
@@ -11127,7 +18698,42 @@ LAND_ARMY_FOCUS = {
                 "0x25a009c",
                 "0x12b330",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x57f7b0",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CEditAreaDefenseStateCommand": {
             "name": "CEditAreaDefenseStateCommand",
@@ -11191,7 +18797,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "execute_calls": [
                 "0x2284800",
                 "0xc40230",
@@ -11210,7 +18816,35 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CMergeArmiesCommand": {
             "name": "CMergeArmiesCommand",
@@ -11274,7 +18908,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30'] | Phase 2cd helpers gates=7 body=0",
             "execute_calls": [
                 "0x2284800",
                 "0x11f6f0",
@@ -11293,7 +18927,33 @@ LAND_ARMY_FOCUS = {
                 "0xc55940",
                 "0x1b8180",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CPromoteUnitLeaderCommand": {
             "name": "CPromoteUnitLeaderCommand",
@@ -11341,7 +19001,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10'] | Phase 2cd helpers gates=3 body=1",
             "execute_calls": [
                 "0x2284800",
                 "0xc6c300",
@@ -11358,7 +19018,30 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CQueueUnitActionCommand": {
             "name": "CQueueUnitActionCommand",
@@ -11404,7 +19087,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20'] | Phase 2cd helpers gates=3 body=2",
             "execute_calls": [
                 "0x2284800",
                 "0xc58510",
@@ -11420,7 +19103,34 @@ LAND_ARMY_FOCUS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CReorderPinnedStrategicRegionCommand": {
             "name": "CReorderPinnedStrategicRegionCommand",
@@ -11476,7 +19186,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10'] | Phase 2cd helpers gates=2 body=0",
             "execute_calls": [
                 "0x254aa00",
                 "0x25a0390",
@@ -11486,7 +19196,24 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSelectionGroupCommand": {
             "name": "CSelectionGroupCommand",
@@ -11536,7 +19263,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80'] | Phase 2cd helpers gates=3 body=2",
             "execute_calls": [
                 "0x254aa00",
                 "0x25a0390",
@@ -11553,7 +19280,33 @@ LAND_ARMY_FOCUS = {
                 "0xc47a80",
                 "0x2284800",
                 "0xc675d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x22aea40",
+                    "0x25a00d8"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x22aea40"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetAreaDefenseSettingCommand": {
             "name": "CSetAreaDefenseSettingCommand",
@@ -11601,7 +19354,7 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90'] | Phase 2cd helpers gates=3 body=2",
             "execute_calls": [
                 "0x2284800",
                 "0xc40230",
@@ -11620,7 +19373,32 @@ LAND_ARMY_FOCUS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetPendingReassignTargetCommand": {
             "name": "CSetPendingReassignTargetCommand",
@@ -11668,7 +19446,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34'] | Phase 2cd helpers gates=2 body=1",
             "execute_calls": [
                 "0x2284800",
                 "0xc7d1c0",
@@ -11679,7 +19457,27 @@ LAND_ARMY_FOCUS = {
                 "0xc47a80",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetPreferredTacticCommand": {
             "name": "CSetPreferredTacticCommand",
@@ -11723,7 +19521,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60'] | Phase 2cd helpers gates=1 body=3",
             "execute_calls": [
                 "0xc07620",
                 "0xd26790",
@@ -11741,7 +19539,33 @@ LAND_ARMY_FOCUS = {
                 "0xc07b80",
                 "0x73ee00",
                 "0x707bc0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetTheatreCommand": {
             "name": "CSetTheatreCommand",
@@ -11781,7 +19605,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38'] | Phase 2cd helpers gates=3 body=1",
             "execute_calls": [
                 "0x2284800",
                 "0xc07620"
@@ -11790,7 +19614,29 @@ LAND_ARMY_FOCUS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetUnitNameCommand": {
             "name": "CSetUnitNameCommand",
@@ -11842,7 +19688,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18'] | Phase 2cd helpers gates=5 body=0",
             "execute_calls": [
                 "0x2284800",
                 "0xf000d0",
@@ -11854,7 +19700,28 @@ LAND_ARMY_FOCUS = {
                 "0x25c3770",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CTogglePinnedStrategicRegionCommand": {
             "name": "CTogglePinnedStrategicRegionCommand",
@@ -11910,7 +19777,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50'] | Phase 2cd helpers gates=2 body=0",
             "execute_calls": [
                 "0x254aa00",
                 "0x25a0390",
@@ -11920,7 +19787,24 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CTransportUnitCommand": {
             "name": "CTransportUnitCommand",
@@ -11958,7 +19842,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48'] | Phase 2cd helpers gates=3 body=0",
             "execute_calls": [
                 "0x2284800",
                 "0xc51500"
@@ -11967,7 +19851,24 @@ LAND_ARMY_FOCUS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CUpdateLeaderSeenAdvisorRolesCountCommand": {
             "name": "CUpdateLeaderSeenAdvisorRolesCountCommand",
@@ -12017,7 +19918,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8'] | Phase 2cd helpers gates=2 body=2",
             "execute_calls": [
                 "0x2284800",
                 "0x25694b0",
@@ -12035,7 +19936,32 @@ LAND_ARMY_FOCUS = {
                 "0xc08580",
                 "0xc50d50",
                 "0x1e25c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CRequestExpeditionariesCommand": {
             "name": "CRequestExpeditionariesCommand",
@@ -12081,7 +20007,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78'] | Phase 2cd helpers gates=4 body=2",
             "execute_calls": [
                 "0x254aa00",
                 "0x25a0390",
@@ -12103,7 +20029,42 @@ LAND_ARMY_FOCUS = {
                 "0xc08580",
                 "0x716bc0",
                 "0x2c2100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x2284800",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0x25a00d8",
+                    "0x120530",
+                    "0x18e580",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc07b80",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x22aea40"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CGiveMedalCommand": {
             "name": "CGiveMedalCommand",
@@ -12151,7 +20112,7 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58'] | Phase 2cd helpers gates=4 body=1",
             "execute_calls": [
                 "0x74ad20",
                 "0x2284800",
@@ -12177,7 +20138,34 @@ LAND_ARMY_FOCUS = {
                 "0x717370",
                 "0x14e3900",
                 "0x14e2d60"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CTriggerAbilityCommand": {
             "name": "CTriggerAbilityCommand",
@@ -12221,7 +20209,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68'] | Phase 2cd helpers gates=11 body=2",
             "execute_calls": [
                 "0x246ed0",
                 "0x65ad20",
@@ -12249,7 +20237,47 @@ LAND_ARMY_FOCUS = {
                 "0x581900",
                 "0x254aa00",
                 "0x5829b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0xc07b80",
+                    "0xc07620",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x254aa00",
+                    "0xc07b80",
+                    "0x12b330",
+                    "0x25a00d8",
+                    "0x120530"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x25a00d8"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CRetireCharacterCommand": {
             "name": "CRetireCharacterCommand",
@@ -12289,7 +20317,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=2 body=3",
             "execute_calls": [
                 "0x2284800",
                 "0xabc220",
@@ -12312,7 +20340,34 @@ LAND_ARMY_FOCUS = {
                 "0xc07b80",
                 "0x734ad0",
                 "0x11721d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CReinstateExileCommand": {
             "name": "CReinstateExileCommand",
@@ -12356,7 +20411,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38'] | Phase 2cd helpers gates=6 body=2",
             "execute_calls": [
                 "0xc07620",
                 "0x716fc0",
@@ -12382,7 +20437,41 @@ LAND_ARMY_FOCUS = {
                 "0x73aab0",
                 "0x1217a0",
                 "0x120530"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x23c3a0",
+                    "0x25a00d8"
+                ],
+                "isvalid": [
+                    "0x12b330",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc07b80",
+                    "0x120530"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330",
+                    "0x120530"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAmendForeignManpowerActionCommand": {
             "name": "CAmendForeignManpowerActionCommand",
@@ -12426,7 +20515,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28'] | Phase 2cd helpers gates=2 body=1",
             "execute_calls": [
                 "0x2284800",
                 "0x1b3b2b0",
@@ -12436,7 +20525,27 @@ LAND_ARMY_FOCUS = {
             "isvalid_calls": [
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         }
     },
     "retreat_group": [
@@ -12611,7 +20720,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48'] | Phase 2cd helpers gates=1 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_c": 48,
@@ -12646,7 +20755,24 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0xbbb1e0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x25a00d8",
+                    "0x2348bf0",
+                    "0x25c3770"
+                ],
+                "isvalid": [
+                    "0xbbb1e0"
+                ],
+                "post_gate_candidates": [
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CAssignToTheaterGroupCommand": {
             "execute": 28388224,
@@ -12675,7 +20801,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39'] | Phase 2cd helpers gates=4 body=0",
             "fields": {
                 "subject_at_28": 40,
                 "theater_or_group": 60,
@@ -12710,7 +20836,26 @@ LAND_EXE_PROOFS = {
                 "0x25c3770",
                 "0x18dde70",
                 "0x16d9250"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CCancelMovementCommand": {
             "execute": 20954064,
@@ -12739,7 +20884,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4'] | Phase 2cd helpers gates=7 body=0",
             "fields": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -12775,7 +20920,32 @@ LAND_EXE_PROOFS = {
                 "0x2607890",
                 "0x1e1510",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CCancelRunningAwayCommand": {
             "execute": 20954272,
@@ -12795,7 +20965,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "units_handle": 40,
                 "arg1_or_count": 52,
@@ -12825,7 +20995,26 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CCollapseConveyorCommand": {
             "execute": 29559088,
@@ -12856,7 +21045,7 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c'] | Phase 2cd helpers gates=9 body=5",
             "fields": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
@@ -12903,7 +21092,56 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CDisbandTheaterGroupCommand": {
             "execute": 28388624,
@@ -12921,7 +21159,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28'] | Phase 2cd helpers gates=0 body=0",
             "fields": {
                 "theater_handle": 40,
                 "arg0": 48,
@@ -12947,7 +21185,16 @@ LAND_EXE_PROOFS = {
             ],
             "isvalid_calls": [
                 "0xd73540"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMassCancelMovementCommand": {
             "execute": 18748704,
@@ -12973,7 +21220,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -13005,7 +21252,34 @@ LAND_EXE_PROOFS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CMassMoveCommand": {
             "execute": 20955920,
@@ -13039,7 +21313,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48'] | Phase 2cd helpers gates=7 body=0",
             "fields": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -13081,7 +21355,32 @@ LAND_EXE_PROOFS = {
                 "0xc55940",
                 "0x1b8180",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMoveArmiesInTheaterCommand": {
             "execute": 26031808,
@@ -13113,7 +21412,7 @@ LAND_EXE_PROOFS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0'] | Phase 2cd helpers gates=2 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "dest_or_path": 64,
@@ -13145,7 +21444,24 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMoveArmyGroupInTheaterCommand": {
             "execute": 26033040,
@@ -13168,7 +21484,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98'] | Phase 2cd helpers gates=1 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "dest_or_path": 64,
@@ -13190,7 +21506,21 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0xbbb1e0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0"
+                ],
+                "post_gate_candidates": [
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CMoveCommand": {
             "execute": 20957584,
@@ -13220,7 +21550,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60'] | Phase 2cd helpers gates=10 body=1",
             "fields": {
                 "unit_move_action": 40,
                 "subject_or_handle": 40,
@@ -13269,7 +21599,44 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeeda70"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0xc07b80",
+                    "0x2348bf0",
+                    "0x25c3770",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderAddNewCompletePlanCommand": {
             "execute": 26033968,
@@ -13300,7 +21667,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30'] | Phase 2cd helpers gates=7 body=0",
             "fields": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -13339,7 +21706,32 @@ LAND_EXE_PROOFS = {
                 "0x57f7b0",
                 "0x2284800",
                 "0x1b8180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0x1b8180"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderAssignCommand": {
             "execute": 26034608,
@@ -13366,7 +21758,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f'] | Phase 2cd helpers gates=7 body=3",
             "fields": {
                 "units_data": 40,
                 "units_count": 52,
@@ -13407,7 +21799,43 @@ LAND_EXE_PROOFS = {
                 "0x2284800",
                 "0xbbb1e0",
                 "0x1b8180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x2607890",
+                    "0x18e580",
+                    "0xc08580",
+                    "0xc415b0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x1b8180"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x57f7b0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc08580",
+                    "0xc415b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "COrderConnectCommand": {
             "execute": 26039456,
@@ -13442,7 +21870,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50'] | Phase 2cd helpers gates=3 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -13487,7 +21915,38 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderExecuteCommand": {
             "execute": 26043440,
@@ -13515,7 +21974,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -13544,7 +22003,27 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderGroupCommand": {
             "execute": 26043632,
@@ -13571,7 +22050,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48'] | Phase 2cd helpers gates=7 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -13610,7 +22089,34 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x22aea40",
                 "0x12b330"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x1e1510",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x57f7b0",
+                    "0x12b330",
+                    "0x22aea40"
+                ],
+                "execute_body_helpers": [],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderInsertFrontCommand": {
             "execute": 26043888,
@@ -13640,7 +22146,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec']",
+            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec'] | Phase 2cd helpers gates=3 body=6",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -13680,7 +22186,42 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x10b5f10",
+                    "0x25c3770",
+                    "0x2607f30",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x18e580",
+                    "0x25694b0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "COrderNewFallbackCommand": {
             "execute": 26054592,
@@ -13706,7 +22247,7 @@ LAND_EXE_PROOFS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8'] | Phase 2cd helpers gates=3 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "province_or_id": 48,
@@ -13742,7 +22283,37 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0x10b5f10"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderNewFrontCommand": {
             "execute": 26054656,
@@ -13777,7 +22348,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=5",
             "fields": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -13822,7 +22393,37 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0x10b4e50",
+                    "0x2607890",
+                    "0x10b5f10"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderNewRootCommand": {
             "execute": 26057152,
@@ -13852,7 +22453,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0'] | Phase 2cd helpers gates=3 body=7",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -13892,7 +22493,45 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0x10b5f10",
+                    "0xc40490",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderReconnectCommand": {
             "execute": 26058256,
@@ -13925,7 +22564,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0'] | Phase 2cd helpers gates=3 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -13968,7 +22607,37 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0x18e580",
+                    "0x10b5f10",
+                    "0x10b4e50",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x10b5f10",
+                    "0x10b4e50"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderReplaceFallbackCommands": {
             "execute": 26059696,
@@ -13994,7 +22663,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "arg0": 48,
@@ -14028,7 +22697,28 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x18e580",
+                    "0x25c3770",
+                    "0x2607890",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderReshapeCommand": {
             "execute": 26060752,
@@ -14058,7 +22748,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -14092,7 +22782,28 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderSetCollapseCommand": {
             "execute": 26060992,
@@ -14116,7 +22827,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0'] | Phase 2cd helpers gates=1 body=6",
             "fields": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -14149,7 +22860,38 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderSetPathCommand": {
             "execute": 26062576,
@@ -14178,7 +22920,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -14209,7 +22951,27 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "CRemoveFromArmyGroupCommand": {
             "execute": 26063296,
@@ -14237,7 +22999,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "army_or_units": 40,
                 "group": 48,
@@ -14275,7 +23037,32 @@ LAND_EXE_PROOFS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CReorderTheatersCommand": {
             "execute": 28389248,
@@ -14296,7 +23083,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40'] | Phase 2cd helpers gates=0 body=0",
             "fields": {
                 "theater_vec": 40,
                 "count_or_id": 48,
@@ -14317,7 +23104,17 @@ LAND_EXE_PROOFS = {
             ],
             "isvalid_calls": [
                 "0xd73540"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "execute": 26064448,
@@ -14334,7 +23131,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "order_group": 40,
                 "cohesion_type": 48,
@@ -14350,7 +23147,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupExecutionTypeCommand": {
             "execute": 26064560,
@@ -14368,7 +23182,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "order_group": 40,
                 "execution_type": 48,
@@ -14385,7 +23199,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupMotorizationCommand": {
             "execute": 26064848,
@@ -14412,7 +23243,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "order_group": 40,
                 "motorization": 48,
@@ -14442,7 +23273,31 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetSelectedArmyGroupFallback": {
             "execute": 26065632,
@@ -14463,7 +23318,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50'] | Phase 2cd helpers gates=2 body=2",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -14490,7 +23345,30 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "CSetTheaterGroupNameCommand": {
             "execute": 28391552,
@@ -14507,7 +23385,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30'] | Phase 2cd helpers gates=0 body=0",
             "fields": {
                 "theater_group": 40,
                 "name_sso": 48,
@@ -14521,7 +23399,16 @@ LAND_EXE_PROOFS = {
             ],
             "isvalid_calls": [
                 "0x18dde70"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetTheaterGroupPriorityCommand": {
             "execute": 28391616,
@@ -14541,7 +23428,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30'] | Phase 2cd helpers gates=1 body=0",
             "fields": {
                 "theater_group": 40,
                 "priority": 48,
@@ -14560,7 +23447,20 @@ LAND_EXE_PROOFS = {
                 "0x18dde70",
                 "0x2284e60",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CStrategicRedeploymentCommand": {
             "execute": 20957584,
@@ -14589,7 +23489,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "strategic_action": 40,
                 "subject_or_handle": 40,
@@ -14628,7 +23528,30 @@ LAND_EXE_PROOFS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "CSupportAttackCommand": {
             "execute": 20962560,
@@ -14657,7 +23580,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "handle": 40,
                 "province": 48,
@@ -14689,7 +23612,26 @@ LAND_EXE_PROOFS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CToggleStrategicDeploymentCommand": {
             "execute": 20962960,
@@ -14722,7 +23664,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28'] | Phase 2cd helpers gates=6 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "flag_30": 48,
@@ -14760,7 +23702,31 @@ LAND_EXE_PROOFS = {
                 "0x1b8180",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CWithdrawArmyHqCommand": {
             "execute": 20964000,
@@ -14781,7 +23747,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs []",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs [] | Phase 2cd helpers gates=9 body=0",
             "fields": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
@@ -14810,7 +23776,35 @@ LAND_EXE_PROOFS = {
                 "0x25a05a4",
                 "0x12b330",
                 "0xc734f0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0xc47980",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc47980",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupIconAndColorCommand": {
             "execute": 26064672,
@@ -14829,7 +23823,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "order_group": 40,
                 "icon_or_color": 48,
@@ -14847,7 +23841,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrderGroupLeaderProximityCommand": {
             "execute": 26064736,
@@ -14868,7 +23879,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "order_group": 40,
                 "proximity": 48,
@@ -14892,7 +23903,31 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "execute": 26065392,
@@ -14913,7 +23948,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "order_group": 40,
                 "names_blob": 48,
@@ -14935,7 +23970,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CAutoMergeOrdersCommand": {
             "execute": 26030576,
@@ -14959,7 +24011,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -14990,7 +24042,32 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CDeleteOrderGroupCommand": {
             "execute": 26030848,
@@ -15011,7 +24088,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "order_group": 40,
                 "subject_or_handle": 40,
@@ -15035,7 +24112,29 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderDeleteAllCommand": {
             "execute": 26040560,
@@ -15057,7 +24156,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58'] | Phase 2cd helpers gates=3 body=3",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -15089,7 +24188,38 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xc07620",
+                    "0xbbb1e0",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CArmyGroupCommand": {
             "execute": 26027472,
@@ -15118,7 +24248,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60'] | Phase 2cd helpers gates=4 body=4",
             "fields": {
                 "payload_28": 40,
                 "payload_2c": 44,
@@ -15159,7 +24289,43 @@ LAND_EXE_PROOFS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0xc47980",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0xc07b80"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80",
+                    "0xc08580",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderDeleteCommand": {
             "execute": 26042336,
@@ -15190,7 +24356,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "order_index": 48,
                 "subject_or_handle": 40,
@@ -15231,7 +24397,33 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25a0390",
+                    "0x254aa00",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "COrderUnassignCommand": {
             "execute": 26062928,
@@ -15259,7 +24451,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120'] | Phase 2cd helpers gates=2 body=1",
             "fields": {
                 "units_data": 40,
                 "units_count": 52,
@@ -15291,7 +24483,27 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0xbbb1e0",
                 "0x2284800"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetOrderGroupNameCommand": {
             "execute": 26065280,
@@ -15314,7 +24526,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "order_group": 40,
                 "name_sso": 48,
@@ -15338,7 +24550,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CDeployArmyHqCommand": {
             "execute": 20955536,
@@ -15365,7 +24594,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c'] | Phase 2cd helpers gates=11 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -15405,7 +24634,45 @@ LAND_EXE_PROOFS = {
                 "0x22aea40",
                 "0x1e1510",
                 "0x25a04c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x74adb0",
+                    "0xc07b80",
+                    "0x22aea40",
+                    "0x1e1510",
+                    "0x25a00d8",
+                    "0x12b330",
+                    "0xc47980",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetArmyLeaderCommand": {
             "execute": 26063552,
@@ -15432,7 +24699,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=5 body=1",
             "fields": {
                 "leader": 40,
                 "deploy_army_hq": 56,
@@ -15475,7 +24742,34 @@ LAND_EXE_PROOFS = {
                 "0xc47980",
                 "0x13f83b0",
                 "0x14027c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x2348bf0",
+                    "0x25c3770",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x25c3770",
+                    "0xc47980",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetArmyTemplateCommand": {
             "execute": 20960592,
@@ -15504,7 +24798,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg8": 88
             },
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67'] | Phase 2cd helpers gates=11 body=2",
             "fields": {
                 "army": 40,
                 "template": 48,
@@ -15552,7 +24846,49 @@ LAND_EXE_PROOFS = {
                 "0x34c220",
                 "0xc66f80",
                 "0x12b330"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0xc07b80",
+                    "0x22aea40",
+                    "0x120530",
+                    "0x254aa00",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CRailwayGunManualOrderCommand": {
             "execute": 15735040,
@@ -15579,7 +24915,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg5": 68
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54'] | Phase 2cd helpers gates=5 body=0",
             "fields": {
                 "subject": 40,
                 "extra_30": 48,
@@ -15611,7 +24947,30 @@ LAND_EXE_PROOFS = {
                 "0x2348bf0",
                 "0x2284800",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetCountryGarrisonPriorityCommand": {
             "execute": 18766208,
@@ -15634,7 +24993,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=0 body=3",
             "fields": {
                 "country": 40,
                 "priority": 44,
@@ -15658,7 +25017,26 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetCountryReinforcementPriorityCommand": {
             "execute": 18767552,
@@ -15681,7 +25059,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38'] | Phase 2cd helpers gates=0 body=3",
             "fields": {
                 "country": 40,
                 "priority": 44,
@@ -15705,7 +25083,26 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetQuickDeployPreferenceCommand": {
             "execute": 27072400,
@@ -15732,7 +25129,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38'] | Phase 2cd helpers gates=1 body=1",
             "fields": {
                 "handles_vec": 40,
                 "handles_count": 52,
@@ -15762,7 +25159,26 @@ LAND_EXE_PROOFS = {
                 "0xc07b80",
                 "0x741370",
                 "0xcf4da0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderBlockSectionsCommand": {
             "execute": 26039200,
@@ -15788,7 +25204,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -15815,7 +25231,27 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderChildFrontRatioCommand": {
             "execute": 26039280,
@@ -15841,7 +25277,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -15868,7 +25304,27 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderEditRootCommand": {
             "execute": 26043200,
@@ -15890,7 +25346,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -15912,7 +25368,25 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "COrderMembersFairSplitCommand": {
             "execute": 26044544,
@@ -15939,7 +25413,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -15976,7 +25450,35 @@ LAND_EXE_PROOFS = {
                 "0x2284800",
                 "0x25c3770",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0x2607f30",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x18e580",
+                    "0x25694b0",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x25694b0"
+                ],
+                "named": []
+            }
         },
         "COrderMergeRootsCommand": {
             "execute": 26053424,
@@ -16004,7 +25506,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -16043,7 +25545,32 @@ LAND_EXE_PROOFS = {
                 "0x25c3770",
                 "0xc40230",
                 "0x10bc180"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0x10b4e50",
+                    "0xbbb1e0",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x25c3770"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x10b4e50"
+                ],
+                "named": []
+            }
         },
         "COrderReorderChildFrontCommand": {
             "execute": 26059568,
@@ -16068,7 +25595,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -16103,7 +25630,31 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x18e580",
+                    "0x25c3770",
+                    "0x2607890",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderSetInvasionSourceCommand": {
             "execute": 26061056,
@@ -16136,7 +25687,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0'] | Phase 2cd helpers gates=8 body=6",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -16188,7 +25739,53 @@ LAND_EXE_PROOFS = {
                 "0x22aea40",
                 "0x25a05a4",
                 "0x1216a0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc40230",
+                    "0x22aea40",
+                    "0x25a00d8",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230",
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x22aea40"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "get_order_instance",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "COrderSetParadropSourceCommand": {
             "execute": 26061744,
@@ -16217,7 +25814,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0'] | Phase 2cd helpers gates=5 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -16260,7 +25857,44 @@ LAND_EXE_PROOFS = {
                 "0x219250",
                 "0xc40230",
                 "0x10bf130"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc415b0",
+                    "0xc416b0",
+                    "0xc40490",
+                    "0x57f7b0",
+                    "0xbbb1e0",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0x57f7b0",
+                    "0xc416b0",
+                    "0xc415b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "COrderSetParadropTargetCommand": {
             "execute": 26062480,
@@ -16291,7 +25925,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg8": 88
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40'] | Phase 2cd helpers gates=5 body=1",
             "fields": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -16328,7 +25962,31 @@ LAND_EXE_PROOFS = {
                 "0x219250",
                 "0xc40230",
                 "0x10be690"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0x25a0390",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230"
+                ],
+                "named": []
+            }
         },
         "COrderSetTrainingCommand": {
             "execute": 26062672,
@@ -16353,7 +26011,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "training_flag": 48,
@@ -16378,7 +26036,24 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xbbb1e0",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetOrdersLinkCommand": {
             "execute": 1392688,
@@ -16396,7 +26071,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10'] | Phase 2cd helpers gates=0 body=0",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -16412,7 +26087,16 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x10f12f0",
                 "0x10b9f10"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x25a00d8"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetArmyLeaderPreferredTacticCommand": {
             "execute": 18765376,
@@ -16438,7 +26122,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48'] | Phase 2cd helpers gates=1 body=2",
             "fields": {
                 "leader_or_army": 40,
                 "tactic": 48,
@@ -16471,7 +26155,30 @@ LAND_EXE_PROOFS = {
                 "0xc47a80",
                 "0x2284800",
                 "0xc675d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetArmyFakeTemplateCommand": {
             "execute": 20959984,
@@ -16496,7 +26203,7 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10'] | Phase 2cd helpers gates=7 body=2",
             "fields": {
                 "army": 40,
                 "template": 48,
@@ -16532,7 +26239,42 @@ LAND_EXE_PROOFS = {
                 "0x2284800",
                 "0x25c3770",
                 "0xce5f30"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CAddConveyorLineCommand": {
             "execute": 29558336,
@@ -16560,7 +26302,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58'] | Phase 2cd helpers gates=5 body=3",
             "fields": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -16601,7 +26343,43 @@ LAND_EXE_PROOFS = {
                 "0xc07b80",
                 "0x1693c0",
                 "0xd6fe90"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x254aa00",
+                    "0x25a00d8",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07b80",
+                    "0xd6fe90"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xd472f0",
+                    "0xd6fe90",
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate"
+                ]
+            }
         },
         "CChangeConveyorPositionCommand": {
             "execute": 29558528,
@@ -16628,7 +26406,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38'] | Phase 2cd helpers gates=9 body=3",
             "fields": {
                 "subject_or_vec": 40,
                 "position": 48,
@@ -16671,7 +26449,52 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x254aa00",
+                    "0x25a00d8",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CCreateConveyorCommand": {
             "execute": 29559168,
@@ -16695,7 +26518,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c'] | Phase 2cd helpers gates=3 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -16738,7 +26561,42 @@ LAND_EXE_PROOFS = {
                 "0x164c870",
                 "0xbf4ce0",
                 "0xbf4af0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CCreateConveyorExtendedCommand": {
             "execute": 29559328,
@@ -16766,7 +26624,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -16810,7 +26668,56 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07620",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CDeployConveyorCommand": {
             "execute": 29559584,
@@ -16839,7 +26746,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -16880,7 +26787,52 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CDeployConveyorLineCommand": {
             "execute": 29559696,
@@ -16908,7 +26860,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=13 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -16950,7 +26902,52 @@ LAND_EXE_PROOFS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CRemoveConveyorCommand": {
             "execute": 29559872,
@@ -16974,7 +26971,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48'] | Phase 2cd helpers gates=9 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "arg0": 48,
@@ -17010,7 +27007,52 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980",
+                    "0xd47300"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CRemoveConveyorLineCommand": {
             "execute": 29560000,
@@ -17038,7 +27080,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=13 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -17080,7 +27122,52 @@ LAND_EXE_PROOFS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620",
+                    "0xd72b50",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_e",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorGroupCommand": {
             "execute": 29560176,
@@ -17109,7 +27196,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70'] | Phase 2cd helpers gates=9 body=5",
             "fields": {
                 "subject_or_vec": 40,
                 "group": 48,
@@ -17154,7 +27241,53 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc40230",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorLocationCommand": {
             "execute": 29560368,
@@ -17182,7 +27315,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=13 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "location": 48,
@@ -17229,7 +27362,50 @@ LAND_EXE_PROOFS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetConveyorNameCommand": {
             "execute": 29560480,
@@ -17257,7 +27433,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -17292,7 +27468,31 @@ LAND_EXE_PROOFS = {
             ],
             "isvalid_calls": [
                 "0x1c31490"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetConveyorPriorityCommand": {
             "execute": 29560592,
@@ -17320,7 +27520,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "priority": 48,
@@ -17354,7 +27554,31 @@ LAND_EXE_PROOFS = {
             ],
             "isvalid_calls": [
                 "0x1c31490"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd472f0",
+                    "0xd4b2c0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetConveyorSeriesCommand": {
             "execute": 29560704,
@@ -17382,7 +27606,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50'] | Phase 2cd helpers gates=1 body=4",
             "fields": {
                 "subject_or_vec": 40,
                 "series": 48,
@@ -17416,7 +27640,31 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x1c31490",
                 "0x2284e60"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd4b2c0",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490"
+                ],
+                "post_gate_candidates": [
+                    "0x1c31490"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300",
+                    "0xd4b2c0"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CChangeConveyorTemplateCommand": {
             "execute": 29558816,
@@ -17445,7 +27693,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60'] | Phase 2cd helpers gates=9 body=2",
             "fields": {
                 "subject_or_vec": 40,
                 "template": 48,
@@ -17485,7 +27733,47 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xeebbd0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25a00d8",
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc07b80",
+                    "0xd6fe90",
+                    "0xbf3360",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07b80",
+                    "0x74adb0",
+                    "0xbea570",
+                    "0xbf3360",
+                    "0xeebbd0"
+                ],
+                "execute_body_helpers": [
+                    "0xd472f0",
+                    "0x1c32980"
+                ],
+                "named": [
+                    "gamestate_instance_guard_e",
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_b",
+                    "deployment_train_gate",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetCountryGarrisonTemplateCommand": {
             "execute": 18766368,
@@ -17514,7 +27802,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58'] | Phase 2cd helpers gates=0 body=3",
             "fields": {
                 "country_or_state": 40,
                 "template": 48,
@@ -17549,7 +27837,28 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x3b65a0",
                 "0xac1e20"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800",
+                    "0x254aa00",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [],
+                "post_gate_candidates": [],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CSetMainGarrisonTemplateCommand": {
             "execute": 18768480,
@@ -17574,7 +27883,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8'] | Phase 2cd helpers gates=3 body=3",
             "fields": {
                 "country_or_state": 40,
                 "template": 48,
@@ -17604,7 +27913,36 @@ LAND_EXE_PROOFS = {
                 "0x74adb0",
                 "0xc07b80",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x2284800",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80",
+                    "0x25a00d8",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetStateGarrisonTemplateCommand": {
             "execute": 18774320,
@@ -17633,7 +27971,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34'] | Phase 2cd helpers gates=3 body=3",
             "fields": {
                 "country_or_state": 40,
                 "template": 48,
@@ -17671,7 +28009,38 @@ LAND_EXE_PROOFS = {
                 "0x254aa00",
                 "0x25a0390",
                 "0xc08580"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07620",
+                    "0x2284800",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CRailwayGunSetNameCommand": {
             "execute": 15735616,
@@ -17698,7 +28067,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18'] | Phase 2cd helpers gates=4 body=0",
             "fields": {
                 "subject": 40,
                 "name_sso": 48,
@@ -17728,7 +28097,26 @@ LAND_EXE_PROOFS = {
                 "0x2284800",
                 "0x2348bf0",
                 "0x25c3770"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0x2348bf0",
+                    "0x25c3770"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetDeploymentLineNameCommand": {
             "execute": 29560816,
@@ -17756,7 +28144,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54'] | Phase 2cd helpers gates=13 body=3",
             "fields": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -17799,7 +28187,48 @@ LAND_EXE_PROOFS = {
                 "0x25a0390",
                 "0xeebbd0",
                 "0xc08100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xd47300",
+                    "0xd472f0",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1c31490",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2284800",
+                    "0xbf3360",
+                    "0xd472f0",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xeebbd0",
+                    "0x12b330",
+                    "0x11f240",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xd472f0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xd472f0",
+                    "0xd47300"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_d"
+                ]
+            }
         },
         "CSetRepairOrderCommand": {
             "execute": 18772176,
@@ -17828,7 +28257,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "fields": {
                 "subject": 40,
                 "order_or_flag": 48,
@@ -17863,7 +28292,34 @@ LAND_EXE_PROOFS = {
                 "0x3321f0",
                 "0x1b7950",
                 "0x6cad90"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CUpgradeDivisionOfficerCommand": {
             "execute": 18782368,
@@ -17888,7 +28344,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38'] | Phase 2cd helpers gates=4 body=1",
             "fields": {
                 "subject": 40,
                 "officer_or_id": 48,
@@ -17922,7 +28378,35 @@ LAND_EXE_PROOFS = {
                 "0xc08580",
                 "0xc07b80",
                 "0x7251b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x2284800",
+                    "0xc08580",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc08580",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetDivisionNameCommand": {
             "execute": 20961888,
@@ -17950,7 +28434,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38'] | Phase 2cd helpers gates=3 body=0",
             "fields": {
                 "division": 40,
                 "name_sso": 48,
@@ -17983,7 +28467,24 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSetObsoleteDivisionTemplateCommand": {
             "execute": 29544160,
@@ -18012,7 +28513,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40'] | Phase 2cd helpers gates=3 body=2",
             "fields": {
                 "template": 40,
                 "flag": 48,
@@ -18053,7 +28554,35 @@ LAND_EXE_PROOFS = {
                 "0x164c870",
                 "0xbf4ce0",
                 "0xbf4af0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xbea570",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x74adb0",
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x74adb0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "division_subunit_type_check",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CBuildRailwayCommand": {
             "execute": 18728992,
@@ -18084,7 +28613,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg5": 68
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38'] | Phase 2cd helpers gates=2 body=3",
             "fields": {
                 "from_to_or_vec": 40,
                 "extra": 48,
@@ -18127,7 +28656,36 @@ LAND_EXE_PROOFS = {
                 "0x581900",
                 "0x57c580",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0xc07620",
+                    "0x25a00d8",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CLearnTraitCommand": {
             "execute": 26031664,
@@ -18156,7 +28714,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48'] | Phase 2cd helpers gates=7 body=1",
             "fields": {
                 "leader": 40,
                 "trait": 48,
@@ -18194,7 +28752,40 @@ LAND_EXE_PROOFS = {
                 "0x12b330",
                 "0xc07b80",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x2607890",
+                    "0x18e580"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0xc07b80",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CUpdateLeaderSeenTraitsCountCommand": {
             "execute": 26065792,
@@ -18219,7 +28810,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8'] | Phase 2cd helpers gates=2 body=2",
             "fields": {
                 "leader": 40,
                 "subject_or_handle": 40,
@@ -18253,7 +28844,32 @@ LAND_EXE_PROOFS = {
                 "0xc08580",
                 "0xc50d50",
                 "0x1e25c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CAiDiscardForceConcentrationTargetCommand": {
             "name": "CAiDiscardForceConcentrationTargetCommand",
@@ -18273,7 +28889,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347008,
             "size": 56,
@@ -18301,7 +28917,29 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiOnFailedInvasionCommand": {
             "name": "CAiOnFailedInvasionCommand",
@@ -18323,7 +28961,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20'] | Phase 2cd helpers gates=4 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347024,
             "size": 48,
@@ -18354,7 +28992,31 @@ LAND_EXE_PROOFS = {
                 "0x2607890",
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x25a0390",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiStoreForceConcentrationTargetCommand": {
             "name": "CAiStoreForceConcentrationTargetCommand",
@@ -18374,7 +29036,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347040,
             "size": 64,
@@ -18402,7 +29064,29 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAiStoreTotalWantedNrDivisionsCommand": {
             "name": "CAiStoreTotalWantedNrDivisionsCommand",
@@ -18422,7 +29106,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20'] | Phase 2cd helpers gates=3 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347056,
             "size": 56,
@@ -18450,7 +29134,29 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07b80",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CClearRepairPinsCommand": {
             "name": "CClearRepairPinsCommand",
@@ -18472,7 +29178,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18786592,
             "size": 48,
@@ -18503,7 +29209,34 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CCreateAreaDefenseCommand": {
             "name": "CCreateAreaDefenseCommand",
@@ -18523,7 +29256,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38'] | Phase 2cd helpers gates=3 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069520,
             "size": 80,
@@ -18555,7 +29288,31 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc47980"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc47980"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc47980"
+                ],
+                "execute_body_helpers": [
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CCreateUnitLeaderCommand": {
             "name": "CCreateUnitLeaderCommand",
@@ -18574,7 +29331,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0']",
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0'] | Phase 2cd helpers gates=1 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18786640,
             "size": 48,
@@ -18609,7 +29366,30 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0xc07b80",
                 "0x7251b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CDeleteUnitCommand": {
             "name": "CDeleteUnitCommand",
@@ -18639,7 +29419,7 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8'] | Phase 2cd helpers gates=7 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964096,
             "size": 56,
@@ -18689,7 +29469,42 @@ LAND_EXE_PROOFS = {
                 "0x25a009c",
                 "0x12b330",
                 "0x25a00d8"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2284800",
+                    "0x12b330",
+                    "0x25a00d8"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x57f7b0",
+                    "0x12b330"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CEditAreaDefenseStateCommand": {
             "name": "CEditAreaDefenseStateCommand",
@@ -18720,7 +29535,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40'] | Phase 2cd helpers gates=3 body=3",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069552,
             "size": 88,
@@ -18768,7 +29583,35 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0x254aa00",
+                    "0xbbb1e0",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc416b0",
+                    "0xc40490"
+                ],
+                "named": [
+                    "get_order_instance"
+                ]
+            }
         },
         "CMergeArmiesCommand": {
             "name": "CMergeArmiesCommand",
@@ -18799,7 +29642,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30'] | Phase 2cd helpers gates=7 body=0",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964144,
             "size": 72,
@@ -18847,7 +29690,33 @@ LAND_EXE_PROOFS = {
                 "0xc55940",
                 "0x1b8180",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1b8180",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x2348bf0",
+                    "0x1b8180"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CPromoteUnitLeaderCommand": {
             "name": "CPromoteUnitLeaderCommand",
@@ -18870,7 +29739,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10'] | Phase 2cd helpers gates=3 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964208,
             "size": 48,
@@ -18908,7 +29777,30 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0x254aa00"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CQueueUnitActionCommand": {
             "name": "CQueueUnitActionCommand",
@@ -18930,7 +29822,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20'] | Phase 2cd helpers gates=3 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964224,
             "size": 56,
@@ -18966,7 +29858,34 @@ LAND_EXE_PROOFS = {
                 "0x1e1510",
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread"
+                ]
+            }
         },
         "CReorderPinnedStrategicRegionCommand": {
             "name": "CReorderPinnedStrategicRegionCommand",
@@ -18993,7 +29912,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10'] | Phase 2cd helpers gates=2 body=0",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447136,
             "size": 56,
@@ -19028,7 +29947,24 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CSelectionGroupCommand": {
             "name": "CSelectionGroupCommand",
@@ -19052,7 +29988,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80'] | Phase 2cd helpers gates=3 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18787184,
             "size": 80,
@@ -19091,7 +30027,33 @@ LAND_EXE_PROOFS = {
                 "0xc47a80",
                 "0x2284800",
                 "0xc675d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x22aea40",
+                    "0x25a00d8"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2284800"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x22aea40"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CSetAreaDefenseSettingCommand": {
             "name": "CSetAreaDefenseSettingCommand",
@@ -19114,7 +30076,7 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90'] | Phase 2cd helpers gates=3 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26070160,
             "size": 56,
@@ -19154,7 +30116,32 @@ LAND_EXE_PROOFS = {
                 "0xbbb1e0",
                 "0x2284800",
                 "0xc40230"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc40230",
+                    "0xc47980",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc40230"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc40230"
+                ],
+                "execute_body_helpers": [
+                    "0xc40230",
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetPendingReassignTargetCommand": {
             "name": "CSetPendingReassignTargetCommand",
@@ -19177,7 +30164,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34'] | Phase 2cd helpers gates=2 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964320,
             "size": 64,
@@ -19209,7 +30196,27 @@ LAND_EXE_PROOFS = {
                 "0xc47a80",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetPreferredTacticCommand": {
             "name": "CSetPreferredTacticCommand",
@@ -19230,7 +30237,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60'] | Phase 2cd helpers gates=1 body=3",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18787376,
             "size": 56,
@@ -19267,7 +30274,33 @@ LAND_EXE_PROOFS = {
                 "0xc07b80",
                 "0x73ee00",
                 "0x707bc0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CSetTheatreCommand": {
             "name": "CSetTheatreCommand",
@@ -19286,7 +30319,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38'] | Phase 2cd helpers gates=3 body=1",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964352,
             "size": 56,
@@ -19312,7 +30345,29 @@ LAND_EXE_PROOFS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620"
+                ],
+                "named": [
+                    "gamestate_instance_guard"
+                ]
+            }
         },
         "CSetUnitNameCommand": {
             "name": "CSetUnitNameCommand",
@@ -19337,7 +30392,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18'] | Phase 2cd helpers gates=5 body=0",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964368,
             "size": 80,
@@ -19372,7 +30427,28 @@ LAND_EXE_PROOFS = {
                 "0x25c3770",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CTogglePinnedStrategicRegionCommand": {
             "name": "CTogglePinnedStrategicRegionCommand",
@@ -19399,7 +30475,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50'] | Phase 2cd helpers gates=2 body=0",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447152,
             "size": 48,
@@ -19434,7 +30510,24 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x254aa00",
                 "0x25a0390"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "post_gate_candidates": [
+                    "0x254aa00",
+                    "0x25a0390"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CTransportUnitCommand": {
             "name": "CTransportUnitCommand",
@@ -19452,7 +30545,7 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48'] | Phase 2cd helpers gates=3 body=0",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964432,
             "size": 88,
@@ -19477,7 +30570,24 @@ LAND_EXE_PROOFS = {
                 "0x57f7b0",
                 "0x1e1510",
                 "0x2607890"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x57f7b0",
+                    "0x1e1510",
+                    "0x2607890"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x1e1510",
+                    "0x57f7b0"
+                ],
+                "execute_body_helpers": [],
+                "named": []
+            }
         },
         "CUpdateLeaderSeenAdvisorRolesCountCommand": {
             "name": "CUpdateLeaderSeenAdvisorRolesCountCommand",
@@ -19501,7 +30611,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8'] | Phase 2cd helpers gates=2 body=2",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26070352,
             "size": 56,
@@ -19541,7 +30651,32 @@ LAND_EXE_PROOFS = {
                 "0xc08580",
                 "0xc50d50",
                 "0x1e25c0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x25694b0",
+                    "0x254aa00",
+                    "0x2607f30",
+                    "0x10b5f10",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0x10b5f10",
+                    "0x25694b0"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CRequestExpeditionariesCommand": {
             "name": "CRequestExpeditionariesCommand",
@@ -19571,7 +30706,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6341,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78'] | Phase 2cd helpers gates=4 body=2",
             "fields": {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
@@ -19606,7 +30741,42 @@ LAND_EXE_PROOFS = {
                 "0xc08580",
                 "0x716bc0",
                 "0x2c2100"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580",
+                    "0x2284800",
+                    "0x22aea40",
+                    "0x12b330",
+                    "0x25a00d8",
+                    "0x120530",
+                    "0x18e580",
+                    "0x2607890"
+                ],
+                "isvalid": [
+                    "0xbbb1e0",
+                    "0x2284800",
+                    "0xc07b80",
+                    "0xc08580"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xbbb1e0",
+                    "0xc07b80",
+                    "0xc08580"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580",
+                    "0x22aea40"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b",
+                    "gamestate_instance_guard_c"
+                ]
+            }
         },
         "CGiveMedalCommand": {
             "name": "CGiveMedalCommand",
@@ -19637,7 +30807,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6871,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58'] | Phase 2cd helpers gates=4 body=1",
             "fields": {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
@@ -19677,7 +30847,34 @@ LAND_EXE_PROOFS = {
                 "0x717370",
                 "0x14e3900",
                 "0x14e2d60"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0xc08580"
+                ],
+                "isvalid": [
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80",
+                    "0x25c3770",
+                    "0x2348bf0"
+                ],
+                "execute_body_helpers": [
+                    "0xc08580"
+                ],
+                "named": [
+                    "gamestate_instance_guard_c",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CTriggerAbilityCommand": {
             "name": "CTriggerAbilityCommand",
@@ -19706,7 +30903,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 5513,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68'] | Phase 2cd helpers gates=11 body=2",
             "fields": {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
@@ -19746,7 +30943,47 @@ LAND_EXE_PROOFS = {
                 "0x581900",
                 "0x254aa00",
                 "0x5829b0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x254aa00",
+                    "0xc07b80",
+                    "0xc07620",
+                    "0x2284800"
+                ],
+                "isvalid": [
+                    "0x1e1510",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x2348bf0",
+                    "0x2284800",
+                    "0x25c3770",
+                    "0x254aa00",
+                    "0xc07b80",
+                    "0x12b330",
+                    "0x25a00d8",
+                    "0x120530"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0x254aa00",
+                    "0x2607890",
+                    "0x1e1510",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25c3770",
+                    "0x25a00d8"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b",
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CRetireCharacterCommand": {
             "name": "CRetireCharacterCommand",
@@ -19773,7 +31010,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 10624,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48'] | Phase 2cd helpers gates=2 body=3",
             "fields": {
                 "subject_lo": 40,
                 "vptr_or_hdr": 16,
@@ -19806,7 +31043,34 @@ LAND_EXE_PROOFS = {
                 "0xc07b80",
                 "0x734ad0",
                 "0x11721d0"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "isvalid": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "post_gate_candidates": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0xc08580",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "gamestate_instance_guard_c",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CReinstateExileCommand": {
             "name": "CReinstateExileCommand",
@@ -19835,7 +31099,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6317,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38'] | Phase 2cd helpers gates=6 body=2",
             "fields": {
                 "subject_lo": 40,
                 "arg0_or_type": 48,
@@ -19873,7 +31137,41 @@ LAND_EXE_PROOFS = {
                 "0x73aab0",
                 "0x1217a0",
                 "0x120530"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0xc07620",
+                    "0x254aa00",
+                    "0x25a0390",
+                    "0x23c3a0",
+                    "0x25a00d8"
+                ],
+                "isvalid": [
+                    "0x12b330",
+                    "0x2607890",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0xc07b80",
+                    "0x120530"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0xc07b80",
+                    "0x11f240",
+                    "0x25a00d8",
+                    "0x12b330",
+                    "0x120530"
+                ],
+                "execute_body_helpers": [
+                    "0xc07620",
+                    "0x23c3a0"
+                ],
+                "named": [
+                    "gamestate_instance_guard",
+                    "thread_is_main_thread",
+                    "gamestate_instance_guard_b"
+                ]
+            }
         },
         "CAmendForeignManpowerActionCommand": {
             "name": "CAmendForeignManpowerActionCommand",
@@ -19902,7 +31200,7 @@ LAND_EXE_PROOFS = {
             "factory_idx": 10138,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28'] | Phase 2cd helpers gates=2 body=1",
             "fields": {
                 "arg6_or_plan": 72,
                 "vptr_or_hdr": 16,
@@ -19924,7 +31222,27 @@ LAND_EXE_PROOFS = {
             "isvalid_calls": [
                 "0x2607890",
                 "0x11f240"
-            ]
+            ],
+            "shared_helpers": {
+                "execute": [
+                    "0x2284800",
+                    "0xc07b80"
+                ],
+                "isvalid": [
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "post_gate_candidates": [
+                    "0x2607890",
+                    "0x11f240"
+                ],
+                "execute_body_helpers": [
+                    "0xc07b80"
+                ],
+                "named": [
+                    "gamestate_instance_guard_b"
+                ]
+            }
         }
     }
 }

@@ -445,3 +445,24 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x.
+
+## Phase 2cd (overnight RO — shared helper mine + land Post readiness catalog)
+
+### Works
+- Mined all **40** shared land helpers (≥3 callgraph hits from 2cc) into `SHARED_LAND_HELPERS` + `LAND_POST_READINESS` (docs only; never enables Post).
+- Helper classes: field_predicate **14**, dispatcher_or_composite **16**, inline_predicate **4**, wide_object_walk **3**, string_annotated **2**, flag_gate **1**.
+- Post-readiness signals: **39** IsValid-gate-looking helpers; **22** Execute-body helpers.
+- Named helpers Capstone-deepened: gamestate_instance_guard×5, ThreadIsMainThread, GetOrderInstance, deployment_train_gate, division_subunit_type_check; top hitters `0x2284800`×185 (field_predicate), `0x254aa00`×74 (flag_gate), `0x2607890`×65 (inline_predicate).
+- Wired `shared_helpers` / `post_gate_candidates` / `execute_body_helpers` / `named` onto LAND focus + EXE proofs + ISVALID_PATHS.
+- Recipe: `land_post_readiness_recipe()` RO snapshot.
+- **LAND 121/121**, **ISVALID_PATHS 134** unchanged; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Navy/air/division-template/production/GameSpeed/HourlyTick out of land Post scope.
+- No helper patching, no inject, no Post attempt.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
