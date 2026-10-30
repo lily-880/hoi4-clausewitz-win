@@ -131,6 +131,11 @@ PROVEN_STATIC = {
     "CStartGameCommand_EXECUTE": 0x16DE180,
     "CCommand_STUB_TRUE": 0x188D90,  # mov al,1;ret — StartGame early/post-exec
     "CCommand_STUB_FALSE": 0x11D530,  # xor al,al;ret — Move early-drop
+    # Phase 2aa — speed cmds documented RO only; NEVER Post (5x ban)
+    "CIncreaseGameSpeedCommand_VT": 0x29F37C8,
+    "CDecreaseGameSpeedCommand_VT": 0x29F3880,
+    "CSetGameSpeedCommand_VT": 0x29F3938,
+    "CHourlyTickCommand_VT": 0x29F3710,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

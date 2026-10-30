@@ -791,6 +791,23 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2z_startgame.py [--live]`
 
+## Phase 2aa — CCommand early-gate catalog (writes DISABLED)
+
+| Command | vt+0x60 | vt+0x80 | notes |
+|---------|---------|---------|-------|
+| CMoveCommand | FALSE | FALSE | needs session+0x725 or r8b |
+| CCancelMovementCommand | FALSE | FALSE | |
+| COrderExecuteCommand | FALSE | FALSE | |
+| CChatCommand | FALSE | TRUE | mixed |
+| CStartGameCommand | TRUE | TRUE | sticky post-exec |
+| C*GameSpeed* / HourlyTick | FALSE | TRUE | **NEVER Post** (5x ban) |
+
+Live `session+0x725==1` bypasses FALSE `vt+0x60` in Post. Stub TRUE=`0x188d90`, FALSE=`0x11d530`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2aa_early_gates.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

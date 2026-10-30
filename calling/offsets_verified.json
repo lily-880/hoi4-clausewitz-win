@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2z-startgame-earlygate-true-writes-still-disabled",
+  "status": "phase2aa-earlygate-catalog-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -407,6 +407,34 @@
         "sticky_post_exec": true
       },
       "contrast": "CMoveCommand early stubs FALSE (0x11d530)",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2aa": {
+      "known": {
+        "CMoveCommand": {
+          "vt60": "FALSE",
+          "vt80": "FALSE"
+        },
+        "CCancelMovementCommand": {
+          "vt60": "FALSE",
+          "vt80": "FALSE"
+        },
+        "CChatCommand": {
+          "vt60": "FALSE",
+          "vt80": "TRUE"
+        },
+        "COrderExecuteCommand": {
+          "vt60": "FALSE",
+          "vt80": "FALSE"
+        },
+        "CStartGameCommand": {
+          "vt60": "TRUE",
+          "vt80": "TRUE"
+        }
+      },
+      "session_0x725_bypass": "live=1 allows FALSE vt+0x60 past Post drop",
+      "speed_cmds_documented": true,
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }
