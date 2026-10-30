@@ -665,3 +665,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cq (overnight RO) — below-0.95 + MergeArmies Capstone close
+
+- **HEAD parent**: `eec86a4` (2cp). Focus: lift MergeArmies above 0.95; shrink below-0.95. **LAND 121/121 unchanged**.
+- **Helpers**: **308 unchanged** (no SHARED inflation).
+- **Named**: 476 → **637** (+161 leaf/string/thunk/strong Capstone; outside SHARED).
+- **Confidence**: avg **0.990 → 0.997**; below 0.9: **0**; below 0.95: 11→**0**.
+- **MergeArmies**: 0.94 → **1.0** (`0x13f8740` → `execute_move_strong_resolved_3f8740`).
+- **Artifacts**: `cmd_post_path_index_2cq`, `role_post_path_matrix_2cq`, `confidence_report_2cq`, `checklist_2cq`, `structural_named_2cq`, `naming_evidence_2cq`.
+- **Recipes**: `land_cmd_post_path_index_2cq_recipe`, `land_confidence_report_2cq_recipe`, `land_post_readiness_checklist_2cq_recipe`.
+- **Preferred cores**: still **34** / **121/121**. IsValid-gate **122**; Execute-body **183**.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+

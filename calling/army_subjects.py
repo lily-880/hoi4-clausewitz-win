@@ -2151,3 +2151,82 @@ def land_post_readiness_checklist_2cp_recipe(command_name: str | None = None) ->
         "note": "Checklist for future Post readiness docs only.",
     }
 
+
+# --- Phase 2cq: below-0.95 + MergeArmies Capstone close (READ-ONLY) ---
+
+def land_cmd_post_path_index_2cq_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Per-command Post readiness index 2cq. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = pr.get("cmd_post_path_index_2cq") or pr.get("cmd_post_path_index_2cp") or {}
+    out = {
+        "phase": "2cq",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "commands": {},
+        "note": "Below-0.95 closed; MergeArmies at 1.0. Do not Post.",
+    }
+    for n, meta in idx.items():
+        if command_name and n != command_name:
+            continue
+        if role and meta.get("role") != role:
+            continue
+        out["commands"][n] = meta
+    out["count"] = len(out["commands"])
+    confs = [v.get("post_path_confidence") or 0 for v in out["commands"].values()]
+    out["avg_post_path_confidence"] = round(sum(confs) / max(1, len(confs)), 3) if confs else 0
+    out["cmds_below_0_9"] = sum(1 for c in confs if c < 0.9)
+    out["cmds_below_0_95"] = sum(1 for c in confs if c < 0.95)
+    out["fully_named_required_gates"] = sum(
+        1 for v in out["commands"].values() if not v.get("unnamed_gates_remaining")
+    )
+    return out
+
+
+def land_confidence_report_2cq_recipe(role: str | None = None) -> dict:
+    """Confidence report 2cq + optional role filter. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2cq") or {})
+    matrix = pr.get("role_post_path_matrix_2cq") or {}
+    return {
+        "phase": "2cq",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "report": rep,
+        "role_slice": matrix.get(role) if role else None,
+        "merge_armies": rep.get("merge_armies"),
+        "note": "SHARED helpers unchanged; Capstone names only; never Post.",
+    }
+
+
+def land_post_readiness_checklist_2cq_recipe(command_name: str | None = None) -> dict:
+    """2cq checklist + optional cmd slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cq") or {})
+    idx = pr.get("cmd_post_path_index_2cq") or {}
+    return {
+        "phase": "2cq",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "command_slice": idx.get(command_name) if command_name else None,
+        "do_not": checklist.get("do_not") or [
+            "enable ALLOW_POST", "patch/hook helpers", "Post inject",
+            "HourlyTick / GameSpeed writes", "guess writes",
+        ],
+        "note": "Checklist for future Post readiness docs only.",
+    }
+
