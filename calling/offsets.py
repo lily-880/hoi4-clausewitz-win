@@ -126,6 +126,12 @@ PROVEN_STATIC = {
     "CSession_POSTEXEC_HEAD": 0xF8,
     "CSession_POSTEXEC_TAIL": 0x100,
     "CSession_POSTEXEC_COUNT": 0x108,
+    # Phase 2u — +0x40 execlist filler
+    "CCommand_FLAG_EXECLIST": 0x1A,  # nonzero → NetworkServer posts to +0x40 not +0x58
+    "NETWORK_POST_EXECLIST_INSERT": 0x23FA510,  # branch site; +0x40 path at 0x23fa578
+    "CDummyServer_EXECLIST_HEAD": 0x40,
+    "CDummyServer_EXECLIST_TAIL": 0x48,
+    "CDummyServer_EXECLIST_COUNT": 0x50,
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,

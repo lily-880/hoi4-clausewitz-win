@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2t-move-action-and-postexec-list-documented-writes-still-disabled",
+  "status": "phase2u-plus40-filler-pinned-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -337,6 +337,16 @@
       "session_staging": "+0x48 array / +0x54 count from server+0x58",
       "session_post_exec_list": "+0xf8/+0x100/+0x108 via cmd.vt+0x68 clone after Execute",
       "server_plus_0x40_filler": "still UNPINNED",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2u": {
+      "server_plus_0x40_filler": {
+        "site": "0x23fa510 (NetworkServer)",
+        "rule": "cmd+0x1a != 0 → +0x40/+0x48/+0x50; else +0x58/+0x60/+0x68",
+        "DummyServer_drain": "0x23f64e0 → +0x58 only",
+        "consumer": "FN_EXECUTE_LOOP 0x22c4710"
+      },
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }

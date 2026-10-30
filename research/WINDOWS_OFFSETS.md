@@ -655,6 +655,29 @@ Posting off. pause/1x only.
 
 Tool: `scripts/phase2t_move_staging.py [--live]`
 
+## Phase 2u — server+0x40 execlist filler PINNED (writes DISABLED)
+
+### Rule
+
+On **NetworkServer** post insert (`0x23fa510`):
+
+| `cmd+0x1a` | List |
+|------------|------|
+| `== 0` | drain-pending `+0x58` / tail `+0x60` / count `+0x68` |
+| `!= 0` | **execlist** `+0x40` / tail `+0x48` / count `+0x50` |
+
+Same 0x20 node shape (`cmd@[0]`, `next@[0x10]`).
+
+**CDummyServer** drain `0x23f64e0` fills **`+0x58` only** (no `+0x1a` branch) — SP sessions normally leave `+0x40` empty; `FN_EXECUTE_LOOP` still walks it when non-empty.
+
+`cmd+0x1a` also gates session post-exec clone list (`session+0xf8`).
+
+### Still DISABLED
+
+Posting off. pause/1x only.
+
+Tool: `scripts/phase2u_plus40_fill.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
