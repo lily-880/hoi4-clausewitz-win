@@ -652,3 +652,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cp (overnight RO) — soft-6 Capstone structural close
+
+- **HEAD parent**: `1c5a9a1` (2co). Focus: shrink below-0.9 (6 cmds) with Capstone RO structural/string/thunk/strong naming. **LAND 121/121 unchanged**.
+- **Helpers**: **308 unchanged** (no SHARED inflation).
+- **Named**: 370 → **476** (+106 leaf/string/thunk/strong; outside SHARED catalog).
+- **Confidence**: avg **0.977 → 0.990**; cmds below 0.9: 6→**0**. Soft unnamed gates stay **[]**.
+- **Soft-6 after**: CancelRunningAway/OrderUnassign/SetQuickDeployPreference/TransportUnit/RetireCharacter → **1.0**; MergeArmies → **0.94** (one execute still unnamed, above 0.9).
+- **Artifacts**: `cmd_post_path_index_2cp`, `role_post_path_matrix_2cp`, `confidence_report_2cp`, `checklist_2cp`, `structural_named_2cp`, `naming_evidence_2cp`.
+- **Recipes**: `land_cmd_post_path_index_2cp_recipe`, `land_confidence_report_2cp_recipe`, `land_post_readiness_checklist_2cp_recipe`.
+- **Preferred cores**: still **34** / **121/121**. IsValid-gate **122**; Execute-body **183**.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+
