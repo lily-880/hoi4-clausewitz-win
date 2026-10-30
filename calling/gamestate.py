@@ -208,3 +208,57 @@ def detect_session(p):
         if not in_campaign else "Campaign objects present; probe globals/heap for G_GAMESTATE.",
     }
 
+
+
+def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
+    """Read-only campaign fields from a live CGameState/CCurrentGameState object.
+
+    Only fields that pass local sanity checks are marked verified=True.
+    Date year at +0x478 is a hypothesis (seen as 1936 on start); month/day layout TBD.
+    Divisions count is NOT exposed until country-struct offsets are proven.
+    """
+    out: Dict[str, Any] = {"gs_ptr": hex(gs_ptr), "fields": {}, "verified": {}}
+    if not gs_ptr or gs_ptr < 0x10000:
+        out["error"] = "bad gs_ptr"
+        return out
+    blob = p.try_read(gs_ptr, 0x600)
+    if not blob or len(blob) < 0x520:
+        out["error"] = "short read"
+        return out
+    vptr = struct.unpack_from("<Q", blob, 0)[0]
+    out["vptr"] = hex(vptr)
+
+    countries = _pdx_array(p, gs_ptr + O.HYPOTHESIS_STRUCT["GS_COUNTRIES"])
+    out["fields"]["countries"] = countries
+    if countries and 50 <= countries["size"] <= 2000 and countries["size"] <= countries["capacity"] <= 5000:
+        out["verified"]["countries_count"] = countries["size"]
+
+    majors = _pdx_array(p, gs_ptr + O.HYPOTHESIS_STRUCT["GS_MAJORS"])
+    out["fields"]["majors"] = majors
+    if majors and 1 <= majors["size"] <= 20 and majors["size"] <= majors["capacity"] <= 64:
+        out["verified"]["majors_count"] = majors["size"]
+
+    tag = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT["GS_PLAYER_TAG"])[0]
+    out["fields"]["player_tag_raw"] = tag
+    if 0 <= tag < 2000:
+        out["verified"]["player_tag"] = tag
+
+    # Date hypothesis: i32 year at +0x478 (observed 1936); adjacent i32 at +0x47c opaque
+    year = struct.unpack_from("<i", blob, 0x478)[0]
+    aux = struct.unpack_from("<i", blob, 0x47C)[0]
+    out["fields"]["date_year_hypothesis"] = year
+    out["fields"]["date_aux_0x47c"] = aux
+    if 1936 <= year <= 1950:
+        out["verified"]["date_year"] = year
+        out["verified"]["date_note"] = "year@+0x478 hypothesis; full Y-M-D not confirmed"
+
+    out["fields"]["divisions_count"] = None
+    out["fields"]["divisions_note"] = "stubbed — need proven CCountry army/division array offset"
+    return out
+
+
+def try_global_summary(p, rva: Optional[int]) -> Dict[str, Any]:
+    base = try_global_rva(p, rva)
+    if base.get("value"):
+        base["campaign"] = read_campaign_summary(p, int(base["value"], 16))
+    return base

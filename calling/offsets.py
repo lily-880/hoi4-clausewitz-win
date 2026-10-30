@@ -40,7 +40,8 @@ HYPOTHESIS_STRUCT = {
     "GS_MAJORS": 0x328,
     "GS_TAG2INDEX": 0x340,
     "GS_PLAYER_TAG": 0x518,
-    "GS_PAUSE_HOURS": 0x908,
+    "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
+    "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.

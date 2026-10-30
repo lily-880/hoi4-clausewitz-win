@@ -123,10 +123,17 @@ def cmd_status(args):
         hits = p.scan_value(s, regions=region, limit=5, align=1)
         strings.append({"needle": s.decode("ascii", "replace"), "hits": [hex(h) for h in hits]})
     proven["string_hits_in_image"] = strings
-    # If G_GAMESTATE known, probe
+    # If G_GAMESTATE known, probe + campaign summary fields
     if O.WINDOWS_GLOBALS.get("G_GAMESTATE") is not None:
-        from gamestate import try_global_rva
-        proven["gamestate_probe"] = try_global_rva(p, O.WINDOWS_GLOBALS["G_GAMESTATE"])
+        from gamestate import try_global_summary
+        proven["gamestate_probe"] = try_global_summary(p, O.WINDOWS_GLOBALS["G_GAMESTATE"])
+        camp = proven["gamestate_probe"].get("campaign") or {}
+        proven["campaign"] = camp.get("verified") or {}
+        proven["campaign_fields_raw"] = {
+            k: camp.get("fields", {}).get(k)
+            for k in ("player_tag_raw", "date_year_hypothesis", "date_aux_0x47c", "divisions_count", "divisions_note")
+        }
+    proven["phase"] = "2d"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0
@@ -142,7 +149,8 @@ def cmd_peinfo(args):
 
 def cmd_scan(args):
     script = os.path.join(ROOT, "scripts", "scan_static_offsets.py")
-    return os.spawnv(os.P_WAIT, sys.executable, [sys.executable, script])
+    import subprocess
+    return subprocess.call([sys.executable, script])
 
 
 def cmd_live_gs(args):
