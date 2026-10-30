@@ -854,6 +854,22 @@ Posting **DISABLED**.
 
 Tool: `scripts/phase2ac_dummy_execute.py [--live]`
 
+## Phase 2ad — SP pipeline: ring → +0x58 → Execute (writes DISABLED)
+
+**Correction to 2ac:** live `worker0 == CDummyServer`. Post writes the **server ring** (`+0xa0` lock, `+0xb0` data, `+0xc8` count) via serialize→`FN_RING_RECREATE` (`0x22d8ad0`), then **destroys** the original cmd.
+
+| Step | Mechanism |
+|------|-----------|
+| Post | serialize + recreate into ring; destroy original |
+| Drain `vt+0x30` | pop ring → `cmd.vt+0x68` Clone → list **`server+0x58`** |
+| Pending getter `vt+0x40` | `lea rax,[rcx+0x58]` |
+| Session state=2 | stage into `session+0x48`; **`cmd.vt+0x50` @ `0x22c6c9d`** |
+| Exec list `vt+0x78` | `lea rax,[rcx+0x40]` (state4 / ExecuteLoop) |
+
+Safe-enable still **NOT** proven: hand-built objects must survive serialize/recreate. Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ad_sp_pipeline.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

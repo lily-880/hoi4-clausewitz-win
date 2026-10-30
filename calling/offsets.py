@@ -150,6 +150,15 @@ PROVEN_STATIC = {
     "SERVER_DRAINLIST_HEAD_0x58": 0x58,
     "SERVER_SEQ_0xD0": 0xD0,
     "SESSION_SKIP_AUTH_0x3C": 0x3C,
+    "SERVER_PENDING_LIST_0x58": 0x58,
+    "SERVER_RING_LOCK_0xA0": 0xA0,
+    "SERVER_RING_DATA_0xB0": 0xB0,
+    "SERVER_RING_COUNT_0xC8": 0xC8,
+    "SERVER_VT_PENDING_0x40": 0x40,  # lea [rcx+0x58]
+    "SERVER_VT_EXECLIST_0x78": 0x78,  # lea [rcx+0x40]
+    "FN_RING_RECREATE": 0x22D8AD0,
+    "CCommand_VT_CLONE_0x68": 0x68,
+    "SESSION_STATE2_EXECUTE_SITE": 0x22C6C9D,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

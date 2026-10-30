@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ac-dummy-post-destroys-no-execute-writes-still-disabled",
+  "status": "phase2ad-sp-pipeline-ring-to-execute-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -462,6 +462,13 @@
       },
       "session_0x3c": 1,
       "safe_enable": "NOT proven — posting DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ad": {
+      "sp_state2": "drain vt+0x30 -> pending vt+0x40=&+0x58 -> Session stages -> vt+0x50 @0x22c6c9d",
+      "dummy_post": "worker0==server; serialize+recreate into ring; destroy original; CAN feed Execute if serialize ok",
+      "2ac_correction": "DummyServer Post is not a pure no-op sink; still unsafe without proven serialize",
+      "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }
   },
