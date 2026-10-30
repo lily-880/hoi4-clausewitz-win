@@ -272,6 +272,40 @@ Windows `CArmy` is the division-level unit object (name ≠ Linux army-group). `
 Paused / 1x only; no default full-heap; posting **DISABLED**.
 
 
+
+## Phase 2j — CCommand Execute/soft-call graph + fleets/templates
+
+Tool: `python scripts/phase2j_cmd_execute_graph.py --live` (no full-heap). Live paused HAI.
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| Soft E8 near `CCommand` LEAs | Top `0x25a009c` / `0x25a00d8` / `0x25c7c74` — destroy/refcount/CRT helpers, **not** Post |
+| Soft E8 near Execute-like `call [reg+slot]` | Top `0x12ad90` / `0x1db710` — small SSO/string-growth helpers (`new_like`), **not** Post |
+| `COrderExecuteCommand` vs `CCommand` | Many overrides; callees include **type-id registry** path `0x2284800` → `0x2282810` via global `0x34ffbf0` (live untyped hash map) — factory/lookup, **not** enqueue |
+| `CCommandHelper<T>` RTTI | Present; **no** recoverable vtables (static helpers only) |
+| `CConsoleCmdManager` / mangled `?Post@` | **Absent** |
+| Live globals near GS/IDLER | `0x33dd090`=`CFileLogger`; `0x33ddb10` duplicate `CInGameIdler`; no Command* arrays on GS |
+| Prior dead-ends | Still hold: idler+`0x530` App, `CSession`=`CDummyServer`, no `CCommandQueue` |
+
+**Do not promote** multi-hit soft helpers or the type-id registry as `FN_CMD_QUEUE_POST`.
+
+### Newly proven status fields
+
+| Field | Source | Sample (paused HAI) |
+|-------|--------|---------------------|
+| `fleets_count` | Country+`0x278` `CFleet*` | 3 |
+| `div_templates_count` | Country+`0x1b8` `CReferencedDivisionTemplate*` | 4 |
+| `divisions_count` | (2i) CArmy markers | 17 |
+
+### Next (still RO)
+
+1. Find a callee that **stores** a live `CCommand*` into a container (not type-id lookup).
+2. Or recover non-RTTI queue object via a single-player command path (e.g. pause) under a debugger — out of scope for RPM light probes.
+3. Keep posting **DISABLED**.
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
@@ -288,6 +322,7 @@ python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
 python scripts/phase2f_idler_postpath.py [--out research/re-dumps/phase2f_idler.json] [--skip-heap]
 python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/phase2g.json]
 python scripts/session_probe.py
+python scripts/phase2j_cmd_execute_graph.py [--live]  # CCommand Execute/soft-call graph; no heap
 python scripts/phase2h_light_post_army.py  # RO Post hunt + army markers; no heap
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```

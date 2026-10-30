@@ -166,7 +166,15 @@ def cmd_status(args):
                         proven["campaign_fields_raw"]["divisions_count"] = armies["divisions_count"]
                         proven["campaign_fields_raw"]["divisions_note"] = armies.get("divisions_note")
                     proven["campaign_fields_raw"]["division_like_sample"] = armies.get("division_like_sample")
-    proven["phase"] = "2i"
+                    if armies.get("fleets_count") is not None:
+                        proven["campaign"]["fleets_count"] = armies["fleets_count"]
+                        proven["campaign_fields_raw"]["fleets_count"] = armies["fleets_count"]
+                        proven["campaign_fields_raw"]["fleets_rtti"] = armies.get("fleets_rtti")
+                    if armies.get("div_templates_count") is not None:
+                        proven["campaign"]["div_templates_count"] = armies["div_templates_count"]
+                        proven["campaign_fields_raw"]["div_templates_count"] = armies["div_templates_count"]
+                        proven["campaign_fields_raw"]["div_templates_rtti"] = armies.get("div_templates_rtti")
+    proven["phase"] = "2j"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0

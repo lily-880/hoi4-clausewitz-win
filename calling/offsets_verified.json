@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2i-ingame-paused-hai-divisions",
+  "status": "phase2j-cmd-execute-graph-fleets",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -53,6 +53,54 @@
       "GS_Command_arrays": "none in 0..0xA00",
       "result": "FN_CMD_QUEUE_POST still null; posting DISABLED",
       "next_leads": "CCommand soft-call / Execute graph (not promoted)"
+    },
+    "CO_FLEETS": {
+      "country_offset": "0x278",
+      "elem_rtti": ".?AVCFleet@@",
+      "sizes_seen": [
+        3
+      ],
+      "sessions": [
+        "paused -start_tag=HAI"
+      ],
+      "note": "fleets_count via probe_player_armies; Phase 2j"
+    },
+    "CO_DIV_TEMPLATES": {
+      "country_offset": "0x1b8",
+      "elem_rtti": ".?AVCReferencedDivisionTemplate@@",
+      "sizes_seen": [
+        4
+      ],
+      "sessions": [
+        "paused -start_tag=HAI"
+      ],
+      "note": "div_templates_count via probe_player_armies; Phase 2j"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2j": {
+      "method": "CCommand soft-call + Execute vt-call graph + OEC overrides + live globals",
+      "soft_near_CCommand_lea_top": [
+        "0x25a009c",
+        "0x25a00d8",
+        "0x25c7c74"
+      ],
+      "soft_near_execute_top": [
+        "0x12ad90",
+        "0x1db710"
+      ],
+      "soft_verdict": "helpers (SSO/string growth, destroy/refcount) — NOT Post",
+      "COrderExecuteCommand_overrides": "many slots vs CCommand; execute-path callees include type-id registry",
+      "global_0x34ffbf0": "live untyped hash-map object; used by 0x2284800 type-id lookup — command factory/registry hyp, NOT queue Post",
+      "global_0x33dd090": "CFileLogger (idler wrapper log)",
+      "G_IDLER_plus_8": "0x33ddb10 also CInGameIdler (duplicate slot)",
+      "CCommandHelper": "RTTI present (templates) but no recoverable vtables — static helpers",
+      "CConsoleCmdManager": "not found",
+      "mangled_Post": "absent",
+      "result": "FN_CMD_QUEUE_POST still null; posting DISABLED",
+      "prior_dead_ends_still_hold": [
+        "idler+0x530 App setter",
+        "CSession=CDummyServer",
+        "no CCommandQueue RTTI"
+      ]
     }
   },
   "FN_CMD_QUEUE_POST": null,

@@ -321,6 +321,8 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
         "ok": False,
         "armies_count": None,
         "divisions_count": None,
+        "fleets_count": None,
+        "div_templates_count": None,
         "armies_offset": hex(O.HYPOTHESIS_STRUCT.get("CO_ARMIES", 0x290)),
     }
     if not gs_ptr or gs_ptr < 0x10000:
@@ -411,6 +413,35 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
             "(%d/%d) — divisions_count left null" % (div_hits, sample_n)
         )
         out["divisions_note"] = out["note"]
+
+    # Light: fleets + division templates (no heap walk)
+    def _count_typed_array(country: int, off: int, needle: str):
+        arr2 = _pdx_array(p, country + off)
+        if not arr2 or not (0 < arr2["size"] <= 2000 and arr2["size"] <= arr2["capacity"] <= 4000):
+            return None, None
+        first_nm = None
+        try:
+            elem = struct.unpack_from("<Q", p.try_read(arr2["data"], 8) or b"\0" * 8, 0)[0]
+            if elem and pe is not None:
+                vt = struct.unpack_from("<Q", p.try_read(elem, 8) or b"\0" * 8, 0)[0]
+                if vt and p.base <= vt < p.base + getattr(p, "image_size", 0x4000000):
+                    first_nm = _rtti_name_from_vtable(pe, vt - p.base)
+        except Exception:
+            pass
+        if first_nm and needle not in first_nm:
+            return None, first_nm
+        return arr2["size"], first_nm
+
+    fc, fr = _count_typed_array(cptr, O.HYPOTHESIS_STRUCT.get("CO_FLEETS", 0x278), "CFleet")
+    tc, tr = _count_typed_array(
+        cptr, O.HYPOTHESIS_STRUCT.get("CO_DIV_TEMPLATES", 0x1B8), "ReferencedDivisionTemplate"
+    )
+    if fc is not None:
+        out["fleets_count"] = fc
+        out["fleets_rtti"] = fr
+    if tc is not None:
+        out["div_templates_count"] = tc
+        out["div_templates_rtti"] = tr
     return out
 
 
