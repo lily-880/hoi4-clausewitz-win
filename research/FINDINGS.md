@@ -377,3 +377,26 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bz (overnight RO — land merge/transport/area-defense/pinned-strategic)
+
+### Works
+- **LAND_EXE_PROOFS / LAND_ARMY_FOCUS** **115/115** (was 93): +22 land-army RTTI cmds with live IsValid/Execute FN + factory-matched type_ids (C7 02 imm_rdx GetTypeId).
+  - Move: MergeArmies, DeleteUnit, TransportUnit, SetPendingReassignTarget
+  - Strategic: Toggle/ReorderPinnedStrategicRegion (previously no_vt; now vt+factory)
+  - Theater: SetTheatre
+  - Attack/AI-land: AiOnFailedInvasion, Ai ForceConcentration store/discard, AiStoreTotalWantedNrDivisions
+  - Front/garrison-adjacent: Create/Edit/Set AreaDefense*
+  - Order-group/leader: SelectionGroup, QueueUnitAction, Promote/Create UnitLeader, SetUnitName, SetPreferredTactic, ClearRepairPins, UpdateLeaderSeenAdvisorRolesCount
+- Capstone **thin deepen 88/88** field offs refreshed on sparse land layouts.
+- **ISVALID_PATHS** **128**. Groups: order_group **52**, move **15**, frontline **18**, theater **13**, attack **7**, strategic **4**.
+- Recipes for merge/delete/transport/theatre/unit-name/tactic/area-defense/pinned-strategic/selection/queue/promote/create-leader/reassign/clear-repair-pins. HAI×3.
+- Live: allow_post False; tick=1; watcher **36128** re-armed RO 86400s; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand sample; ring embed; command_queue_tool_gate enable; ALLOW_POST.
+- Division-template create/update/remove/symbol + navy/air/production/industrial/politics/GameSpeed intentionally out of land Post scope.
+- SetGameSpeed never touched.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

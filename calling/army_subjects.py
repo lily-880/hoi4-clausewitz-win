@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2by",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bz",
     }
 
 
@@ -790,5 +790,164 @@ def build_railway_recipe(from_to_or_vec: list[int] | tuple[int, int] | None = No
         "from_to_or_vec_off": 0x28,
         "from_to_or_vec": list(from_to_or_vec) if from_to_or_vec else [],
         "extra_off": 0x30,
+        "posting": "DISABLED",
+    }
+
+
+def merge_armies_recipe(army_a: list[int] | tuple[int, int],
+                        army_b: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CMergeArmiesCommand — RO only."""
+    return {
+        "army_a_off": 0x28,
+        "army_a": list(army_a),
+        "army_b_off": 0x30,
+        "army_b": list(army_b),
+        "posting": "DISABLED",
+    }
+
+
+def delete_unit_recipe(unit_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CDeleteUnitCommand — RO only."""
+    return {
+        "unit_off": 0x28,
+        "unit": list(unit_handle),
+        "posting": "DISABLED",
+    }
+
+
+def transport_unit_recipe(unit_handle: list[int] | tuple[int, int],
+                          dest_or_fleet: int = 0) -> dict[str, Any]:
+    """CTransportUnitCommand — RO only (land embark edge)."""
+    return {
+        "unit_off": 0x28,
+        "unit": list(unit_handle),
+        "dest_or_fleet_off": 0x30,
+        "dest_or_fleet": dest_or_fleet,
+        "posting": "DISABLED",
+    }
+
+
+def set_theatre_recipe(subject_handle: list[int] | tuple[int, int],
+                       theatre_id: int = 0) -> dict[str, Any]:
+    """CSetTheatreCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "theatre_id_off": 0x30,
+        "theatre_id": theatre_id,
+        "posting": "DISABLED",
+    }
+
+
+def set_unit_name_recipe(unit_handle: list[int] | tuple[int, int],
+                         name: str = "") -> dict[str, Any]:
+    """CSetUnitNameCommand — RO only."""
+    return {
+        "unit_off": 0x28,
+        "unit": list(unit_handle),
+        "name_sso_off": 0x30,
+        "name": name,
+        "posting": "DISABLED",
+    }
+
+
+def set_preferred_tactic_recipe(subject_handle: list[int] | tuple[int, int],
+                                tactic: int = 0) -> dict[str, Any]:
+    """CSetPreferredTacticCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "tactic_off": 0x30,
+        "tactic": tactic,
+        "posting": "DISABLED",
+    }
+
+
+def area_defense_recipe(subject_handle: list[int] | tuple[int, int],
+                        which: str = "create", setting: int = 0) -> dict[str, Any]:
+    """CCreate/Edit/Set AreaDefense* — RO only."""
+    return {
+        "which": which,
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "setting_off": 0x30,
+        "setting": setting,
+        "posting": "DISABLED",
+    }
+
+
+def pinned_strategic_region_recipe(region_id: int = 0,
+                                   which: str = "toggle") -> dict[str, Any]:
+    """CToggle/ReorderPinnedStrategicRegionCommand — RO only."""
+    return {
+        "which": which,
+        "region_or_vec_off": 0x28,
+        "region_id": region_id,
+        "posting": "DISABLED",
+    }
+
+
+def selection_group_recipe(units: list[list[int]] | None = None) -> dict[str, Any]:
+    """CSelectionGroupCommand — RO only."""
+    units = units or []
+    return {
+        "units_off": 0x28,
+        "units": units,
+        "count_off": 0x34,
+        "count": len(units),
+        "posting": "DISABLED",
+    }
+
+
+def queue_unit_action_recipe(unit_handle: list[int] | tuple[int, int],
+                             action: int = 0) -> dict[str, Any]:
+    """CQueueUnitActionCommand — RO only."""
+    return {
+        "unit_off": 0x28,
+        "unit": list(unit_handle),
+        "action_off": 0x30,
+        "action": action,
+        "posting": "DISABLED",
+    }
+
+
+def promote_unit_leader_recipe(leader_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CPromoteUnitLeaderCommand — RO only."""
+    return {
+        "leader_off": 0x28,
+        "leader": list(leader_handle),
+        "posting": "DISABLED",
+    }
+
+
+def create_unit_leader_recipe(army_or_slot: list[int] | tuple[int, int] | None = None,
+                              leader_def: int = 0) -> dict[str, Any]:
+    """CCreateUnitLeaderCommand — RO only."""
+    return {
+        "army_or_slot_off": 0x28,
+        "army_or_slot": list(army_or_slot) if army_or_slot else [],
+        "leader_def_off": 0x30,
+        "leader_def": leader_def,
+        "posting": "DISABLED",
+    }
+
+
+def pending_reassign_target_recipe(unit_handle: list[int] | tuple[int, int],
+                                   target: int = 0) -> dict[str, Any]:
+    """CSetPendingReassignTargetCommand — RO only."""
+    return {
+        "unit_off": 0x28,
+        "unit": list(unit_handle),
+        "target_off": 0x30,
+        "target": target,
+        "posting": "DISABLED",
+    }
+
+
+def clear_repair_pins_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """CClearRepairPinsCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
         "posting": "DISABLED",
     }
