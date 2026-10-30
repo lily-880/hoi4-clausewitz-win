@@ -72,3 +72,10 @@ Command posting remains DISABLED.
 
 ### Safety
 pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
+
+## Phase 2aq (Strategic redeploy serialize)
+
+- Mapped `CStrategicRedeploymentCommand` (size `0x50`, type `0x35b9`) embedding `CUnitStrategicMoveAction` at `+0x28`.
+- Action RTTI confirmed; serialize layout live-verified (army handle, single province, clear, move_priority).
+- Execute/serialize thunks shared with `CMoveCommand` — dispatch into embedded action.
+- **Posting still DISABLED**; safe-enable not proven.

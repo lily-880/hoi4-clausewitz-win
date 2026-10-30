@@ -30,7 +30,9 @@ python clausewitz_win.py peinfo
 python clausewitz_win.py status
 ```
 
-## What works now (Phase 2ap)
+## What works
+
+- Phase 2aq: StrategicRedeploy serialize (army/province/clear/priority); posting DISABLED now (Phase 2ap)
 
 - **FN_CMD_QUEUE_POST** RVA `0x22c41e0` mapped (CSession post/drop gate) — **writes still DISABLED**
 - Full Post→serialize→drain→Execute graph documented (see WINDOWS_OFFSETS)

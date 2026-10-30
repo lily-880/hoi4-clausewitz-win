@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ap-army-cmd-catalog-midflight-attempt-writes-still-disabled",
+  "status": "DISABLED (FN known; writes gated) — Phase 2aq StrategicRedeploy serialize mapped",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -21,8 +21,8 @@
       "queue_field": "0x530",
       "queue_field_live_type": "CGameApplication",
       "queue_field_live_vt90": "0x1b14f0",
-      "queue_field_live_vt90_role": "setter(+0x380 CSession*) \u2014 NOT Post (BOTH frontend and in-game)",
-      "note": "In-game via -start_tag=HAI -start_speed=0 -noai. +0x530 is CGameApplication \u2014 NOT queue. Phase 2o: App+0x380=CSession*; idler.vt+0x88 returns that CSession*; AI posts call 0x22c41e0(session,cmd) then server(session+0x40).vt+0x28. FN_CMD_QUEUE_POST stays null."
+      "queue_field_live_vt90_role": "setter(+0x380 CSession*) — NOT Post (BOTH frontend and in-game)",
+      "note": "In-game via -start_tag=HAI -start_speed=0 -noai. +0x530 is CGameApplication — NOT queue. Phase 2o: App+0x380=CSession*; idler.vt+0x88 returns that CSession*; AI posts call 0x22c41e0(session,cmd) then server(session+0x40).vt+0x28. FN_CMD_QUEUE_POST stays null."
     },
     "CO_ARMIES": {
       "country_offset": "0x290",
@@ -53,9 +53,9 @@
       "GS_Command_arrays": "none in 0..0xA00",
       "result": "FN_CMD_QUEUE_POST still null; posting DISABLED",
       "next_leads": "CCommand soft-call / Execute graph (not promoted)",
-      "phase2m_vtable_slots": "CInGameIdler/CGameApplication/CGameState/CCurrentGameState interesting vt slots scored; none proven as Post. Slots loading +0x530 remain REJECTED. GS slot 0x78 / CGS slot 0x0 soft-call 0x6b8880 + RIP G_IDLER \u2014 still untyped/not queue.",
-      "phase2m_entity_lea": "CCharacter/CUnitLeader/CEquipmentVariant LEA softs = SSO/registry/destroy tops \u2014 not Post. CAirWing LEA not found.",
-      "phase2n_heap": "Full-heap: 27x CCommand base live, 0 subclass while paused; no CommandQueue RTTI; backrefs no array owner. Ctor-caller soft hyps 0x25c3770/0x22c41e0/0x254aa00/0x25a0390 unproven \u2014 FN stays null."
+      "phase2m_vtable_slots": "CInGameIdler/CGameApplication/CGameState/CCurrentGameState interesting vt slots scored; none proven as Post. Slots loading +0x530 remain REJECTED. GS slot 0x78 / CGS slot 0x0 soft-call 0x6b8880 + RIP G_IDLER — still untyped/not queue.",
+      "phase2m_entity_lea": "CCharacter/CUnitLeader/CEquipmentVariant LEA softs = SSO/registry/destroy tops — not Post. CAirWing LEA not found.",
+      "phase2n_heap": "Full-heap: 27x CCommand base live, 0 subclass while paused; no CommandQueue RTTI; backrefs no array owner. Ctor-caller soft hyps 0x25c3770/0x22c41e0/0x254aa00/0x25a0390 unproven — FN stays null."
     },
     "CO_FLEETS": {
       "country_offset": "0x278",
@@ -90,12 +90,12 @@
         "0x12ad90",
         "0x1db710"
       ],
-      "soft_verdict": "helpers (SSO/string growth, destroy/refcount) \u2014 NOT Post",
+      "soft_verdict": "helpers (SSO/string growth, destroy/refcount) — NOT Post",
       "COrderExecuteCommand_overrides": "many slots vs CCommand; execute-path callees include type-id registry",
-      "global_0x34ffbf0": "live untyped hash-map object; used by 0x2284800 type-id lookup \u2014 command factory/registry hyp, NOT queue Post",
+      "global_0x34ffbf0": "live untyped hash-map object; used by 0x2284800 type-id lookup — command factory/registry hyp, NOT queue Post",
       "global_0x33dd090": "CFileLogger (idler wrapper log)",
       "G_IDLER_plus_8": "0x33ddb10 also CInGameIdler (duplicate slot)",
-      "CCommandHelper": "RTTI present (templates) but no recoverable vtables \u2014 static helpers",
+      "CCommandHelper": "RTTI present (templates) but no recoverable vtables — static helpers",
       "CConsoleCmdManager": "not found",
       "mangled_Post": "absent",
       "result": "FN_CMD_QUEUE_POST still null; posting DISABLED",
@@ -113,7 +113,7 @@
     "CO_STATES": {
       "off": "0x460",
       "type": "CPdxArray<CState*>",
-      "live": "HAI size=26; majors vary; twin@0x478 same size peacetime \u2014 not dual-promoted"
+      "live": "HAI size=26; majors vary; twin@0x478 same size peacetime — not dual-promoted"
     },
     "FN_CMD_QUEUE_POST_hunt_2k": {
       "result": null,
@@ -121,7 +121,7 @@
       "notes": [
         "2-hop soft + store-near-LEA + OEC deep: 10 store+context soft fns documented, none proven enqueue",
         "OEC overrides still call type-id registry 0x2284800",
-        "Failed-to-execute LEAs near CRT/string helpers \u2014 not Post",
+        "Failed-to-execute LEAs near CRT/string helpers — not Post",
         "idler Command* arrays: none; prior dead-ends hold",
         "managerish RTTI still only IndustrialOrgTrait*QueueCommand / CCommandHelper"
       ]
@@ -158,8 +158,8 @@
       "posting": "DISABLED",
       "notes": [
         "Priority 2k store cands re-filtered: SSO/string (0x2607890), registry (0x2284800), destroy helpers",
-        "RIP global 0x33dea38 on cand 0x6b8880: live untyped \u2014 not a queue object",
-        "CClientPing/CChat LEA softs: ctor/SSO/destroy \u2014 not Post",
+        "RIP global 0x33dea38 on cand 0x6b8880: live untyped — not a queue object",
+        "CClientPing/CChat LEA softs: ctor/SSO/destroy — not Post",
         "Theatre nest has fronts/armies/areas; no Command* arrays",
         "No air/character ptr arrays on country or theatre (HAI+major0)"
       ]
@@ -235,7 +235,7 @@
         "0x25a0390": "global byte getter",
         "0x25c3770": "unproven ctor-caller soft (still not Post)",
         "0xbbb080": "type-id registry path",
-        "0x22c41e0_as_only_logger": "superseded \u2014 it is the post/drop GATE; still not promoted to FN",
+        "0x22c41e0_as_only_logger": "superseded — it is the post/drop GATE; still not promoted to FN",
         "RunCommandQueue": "SDL/GL render string",
         "Failed to post order": "military order path, not CCommand queue",
         "posted_commands/sent_commands": "telemetry field names",
@@ -256,11 +256,11 @@
         "fan-out G_POST_LISTENERS (0x3667be8) count (0x3667bf4); live count=1 = DummyServer self",
         "per listener+0xa0 concurrent ring: spinlock, grow via 0x6d01e0, store qword at [slot]",
         "store insn 0x23f5ec6; inc [rbx+0x28]; unlock",
-        "then call cmd.vt+0 (edx=1) \u2014 releasing dtor after fan-out"
+        "then call cmd.vt+0 (edx=1) — releasing dtor after fan-out"
       ],
-      "CServer_vt28": "0x25c21e0 abort/stub \u2014 base not used in SP",
+      "CServer_vt28": "0x25c21e0 abort/stub — base not used in SP",
       "CNetworkServer_vt28": "0x23fa830 (MP path; not live this session)",
-      "posting": "DISABLED \u2014 FN RVA recorded; tooling must not call/write until explicit enable",
+      "posting": "DISABLED — FN RVA recorded; tooling must not call/write until explicit enable",
       "speed_rule": "pause or 1x only; never 5x"
     },
     "FN_CMD_QUEUE_POST_hunt_2q": {
@@ -307,7 +307,7 @@
     "FN_CMD_QUEUE_POST_hunt_2s": {
       "drain_list": "+0x58/+0x60/+0x68 filled by Dummy 0x23f64e0 and Network 0x23fb470",
       "execlist_plus_0x40": "consumed by 0x22c4710; filler UNPINNED",
-      "post_during_exec_flag": "session+0x6cc; drops at 0x22c4371 \u2014 does not fill +0x40",
+      "post_during_exec_flag": "session+0x6cc; drops at 0x22c4371 — does not fill +0x40",
       "shared_lea_thunks": {
         "0x247620": "+0x40",
         "0x2e9e50": "+0x58"
@@ -344,15 +344,15 @@
     "FN_CMD_QUEUE_POST_hunt_2u": {
       "server_plus_0x40_filler": {
         "site": "0x23fa510 (NetworkServer)",
-        "rule": "cmd+0x1a != 0 \u2192 +0x40/+0x48/+0x50; else +0x58/+0x60/+0x68",
-        "DummyServer_drain": "0x23f64e0 \u2192 +0x58 only",
+        "rule": "cmd+0x1a != 0 → +0x40/+0x48/+0x50; else +0x58/+0x60/+0x68",
+        "DummyServer_drain": "0x23f64e0 → +0x58 only",
         "consumer": "FN_EXECUTE_LOOP 0x22c4710"
       },
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     },
     "FN_CMD_QUEUE_POST_hunt_2v": {
-      "delivery": "session+0x40 server \u2192 vt+0x28(cmd) @ 0x22c46a0",
+      "delivery": "session+0x40 server → vt+0x28(cmd) @ 0x22c46a0",
       "drop_logs": [
         "Dropped command:",
         "Dropped (posted during command execution):",
@@ -364,7 +364,7 @@
         "size": "0x48"
       },
       "posting": "DISABLED",
-      "safe_enable": "NOT proven \u2014 checklist only",
+      "safe_enable": "NOT proven — checklist only",
       "speed_rule": "pause or 1x only; never 5x"
     },
     "FN_CMD_QUEUE_POST_hunt_2w": {
@@ -380,7 +380,7 @@
       "speed_rule": "pause or 1x only; never 5x"
     },
     "FN_CMD_QUEUE_POST_hunt_2x": {
-      "early_drop": "Move vt+0x60/+0x80 return false \u2192 need r8b or session+0x725",
+      "early_drop": "Move vt+0x60/+0x80 return false → need r8b or session+0x725",
       "CChatCommand_fields": "+0x28 msg SSO; +0x64 country; size 0x98",
       "COrderExecuteCommand": {
         "vt": "0x2a85468",
@@ -461,7 +461,7 @@
         "insert": "0x23fa510"
       },
       "session_0x3c": 1,
-      "safe_enable": "NOT proven \u2014 posting DISABLED",
+      "safe_enable": "NOT proven — posting DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     },
     "FN_CMD_QUEUE_POST_hunt_2ad": {
@@ -721,7 +721,62 @@
         },
         "gap": "SP Dummy path destroys army cmds inside tick; RO poll of lists rarely catches Move without UI click"
       },
-      "safe_enable": "NOT proven \u2014 see research/re-dumps/safe_enable_checklist.json"
+      "safe_enable": "NOT proven — see research/re-dumps/safe_enable_checklist.json"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2aq": {
+      "result": "0x22c41e0",
+      "role": "CSession post/drop gate (unchanged)",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x",
+      "CStrategicRedeploymentCommand": {
+        "vt": "0x2a2d818",
+        "type_id": "0x35b9",
+        "size": "0x50",
+        "factory": "0x13fb580",
+        "clone": "0x13f9c10",
+        "action_embed": "0x28",
+        "Execute_serialize_thunks": "shared with CMoveCommand (0x13fc990 / 0x1404590)"
+      },
+      "CUnitStrategicMoveAction": {
+        "rtti": ".?AVCUnitStrategicMoveAction@@",
+        "vt": "0x2a1f7e8",
+        "type_id": "0x364a",
+        "type_token": "unit_strategic_move_action",
+        "size": "0x28",
+        "ctor": "0x12c1a40",
+        "serialize": "0x12c3aa0",
+        "deserialize": "0x12c3740",
+        "fields": [
+          {
+            "off": "0x10",
+            "token": "0x289d",
+            "name": "army",
+            "kind": "handle"
+          },
+          {
+            "off": "0x18",
+            "token": "0x2840",
+            "name": "province",
+            "kind": "i32"
+          },
+          {
+            "off": "0x1c",
+            "token": "0x29f1",
+            "name": "clear",
+            "kind": "bool",
+            "default": 1
+          },
+          {
+            "off": "0x20",
+            "token": "0x37bc",
+            "name": "move_priority",
+            "kind": "enum_i32",
+            "default_skip": 1
+          }
+        ],
+        "live_byte_checks": "all OK on PID live session"
+      },
+      "safe_enable": "NOT proven — posting DISABLED"
     }
   },
   "FN_CMD_QUEUE_POST": "0x22c41e0",
@@ -753,5 +808,18 @@
   "CStrategicRedeploymentCommand_VT": 44226584,
   "CStrategicRedeploymentCommand_TYPE_ID": 13753,
   "CHourlyTickCommand_VT": 43988752,
-  "COrderExecuteCommand_TYPE_ID": 12352
+  "COrderExecuteCommand_TYPE_ID": 12352,
+  "CStrategicRedeploymentCommand_SIZE": 80,
+  "CStrategicRedeploymentCommand_FACTORY": 20952448,
+  "CUnitStrategicMoveAction_VT": 44169192,
+  "CUnitStrategicMoveAction_TYPE_ID": 13898,
+  "CUnitStrategicMoveAction_SIZE": 40,
+  "CUnitStrategicMoveAction_CTOR": 19667520,
+  "CUnitStrategicMoveAction_SERIALIZE": 19675808,
+  "CUnitStrategicMoveAction_DESERIALIZE": 19674944,
+  "CUnitStrategicMoveAction_ARMY_HANDLE": 16,
+  "CUnitStrategicMoveAction_PROVINCE": 24,
+  "CUnitStrategicMoveAction_CLEAR": 28,
+  "CUnitStrategicMoveAction_MOVE_PRIORITY": 32,
+  "CStrategicRedeploymentCommand_ACTION_EMBED": 40
 }

@@ -1167,3 +1167,36 @@ See `research/re-dumps/safe_enable_checklist.json`. `command_queue` remains **DI
 
 Scripts: `phase2ap_army_cmds_midflight.py`, `phase2ap_midflight_light.py`, `phase2ap_pending_poll.py`.
 
+
+## Phase 2aq — CStrategicRedeploymentCommand / CUnitStrategicMoveAction serialize (RO)
+
+Posting remains **DISABLED**. Speed rule: pause or 1x only; never 5x.
+
+### Command
+| Symbol | RVA / value | Notes |
+|--------|-------------|-------|
+| `CStrategicRedeploymentCommand` VT | `0x2a2d818` | |
+| type_id | `0x35b9` | |
+| size | `0x50` | factory `0x13fb580` `mov ecx,0x50` |
+| action embed | `+0x28` | ctor `0x12c1a40` |
+| Execute thunk | `0x13fc990` | shared with Move → action.vt+0x48 |
+| serialize thunk | `0x1404590` | `add rcx,0x28; jmp [rax+0xc0]` shared with Move |
+
+### Action (RTTI `.?AVCUnitStrategicMoveAction@@`)
+| Symbol | RVA / value | Notes |
+|--------|-------------|-------|
+| VT | `0x2a1f7e8` | |
+| type_id | `0x364a` | token `unit_strategic_move_action` |
+| size | `0x28` | standalone `mov ecx,0x28` @ `0x12c2538` |
+| serialize | `0x12c3aa0` | |
+| deserialize | `0x12c3740` | |
+
+### Serialize fields (live byte-checked)
+| action off | cmd off | kind | token | name |
+|------------|---------|------|-------|------|
+| `+0x10` | `+0x38` | handle | `0x289d` | army |
+| `+0x18` | `+0x40` | i32 | `0x2840` | province (single, not vector) |
+| `+0x1c` | `+0x44` | bool | `0x29f1` | clear (ctor default 1) |
+| `+0x20` | `+0x48` | enum_i32 | `0x37bc` | move_priority (skip if ==1) |
+
+Contrast vs `CUnitMoveAction`: army handle instead of unit; single province; no path vector; no safe/avoid/sticky bools; much smaller.
