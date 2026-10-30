@@ -994,6 +994,30 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ak_action_semantics.py [--live]`
 
+## Phase 2al — Consolidated Post→Execute graph (writes DISABLED)
+
+```
+UI/AI cmd
+  -> FN_CMD_QUEUE_POST 0x22c41e0 (early bypass: r8b|+0x725|vt+0x80|vt+0x60)
+  -> server.vt+0x28 Dummy Post 0x23f5cd0
+       stamps seq (server+0xd0); serialize/recreate 0x22d8ad0
+       factory table 0x35011e0 via 0x22d8d20; ring push server+0xa0; destroy orig
+  -> FN_SESSION_UPDATE 0x22c6410
+       vt+0x30 drain 0x23f64e0 -> pending server+0x58 (@0x23f6629)
+       stage session+0x48 / +0x54
+  -> Execute: state2 0x22c6c9d  OR  loop 0x22c4710 via vt+0x78 execlist+0x40
+       cmd.vt+0x50; Move thunks to CUnitMoveAction 0x12c2670
+  -> optional Clone vt+0x68 -> postexec +0xf8 (StartGame sticky)
+```
+
+Serialize: Write `vt+0x10`/`0xa0`; Read `vt+0x20`/`0xa8`. Move action handle `+0x10`, path `+0x30`.
+
+**Safe-enable gaps:** no tooling Post yet; need mid-flight 1x sample; flag names TBD; `command_queue` DISABLED.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2al_graph.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
