@@ -2230,3 +2230,128 @@ def land_post_readiness_checklist_2cq_recipe(command_name: str | None = None) ->
         "note": "Checklist for future Post readiness docs only.",
     }
 
+
+# --- Phase 2cr: singleton unnamed execute + OL second-order Capstone close (READ-ONLY) ---
+
+def land_cmd_post_path_index_2cr_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Per-command Post readiness index 2cr. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = pr.get("cmd_post_path_index_2cr") or pr.get("cmd_post_path_index_2cq") or {}
+    out = {
+        "phase": "2cr",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "commands": {},
+        "note": "Singleton unnamed execute closed; avg 1.0. Do not Post.",
+    }
+    for n, meta in idx.items():
+        if command_name and n != command_name:
+            continue
+        if role and meta.get("role") != role:
+            continue
+        out["commands"][n] = meta
+    out["count"] = len(out["commands"])
+    confs = [v.get("post_path_confidence") or 0 for v in out["commands"].values()]
+    out["avg_post_path_confidence"] = round(sum(confs) / max(1, len(confs)), 3) if confs else 0
+    out["cmds_below_0_9"] = sum(1 for c in confs if c < 0.9)
+    out["cmds_below_0_95"] = sum(1 for c in confs if c < 0.95)
+    out["cmds_below_1_0"] = sum(1 for c in confs if c < 1.0)
+    out["fully_named_required_gates"] = sum(
+        1 for v in out["commands"].values() if not v.get("unnamed_gates_remaining")
+    )
+    out["fully_named_execute"] = sum(
+        1 for v in out["commands"].values() if not v.get("unnamed_execute_remaining")
+    )
+    return out
+
+
+def land_confidence_report_2cr_recipe(role: str | None = None) -> dict:
+    """Confidence report 2cr + optional role filter. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2cr") or {})
+    matrix = pr.get("role_post_path_matrix_2cr") or {}
+    return {
+        "phase": "2cr",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "report": rep,
+        "role_slice": matrix.get(role) if role else None,
+        "merge_armies": rep.get("merge_armies"),
+        "remaining_unnamed": pr.get("remaining_unnamed_execute_edges_2cr") or [],
+        "note": "SHARED helpers unchanged; Capstone names only; never Post.",
+    }
+
+
+def land_post_readiness_checklist_2cr_recipe(command_name: str | None = None) -> dict:
+    """2cr checklist + optional cmd slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cr") or {})
+    idx = pr.get("cmd_post_path_index_2cr") or {}
+    return {
+        "phase": "2cr",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "command_slice": idx.get(command_name) if command_name else None,
+        "offensive_line_slice": pr.get("offensive_line_post_path_2cr") if not command_name else None,
+        "do_not": checklist.get("do_not") or [
+            "enable ALLOW_POST", "patch/hook helpers", "Post inject",
+            "HourlyTick / GameSpeed writes", "guess writes",
+        ],
+        "note": "Checklist for future Post readiness docs only.",
+    }
+
+
+def land_remaining_unnamed_execute_edges_2cr_recipe() -> dict:
+    """Document genuine remaining unnamed execute edges after 2cr Capstone. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    edges = pr.get("remaining_unnamed_execute_edges_2cr") or []
+    return {
+        "phase": "2cr",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "count": len(edges),
+        "edges": edges,
+        "note": "Empty means all prior singleton unnamed execute edges Capstone-named; still never Post.",
+    }
+
+
+def land_offensive_line_post_path_2cr_recipe(command_name: str | None = None) -> dict:
+    """Offensive-line / frontline execute post-path readiness slice 2cr. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ol = dict(pr.get("offensive_line_post_path_2cr") or {})
+    if command_name:
+        ol = {command_name: ol[command_name]} if command_name in ol else {}
+    confs = [v.get("post_path_confidence") or 0 for v in ol.values()]
+    return {
+        "phase": "2cr",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "count": len(ol),
+        "avg_post_path_confidence": round(sum(confs) / max(1, len(confs)), 3) if confs else 0,
+        "commands": ol,
+        "note": "OL execute paths observe-only; never Post.",
+    }
+

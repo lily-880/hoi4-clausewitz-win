@@ -678,3 +678,17 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cr (overnight RO) — singleton unnamed execute + OL second-order Capstone close
+
+- **HEAD parent**: `30cde9e` (2cq). Focus: remaining singleton unnamed execute edges + offensive-line deepen. **LAND 121/121 unchanged**.
+- **Helpers**: **308 unchanged** (no SHARED inflation).
+- **Named**: 637 → **658** (+21: 14 singleton leaf/string/strong + 7 OL second-order).
+- **Confidence**: avg **0.997 → 1.000**; below 0.9: **0**; below 0.95: **0**; below 1.0: 12→**0**.
+- **MergeArmies**: still **1.0**. Soft unnamed execute: **[]**.
+- **Genuine remaining unnamed execute edges**: **none** after Capstone (documented empty `remaining_unnamed_execute_edges_2cr`).
+- **Artifacts**: `cmd_post_path_index_2cr`, `role_post_path_matrix_2cr`, `confidence_report_2cr`, `checklist_2cr`, `remaining_unnamed_execute_edges_2cr`, `offensive_line_post_path_2cr`, `structural_named_2cr`, `naming_evidence_2cr`.
+- **Recipes**: `land_cmd_post_path_index_2cr_recipe`, `land_confidence_report_2cr_recipe`, `land_post_readiness_checklist_2cr_recipe`, `land_remaining_unnamed_execute_edges_2cr_recipe`, `land_offensive_line_post_path_2cr_recipe`.
+- **Preferred cores**: still **34** / **121/121**. IsValid-gate **122**; Execute-body list present.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+
