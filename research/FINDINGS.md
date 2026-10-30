@@ -258,3 +258,22 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+
+## Phase 2bs (overnight RO — remaining subtypes + REMAINING fields + tool-gate analysis)
+
+### Works
+- `EXTRA_ARMY_COMMANDS` **18/18** (was 8): promoted naval/air MissionMove/MissionMassMove/DeployAirWing/NavyCancelActivity + fleet SetNavalDeploymentTarget/CreateFleet/SetFleetHomeBase/NavalMissionSetTarget + land SetArmyTemplate/SetCountryReinforcementPriority. All factory-matched, shared bin, IsValid/Execute FN, fields + `ISVALID_PATHS`.
+- `REMAINING_ARMY_ORDERS` **15/15**: fields + isvalid RVAs/kinds + `ISVALID_PATHS` notes.
+- `TOOL_GATE_PREDICATES` documented in `cmd_layout` — safer analysis only; **CLOSED_NOT_OPENED**; no predicate flipped to allow enable.
+- `ISVALID_PATHS` **49**. Sticky StartGame still live. Watcher **29656** armed; tick=1; `allow_post` False.
+- Checklist hygiene: tool-gate analysis note; EXTRA naval/air gap closed.
+
+### Stubbed
+- In-process serialize→recreate→ring embed (needs Post/midflight).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+- Broader naval/production Command RTTI (~50+) left uncatalogued (out of army-move scope).
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

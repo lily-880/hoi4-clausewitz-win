@@ -1,5 +1,5 @@
 {
-  "phase": "2br",
+  "phase": "2bs",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -13,7 +13,7 @@
     {
       "id": "midflight_move_sample",
       "status": "stubbed",
-      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2br overnight; no injection)."
+      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2bs overnight; no injection)."
     },
     {
       "id": "action_flag_names",
@@ -63,7 +63,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED; 2br deepen only \u2014 midflight+ALLOW_POST+recreate still block"
+      "note": "DISABLED; 2bs TOOL_GATE_PREDICATES analysis only \u2014 midflight+ALLOW_POST+recreate still block; gate NOT opened"
     },
     {
       "id": "network_execlist_path",
@@ -98,12 +98,17 @@
     {
       "id": "isvalid_paths",
       "status": "closed",
-      "note": "2bo+2br: wrap + Move/Strategic/Cancel/Orders/Pause + EXTRA land/naval 8 + ORDERS 10; Pause TRUE"
+      "note": "2bs: 49 paths \u2014 EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
     },
     {
       "id": "remaining_army_orders",
       "status": "closed",
-      "note": "2bp serdes/clone/gettypeid 15/15; 2br IsValid/Execute kinds FN reconfirmed + EXTRA fields"
+      "note": "2bp serdes + 2br kinds + 2bs fields/ISVALID_PATHS 15/15 closed"
+    },
+    {
+      "id": "extra_naval_air_subtypes",
+      "status": "closed",
+      "note": "2bs: MissionMove/MassMove/DeployAirWing/NavyCancel + fleet/mission/template curated set in EXTRA 18/18"
     }
   ],
   "enable_when": [
@@ -145,7 +150,7 @@
     {
       "id": "tool_gate",
       "status": "open",
-      "must": "command_queue_tool_gate stays DISABLED"
+      "must": "command_queue_tool_gate stays DISABLED; TOOL_GATE_PREDICATES CLOSED_NOT_OPENED"
     }
   ],
   "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
@@ -186,5 +191,15 @@
     "allow_post": false,
     "midflight_watcher_pid": 29656,
     "ring_embed": "STUBBED"
+  },
+  "notes_2bs": {
+    "ts": "2026-10-31T05:57:28",
+    "extra": "18/18",
+    "remaining_fields": "15/15",
+    "isvalid_paths": 49,
+    "tool_gate": "CLOSED_NOT_OPENED analysis only",
+    "allow_post": false,
+    "midflight_watcher_pid": 29656,
+    "sticky_startgame": "live"
   }
 }
