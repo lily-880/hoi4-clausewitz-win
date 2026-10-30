@@ -179,6 +179,20 @@ PROVEN_STATIC = {
     "FN_TOKEN_NAME_GET": 0x1F8360,  # (writer, token) -> std::string*
     "G_TOKEN_ARRAY": 0x368F5A0,  # ptr; entry size 32 (MSVC SSO string)
     "G_TOKEN_MAX": 0x368F574,  # i32
+    # Phase 2an — CUnitMoveAction field offs (serialize-proven)
+    "CUnitMoveAction_UNIT_HANDLE": 0x10,
+    "CUnitMoveAction_PROVINCE_ARR": 0x18,
+    "CUnitMoveAction_PROVINCE_SIZE": 0x24,
+    "CUnitMoveAction_PATH_ARR": 0x30,
+    "CUnitMoveAction_PATH_SIZE": 0x3C,
+    "CUnitMoveAction_CLEAR": 0x50,
+    "CUnitMoveAction_SAFE": 0x51,
+    "CUnitMoveAction_SAFE_UNTIL_END": 0x52,
+    "CUnitMoveAction_SAFE_NONSAFE_FB": 0x53,
+    "CUnitMoveAction_AVOID": 0x55,
+    "CUnitMoveAction_MOVE_PRIORITY": 0x58,
+    "CUnitMoveAction_STICKY": 0x5C,
+    "CMoveCommand_ACTION_EMBED": 0x28,
     "FN_HANDLE_RESOLVE": 0x6E4800,
     "CCancelMovementCommand_SERIALIZE": 0x1404130,
     "CChatCommand_SERIALIZE": 0x13D7FA0,

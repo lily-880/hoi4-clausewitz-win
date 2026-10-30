@@ -1080,3 +1080,29 @@ Posting still **DISABLED**. Game pause/1x only (never 5x).
 - `command_queue` path: still unused in SP (DummyServer ring only).
 
 Script: `scripts/phase2am_tokens_apply.py --live`
+
+## Phase 2an — CUnitMoveAction field layout (READ-ONLY)
+
+Posting **DISABLED**. Pause/1x only.
+
+Proven from serialize `0x12c3920` lea/movzx sites (live byte-checked):
+
+| action+ | cmd+ (embed 0x28) | field | token | kind |
+|--------:|------------------:|-------|------:|------|
+| 0x10 | 0x38 | unit | 0x28a3 | handle |
+| 0x18 | 0x40 | province | 0x2840 | pdxarray (size@0x24) |
+| 0x30 | 0x58 | path | 0x174 | pdxarray (size@0x3c) |
+| 0x50 | 0x78 | clear | 0x29f1 | bool |
+| 0x51 | 0x79 | safe | 0x2c84 | bool |
+| 0x52 | 0x7a | safe_until_very_end | 0x3a98 | bool |
+| 0x53 | 0x7b | safe_with_nonsafe_fallback | 0x38f1 | bool |
+| 0x55 | 0x7d | avoid | 0x2c85 | bool |
+| 0x58 | 0x80 | move_priority | 0x37bc | enum i32 (skip if 1) |
+| 0x5c | 0x84 | sticky | 0x368f | bool |
+
+- Bools: written only if nonzero.
+- Arrays: written only if size > 0.
+- `+0x54` unused in serialize.
+- Heap scan paused tick=1: 0 live `CUnitMoveAction` vt hits (expected).
+
+Script: `scripts/phase2an_serialize_layout.py --live`
