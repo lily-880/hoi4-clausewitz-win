@@ -1,5 +1,5 @@
 {
-  "phase": "2ck",
+  "phase": "2cl",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -1015,5 +1015,33 @@
       "guess writes"
     ],
     "note": "2ck RO matrix/checklist focus. Post remains disabled."
+  },
+  "notes_2cl": {
+    "phase": "2cl",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 237,
+    "helpers_inflation": "none (gate_label_only=15)",
+    "named_helpers": 116,
+    "preferred_cores": 34,
+    "coverage": "121/121",
+    "cmd_post_path_index": 116,
+    "cmds_required_gates_fully_named": 116,
+    "watcher_pid": 36128,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_cmd_post_path_index_recipe",
+      "land_role_post_path_matrix_2cl_recipe",
+      "land_post_readiness_checklist_2cl_recipe"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes"
+    ],
+    "note": "2cl RO cmd-index focus. Post remains disabled."
   }
 }

@@ -1,0 +1,5576 @@
+{
+  "CSupportAttackCommand": {
+    "role": "attack",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderNewFallbackCommand": {
+    "role": "retreat",
+    "recommended_core": "retreat_bbb_only_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "retreat_bbb_only_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "execute_calls_n": 24,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x10b4fa0": "execute_shared_field_predicate_d"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=retreat_bbb_only_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderReplaceFallbackCommands": {
+    "role": "retreat",
+    "recommended_core": "retreat_bbb_only_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "retreat_bbb_only_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "execute_calls_n": 10,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=retreat_bbb_only_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetSelectedArmyGroupFallback": {
+    "role": "retreat",
+    "recommended_core": "retreat_bbb_only_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=retreat_bbb_only_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CCancelRunningAwayCommand": {
+    "role": "retreat",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [
+      "0xc51a20",
+      "0xc91770",
+      "0xc873a0",
+      "0x13df8a0",
+      "0x13efb80",
+      "0x13eb450",
+      "0xc915b0",
+      "0xddcd10"
+    ],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CWithdrawArmyHqCommand": {
+    "role": "retreat",
+    "recommended_core": "retreat_bbb_only_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1b7950",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0xbbb1e0",
+      "0x2284800",
+      "0x34c220",
+      "0x25a04c0",
+      "0x22aea40",
+      "0x25a05a4",
+      "0x12b330",
+      "0xc734f0",
+      "0xc47980",
+      "0x25a00d8"
+    ],
+    "named_isvalid_calls": {
+      "0x1b7950": "isvalid_shared_gate_1b7950",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x34c220": "isvalid_shared_gate_34c220",
+      "0x25a04c0": "isvalid_field_gate_25a04c0",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x25a05a4": "isvalid_field_gate_25a05a4",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0xc47980": "isvalid_order_inline_gate_88_68",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=retreat_bbb_only_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CMassMoveCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890",
+      "0x74ad20",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0xcdb440",
+      "0xc55940",
+      "0x1b8180",
+      "0x11f240"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xcdb440": "isvalid_shared_gate_cdb440",
+      "0xc55940": "isvalid_shared_gate_c55940",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0xc4f450"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CToggleStrategicDeploymentCommand": {
+    "role": "strategic",
+    "recommended_core": "strategic_pin_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "strategic_pin_core"
+    ],
+    "required_gates": [
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0x1b8180",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "named_isvalid_calls": {
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0xc57070",
+      "0xcd5190"
+    ],
+    "observe_steps": [
+      "1. Role=strategic; use recommended_core=strategic_pin_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CMoveArmiesInTheaterCommand": {
+    "role": "move",
+    "recommended_core": "move_theater_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_theater_core"
+    ],
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CMoveArmyGroupInTheaterCommand": {
+    "role": "move",
+    "recommended_core": "move_armygroup_theater_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "move_armygroup_theater_core"
+    ],
+    "required_gates": [
+      "0x10f12f0"
+    ],
+    "named_gates": {
+      "0x10f12f0": "isvalid_thin_alt_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f12f0"
+    ],
+    "named_isvalid_calls": {
+      "0x10f12f0": "isvalid_thin_alt_gate"
+    },
+    "execute_calls_n": 2,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_armygroup_theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderNewFrontCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 24,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x10b4fa0": "execute_shared_field_predicate_d"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderInsertFrontCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 28,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+      "0x18d41b0": "execute_shared_dispatcher_18d41b0",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xd551e0": "offensive_line_unique_exe_25",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x10c3640": "offensive_line_unique_exe_04",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x1bd0c0": "offensive_line_unique_exe_21",
+      "0xb9fac0": "offensive_line_unique_exe_22",
+      "0x10ba8f0": "offensive_line_unique_exe_02"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetPathCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderReshapeCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 6,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x1b15d0": "offensive_line_unique_exe_20",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderConnectCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 13,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b4fa0": "execute_shared_field_predicate_d",
+      "0xc44880": "offensive_line_unique_exe_24",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderReconnectCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 17,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x10b5fb0": "offensive_line_unique_exe_01",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b4fa0": "execute_shared_field_predicate_d",
+      "0x10c3e10": "offensive_line_unique_exe_05",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetCollapseCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_collapse_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "frontline_collapse_core"
+    ],
+    "required_gates": [
+      "0x10f12f0",
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f12f0",
+      "0x2284800"
+    ],
+    "named_isvalid_calls": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_collapse_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderAddNewCompletePlanCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "execute_calls_n": 6,
+    "named_execute_helpers": {
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x18c97d0": "offensive_line_unique_exe_16",
+      "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+      "0x18d41b0": "execute_shared_dispatcher_18d41b0"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderExecuteCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x18e5ce0": "offensive_line_unique_exe_18"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAssignToTheaterGroupCommand": {
+    "role": "theater",
+    "recommended_core": "theater_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_core"
+    ],
+    "required_gates": [
+      "0x18dde70"
+    ],
+    "named_gates": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2607890",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0x18dde70",
+      "0x16d9250"
+    ],
+    "named_isvalid_calls": {
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd4b440": "execute_shared_inline_predicate_top"
+    },
+    "singleton_execute_rvas": [
+      "0xf6ba20",
+      "0xf703f0"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDisbandTheaterGroupCommand": {
+    "role": "theater",
+    "recommended_core": "theater_reorder_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_reorder_core"
+    ],
+    "required_gates": [
+      "0xd73540"
+    ],
+    "named_gates": {
+      "0xd73540": "isvalid_theater_reorder_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xd73540"
+    ],
+    "named_isvalid_calls": {
+      "0xd73540": "isvalid_theater_reorder_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0x14d7070",
+      "0x254de20",
+      "0x11d5c0",
+      "0x12bbb0",
+      "0x12b930",
+      "0x12b710"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_reorder_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CReorderTheatersCommand": {
+    "role": "theater",
+    "recommended_core": "theater_reorder_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_reorder_core"
+    ],
+    "required_gates": [
+      "0xd73540"
+    ],
+    "named_gates": {
+      "0xd73540": "isvalid_theater_reorder_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xd73540"
+    ],
+    "named_isvalid_calls": {
+      "0xd73540": "isvalid_theater_reorder_gate"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0xd3ca90"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_reorder_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetTheaterGroupNameCommand": {
+    "role": "theater",
+    "recommended_core": "theater_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_core"
+    ],
+    "required_gates": [
+      "0x18dde70"
+    ],
+    "named_gates": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x18dde70"
+    ],
+    "named_isvalid_calls": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetTheaterGroupPriorityCommand": {
+    "role": "theater",
+    "recommended_core": "theater_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_core"
+    ],
+    "required_gates": [
+      "0x18dde70"
+    ],
+    "named_gates": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x18dde70"
+    ],
+    "named_isvalid_calls": {
+      "0x18dde70": "isvalid_theater_assign_gate"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupExecutionTypeCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupCohesionTypeCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupMotorizationCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupNameCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CCollapseConveyorCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd73120": "execute_shared_leaf_helper_a",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd4b390": "execute_shared_field_predicate_e",
+      "0xd72b50": "isvalid_order_inline_gate_54_48"
+    },
+    "singleton_execute_rvas": [
+      "0xd4a3d0",
+      "0xd4b2d0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f1410",
+      "0x18dde70",
+      "0x57f7b0",
+      "0x2284800",
+      "0xf75ef0",
+      "0xc07b80",
+      "0x747bd0",
+      "0xc4f070",
+      "0xc50d50",
+      "0x1e1510",
+      "0x22aea40",
+      "0x12b330"
+    ],
+    "named_isvalid_calls": {
+      "0x10f1410": "isvalid_shared_gate_10f1410",
+      "0x18dde70": "isvalid_theater_assign_gate",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x12b330": "isvalid_via_army_subject_gate_b"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0xf70260"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderNewRootCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance",
+      "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x18d41b0": "execute_shared_dispatcher_18d41b0"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderAssignCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x57f7b0",
+      "0x2284800",
+      "0xbbb1e0",
+      "0x1b8180"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [
+      "0x18c4f80",
+      "0x10b9960",
+      "0xf69810",
+      "0x10bc370",
+      "0xc4f070"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderUnassignCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "execute_calls_n": 7,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [
+      "0x18e7810",
+      "0x2b61f0",
+      "0x16bca50",
+      "0xc79350",
+      "0x16bd4d0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderDeleteCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [
+      "0x18e37e0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAssignToArmyGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f12f0",
+      "0xbbb1e0"
+    ],
+    "named_isvalid_calls": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "execute_calls_n": 13,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0x2283ae0",
+      "0x1b11420",
+      "0x1b141c0",
+      "0x1b12b80",
+      "0x1b11ea0",
+      "0xc40330",
+      "0xc4a2a0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRemoveFromArmyGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "named_isvalid_calls": {
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc47980": "isvalid_order_inline_gate_88_68",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupIconAndColorCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupLeaderProximityCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrderGroupOrdersInstanceNamesCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAutoMergeOrdersCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDeleteOrderGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [
+      "0xc49740",
+      "0xf7f2f0",
+      "0xf7f8c0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderDeleteAllCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [
+      "0x10b4d60"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CArmyGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f1410",
+      "0x57f7b0",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "named_isvalid_calls": {
+      "0x10f1410": "isvalid_shared_gate_10f1410",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc416b0": "execute_frontline_dispatcher_a"
+    },
+    "singleton_execute_rvas": [
+      "0xf700a0",
+      "0x10ce2e0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDeployArmyHqCommand": {
+    "role": "retreat",
+    "recommended_core": "retreat_bbb_only_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1b7950",
+      "0xbbb1e0",
+      "0x2284800",
+      "0x34c220",
+      "0x74adb0",
+      "0xc07b80",
+      "0xc47b10",
+      "0x15bb950",
+      "0x7215e0",
+      "0x22aea40",
+      "0x1e1510",
+      "0x25a04c0",
+      "0x11f770",
+      "0x1216a0",
+      "0x25a00d8",
+      "0x25a05a4",
+      "0x12b330",
+      "0xc47980"
+    ],
+    "named_isvalid_calls": {
+      "0x1b7950": "isvalid_shared_gate_1b7950",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x34c220": "isvalid_shared_gate_34c220",
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x25a04c0": "isvalid_field_gate_25a04c0",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x25a05a4": "isvalid_field_gate_25a05a4",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 6,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [
+      "0xc4bd40",
+      "0x21fce0"
+    ],
+    "observe_steps": [
+      "1. Role=retreat; use recommended_core=retreat_bbb_only_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetArmyLeaderCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770",
+      "0x34c220",
+      "0xc412a0",
+      "0xc47980",
+      "0x13f83b0",
+      "0x14027c0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x34c220": "isvalid_shared_gate_34c220",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetArmyTemplateCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x2284800",
+      "0x74ad20",
+      "0x13f4010",
+      "0xce5f50",
+      "0xe64be0",
+      "0x34c220",
+      "0xc66f80",
+      "0x12b330"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x34c220": "isvalid_shared_gate_34c220",
+      "0x12b330": "isvalid_via_army_subject_gate_b"
+    },
+    "execute_calls_n": 15,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x34c220": "isvalid_shared_gate_34c220",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x13f4010",
+      "0xceb2b0",
+      "0xc4b330",
+      "0xc66f80",
+      "0xc78c50",
+      "0xc78ad0"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRailwayGunManualOrderCommand": {
+    "role": "attack",
+    "recommended_core": "railwaygun_manual_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "railwaygun_manual_core"
+    ],
+    "required_gates": [
+      "0x2284800",
+      "0x2348bf0",
+      "0x254aa00",
+      "0x25a0390",
+      "0x25c3770"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "named_isvalid_calls": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=railwaygun_manual_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetCountryGarrisonPriorityCommand": {
+    "role": "theater",
+    "recommended_core": "theater_garrison_prio_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_garrison_prio_core"
+    ],
+    "required_gates": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_gates": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_isvalid_calls": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_garrison_prio_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetCountryReinforcementPriorityCommand": {
+    "role": "theater",
+    "recommended_core": "theater_garrison_prio_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_garrison_prio_core"
+    ],
+    "required_gates": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_gates": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_isvalid_calls": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x717390"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_garrison_prio_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetQuickDeployPreferenceCommand": {
+    "role": "move",
+    "recommended_core": "move_c07b80_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_c07b80_core"
+    ],
+    "required_gates": [
+      "0xc07b80"
+    ],
+    "named_gates": {
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc07b80",
+      "0x741370",
+      "0xcf4da0"
+    ],
+    "named_isvalid_calls": {
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0x7173a0",
+      "0xca8270",
+      "0xfeb5a0"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_c07b80_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CMoveCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "move_c07b80_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc57080",
+      "0x2284800",
+      "0x1e1510",
+      "0x2607890",
+      "0x74ae40",
+      "0xc07b80",
+      "0x2348bf0",
+      "0x25c3770",
+      "0x726d80",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "named_isvalid_calls": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "execute_calls_n": 19,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CStrategicRedeploymentCommand": {
+    "role": "strategic",
+    "recommended_core": "strategic_pin_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "strategic_pin_core",
+      "strategic_unit_redeploy_core"
+    ],
+    "required_gates": [
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 19,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=strategic; use recommended_core=strategic_pin_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderBlockSectionsCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderChildFrontRatioCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderEditRootCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_bbb_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 2,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderMembersFairSplitCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2284800",
+      "0x25c3770",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderMergeRootsCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2284800",
+      "0x25c3770",
+      "0xc40230",
+      "0x10bc180"
+    ],
+    "named_isvalid_calls": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b4fa0": "execute_shared_field_predicate_d",
+      "0x25a0448": "execute_shared_field_predicate_b",
+      "0x25a0310": "execute_shared_inline_predicate_a",
+      "0x25a03dc": "execute_shared_field_predicate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderReorderChildFrontCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x10cc1d0": "offensive_line_unique_exe_07",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetInvasionSourceCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x12b3c0"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x12b3c0": "isvalid_order_group_inline_second_order"
+    },
+    "execute_calls_n": 18,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc40490": "get_order_instance",
+      "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x18d41b0": "execute_shared_dispatcher_18d41b0",
+      "0xfcf660": "offensive_line_unique_exe_26"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetParadropSourceCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0x219250",
+      "0xc40230",
+      "0x10bf130"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x219250": "isvalid_shared_gate_219250",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "execute_calls_n": 13,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance",
+      "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x18d41b0": "execute_shared_dispatcher_18d41b0",
+      "0xfd0db0": "offensive_line_unique_exe_27",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x10be690": "offensive_line_unique_exe_03"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetParadropTargetCommand": {
+    "role": "frontline",
+    "recommended_core": "frontline_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0x219250",
+      "0xc40230",
+      "0x10be690"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x219250": "isvalid_shared_gate_219250",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x10be690": "offensive_line_unique_exe_03"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x18e5dd0": "offensive_line_unique_exe_19"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=frontline; use recommended_core=frontline_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "COrderSetTrainingCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_bbb_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_bbb_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 2,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_bbb_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetOrdersLinkCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_orders_link_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "order_group_orders_link_core"
+    ],
+    "required_gates": [
+      "0x10b9f10",
+      "0x10f12f0"
+    ],
+    "named_gates": {
+      "0x10b9f10": "isvalid_order_group_orders_link_gate",
+      "0x10f12f0": "isvalid_thin_alt_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x10f12f0",
+      "0x10b9f10"
+    ],
+    "named_isvalid_calls": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0x10b9f10": "isvalid_order_group_orders_link_gate"
+    },
+    "execute_calls_n": 1,
+    "named_execute_helpers": {
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_orders_link_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetArmyLeaderPreferredTacticCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc47a80",
+      "0x2284800",
+      "0xc675d0"
+    ],
+    "named_isvalid_calls": {
+      "0xc47a80": "isvalid_shared_gate_c47a80",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc675d0": "isvalid_shared_gate_c675d0"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetArmyFakeTemplateCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0xce5f30"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "execute_calls_n": 8,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAddConveyorLineCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_conveyor_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490",
+      "0x2284800",
+      "0xd472f0",
+      "0xc07b80",
+      "0x1693c0",
+      "0xd6fe90"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x1693c0": "isvalid_order_group_field_gate_c",
+      "0xd6fe90": "deployment_train_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd73120": "execute_shared_leaf_helper_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CChangeConveyorPositionCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd73120": "execute_shared_leaf_helper_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x1c32980": "gamestate_instance_guard_e"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CCreateConveyorCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0xbf4ad0",
+      "0xbf4ae0",
+      "0x2284800",
+      "0x172cb20",
+      "0xc07d30",
+      "0x2572c70",
+      "0x1c2d4d0",
+      "0xc07b80",
+      "0x164c870",
+      "0xbf4ce0",
+      "0xbf4af0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0xbf4ad0": "isvalid_gs_related_gate_bf4ad0",
+      "0xbf4ae0": "isvalid_gs_related_gate_bf4ae0",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07d30": "gamestate_instance_guard_c07d30",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd73120": "execute_shared_leaf_helper_a",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd4b390": "execute_shared_field_predicate_e",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd47300": "execute_order_group_dispatcher_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CCreateConveyorExtendedCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd73120": "execute_shared_leaf_helper_a",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd4b390": "execute_shared_field_predicate_e",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd47300": "execute_order_group_dispatcher_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDeployConveyorCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 8,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xd71a40": "execute_shared_dispatcher_d71a40",
+      "0x1c32980": "gamestate_instance_guard_e"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDeployConveyorLineCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_conveyor_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490",
+      "0x1e1510",
+      "0x2607890",
+      "0x2284800",
+      "0x1693c0",
+      "0xbf3360",
+      "0xd49500",
+      "0xd472f0",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0",
+      "0xc08100"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1693c0": "isvalid_order_group_field_gate_c",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0xd49500": "isvalid_shared_gate_d49500",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d",
+      "0xc08100": "execute_order_group_inline_helper_a"
+    },
+    "execute_calls_n": 7,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0xd71a40": "execute_shared_dispatcher_d71a40",
+      "0x1c32980": "gamestate_instance_guard_e"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRemoveConveyorCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 8,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0x1c32980": "gamestate_instance_guard_e",
+      "0xd47300": "execute_order_group_dispatcher_b"
+    },
+    "singleton_execute_rvas": [
+      "0xd74690"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRemoveConveyorLineCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_conveyor_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490",
+      "0x1e1510",
+      "0x2607890",
+      "0x2284800",
+      "0x1693c0",
+      "0xbf3360",
+      "0xd49500",
+      "0xd472f0",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0",
+      "0xc08100"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1693c0": "isvalid_order_group_field_gate_c",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0xd49500": "isvalid_shared_gate_d49500",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d",
+      "0xc08100": "execute_order_group_inline_helper_a"
+    },
+    "execute_calls_n": 7,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xd72b50": "isvalid_order_inline_gate_54_48",
+      "0x1c32980": "gamestate_instance_guard_e"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetConveyorGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd4b390": "execute_shared_field_predicate_e",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c"
+    },
+    "singleton_execute_rvas": [
+      "0xd4b2e0"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetConveyorLocationCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_conveyor_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490",
+      "0x1e1510",
+      "0x2607890",
+      "0x2284800",
+      "0x1693c0",
+      "0xbf3360",
+      "0xd49500",
+      "0xd472f0",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0",
+      "0xc08100"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1693c0": "isvalid_order_group_field_gate_c",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0xd49500": "isvalid_shared_gate_d49500",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d",
+      "0xc08100": "execute_order_group_inline_helper_a"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd4b390": "execute_shared_field_predicate_e",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c",
+      "0xa13da0": "execute_shared_dispatcher_composite_b",
+      "0xa13f80": "execute_shared_dispatcher_composite_a",
+      "0xa0c7b0": "execute_shared_field_predicate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetConveyorNameCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_conveyor_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_conveyor_core"
+    ],
+    "required_gates": [
+      "0x1c31490"
+    ],
+    "named_gates": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "execute_calls_n": 11,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c",
+      "0xa13da0": "execute_shared_dispatcher_composite_b",
+      "0xa13f80": "execute_shared_dispatcher_composite_a",
+      "0xa0c7b0": "execute_shared_field_predicate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_conveyor_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetConveyorPriorityCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_conveyor_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_conveyor_core"
+    ],
+    "required_gates": [
+      "0x1c31490"
+    ],
+    "named_gates": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "execute_calls_n": 10,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c",
+      "0xa13da0": "execute_shared_dispatcher_composite_b",
+      "0xa13f80": "execute_shared_dispatcher_composite_a",
+      "0xa0c7b0": "execute_shared_field_predicate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_conveyor_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetConveyorSeriesCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_conveyor_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_conveyor_core"
+    ],
+    "required_gates": [
+      "0x1c31490"
+    ],
+    "named_gates": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd4b2c0": "execute_order_group_wide_walk",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c",
+      "0xa13da0": "execute_shared_dispatcher_composite_b",
+      "0xa13f80": "execute_shared_dispatcher_composite_a",
+      "0xa0c7b0": "execute_shared_field_predicate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_conveyor_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CChangeConveyorTemplateCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0x2284800",
+      "0xbea570",
+      "0xc07b80",
+      "0xd6fe90",
+      "0xbf3360",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xd6fe90": "deployment_train_gate",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d"
+    },
+    "execute_calls_n": 7,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd4b440": "execute_shared_inline_predicate_top",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0x1c32980": "gamestate_instance_guard_e"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetCountryGarrisonTemplateCommand": {
+    "role": "theater",
+    "recommended_core": "theater_garrison_prio_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_garrison_prio_core"
+    ],
+    "required_gates": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_gates": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x3b65a0",
+      "0xac1e20"
+    ],
+    "named_isvalid_calls": {
+      "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+      "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x10841e0"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_garrison_prio_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetMainGarrisonTemplateCommand": {
+    "role": "theater",
+    "recommended_core": "theater_main_garrison_template_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "theater_main_garrison_template_core"
+    ],
+    "required_gates": [
+      "0x74adb0"
+    ],
+    "named_gates": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate"
+    },
+    "execute_calls_n": 7,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x1083ca0",
+      "0x10829e0"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_main_garrison_template_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetStateGarrisonTemplateCommand": {
+    "role": "theater",
+    "recommended_core": "theater_state_garrison_template_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "theater_state_garrison_template_core"
+    ],
+    "required_gates": [
+      "0x254aa00",
+      "0x25a0390",
+      "0xc08580"
+    ],
+    "named_gates": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x254aa00",
+      "0x25a0390",
+      "0xc08580"
+    ],
+    "named_isvalid_calls": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "execute_calls_n": 11,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0x73aab0": "isvalid_order_group_reinstate_exile_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x73aab0",
+      "0x1084240"
+    ],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_state_garrison_template_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRailwayGunSetNameCommand": {
+    "role": "attack",
+    "recommended_core": "railwaygun_name_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "railwaygun_name_core"
+    ],
+    "required_gates": [
+      "0xf01db0"
+    ],
+    "named_gates": {
+      "0xf01db0": "isvalid_railwaygun_name_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xf01db0"
+    ],
+    "named_isvalid_calls": {
+      "0xf01db0": "isvalid_railwaygun_name_gate"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=railwaygun_name_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetDeploymentLineNameCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_conveyor_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1c31490",
+      "0x1e1510",
+      "0x2607890",
+      "0x2284800",
+      "0x1693c0",
+      "0xbf3360",
+      "0xd49500",
+      "0xd472f0",
+      "0x254aa00",
+      "0x25a0390",
+      "0xeebbd0",
+      "0xc08100"
+    ],
+    "named_isvalid_calls": {
+      "0x1c31490": "isvalid_conveyor_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1693c0": "isvalid_order_group_field_gate_c",
+      "0xbf3360": "execute_order_group_via_gs_guard_b",
+      "0xd49500": "isvalid_shared_gate_d49500",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xeebbd0": "gamestate_instance_guard_d",
+      "0xc08100": "execute_order_group_inline_helper_a"
+    },
+    "execute_calls_n": 8,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xd47300": "execute_order_group_dispatcher_b",
+      "0xd472f0": "execute_order_group_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0xa138b0": "execute_shared_dispatcher_composite_c",
+      "0xa13da0": "execute_shared_dispatcher_composite_b",
+      "0xa13f80": "execute_shared_dispatcher_composite_a",
+      "0xa0c7b0": "execute_shared_field_predicate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetRepairOrderCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x3321f0",
+      "0x1b7950",
+      "0x6cad90"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x1b7950": "isvalid_shared_gate_1b7950"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0xee1870",
+      "0xee0cb0"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CUpgradeDivisionOfficerCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x2284800",
+      "0xc08580",
+      "0xc07b80",
+      "0x7251b0"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x7251b0": "isvalid_order_group_create_leader_gate"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0x1f1a40"
+    ],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetDivisionNameCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74ad20",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 6,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0xcebd10",
+      "0xcebcb0",
+      "0xcebe70",
+      "0xc57080",
+      "0x1039990"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetObsoleteDivisionTemplateCommand": {
+    "role": "move",
+    "recommended_core": "move_c07b80_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_c07b80_core"
+    ],
+    "required_gates": [
+      "0xc07b80"
+    ],
+    "named_gates": {
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74adb0",
+      "0xbf4ad0",
+      "0xbf4ae0",
+      "0x2284800",
+      "0x172cb20",
+      "0xc07d30",
+      "0x2572c70",
+      "0x1c2d4d0",
+      "0xc07b80",
+      "0x164c870",
+      "0xbf4ce0",
+      "0xbf4af0"
+    ],
+    "named_isvalid_calls": {
+      "0x74adb0": "isvalid_calls_cancel_pair_gate",
+      "0xbf4ad0": "isvalid_gs_related_gate_bf4ad0",
+      "0xbf4ae0": "isvalid_gs_related_gate_bf4ae0",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07d30": "gamestate_instance_guard_c07d30",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbea570": "division_subunit_type_check",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0xbf9240"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_c07b80_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CBuildRailwayCommand": {
+    "role": "move",
+    "recommended_core": "move_c07b80_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_c07b80_core"
+    ],
+    "required_gates": [
+      "0xc07b80"
+    ],
+    "named_gates": {
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc07b80",
+      "0x2e8750",
+      "0x57be70",
+      "0x581900",
+      "0x57c580",
+      "0x25a00d8"
+    ],
+    "named_isvalid_calls": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "execute_calls_n": 11,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0xc07620": "gamestate_instance_guard",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0xed1710",
+      "0x3321f0",
+      "0x12025a0",
+      "0x21da70"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_c07b80_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CLearnTraitCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "order_group_leader_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x11ecb20",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x2284800",
+      "0xb3da70",
+      "0x12b330",
+      "0xc07b80",
+      "0x25a00d8"
+    ],
+    "named_isvalid_calls": {
+      "0x11ecb20": "isvalid_leader_seen_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CUpdateLeaderSeenTraitsCountCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_leader_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_leader_core"
+    ],
+    "required_gates": [
+      "0x11ecb20"
+    ],
+    "named_gates": {
+      "0x11ecb20": "isvalid_leader_seen_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x11ecb20"
+    ],
+    "named_isvalid_calls": {
+      "0x11ecb20": "isvalid_leader_seen_gate"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_leader_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAiDiscardForceConcentrationTargetCommand": {
+    "role": "attack",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAiOnFailedInvasionCommand": {
+    "role": "attack",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAiStoreForceConcentrationTargetCommand": {
+    "role": "attack",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAiStoreTotalWantedNrDivisionsCommand": {
+    "role": "attack",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=attack; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CClearRepairPinsCommand": {
+    "role": "order_group",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CCreateUnitLeaderCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_create_leader_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "order_group_create_leader_core"
+    ],
+    "required_gates": [
+      "0x7251b0",
+      "0xc07b80"
+    ],
+    "named_gates": {
+      "0x7251b0": "isvalid_order_group_create_leader_gate",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc07b80",
+      "0x7251b0"
+    ],
+    "named_isvalid_calls": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x7251b0": "isvalid_order_group_create_leader_gate"
+    },
+    "execute_calls_n": 33,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_create_leader_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CDeleteUnitCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x2284800",
+      "0xc08100",
+      "0x25a009c",
+      "0x12b330",
+      "0x25a00d8"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc08100": "execute_order_group_inline_helper_a",
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc07620": "gamestate_instance_guard",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [
+      "0x2b7610",
+      "0x733ba0"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CMergeArmiesCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890",
+      "0x74ad20",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0xcdb440",
+      "0xc55940",
+      "0x1b8180",
+      "0x11f240"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0xcdb440": "isvalid_shared_gate_cdb440",
+      "0xc55940": "isvalid_shared_gate_c55940",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "execute_calls_n": 5,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0x13f9f40",
+      "0x13f8740"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CPromoteUnitLeaderCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_leader_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_leader_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x11ecb20"
+    ],
+    "named_gates": {
+      "0x11ecb20": "isvalid_leader_seen_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x11ecb20",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x11ecb20": "isvalid_leader_seen_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_leader_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CQueueUnitActionCommand": {
+    "role": "order_group",
+    "recommended_core": "army_subject_pair_adjacent_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=army_subject_pair_adjacent_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CReorderPinnedStrategicRegionCommand": {
+    "role": "strategic",
+    "recommended_core": "strategic_redeploy_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "strategic_redeploy_core"
+    ],
+    "required_gates": [
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "named_gates": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "named_isvalid_calls": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=strategic; use recommended_core=strategic_redeploy_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSelectionGroupCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x254aa00",
+      "0x25a0390",
+      "0xc47a80",
+      "0x2284800",
+      "0xc675d0"
+    ],
+    "named_isvalid_calls": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc47a80": "isvalid_shared_gate_c47a80",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc675d0": "isvalid_shared_gate_c675d0"
+    },
+    "execute_calls_n": 8,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetPendingReassignTargetCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc47a80",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0xc47a80": "isvalid_shared_gate_c47a80",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [
+      "0xc7d1c0",
+      "0xc4bbc0"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetPreferredTacticCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_preferred_tactic_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "order_group_preferred_tactic_core"
+    ],
+    "required_gates": [
+      "0x707bc0",
+      "0x73ee00",
+      "0xc07b80"
+    ],
+    "named_gates": {
+      "0x707bc0": "isvalid_order_group_preferred_tactic_gate_a",
+      "0x73ee00": "isvalid_order_group_preferred_tactic_gate_b",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc07b80",
+      "0x73ee00",
+      "0x707bc0"
+    ],
+    "named_isvalid_calls": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x73ee00": "isvalid_order_group_preferred_tactic_gate_b",
+      "0x707bc0": "isvalid_order_group_preferred_tactic_gate_a"
+    },
+    "execute_calls_n": 11,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x73ee00": "isvalid_order_group_preferred_tactic_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x23c3a0": "thread_is_main_thread"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_preferred_tactic_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetTheatreCommand": {
+    "role": "theater",
+    "recommended_core": "theater_set_theatre_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "theater_set_theatre_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x57f7b0"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x57f7b0": "isvalid_army_subject_gate_c"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 2,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=theater; use recommended_core=theater_set_theatre_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CSetUnitNameCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 3,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CTogglePinnedStrategicRegionCommand": {
+    "role": "strategic",
+    "recommended_core": "strategic_redeploy_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "strategic_redeploy_core"
+    ],
+    "required_gates": [
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "named_gates": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "named_isvalid_calls": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=strategic; use recommended_core=strategic_redeploy_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CTransportUnitCommand": {
+    "role": "move",
+    "recommended_core": "move_army_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_army_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_isvalid_calls": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "execute_calls_n": 2,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "singleton_execute_rvas": [
+      "0xc51500"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_army_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CUpdateLeaderSeenAdvisorRolesCountCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_leader_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_leader_core"
+    ],
+    "required_gates": [
+      "0x11ecb20"
+    ],
+    "named_gates": {
+      "0x11ecb20": "isvalid_leader_seen_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x11ecb20"
+    ],
+    "named_isvalid_calls": {
+      "0x11ecb20": "isvalid_leader_seen_gate"
+    },
+    "execute_calls_n": 9,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_leader_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRequestExpeditionariesCommand": {
+    "role": "move",
+    "recommended_core": "move_theater_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "move_theater_core",
+      "move_c07b80_core"
+    ],
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc07b80",
+      "0xc08580",
+      "0x716bc0",
+      "0x2c2100"
+    ],
+    "named_isvalid_calls": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "execute_calls_n": 19,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x120530": "isvalid_move_order_group_field_gate",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "singleton_execute_rvas": [
+      "0x11d2a10"
+    ],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_theater_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CGiveMedalCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x74ad20",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0x1b7950",
+      "0xc07b80",
+      "0xc873a0",
+      "0x717370",
+      "0x14e3900",
+      "0x14e2d60"
+    ],
+    "named_isvalid_calls": {
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x1b7950": "isvalid_shared_gate_1b7950",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x74ad20": "isvalid_move_order_field_gate_b",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc08580": "gamestate_instance_guard_c",
+      "0xcdb440": "isvalid_shared_gate_cdb440"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CTriggerAbilityCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x246ed0",
+      "0x65ad20",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770",
+      "0x57be70",
+      "0x581900",
+      "0x254aa00",
+      "0x5829b0"
+    ],
+    "named_isvalid_calls": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CRetireCharacterCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_core",
+    "genuine_divergence": false,
+    "all_cores": [
+      "order_group_core"
+    ],
+    "required_gates": [
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x4b4fd0",
+      "0x2284800",
+      "0x1029570",
+      "0xabc220",
+      "0xc07b80",
+      "0x734ad0",
+      "0x11721d0"
+    ],
+    "named_isvalid_calls": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07620": "gamestate_instance_guard",
+      "0xc08580": "gamestate_instance_guard_c"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CReinstateExileCommand": {
+    "role": "order_group",
+    "recommended_core": "order_group_reinstate_exile_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "order_group_reinstate_exile_core"
+    ],
+    "required_gates": [
+      "0x11f240",
+      "0x120530",
+      "0x1217a0",
+      "0x12b330",
+      "0x25a009c",
+      "0x25a00d8",
+      "0x2607890",
+      "0x73aab0",
+      "0xc07b80",
+      "0xc08100"
+    ],
+    "named_gates": {
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x120530": "isvalid_move_order_group_field_gate",
+      "0x1217a0": "isvalid_order_group_reinstate_exile_gate_a",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x73aab0": "isvalid_order_group_reinstate_exile_gate_b",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xc08100": "execute_order_group_inline_helper_a"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0xc08100",
+      "0x25a009c",
+      "0x12b330",
+      "0x2607890",
+      "0x11f240",
+      "0x25a00d8",
+      "0xc07b80",
+      "0x73aab0",
+      "0x1217a0",
+      "0x120530"
+    ],
+    "named_isvalid_calls": {
+      "0xc08100": "execute_order_group_inline_helper_a",
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x12b330": "isvalid_via_army_subject_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x73aab0": "isvalid_order_group_reinstate_exile_gate_b",
+      "0x1217a0": "isvalid_order_group_reinstate_exile_gate_a",
+      "0x120530": "isvalid_move_order_group_field_gate"
+    },
+    "execute_calls_n": 12,
+    "named_execute_helpers": {
+      "0xc07620": "gamestate_instance_guard",
+      "0x25a009c": "isvalid_second_order_field_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=order_group; use recommended_core=order_group_reinstate_exile_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  },
+  "CAmendForeignManpowerActionCommand": {
+    "role": "move",
+    "recommended_core": "move_amend_manpower_core",
+    "genuine_divergence": true,
+    "all_cores": [
+      "move_amend_manpower_core"
+    ],
+    "required_gates": [
+      "0x11f240",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "unnamed_gates_remaining": [],
+    "isvalid_calls": [
+      "0x2607890",
+      "0x11f240"
+    ],
+    "named_isvalid_calls": {
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "execute_calls_n": 4,
+    "named_execute_helpers": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b"
+    },
+    "singleton_execute_rvas": [],
+    "observe_steps": [
+      "1. Role=move; use recommended_core=move_amend_manpower_core.",
+      "2. Observe required_gates IsValid (named where available); do not patch.",
+      "3. If genuine_divergence, do not require primary-role soft gates absent here.",
+      "4. Execute helpers observe-only; singleton_execute_rvas are docs-only.",
+      "5. Confirm allow_post False / tool-gate CLOSED / watcher RO.",
+      "6. STOP \u2014 never Post without explicit user ALLOW_POST."
+    ],
+    "allow_post": false
+  }
+}

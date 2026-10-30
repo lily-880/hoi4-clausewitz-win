@@ -598,3 +598,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 pid 2880; watcher **36128** RO alive; tool-gate **CLOSED_NOT_OPENED**; named spot reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cl (overnight RO) — per-cmd post-path index + core-gate naming
+
+- **HEAD parent**: `196c4fe` (2ck). Focus: checklist/matrix/post-path readiness over count inflation. **LAND 121/121 unchanged**.
+- **Helpers**: **237 unchanged**. `gate_label_only_2cl` (15) labels core/IsValid RVAs without helper catalog inflation.
+- **Named helpers/labels**: 96 → **116** (+20: 6 preferred-core/divergence gates + high-hit IsValid gates).
+- **Primary deliverable**: `cmd_post_path_index_2cl` — **116** in-scope cmds (attack/retreat/move/strategic/frontline/theater/order_group) each with recommended_core, required_gates fully named (116/116), divergence flag, singleton execute RVAs, observe_steps.
+- **Matrix**: `role_post_path_matrix_2cl` enriched with gates_fully_named per preferred core + soft_unnamed_remaining.
+- **Checklist**: `post_readiness_checklist_2cl` with how_to_use_cmd_index.
+- **Recipes**: `land_cmd_post_path_index_recipe`, `land_role_post_path_matrix_2cl_recipe`, `land_post_readiness_checklist_2cl_recipe`.
+- **Preferred cores**: still **34** / **121/121**.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+

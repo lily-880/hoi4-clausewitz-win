@@ -1739,3 +1739,86 @@ def land_post_readiness_checklist_2ck_recipe(role: str | None = None) -> dict:
         "note": "Checklist for future Post readiness docs only.",
     }
     return out
+
+
+# --- Phase 2cl: per-cmd post-path index + enriched matrix (READ-ONLY) ---
+
+def land_cmd_post_path_index_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Per-command Post readiness index (recommended_core + named gates). Docs only — never enables Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = pr.get("cmd_post_path_index_2cl") or {}
+    out = {
+        "phase": "2cl",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "commands": {},
+        "note": "Look up cmd → recommended_core + required_gates. Do not Post.",
+    }
+    for n, meta in idx.items():
+        if command_name and n != command_name:
+            continue
+        if role and meta.get("role") != role:
+            continue
+        out["commands"][n] = meta
+    out["count"] = len(out["commands"])
+    out["fully_named_required_gates"] = sum(
+        1 for v in out["commands"].values() if not v.get("unnamed_gates_remaining")
+    )
+    return out
+
+
+def land_role_post_path_matrix_2cl_recipe(role: str | None = None) -> dict:
+    """Enriched 2cl role matrix (gate naming completeness). Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    matrix = pr.get("role_post_path_matrix_2cl") or pr.get("role_post_path_matrix_2ck") or {}
+    out = {
+        "phase": "2cl",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "roles": {},
+        "note": "Enriched matrix with gates_fully_named per preferred core.",
+    }
+    for r, meta in matrix.items():
+        if role and r != role:
+            continue
+        out["roles"][r] = meta
+    out["role_count"] = len(out["roles"])
+    return out
+
+
+def land_post_readiness_checklist_2cl_recipe(command_name: str | None = None) -> dict:
+    """2cl checklist + optional cmd index slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cl") or {})
+    idx = pr.get("cmd_post_path_index_2cl") or {}
+    out = {
+        "phase": "2cl",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "command_slice": idx.get(command_name) if command_name else None,
+        "do_not": checklist.get("do_not") or [
+            "enable ALLOW_POST",
+            "patch/hook helpers",
+            "Post inject",
+            "HourlyTick / GameSpeed writes",
+            "guess writes",
+        ],
+        "note": "Checklist + cmd index for future Post readiness docs only.",
+    }
+    return out

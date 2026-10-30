@@ -1,0 +1,63 @@
+{
+  "phase": "2cl",
+  "allow_post": false,
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "posting": "DISABLED",
+  "land_cmds": "121/121 unchanged",
+  "preferred_cores": 34,
+  "named_helpers": 116,
+  "helpers_total": 237,
+  "helpers_inflation": "none (gate_label_only for missing-helper core gates)",
+  "gate_label_only": {
+    "0x10b9f10": "isvalid_order_group_orders_link_gate",
+    "0x7251b0": "isvalid_order_group_create_leader_gate",
+    "0x707bc0": "isvalid_order_group_preferred_tactic_gate_a",
+    "0x73ee00": "isvalid_order_group_preferred_tactic_gate_b",
+    "0x1217a0": "isvalid_order_group_reinstate_exile_gate_a",
+    "0x73aab0": "isvalid_order_group_reinstate_exile_gate_b",
+    "0x25a04c0": "isvalid_field_gate_25a04c0",
+    "0x25a05a4": "isvalid_field_gate_25a05a4",
+    "0xc55940": "isvalid_shared_gate_c55940",
+    "0x10f1410": "isvalid_shared_gate_10f1410",
+    "0x219250": "isvalid_shared_gate_219250",
+    "0xc675d0": "isvalid_shared_gate_c675d0",
+    "0xbf4ad0": "isvalid_gs_related_gate_bf4ad0",
+    "0xbf4ae0": "isvalid_gs_related_gate_bf4ae0",
+    "0xc07d30": "gamestate_instance_guard_c07d30"
+  },
+  "cmd_post_path_index_count": 116,
+  "cmds_required_gates_fully_named": 116,
+  "cmds_genuine_divergence": 11,
+  "matrix_roles": [
+    "attack",
+    "retreat",
+    "move",
+    "strategic",
+    "frontline",
+    "theater",
+    "order_group"
+  ],
+  "requirements_before_any_post": [
+    "CLAUSEWITZ_ALLOW_POST remains unset/false",
+    "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+    "midflight watcher RO only \u2014 no inject",
+    "never HourlyTick / GameSpeed writes",
+    "IsValid gate helpers observed but not patched",
+    "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "inflate LAND cmd count without new RTTI evidence"
+  ],
+  "how_to_use_cmd_index": [
+    "Look up command in cmd_post_path_index_2cl",
+    "Follow recommended_core + required_gates (named_gates)",
+    "Respect genuine_divergence flag",
+    "Observe singleton_execute_rvas docs-only",
+    "Never Post"
+  ]
+}
