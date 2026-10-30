@@ -1,0 +1,182 @@
+{
+  "phase": "2ce",
+  "posting": "DISABLED",
+  "role_min_gate_docs": {
+    "0x11f240": {
+      "class": "dispatcher_or_composite",
+      "tier": "primary_shared",
+      "hits": 29,
+      "head": [
+        "push rbx",
+        "push rsi",
+        "push r12",
+        "push r13",
+        "push r15",
+        "sub rsp, 0x20",
+        "mov r15, qword ptr [rcx + 0x10]",
+        "movabs rbx, 0x7fffffffffffffff",
+        "mov r12, qword ptr [rsp + 0x70]",
+        "mov rax, rbx",
+        "sub rax, r15",
+        "mov r13, r9",
+        "mov rsi, rcx",
+        "cmp rax, rdx",
+        "jb 0x11f3bf",
+        "mov qword ptr [rsp + 0x50], rbp"
+      ],
+      "roles_requiring": [
+        "move"
+      ]
+    },
+    "0x1e1510": {
+      "class": "inline_predicate",
+      "tier": "primary_shared",
+      "hits": 35,
+      "head": [
+        "mov rax, qword ptr [rcx + 0x10]",
+        "test rax, rax",
+        "je 0x1e1536",
+        "cmp qword ptr [rcx + 0x18], 0xf",
+        "mov rdx, rcx",
+        "jbe 0x1e1526",
+        "mov rdx, qword ptr [rcx]",
+        "cdqe ",
+        "cmp byte ptr [rax + rdx - 1], 0xa",
+        "je 0x1e1536",
+        "mov dl, 0xa",
+        "jmp 0x1b82f0",
+        "ret "
+      ],
+      "roles_requiring": [
+        "move"
+      ]
+    },
+    "0x2284800": {
+      "class": "field_predicate",
+      "tier": "primary_shared",
+      "hits": 185,
+      "head": [
+        "sub rsp, 0x28",
+        "mov eax, dword ptr [rcx]",
+        "cmp eax, 0x1268",
+        "jbe 0x2284831",
+        "mov rax, qword ptr [rip + 0x127b3dc]",
+        "test rax, rax",
+        "je 0x2284872",
+        "mov rdx, rcx",
+        "mov rcx, rax",
+        "call 0x2282810",
+        "test rax, rax",
+        "je 0x2284872",
+        "mov rax, qword ptr [rax]",
+        "add rsp, 0x28",
+        "ret "
+      ],
+      "roles_requiring": [
+        "move",
+        "frontline",
+        "cancel_abort"
+      ]
+    },
+    "0x2348bf0": {
+      "class": "field_predicate",
+      "tier": "primary_shared",
+      "hits": 17,
+      "head": [
+        "movzx eax, byte ptr [rip + 0xdedc69]",
+        "ret ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "int3 ",
+        "mov edx, dword ptr [rip + 0x134ae92]",
+        "mov rax, qword ptr gs:[0x58]",
+        "mov r9d, 0x2030",
+        "mov r8, qword ptr [rax + rdx*8]",
+        "mov edx, 0x2034",
+        "mov eax, dword ptr [rdx + r8]"
+      ],
+      "roles_requiring": [
+        "cancel_abort"
+      ]
+    },
+    "0x25c3770": {
+      "class": "field_predicate",
+      "tier": "primary_shared",
+      "hits": 26,
+      "head": [
+        "mov qword ptr [rsp + 0x10], rbx",
+        "mov qword ptr [rsp + 0x18], rsi",
+        "push rdi",
+        "push r12",
+        "push r13",
+        "push r14",
+        "push r15",
+        "sub rsp, 0x50",
+        "mov r15, r9",
+        "mov r12, r8",
+        "movsxd r13, edx",
+        "mov rdi, rcx",
+        "xor ebx, ebx",
+        "test rcx, rcx",
+        "jne 0x25c37b6",
+        "xor eax, eax"
+      ],
+      "roles_requiring": [
+        "move",
+        "cancel_abort"
+      ]
+    },
+    "0x2607890": {
+      "class": "inline_predicate",
+      "tier": "primary_shared",
+      "hits": 65,
+      "head": [
+        "mov rax, rcx",
+        "lea r10, [rip - 0x260789a]",
+        "cmp r8, 0xf",
+        "ja 0x26079b0",
+        "nop word ptr [rax + rax]",
+        "mov r9d, dword ptr [r10 + r8*4 + 0x2c20810]",
+        "add r9, r10",
+        "jmp r9",
+        "ret "
+      ],
+      "roles_requiring": [
+        "move",
+        "strategic"
+      ]
+    },
+    "0xbbb1e0": {
+      "class": "field_predicate",
+      "tier": "primary_shared",
+      "hits": 53,
+      "head": [
+        "push rbx",
+        "sub rsp, 0x30",
+        "mov rbx, rcx",
+        "call 0x2348bf0",
+        "mov ecx, dword ptr [rbx]",
+        "test al, al",
+        "je 0xbbb21f",
+        "test ecx, ecx",
+        "jne 0xbbb20b",
+        "cmp dword ptr [rbx + 4], ecx",
+        "jne 0xbbb20b",
+        "xor eax, eax",
+        "test rax, rax",
+        "setne al",
+        "add rsp, 0x30",
+        "pop rbx"
+      ],
+      "roles_requiring": [
+        "frontline"
+      ]
+    }
+  },
+  "note": "Intersection gates per offensive role \u2014 observe only; never patch/hook/Post"
+}

@@ -1065,14 +1065,117 @@ def land_post_readiness_recipe() -> dict[str, Any]:
         sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
     except Exception as e:
         return {"error": str(e), "posting": "DISABLED"}
+    helpers = sh.get("helpers") or {}
+    primary = sum(1 for h in helpers.values() if h.get("tier") != "second_order")
+    second = sum(1 for h in helpers.values() if h.get("tier") == "second_order")
     return {
         "phase": pr.get("phase") or sh.get("phase"),
-        "helper_count": len((sh.get("helpers") or {})),
+        "helper_count": len(helpers),
+        "primary_shared": primary,
+        "second_order_hot": second,
         "by_class": pr.get("by_class") or sh.get("by_class"),
+        "second_order_by_class": pr.get("second_order_by_class") or sh.get("second_order_by_class"),
         "named_helpers": pr.get("named_helpers"),
         "isvalid_gate_helpers": pr.get("isvalid_gate_helpers"),
         "execute_body_helpers": pr.get("execute_body_helpers"),
+        "role_post_paths": {
+            role: {
+                "commands": (meta or {}).get("commands"),
+                "min_gates_intersection": (meta or {}).get("min_gates_intersection"),
+                "union_gates": (meta or {}).get("union_gates"),
+            }
+            for role, meta in ((pr.get("role_post_paths") or {}) or {}).items()
+        },
         "requirements_before_any_post": pr.get("requirements_before_any_post"),
+        "post_implications_2ce": pr.get("post_implications_2ce"),
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def move_command_recipe(army_row: dict[str, Any], dest_province_id: int,
+                        clear: int = 0, move_priority: int = 0) -> dict[str, Any]:
+    """CMoveCommand field map — RO docs only; never posts."""
+    return {
+        "unit_handle_off": 0x28,  # subject_lo/hi cluster @+0x28..; layout also marks 40
+        "unit_handle": list(army_row["handle"]),
+        "subject_lo_off": 0x28,
+        "dest_or_arg0_off": 0x30,
+        "dest_province": dest_province_id,
+        "arg1_or_count_off": 0x34,
+        "clear": clear,
+        "move_priority": move_priority,
+        "source_province_id": army_row.get("province_id"),
+        "post_gate_candidates": [
+            "0x2284800", "0x254aa00", "0x2607890", "0x1e1510", "0xc07b80", "0x11f240", "0x25c3770",
+        ],
+        "named_helpers": ["gamestate_instance_guard_b"],
+        "note": "Shares Execute plumbing with CStrategicRedeploymentCommand; IsValid must pass live",
+        "posting": "DISABLED",
+    }
+
+
+def order_reconnect_recipe(order_a: int = 0, order_b: int = 0, order_c: int = 0) -> dict[str, Any]:
+    """COrderReconnectCommand — RO docs; mirrors connect subject/id cluster."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "id_or_b_off": 0x2C,
+        "id_or_c_off": 0x30,
+        "order_a": order_a,
+        "order_b": order_b,
+        "order_c": order_c,
+        "post_gate_candidates": ["0x2284800", "0xbbb1e0", "0xc40230"],
+        "named_helpers": ["gamestate_instance_guard"],
+        "note": "GetOrderInstance path; subject pair required; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def replace_fallback_recipe(unit_handles: list[list[int]] | None = None,
+                            province_or_path: int = 0) -> dict[str, Any]:
+    """COrderReplaceFallbackCommands — RO docs only."""
+    handles = unit_handles or []
+    return {
+        "subject_or_vec_off": 0x28,
+        "units": [list(h) for h in handles],
+        "units_count": len(handles),
+        "province_or_path_off": 0x30,
+        "province_or_path": province_or_path,
+        "post_gate_candidates": ["0x2284800", "0xbbb1e0", "0xc40230"],
+        "note": "Retreat/fallback replace; IsValid gates shared with NewFallback; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
+    """RO: role → min IsValid gate intersection from LAND_POST_READINESS.role_post_paths."""
+    try:
+        import cmd_layout as _cl
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    paths = pr.get("role_post_paths") or {}
+    if role:
+        meta = paths.get(role) or {}
+        return {
+            "role": role,
+            "commands": meta.get("commands"),
+            "min_gates_intersection": meta.get("min_gates_intersection"),
+            "union_gates": meta.get("union_gates"),
+            "union_body": meta.get("union_body"),
+            "union_second": meta.get("union_second"),
+            "posting": "DISABLED",
+            "allow_post": False,
+        }
+    return {
+        "roles": {
+            r: {
+                "commands": m.get("commands"),
+                "min_gates_intersection": m.get("min_gates_intersection"),
+            }
+            for r, m in paths.items()
+        },
         "posting": "DISABLED",
         "allow_post": False,
         "tool_gate": "CLOSED_NOT_OPENED",

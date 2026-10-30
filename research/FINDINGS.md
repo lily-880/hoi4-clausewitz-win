@@ -466,3 +466,21 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2ce (overnight RO — second-order helpers + role Post paths + offensive Execute deepen)
+
+### Works
+- Expanded `SHARED_LAND_HELPERS` with **14** second-order hot callees of the primary 40 (total helpers catalogued **54** = 40 primary + 14 second-order). Classes: field_predicate 6, dispatcher 5, inline 2, wide_walk 1.
+- Capstone **offensive-line Execute deepen on 22** attack/retreat/move/strategic/frontline/cancel cmds: field `shared_offs_2ce`, known40 / unknown Execute callees wired.
+- Built `LAND_POST_READINESS.role_post_paths` with per-role union gates + **min_gates_intersection** (move/frontline/cancel/strategic documented); Capstone heads for **7** intersection gates.
+- Gate/body catalogs grew: IsValid-gate helpers **47**, Execute-body helpers **34**.
+- Recipes: `move_command_recipe`, `order_reconnect_recipe`, `replace_fallback_recipe`, `land_role_post_path_recipe`; `land_post_readiness_recipe` enriched for 2ce.
+- **LAND 121/121**, **ISVALID_PATHS 134** unchanged; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Helper patch / Post inject; navy/air/division-template/production/GameSpeed/HourlyTick.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
