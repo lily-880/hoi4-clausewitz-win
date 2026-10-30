@@ -117,6 +117,11 @@ PROVEN_STATIC = {
     "CSession_DRAIN_COUNTER": 0x60,
     # Phase 2t — move command / session staging / post-exec list
     "CMoveCommand_VT": 0x2A2C790,
+    "CMoveCommand_SIZE": 0x88,  # factory 0x13fb000 (2w corrects 2t 0x58 mislabel)
+    "CMoveCommand_FACTORY": 0x13FB000,
+    "CChatCommand_VT": 0x2A27F28,
+    "CChatCommand_SIZE": 0x98,
+    "CChatCommand_EXECUTE": 0x13CAEE0,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

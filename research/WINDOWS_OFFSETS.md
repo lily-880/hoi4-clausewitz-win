@@ -630,7 +630,7 @@ Tools: `scripts/phase2s_execlist_fill.py [--live]`, `scripts/phase2s_network.py`
 | Item | Value |
 |------|-------|
 | vt | `0x2a2c790` |
-| size | `0x58` (factory `0x13fb060`) |
+| size | `0x88` (factory `0x13fb000`; **2w corrects** prior `0x58` mislabel) |
 | IsValid vt+`0x48` | thunk `0x14002f0` → **`CUnitMoveAction.vt+0x50`** `0x12c2ca0` |
 | Execute vt+`0x50` | thunk `0x13fc990` → **`CUnitMoveAction.vt+0x48`** `0x12c2670` |
 | embedded @`+0x28` | `.?AVCUnitMoveAction@@` vt `0x2a1f648`; sub-ctor `0x12c1770`; type-id `+8=0x3648` |
@@ -705,6 +705,39 @@ Tool: `scripts/phase2u_plus40_fill.py [--live]`
 Posting remains **DISABLED** until independent paused-SP proof. Checklist only in `phase2v_post_gates.py` report.
 
 Tool: `scripts/phase2v_post_gates.py [--live]`
+
+## Phase 2w — CMoveCommand size 0x88 field map; CChatCommand (writes DISABLED)
+
+### Correction
+
+**CMoveCommand size = `0x88`** (factory `0x13fb000` → `CUnitMoveAction` sub_ctor `0x12c1770` at `+0x28`). The `0x58` factory nearby is a different object; 2t mislabeled.
+
+### CCommand base (common)
+
+| Off | Role |
+|-----|------|
+| `+8` | flag |
+| `+0xc` | tick (Post stamps from session+`0x84`) |
+| `+0x18` | word (Post stamps) |
+| `+0x1a` | execlist select (see 2u) |
+| `+0x1c` | sink seq |
+
+### CUnitMoveAction `@ cmd+0x28`
+
+| Off | Role |
+|-----|------|
+| `+8` | type-id `0x3648` |
+| `+0x10` | unit/handle |
+| `+0x18`, `+0x30` | vectors (path / unit ids) |
+| `+0x58` | dword `1` default |
+
+### CChatCommand
+
+vt `0x2a27f28`, size `0x98`, Execute `0x13caee0` — noted as future simpler candidate; **not enabled**.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2w_fieldmap.py [--live]`
 
 ## Write gate
 

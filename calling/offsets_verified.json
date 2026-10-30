@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2v-post-gates-and-cancelmovement-documented-writes-still-disabled",
+  "status": "phase2w-move-size-0x88-fieldmap-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -332,7 +332,8 @@
         "vt": "0x2a2c790",
         "Execute_thunk": "0x13fc990 -> CUnitMoveAction.vt+0x48 @ 0x12c2670",
         "IsValid_thunk": "0x14002f0 -> CUnitMoveAction.vt+0x50 @ 0x12c2ca0",
-        "embedded": "CUnitMoveAction at +0x28; sub_ctor 0x12c1770; type_id 0x3648"
+        "embedded": "CUnitMoveAction at +0x28; sub_ctor 0x12c1770; type_id 0x3648",
+        "size_corrected_in_2w": "0x88"
       },
       "session_staging": "+0x48 array / +0x54 count from server+0x58",
       "session_post_exec_list": "+0xf8/+0x100/+0x108 via cmd.vt+0x68 clone after Execute",
@@ -364,6 +365,18 @@
       },
       "posting": "DISABLED",
       "safe_enable": "NOT proven — checklist only",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2w": {
+      "CMoveCommand_size_correction": "0x88 (was wrongly 0x58 in 2t)",
+      "factory": "0x13fb000 embeds CUnitMoveAction via 0x12c1770 at +0x28",
+      "CUnitMoveAction_fields": "+8=0x3648; +0x10 handle; +0x18/+0x30 vectors; +0x58=1",
+      "CChatCommand": {
+        "vt": "0x2a27f28",
+        "size": "0x98",
+        "Execute": "0x13caee0"
+      },
+      "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }
   },
