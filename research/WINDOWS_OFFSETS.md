@@ -1219,3 +1219,19 @@ Posting **DISABLED**. Sizes from Clone `mov ecx,imm`.
 | CSetArmyLeaderCommand | `0x2a85520` | `0x3051` | `0x40` | `0x18e9390` |
 
 Key fields (live-checked tokens): Assign `order_index@+0x48`, units list; Execute `order_index@+0x30`, `execute_order@+0x34`, `all@+0x35`; NewFront path/units/blitz/withdraw; SetLeader `leader` + `deploy_army_hq`.
+
+## Phase 2as — CArmy CHandle + CProvince id (RO)
+
+Posting **DISABLED**.
+
+| Symbol | Value | Notes |
+|--------|-------|-------|
+| GS countries begin | `GS+0x310` | u64 |
+| GS countries size | `GS+0x318` | u32 (440) |
+| GS player_tag | `GS+0x518` | |
+| CO_ARMIES | `Country+0x290` | begin; size at `+0x0C` (`Country+0x29C`) |
+| CA_HANDLE | `CArmy+0x18` | `u32 type` + `u32 index`; type `0x33` on HAI armies |
+| CA_COUNTRY_TAG | `CArmy+0x1E0` | matches player_tag |
+| CA_PROVINCE | `CArmy+0x1F0` | `CProvince*` |
+| CP_PROVINCE_ID | `CProvince+0xA4` | **hypothesis_strong** (unique ids 740..13071 on sample) |
+| FN_HANDLE_RESOLVE | — | prior `0x6e4800` **UNVERIFIED**; not promoted |

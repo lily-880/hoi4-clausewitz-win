@@ -85,3 +85,9 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - Documented sizes for 10 Order*/ArmyGroup/SetLeader commands via Clone alloc immediates.
 - Field layouts for Assign/Execute/Unassign/Delete/NewFront/SetArmyLeader (token-backed).
 - **Posting still DISABLED**.
+
+## Phase 2as (handles / provinces)
+
+- Live HAI: 17 `CArmy` handles type `0x33`, indices 1037..1053 sequential; country tag @`+0x1e0` = player 15.
+- `CProvince+0xa4` province-id hypothesis (15 unique / 17 armies).
+- `FN_HANDLE_RESOLVE` left unverified. **Posting DISABLED**.

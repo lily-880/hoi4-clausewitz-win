@@ -32,6 +32,7 @@ python clausewitz_win.py status
 
 ## What works
 
+- Phase 2as: CArmy CHandle (+0x18 type 0x33) + CProvince id hyp (+0xa4); writes DISABLED
 - Phase 2ar: Order* sizes + serialize field layouts (Assign/Execute/NewFront/…); writes DISABLED
 - Phase 2aq: StrategicRedeploy serialize (army/province/clear/priority); posting DISABLED now (Phase 2ap)
 
