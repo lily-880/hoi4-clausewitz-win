@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2x-chat-fields-move-earlydrop-writes-still-disabled",
+  "status": "phase2y-heap-scan-no-live-cmds-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -386,6 +386,16 @@
         "vt": "0x2a85468",
         "Execute": "0x18d6430"
       },
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2y": {
+      "heap_scan_writable_MB": 7696,
+      "live_CMoveCommand": 0,
+      "live_CChatCommand": 0,
+      "live_CDummyServer": 1,
+      "session_0x725": 1,
+      "note": "paused: cmds freed after Execute; catch mid-flight needs 1x + activity",
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }

@@ -763,6 +763,16 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2x_chat_auth.py [--live]`
 
+## Phase 2y — full-heap scan for live commands (writes DISABLED)
+
+Writable scan (~7.6 GiB): **0** live `CMoveCommand` / `CChatCommand` / `CUnitMoveAction`; **1** `CDummyServer` (matches `session+0x40`).
+
+Paused SP destroys commands after Execute — mid-flight capture needs brief 1x with player activity (never 5x). `session+0x725==1` on this save bypasses Move early-drop.
+
+Posting **DISABLED**.
+
+Tool: `scripts/phase2y_heap_scan.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
