@@ -639,3 +639,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2co (overnight RO) — Capstone deep-resolve + shared second-order
+
+- **HEAD parent**: `ff86670` (2cn). Focus: raise avg post_path_confidence / shrink below-0.9 with Capstone RO evidence. **LAND 121/121 unchanged**.
+- **Helpers**: 252 → **308** (+56 second-order with hits≥2 only). Thin wrappers **not** added to SHARED catalog.
+- **Named**: 223 → **370** (+147 = 31 leftover catalog + 56 SO + 60 Capstone thin wrappers via fully-named callees).
+- **Confidence**: avg **0.957 → 0.977**; cmds below 0.9: 24→**6**; below 0.95 shrinks. Required gates still **121/121 named**. Soft unnamed all roles **[]**.
+- **Remaining below 0.9**: CCancelRunningAwayCommand, COrderUnassignCommand, CSetQuickDeployPreferenceCommand, CMergeArmiesCommand, CTransportUnitCommand, CRetireCharacterCommand.
+- **Artifacts**: `cmd_post_path_index_2co`, `role_post_path_matrix_2co`, `confidence_report_2co`, `post_readiness_checklist_2co`, `deep_resolved_execute_helpers_2co`.
+- **Recipes**: `land_cmd_post_path_index_2co_recipe`, `land_confidence_report_2co_recipe`, `land_post_readiness_checklist_2co_recipe`.
+- **Preferred cores**: still **34** / **121/121**. IsValid-gate **122**; Execute-body **183** (+SO tracked in body list).
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+

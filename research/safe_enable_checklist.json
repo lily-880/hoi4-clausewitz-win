@@ -1,5 +1,5 @@
 {
-  "phase": "2cn",
+  "phase": "2co",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -1104,5 +1104,38 @@
       "guess writes"
     ],
     "note": "2cn RO confidence raise via naming. Post remains disabled."
+  },
+  "notes_2co": {
+    "phase": "2co",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 308,
+    "helpers_prev_2cn": 252,
+    "helpers_added": "56 second_order hits>=2 only",
+    "deep_thin_named_outside_shared": 60,
+    "named_helpers": 370,
+    "avg_post_path_confidence": 0.977,
+    "prev_avg_2cn": 0.957,
+    "cmds_below_0_9": 6,
+    "soft_unnamed_all_closed": true,
+    "preferred_cores": 34,
+    "coverage": "121/121",
+    "cmd_post_path_index": 121,
+    "watcher_pid": 36128,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_cmd_post_path_index_2co_recipe",
+      "land_confidence_report_2co_recipe",
+      "land_post_readiness_checklist_2co_recipe"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes"
+    ],
+    "note": "2co RO Capstone confidence raise. Post remains disabled."
   }
 }
