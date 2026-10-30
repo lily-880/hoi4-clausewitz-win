@@ -1,0 +1,354 @@
+{
+  "attack": {
+    "n_cmds": 7,
+    "cmds": [
+      "CSupportAttackCommand",
+      "CRailwayGunManualOrderCommand",
+      "CRailwayGunSetNameCommand",
+      "CAiDiscardForceConcentrationTargetCommand",
+      "CAiOnFailedInvasionCommand",
+      "CAiStoreForceConcentrationTargetCommand",
+      "CAiStoreTotalWantedNrDivisionsCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CSupportAttackCommand"
+    ],
+    "preferred_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=attack; focus cmds=['CSupportAttackCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "cancel_abort": {
+    "n_cmds": 2,
+    "cmds": [
+      "CMassCancelMovementCommand",
+      "CCancelMovementCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CCancelMovementCommand"
+    ],
+    "preferred_cores": [
+      "cancel_abort_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=cancel_abort; focus cmds=['CCancelMovementCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "frontline": {
+    "n_cmds": 15,
+    "cmds": [
+      "COrderNewFrontCommand",
+      "COrderInsertFrontCommand",
+      "COrderSetPathCommand",
+      "COrderReshapeCommand",
+      "COrderConnectCommand",
+      "COrderReconnectCommand",
+      "COrderSetCollapseCommand",
+      "COrderAddNewCompletePlanCommand",
+      "COrderExecuteCommand",
+      "COrderBlockSectionsCommand",
+      "COrderChildFrontRatioCommand",
+      "COrderReorderChildFrontCommand",
+      "COrderSetInvasionSourceCommand",
+      "COrderSetParadropSourceCommand",
+      "COrderSetParadropTargetCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "COrderNewFrontCommand",
+      "COrderExecuteCommand",
+      "COrderSetPathCommand",
+      "COrderInsertFrontCommand",
+      "COrderReshapeCommand"
+    ],
+    "preferred_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=frontline; focus cmds=['COrderNewFrontCommand', 'COrderExecuteCommand', 'COrderSetPathCommand', 'COrderInsertFrontCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "garrison": {
+    "n_cmds": 3,
+    "cmds": [
+      "CCreateAreaDefenseCommand",
+      "CEditAreaDefenseStateCommand",
+      "CSetAreaDefenseSettingCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CCreateAreaDefenseCommand",
+      "CEditAreaDefenseStateCommand",
+      "CSetAreaDefenseSettingCommand"
+    ],
+    "preferred_cores": [
+      "garrison_core",
+      "garrison_bbb_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=garrison; focus cmds=['CCreateAreaDefenseCommand', 'CEditAreaDefenseStateCommand', 'CSetAreaDefenseSettingCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "move": {
+    "n_cmds": 17,
+    "cmds": [
+      "CMassMoveCommand",
+      "CMoveArmiesInTheaterCommand",
+      "CMoveArmyGroupInTheaterCommand",
+      "CSetArmyTemplateCommand",
+      "CSetQuickDeployPreferenceCommand",
+      "CMoveCommand",
+      "CSetArmyFakeTemplateCommand",
+      "CSetRepairOrderCommand",
+      "CSetDivisionNameCommand",
+      "CSetObsoleteDivisionTemplateCommand",
+      "CBuildRailwayCommand",
+      "CDeleteUnitCommand",
+      "CMergeArmiesCommand",
+      "CSetPendingReassignTargetCommand",
+      "CTransportUnitCommand",
+      "CRequestExpeditionariesCommand",
+      "CAmendForeignManpowerActionCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CMoveCommand",
+      "CMassMoveCommand",
+      "CDeleteUnitCommand"
+    ],
+    "preferred_cores": [
+      "move_army_core",
+      "move_c07b80_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=move; focus cmds=['CMoveCommand', 'CMassMoveCommand', 'CDeleteUnitCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "order_group": {
+    "n_cmds": 56,
+    "cmds": [
+      "CSetOrderGroupExecutionTypeCommand",
+      "CSetOrderGroupCohesionTypeCommand",
+      "CSetOrderGroupMotorizationCommand",
+      "CSetOrderGroupNameCommand",
+      "CCollapseConveyorCommand",
+      "COrderGroupCommand",
+      "COrderNewRootCommand",
+      "COrderAssignCommand",
+      "COrderUnassignCommand",
+      "COrderDeleteCommand",
+      "CAssignToArmyGroupCommand",
+      "CRemoveFromArmyGroupCommand",
+      "CSetOrderGroupIconAndColorCommand",
+      "CSetOrderGroupLeaderProximityCommand",
+      "CSetOrderGroupOrdersInstanceNamesCommand",
+      "CAutoMergeOrdersCommand",
+      "CDeleteOrderGroupCommand",
+      "COrderDeleteAllCommand",
+      "CArmyGroupCommand",
+      "CSetArmyLeaderCommand",
+      "COrderEditRootCommand",
+      "COrderMembersFairSplitCommand",
+      "COrderMergeRootsCommand",
+      "COrderSetTrainingCommand",
+      "CSetOrdersLinkCommand",
+      "CSetArmyLeaderPreferredTacticCommand",
+      "CAddConveyorLineCommand",
+      "CChangeConveyorPositionCommand",
+      "CCreateConveyorCommand",
+      "CCreateConveyorExtendedCommand",
+      "CDeployConveyorCommand",
+      "CDeployConveyorLineCommand",
+      "CRemoveConveyorCommand",
+      "CRemoveConveyorLineCommand",
+      "CSetConveyorGroupCommand",
+      "CSetConveyorLocationCommand",
+      "CSetConveyorNameCommand",
+      "CSetConveyorPriorityCommand",
+      "CSetConveyorSeriesCommand",
+      "CChangeConveyorTemplateCommand",
+      "CSetDeploymentLineNameCommand",
+      "CUpgradeDivisionOfficerCommand",
+      "CLearnTraitCommand",
+      "CUpdateLeaderSeenTraitsCountCommand",
+      "CClearRepairPinsCommand",
+      "CCreateUnitLeaderCommand",
+      "CPromoteUnitLeaderCommand",
+      "CQueueUnitActionCommand",
+      "CSelectionGroupCommand",
+      "CSetPreferredTacticCommand",
+      "CSetUnitNameCommand",
+      "CUpdateLeaderSeenAdvisorRolesCountCommand",
+      "CGiveMedalCommand",
+      "CTriggerAbilityCommand",
+      "CRetireCharacterCommand",
+      "CReinstateExileCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "COrderAssignCommand",
+      "COrderDeleteCommand",
+      "CArmyGroupCommand",
+      "COrderGroupCommand"
+    ],
+    "preferred_cores": [
+      "order_group_core",
+      "order_group_bbb_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=order_group; focus cmds=['COrderAssignCommand', 'COrderDeleteCommand', 'CArmyGroupCommand', 'COrderGroupCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "retreat": {
+    "n_cmds": 6,
+    "cmds": [
+      "COrderNewFallbackCommand",
+      "COrderReplaceFallbackCommands",
+      "CSetSelectedArmyGroupFallback",
+      "CCancelRunningAwayCommand",
+      "CWithdrawArmyHqCommand",
+      "CDeployArmyHqCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "COrderNewFallbackCommand",
+      "COrderReplaceFallbackCommands",
+      "CSetSelectedArmyGroupFallback",
+      "CWithdrawArmyHqCommand",
+      "CDeployArmyHqCommand",
+      "CCancelRunningAwayCommand"
+    ],
+    "preferred_cores": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=retreat; focus cmds=['COrderNewFallbackCommand', 'COrderReplaceFallbackCommands', 'CSetSelectedArmyGroupFallback', 'CWithdrawArmyHqCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "strategic": {
+    "n_cmds": 4,
+    "cmds": [
+      "CToggleStrategicDeploymentCommand",
+      "CStrategicRedeploymentCommand",
+      "CReorderPinnedStrategicRegionCommand",
+      "CTogglePinnedStrategicRegionCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CStrategicRedeploymentCommand",
+      "CToggleStrategicDeploymentCommand"
+    ],
+    "preferred_cores": [
+      "strategic_pin_core",
+      "strategic_unit_redeploy_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=strategic; focus cmds=['CStrategicRedeploymentCommand', 'CToggleStrategicDeploymentCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "theater": {
+    "n_cmds": 11,
+    "cmds": [
+      "CAssignToTheaterGroupCommand",
+      "CDisbandTheaterGroupCommand",
+      "CReorderTheatersCommand",
+      "CSetTheaterGroupNameCommand",
+      "CSetTheaterGroupPriorityCommand",
+      "CSetCountryGarrisonPriorityCommand",
+      "CSetCountryReinforcementPriorityCommand",
+      "CSetCountryGarrisonTemplateCommand",
+      "CSetMainGarrisonTemplateCommand",
+      "CSetStateGarrisonTemplateCommand",
+      "CSetTheatreCommand"
+    ],
+    "avg_confidence": 1.0,
+    "n_below_1_0": 0,
+    "focus_commands": [
+      "CAssignToTheaterGroupCommand",
+      "CDisbandTheaterGroupCommand",
+      "CSetTheatreCommand",
+      "CReorderTheatersCommand",
+      "CSetTheaterGroupNameCommand"
+    ],
+    "preferred_cores": [
+      "theater_core",
+      "theater_reorder_core",
+      "theater_set_theatre_core"
+    ],
+    "allow_post": false,
+    "observe_playbook": [
+      "1. Role=theater; focus cmds=['CAssignToTheaterGroupCommand', 'CDisbandTheaterGroupCommand', 'CSetTheatreCommand', 'CReorderTheatersCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2ct_recipe.",
+      "4. For frontline/OL: land_offensive_line_post_path_2ct_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  }
+}

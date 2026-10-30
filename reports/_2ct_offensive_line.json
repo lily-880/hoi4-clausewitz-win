@@ -1,0 +1,1678 @@
+{
+  "COrderNewFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x2607890",
+      "0x10b5f10"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "sub_group",
+      "units_data",
+      "units_count",
+      "path",
+      "attach",
+      "split_from",
+      "blitz",
+      "withdraw",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "ctx_or_flag"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderNewFrontCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0x254aa00', '0xc415b0', '0xc416b0'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderInsertFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x10b5f10",
+      "0x25c3770",
+      "0x2607f30",
+      "0x254aa00",
+      "0x25a0390",
+      "0x18e580",
+      "0x25694b0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "id_or_c",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg6_or_plan",
+      "flags_or_ctx2",
+      "arg0_or_type",
+      "arg3_or_cap"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderInsertFrontCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0x10b4e50'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetPathCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "order_id_a",
+      "order_id_b",
+      "order_id_c",
+      "path_payload",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg3",
+      "ctx_or_flag",
+      "arg0_or_type",
+      "arg7"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetPathCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReshapeCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x2607890"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "id_or_c",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr",
+      "owner_or_ctx"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReshapeCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0x2607890'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderConnectCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x2607890",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "id_or_c",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderConnectCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0x10b4e50'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReconnectCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0x18e580",
+      "0x10b5f10",
+      "0x10b4e50",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "id_or_c",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReconnectCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0x254aa00', '0x18e580', '0x10b5f10'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetCollapseCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x10f12f0",
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc07620",
+      "0x254aa00",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0x2284800"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "post_gate_candidates": [
+      "0x2284800"
+    ],
+    "field_map_keys": [
+      "order_handle_lo",
+      "order_handle_hi",
+      "collapse_flag_or_id",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg0_or_type",
+      "subject_lo",
+      "subject_hi",
+      "owner_or_ctx",
+      "arg2_or_vec_end",
+      "flags_or_ctx2"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetCollapseCommand; conf=1.0.",
+      "2. IsValid helpers ['0x2284800']; Execute helpers ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc07620'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderAddNewCompletePlanCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x57f7b0",
+      "0x2284800",
+      "0x1b8180"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x57f7b0",
+      "0x2284800",
+      "0x1b8180"
+    ],
+    "field_map_keys": [
+      "plan_subject",
+      "units_or_path",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "owner_or_ctx",
+      "subject_lo",
+      "subject_hi",
+      "arg2_or_vec_end"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderAddNewCompletePlanCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x1e1510', '0x2607890', '0x11f240']; Execute helpers ['0x2284800'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderExecuteCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "order_index",
+      "execute_order",
+      "all",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "vptr_or_hdr",
+      "owner_or_ctx"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderExecuteCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderBlockSectionsCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "count_or_id",
+      "extra_38",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg0_or_type",
+      "arg7",
+      "arg2_or_vec_end",
+      "subject_lo"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderBlockSectionsCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderChildFrontRatioCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "ratio",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "vptr_or_hdr",
+      "owner_or_ctx",
+      "arg0_or_type",
+      "arg2_or_vec_end"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderChildFrontRatioCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReorderChildFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x18e580",
+      "0x25c3770",
+      "0x2607890",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "vptr_or_hdr",
+      "arg0_or_type",
+      "arg2_or_vec_end",
+      "arg3_or_cap",
+      "subject_lo",
+      "subject_hi",
+      "arg6_or_plan"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReorderChildFrontCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0x18e580', '0x25c3770', '0x2607890'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetInvasionSourceCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc07620",
+      "0x254aa00",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc07b80",
+      "0xc40230",
+      "0x22aea40",
+      "0x25a00d8",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc07b80",
+      "0xc40230",
+      "0x22aea40",
+      "0x25a00d8",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "id_or_b",
+      "extra_38",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr",
+      "owner_or_ctx"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetInvasionSourceCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc07b80', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc07620'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetParadropSourceCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "source",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr",
+      "owner_or_ctx",
+      "arg0_or_type"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetParadropSourceCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0x254aa00', '0x25a0390']; Execute helpers ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc40490'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetParadropTargetCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_vec",
+      "target",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg0_or_type",
+      "arg7"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetParadropTargetCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0x254aa00', '0x25a0390']; Execute helpers ['0x2284800', '0xc40230'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CCreateAreaDefenseCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc416b0",
+      "0xc40490"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "arg0",
+      "arg2",
+      "vptr_or_hdr",
+      "arg3_or_cap",
+      "arg0_or_type",
+      "arg6_or_plan",
+      "arg2_or_vec_end",
+      "subject_lo"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CCreateAreaDefenseCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc47980']; Execute helpers ['0x2284800', '0xc416b0', '0xc40490'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CEditAreaDefenseStateCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0xbbb1e0",
+      "0xc416b0",
+      "0xc40490"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg2",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr",
+      "owner_or_ctx",
+      "arg0_or_type",
+      "arg7",
+      "arg2_or_vec_end"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CEditAreaDefenseStateCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0x254aa00', '0xbbb1e0', '0xc416b0'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CSetAreaDefenseSettingCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc47980",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc47980": "isvalid_order_inline_gate_88_68",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg1_or_count",
+      "arg2",
+      "ctx_or_flag",
+      "arg0_or_type",
+      "flags_or_ctx2",
+      "subject_lo",
+      "arg2_or_vec_end",
+      "arg3_or_cap",
+      "subject_hi"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CSetAreaDefenseSettingCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0xc40230']; Execute helpers ['0x2284800', '0xc40230', '0xc47980', '0xc07620'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CSupportAttackCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_isvalid_helpers": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "field_map_keys": [
+      "handle",
+      "province",
+      "subject_or_handle",
+      "subject_hi_or_id",
+      "arg0",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "vptr_or_hdr",
+      "owner_or_ctx",
+      "flags_or_ctx2",
+      "subject_lo"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CSupportAttackCommand; conf=1.0.",
+      "2. IsValid helpers ['0x57f7b0', '0x1e1510', '0x2607890']; Execute helpers ['0x2284800', '0x254aa00', '0x25a0390'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CRailwayGunManualOrderCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0x2348bf0",
+      "0x254aa00",
+      "0x25a0390",
+      "0x25c3770"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "ol_named_execute": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "field_map_keys": [
+      "subject",
+      "extra_30",
+      "order_or_prov",
+      "subject_or_handle",
+      "arg1_or_count",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "flags_or_ctx2",
+      "arg7",
+      "subject_lo",
+      "arg8"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CRailwayGunManualOrderCommand; conf=1.0.",
+      "2. IsValid helpers ['0x254aa00', '0x25a0390', '0x2348bf0', '0x2284800']; Execute helpers ['0x254aa00', '0x25a0390', '0x2284800'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CRailwayGunSetNameCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xf01db0"
+    ],
+    "named_gates": {
+      "0xf01db0": "isvalid_railwaygun_name_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "field_map_keys": [
+      "subject",
+      "name_sso",
+      "subject_or_handle",
+      "arg0",
+      "arg1_or_count",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg0_or_type",
+      "subject_lo",
+      "arg8",
+      "arg4_or_child"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CRailwayGunSetNameCommand; conf=1.0.",
+      "2. IsValid helpers ['0xbbb1e0', '0x2284800', '0x2348bf0', '0x25c3770']; Execute helpers ['0x2284800'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiDiscardForceConcentrationTargetCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg4_or_child",
+      "subject_lo",
+      "flags_or_ctx2",
+      "owner_or_ctx",
+      "vptr_or_hdr"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiDiscardForceConcentrationTargetCommand; conf=1.0.",
+      "2. IsValid helpers ['0x1e1510', '0x2607890', '0x11f240']; Execute helpers ['0xc07b80', '0x254aa00'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiOnFailedInvasionCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "subject_lo",
+      "flags_or_ctx2",
+      "owner_or_ctx",
+      "vptr_or_hdr",
+      "arg7",
+      "arg4_or_child",
+      "arg6_or_plan",
+      "subject_hi"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiOnFailedInvasionCommand; conf=1.0.",
+      "2. IsValid helpers ['0x1e1510', '0x2607890', '0x254aa00', '0x25a0390']; Execute helpers ['0xc07b80', '0x254aa00'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiStoreForceConcentrationTargetCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg4_or_child",
+      "subject_lo",
+      "flags_or_ctx2",
+      "owner_or_ctx",
+      "vptr_or_hdr"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiStoreForceConcentrationTargetCommand; conf=1.0.",
+      "2. IsValid helpers ['0x1e1510', '0x2607890', '0x11f240']; Execute helpers ['0xc07b80', '0x254aa00'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiStoreTotalWantedNrDivisionsCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map_keys": [
+      "subject_or_handle",
+      "arg3",
+      "base_or_vobj",
+      "ctx_or_flag",
+      "arg4_or_child",
+      "subject_lo",
+      "flags_or_ctx2",
+      "owner_or_ctx",
+      "vptr_or_hdr"
+    ],
+    "cross_link_army_observe": "land_live_army_subject_observe_2ct_recipe",
+    "cross_link_role_observe": "land_role_observe_2ct_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiStoreTotalWantedNrDivisionsCommand; conf=1.0.",
+      "2. IsValid helpers ['0x1e1510', '0x2607890', '0x11f240']; Execute helpers ['0xc07b80', '0x254aa00'].",
+      "3. Cross-check role observe recipe for frontline/garrison/attack.",
+      "4. Field map docs-only; never WPM.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  }
+}

@@ -707,3 +707,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Recipes**: index/matrix/confidence/checklist/OL/midflight/live_army/live_fn_verify `_2cs_recipe`.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user.
 
+## Phase 2ct (overnight RO) — deepen live army + retreat/frontline/theater observe
+
+- **HEAD parent**: `12186b0` (2cs). Focus: deepen live army-subject observation + retreat/frontline/theater role recipes. **LAND 121/121 unchanged**. No Capstone naming churn.
+- **Helpers**: **308 unchanged**. **Named**: **658** unchanged.
+- **Confidence**: avg **1.000** (unchanged); below 1.0: **0**.
+- **Live Haiti army deepen**: **22** armies; proven province_id/controller_tag_hyp(+0x58)/template name (`CReferencedDivisionTemplate+0x20`); org/str floats at `0x520`/`0x6ec` **hypothesis only** (5 nonzero); **movement_dest empty** while paused (do not invent).
+- **Role observe**: retreat (6) / frontline (5) / theater (5) + move/attack/strategic/garrison/cancel_abort/order_group — live Execute/IsValid prologue + required gates readable.
+- **OL post-path**: 25 cmds refreshed with army/role cross-links.
+- **Midflight Move watcher**: pid **36128** alive RO; session counters read; CMove path stubbed; no inject.
+- **Operator checklist**: sequenced A–H usability steps; allow_post False.
+- **Artifacts**: `cmd_post_path_index_2ct`, `role_post_path_matrix_2ct`, `role_observe_2ct`, `confidence_report_2ct`, `checklist_2ct`, `offensive_line_post_path_2ct`, `midflight_move_watcher_readiness_2ct`, `live_army_subject_observe_2ct`.
+- **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2ct_recipe`.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / promote hyp org offsets.

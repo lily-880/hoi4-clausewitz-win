@@ -1,0 +1,44 @@
+{
+  "phase": "2ct",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "A. land_cmd_post_path_index_2ct_recipe \u2014 command observe_steps.",
+    "B. land_role_observe_2ct_recipe(role) \u2014 retreat/frontline/theater/move focus + live FN/gates.",
+    "C. land_role_post_path_matrix_2ct_recipe \u2014 role playbooks.",
+    "D. land_offensive_line_post_path_2ct_recipe \u2014 OL playbooks.",
+    "E. land_live_army_subject_observe_2ct_recipe \u2014 province/template; org hyp only; dest empty paused.",
+    "F. land_midflight_move_watcher_readiness_2ct_recipe \u2014 watcher + counters.",
+    "G. Confirm tool-gate CLOSED / allow_post False / pause|1x.",
+    "H. STOP \u2014 never ALLOW_POST / never inject / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2ct",
+    "role_post_path_matrix_2ct",
+    "role_observe_2ct",
+    "confidence_report_2ct",
+    "checklist_2ct",
+    "offensive_line_post_path_2ct",
+    "midflight_move_watcher_readiness_2ct",
+    "live_army_subject_observe_2ct"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "promote hyp org/str offsets without more evidence",
+    "wake user / inject input"
+  ]
+}
