@@ -186,6 +186,9 @@ PROVEN_STATIC = {
     "CCancelMovementCommand_FACTORY": 0x13FACE0,
     "CChatCommand_FACTORY": 0x13CA430,
     "CStartGameCommand_FACTORY": 0x16DD5A0,
+    "CStartGameCommand_CLONE": 0x16DD0D0,  # vt+0x68 — sticky postexec
+    "CMoveCommand_CLONE": 0x13F9350,
+    "SESSION_UPDATE_DRAIN_CALLS": "0x22c6521/0x22c6543/0x22c664b vt+0x30",
     "CSession_STAGE_ARRAY": 0x48,
     "CSession_STAGE_COUNT": 0x54,
     "CSession_POSTEXEC_HEAD": 0xF8,

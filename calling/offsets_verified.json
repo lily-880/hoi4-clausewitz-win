@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ai-ring-drain-heap-sticky-startgame-writes-still-disabled",
+  "status": "phase2aj-stage-bridge-drain-calls-clone-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -606,6 +606,19 @@
       },
       "sticky_StartGame_postexec": true,
       "live_exec": 13,
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2aj": {
+      "session_update_drain_calls": [
+        "0x22c6521",
+        "0x22c6543",
+        "0x22c664b"
+      ],
+      "stage_ops": "session+0x54 count; vt+0x40 pending; +0x48 array",
+      "execute_loop": "vt+0x78 execlist then vt+0x50 Execute",
+      "StartGame_Clone_vt68": "0x16dd0d0",
+      "Move_Clone_vt68": "0x13f9350",
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }

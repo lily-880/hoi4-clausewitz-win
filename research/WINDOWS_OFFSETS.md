@@ -964,6 +964,18 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ai_ring_drain.py [--live] [--heap]`
 
+## Phase 2aj — Session stage bridge (writes DISABLED)
+
+`FN_SESSION_UPDATE 0x22c6410` calls `server.vt+0x30` drain at `0x22c6521` / `0x22c6543` / `0x22c664b`, then `vt+0x40` (pending `&server+0x58`), fills `session+0x48` / count `+0x54`.
+
+`FN_EXECUTE_LOOP 0x22c4710`: `server.vt+0x78` → execlist `+0x40` → `cmd.vt+0x50` Execute → `vt+0x58` post-hook.
+
+Clone `vt+0x68`: StartGame `0x16dd0d0` (sticky postexec); Move `0x13f9350`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2aj_stage_bridge.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
