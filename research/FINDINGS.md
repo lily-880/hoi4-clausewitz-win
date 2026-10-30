@@ -345,3 +345,19 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bx (overnight RO — frontline/order/conveyor RTTI + Capstone thin + recipes)
+
+### Works
+- **LAND_EXE_PROOFS / LAND_ARMY_FOCUS** **86/86** (was 54): +32 live RTTI→COL→vt land cmds (Order edit/merge/split/block/invasion/paradrop/training, OrdersLink, ArmyLeaderPreferredTactic, ArmyFakeTemplate, full Conveyor family, Garrison templates, RailwayGunSetName, DeploymentLineName). All IsValid/Execute FN + factory-matched.
+- Capstone **thin deepen 19/19** (MassMove, theater moves, ToggleStrategic, front Connect/Insert/Reshape/Reconnect/CompletePlan, NewRoot, ReorderTheaters, garrison/reinforce priority, QuickDeploy, fallback/withdraw/collapse).
+- **ISVALID_PATHS** **99**. Groups: order_group **41**, frontline **15**, theater **12**, move7, attack3.
+- Recipes: mass_move / toggle_strategic / edit_root / merge_roots / block_sections / invasion_source / create+deploy_conveyor / orders_link / leader_tactic / insert+reshape+connect front / complete_plan / garrison_template. HAI×3.
+- Live: allow_post False; tick=1; watcher **29656**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed
+- midflight_CMoveCommand; in-process ring embed; command_queue_tool_gate enable; ALLOW_POST.
+- Remaining RTTI landish names (navy/air/division-template/production) intentionally out of land Post scope.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

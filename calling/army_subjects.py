@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bw",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bx",
     }
 
 
@@ -439,5 +439,165 @@ def deploy_army_hq_recipe(subject_handle: list[int] | tuple[int, int],
         "subject": list(subject_handle),
         "id_or_b_off": 0x2c,
         "id_or_b": id_or_b,
+        "posting": "DISABLED",
+    }
+
+
+def mass_move_recipe(army_rows: list[dict], dest_province: int) -> dict[str, Any]:
+    """CMassMoveCommand — RO only."""
+    handles = [list(r["handle"]) for r in army_rows]
+    return {
+        "units_vec_off": 0x28,
+        "units": handles,
+        "units_count_off": 0x34,
+        "units_count": len(handles),
+        "dest_off": 0x38,
+        "dest_province": dest_province,
+        "posting": "DISABLED",
+    }
+
+
+def toggle_strategic_deployment_recipe(subject_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CToggleStrategicDeploymentCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "flag_30_off": 0x30,
+        "posting": "DISABLED",
+    }
+
+
+def order_edit_root_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderEditRootCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def order_merge_roots_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderMergeRootsCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def order_block_sections_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderBlockSectionsCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def order_set_invasion_source_recipe(subject_handle: list[int] | tuple[int, int],
+                                     source_id: int = 0) -> dict[str, Any]:
+    """COrderSetInvasionSourceCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "id_or_b_off": 0x30,
+        "source_id": source_id,
+        "posting": "DISABLED",
+    }
+
+
+def create_conveyor_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """CCreateConveyorCommand — RO only (encirclement-adjacent)."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def deploy_conveyor_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """CDeployConveyorCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def set_orders_link_recipe(subject_handle: list[int] | tuple[int, int],
+                           link_id: int = 0) -> dict[str, Any]:
+    """CSetOrdersLinkCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "link_id_off": 0x30,
+        "link_id": link_id,
+        "posting": "DISABLED",
+    }
+
+
+def set_army_leader_preferred_tactic_recipe(leader_or_army: list[int] | tuple[int, int],
+                                            tactic: int = 0) -> dict[str, Any]:
+    """CSetArmyLeaderPreferredTacticCommand — RO only."""
+    return {
+        "leader_or_army_off": 0x28,
+        "leader_or_army": list(leader_or_army),
+        "tactic_off": 0x30,
+        "tactic": tactic,
+        "posting": "DISABLED",
+    }
+
+
+def garrison_template_recipe(country_or_state: int, template_id: int = 0,
+                             which: str = "country") -> dict[str, Any]:
+    """CSetCountry/Main/StateGarrisonTemplateCommand sketch — RO only."""
+    return {
+        "which": which,
+        "country_or_state_off": 0x28,
+        "country_or_state": country_or_state,
+        "template_off": 0x30,
+        "template": template_id,
+        "posting": "DISABLED",
+    }
+
+
+def insert_front_recipe(subject_handle: list[int] | tuple[int, int] | None = None,
+                        id_b: int = 0, id_c: int = 0) -> dict[str, Any]:
+    """COrderInsertFrontCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "id_or_b_off": 0x2c,
+        "id_or_b": id_b,
+        "id_or_c_off": 0x30,
+        "id_or_c": id_c,
+        "posting": "DISABLED",
+    }
+
+
+def reshape_front_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderReshapeCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def connect_front_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderConnectCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def add_complete_plan_recipe(plan_subject: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderAddNewCompletePlanCommand — RO only."""
+    return {
+        "plan_subject_off": 0x28,
+        "plan_subject": list(plan_subject) if plan_subject else [],
+        "units_or_path_off": 0x48,
         "posting": "DISABLED",
     }
