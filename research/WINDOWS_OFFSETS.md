@@ -539,9 +539,53 @@ After Post enqueue (2p), SP `CDummyServer` pipeline:
 
 Ring layout (`CDummyServer+0xa0`): lock dword, growable ptr buffer, capacity, indices (`+0x28` count).
 
-`CCommand` Execute is **subclass vt+`0x48`** (base = abort stub `0x25c21e0`). Tick that invokes Execute on the pending list is **not yet pinned**.
+`CCommand` **IsValid** is subclass vt+`0x48`; **Execute** is vt+`0x50` (base both abort `0x25c21e0`). Tick **pinned in Phase 2r** (`0x22c6410` / `0x22c4710`). *(2q text originally mislabeled +0x48 as Execute.)*
 
 Writes/posting remain **DISABLED**. pause/1x only.
+
+## Phase 2r — Execute tick PINNED (writes still DISABLED)
+
+Read-only Capstone + live counters on paused HAI (`CInGameIdler`, session state+`0x30`=`2`).
+
+### Corrected CCommand slots
+
+| Slot | Role | Notes |
+|------|------|-------|
+| vt+`0x48` | **IsValid** | via wrap `0x22d8ea0`; base abort `0x25c21e0` |
+| vt+`0x50` | **Execute** | site A `0x22c6c9d`, site B `0x22c47dd`; base abort |
+| vt+`0x58` | post-Execute | base abort |
+
+*(Phase 2q wrongly called vt+`0x48` Execute.)*
+
+### SP state==2 pipeline
+
+1. `FN_SESSION_UPDATE` **`0x22c6410`**
+2. `server = [session+0x40]` live `CDummyServer` vt `0x2bcb040`
+3. `server.vt+0x30` **`0x23f64e0`** drain ring `+0xa0` → list `+0x58`/`+0x60` count `+0x68`
+4. `server.vt+0x40` **`0x2e9e50`** = `&this+0x58` (pending header)
+5. Stage into `session+0x48` (count `session+0x54`)
+6. Per cmd: IsValid `0x22d8ea0` → fail path `"Discarding command: "` xref **`0x22c6e31`**
+7. Execute site A **`0x22c6c9d`**: `cmd.vt+0x50`; `inc session+0x6c8`; `cmd.vt+0x58`
+8. `FN_EXECUTE_LOOP` **`0x22c4710`**: via `server.vt+0x78` **`0x247620`** = `&this+0x40` (exec-list); Execute site B **`0x22c47dd`**
+
+### Server list headers
+
+| Off | Getter | Role |
+|-----|--------|------|
+| `+0x58` | vt+`0x40` @ `0x2e9e50` | drain-pending |
+| `+0x40` | vt+`0x78` @ `0x247620` | exec-list |
+
+### Live proof (pid 31364, paused)
+
+- `session+0x60` drain counter ≈ 327700
+- `session+0x6c8` exec counter = 13
+- both list heads `0` while paused (queues drained)
+
+### Still DISABLED
+
+`command_queue=DISABLED`. Do **not** call `FN_CMD_QUEUE_POST` / do **not** write enqueue. Game **pause or 1x only** (never 5x).
+
+Tool: `scripts/phase2r_execute_tick.py [--live]`
 
 ## Write gate
 
@@ -561,5 +605,6 @@ python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/pha
 python scripts/session_probe.py
 python scripts/phase2j_cmd_execute_graph.py [--live]  # CCommand Execute/soft-call graph; no heap
 python scripts/phase2h_light_post_army.py  # RO Post hunt + army markers; no heap
+python scripts/phase2r_execute_tick.py [--live]  # Execute tick pin; no writes
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```

@@ -102,6 +102,14 @@ PROVEN_STATIC = {
     "CDummyServer_PENDING": 0x58,  # linked list head after drain
     "G_POST_LISTENERS": 0x3667BE8,  # ptr to CServer* array fan-out
     "G_POST_LISTENER_COUNT": 0x3667BF4,
+    # Phase 2r — Execute tick (READ-ONLY; posting still DISABLED)
+    "FN_SESSION_UPDATE": 0x22C6410,  # CSession tick; state==2 drains+stages+Execute
+    "FN_EXECUTE_LOOP": 0x22C4710,  # second list Execute loop (server.vt+0x78 -> +0x40)
+    "FN_CMD_ISVALID_WRAP": 0x22D8EA0,  # calls cmd.vt+0x48 IsValid
+    "CCommand_VT_ISVALID": 0x48,  # NOT Execute (2q mislabel corrected in 2r)
+    "CCommand_VT_EXECUTE": 0x50,  # real Execute slot
+    "CCommand_VT_POSTEXEC": 0x58,  # post-Execute hook
+    "CDummyServer_EXECLIST": 0x40,  # list head via vt+0x78 getter 0x247620
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,
