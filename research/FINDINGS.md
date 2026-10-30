@@ -626,3 +626,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; promoted/named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cn (overnight RO) — confidence raise + soft unnamed closed
+
+- **HEAD parent**: `0382205` (2cm). Focus: raise avg post_path_confidence / close soft unnamed with RO naming only. **LAND 121/121 unchanged**.
+- **Helpers**: **252 unchanged** (naming only — no inflation).
+- **Named**: 145 → **223** (+78 in-catalog shared exe/IsValid helpers, hits≥2).
+- **Confidence**: avg **0.911 → 0.957**; cmds below 0.9: 43→**24**; below 0.95: 80→**36**. Required gates still **121/121 named**.
+- **Soft unnamed**: all 9 roles **[]** (closed `0xc4f8e0` cancel_abort).
+- **Artifacts**: `cmd_post_path_index_2cn`, `role_post_path_matrix_2cn`, `confidence_report_2cn`, `post_readiness_checklist_2cn`.
+- **Recipes**: `land_cmd_post_path_index_2cn_recipe`, `land_confidence_report_2cn_recipe`, `land_post_readiness_checklist_2cn_recipe`.
+- **Preferred cores**: still **34** / **121/121**.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+

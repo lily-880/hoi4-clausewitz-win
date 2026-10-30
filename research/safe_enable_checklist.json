@@ -1,5 +1,5 @@
 {
-  "phase": "2cm",
+  "phase": "2cn",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -1073,5 +1073,36 @@
       "guess writes"
     ],
     "note": "2cm RO: gate_label_only closed; cmd index 121/121. Post remains disabled."
+  },
+  "notes_2cn": {
+    "phase": "2cn",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 252,
+    "helpers_inflation": "none",
+    "named_helpers": 223,
+    "avg_post_path_confidence": 0.957,
+    "prev_avg_2cm": 0.911,
+    "cmds_below_0_9": 24,
+    "soft_unnamed_all_closed": true,
+    "preferred_cores": 34,
+    "coverage": "121/121",
+    "cmd_post_path_index": 121,
+    "watcher_pid": 36128,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_cmd_post_path_index_2cn_recipe",
+      "land_confidence_report_2cn_recipe",
+      "land_post_readiness_checklist_2cn_recipe"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes"
+    ],
+    "note": "2cn RO confidence raise via naming. Post remains disabled."
   }
 }

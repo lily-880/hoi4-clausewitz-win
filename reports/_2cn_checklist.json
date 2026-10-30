@@ -1,0 +1,37 @@
+{
+  "phase": "2cn",
+  "allow_post": false,
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "posting": "DISABLED",
+  "land_cmds": "121/121 unchanged",
+  "preferred_cores": 34,
+  "named_helpers": 223,
+  "helpers_total": 252,
+  "helpers_inflation": "none (naming only)",
+  "cmd_post_path_index_count": 121,
+  "avg_post_path_confidence": 0.957,
+  "prev_avg_2cm": 0.911,
+  "cmds_below_0_9": 24,
+  "soft_unnamed_closed_cancel_abort": true,
+  "requirements_before_any_post": [
+    "CLAUSEWITZ_ALLOW_POST remains unset/false",
+    "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+    "midflight watcher RO only \u2014 no inject",
+    "never HourlyTick / GameSpeed writes",
+    "IsValid gate helpers observed but not patched",
+    "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes"
+  ],
+  "how_to_use": [
+    "Look up cmd in cmd_post_path_index_2cn",
+    "Prefer high post_path_confidence paths first",
+    "Respect genuine_divergence",
+    "Never Post"
+  ]
+}
