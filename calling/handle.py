@@ -1,7 +1,10 @@
 ﻿"""Read-only CHandle resolve (Windows HOI4 1.19.4). Never posts commands."""
 from __future__ import annotations
 import struct
-from .config import allow_post
+try:
+    from .config import allow_post
+except ImportError:
+    from config import allow_post
 
 FN_HANDLE_RESOLVE = 0x2284800
 FN_HANDLE_HASH_LOOKUP = 0x2282810
