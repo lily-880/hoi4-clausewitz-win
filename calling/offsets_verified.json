@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2p-post-gate-proven-writes-still-disabled",
+  "status": "phase2q-drain-path-documented-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -262,6 +262,20 @@
       "CNetworkServer_vt28": "0x23fa830 (MP path; not live this session)",
       "posting": "DISABLED \u2014 FN RVA recorded; tooling must not call/write until explicit enable",
       "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2q": {
+      "post_gate": "0x22c41e0",
+      "post_sink_vt28": "0x23f5cd0",
+      "drain_vt30": "0x23f64e0",
+      "clear_vt48": "0x23f5ad0",
+      "pipeline": [
+        "Post gate -> server.vt+0x28 enqueue to listener+0xa0 ring",
+        "Drain vt+0x30: spinlock ring; pop token; call token.vt+0x68 (clone); link node at server+0x58/+0x60; release token",
+        "Clear vt+0x48: walk +0x58 calling cmd.vt+0 (dtor) then free nodes; also discard ring leftovers",
+        "CCommand Execute = subclass vt+0x48 (e.g. CChatCommand 0x13cd1b0); base is abort stub",
+        "Exact tick that calls Execute on pending list not yet pinned \u2014 RO continue"
+      ],
+      "posting": "DISABLED"
     }
   },
   "FN_CMD_QUEUE_POST": "0x22c41e0",

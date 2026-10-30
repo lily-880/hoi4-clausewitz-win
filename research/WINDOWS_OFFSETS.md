@@ -525,6 +525,24 @@ Tooling **must not call** Post / must not write memory to enqueue. `command_queu
 | CServer | `0x25c21e0` | abort/stub |
 | CNetworkServer | `0x23fa830` | MP path (not live) |
 
+
+
+## Phase 2q — DummyServer drain / clear path (read-only)
+
+After Post enqueue (2p), SP `CDummyServer` pipeline:
+
+| Slot | RVA | Role |
+|------|-----|------|
+| vt+`0x28` | `0x23f5cd0` | **Post/enqueue** into `this+0xa0` ring |
+| vt+`0x30` | `0x23f64e0` | **Drain**: pop ring → `token.vt+0x68` clone → link at `this+0x58`/`+0x60` |
+| vt+`0x48` | `0x23f5ad0` | **Clear**: destroy pending list (`0x23f5bf0`) + discard ring |
+
+Ring layout (`CDummyServer+0xa0`): lock dword, growable ptr buffer, capacity, indices (`+0x28` count).
+
+`CCommand` Execute is **subclass vt+`0x48`** (base = abort stub `0x25c21e0`). Tick that invokes Execute on the pending list is **not yet pinned**.
+
+Writes/posting remain **DISABLED**. pause/1x only.
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

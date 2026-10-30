@@ -96,6 +96,10 @@ PROVEN_STATIC = {
     "CInGameIdler_vt88_session_forward": 0xB8E390,  # [this+0x530]->App.vt+0x88
     "FN_CMD_QUEUE_POST": 0x22C41E0,  # CSession post/drop gate (AI + UI); SP sink CDummyServer vt+0x28
     "FN_CMD_QUEUE_POST_SINK_DUMMY": 0x23F5CD0,  # proven enqueue into listener+0xa0 ring
+    "FN_CMD_QUEUE_DRAIN_DUMMY": 0x23F64E0,  # CDummyServer vt+0x30: ring->list clone
+    "FN_CMD_QUEUE_CLEAR_DUMMY": 0x23F5AD0,  # CDummyServer vt+0x48: clear list+ring
+    "CDummyServer_RING": 0xA0,  # concurrent ring (lock/buf/cap/idx)
+    "CDummyServer_PENDING": 0x58,  # linked list head after drain
     "G_POST_LISTENERS": 0x3667BE8,  # ptr to CServer* array fan-out
     "G_POST_LISTENER_COUNT": 0x3667BF4,
     "RTTI_CGameState_name": 0x31E75A0,
