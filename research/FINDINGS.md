@@ -484,3 +484,22 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2cf (overnight RO — Execute-shared unknowns + theater/order_group/garrison role paths)
+
+### Works
+- Mined **47** Execute-shared unknown helpers (≥3 hits across land Execute bodies) into `SHARED_LAND_HELPERS` tier `execute_shared_unknown` → helpers total **101** (40 primary + 14 second_order + 47 exe-unknown).
+- Classes: field_predicate 19, dispatcher 16, inline 8, leaf 2, wide_walk 1, string 1. Top: `0xd4b440`×7, `0x25a0448/310/3dc`×6, `0x10b4fa0`×6.
+- Capstone deepen **28** cmds (thin Execute + unk-heavy offensive + theater/order_group/garrison samples); wired `execute_unknown_2cf` / `execute_hot_unknown` / `isvalid_calls_2cf`.
+- Expanded `role_post_paths` to **all roles** including theater/order_group/garrison; added **soft_gates_majority** (≥50% of gated cmds) where hard intersection is empty.
+- Gate/body catalogs: IsValid-gate **75**, Execute-body **81**.
+- Recipes: `land_execute_shared_unknown_recipe`, `theater_role_post_path_recipe`, `order_group_role_post_path_recipe`, `garrison_role_post_path_recipe`; role/readiness recipes enriched with soft gates + by_tier.
+- **LAND 121/121**, **ISVALID_PATHS 134** unchanged; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Helper patch / Post inject; navy/air/division-template/production/GameSpeed/HourlyTick.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+

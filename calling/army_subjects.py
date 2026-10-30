@@ -1075,6 +1075,10 @@ def land_post_readiness_recipe() -> dict[str, Any]:
         "second_order_hot": second,
         "by_class": pr.get("by_class") or sh.get("by_class"),
         "second_order_by_class": pr.get("second_order_by_class") or sh.get("second_order_by_class"),
+        "by_tier": pr.get("by_tier") or sh.get("by_tier"),
+        "execute_shared_unknown_count": pr.get("execute_shared_unknown_count") or sh.get("execute_shared_unknown_count"),
+        "hot_execute_unknown_by_class": pr.get("hot_execute_unknown_by_class"),
+        "expanded_roles_2cf": pr.get("expanded_roles_2cf"),
         "named_helpers": pr.get("named_helpers"),
         "isvalid_gate_helpers": pr.get("isvalid_gate_helpers"),
         "execute_body_helpers": pr.get("execute_body_helpers"),
@@ -1161,18 +1165,24 @@ def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
         return {
             "role": role,
             "commands": meta.get("commands"),
+            "command_count": meta.get("command_count") or len(meta.get("commands") or []),
             "min_gates_intersection": meta.get("min_gates_intersection"),
+            "soft_gates_majority": meta.get("soft_gates_majority"),
+            "cmds_with_gates": meta.get("cmds_with_gates"),
             "union_gates": meta.get("union_gates"),
             "union_body": meta.get("union_body"),
             "union_second": meta.get("union_second"),
+            "union_exe_unknown_hot": meta.get("union_exe_unknown_hot"),
             "posting": "DISABLED",
             "allow_post": False,
         }
     return {
         "roles": {
             r: {
-                "commands": m.get("commands"),
+                "command_count": m.get("command_count") or len(m.get("commands") or []),
                 "min_gates_intersection": m.get("min_gates_intersection"),
+                "soft_gates_majority": m.get("soft_gates_majority"),
+                "union_exe_unknown_hot_count": len(m.get("union_exe_unknown_hot") or []),
             }
             for r, m in paths.items()
         },
@@ -1180,3 +1190,49 @@ def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
         "allow_post": False,
         "tool_gate": "CLOSED_NOT_OPENED",
     }
+
+
+def land_execute_shared_unknown_recipe(limit: int = 16) -> dict[str, Any]:
+    """RO catalog of Execute-shared unknown helpers (≥3 land Execute hits). Never posts."""
+    try:
+        import cmd_layout as _cl
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    helpers = sh.get("helpers") or {}
+    rows = []
+    for rva, h in helpers.items():
+        if h.get("tier") != "execute_shared_unknown":
+            continue
+        rows.append({
+            "rva": rva,
+            "hits": h.get("hits_across_land_execute") or h.get("hits"),
+            "class": h.get("class"),
+            "strings": h.get("strings"),
+        })
+    rows.sort(key=lambda r: (-(r.get("hits") or 0), r["rva"]))
+    return {
+        "phase": pr.get("phase") or sh.get("phase"),
+        "count": len(rows),
+        "by_class": pr.get("hot_execute_unknown_by_class"),
+        "top": rows[:limit],
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def theater_role_post_path_recipe() -> dict[str, Any]:
+    """Convenience RO wrapper for theater role_post_paths (2cf expanded)."""
+    return land_role_post_path_recipe("theater")
+
+
+def order_group_role_post_path_recipe() -> dict[str, Any]:
+    """Convenience RO wrapper for order_group role_post_paths (2cf expanded)."""
+    return land_role_post_path_recipe("order_group")
+
+
+def garrison_role_post_path_recipe() -> dict[str, Any]:
+    """Convenience RO wrapper for garrison role_post_paths (2cf expanded)."""
+    return land_role_post_path_recipe("garrison")
