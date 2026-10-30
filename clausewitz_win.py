@@ -161,7 +161,12 @@ def cmd_status(args):
                     proven["campaign"]["armies_count"] = armies["armies_count"]
                     proven["campaign_fields_raw"]["armies_count"] = armies["armies_count"]
                     proven["campaign_fields_raw"]["armies_note"] = armies.get("note")
-    proven["phase"] = "2h"
+                    if armies.get("divisions_count") is not None:
+                        proven["campaign"]["divisions_count"] = armies["divisions_count"]
+                        proven["campaign_fields_raw"]["divisions_count"] = armies["divisions_count"]
+                        proven["campaign_fields_raw"]["divisions_note"] = armies.get("divisions_note")
+                    proven["campaign_fields_raw"]["division_like_sample"] = armies.get("division_like_sample")
+    proven["phase"] = "2i"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0

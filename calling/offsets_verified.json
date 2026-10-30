@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2h-ingame-paused-hai",
+  "status": "phase2i-ingame-paused-hai-divisions",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -21,8 +21,8 @@
       "queue_field": "0x530",
       "queue_field_live_type": "CGameApplication",
       "queue_field_live_vt90": "0x1b14f0",
-      "queue_field_live_vt90_role": "setter(+0x380 CSession*) \u2014 NOT Post (BOTH frontend and in-game)",
-      "note": "In-game confirmed via -start_tag=HAI -start_speed=0 -noai. +0x530 is Application \u2014 Post hyp REJECTED; need new queue lead."
+      "queue_field_live_vt90_role": "setter(+0x380 CSession*) — NOT Post (BOTH frontend and in-game)",
+      "note": "In-game via -start_tag=HAI -start_speed=0 -noai. +0x530 is Application — Post hyp REJECTED. Phase 2i: typed idler fields are UI/gfx only; CSession has only CDummyServer; no CCommandQueue RTTI; GS/idler have no Command* arrays. FN_CMD_QUEUE_POST stays null."
     },
     "CO_ARMIES": {
       "country_offset": "0x290",
@@ -36,7 +36,23 @@
         "hands_off Haiti",
         "paused -start_tag=HAI"
       ],
-      "note": "armies_count not division count; units-inside TBD"
+      "note": "armies_count == divisions_count on Windows: each CArmy has CSubUnitDefinition@0x138 + CProvince@0x1f0 + CReferencedDivisionTemplate@0x3b8 (17/17 paused HAI); nested CUnit arrays empty",
+      "division_like_fields": {
+        "CA_SUBUNIT_DEF": "0x138",
+        "CA_PROVINCE": "0x1f0",
+        "CA_DIV_TEMPLATE": "0x3b8",
+        "census": "17/17 paused HAI 2026-10-31"
+      }
+    },
+    "FN_CMD_QUEUE_POST_hunt": {
+      "idler_plus_0x530": "REJECTED (CGameApplication setter)",
+      "idler_typed_fields": "UI/gfx only (CFixedWindow, CGameGui, CPdxMouse, ...)",
+      "idler_forwarders_0x78_0x80_0x88": "also load +0x530",
+      "CSession": "App+0x380; typed child CDummyServer only; no Command arrays",
+      "RTTI": "no CCommandQueue; QueueCommand strings are IndustrialOrgTrait*ToQueueCommand subclasses",
+      "GS_Command_arrays": "none in 0..0xA00",
+      "result": "FN_CMD_QUEUE_POST still null; posting DISABLED",
+      "next_leads": "CCommand soft-call / Execute graph (not promoted)"
     }
   },
   "FN_CMD_QUEUE_POST": null,

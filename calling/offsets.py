@@ -44,8 +44,13 @@ HYPOTHESIS_STRUCT = {
     "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
     "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year — not full date
     # Country (CCountry) — verified in-game via -hands_off (Haiti 1936), two samples
-    "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50 while hands_off ran
+    "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50; Windows CArmy == division-level
     "CO_DIV_TEMPLATES": 0x1B8,  # CPdxArray<CReferencedDivisionTemplate*> (live)
+    "CO_FLEETS": 0x278,  # CPdxArray<CFleet*> (live Haiti)
+    # CArmy fields (division-like on Windows 1.19.4 — all 17/17 paused HAI)
+    "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
+    "CA_PROVINCE": 0x1F0,  # CProvince*
+    "CA_DIV_TEMPLATE": 0x3B8,  # CReferencedDivisionTemplate*
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.

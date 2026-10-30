@@ -274,8 +274,9 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
         out["in_game"] = True
         out["signals"]["idler_class"] = "CInGameIdler"
         out["guidance"] = (
-            "CInGameIdler live — resolve idler+0x530 queue object READ-ONLY; "
-            "hunt FN_CMD_QUEUE_POST; scan CArmy/CArmyGroup. Posting stays DISABLED."
+            "CInGameIdler live — idler+0x530 is CGameApplication (Post hyp REJECTED). "
+            "Hunt real queue elsewhere (CCommand soft-call / session graph). "
+            "CO_ARMIES@0x290 CArmy* is division-like on Windows. Posting stays DISABLED."
         )
         out["user_action"] = None
         return out
@@ -311,10 +312,17 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
 def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
     """READ-ONLY: player CCountry + CO_ARMIES (0x290) CArmy* array.
 
-    Promoted after two in-game samples via `-hands_off` (sizes 17 then 50,
-    first_rtti=.?AVCArmy@@). Divisions-inside-armies still TBD.
+    Promoted after in-game samples (sizes 17 / 50, first_rtti=.?AVCArmy@@).
+    On Windows each CArmy carries CSubUnitDefinition@0x138, CProvince@0x1f0,
+    CReferencedDivisionTemplate@0x3b8 and has no nested unit array — treat
+    armies_count as divisions_count (division-level units) when markers match.
     """
-    out: Dict[str, Any] = {"ok": False, "armies_count": None, "armies_offset": hex(O.HYPOTHESIS_STRUCT.get("CO_ARMIES", 0x290))}
+    out: Dict[str, Any] = {
+        "ok": False,
+        "armies_count": None,
+        "divisions_count": None,
+        "armies_offset": hex(O.HYPOTHESIS_STRUCT.get("CO_ARMIES", 0x290)),
+    }
     if not gs_ptr or gs_ptr < 0x10000:
         out["reason"] = "bad gs"
         return out
@@ -358,7 +366,51 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
         return out
     out["ok"] = True
     out["armies_count"] = arr["size"]
-    out["note"] = "CO_ARMIES@0x290 CArmy* — verified in-game (-hands_off); not division count"
+    # Light division-like census (no heap walk): sample up to 32 CArmy*
+    div_hits = 0
+    sample_n = min(arr["size"], 32)
+    ca_sub = O.HYPOTHESIS_STRUCT.get("CA_SUBUNIT_DEF", 0x138)
+    ca_prov = O.HYPOTHESIS_STRUCT.get("CA_PROVINCE", 0x1F0)
+    ca_tmpl = O.HYPOTHESIS_STRUCT.get("CA_DIV_TEMPLATE", 0x3B8)
+    for i in range(sample_n):
+        elem = struct.unpack_from("<Q", p.try_read(arr["data"] + i * 8, 8) or b"\0" * 8, 0)[0]
+        if not elem:
+            continue
+        ok_marks = 0
+        for off, needle in (
+            (ca_sub, "SubUnitDefinition"),
+            (ca_prov, "Province"),
+            (ca_tmpl, "ReferencedDivisionTemplate"),
+        ):
+            try:
+                child = struct.unpack_from("<Q", p.try_read(elem + off, 8) or b"\0" * 8, 0)[0]
+                if not child or pe is None:
+                    continue
+                cvt = struct.unpack_from("<Q", p.try_read(child, 8) or b"\0" * 8, 0)[0]
+                if not cvt or not (p.base <= cvt < p.base + getattr(p, "image_size", 0x4000000)):
+                    continue
+                nm = _rtti_name_from_vtable(pe, cvt - p.base) or ""
+                if needle in nm:
+                    ok_marks += 1
+            except Exception:
+                pass
+        if ok_marks >= 3:
+            div_hits += 1
+    out["division_like_sample"] = {"sampled": sample_n, "with_subunit_province_template": div_hits}
+    if sample_n > 0 and div_hits == sample_n:
+        out["divisions_count"] = arr["size"]
+        out["note"] = (
+            "CO_ARMIES@0x290 CArmy* — Windows CArmy is division-level "
+            "(SubUnitDef@0x138 + Province@0x1f0 + RefDivTemplate@0x3b8 on all sampled); "
+            "divisions_count := armies_count. Nested CUnit arrays empty."
+        )
+        out["divisions_note"] = out["note"]
+    else:
+        out["note"] = (
+            "CO_ARMIES@0x290 CArmy* verified; division-like markers incomplete "
+            "(%d/%d) — divisions_count left null" % (div_hits, sample_n)
+        )
+        out["divisions_note"] = out["note"]
     return out
 
 
@@ -367,7 +419,7 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
 
     Only fields that pass local sanity checks are marked verified=True.
     Date year at +0x478 is a hypothesis (seen as 1936 on start); month/day layout TBD.
-    Divisions count is NOT exposed until country-struct offsets are proven.
+    Divisions count filled via probe_player_armies when CArmy markers match.
     """
     out: Dict[str, Any] = {"gs_ptr": hex(gs_ptr), "fields": {}, "verified": {}}
     if not gs_ptr or gs_ptr < 0x10000:
@@ -409,8 +461,9 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (
-        "stubbed — units-inside-armies TBD. Use probe_player_armies for CO_ARMIES@0x290 "
-        "(CArmy*, verified in-game via -hands_off). Frontend: array empty."
+        "filled by status when in_game via probe_player_armies — Windows CArmy@CO_ARMIES "
+        "is division-level when SubUnitDef+Province+RefDivTemplate markers present; "
+        "frontend: array empty."
     )
     out["fields"]["armies_count"] = None
     out["fields"]["armies_note"] = "filled by status when in_game via probe_player_armies"

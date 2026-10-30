@@ -217,7 +217,7 @@ Tool: `python scripts/launch_into_map.py` (default = paused Haiti). Avoid `-hand
 | Country+`0x290` | **`CPdxArray<CArmy*>`** — first_rtti `.?AVCArmy@@` |
 | Sizes seen | 17 (paused HAI), 17→50 (hands_off while simming) |
 | status | `campaign.armies_count` via `probe_player_armies` |
-| divisions_count | still **stubbed** (units inside armies TBD) |
+| divisions_count | **promoted in 2i** — see below |
 | Country+`0x1b8` | `CReferencedDivisionTemplate*` array (live) |
 
 ### RE throttle
@@ -230,8 +230,46 @@ Tool: `python scripts/launch_into_map.py` (default = paused Haiti). Avoid `-hand
 
 1. Find real command-queue object (not App at `+0x530`) — scan InGameIdler other fields / CCommand soft-call graph.
 2. Characterize a callee that takes `CCommand*` and enqueues — only then set `FN_CMD_QUEUE_POST`.
-3. Walk `CArmy` → units for true divisions_count.
+3. ~~Walk `CArmy` → units~~ — nested empty; CArmy itself is division-level (2i).
 4. Keep posting **DISABLED** until independent proof.
+
+
+
+## Phase 2i — Post hunt dead-ends + divisions_count from CArmy markers
+
+Live: paused Haiti (`-start_tag=HAI -start_speed=0 -noai`), pid cool (CPU Δ ~2s/3s). Tool: `scripts/phase2h_light_post_army.py` (no `--heap`).
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| Idler+`0x530` | **REJECTED** (still `CGameApplication` / setter `0x1b14f0`) |
+| Idler typed fields `0..0x900` | UI/gfx only (`CFixedWindow`, `CTextBox`, `CGameGui`, `CPdxMouse`, …) — **no** Command/Queue |
+| Idler vt `0x78`/`0x80`/`0x88` | Also forward via `+0x530` |
+| Idler+`0x6b8` | Untyped ptr (vt slot `0xb8` getter) — not a queue |
+| `CGameApplication+0x380` | `CSession` — typed child **`CDummyServer` only**; no Command* arrays in `0..0x800` |
+| GS / idler Command* arrays | **none** |
+| RTTI `CCommandQueue` | **absent**; `QueueCommand` ASCII = `C*IndustrialOrgTrait*QueueCommand` subclasses |
+| `FN_CMD_QUEUE_POST` | **null** |
+
+Next (still RO, not promoted): soft-call / callee graph around `CCommand` virtuals — do **not** enable writes.
+
+### divisions_count — enriched (no heavy heap)
+
+| Evidence | Value |
+|----------|-------|
+| Country+`0x290` | `CPdxArray<CArmy*>` size **17** (paused HAI) |
+| Nested unit arrays inside CArmy | **empty** (sampled) |
+| CArmy+`0x138` | `CSubUnitDefinition*` — **17/17** |
+| CArmy+`0x1f0` | `CProvince*` — **17/17** |
+| CArmy+`0x3b8` | `CReferencedDivisionTemplate*` — **17/17** |
+| status | `campaign.divisions_count := armies_count` when all sampled armies carry the three markers |
+
+Windows `CArmy` is the division-level unit object (name ≠ Linux army-group). `probe_player_armies` fills both counts.
+
+### RE throttle (unchanged)
+
+Paused / 1x only; no default full-heap; posting **DISABLED**.
 
 
 ## Write gate
@@ -250,5 +288,6 @@ python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
 python scripts/phase2f_idler_postpath.py [--out research/re-dumps/phase2f_idler.json] [--skip-heap]
 python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/phase2g.json]
 python scripts/session_probe.py
+python scripts/phase2h_light_post_army.py  # RO Post hunt + army markers; no heap
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```
