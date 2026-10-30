@@ -1263,3 +1263,15 @@ Posting **DISABLED**.
 | GS_PROVINCES_SIZE | `GS+0x2BC` | live 13414 |
 | CA_PROVINCE_ID | `CArmy+0x28` | equals `CProvince+0xA4`; 17/17 |
 | CP_PROVINCE_ID | `CProvince+0xA4` | **proven** via resolve round-trip |
+
+## Phase 2av — FN_HANDLE_RESOLVE PROVEN (RO)
+
+Posting **DISABLED**.
+
+| Symbol | Value | Notes |
+|--------|-------|-------|
+| FN_HANDLE_RESOLVE | `0x2284800` | type dispatch → hash lookup |
+| FN_HANDLE_HASH_LOOKUP | `0x2282810` | mul `0x49631A45`; 24-byte entries |
+| HANDLE_TYPE_TABLE | `0x34FFC00` | types `< 0x64` |
+| payload | `object+0x10` | caller subtracts `0x10` |
+| live | 17/17 HAI armies type `0x33` | |

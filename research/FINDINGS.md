@@ -104,3 +104,9 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - `0xc5a9e0` → `0x1e07f0` is **province** resolve (GS+`0x2b0` / size `0x2bc`), not unit.
 - `CArmy+0x28` province id; `CProvince+0xa4` proven 17/17 on HAI.
 - Unit/army `FN_HANDLE_RESOLVE` still open. **Posting DISABLED**.
+
+## Phase 2av (handle resolve)
+
+- `FN_HANDLE_RESOLVE = 0x2284800` proven (Strategic Apply path + live hash sim 17/17).
+- `calling/handle.py` RO helper added.
+- Safe-enable still open (no Post proof / midflight Move). **Posting DISABLED**.
