@@ -96,6 +96,65 @@ Do not invent Post. `CLAUSEWITZ_ALLOW_WRITE` does not enable posting.
 3. Characterize that object's `vtable+0x90` (must take `CCommand*`, enqueue).
 4. Only then set `FN_CMD_QUEUE_POST` (writes still gated).
 
+
+## Phase 2f — live idler Post-path (read-only) + army hunt
+
+Session under test: **frontend / lobby** (pid 30600, WS ~6.5 GB heap scanned).  
+`G_GAMESTATE` live with countries=440 / player_tag=15 / date_year≈1936, but **no map UI**.
+
+### G_IDLER — promoted (session-typed)
+
+| Field | Value |
+|-------|-------|
+| RVA | **`0x33ddb08`** |
+| File | `calling/offsets_verified.json` |
+| Live type (this session) | **`CFrontEndIdler`** (`0x29c6d30`) |
+| Expect in-game | `CInGameIdler` (`0x29e5838`) in the **same slot** (re-verify on map) |
+
+### Post-path exercised READ-ONLY (no Post / no write)
+
+| Step | Result |
+|------|--------|
+| FE vt+`0x90` | RVA **`0xb8dca0`** — `mov rcx,[rcx+0x530]; jmp [rax+0x90]` |
+| IG vt+`0x90` | RVA **`0xe34e90`** — optional logger → same `[this+0x530]` → `jmp [rax+0x90]` |
+| Live FE+`0x530` | **`CGameApplication`** (`0x2796308`) |
+| App vt+`0x90` | RVA **`0x1b14f0`** — **setter** of `this+0x380` (`CSession*`); **NOT Post** |
+| `FN_CMD_QUEUE_POST` | **still null** — need live `CInGameIdler` + typed queue object's vt+`0x90` |
+
+Shape is proven; **callee identity is session-dependent**. FrontEnd's `+0x530` is Application, not a command queue.
+
+### Armies / divisions — still stubbed
+
+| Lead | Result |
+|------|--------|
+| Full-heap `CArmy` / MI | **0** hits (~6.5 GB, 12k+ regions) |
+| Full-heap `CUnit` | **0** |
+| Full-heap `CArmyGroup` (`0x29cee28` / `0x29ceea0`) | **0** (RTTI exists; no live objects) |
+| Player `CCountry` arrays | `CO_STATES@0x460` live; **no** `CArmy*` CPdxArray; `CNavyTheater` @ `+0x160` |
+| Linux `CO_ARMIES@0x290` | empty / not army ptrs on Windows this sample |
+
+Frontend GS has countries/states but **no military units spawned** — expected until map/in-campaign.
+
+### Dead ends (Phase 2f)
+
+| Lead | Result |
+|------|--------|
+| Treat App vt+`0x90` (`0x1b14f0`) as Post | **Rejected** — setter(+0x380), 0 E8 callers, absent from CCommand soft-call neighborhood |
+| `.?AVCCommandQueue@@` | Still **NONE** |
+| Soft tops `0x25a009c` / `0x25a00d8` / `0x11f6f0` | ctor-neighborhood helpers, not Post-shaped |
+| `CSession` / `CNavyTheater` as queue stand-ins | No command-queue RTTI behind them |
+| Promote Post from FrontEnd path | **Forbidden** — wrong object at `+0x530` |
+
+Tooling: `scripts/phase2f_idler_postpath.py` (RO resolve + optional heap counts).
+
+### Next proof steps (still read-only until done)
+
+1. Load a campaign map so `G_IDLER` → **`CInGameIdler`** (re-run `phase2f_idler_postpath.py`).
+2. RTTI-identify live `idler+0x530`; decode that object's **vt+`0x90`** (must take `CCommand*`, enqueue).
+3. Re-scan heap for `CArmy` / `CArmyGroup` once map is up; wire `divisions_count` only if proven.
+4. Only then set `FN_CMD_QUEUE_POST` (writes still gated).
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
@@ -109,5 +168,6 @@ python scripts/phase2c_recover.py
 python scripts/phase2d_post_hunt.py
 python scripts/phase2e_post_graph.py
 python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
+python scripts/phase2f_idler_postpath.py [--out research/re-dumps/phase2f_idler.json] [--skip-heap]
 python scripts/session_probe.py
 ```

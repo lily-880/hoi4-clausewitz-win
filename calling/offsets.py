@@ -52,13 +52,19 @@ PROVEN_STATIC = {
     "CCurrentGameState_vtable": 0x279F168,
     "CCurrentGameState_vtable_secondary": 0x279F1C0,
     "CInGameIdler_vtable": 0x29E5838,
+    "CFrontEndIdler_vtable": 0x29C6D30,
     "CGameIdler_vtable": 0x27B4158,
+    "CGameApplication_vtable": 0x2796308,
     "CCommand_vtable": 0x279F4A0,
     "CArmy_vtable": 0x29D6D68,
     "CArmy_vtable_mi": [0x29D6F48, 0x29D6FB8, 0x29D7000],
+    "CArmyGroup_vtable": 0x29CEE28,
+    "CArmyGroup_vtable_mi": [0x29CEEA0],
     "CUnit_vtable": 0x29CFAC0,
     "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90 loads [this+0x530]
     "CInGameIdler_vt_post_wrapper": 0xE34E90,
+    "CFrontEndIdler_vt_forward": 0xB8DCA0,  # same [this+0x530]->jmp[rax+0x90] shape
+    "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,

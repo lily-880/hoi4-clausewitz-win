@@ -257,8 +257,8 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (
-        "stubbed — CArmy RTTI known but live CArmy* arrays not found "
-        "(Linux CO_ARMIES@0x290 empty on Win sample; see WINDOWS_OFFSETS.md Phase 2e)"
+        "stubbed — CArmy/CArmyGroup/CUnit RTTI known; 0 live heap hits in frontend "
+        "session (~6.5GB scan). CO_ARMIES@0x290 empty; need map/in-game spawn. Phase 2f"
     )
     return out
 
