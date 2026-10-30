@@ -739,6 +739,30 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2w_fieldmap.py [--live]`
 
+## Phase 2x — Chat fields; Move early-drop gate; OEC (writes DISABLED)
+
+### Critical: Move early-drop
+
+`FN_CMD_QUEUE_POST` when `r8b==0` and `session+0x725==0` requires `cmd.vt+0x80` **or** `vt+0x60` true. **CMoveCommand** both stub to `0x11d530` (`xor al,al; ret`) → **always** `"Dropped command:"` unless caller passes `r8b=1` or `session+0x725!=0`.
+
+### CChatCommand fields (size `0x98`, factory `0x13ca430`)
+
+| Off | Role |
+|-----|------|
+| `+0x28` | SSO message string |
+| `+0x48` | vector-like |
+| `+0x60` | byte |
+| `+0x64` | country/player (`-1` default) |
+| `+0x78` | SSO string |
+
+### COrderExecuteCommand
+
+vt `0x2a85468`, Execute `0x18d6430`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2x_chat_auth.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

@@ -122,6 +122,10 @@ PROVEN_STATIC = {
     "CChatCommand_VT": 0x2A27F28,
     "CChatCommand_SIZE": 0x98,
     "CChatCommand_EXECUTE": 0x13CAEE0,
+    "COrderExecuteCommand_VT": 0x2A85468,
+    "COrderExecuteCommand_EXECUTE": 0x18D6430,
+    "CCommand_VT_EARLY_0x60": 0x60,  # Post early gate; Move stubs to false
+    "CCommand_VT_EARLY_0x80": 0x80,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

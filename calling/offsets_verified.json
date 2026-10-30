@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2w-move-size-0x88-fieldmap-writes-still-disabled",
+  "status": "phase2x-chat-fields-move-earlydrop-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -375,6 +375,16 @@
         "vt": "0x2a27f28",
         "size": "0x98",
         "Execute": "0x13caee0"
+      },
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2x": {
+      "early_drop": "Move vt+0x60/+0x80 return false → need r8b or session+0x725",
+      "CChatCommand_fields": "+0x28 msg SSO; +0x64 country; size 0x98",
+      "COrderExecuteCommand": {
+        "vt": "0x2a85468",
+        "Execute": "0x18d6430"
       },
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
