@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ah-payload-read-0xa8-action-deser-writes-still-disabled",
+  "status": "phase2ai-ring-drain-heap-sticky-startgame-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -577,6 +577,35 @@
       "Move_read_thunk": "0x1403570 -> action.vt+0xb8 0x12c3340",
       "Cancel_serialize": "0x1404130",
       "Chat_serialize": "0x13d7fa0",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ai": {
+      "drain_0x30": "0x23f64e0 locks ring+0xa0; mov [server+0x58],rdx @ 0x23f6629",
+      "pipeline": {
+        "Post": "server.vt+0x28 @ 0x23f5cd0",
+        "serialize_recreate": "0x22d8ad0",
+        "ring_push": "server+0xa0",
+        "drain": "server.vt+0x30 @ 0x23f64e0 -> pending +0x58",
+        "pending_getter": "vt+0x40 -> &server+0x58",
+        "execlist_getter": "vt+0x78 -> &server+0x40",
+        "FN_EXECUTE_LOOP": "0x22c4710 pulls execlist +0x40",
+        "state2_Execute": "0x22c6c9d after stage from pending"
+      },
+      "heap_scanned_MB": 7691.4,
+      "heap_hits": {
+        "CMoveCommand": [],
+        "CCancelMovementCommand": [],
+        "CChatCommand": [],
+        "CStartGameCommand": [
+          "0x28567fac160"
+        ],
+        "CDummyServer": [
+          "0x2851b528e30"
+        ]
+      },
+      "sticky_StartGame_postexec": true,
+      "live_exec": 13,
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }

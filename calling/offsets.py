@@ -142,6 +142,7 @@ PROVEN_STATIC = {
     "CDummyServer_VT": 0x2BCB040,
     "CDummyServer_POST_0x28": 0x23F5CD0,
     "CDummyServer_DRAIN_0x30": 0x23F64E0,
+    "CDummyServer_DRAIN_STORE_0x58_SITE": 0x23F6629,  # mov [rbx+0x58], rdx
     "CDummyServer_EXECLIST_0x78": 0x247620,  # lea rax,[rcx+0x40];ret
     "CNetworkServer_VT": 0x2BCB330,
     "CNetworkServer_POST_0x28": 0x23FA830,

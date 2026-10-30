@@ -952,6 +952,18 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ah_deserialize.py [--live]`
 
+## Phase 2ai — Ring drain → pending `+0x58` + heap probe (writes DISABLED)
+
+DummyServer `vt+0x30` drain `0x23f64e0`: spinlock `server+0xa0`, pop ring, **`mov [rbx+0x58], rdx` @ `0x23f6629`** into pending list.
+
+Pipeline: Post `vt+0x28` → serialize/recreate `0x22d8ad0` → ring `+0xa0` → drain `vt+0x30` → pending `+0x58` → stage → state2 Execute `0x22c6c9d` / loop pulls execlist `+0x40`.
+
+Full-heap writable scan (paused SP): Move/Cancel/Chat **0**; StartGame **1** sticky (`postexec`); DummyServer **1**.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ai_ring_drain.py [--live] [--heap]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
