@@ -332,691 +332,2560 @@ ISVALID_PATHS = {
         "isvalid": 20980336,
         "execute": 20962560,
         "vt": 44223272,
-        "type_id": 12620
+        "type_id": 12620,
+        "execute_calls": [
+            "0x2284800",
+            "0xc50ed0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc5a750"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "COrderNewFallbackCommand": {
         "isvalid": 26080432,
         "execute": 26054592,
         "vt": 44584064,
-        "type_id": 13271
+        "type_id": 13271,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x25a0448",
+            "0x25a0310",
+            "0x25a03dc",
+            "0x10b85b0",
+            "0x10af090",
+            "0x254aa00",
+            "0xc415b0",
+            "0xc41b40",
+            "0x10b0d20",
+            "0xc416b0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderReplaceFallbackCommands": {
         "isvalid": 26080432,
         "execute": 26059696,
         "vt": 44584248,
-        "type_id": 13580
+        "type_id": 13580,
+        "execute_calls": [
+            "0x2284800",
+            "0xc41eb0",
+            "0xc41f60",
+            "0x18e580",
+            "0x18d1460",
+            "0x25c3770",
+            "0x2607890",
+            "0x18c9ab0",
+            "0xbbb1e0",
+            "0x18d99c0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "CSetSelectedArmyGroupFallback": {
         "isvalid": 26085168,
         "execute": 26065632,
         "vt": 44589400,
-        "type_id": 14987
+        "type_id": 14987,
+        "execute_calls": [
+            "0x254aa00",
+            "0x2284800",
+            "0x25694b0",
+            "0x2607f30",
+            "0x12e040",
+            "0x10b5f10",
+            "0x2607890",
+            "0x2607790",
+            "0x18dbbc0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800"
+        ]
     },
     "CCancelRunningAwayCommand": {
         "isvalid": 20901168,
         "execute": 20954272,
         "vt": 44225848,
-        "type_id": 15284
+        "type_id": 15284,
+        "execute_calls": [
+            "0x2284800",
+            "0xc51a20",
+            "0xc91770",
+            "0xc873a0",
+            "0x13df8a0",
+            "0x13efb80",
+            "0x254aa00",
+            "0x13eb450",
+            "0x254b2b0",
+            "0x254b7c0",
+            "0xc915b0",
+            "0xddcd10"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CWithdrawArmyHqCommand": {
         "isvalid": 20981696,
         "execute": 20964000,
         "vt": 44224376,
-        "type_id": 10291
+        "type_id": 10291,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0x1b7950",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0xbbb1e0",
+            "0x2284800",
+            "0x34c220",
+            "0x25a04c0",
+            "0x22aea40",
+            "0x25a05a4",
+            "0x12b330",
+            "0xc734f0"
+        ]
     },
     "CMassMoveCommand": {
         "isvalid": 20970400,
         "execute": 20955920,
         "vt": 44222536,
-        "type_id": 13343
+        "type_id": 13343,
+        "execute_calls": [
+            "0x2284800",
+            "0xc5a750",
+            "0xc4f450"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x74ad20",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0xcdb440",
+            "0xc55940",
+            "0x1b8180",
+            "0x11f240"
+        ]
     },
     "CToggleStrategicDeploymentCommand": {
         "isvalid": 20981184,
         "execute": 20962960,
         "vt": 44223088,
-        "type_id": 15584
+        "type_id": 15584,
+        "execute_calls": [
+            "0x2284800",
+            "0xc57070",
+            "0x2607890",
+            "0xcd5190"
+        ],
+        "isvalid_calls": [
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0x1b8180",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CMoveArmiesInTheaterCommand": {
         "isvalid": 26077152,
         "execute": 26031808,
         "vt": 44581120,
-        "type_id": 14990
+        "type_id": 14990,
+        "execute_calls": [
+            "0x2284800",
+            "0x2607890",
+            "0x18e580"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800"
+        ]
     },
     "CMoveArmyGroupInTheaterCommand": {
         "isvalid": 26077344,
         "execute": 26033040,
         "vt": 44581304,
-        "type_id": 14991
+        "type_id": 14991,
+        "execute_calls": [
+            "0x2284800",
+            "0x2607890"
+        ],
+        "isvalid_calls": [
+            "0x10f12f0",
+            "0xbbb1e0"
+        ]
     },
     "CMassCancelMovementCommand": {
         "isvalid": 18811408,
         "execute": 18748704,
         "vt": 44104768,
-        "type_id": 13872
+        "type_id": 13872,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4f8e0",
+            "0xc50ed0",
+            "0xee0100",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770"
+        ]
     },
     "COrderNewFrontCommand": {
         "isvalid": 26080480,
         "execute": 26054656,
         "vt": 44583696,
-        "type_id": 13095
+        "type_id": 13095,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x25a0448",
+            "0x25a0310",
+            "0x25a03dc",
+            "0x10b85b0",
+            "0x10af090",
+            "0x254aa00",
+            "0xc415b0",
+            "0xc41b40",
+            "0x10b0d20",
+            "0xc416b0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderInsertFrontCommand": {
         "isvalid": 26079792,
         "execute": 26043888,
         "vt": 44583512,
-        "type_id": 13208
+        "type_id": 13208,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0xc415b0",
+            "0xc416b0",
+            "0x10b0d20",
+            "0x10b4e50",
+            "0x10b5f10",
+            "0x10b0ba0",
+            "0x10cc4c0",
+            "0x18c7d80",
+            "0x18d41b0",
+            "0x25a0690"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderSetPathCommand": {
         "isvalid": 26083072,
         "execute": 26062576,
         "vt": 44582776,
-        "type_id": 12345
+        "type_id": 12345,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x18e5ef0",
+            "0xc4bca0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderReshapeCommand": {
         "isvalid": 26080960,
         "execute": 26060752,
         "vt": 44582960,
-        "type_id": 13214
+        "type_id": 13214,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x1b15d0",
+            "0x2607890",
+            "0x10cc4c0",
+            "0x10ce790"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderConnectCommand": {
         "isvalid": 26078544,
         "execute": 26039456,
         "vt": 44583328,
-        "type_id": 13233
+        "type_id": 13233,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0xc415b0",
+            "0xc416b0",
+            "0x10b4e50",
+            "0x10af2c0",
+            "0x10b4fa0",
+            "0x12e040",
+            "0xc44880",
+            "0x2607890",
+            "0x18d1460",
+            "0xc07620"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderReconnectCommand": {
         "isvalid": 26080688,
         "execute": 26058256,
         "vt": 44583144,
-        "type_id": 13232
+        "type_id": 13232,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x254aa00",
+            "0x10af2c0",
+            "0x10b5fb0",
+            "0x18e580",
+            "0x10cbe40",
+            "0x10b5f10",
+            "0x10b4e50",
+            "0x10b4fa0",
+            "0x10c3e10",
+            "0x25a0448"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderSetCollapseCommand": {
         "isvalid": 26081072,
         "execute": 26060992,
         "vt": 44588296,
-        "type_id": 14895
+        "type_id": 14895,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10b1950",
+            "0xc415b0",
+            "0xc416b0",
+            "0xc07620",
+            "0xc53100",
+            "0xcf4f30",
+            "0xc2da60",
+            "0x254aa00",
+            "0x1098690",
+            "0x10b13a0"
+        ],
+        "isvalid_calls": [
+            "0x10f12f0",
+            "0x2284800"
+        ]
     },
     "COrderAddNewCompletePlanCommand": {
         "isvalid": 26077376,
         "execute": 26033968,
         "vt": 44584616,
-        "type_id": 13918
+        "type_id": 13918,
+        "execute_calls": [
+            "0x25a009c",
+            "0x2284800",
+            "0x18c9ab0",
+            "0x18c97d0",
+            "0x18c7d80",
+            "0x18d41b0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x57f7b0",
+            "0x2284800",
+            "0x1b8180"
+        ]
     },
     "COrderExecuteCommand": {
         "isvalid": 26079040,
         "execute": 26043440,
         "vt": 44586088,
-        "type_id": 12352
+        "type_id": 12352,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x18e5ce0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "CAssignToTheaterGroupCommand": {
         "isvalid": 28393920,
         "execute": 28388224,
         "vt": 44736544,
-        "type_id": 13789
+        "type_id": 13789,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4b2a0",
+            "0xf6ba20",
+            "0xf703f0",
+            "0xd4b440"
+        ],
+        "isvalid_calls": [
+            "0x2607890",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0x18dde70",
+            "0x16d9250"
+        ]
     },
     "CDisbandTheaterGroupCommand": {
         "isvalid": 28394672,
         "execute": 28388624,
         "vt": 44736912,
-        "type_id": 13790
+        "type_id": 13790,
+        "execute_calls": [
+            "0x2284800",
+            "0x20e970",
+            "0x254bba0",
+            "0x254c440",
+            "0x254b790",
+            "0x14d7070",
+            "0x254de20",
+            "0x11d5c0",
+            "0x12bbb0",
+            "0x12b930",
+            "0x12b710",
+            "0x254b340"
+        ],
+        "isvalid_calls": [
+            "0xd73540"
+        ]
     },
     "CReorderTheatersCommand": {
         "isvalid": 28394672,
         "execute": 28389248,
         "vt": 44736728,
-        "type_id": 14993
+        "type_id": 14993,
+        "execute_calls": [
+            "0x2284800",
+            "0x20e970",
+            "0xd3ca90",
+            "0x2607890"
+        ],
+        "isvalid_calls": [
+            "0xd73540"
+        ]
     },
     "CSetTheaterGroupNameCommand": {
         "isvalid": 28394848,
         "execute": 28391552,
         "vt": 44737096,
-        "type_id": 13791
+        "type_id": 13791,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0x18dde70"
+        ]
     },
     "CSetTheaterGroupPriorityCommand": {
         "isvalid": 28394896,
         "execute": 28391616,
         "vt": 44737280,
-        "type_id": 13792
+        "type_id": 13792,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0x18dde70",
+            "0x2284e60",
+            "0x2607890"
+        ]
     },
     "CSetOrderGroupExecutionTypeCommand": {
         "isvalid": 26075888,
         "execute": 26064560,
         "vt": 44579648,
-        "type_id": 13992
+        "type_id": 13992,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CSetOrderGroupCohesionTypeCommand": {
         "isvalid": 26075888,
         "execute": 26064448,
         "vt": 44579832,
-        "type_id": 12189
+        "type_id": 12189,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CSetOrderGroupMotorizationCommand": {
         "isvalid": 26075888,
         "execute": 26064848,
         "vt": 44579280,
-        "type_id": 13571
+        "type_id": 13571,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4ce40",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CSetOrderGroupNameCommand": {
         "isvalid": 26075888,
         "execute": 26065280,
         "vt": 44578912,
-        "type_id": 13563
+        "type_id": 13563,
+        "execute_calls": [
+            "0x2284800",
+            "0x10cdcd0",
+            "0x10c3e80"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CCollapseConveyorCommand": {
         "isvalid": 29562480,
         "execute": 29559088,
         "vt": 44824480,
-        "type_id": 14003
+        "type_id": 14003,
+        "execute_calls": [
+            "0x2284800",
+            "0xd4a3d0",
+            "0xd4b2d0",
+            "0xd472f0",
+            "0xbea570",
+            "0xc07620",
+            "0xd70c20",
+            "0xd73120",
+            "0xd6f0c0",
+            "0xd4b2c0",
+            "0xd4b390",
+            "0xd72b50"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "COrderGroupCommand": {
         "isvalid": 26079200,
         "execute": 26043632,
         "vt": 44580200,
-        "type_id": 11983
+        "type_id": 11983,
+        "execute_calls": [
+            "0x2284800",
+            "0xf70260",
+            "0xc41730",
+            "0x254b2b0",
+            "0x254b7c0"
+        ],
+        "isvalid_calls": [
+            "0x10f1410",
+            "0x18dde70",
+            "0x57f7b0",
+            "0x2284800",
+            "0xf75ef0",
+            "0xc07b80",
+            "0x747bd0",
+            "0xc4f070",
+            "0xc50d50",
+            "0x1e1510",
+            "0x22aea40",
+            "0x12b330"
+        ]
     },
     "COrderNewRootCommand": {
         "isvalid": 26080624,
         "execute": 26057152,
         "vt": 44584432,
-        "type_id": 13096
+        "type_id": 13096,
+        "execute_calls": [
+            "0x2284800",
+            "0xc415b0",
+            "0xc416b0",
+            "0x10cdc60",
+            "0x10ce300",
+            "0x10cdda0",
+            "0xc40490",
+            "0x18c7d80",
+            "0x57f7b0",
+            "0xbbb1e0",
+            "0x18d41b0",
+            "0x10ce880"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderAssignCommand": {
         "isvalid": 26077440,
         "execute": 26034608,
         "vt": 44582040,
-        "type_id": 12350
+        "type_id": 12350,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x18c4f80",
+            "0x121d60",
+            "0x10b9960",
+            "0x2607890",
+            "0x11f6f0",
+            "0xf69810",
+            "0x10bc370",
+            "0x18e580",
+            "0xc4f070",
+            "0xc08580"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x57f7b0",
+            "0x2284800",
+            "0xbbb1e0",
+            "0x1b8180"
+        ]
     },
     "COrderUnassignCommand": {
         "isvalid": 26083792,
         "execute": 26062928,
         "vt": 44582224,
-        "type_id": 12365
+        "type_id": 12365,
+        "execute_calls": [
+            "0x2284800",
+            "0x18e7810",
+            "0xc07620",
+            "0x2b61f0",
+            "0x16bca50",
+            "0xc79350",
+            "0x16bd4d0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800"
+        ]
     },
     "COrderDeleteCommand": {
         "isvalid": 26078944,
         "execute": 26042336,
         "vt": 44581856,
-        "type_id": 12351
+        "type_id": 12351,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x25a0390",
+            "0x18e37e0",
+            "0x10af090",
+            "0xc41eb0",
+            "0xc41f60",
+            "0x254aa00",
+            "0x10af2c0",
+            "0x10cbe40",
+            "0xc475c0",
+            "0x10b5ce0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "CAssignToArmyGroupCommand": {
         "isvalid": 26075728,
         "execute": 26029568,
         "vt": 44580752,
-        "type_id": 14470
+        "type_id": 14470,
+        "execute_calls": [
+            "0x2284800",
+            "0xc45530",
+            "0x2283ae0",
+            "0x2607890",
+            "0x1b11420",
+            "0x25a00d8",
+            "0x1b141c0",
+            "0x1b12b80",
+            "0x1b11ea0",
+            "0x2348bf0",
+            "0x25c3770",
+            "0xc40330"
+        ],
+        "isvalid_calls": [
+            "0x10f12f0",
+            "0xbbb1e0"
+        ]
     },
     "CRemoveFromArmyGroupCommand": {
         "isvalid": 26084112,
         "execute": 26063296,
         "vt": 44580936,
-        "type_id": 14471
+        "type_id": 14471,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4b2a0",
+            "0xc40230",
+            "0x13f83b0",
+            "0x14027c0",
+            "0x13fe2a0",
+            "0xc47980",
+            "0xc4b3f0",
+            "0xc07620",
+            "0xc6ad00",
+            "0x2574a60",
+            "0x717940"
+        ],
+        "isvalid_calls": [
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770"
+        ]
     },
     "CSetOrderGroupIconAndColorCommand": {
         "isvalid": 26075888,
         "execute": 26064672,
         "vt": 44579464,
-        "type_id": 13924
+        "type_id": 13924,
+        "execute_calls": [
+            "0x2284800"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CSetOrderGroupLeaderProximityCommand": {
         "isvalid": 26075888,
         "execute": 26064736,
         "vt": 44580016,
-        "type_id": 16842
+        "type_id": 16842,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4ce40",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CSetOrderGroupOrdersInstanceNamesCommand": {
         "isvalid": 26075888,
         "execute": 26065392,
         "vt": 44579096,
-        "type_id": 12057
+        "type_id": 12057,
+        "execute_calls": [
+            "0x2284800",
+            "0x10cdcd0",
+            "0x10c3e80"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CAutoMergeOrdersCommand": {
         "isvalid": 26075840,
         "execute": 26030576,
         "vt": 44583880,
-        "type_id": 13650
+        "type_id": 13650,
+        "execute_calls": [
+            "0x2284800",
+            "0x25c3770",
+            "0xf76f60",
+            "0xc416b0",
+            "0xc40490",
+            "0x10b0fd0",
+            "0x10cd440",
+            "0x10cd410",
+            "0xfcecf0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CDeleteOrderGroupCommand": {
         "isvalid": 26075904,
         "execute": 26030848,
         "vt": 44580384,
-        "type_id": 12366
+        "type_id": 12366,
+        "execute_calls": [
+            "0x2284800",
+            "0xc49740",
+            "0xf7f2f0",
+            "0xf7f8c0",
+            "0xc07620"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "COrderDeleteAllCommand": {
         "isvalid": 26075888,
         "execute": 26040560,
         "vt": 44581488,
-        "type_id": 13297
+        "type_id": 13297,
+        "execute_calls": [
+            "0x2284800",
+            "0xc49fb0",
+            "0xc41eb0",
+            "0xc41f60",
+            "0x2607890",
+            "0x10b9370",
+            "0x10b94b0",
+            "0x10b5ce0",
+            "0xc07620",
+            "0xd75a30",
+            "0x10b4d60",
+            "0x18c8960"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CArmyGroupCommand": {
         "isvalid": 26074992,
         "execute": 26027472,
         "vt": 44580568,
-        "type_id": 14433
+        "type_id": 14433,
+        "execute_calls": [
+            "0x2284800",
+            "0x2607890",
+            "0xc45530",
+            "0x254aa00",
+            "0xc41730",
+            "0xf700a0",
+            "0xf76f60",
+            "0xc416b0",
+            "0x10cdc60",
+            "0x10ce2e0",
+            "0x10ce300",
+            "0x10cdda0"
+        ],
+        "isvalid_calls": [
+            "0x10f1410",
+            "0x57f7b0",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770"
+        ]
     },
     "CDeployArmyHqCommand": {
         "isvalid": 20968592,
         "execute": 20955536,
         "vt": 44224192,
-        "type_id": 10283
+        "type_id": 10283,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4bd40",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0x21fce0"
+        ],
+        "isvalid_calls": [
+            "0x1b7950",
+            "0xbbb1e0",
+            "0x2284800",
+            "0x34c220",
+            "0x74adb0",
+            "0xc07b80",
+            "0xc47b10",
+            "0x15bb950",
+            "0x7215e0",
+            "0x22aea40",
+            "0x1e1510",
+            "0x25a04c0"
+        ]
     },
     "CSetArmyLeaderCommand": {
         "isvalid": 26084560,
         "execute": 26063552,
         "vt": 44586272,
-        "type_id": 12369
+        "type_id": 12369,
+        "execute_calls": [
+            "0x2284800",
+            "0x13f83b0",
+            "0x14027c0",
+            "0x13fe2a0",
+            "0xc47980",
+            "0xc4b3f0",
+            "0xc07620",
+            "0xc6ad00",
+            "0x2574a60",
+            "0x717940",
+            "0x716fc0",
+            "0x19dce10"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0x2348bf0",
+            "0x25c3770",
+            "0x34c220",
+            "0xc412a0",
+            "0xc47980",
+            "0x13f83b0",
+            "0x14027c0"
+        ]
     },
     "CSetArmyTemplateCommand": {
         "isvalid": 20975616,
         "execute": 20960592,
         "vt": 44224744,
-        "type_id": 13270
+        "type_id": 13270,
+        "execute_calls": [
+            "0x13f4010",
+            "0x2284800",
+            "0xceb2b0",
+            "0x34c220",
+            "0xc4b330",
+            "0xc66f80",
+            "0x2607890",
+            "0xc78c50",
+            "0xc78ad0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x2284800",
+            "0x74ad20",
+            "0x13f4010",
+            "0xce5f50",
+            "0xe64be0",
+            "0x34c220",
+            "0xc66f80",
+            "0x12b330"
+        ]
     },
     "CRailwayGunManualOrderCommand": {
         "isvalid": 15736656,
         "execute": 15735040,
         "vt": 43970912,
-        "type_id": 19872
+        "type_id": 19872,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0x2284800",
+            "0xf000d0",
+            "0x19c95d0"
+        ],
+        "isvalid_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770"
+        ]
     },
     "CSetCountryGarrisonPriorityCommand": {
         "isvalid": 18818720,
         "execute": 18766208,
         "vt": 41597704,
-        "type_id": 19124
+        "type_id": 19124,
+        "execute_calls": [
+            "0xc07620",
+            "0x7172f0",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x3b65a0",
+            "0xac1e20"
+        ]
     },
     "CSetCountryReinforcementPriorityCommand": {
         "isvalid": 18818720,
         "execute": 18767552,
         "vt": 41597520,
-        "type_id": 12612
+        "type_id": 12612,
+        "execute_calls": [
+            "0xc07620",
+            "0x717390",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x3b65a0",
+            "0xac1e20"
+        ]
     },
     "CSetQuickDeployPreferenceCommand": {
         "isvalid": 27083680,
         "execute": 27072400,
         "vt": 44659952,
-        "type_id": 14876
+        "type_id": 14876,
+        "execute_calls": [
+            "0xc07620",
+            "0x7173a0",
+            "0xca8270",
+            "0x2284800",
+            "0xfeb5a0"
+        ],
+        "isvalid_calls": [
+            "0xc07b80",
+            "0x741370",
+            "0xcf4da0"
+        ]
     },
     "CMoveCommand": {
         "isvalid": 20972272,
         "execute": 20957584,
         "vt": 44222352,
-        "type_id": 10402
+        "type_id": 10402,
+        "execute_calls": [
+            "0x2284800",
+            "0x25694b0",
+            "0x254aa00",
+            "0x2607f30",
+            "0x254bba0",
+            "0x254c440",
+            "0x254b790",
+            "0x254b340",
+            "0x25a20dc",
+            "0xddf330",
+            "0x13fb770",
+            "0xddf970"
+        ],
+        "isvalid_calls": [
+            "0xc57080",
+            "0x2284800",
+            "0x1e1510",
+            "0x2607890",
+            "0x74ae40",
+            "0xc07b80",
+            "0x2348bf0",
+            "0x25c3770",
+            "0x726d80",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeeda70"
+        ]
     },
     "CStrategicRedeploymentCommand": {
         "isvalid": 20980320,
         "execute": 20957584,
         "vt": 44226584,
-        "type_id": 13753
+        "type_id": 13753,
+        "execute_calls": [
+            "0x2284800",
+            "0x25694b0",
+            "0x254aa00",
+            "0x2607f30",
+            "0x254bba0",
+            "0x254c440",
+            "0x254b790",
+            "0x254b340",
+            "0x25a20dc",
+            "0xddf330",
+            "0x13fb770",
+            "0xddf970"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CCancelMovementCommand": {
         "isvalid": 20966720,
         "execute": 20954064,
         "vt": 44222904,
-        "type_id": 10415
+        "type_id": 10415,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4f8e0",
+            "0xc50ed0",
+            "0xc5a750"
+        ],
+        "isvalid_calls": [
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0xc4f8e0",
+            "0x1b8180",
+            "0x2607890",
+            "0x1e1510",
+            "0x11f240"
+        ]
     },
     "COrderBlockSectionsCommand": {
         "isvalid": 26078384,
         "execute": 26039200,
         "vt": 44582592,
-        "type_id": 14069
+        "type_id": 14069,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10cd970"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderChildFrontRatioCommand": {
         "isvalid": 26078416,
         "execute": 26039280,
         "vt": 44585352,
-        "type_id": 15758
+        "type_id": 15758,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10cd970"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderEditRootCommand": {
         "isvalid": 26078944,
         "execute": 26043200,
         "vt": 44585168,
-        "type_id": 13097
+        "type_id": 13097,
+        "execute_calls": [
+            "0x2284800",
+            "0x254aa00"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderMembersFairSplitCommand": {
         "isvalid": 26079904,
         "execute": 26044544,
         "vt": 44585904,
-        "type_id": 13099
+        "type_id": 13099,
+        "execute_calls": [
+            "0x25a0690",
+            "0x2284800",
+            "0x25c3770",
+            "0xc40230",
+            "0x10ad830",
+            "0x25a0448",
+            "0x25a0310",
+            "0x25a03dc",
+            "0x2607f30",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeef8c0"
+        ],
+        "isvalid_calls": [
+            "0x2284800",
+            "0x25c3770",
+            "0xc40230"
+        ]
     },
     "COrderMergeRootsCommand": {
         "isvalid": 26080112,
         "execute": 26053424,
         "vt": 44585720,
-        "type_id": 13098
+        "type_id": 13098,
+        "execute_calls": [
+            "0x2284800",
+            "0x25c3770",
+            "0xc40230",
+            "0x10b4e50",
+            "0x10b4fa0",
+            "0x10b5ce0",
+            "0x25a0448",
+            "0x25a0310",
+            "0x25a03dc",
+            "0x18dbbc0",
+            "0x18c8960",
+            "0xbbb1e0"
+        ],
+        "isvalid_calls": [
+            "0x2284800",
+            "0x25c3770",
+            "0xc40230",
+            "0x10bc180"
+        ]
     },
     "COrderReorderChildFrontCommand": {
         "isvalid": 26080816,
         "execute": 26059568,
         "vt": 44585536,
-        "type_id": 15785
+        "type_id": 15785,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10cc1d0",
+            "0xc41eb0",
+            "0xc41f60",
+            "0x18e580",
+            "0x18d1460",
+            "0x25c3770",
+            "0x2607890",
+            "0x18c9ab0",
+            "0xbbb1e0",
+            "0x18d99c0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "COrderSetInvasionSourceCommand": {
         "isvalid": 26081168,
         "execute": 26061056,
         "vt": 44586640,
-        "type_id": 12643
+        "type_id": 12643,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10b1950",
+            "0xc415b0",
+            "0xc416b0",
+            "0xc07620",
+            "0xc53100",
+            "0xcf4f30",
+            "0xc2da60",
+            "0x254aa00",
+            "0x1098690",
+            "0x10b13a0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x12b3c0",
+            "0x2284800",
+            "0xc07b80",
+            "0xc40230",
+            "0x18cc3f0",
+            "0x747fa0",
+            "0x733090",
+            "0x25a04c0",
+            "0x22aea40",
+            "0x25a05a4",
+            "0x1216a0"
+        ]
     },
     "COrderSetParadropSourceCommand": {
         "isvalid": 26081760,
         "execute": 26061744,
         "vt": 44587744,
-        "type_id": 12729
+        "type_id": 12729,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0xc415b0",
+            "0xc416b0",
+            "0xc40490",
+            "0x18c7d80",
+            "0x57f7b0",
+            "0xbbb1e0",
+            "0x18d41b0",
+            "0xfd0db0",
+            "0x254aa00",
+            "0x25a0390"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0x219250",
+            "0xc40230",
+            "0x10bf130"
+        ]
     },
     "COrderSetParadropTargetCommand": {
         "isvalid": 26082416,
         "execute": 26062480,
         "vt": 44587928,
-        "type_id": 12730
+        "type_id": 12730,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x18e5dd0",
+            "0x18e5ef0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0x219250",
+            "0xc40230",
+            "0x10be690"
+        ]
     },
     "COrderSetTrainingCommand": {
         "isvalid": 26083200,
         "execute": 26062672,
         "vt": 44588112,
-        "type_id": 13215
+        "type_id": 13215,
+        "execute_calls": [
+            "0x2284800",
+            "0xc4bca0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CSetOrdersLinkCommand": {
         "isvalid": 26085088,
         "execute": 1392688,
         "vt": 44589032,
-        "type_id": 14857
+        "type_id": 14857,
+        "execute_calls": [
+            "0x25a00d8"
+        ],
+        "isvalid_calls": [
+            "0x10f12f0",
+            "0x10b9f10"
+        ]
     },
     "CSetArmyLeaderPreferredTacticCommand": {
         "isvalid": 18818560,
         "execute": 18765376,
         "vt": 44119936,
-        "type_id": 19927
+        "type_id": 19927,
+        "execute_calls": [
+            "0x2284800",
+            "0xd26790",
+            "0x239fb0",
+            "0x2607790",
+            "0x254aa00",
+            "0x25a0390",
+            "0x203a50",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0xc47a80",
+            "0x2284800",
+            "0xc675d0"
+        ]
     },
     "CSetArmyFakeTemplateCommand": {
         "isvalid": 20975088,
         "execute": 20959984,
         "vt": 44224928,
-        "type_id": 19334
+        "type_id": 19334,
+        "execute_calls": [
+            "0x2284800",
+            "0xceb6d0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0x23c3a0",
+            "0x14a470",
+            "0xb9d3d0"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0xce5f30"
+        ]
     },
     "CAddConveyorLineCommand": {
         "isvalid": 29562288,
         "execute": 29558336,
         "vt": 44824112,
-        "type_id": 13484
+        "type_id": 13484,
+        "execute_calls": [
+            "0x2284800",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd6f0c0",
+            "0xd73120",
+            "0x254aa00",
+            "0xd752e0",
+            "0xbab790",
+            "0xbf36e0",
+            "0xd4b440",
+            "0x25a00d8"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x2284800",
+            "0xd472f0",
+            "0xc07b80",
+            "0x1693c0",
+            "0xd6fe90"
+        ]
     },
     "CChangeConveyorPositionCommand": {
         "isvalid": 29562480,
         "execute": 29558528,
         "vt": 44824664,
-        "type_id": 14004
+        "type_id": 14004,
+        "execute_calls": [
+            "0x2284800",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd73120",
+            "0x254aa00",
+            "0xd752e0",
+            "0xbab790",
+            "0xbf36e0",
+            "0xd4b440",
+            "0x25a00d8",
+            "0x1c32980"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CCreateConveyorCommand": {
         "isvalid": 29547792,
         "execute": 29559168,
         "vt": 44822640,
-        "type_id": 13479
+        "type_id": 13479,
+        "execute_calls": [
+            "0x2284800",
+            "0xbea570",
+            "0xc07620",
+            "0xd70c20",
+            "0xd73120",
+            "0xd6f0c0",
+            "0xd4b2c0",
+            "0xd4b390",
+            "0xd472f0",
+            "0xd72b50",
+            "0xd719a0",
+            "0xd47300"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0xbf4ad0",
+            "0xbf4ae0",
+            "0x2284800",
+            "0x172cb20",
+            "0xc07d30",
+            "0x2572c70",
+            "0x1c2d4d0",
+            "0xc07b80",
+            "0x164c870",
+            "0xbf4ce0",
+            "0xbf4af0"
+        ]
     },
     "CCreateConveyorExtendedCommand": {
         "isvalid": 29562544,
         "execute": 29559328,
         "vt": 44822824,
-        "type_id": 13493
+        "type_id": 13493,
+        "execute_calls": [
+            "0x2284800",
+            "0xbea570",
+            "0xc07620",
+            "0xd70c20",
+            "0xd73120",
+            "0xd6f0c0",
+            "0xd4b2c0",
+            "0xd4b390",
+            "0xd472f0",
+            "0xd72b50",
+            "0xd719a0",
+            "0xd47300"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CDeployConveyorCommand": {
         "isvalid": 29562480,
         "execute": 29559584,
         "vt": 44824296,
-        "type_id": 13600
+        "type_id": 13600,
+        "execute_calls": [
+            "0x2284800",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd719a0",
+            "0xd47300",
+            "0xd71a40",
+            "0x1c32980"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CDeployConveyorLineCommand": {
         "isvalid": 29563088,
         "execute": 29559696,
         "vt": 44825032,
-        "type_id": 13485
+        "type_id": 13485,
+        "execute_calls": [
+            "0x2284800",
+            "0xd47300",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd71a40",
+            "0x1c32980"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x1e1510",
+            "0x2607890",
+            "0x2284800",
+            "0x1693c0",
+            "0xbf3360",
+            "0xd49500",
+            "0xd472f0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0",
+            "0xc08100"
+        ]
     },
     "CRemoveConveyorCommand": {
         "isvalid": 29562480,
         "execute": 29559872,
         "vt": 44824848,
-        "type_id": 13601
+        "type_id": 13601,
+        "execute_calls": [
+            "0x2284800",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd74690",
+            "0x1c32980",
+            "0xd47300",
+            "0xd74850"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CRemoveConveyorLineCommand": {
         "isvalid": 29563088,
         "execute": 29560000,
         "vt": 44825400,
-        "type_id": 13487
+        "type_id": 13487,
+        "execute_calls": [
+            "0x2284800",
+            "0xd47300",
+            "0xd472f0",
+            "0xc07620",
+            "0xd72b50",
+            "0xd74850",
+            "0x1c32980"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x1e1510",
+            "0x2607890",
+            "0x2284800",
+            "0x1693c0",
+            "0xbf3360",
+            "0xd49500",
+            "0xd472f0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0",
+            "0xc08100"
+        ]
     },
     "CSetConveyorGroupCommand": {
         "isvalid": 29562480,
         "execute": 29560176,
         "vt": 44823376,
-        "type_id": 13498
+        "type_id": 13498,
+        "execute_calls": [
+            "0x2284800",
+            "0x25c3770",
+            "0xc40230",
+            "0xd4b2e0",
+            "0xd472f0",
+            "0xd4b390",
+            "0xd4b440",
+            "0xd4b340",
+            "0xd4b2c0",
+            "0xd47300",
+            "0xc07620",
+            "0xa138b0"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CSetConveyorLocationCommand": {
         "isvalid": 29563104,
         "execute": 29560368,
         "vt": 44823192,
-        "type_id": 13481
+        "type_id": 13481,
+        "execute_calls": [
+            "0x2284800",
+            "0xd4b390",
+            "0xd472f0",
+            "0xd4b440",
+            "0xd4b340",
+            "0xd4b2c0",
+            "0xd47300",
+            "0xc07620",
+            "0xa138b0",
+            "0xa13da0",
+            "0xa13f80",
+            "0xa0c7b0"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x1e1510",
+            "0x2607890",
+            "0x2284800",
+            "0x1693c0",
+            "0xbf3360",
+            "0xd49500",
+            "0xd472f0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0",
+            "0xc08100"
+        ]
     },
     "CSetConveyorNameCommand": {
         "isvalid": 29565632,
         "execute": 29560480,
         "vt": 44823008,
-        "type_id": 13480
+        "type_id": 13480,
+        "execute_calls": [
+            "0x2284800",
+            "0xd4b440",
+            "0xd472f0",
+            "0xd4b340",
+            "0xd4b2c0",
+            "0xd47300",
+            "0xc07620",
+            "0xa138b0",
+            "0xa13da0",
+            "0xa13f80",
+            "0xa0c7b0"
+        ],
+        "isvalid_calls": [
+            "0x1c31490"
+        ]
     },
     "CSetConveyorPriorityCommand": {
         "isvalid": 29565680,
         "execute": 29560592,
         "vt": 44823744,
-        "type_id": 13482
+        "type_id": 13482,
+        "execute_calls": [
+            "0x2284800",
+            "0xd4b340",
+            "0xd472f0",
+            "0xd4b2c0",
+            "0xd47300",
+            "0xc07620",
+            "0xa138b0",
+            "0xa13da0",
+            "0xa13f80",
+            "0xa0c7b0"
+        ],
+        "isvalid_calls": [
+            "0x1c31490"
+        ]
     },
     "CSetConveyorSeriesCommand": {
         "isvalid": 29565728,
         "execute": 29560704,
         "vt": 44823928,
-        "type_id": 13483
+        "type_id": 13483,
+        "execute_calls": [
+            "0x2284800",
+            "0xd4b2c0",
+            "0xd472f0",
+            "0xd47300",
+            "0xc07620",
+            "0xa138b0",
+            "0xa13da0",
+            "0xa13f80",
+            "0xa0c7b0"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x2284e60"
+        ]
     },
     "CChangeConveyorTemplateCommand": {
         "isvalid": 29562496,
         "execute": 29558816,
         "vt": 44823560,
-        "type_id": 14022
+        "type_id": 14022,
+        "execute_calls": [
+            "0x2284800",
+            "0xbab790",
+            "0xbf36e0",
+            "0xd4b440",
+            "0x25a00d8",
+            "0xd472f0",
+            "0x1c32980"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0x2284800",
+            "0xbea570",
+            "0xc07b80",
+            "0xd6fe90",
+            "0xbf3360",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0"
+        ]
     },
     "CSetCountryGarrisonTemplateCommand": {
         "isvalid": 18818752,
         "execute": 18766368,
         "vt": 44113600,
-        "type_id": 19121
+        "type_id": 19121,
+        "execute_calls": [
+            "0xc07620",
+            "0x7172f0",
+            "0x1079b50",
+            "0x2284800",
+            "0x10841e0",
+            "0x10825c0",
+            "0x254aa00",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x3b65a0",
+            "0xac1e20"
+        ]
     },
     "CSetMainGarrisonTemplateCommand": {
         "isvalid": 18819232,
         "execute": 18768480,
         "vt": 44113416,
-        "type_id": 19120
+        "type_id": 19120,
+        "execute_calls": [
+            "0xc07620",
+            "0x7172f0",
+            "0x2284800",
+            "0x1083ca0",
+            "0x10829e0",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0xc07b80",
+            "0x25a00d8"
+        ]
     },
     "CSetStateGarrisonTemplateCommand": {
         "isvalid": 18823664,
         "execute": 18774320,
         "vt": 44113784,
-        "type_id": 19123
+        "type_id": 19123,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc07620",
+            "0x7172f0",
+            "0x73aab0",
+            "0x1079b50",
+            "0x2284800",
+            "0x1084240",
+            "0x10825c0",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+        ]
     },
     "CRailwayGunSetNameCommand": {
         "isvalid": 15737120,
         "execute": 15735616,
         "vt": 43971096,
-        "type_id": 19873
+        "type_id": 19873,
+        "execute_calls": [
+            "0x2284800",
+            "0xf000d0",
+            "0x19c95d0"
+        ],
+        "isvalid_calls": [
+            "0xf01db0",
+            "0xbbb1e0",
+            "0x2284800",
+            "0x2348bf0",
+            "0x25c3770"
+        ]
     },
     "CSetDeploymentLineNameCommand": {
         "isvalid": 29563088,
         "execute": 29560816,
         "vt": 44825216,
-        "type_id": 14612
+        "type_id": 14612,
+        "execute_calls": [
+            "0x2284800",
+            "0xd47300",
+            "0xd472f0",
+            "0xc07620",
+            "0xa138b0",
+            "0xa13da0",
+            "0xa13f80",
+            "0xa0c7b0"
+        ],
+        "isvalid_calls": [
+            "0x1c31490",
+            "0x1e1510",
+            "0x2607890",
+            "0x2284800",
+            "0x1693c0",
+            "0xbf3360",
+            "0xd49500",
+            "0xd472f0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xeebbd0",
+            "0xc08100"
+        ]
     },
     "CSetRepairOrderCommand": {
         "isvalid": 18820592,
         "execute": 18772176,
         "vt": 44109736,
-        "type_id": 11213
+        "type_id": 11213,
+        "execute_calls": [
+            "0xc07620",
+            "0xee1870",
+            "0xee0cb0",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x3321f0",
+            "0x1b7950",
+            "0x6cad90"
+        ]
     },
     "CUpgradeDivisionOfficerCommand": {
         "isvalid": 18827744,
         "execute": 18782368,
         "vt": 44120304,
-        "type_id": 11061
+        "type_id": 11061,
+        "execute_calls": [
+            "0x2284800",
+            "0xc07620",
+            "0x7394e0",
+            "0x2574a60",
+            "0x717940",
+            "0x254aa00",
+            "0x25a0390",
+            "0x1f1a40",
+            "0x14ed4e0"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x2284800",
+            "0xc08580",
+            "0xc07b80",
+            "0x7251b0"
+        ]
     },
     "CSetDivisionNameCommand": {
         "isvalid": 20978224,
         "execute": 20961888,
         "vt": 44224008,
-        "type_id": 14601
+        "type_id": 14601,
+        "execute_calls": [
+            "0x2284800",
+            "0xcebd10",
+            "0xcebcb0",
+            "0xcebe70",
+            "0xc57080",
+            "0x1039990"
+        ],
+        "isvalid_calls": [
+            "0x74ad20",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CSetObsoleteDivisionTemplateCommand": {
         "isvalid": 29547792,
         "execute": 29544160,
         "vt": 44821960,
-        "type_id": 19730
+        "type_id": 19730,
+        "execute_calls": [
+            "0x2284800",
+            "0xbf9240",
+            "0xbea570",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x74adb0",
+            "0xbf4ad0",
+            "0xbf4ae0",
+            "0x2284800",
+            "0x172cb20",
+            "0xc07d30",
+            "0x2572c70",
+            "0x1c2d4d0",
+            "0xc07b80",
+            "0x164c870",
+            "0xbf4ce0",
+            "0xbf4af0"
+        ]
     },
     "CBuildRailwayCommand": {
         "isvalid": 18801264,
         "execute": 18728992,
         "vt": 44119200,
-        "type_id": 19705
+        "type_id": 19705,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0xc07620",
+            "0xed1710",
+            "0x3321f0",
+            "0x11f770",
+            "0x12025a0",
+            "0x21da70",
+            "0x25a00d8",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0xc07b80",
+            "0x2e8750",
+            "0x57be70",
+            "0x581900",
+            "0x57c580",
+            "0x25a00d8"
+        ]
     },
     "CLearnTraitCommand": {
         "isvalid": 26076128,
         "execute": 26031664,
         "vt": 44588480,
-        "type_id": 14525
+        "type_id": 14525,
+        "execute_calls": [
+            "0x2284800",
+            "0xc07620",
+            "0x75ccd0",
+            "0x2607890",
+            "0x18e580"
+        ],
+        "isvalid_calls": [
+            "0x11ecb20",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x2284800",
+            "0xb3da70",
+            "0x12b330",
+            "0xc07b80",
+            "0x25a00d8"
+        ]
     },
     "CUpdateLeaderSeenTraitsCountCommand": {
         "isvalid": 26085248,
         "execute": 26065792,
         "vt": 44588664,
-        "type_id": 14918
+        "type_id": 14918,
+        "execute_calls": [
+            "0x2284800",
+            "0x25694b0",
+            "0x254aa00",
+            "0x2607f30",
+            "0x12e040",
+            "0x10b5f10",
+            "0x2607890",
+            "0x2607790",
+            "0x18dbbc0"
+        ],
+        "isvalid_calls": [
+            "0x11ecb20",
+            "0x2607890",
+            "0xc08580",
+            "0xc50d50",
+            "0x1e25c0"
+        ]
     },
     "CAiDiscardForceConcentrationTargetCommand": {
         "isvalid": 28347072,
         "execute": 28345360,
         "vt": 44734632,
-        "type_id": 11170
+        "type_id": 11170,
+        "execute_calls": [
+            "0xc07b80",
+            "0x716bc0",
+            "0x254aa00"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CAiOnFailedInvasionCommand": {
         "isvalid": 28347472,
         "execute": 28345632,
         "vt": 44734080,
-        "type_id": 19837
+        "type_id": 19837,
+        "execute_calls": [
+            "0xc07b80",
+            "0x716bc0",
+            "0x254aa00"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x254aa00",
+            "0x25a0390"
+        ]
     },
     "CAiStoreForceConcentrationTargetCommand": {
         "isvalid": 28347072,
         "execute": 28346464,
         "vt": 44734448,
-        "type_id": 11169
+        "type_id": 11169,
+        "execute_calls": [
+            "0xc07b80",
+            "0x716bc0",
+            "0x254aa00"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CAiStoreTotalWantedNrDivisionsCommand": {
         "isvalid": 28348032,
         "execute": 28346736,
         "vt": 44734264,
-        "type_id": 19847
+        "type_id": 19847,
+        "execute_calls": [
+            "0xc07b80",
+            "0x716bc0",
+            "0x254aa00"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CClearRepairPinsCommand": {
         "isvalid": 18802304,
         "execute": 18741536,
         "vt": 44109920,
-        "type_id": 10296
+        "type_id": 10296,
+        "execute_calls": [
+            "0xc07620",
+            "0xed7020",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CCreateAreaDefenseCommand": {
         "isvalid": 26075888,
         "execute": 26030672,
         "vt": 44587376,
-        "type_id": 14954
+        "type_id": 14954,
+        "execute_calls": [
+            "0x2284800",
+            "0xc416b0",
+            "0xc40490",
+            "0x10b0fd0",
+            "0x10cd440",
+            "0x10cd410",
+            "0xfcecf0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc47980"
+        ]
     },
     "CCreateUnitLeaderCommand": {
         "isvalid": 18803040,
         "execute": 18743424,
         "vt": 44114888,
-        "type_id": 13107
+        "type_id": 13107,
+        "execute_calls": [
+            "0xc07620",
+            "0x7394e0",
+            "0x2574a60",
+            "0x717940",
+            "0x72e690",
+            "0x14ecaf0",
+            "0xc7af50",
+            "0x14ecb70",
+            "0xc7bd90",
+            "0x14ecbb0",
+            "0xc7c890",
+            "0x14ecb30"
+        ],
+        "isvalid_calls": [
+            "0xc07b80",
+            "0x7251b0"
+        ]
     },
     "CDeleteUnitCommand": {
         "isvalid": 20968048,
         "execute": 20955040,
         "vt": 44223640,
-        "type_id": 12448
+        "type_id": 12448,
+        "execute_calls": [
+            "0x2284800",
+            "0x254aa00",
+            "0x25a0390",
+            "0x1ecbe0",
+            "0xc07620",
+            "0x2b7610",
+            "0x733ba0",
+            "0x14a470",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x2284800",
+            "0xc08100",
+            "0x25a009c",
+            "0x12b330",
+            "0x25a00d8"
+        ]
     },
     "CEditAreaDefenseStateCommand": {
         "isvalid": 26076016,
         "execute": 26030992,
         "vt": 44587192,
-        "type_id": 13873
+        "type_id": 13873,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x10cd440",
+            "0x10b0110",
+            "0x10cb7c0",
+            "0x254aa00",
+            "0xbbb1e0",
+            "0x18d58f0",
+            "0xc416b0",
+            "0xc40490",
+            "0x10cd410",
+            "0x10af2e0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "CMergeArmiesCommand": {
         "isvalid": 20970432,
         "execute": 20956080,
         "vt": 44226952,
-        "type_id": 14344
+        "type_id": 14344,
+        "execute_calls": [
+            "0x2284800",
+            "0x11f6f0",
+            "0x2607890",
+            "0x13f9f40",
+            "0x13f8740"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x74ad20",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0xcdb440",
+            "0xc55940",
+            "0x1b8180",
+            "0x11f240"
+        ]
     },
     "CPromoteUnitLeaderCommand": {
         "isvalid": 20974640,
         "execute": 20959360,
         "vt": 44226216,
-        "type_id": 13306
+        "type_id": 13306,
+        "execute_calls": [
+            "0x2284800",
+            "0xc6c300",
+            "0xc07620",
+            "0x75ccd0",
+            "0xc76270",
+            "0x2556a60",
+            "0x254aa00",
+            "0x19d980",
+            "0xbbe510"
+        ],
+        "isvalid_calls": [
+            "0x11ecb20",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CQueueUnitActionCommand": {
         "isvalid": 20974880,
         "execute": 20959888,
         "vt": 44226768,
-        "type_id": 13894
+        "type_id": 13894,
+        "execute_calls": [
+            "0x2284800",
+            "0xc58510",
+            "0xceb6d0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0x23c3a0",
+            "0x14a470",
+            "0xb9d3d0"
+        ],
+        "isvalid_calls": [
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240"
+        ]
     },
     "CReorderPinnedStrategicRegionCommand": {
         "isvalid": 32447184,
         "execute": 32446224,
         "vt": 45084840,
-        "type_id": 14994
+        "type_id": 14994,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0x1e0310",
+            "0x2607890"
+        ],
+        "isvalid_calls": [
+            "0x254aa00",
+            "0x25a0390"
+        ]
     },
     "CSelectionGroupCommand": {
         "isvalid": 18818272,
         "execute": 18764640,
         "vt": 44117912,
-        "type_id": 10285
+        "type_id": 10285,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0x1e02c0",
+            "0x1e2ac0",
+            "0xc08580",
+            "0x22aea40",
+            "0xb933b0",
+            "0x25a00d8"
+        ],
+        "isvalid_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc47a80",
+            "0x2284800",
+            "0xc675d0"
+        ]
     },
     "CSetAreaDefenseSettingCommand": {
         "isvalid": 26084464,
         "execute": 26063472,
         "vt": 44587560,
-        "type_id": 14063
+        "type_id": 14063,
+        "execute_calls": [
+            "0x2284800",
+            "0xc40230",
+            "0x13f83b0",
+            "0x14027c0",
+            "0x13fe2a0",
+            "0xc47980",
+            "0xc4b3f0",
+            "0xc07620",
+            "0xc6ad00",
+            "0x2574a60",
+            "0x717940",
+            "0x716fc0"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc40230"
+        ]
     },
     "CSetPendingReassignTargetCommand": {
         "isvalid": 20978608,
         "execute": 20962192,
         "vt": 44224560,
-        "type_id": 10307
+        "type_id": 10307,
+        "execute_calls": [
+            "0x2284800",
+            "0xc7d1c0",
+            "0xc4bbc0",
+            "0xc07620"
+        ],
+        "isvalid_calls": [
+            "0xc47a80",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CSetPreferredTacticCommand": {
         "isvalid": 18819808,
         "execute": 18769792,
         "vt": 44119752,
-        "type_id": 19911
+        "type_id": 19911,
+        "execute_calls": [
+            "0xc07620",
+            "0xd26790",
+            "0x239fb0",
+            "0x2607790",
+            "0x254aa00",
+            "0x25a0390",
+            "0x203a50",
+            "0x73ee00",
+            "0x75ccd0",
+            "0xc08580",
+            "0x23c3a0"
+        ],
+        "isvalid_calls": [
+            "0xc07b80",
+            "0x73ee00",
+            "0x707bc0"
+        ]
     },
     "CSetTheatreCommand": {
         "isvalid": 20979264,
         "execute": 20962384,
         "vt": 44223456,
-        "type_id": 12045
+        "type_id": 12045,
+        "execute_calls": [
+            "0x2284800",
+            "0xc07620"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CSetUnitNameCommand": {
         "isvalid": 20979568,
         "execute": 15735616,
         "vt": 44223824,
-        "type_id": 13235
+        "type_id": 13235,
+        "execute_calls": [
+            "0x2284800",
+            "0xf000d0",
+            "0x19c95d0"
+        ],
+        "isvalid_calls": [
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CTogglePinnedStrategicRegionCommand": {
         "isvalid": 32447184,
         "execute": 32446528,
         "vt": 45084656,
-        "type_id": 13725
+        "type_id": 13725,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0x1e0310",
+            "0x2607890"
+        ],
+        "isvalid_calls": [
+            "0x254aa00",
+            "0x25a0390"
+        ]
     },
     "CTransportUnitCommand": {
         "isvalid": 20980320,
         "execute": 20963920,
         "vt": 44226400,
-        "type_id": 13533
+        "type_id": 13533,
+        "execute_calls": [
+            "0x2284800",
+            "0xc51500"
+        ],
+        "isvalid_calls": [
+            "0x57f7b0",
+            "0x1e1510",
+            "0x2607890"
+        ]
     },
     "CUpdateLeaderSeenAdvisorRolesCountCommand": {
         "isvalid": 26085248,
         "execute": 26065728,
         "vt": 44588848,
-        "type_id": 19926
+        "type_id": 19926,
+        "execute_calls": [
+            "0x2284800",
+            "0x25694b0",
+            "0x254aa00",
+            "0x2607f30",
+            "0x12e040",
+            "0x10b5f10",
+            "0x2607890",
+            "0x2607790",
+            "0x18dbbc0"
+        ],
+        "isvalid_calls": [
+            "0x11ecb20",
+            "0x2607890",
+            "0xc08580",
+            "0xc50d50",
+            "0x1e25c0"
+        ]
     },
     "wrap": 36540064,
     "session_auth_skip_off": 60,
@@ -1079,37 +2948,172 @@ ISVALID_PATHS = {
         "isvalid": 18815840,
         "execute": 18758848,
         "vt": 44116728,
-        "type_id": 15341
+        "type_id": 15341,
+        "execute_calls": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0x2284800",
+            "0x11d2a10",
+            "0x22aea40",
+            "0x254f8e0",
+            "0x12b330",
+            "0x25a00d8",
+            "0x33fd50",
+            "0x25a009c",
+            "0x11f770"
+        ],
+        "isvalid_calls": [
+            "0xbbb1e0",
+            "0x2284800",
+            "0xc07b80",
+            "0xc08580",
+            "0x716bc0",
+            "0x2c2100"
+        ]
     },
     "CGiveMedalCommand": {
         "isvalid": 18809776,
         "execute": 18745536,
         "vt": 44120672,
-        "type_id": 15871
+        "type_id": 15871,
+        "execute_calls": [
+            "0x74ad20",
+            "0x2284800",
+            "0x14e2d60",
+            "0x47aff0",
+            "0x14e2ff0",
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580",
+            "0xcdb440",
+            "0x226020",
+            "0x74ae40",
+            "0x14e3530"
+        ],
+        "isvalid_calls": [
+            "0x74ad20",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0x1b7950",
+            "0xc07b80",
+            "0xc873a0",
+            "0x717370",
+            "0x14e3900",
+            "0x14e2d60"
+        ]
     },
     "CTriggerAbilityCommand": {
         "isvalid": 18824864,
         "execute": 18777936,
         "vt": 44116912,
-        "type_id": 14513
+        "type_id": 14513,
+        "execute_calls": [
+            "0x246ed0",
+            "0x65ad20",
+            "0x57be70",
+            "0x581900",
+            "0x254aa00",
+            "0x5829b0",
+            "0xc07b80",
+            "0x747d00",
+            "0xc07620",
+            "0x7278f0",
+            "0x725460",
+            "0x732040"
+        ],
+        "isvalid_calls": [
+            "0x246ed0",
+            "0x65ad20",
+            "0x1e1510",
+            "0x2607890",
+            "0x11f240",
+            "0x2348bf0",
+            "0x2284800",
+            "0x25c3770",
+            "0x57be70",
+            "0x581900",
+            "0x254aa00",
+            "0x5829b0"
+        ]
     },
     "CRetireCharacterCommand": {
         "isvalid": 18816208,
         "execute": 18762176,
         "vt": 44112312,
-        "type_id": 19624
+        "type_id": 19624,
+        "execute_calls": [
+            "0x2284800",
+            "0xabc220",
+            "0xc07620",
+            "0x716d30",
+            "0x11751f0",
+            "0x7228c0",
+            "0x724c00",
+            "0x746fe0",
+            "0x716fc0",
+            "0xda8130",
+            "0xeddbb0",
+            "0xc08580"
+        ],
+        "isvalid_calls": [
+            "0x4b4fd0",
+            "0x2284800",
+            "0x1029570",
+            "0xabc220",
+            "0xc07b80",
+            "0x734ad0",
+            "0x11721d0"
+        ]
     },
     "CReinstateExileCommand": {
         "isvalid": 18812112,
         "execute": 18751504,
         "vt": 44118096,
-        "type_id": 15317
+        "type_id": 15317,
+        "execute_calls": [
+            "0xc07620",
+            "0x716fc0",
+            "0xda93c0",
+            "0xd26790",
+            "0xd31d60",
+            "0xf6c770",
+            "0xf7e150",
+            "0x25a009c",
+            "0xd79810",
+            "0x254aa00",
+            "0x25a0390",
+            "0xd81b10"
+        ],
+        "isvalid_calls": [
+            "0xc08100",
+            "0x25a009c",
+            "0x12b330",
+            "0x2607890",
+            "0x11f240",
+            "0x25a00d8",
+            "0xc07b80",
+            "0x73aab0",
+            "0x1217a0",
+            "0x120530"
+        ]
     },
     "CAmendForeignManpowerActionCommand": {
         "isvalid": 18799888,
         "execute": 18728496,
         "vt": 44118832,
-        "type_id": 19138
+        "type_id": 19138,
+        "execute_calls": [
+            "0x2284800",
+            "0x1b3b2b0",
+            "0xc07b80",
+            "0x738e00"
+        ],
+        "isvalid_calls": [
+            "0x2607890",
+            "0x11f240"
+        ]
     }
 }
 
@@ -2100,7 +4104,7 @@ LAND_ARMY_FOCUS = {
             "subject_recipe": "army_subjects.support_attack_recipe",
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50']",
             "field_map": {
                 "handle": 40,
                 "province": 48,
@@ -2120,7 +4124,19 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg6_or_plan": 72,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc50ed0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc5a750"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "COrderNewFallbackCommand": {
             "name": "COrderNewFallbackCommand",
@@ -2153,9 +4169,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "vptr_or_hdr": 16,
-                "arg5": 68
+                "arg5": 68,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8']",
             "layout_alias": "ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2171,8 +4188,28 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "vptr_or_hdr": 16,
-                "arg5": 68
-            }
+                "arg5": 68,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x10b85b0",
+                "0x10af090",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc41b40",
+                "0x10b0d20",
+                "0xc416b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReplaceFallbackCommands": {
             "name": "COrderReplaceFallbackCommands",
@@ -2205,9 +4242,10 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "arg7": 80
+                "arg7": 80,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
@@ -2222,8 +4260,26 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "arg7": 80
-            }
+                "arg7": 80,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x18e580",
+                "0x18d1460",
+                "0x25c3770",
+                "0x2607890",
+                "0x18c9ab0",
+                "0xbbb1e0",
+                "0x18d99c0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CSetSelectedArmyGroupFallback": {
             "name": "CSetSelectedArmyGroupFallback",
@@ -2248,17 +4304,40 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x2284800",
+                "0x25694b0",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "CCancelRunningAwayCommand": {
             "name": "CCancelRunningAwayCommand",
@@ -2268,14 +4347,18 @@ LAND_ARMY_FOCUS = {
             "vt": 44225848,
             "size": 48,
             "factory": 20950336,
-            "notes": "Phase 2cb Capstone deepen; offs []",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80']",
             "subject_recipe": "army_subjects.cancel_running_away_recipe",
             "fields": {
                 "units_handle": 40,
                 "arg1_or_count": 52,
                 "base_or_vobj": 24,
                 "owner_or_ctx": 24,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48
             },
             "isvalid": 20901168,
             "execute": 20954272,
@@ -2286,8 +4369,31 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "base_or_vobj": 24,
                 "owner_or_ctx": 24,
-                "vptr_or_hdr": 16
-            }
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc51a20",
+                "0xc91770",
+                "0xc873a0",
+                "0x13df8a0",
+                "0x13efb80",
+                "0x254aa00",
+                "0x13eb450",
+                "0x254b2b0",
+                "0x254b7c0",
+                "0xc915b0",
+                "0xddcd10"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CWithdrawArmyHqCommand": {
             "name": "CWithdrawArmyHqCommand",
@@ -2318,7 +4424,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs []",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs []",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_handle": 40,
@@ -2331,7 +4437,24 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x1b7950",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x34c220",
+                "0x25a04c0",
+                "0x22aea40",
+                "0x25a05a4",
+                "0x12b330",
+                "0xc734f0"
+            ]
         },
         "CMassMoveCommand": {
             "name": "CMassMoveCommand",
@@ -2375,7 +4498,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48']",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "units_vec": 40,
@@ -2401,7 +4524,24 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc5a750",
+                "0xc4f450"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xcdb440",
+                "0xc55940",
+                "0x1b8180",
+                "0x11f240"
+            ]
         },
         "CToggleStrategicDeploymentCommand": {
             "name": "CToggleStrategicDeploymentCommand",
@@ -2444,7 +4584,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28']",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2469,7 +4609,21 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "arg6_or_plan": 72,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc57070",
+                "0x2607890",
+                "0xcd5190"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1b8180",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CMoveArmiesInTheaterCommand": {
             "name": "CMoveArmiesInTheaterCommand",
@@ -2511,7 +4665,7 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0']",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2535,7 +4689,16 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg5": 68,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890",
+                "0x18e580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "CMoveArmyGroupInTheaterCommand": {
             "name": "CMoveArmyGroupInTheaterCommand",
@@ -2568,7 +4731,7 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x68']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98']",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2583,7 +4746,15 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0xbbb1e0"
+            ]
         },
         "CMassCancelMovementCommand": {
             "name": "CMassCancelMovementCommand",
@@ -2620,7 +4791,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x34', '0x18', '0x28', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20']",
             "field_map": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -2637,7 +4808,22 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4f8e0",
+                "0xc50ed0",
+                "0xee0100",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "COrderNewFrontCommand": {
             "name": "COrderNewFrontCommand",
@@ -2683,7 +4869,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x68', '0x6d', '0x6e']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
             "field_map": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -2709,7 +4895,26 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x10b85b0",
+                "0x10af090",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc41b40",
+                "0x10b0d20",
+                "0xc416b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderInsertFrontCommand": {
             "name": "COrderInsertFrontCommand",
@@ -2750,7 +4955,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x54', '0x28', '0x78', '0x8c', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2771,7 +4976,26 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg1_or_count": 52,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b0d20",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x10b0ba0",
+                "0x10cc4c0",
+                "0x18c7d80",
+                "0x18d41b0",
+                "0x25a0690"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderSetPathCommand": {
             "name": "COrderSetPathCommand",
@@ -2808,9 +5032,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39']",
             "field_map": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -2828,8 +5053,20 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5ef0",
+                "0xc4bca0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReshapeCommand": {
             "name": "COrderReshapeCommand",
@@ -2870,7 +5107,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2891,7 +5128,20 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x1b15d0",
+                "0x2607890",
+                "0x10cc4c0",
+                "0x10ce790"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderConnectCommand": {
             "name": "COrderConnectCommand",
@@ -2937,7 +5187,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x34', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2963,7 +5213,26 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "arg6_or_plan": 72,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10af2c0",
+                "0x10b4fa0",
+                "0x12e040",
+                "0xc44880",
+                "0x2607890",
+                "0x18d1460",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReconnectCommand": {
             "name": "COrderReconnectCommand",
@@ -3007,7 +5276,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x2c', '0x30', '0x34', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -3031,7 +5300,26 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "arg7": 80,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0x10af2c0",
+                "0x10b5fb0",
+                "0x18e580",
+                "0x10cbe40",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0x10b4fa0",
+                "0x10c3e10",
+                "0x25a0448"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderSetCollapseCommand": {
             "name": "COrderSetCollapseCommand",
@@ -3059,9 +5347,13 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
             "field_map": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -3071,8 +5363,30 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10b1950",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc53100",
+                "0xcf4f30",
+                "0xc2da60",
+                "0x254aa00",
+                "0x1098690",
+                "0x10b13a0"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0x2284800"
+            ]
         },
         "COrderAddNewCompletePlanCommand": {
             "name": "COrderAddNewCompletePlanCommand",
@@ -3110,9 +5424,10 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg3_or_cap": 60,
                 "arg4_or_child": 64,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x64']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30']",
             "field_map": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -3132,8 +5447,26 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg3_or_cap": 60,
                 "arg4_or_child": 64,
-                "vptr_or_hdr": 16
-            }
+                "vptr_or_hdr": 16,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x25a009c",
+                "0x2284800",
+                "0x18c9ab0",
+                "0x18c97d0",
+                "0x18c7d80",
+                "0x18d41b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ]
         },
         "COrderExecuteCommand": {
             "name": "COrderExecuteCommand",
@@ -3172,7 +5505,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x35', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35']",
             "field_map": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -3191,7 +5524,17 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5ce0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CAssignToTheaterGroupCommand": {
             "name": "CAssignToTheaterGroupCommand",
@@ -3220,9 +5563,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x58', '0x3c', '0x30', '0x20', '0x28', '0x60', '0x40', '0x10', '0x18', '0x50', '0x2c', '0x38', '0x68', '0x1b8', '0x39', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39']",
             "field_map": {
                 "subject_at_28": 40,
                 "theater_or_group": 60,
@@ -3233,8 +5584,31 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4b2a0",
+                "0xf6ba20",
+                "0xf703f0",
+                "0xd4b440"
+            ],
+            "isvalid_calls": [
+                "0x2607890",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x18dde70",
+                "0x16d9250"
+            ]
         },
         "CDisbandTheaterGroupCommand": {
             "name": "CDisbandTheaterGroupCommand",
@@ -3258,16 +5632,37 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "ctx_or_flag": 32,
                 "arg0_or_type": 48,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28']",
             "field_map": {
                 "theater_handle": 40,
                 "arg0": 48,
                 "ctx_or_flag": 32,
                 "arg0_or_type": 48,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x20e970",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x14d7070",
+                "0x254de20",
+                "0x11d5c0",
+                "0x12bbb0",
+                "0x12b930",
+                "0x12b710",
+                "0x254b340"
+            ],
+            "isvalid_calls": [
+                "0xd73540"
+            ]
         },
         "CReorderTheatersCommand": {
             "name": "CReorderTheatersCommand",
@@ -3290,15 +5685,36 @@ LAND_ARMY_FOCUS = {
                 "theater_vec": 40,
                 "count_or_id": 48,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x20', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
             "field_map": {
                 "theater_vec": 40,
                 "count_or_id": 48,
                 "arg0": 48,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x20e970",
+                "0xd3ca90",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0xd73540"
+            ]
         },
         "CSetTheaterGroupNameCommand": {
             "name": "CSetTheaterGroupNameCommand",
@@ -3321,15 +5737,25 @@ LAND_ARMY_FOCUS = {
                 "theater_group": 40,
                 "name_sso": 48,
                 "arg0": 48,
-                "arg3": 64
+                "arg3": 64,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x40', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30']",
             "field_map": {
                 "theater_group": 40,
                 "name_sso": 48,
                 "arg0": 48,
-                "arg3": 64
-            }
+                "arg3": 64,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x18dde70"
+            ]
         },
         "CSetTheaterGroupPriorityCommand": {
             "name": "CSetTheaterGroupPriorityCommand",
@@ -3352,15 +5778,33 @@ LAND_ARMY_FOCUS = {
                 "theater_group": 40,
                 "priority": 48,
                 "arg0": 48,
-                "arg0_or_type": 48
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30']",
             "field_map": {
                 "theater_group": 40,
                 "priority": 48,
                 "arg0": 48,
-                "arg0_or_type": 48
-            }
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x18dde70",
+                "0x2284e60",
+                "0x2607890"
+            ]
         },
         "CSetOrderGroupExecutionTypeCommand": {
             "name": "CSetOrderGroupExecutionTypeCommand",
@@ -3385,17 +5829,27 @@ LAND_ARMY_FOCUS = {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110']",
             "field_map": {
                 "order_group": 40,
                 "execution_type": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "name": "CSetOrderGroupCohesionTypeCommand",
@@ -3422,7 +5876,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4']",
             "field_map": {
                 "order_group": 40,
                 "cohesion_type": 48,
@@ -3430,7 +5884,15 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40
-            }
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupMotorizationCommand": {
             "name": "CSetOrderGroupMotorizationCommand",
@@ -3467,7 +5929,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c']",
             "field_map": {
                 "order_group": 40,
                 "motorization": 48,
@@ -3485,7 +5947,19 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4ce40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupNameCommand": {
             "name": "CSetOrderGroupNameCommand",
@@ -3515,9 +5989,10 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40', '0x30', '0x160', '0x18', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8']",
             "field_map": {
                 "order_group": 40,
                 "name_sso": 48,
@@ -3529,8 +6004,19 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x10cdcd0",
+                "0x10c3e80"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CCollapseConveyorCommand": {
             "name": "CCollapseConveyorCommand",
@@ -3571,7 +6057,7 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x34', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
             "field_map": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
@@ -3593,7 +6079,32 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg3_or_cap": 60,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4a3d0",
+                "0xd4b2d0",
+                "0xd472f0",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd72b50"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "COrderGroupCommand": {
             "name": "COrderGroupCommand",
@@ -3626,9 +6137,12 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "flags_or_ctx2": 32,
                 "arg8": 88,
-                "arg0_or_type": 48
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x3c', '0x28', '0x50', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -3642,8 +6156,32 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "flags_or_ctx2": 32,
                 "arg8": 88,
-                "arg0_or_type": 48
-            }
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xf70260",
+                "0xc41730",
+                "0x254b2b0",
+                "0x254b7c0"
+            ],
+            "isvalid_calls": [
+                "0x10f1410",
+                "0x18dde70",
+                "0x57f7b0",
+                "0x2284800",
+                "0xf75ef0",
+                "0xc07b80",
+                "0x747bd0",
+                "0xc4f070",
+                "0xc50d50",
+                "0x1e1510",
+                "0x22aea40",
+                "0x12b330"
+            ]
         },
         "COrderNewRootCommand": {
             "name": "COrderNewRootCommand",
@@ -3679,9 +6217,12 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -3698,8 +6239,30 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10cdc60",
+                "0x10ce300",
+                "0x10cdda0",
+                "0xc40490",
+                "0x18c7d80",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x18d41b0",
+                "0x10ce880"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderAssignCommand": {
             "name": "COrderAssignCommand",
@@ -3734,9 +6297,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "vptr_or_hdr": 16,
                 "arg5": 68,
-                "arg1_or_count": 52
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x58', '0x28', '0x40', '0x50', '0x20', '0x10', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f']",
             "field_map": {
                 "units_data": 40,
                 "units_count": 52,
@@ -3752,8 +6316,32 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "vptr_or_hdr": 16,
                 "arg5": 68,
-                "arg1_or_count": 52
-            }
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18c4f80",
+                "0x121d60",
+                "0x10b9960",
+                "0x2607890",
+                "0x11f6f0",
+                "0xf69810",
+                "0x10bc370",
+                "0x18e580",
+                "0xc4f070",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0xbbb1e0",
+                "0x1b8180"
+            ]
         },
         "COrderUnassignCommand": {
             "name": "COrderUnassignCommand",
@@ -3791,7 +6379,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120']",
             "layout_alias": "ORDERS",
             "field_map": {
                 "units_data": 40,
@@ -3811,7 +6399,20 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x18e7810",
+                "0xc07620",
+                "0x2b61f0",
+                "0x16bca50",
+                "0xc79350",
+                "0x16bd4d0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "COrderDeleteCommand": {
             "name": "COrderDeleteCommand",
@@ -3852,7 +6453,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28']",
             "layout_alias": "ORDERS",
             "field_map": {
                 "order_index": 48,
@@ -3875,7 +6476,26 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg6_or_plan": 72,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0390",
+                "0x18e37e0",
+                "0x10af090",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x254aa00",
+                "0x10af2c0",
+                "0x10cbe40",
+                "0xc475c0",
+                "0x10b5ce0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CAssignToArmyGroupCommand": {
             "name": "CAssignToArmyGroupCommand",
@@ -3912,7 +6532,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x30', '0x38', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_c": 48,
@@ -3929,7 +6549,25 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc45530",
+                "0x2283ae0",
+                "0x2607890",
+                "0x1b11420",
+                "0x25a00d8",
+                "0x1b141c0",
+                "0x1b12b80",
+                "0x1b11ea0",
+                "0x2348bf0",
+                "0x25c3770",
+                "0xc40330"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0xbbb1e0"
+            ]
         },
         "CRemoveFromArmyGroupCommand": {
             "name": "CRemoveFromArmyGroupCommand",
@@ -3962,9 +6600,13 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120']",
             "field_map": {
                 "army_or_units": 40,
                 "group": 48,
@@ -3978,8 +6620,31 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "arg2_or_vec_end": 56
-            }
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4b2a0",
+                "0xc40230",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CSetOrderGroupIconAndColorCommand": {
             "name": "CSetOrderGroupIconAndColorCommand",
@@ -4005,9 +6670,10 @@ LAND_ARMY_FOCUS = {
                 "arg3": 64,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x50', '0x120', '0x40', '0x110']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac']",
             "field_map": {
                 "order_group": 40,
                 "icon_or_color": 48,
@@ -4015,8 +6681,17 @@ LAND_ARMY_FOCUS = {
                 "arg3": 64,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg0_or_type": 48
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupLeaderProximityCommand": {
             "name": "CSetOrderGroupLeaderProximityCommand",
@@ -4041,17 +6716,37 @@ LAND_ARMY_FOCUS = {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20']",
             "field_map": {
                 "order_group": 40,
                 "proximity": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4ce40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "name": "CSetOrderGroupOrdersInstanceNamesCommand",
@@ -4082,7 +6777,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40', '0xa4', '0x30', '0x38', '0x98']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8']",
             "field_map": {
                 "order_group": 40,
                 "names_blob": 48,
@@ -4094,7 +6789,17 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x10cdcd0",
+                "0x10c3e80"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CAutoMergeOrdersCommand": {
             "name": "CAutoMergeOrdersCommand",
@@ -4124,9 +6829,11 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -4138,8 +6845,26 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xf76f60",
+                "0xc416b0",
+                "0xc40490",
+                "0x10b0fd0",
+                "0x10cd440",
+                "0x10cd410",
+                "0xfcecf0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CDeleteOrderGroupCommand": {
             "name": "CDeleteOrderGroupCommand",
@@ -4167,9 +6892,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x40', '0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48']",
             "field_map": {
                 "order_group": 40,
                 "subject_or_handle": 40,
@@ -4179,8 +6905,21 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc49740",
+                "0xf7f2f0",
+                "0xf7f8c0",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "COrderDeleteAllCommand": {
             "name": "COrderDeleteAllCommand",
@@ -4212,7 +6951,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -4225,7 +6964,26 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc49fb0",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x2607890",
+                "0x10b9370",
+                "0x10b94b0",
+                "0x10b5ce0",
+                "0xc07620",
+                "0xd75a30",
+                "0x10b4d60",
+                "0x18c8960"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CArmyGroupCommand": {
             "name": "CArmyGroupCommand",
@@ -4261,9 +7019,10 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32,
-                "arg6_or_plan": 72
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x50', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60', '0x20', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60']",
             "field_map": {
                 "payload_28": 40,
                 "payload_2c": 44,
@@ -4281,8 +7040,30 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32,
-                "arg6_or_plan": 72
-            }
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890",
+                "0xc45530",
+                "0x254aa00",
+                "0xc41730",
+                "0xf700a0",
+                "0xf76f60",
+                "0xc416b0",
+                "0x10cdc60",
+                "0x10ce2e0",
+                "0x10ce300",
+                "0x10cdda0"
+            ],
+            "isvalid_calls": [
+                "0x10f1410",
+                "0x57f7b0",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CDeployArmyHqCommand": {
             "name": "CDeployArmyHqCommand",
@@ -4319,7 +7100,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -4337,7 +7118,29 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "subject_hi": 44,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4bd40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x21fce0"
+            ],
+            "isvalid_calls": [
+                "0x1b7950",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x34c220",
+                "0x74adb0",
+                "0xc07b80",
+                "0xc47b10",
+                "0x15bb950",
+                "0x7215e0",
+                "0x22aea40",
+                "0x1e1510",
+                "0x25a04c0"
+            ]
         },
         "CSetArmyLeaderCommand": {
             "name": "CSetArmyLeaderCommand",
@@ -4371,9 +7174,10 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x28', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38']",
             "field_map": {
                 "leader": 40,
                 "deploy_army_hq": 56,
@@ -4389,8 +7193,34 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940",
+                "0x716fc0",
+                "0x19dce10"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770",
+                "0x34c220",
+                "0xc412a0",
+                "0xc47980",
+                "0x13f83b0",
+                "0x14027c0"
+            ]
         },
         "CSetArmyTemplateCommand": {
             "name": "CSetArmyTemplateCommand",
@@ -4429,7 +7259,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg8": 88
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67']",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -4449,7 +7279,35 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg7": 80,
                 "arg8": 88
-            }
+            },
+            "execute_calls": [
+                "0x13f4010",
+                "0x2284800",
+                "0xceb2b0",
+                "0x34c220",
+                "0xc4b330",
+                "0xc66f80",
+                "0x2607890",
+                "0xc78c50",
+                "0xc78ad0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0x74ad20",
+                "0x13f4010",
+                "0xce5f50",
+                "0xe64be0",
+                "0x34c220",
+                "0xc66f80",
+                "0x12b330"
+            ]
         },
         "CRailwayGunManualOrderCommand": {
             "name": "CRailwayGunManualOrderCommand",
@@ -4486,7 +7344,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "arg5": 68
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x40', '0x28', '0x20', '0x58', '0x34', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54']",
             "field_map": {
                 "subject": 40,
                 "extra_30": 48,
@@ -4504,7 +7362,21 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72,
                 "arg5": 68
-            }
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CSetCountryGarrisonPriorityCommand": {
             "name": "CSetCountryGarrisonPriorityCommand",
@@ -4529,17 +7401,39 @@ LAND_ARMY_FOCUS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
             "field_map": {
                 "country": 40,
                 "priority": 44,
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
-            }
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetCountryReinforcementPriorityCommand": {
             "name": "CSetCountryReinforcementPriorityCommand",
@@ -4564,17 +7458,39 @@ LAND_ARMY_FOCUS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0xa0', '0xb8', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
             "field_map": {
                 "country": 40,
                 "priority": 44,
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
-            }
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x717390",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetQuickDeployPreferenceCommand": {
             "name": "CSetQuickDeployPreferenceCommand",
@@ -4611,7 +7527,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x34', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38']",
             "field_map": {
                 "handles_vec": 40,
                 "handles_count": 52,
@@ -4629,7 +7545,19 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
-            }
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7173a0",
+                "0xca8270",
+                "0x2284800",
+                "0xfeb5a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x741370",
+                "0xcf4da0"
+            ]
         },
         "CMoveCommand": {
             "name": "CMoveCommand",
@@ -4662,7 +7590,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
             "field_map": {
                 "unit_move_action": 40,
                 "subject_or_handle": 40,
@@ -4683,7 +7611,35 @@ LAND_ARMY_FOCUS = {
                 "arg5": 68,
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x254b340",
+                "0x25a20dc",
+                "0xddf330",
+                "0x13fb770",
+                "0xddf970"
+            ],
+            "isvalid_calls": [
+                "0xc57080",
+                "0x2284800",
+                "0x1e1510",
+                "0x2607890",
+                "0x74ae40",
+                "0xc07b80",
+                "0x2348bf0",
+                "0x25c3770",
+                "0x726d80",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeeda70"
+            ]
         },
         "CStrategicRedeploymentCommand": {
             "name": "CStrategicRedeploymentCommand",
@@ -4715,7 +7671,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
             "field_map": {
                 "strategic_action": 40,
                 "subject_or_handle": 40,
@@ -4735,7 +7691,26 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x254b340",
+                "0x25a20dc",
+                "0xddf330",
+                "0x13fb770",
+                "0xddf970"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CCancelMovementCommand": {
             "name": "CCancelMovementCommand",
@@ -4767,7 +7742,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x28', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4']",
             "field_map": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -4787,7 +7762,23 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4f8e0",
+                "0xc50ed0",
+                "0xc5a750"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xc4f8e0",
+                "0x1b8180",
+                "0x2607890",
+                "0x1e1510",
+                "0x11f240"
+            ]
         },
         "COrderBlockSectionsCommand": {
             "name": "COrderBlockSectionsCommand",
@@ -4819,9 +7810,11 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -4835,8 +7828,20 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd970"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderChildFrontRatioCommand": {
             "name": "COrderChildFrontRatioCommand",
@@ -4872,7 +7877,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -4889,7 +7894,17 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd970"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderEditRootCommand": {
             "name": "COrderEditRootCommand",
@@ -4921,7 +7936,7 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -4934,7 +7949,16 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_hi": 44,
                 "arg0_or_type": 48
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderMembersFairSplitCommand": {
             "name": "COrderMembersFairSplitCommand",
@@ -4968,9 +7992,10 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x38', '0x30', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -4986,8 +8011,28 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x25a0690",
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10ad830",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x2607f30",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeef8c0"
+            ],
+            "isvalid_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230"
+            ]
         },
         "COrderMergeRootsCommand": {
             "name": "COrderMergeRootsCommand",
@@ -5022,9 +8067,10 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg3_or_cap": 60,
                 "arg8": 88,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x20', '0x38', '0x30', '0x3c', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -5041,8 +8087,29 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg3_or_cap": 60,
                 "arg8": 88,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10b4e50",
+                "0x10b4fa0",
+                "0x10b5ce0",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x18dbbc0",
+                "0x18c8960",
+                "0xbbb1e0"
+            ],
+            "isvalid_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10bc180"
+            ]
         },
         "COrderReorderChildFrontCommand": {
             "name": "COrderReorderChildFrontCommand",
@@ -5072,9 +8139,12 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -5086,8 +8156,30 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cc1d0",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x18e580",
+                "0x18d1460",
+                "0x25c3770",
+                "0x2607890",
+                "0x18c9ab0",
+                "0xbbb1e0",
+                "0x18d99c0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderSetInvasionSourceCommand": {
             "name": "COrderSetInvasionSourceCommand",
@@ -5126,9 +8218,11 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44,
                 "subject_lo": 40,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -5149,8 +8243,38 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44,
                 "subject_lo": 40,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10b1950",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc53100",
+                "0xcf4f30",
+                "0xc2da60",
+                "0x254aa00",
+                "0x1098690",
+                "0x10b13a0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x12b3c0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x18cc3f0",
+                "0x747fa0",
+                "0x733090",
+                "0x25a04c0",
+                "0x22aea40",
+                "0x25a05a4",
+                "0x1216a0"
+            ]
         },
         "COrderSetParadropSourceCommand": {
             "name": "COrderSetParadropSourceCommand",
@@ -5189,7 +8313,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x20', '0x58', '0x30', '0x34', '0x68', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0']",
             "field_map": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -5209,7 +8333,30 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x18c7d80",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x18d41b0",
+                "0xfd0db0",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x219250",
+                "0xc40230",
+                "0x10bf130"
+            ]
         },
         "COrderSetParadropTargetCommand": {
             "name": "COrderSetParadropTargetCommand",
@@ -5250,7 +8397,7 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg8": 88
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x30', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -5272,7 +8419,22 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
                 "arg8": 88
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5dd0",
+                "0x18e5ef0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x219250",
+                "0xc40230",
+                "0x10be690"
+            ]
         },
         "COrderSetTrainingCommand": {
             "name": "COrderSetTrainingCommand",
@@ -5303,9 +8465,11 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "training_flag": 48,
@@ -5318,8 +8482,19 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4bca0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetOrdersLinkCommand": {
             "name": "CSetOrdersLinkCommand",
@@ -5344,17 +8519,26 @@ LAND_ARMY_FOCUS = {
                 "extra_38": 56,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
                 "extra_38": 56,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "vptr_or_hdr": 16
-            }
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0x10b9f10"
+            ]
         },
         "CSetArmyLeaderPreferredTacticCommand": {
             "name": "CSetArmyLeaderPreferredTacticCommand",
@@ -5381,9 +8565,16 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x50', '0x2c', '0x10', '0x18', '0x20', '0x120', '0x40', '0x58', '0xb8', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48']",
             "field_map": {
                 "leader_or_army": 40,
                 "tactic": 48,
@@ -5392,8 +8583,31 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd26790",
+                "0x239fb0",
+                "0x2607790",
+                "0x254aa00",
+                "0x25a0390",
+                "0x203a50",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc47a80",
+                "0x2284800",
+                "0xc675d0"
+            ]
         },
         "CSetArmyFakeTemplateCommand": {
             "name": "CSetArmyFakeTemplateCommand",
@@ -5428,7 +8642,7 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10']",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -5444,7 +8658,27 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg8": 88,
                 "arg4_or_child": 64
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xceb6d0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0",
+                "0x14a470",
+                "0xb9d3d0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xce5f30"
+            ]
         },
         "CAddConveyorLineCommand": {
             "name": "CAddConveyorLineCommand",
@@ -5472,9 +8706,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x28', '0x30', '0x38', '0x40', '0x10', '0x2c', '0x48', '0x50', '0x20', '0x58', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58']",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -5484,8 +8726,38 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd6f0c0",
+                "0xd73120",
+                "0x254aa00",
+                "0xd752e0",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x2284800",
+                "0xd472f0",
+                "0xc07b80",
+                "0x1693c0",
+                "0xd6fe90"
+            ]
         },
         "CChangeConveyorPositionCommand": {
             "name": "CChangeConveyorPositionCommand",
@@ -5511,9 +8783,18 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
             "field_map": {
                 "subject_or_vec": 40,
                 "position": 48,
@@ -5521,8 +8802,42 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd73120",
+                "0x254aa00",
+                "0xd752e0",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CCreateConveyorCommand": {
             "name": "CCreateConveyorCommand",
@@ -5545,9 +8860,61 @@ LAND_ARMY_FOCUS = {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
                 "count_or_id": 52,
-                "extra_38": 56
+                "extra_38": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c', '0x34', '0x50']"
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "field_map": {
+                "subject_or_vec": 40,
+                "id_or_b": 44,
+                "count_or_id": 52,
+                "extra_38": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xbf4ad0",
+                "0xbf4ae0",
+                "0x2284800",
+                "0x172cb20",
+                "0xc07d30",
+                "0x2572c70",
+                "0x1c2d4d0",
+                "0xc07b80",
+                "0x164c870",
+                "0xbf4ce0",
+                "0xbf4af0"
+            ]
         },
         "CCreateConveyorExtendedCommand": {
             "name": "CCreateConveyorExtendedCommand",
@@ -5575,9 +8942,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x20', '0x34', '0x30', '0x38', '0x28', '0x2c', '0x40', '0x48', '0x50', '0x58', '0x10', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -5587,8 +8962,41 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CDeployConveyorCommand": {
             "name": "CDeployConveyorCommand",
@@ -5616,9 +9024,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -5628,8 +9045,38 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300",
+                "0xd71a40",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CDeployConveyorLineCommand": {
             "name": "CDeployConveyorLineCommand",
@@ -5657,9 +9104,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x40', '0x38', '0x48', '0xb0', '0x17', '0x2c', '0x58', '0xa4', '0x50', '0x3c', '0x3e']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -5669,8 +9124,39 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd71a40",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CRemoveConveyorCommand": {
             "name": "CRemoveConveyorCommand",
@@ -5695,17 +9181,52 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
                 "arg2": 56,
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
-            }
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd74690",
+                "0x1c32980",
+                "0xd47300",
+                "0xd74850"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CRemoveConveyorLineCommand": {
             "name": "CRemoveConveyorLineCommand",
@@ -5733,9 +9254,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x40', '0x38', '0x48', '0xb0', '0x17', '0x2c', '0x58', '0xa4', '0x50', '0x3c', '0x3e']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
             "field_map": {
                 "subject_or_vec": 40,
                 "line_id": 48,
@@ -5745,8 +9274,39 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd74850",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetConveyorGroupCommand": {
             "name": "CSetConveyorGroupCommand",
@@ -5774,9 +9334,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70', '0x55', '0x50', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70']",
             "field_map": {
                 "subject_or_vec": 40,
                 "group": 48,
@@ -5786,8 +9355,42 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0xd4b2e0",
+                "0xd472f0",
+                "0xd4b390",
+                "0xd4b440",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CSetConveyorLocationCommand": {
             "name": "CSetConveyorLocationCommand",
@@ -5815,9 +9418,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x40', '0x38', '0x48', '0x70', '0xb0', '0x17', '0x58', '0xa4', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "location": 48,
@@ -5827,8 +9438,44 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd4b440",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetConveyorNameCommand": {
             "name": "CSetConveyorNameCommand",
@@ -5856,9 +9503,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x40', '0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -5868,8 +9523,32 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b440",
+                "0xd472f0",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490"
+            ]
         },
         "CSetConveyorPriorityCommand": {
             "name": "CSetConveyorPriorityCommand",
@@ -5897,9 +9576,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x10', '0x28', '0x2c', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "priority": 48,
@@ -5909,8 +9596,31 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b340",
+                "0xd472f0",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490"
+            ]
         },
         "CSetConveyorSeriesCommand": {
             "name": "CSetConveyorSeriesCommand",
@@ -5938,9 +9648,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x10', '0x28', '0x2c', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
             "field_map": {
                 "subject_or_vec": 40,
                 "series": 48,
@@ -5950,8 +9668,31 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b2c0",
+                "0xd472f0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x2284e60"
+            ]
         },
         "CChangeConveyorTemplateCommand": {
             "name": "CChangeConveyorTemplateCommand",
@@ -5980,9 +9721,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x18', '0x20', '0x30', '0x38', '0x58', '0x50', '0x34', '0x2c', '0x40', '0x48', '0x10', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60']",
             "field_map": {
                 "subject_or_vec": 40,
                 "template": 48,
@@ -5993,8 +9742,36 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8",
+                "0xd472f0",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CSetCountryGarrisonTemplateCommand": {
             "name": "CSetCountryGarrisonTemplateCommand",
@@ -6023,9 +9800,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0x40', '0x30', '0x18', '0xd0', '0x20', '0x48', '0x34', '0x38', '0x58', '0x3c', '0x60', '0xa0', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58']",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -6036,8 +9821,31 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0x1079b50",
+                "0x2284800",
+                "0x10841e0",
+                "0x10825c0",
+                "0x254aa00",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetMainGarrisonTemplateCommand": {
             "name": "CSetMainGarrisonTemplateCommand",
@@ -6063,9 +9871,16 @@ LAND_ARMY_FOCUS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg2": 56,
-                "arg3": 64
+                "arg3": 64,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x48', '0x38', '0x40', '0x2c', '0x30', '0xa0', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8']",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -6073,8 +9888,29 @@ LAND_ARMY_FOCUS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg2": 56,
-                "arg3": 64
-            }
+                "arg3": 64,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0x2284800",
+                "0x1083ca0",
+                "0x10829e0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xc07b80",
+                "0x25a00d8"
+            ]
         },
         "CSetStateGarrisonTemplateCommand": {
             "name": "CSetStateGarrisonTemplateCommand",
@@ -6103,9 +9939,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x40', '0x20', '0x58', '0x48', '0x2c', '0xcc', '0x10', '0x18', '0x70', '0x30', '0x34', '0x38', '0x3c', '0xa0', '0xb8']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34']",
             "field_map": {
                 "country_or_state": 40,
                 "template": 48,
@@ -6116,8 +9960,34 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc07620",
+                "0x7172f0",
+                "0x73aab0",
+                "0x1079b50",
+                "0x2284800",
+                "0x1084240",
+                "0x10825c0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ]
         },
         "CRailwayGunSetNameCommand": {
             "name": "CRailwayGunSetNameCommand",
@@ -6151,9 +10021,10 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32,
                 "arg7": 80,
-                "owner_or_ctx": 24
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
             "field_map": {
                 "subject": 40,
                 "name_sso": 48,
@@ -6169,8 +10040,21 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32,
                 "arg7": 80,
-                "owner_or_ctx": 24
-            }
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0xf01db0",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ]
         },
         "CSetDeploymentLineNameCommand": {
             "name": "CSetDeploymentLineNameCommand",
@@ -6198,9 +10082,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x40', '0x38', '0x48', '0x70', '0xb0', '0x17', '0x58', '0xa4', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54']",
             "field_map": {
                 "subject_or_vec": 40,
                 "name_sso": 48,
@@ -6210,8 +10102,40 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetRepairOrderCommand": {
             "name": "CSetRepairOrderCommand",
@@ -6250,7 +10174,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40']",
             "field_map": {
                 "subject": 40,
                 "order_or_flag": 48,
@@ -6270,7 +10194,22 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
-            }
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0xee1870",
+                "0xee0cb0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x3321f0",
+                "0x1b7950",
+                "0x6cad90"
+            ]
         },
         "CUpgradeDivisionOfficerCommand": {
             "name": "CUpgradeDivisionOfficerCommand",
@@ -6297,9 +10236,15 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x2c', '0x40', '0x1c8', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']",
             "field_map": {
                 "subject": 40,
                 "officer_or_id": 48,
@@ -6308,8 +10253,32 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620",
+                "0x7394e0",
+                "0x2574a60",
+                "0x717940",
+                "0x254aa00",
+                "0x25a0390",
+                "0x1f1a40",
+                "0x14ed4e0"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x2284800",
+                "0xc08580",
+                "0xc07b80",
+                "0x7251b0"
+            ]
         },
         "CSetDivisionNameCommand": {
             "name": "CSetDivisionNameCommand",
@@ -6344,9 +10313,10 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
             "field_map": {
                 "division": 40,
                 "name_sso": 48,
@@ -6363,8 +10333,23 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "arg2_or_vec_end": 56
-            }
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xcebd10",
+                "0xcebcb0",
+                "0xcebe70",
+                "0xc57080",
+                "0x1039990"
+            ],
+            "isvalid_calls": [
+                "0x74ad20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CSetObsoleteDivisionTemplateCommand": {
             "name": "CSetObsoleteDivisionTemplateCommand",
@@ -6403,7 +10388,7 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x40', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40']",
             "field_map": {
                 "template": 40,
                 "flag": 48,
@@ -6423,7 +10408,28 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbf9240",
+                "0xbea570",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xbf4ad0",
+                "0xbf4ae0",
+                "0x2284800",
+                "0x172cb20",
+                "0xc07d30",
+                "0x2572c70",
+                "0x1c2d4d0",
+                "0xc07b80",
+                "0x164c870",
+                "0xbf4ce0",
+                "0xbf4af0"
+            ]
         },
         "CBuildRailwayCommand": {
             "name": "CBuildRailwayCommand",
@@ -6464,7 +10470,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg5": 68
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38']",
             "field_map": {
                 "from_to_or_vec": 40,
                 "extra": 48,
@@ -6486,7 +10492,28 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg7": 80,
                 "arg5": 68
-            }
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0xc07620",
+                "0xed1710",
+                "0x3321f0",
+                "0x11f770",
+                "0x12025a0",
+                "0x21da70",
+                "0x25a00d8",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x2e8750",
+                "0x57be70",
+                "0x581900",
+                "0x57c580",
+                "0x25a00d8"
+            ]
         },
         "CLearnTraitCommand": {
             "name": "CLearnTraitCommand",
@@ -6515,9 +10542,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x30', '0x28', '0x2c', '0x40', '0x48', '0x120', '0x80', '0x18', '0x70', '0x26', '0x25', '0x1f0', '0x2b', '0x78']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48']",
             "field_map": {
                 "leader": 40,
                 "trait": 48,
@@ -6528,8 +10563,34 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620",
+                "0x75ccd0",
+                "0x2607890",
+                "0x18e580"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0xb3da70",
+                "0x12b330",
+                "0xc07b80",
+                "0x25a00d8"
+            ]
         },
         "CUpdateLeaderSeenTraitsCountCommand": {
             "name": "CUpdateLeaderSeenTraitsCountCommand",
@@ -6555,9 +10616,16 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x38', '0x48', '0x50', '0x30', '0x40', '0x20', '0x10', '0x18', '0x1d8', '0x58', '0xe8', '0x28', '0x78', '0x1f8', '0x70', '0x68']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
             "field_map": {
                 "leader": 40,
                 "subject_or_handle": 40,
@@ -6565,8 +10633,33 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
-            }
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x2607890",
+                "0xc08580",
+                "0xc50d50",
+                "0x1e25c0"
+            ]
         },
         "CAiDiscardForceConcentrationTargetCommand": {
             "name": "CAiDiscardForceConcentrationTargetCommand",
@@ -6608,7 +10701,17 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CAiOnFailedInvasionCommand": {
             "name": "CAiOnFailedInvasionCommand",
@@ -6636,7 +10739,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "arg7": 80
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6646,9 +10752,23 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "arg7": 80
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20']",
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CAiStoreForceConcentrationTargetCommand": {
             "name": "CAiStoreForceConcentrationTargetCommand",
@@ -6690,7 +10810,17 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CAiStoreTotalWantedNrDivisionsCommand": {
             "name": "CAiStoreTotalWantedNrDivisionsCommand",
@@ -6732,7 +10862,17 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CClearRepairPinsCommand": {
             "name": "CClearRepairPinsCommand",
@@ -6757,16 +10897,39 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
             },
             "field_map": {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x18', '0x10', '0x12', '0xb8', '0xa0', '0x30', '0x38', '0x40']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40']",
+            "execute_calls": [
+                "0xc07620",
+                "0xed7020",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CCreateAreaDefenseCommand": {
             "name": "CCreateAreaDefenseCommand",
@@ -6808,7 +10971,21 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc416b0",
+                "0xc40490",
+                "0x10b0fd0",
+                "0x10cd440",
+                "0x10cd410",
+                "0xfcecf0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CCreateUnitLeaderCommand": {
             "name": "CCreateUnitLeaderCommand",
@@ -6848,7 +11025,25 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x2c']"
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0']",
+            "execute_calls": [
+                "0xc07620",
+                "0x7394e0",
+                "0x2574a60",
+                "0x717940",
+                "0x72e690",
+                "0x14ecaf0",
+                "0xc7af50",
+                "0x14ecb70",
+                "0xc7bd90",
+                "0x14ecbb0",
+                "0xc7c890",
+                "0x14ecb30"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x7251b0"
+            ]
         },
         "CDeleteUnitCommand": {
             "name": "CDeleteUnitCommand",
@@ -6910,7 +11105,29 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x28', '0x30', '0x40', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8']",
+            "execute_calls": [
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x1ecbe0",
+                "0xc07620",
+                "0x2b7610",
+                "0x733ba0",
+                "0x14a470",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0xc08100",
+                "0x25a009c",
+                "0x12b330",
+                "0x25a00d8"
+            ]
         },
         "CEditAreaDefenseStateCommand": {
             "name": "CEditAreaDefenseStateCommand",
@@ -6974,7 +11191,26 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd440",
+                "0x10b0110",
+                "0x10cb7c0",
+                "0x254aa00",
+                "0xbbb1e0",
+                "0x18d58f0",
+                "0xc416b0",
+                "0xc40490",
+                "0x10cd410",
+                "0x10af2e0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CMergeArmiesCommand": {
             "name": "CMergeArmiesCommand",
@@ -7038,7 +11274,26 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30']",
+            "execute_calls": [
+                "0x2284800",
+                "0x11f6f0",
+                "0x2607890",
+                "0x13f9f40",
+                "0x13f8740"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xcdb440",
+                "0xc55940",
+                "0x1b8180",
+                "0x11f240"
+            ]
         },
         "CPromoteUnitLeaderCommand": {
             "name": "CPromoteUnitLeaderCommand",
@@ -7063,16 +11318,47 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
             "field_map": {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x28', '0x18', '0x16', '0x48', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x68', '0xd0']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc6c300",
+                "0xc07620",
+                "0x75ccd0",
+                "0xc76270",
+                "0x2556a60",
+                "0x254aa00",
+                "0x19d980",
+                "0xbbe510"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CQueueUnitActionCommand": {
             "name": "CQueueUnitActionCommand",
@@ -7100,7 +11386,10 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
                 "arg6_or_plan": 72,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32
             },
             "field_map": {
                 "arg0": 48,
@@ -7110,9 +11399,28 @@ LAND_ARMY_FOCUS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
                 "arg6_or_plan": 72,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x18']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc58510",
+                "0xceb6d0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0",
+                "0x14a470",
+                "0xb9d3d0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CReorderPinnedStrategicRegionCommand": {
             "name": "CReorderPinnedStrategicRegionCommand",
@@ -7168,7 +11476,17 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10']",
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e0310",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CSelectionGroupCommand": {
             "name": "CSelectionGroupCommand",
@@ -7194,7 +11512,14 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_hi": 44
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -7202,9 +11527,33 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x20', '0x58', '0x48', '0x30', '0x40', '0x2c', '0x50', '0x10', '0x18', '0x70', '0x78', '0x80']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80']",
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e02c0",
+                "0x1e2ac0",
+                "0xc08580",
+                "0x22aea40",
+                "0xb933b0",
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc47a80",
+                "0x2284800",
+                "0xc675d0"
+            ]
         },
         "CSetAreaDefenseSettingCommand": {
             "name": "CSetAreaDefenseSettingCommand",
@@ -7252,7 +11601,26 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940",
+                "0x716fc0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CSetPendingReassignTargetCommand": {
             "name": "CSetPendingReassignTargetCommand",
@@ -7283,7 +11651,8 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg8": 88,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52
             },
             "field_map": {
                 "arg0": 48,
@@ -7296,9 +11665,21 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "arg8": 88,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc7d1c0",
+                "0xc4bbc0",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xc47a80",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetPreferredTacticCommand": {
             "name": "CSetPreferredTacticCommand",
@@ -7323,16 +11704,44 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
             },
             "field_map": {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x28', '0x50', '0x38', '0x1f0', '0x10', '0x18', '0x20', '0x58', '0xb8', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60']",
+            "execute_calls": [
+                "0xc07620",
+                "0xd26790",
+                "0x239fb0",
+                "0x2607790",
+                "0x254aa00",
+                "0x25a0390",
+                "0x203a50",
+                "0x73ee00",
+                "0x75ccd0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x73ee00",
+                "0x707bc0"
+            ]
         },
         "CSetTheatreCommand": {
             "name": "CSetTheatreCommand",
@@ -7356,15 +11765,32 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg1_or_count": 52,
                 "arg2": 56,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
             "field_map": {
                 "arg0": 48,
                 "arg1_or_count": 52,
                 "arg2": 56,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x48', '0x50', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetUnitNameCommand": {
             "name": "CSetUnitNameCommand",
@@ -7391,7 +11817,14 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg6_or_plan": 72
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -7400,9 +11833,28 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x18', '0x28', '0x20', '0x50', '0x10', '0x2c', '0x1dc', '0x19', '0x48', '0x30', '0x140', '0x34', '0x58', '0x60', '0x40', '0x54']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
+            "execute_calls": [
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CTogglePinnedStrategicRegionCommand": {
             "name": "CTogglePinnedStrategicRegionCommand",
@@ -7458,7 +11910,17 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x40', '0x28', '0x20', '0x58', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50']",
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e0310",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CTransportUnitCommand": {
             "name": "CTransportUnitCommand",
@@ -7496,7 +11958,16 @@ LAND_ARMY_FOCUS = {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48']",
+            "execute_calls": [
+                "0x2284800",
+                "0xc51500"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CUpdateLeaderSeenAdvisorRolesCountCommand": {
             "name": "CUpdateLeaderSeenAdvisorRolesCountCommand",
@@ -7522,7 +11993,14 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -7530,9 +12008,34 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x38', '0x48', '0x50', '0x30', '0x40', '0x20', '0x10', '0x18', '0x1d8', '0x58', '0xe8', '0x28', '0x78', '0x1f8', '0x70', '0x68']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x2607890",
+                "0xc08580",
+                "0xc50d50",
+                "0x1e25c0"
+            ]
         },
         "CRequestExpeditionariesCommand": {
             "name": "CRequestExpeditionariesCommand",
@@ -7578,7 +12081,29 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg7": 80
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x58', '0x3c', '0x30', '0x38', '0x40']"
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78']",
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x2284800",
+                "0x11d2a10",
+                "0x22aea40",
+                "0x254f8e0",
+                "0x12b330",
+                "0x25a00d8",
+                "0x33fd50",
+                "0x25a009c",
+                "0x11f770"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc08580",
+                "0x716bc0",
+                "0x2c2100"
+            ]
         },
         "CGiveMedalCommand": {
             "name": "CGiveMedalCommand",
@@ -7626,7 +12151,33 @@ LAND_ARMY_FOCUS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x34', '0x20', '0x38', '0x50', '0x44', '0x58', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58']",
+            "execute_calls": [
+                "0x74ad20",
+                "0x2284800",
+                "0x14e2d60",
+                "0x47aff0",
+                "0x14e2ff0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0xcdb440",
+                "0x226020",
+                "0x74ae40",
+                "0x14e3530"
+            ],
+            "isvalid_calls": [
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1b7950",
+                "0xc07b80",
+                "0xc873a0",
+                "0x717370",
+                "0x14e3900",
+                "0x14e2d60"
+            ]
         },
         "CTriggerAbilityCommand": {
             "name": "CTriggerAbilityCommand",
@@ -7670,7 +12221,35 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x30', '0x18', '0x20', '0x50', '0x5c', '0x28', '0x68', '0x70']"
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68']",
+            "execute_calls": [
+                "0x246ed0",
+                "0x65ad20",
+                "0x57be70",
+                "0x581900",
+                "0x254aa00",
+                "0x5829b0",
+                "0xc07b80",
+                "0x747d00",
+                "0xc07620",
+                "0x7278f0",
+                "0x725460",
+                "0x732040"
+            ],
+            "isvalid_calls": [
+                "0x246ed0",
+                "0x65ad20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x57be70",
+                "0x581900",
+                "0x254aa00",
+                "0x5829b0"
+            ]
         },
         "CRetireCharacterCommand": {
             "name": "CRetireCharacterCommand",
@@ -7710,7 +12289,30 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48']",
+            "execute_calls": [
+                "0x2284800",
+                "0xabc220",
+                "0xc07620",
+                "0x716d30",
+                "0x11751f0",
+                "0x7228c0",
+                "0x724c00",
+                "0x746fe0",
+                "0x716fc0",
+                "0xda8130",
+                "0xeddbb0",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x4b4fd0",
+                "0x2284800",
+                "0x1029570",
+                "0xabc220",
+                "0xc07b80",
+                "0x734ad0",
+                "0x11721d0"
+            ]
         },
         "CReinstateExileCommand": {
             "name": "CReinstateExileCommand",
@@ -7735,16 +12337,52 @@ LAND_ARMY_FOCUS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg6_or_plan": 72
             },
             "field_map": {
                 "subject_lo": 40,
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38']",
+            "execute_calls": [
+                "0xc07620",
+                "0x716fc0",
+                "0xda93c0",
+                "0xd26790",
+                "0xd31d60",
+                "0xf6c770",
+                "0xf7e150",
+                "0x25a009c",
+                "0xd79810",
+                "0x254aa00",
+                "0x25a0390",
+                "0xd81b10"
+            ],
+            "isvalid_calls": [
+                "0xc08100",
+                "0x25a009c",
+                "0x12b330",
+                "0x2607890",
+                "0x11f240",
+                "0x25a00d8",
+                "0xc07b80",
+                "0x73aab0",
+                "0x1217a0",
+                "0x120530"
+            ]
         },
         "CAmendForeignManpowerActionCommand": {
             "name": "CAmendForeignManpowerActionCommand",
@@ -7788,7 +12426,17 @@ LAND_ARMY_FOCUS = {
                 "subject_hi": 44,
                 "arg1_or_count": 52
             },
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28']",
+            "execute_calls": [
+                "0x2284800",
+                "0x1b3b2b0",
+                "0xc07b80",
+                "0x738e00"
+            ],
+            "isvalid_calls": [
+                "0x2607890",
+                "0x11f240"
+            ]
         }
     },
     "retreat_group": [
@@ -7963,7 +12611,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x30', '0x38', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x58', '0x34', '0x67', '0x28', '0x48']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_c": 48,
@@ -7980,7 +12628,25 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
                 "arg4_or_child": 64
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc45530",
+                "0x2283ae0",
+                "0x2607890",
+                "0x1b11420",
+                "0x25a00d8",
+                "0x1b141c0",
+                "0x1b12b80",
+                "0x1b11ea0",
+                "0x2348bf0",
+                "0x25c3770",
+                "0xc40330"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0xbbb1e0"
+            ]
         },
         "CAssignToTheaterGroupCommand": {
             "execute": 28388224,
@@ -7999,9 +12665,52 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x58', '0x3c', '0x30', '0x20', '0x28', '0x60', '0x40', '0x10', '0x18', '0x50', '0x2c', '0x38', '0x68', '0x1b8', '0x39', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x3c', '0x58', '0x60', '0x68', '0x28', '0x20', '0x30', '0x1b8', '0x40', '0x39']",
+            "fields": {
+                "subject_at_28": 40,
+                "theater_or_group": 60,
+                "name_or_extra": 80,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4b2a0",
+                "0xf6ba20",
+                "0xf703f0",
+                "0xd4b440"
+            ],
+            "isvalid_calls": [
+                "0x2607890",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x18dde70",
+                "0x16d9250"
+            ]
         },
         "CCancelMovementCommand": {
             "execute": 20954064,
@@ -8030,7 +12739,43 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x28', '0x34']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=8; offs ['0x18', '0x34', '0x38', '0x30', '0x28', '0x40', '0x1f0', '0xa4']",
+            "fields": {
+                "units_vec": 40,
+                "units_count": 52,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4f8e0",
+                "0xc50ed0",
+                "0xc5a750"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xc4f8e0",
+                "0x1b8180",
+                "0x2607890",
+                "0x1e1510",
+                "0x11f240"
+            ]
         },
         "CCancelRunningAwayCommand": {
             "execute": 20954272,
@@ -8044,9 +12789,43 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "base_or_vobj": 24,
                 "owner_or_ctx": 24,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2cb Capstone deepen; offs []"
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80']",
+            "fields": {
+                "units_handle": 40,
+                "arg1_or_count": 52,
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc51a20",
+                "0xc91770",
+                "0xc873a0",
+                "0x13df8a0",
+                "0x13efb80",
+                "0x254aa00",
+                "0x13eb450",
+                "0x254b2b0",
+                "0x254b7c0",
+                "0xc915b0",
+                "0xddcd10"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CCollapseConveyorCommand": {
             "execute": 29559088,
@@ -8077,7 +12856,7 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x34', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=9; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
             "fields": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
@@ -8099,7 +12878,32 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg3_or_cap": 60,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4a3d0",
+                "0xd4b2d0",
+                "0xd472f0",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd72b50"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CDisbandTheaterGroupCommand": {
             "execute": 28388624,
@@ -8113,9 +12917,37 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "ctx_or_flag": 32,
                 "arg0_or_type": 48,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20']"
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=1; offs ['0x20', '0x10', '0x18', '0x30', '0xd0', '0x130', '0x28']",
+            "fields": {
+                "theater_handle": 40,
+                "arg0": 48,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x20e970",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x14d7070",
+                "0x254de20",
+                "0x11d5c0",
+                "0x12bbb0",
+                "0x12b930",
+                "0x12b710",
+                "0x254b340"
+            ],
+            "isvalid_calls": [
+                "0xd73540"
+            ]
         },
         "CMassCancelMovementCommand": {
             "execute": 18748704,
@@ -8141,7 +12973,39 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x34', '0x18', '0x28', '0x40']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=3; offs ['0x18', '0x34', '0x30', '0x38', '0x28', '0x40', '0x48', '0x50', '0x58', '0x20']",
+            "fields": {
+                "units_vec": 40,
+                "units_count": 52,
+                "hdr_10": 16,
+                "hdr_18": 24,
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4f8e0",
+                "0xc50ed0",
+                "0xee0100",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CMassMoveCommand": {
             "execute": 20955920,
@@ -8175,7 +13039,49 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=10; offs ['0x18', '0x20', '0x4c', '0x30', '0x38', '0x40', '0x58', '0x28', '0x48']",
+            "fields": {
+                "units_vec": 40,
+                "units_count": 52,
+                "dest": 56,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg8": 88,
+                "vptr_or_hdr": 16,
+                "arg3_or_cap": 60,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc5a750",
+                "0xc4f450"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xcdb440",
+                "0xc55940",
+                "0x1b8180",
+                "0x11f240"
+            ]
         },
         "CMoveArmiesInTheaterCommand": {
             "execute": 26031808,
@@ -8207,7 +13113,39 @@ LAND_EXE_PROOFS = {
                 "arg5": 68,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=2; offs ['0x50', '0x28', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48', '0x34', '0xc0']",
+            "fields": {
+                "subject_or_vec": 40,
+                "dest_or_path": 64,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "arg8": 88,
+                "arg5": 68,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890",
+                "0x18e580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "CMoveArmyGroupInTheaterCommand": {
             "execute": 26033040,
@@ -8230,7 +13168,29 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x68']"
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=2; offs ['0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98']",
+            "fields": {
+                "subject_or_vec": 40,
+                "dest_or_path": 64,
+                "arg0": 48,
+                "arg3": 64,
+                "ctx_or_flag": 32,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg7": 80
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0xbbb1e0"
+            ]
         },
         "CMoveCommand": {
             "execute": 20957584,
@@ -8260,7 +13220,56 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=15; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "fields": {
+                "unit_move_action": 40,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg5": 68,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x254b340",
+                "0x25a20dc",
+                "0xddf330",
+                "0x13fb770",
+                "0xddf970"
+            ],
+            "isvalid_calls": [
+                "0xc57080",
+                "0x2284800",
+                "0x1e1510",
+                "0x2607890",
+                "0x74ae40",
+                "0xc07b80",
+                "0x2348bf0",
+                "0x25c3770",
+                "0x726d80",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeeda70"
+            ]
         },
         "COrderAddNewCompletePlanCommand": {
             "execute": 26033968,
@@ -8288,9 +13297,10 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg3_or_cap": 60,
                 "arg4_or_child": 64,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x64']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=7; offs ['0x18', '0xd8', '0x78', '0x70', '0x6c', '0x28', '0x2c', '0x64', '0x38', '0x30']",
             "fields": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -8310,8 +13320,26 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg3_or_cap": 60,
                 "arg4_or_child": 64,
-                "vptr_or_hdr": 16
-            }
+                "vptr_or_hdr": 16,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x25a009c",
+                "0x2284800",
+                "0x18c9ab0",
+                "0x18c97d0",
+                "0x18c7d80",
+                "0x18d41b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0x1b8180"
+            ]
         },
         "COrderAssignCommand": {
             "execute": 26034608,
@@ -8335,9 +13363,10 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "vptr_or_hdr": 16,
                 "arg5": 68,
-                "arg1_or_count": 52
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x58', '0x28', '0x40', '0x50', '0x20', '0x10', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=7; offs ['0xe0', '0x58', '0x48', '0x1b8', '0xa4', '0x98', '0xec', '0x28', '0x38', '0x7f']",
             "fields": {
                 "units_data": 40,
                 "units_count": 52,
@@ -8353,8 +13382,32 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "vptr_or_hdr": 16,
                 "arg5": 68,
-                "arg1_or_count": 52
-            }
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18c4f80",
+                "0x121d60",
+                "0x10b9960",
+                "0x2607890",
+                "0x11f6f0",
+                "0xf69810",
+                "0x10bc370",
+                "0x18e580",
+                "0xc4f070",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x57f7b0",
+                "0x2284800",
+                "0xbbb1e0",
+                "0x1b8180"
+            ]
         },
         "COrderConnectCommand": {
             "execute": 26039456,
@@ -8389,7 +13442,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x34', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x1ec', '0x38', '0x3c', '0x40', '0x20', '0x50']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8415,7 +13468,26 @@ LAND_EXE_PROOFS = {
                 "arg5": 68,
                 "arg6_or_plan": 72,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b4e50",
+                "0x10af2c0",
+                "0x10b4fa0",
+                "0x12e040",
+                "0xc44880",
+                "0x2607890",
+                "0x18d1460",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderExecuteCommand": {
             "execute": 26043440,
@@ -8443,7 +13515,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x35', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x40', '0x39', '0x35']",
             "fields": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -8462,7 +13534,17 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5ce0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderGroupCommand": {
             "execute": 26043632,
@@ -8484,9 +13566,12 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "flags_or_ctx2": 32,
                 "arg8": 88,
-                "arg0_or_type": 48
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x3c', '0x28', '0x50', '0x20']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=13; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48']",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -8500,8 +13585,32 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "flags_or_ctx2": 32,
                 "arg8": 88,
-                "arg0_or_type": 48
-            }
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xf70260",
+                "0xc41730",
+                "0x254b2b0",
+                "0x254b7c0"
+            ],
+            "isvalid_calls": [
+                "0x10f1410",
+                "0x18dde70",
+                "0x57f7b0",
+                "0x2284800",
+                "0xf75ef0",
+                "0xc07b80",
+                "0x747bd0",
+                "0xc4f070",
+                "0xc50d50",
+                "0x1e1510",
+                "0x22aea40",
+                "0x12b330"
+            ]
         },
         "COrderInsertFrontCommand": {
             "execute": 26043888,
@@ -8531,7 +13640,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x54', '0x28', '0x78', '0x8c', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=30 isv_calls=3; offs ['0xc8', '0x78', '0xd0', '0x48', '0xd8', '0x60', '0xc0', '0x8c', '0x80', '0x1ec']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8552,7 +13661,26 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg1_or_count": 52,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10b0d20",
+                "0x10b4e50",
+                "0x10b5f10",
+                "0x10b0ba0",
+                "0x10cc4c0",
+                "0x18c7d80",
+                "0x18d41b0",
+                "0x25a0690"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderNewFallbackCommand": {
             "execute": 26054592,
@@ -8575,9 +13703,46 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "vptr_or_hdr": 16,
-                "arg5": 68
+                "arg5": 68,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']"
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8']",
+            "fields": {
+                "subject_or_vec": 40,
+                "province_or_id": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "arg5": 68,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x10b85b0",
+                "0x10af090",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc41b40",
+                "0x10b0d20",
+                "0xc416b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderNewFrontCommand": {
             "execute": 26054656,
@@ -8612,7 +13777,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x68', '0x6d', '0x6e']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
             "fields": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -8638,7 +13803,26 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x10b85b0",
+                "0x10af090",
+                "0x254aa00",
+                "0xc415b0",
+                "0xc41b40",
+                "0x10b0d20",
+                "0xc416b0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderNewRootCommand": {
             "execute": 26057152,
@@ -8663,9 +13847,12 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x1b0']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8682,8 +13869,30 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc415b0",
+                "0xc416b0",
+                "0x10cdc60",
+                "0x10ce300",
+                "0x10cdda0",
+                "0xc40490",
+                "0x18c7d80",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x18d41b0",
+                "0x10ce880"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReconnectCommand": {
             "execute": 26058256,
@@ -8716,7 +13925,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x2c', '0x30', '0x34', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x1f8', '0x1e0']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8740,7 +13949,26 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "arg7": 80,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x254aa00",
+                "0x10af2c0",
+                "0x10b5fb0",
+                "0x18e580",
+                "0x10cbe40",
+                "0x10b5f10",
+                "0x10b4e50",
+                "0x10b4fa0",
+                "0x10c3e10",
+                "0x25a0448"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReplaceFallbackCommands": {
             "execute": 26059696,
@@ -8763,9 +13991,44 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "arg7": 80
+                "arg7": 80,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4']"
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=3; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40']",
+            "fields": {
+                "subject_or_vec": 40,
+                "arg0": 48,
+                "arg3": 64,
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "vptr_or_hdr": 16,
+                "arg2_or_vec_end": 56,
+                "subject_lo": 40,
+                "arg7": 80,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x18e580",
+                "0x18d1460",
+                "0x25c3770",
+                "0x2607890",
+                "0x18c9ab0",
+                "0xbbb1e0",
+                "0x18d99c0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderReshapeCommand": {
             "execute": 26060752,
@@ -8795,7 +14058,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x38', '0x1ec', '0x118', '0x1e0', '0x40', '0x48']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -8816,7 +14079,20 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x1b15d0",
+                "0x2607890",
+                "0x10cc4c0",
+                "0x10ce790"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderSetCollapseCommand": {
             "execute": 26060992,
@@ -8834,9 +14110,13 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=2; offs ['0x30', '0x10', '0x18', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
             "fields": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -8846,8 +14126,30 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10b1950",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc53100",
+                "0xcf4f30",
+                "0xc2da60",
+                "0x254aa00",
+                "0x1098690",
+                "0x10b13a0"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0x2284800"
+            ]
         },
         "COrderSetPathCommand": {
             "execute": 26062576,
@@ -8873,9 +14175,10 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39']",
             "fields": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -8893,8 +14196,20 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5ef0",
+                "0xc4bca0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CRemoveFromArmyGroupCommand": {
             "execute": 26063296,
@@ -8916,9 +14231,13 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x34', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x10', '0x34', '0x30', '0x28', '0x1b8', '0x38', '0x36', '0x20', '0x19c', '0x120']",
             "fields": {
                 "army_or_units": 40,
                 "group": 48,
@@ -8932,8 +14251,31 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "arg2_or_vec_end": 56
-            }
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4b2a0",
+                "0xc40230",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CReorderTheatersCommand": {
             "execute": 28389248,
@@ -8946,9 +14288,36 @@ LAND_EXE_PROOFS = {
                 "theater_vec": 40,
                 "count_or_id": 48,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x20', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=1; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
+            "fields": {
+                "theater_vec": 40,
+                "count_or_id": 48,
+                "arg0": 48,
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x20e970",
+                "0xd3ca90",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0xd73540"
+            ]
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "execute": 26064448,
@@ -8965,7 +14334,7 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x39', '0x30', '0x1a8', '0x1a4']",
             "fields": {
                 "order_group": 40,
                 "cohesion_type": 48,
@@ -8973,7 +14342,15 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg0_or_type": 48,
                 "subject_lo": 40
-            }
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupExecutionTypeCommand": {
             "execute": 26064560,
@@ -8988,17 +14365,27 @@ LAND_EXE_PROOFS = {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x39']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30', '0x1a4', '0x39', '0x50', '0x120', '0x40', '0x110']",
             "fields": {
                 "order_group": 40,
                 "execution_type": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupMotorizationCommand": {
             "execute": 26064848,
@@ -9025,7 +14412,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c']",
             "fields": {
                 "order_group": 40,
                 "motorization": 48,
@@ -9043,7 +14430,19 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "arg3_or_cap": 60
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4ce40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetSelectedArmyGroupFallback": {
             "execute": 26065632,
@@ -9058,9 +14457,40 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x48', '0x28', '0x20', '0x30', '0x18', '0x10', '0x58', '0xe8', '0x78', '0x50']",
+            "fields": {
+                "subject_or_vec": 40,
+                "subject_or_handle": 40,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x2284800",
+                "0x25694b0",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "CSetTheaterGroupNameCommand": {
             "execute": 28391552,
@@ -9073,9 +14503,25 @@ LAND_EXE_PROOFS = {
                 "theater_group": 40,
                 "name_sso": 48,
                 "arg0": 48,
-                "arg3": 64
+                "arg3": 64,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x40', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=1; offs ['0x30']",
+            "fields": {
+                "theater_group": 40,
+                "name_sso": 48,
+                "arg0": 48,
+                "arg3": 64,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x18dde70"
+            ]
         },
         "CSetTheaterGroupPriorityCommand": {
             "execute": 28391616,
@@ -9088,9 +14534,33 @@ LAND_EXE_PROOFS = {
                 "theater_group": 40,
                 "priority": 48,
                 "arg0": 48,
-                "arg0_or_type": 48
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x30']",
+            "fields": {
+                "theater_group": 40,
+                "priority": 48,
+                "arg0": 48,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x18dde70",
+                "0x2284e60",
+                "0x2607890"
+            ]
         },
         "CStrategicRedeploymentCommand": {
             "execute": 20957584,
@@ -9119,7 +14589,46 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60']",
+            "fields": {
+                "strategic_action": 40,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x254bba0",
+                "0x254c440",
+                "0x254b790",
+                "0x254b340",
+                "0x25a20dc",
+                "0xddf330",
+                "0x13fb770",
+                "0xddf970"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSupportAttackCommand": {
             "execute": 20962560,
@@ -9148,7 +14657,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x48', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x58', '0x30', '0x48', '0x50']",
             "fields": {
                 "handle": 40,
                 "province": 48,
@@ -9168,7 +14677,19 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg6_or_plan": 72,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc50ed0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc5a750"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CToggleStrategicDeploymentCommand": {
             "execute": 20962960,
@@ -9201,7 +14722,45 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=6; offs ['0x20', '0x10', '0x58', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48', '0x28']",
+            "fields": {
+                "subject_or_vec": 40,
+                "flag_30": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg8": 88,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg5": 68,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc57070",
+                "0x2607890",
+                "0xcd5190"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1b8180",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CWithdrawArmyHqCommand": {
             "execute": 20964000,
@@ -9222,7 +14781,36 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs []"
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=14; offs []",
+            "fields": {
+                "subject_handle": 40,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0x1b7950",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x34c220",
+                "0x25a04c0",
+                "0x22aea40",
+                "0x25a05a4",
+                "0x12b330",
+                "0xc734f0"
+            ]
         },
         "CSetOrderGroupIconAndColorCommand": {
             "execute": 26064672,
@@ -9238,9 +14826,10 @@ LAND_EXE_PROOFS = {
                 "arg3": 64,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x50', '0x120', '0x40', '0x110']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=3; offs ['0x50', '0x120', '0x40', '0x110', '0x39', '0x30', '0x1ac']",
             "fields": {
                 "order_group": 40,
                 "icon_or_color": 48,
@@ -9248,8 +14837,17 @@ LAND_EXE_PROOFS = {
                 "arg3": 64,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg0_or_type": 48
+            },
+            "execute_calls": [
+                "0x2284800"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupLeaderProximityCommand": {
             "execute": 26064736,
@@ -9264,17 +14862,37 @@ LAND_EXE_PROOFS = {
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x39', '0x30', '0x1ac', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20']",
             "fields": {
                 "order_group": 40,
                 "proximity": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4ce40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "execute": 26065392,
@@ -9295,7 +14913,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40', '0xa4', '0x30', '0x38', '0x98']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x1b8']",
             "fields": {
                 "order_group": 40,
                 "names_blob": 48,
@@ -9307,7 +14925,17 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x10cdcd0",
+                "0x10c3e80"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CAutoMergeOrdersCommand": {
             "execute": 26030576,
@@ -9327,9 +14955,11 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x20', '0x30', '0x10', '0x3c', '0x48', '0xc8', '0x38']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -9341,8 +14971,26 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg0_or_type": 48,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xf76f60",
+                "0xc416b0",
+                "0xc40490",
+                "0x10b0fd0",
+                "0x10cd440",
+                "0x10cd410",
+                "0xfcecf0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CDeleteOrderGroupCommand": {
             "execute": 26030848,
@@ -9360,9 +15008,10 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "arg0_or_type": 48,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x40', '0x39', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x20', '0x40', '0x39', '0x30', '0x48']",
             "fields": {
                 "order_group": 40,
                 "subject_or_handle": 40,
@@ -9372,8 +15021,21 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "arg0_or_type": 48,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc49740",
+                "0xf7f2f0",
+                "0xf7f8c0",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "COrderDeleteAllCommand": {
             "execute": 26040560,
@@ -9395,7 +15057,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=3; offs ['0x18', '0x80', '0x5c', '0x50', '0xbc', '0xb0', '0xd4', '0xc8', '0xa4', '0x58']",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -9408,7 +15070,26 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
                 "flags_or_ctx2": 32
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc49fb0",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x2607890",
+                "0x10b9370",
+                "0x10b94b0",
+                "0x10b5ce0",
+                "0xc07620",
+                "0xd75a30",
+                "0x10b4d60",
+                "0x18c8960"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CArmyGroupCommand": {
             "execute": 26027472,
@@ -9434,9 +15115,10 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32,
-                "arg6_or_plan": 72
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x50', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60', '0x20', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=5; offs ['0x50', '0x28', '0x2c', '0x58', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60']",
             "fields": {
                 "payload_28": 40,
                 "payload_2c": 44,
@@ -9454,8 +15136,30 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
                 "flags_or_ctx2": 32,
-                "arg6_or_plan": 72
-            }
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x2607890",
+                "0xc45530",
+                "0x254aa00",
+                "0xc41730",
+                "0xf700a0",
+                "0xf76f60",
+                "0xc416b0",
+                "0x10cdc60",
+                "0x10ce2e0",
+                "0x10ce300",
+                "0x10cdda0"
+            ],
+            "isvalid_calls": [
+                "0x10f1410",
+                "0x57f7b0",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "COrderDeleteCommand": {
             "execute": 26042336,
@@ -9486,7 +15190,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=17 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x58', '0x38', '0x40', '0x3c', '0x80', '0x28']",
             "fields": {
                 "order_index": 48,
                 "subject_or_handle": 40,
@@ -9508,7 +15212,26 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg6_or_plan": 72,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x25a0390",
+                "0x18e37e0",
+                "0x10af090",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x254aa00",
+                "0x10af2c0",
+                "0x10cbe40",
+                "0xc475c0",
+                "0x10b5ce0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderUnassignCommand": {
             "execute": 26062928,
@@ -9536,7 +15259,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=2; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x1b8', '0x38', '0x18', '0x40', '0x120']",
             "fields": {
                 "units_data": 40,
                 "units_count": 52,
@@ -9555,7 +15278,20 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg6_or_plan": 72,
                 "arg7": 80
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x18e7810",
+                "0xc07620",
+                "0x2b61f0",
+                "0x16bca50",
+                "0xc79350",
+                "0x16bd4d0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800"
+            ]
         },
         "CSetOrderGroupNameCommand": {
             "execute": 26065280,
@@ -9575,9 +15311,10 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "subject_lo": 40
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x40', '0x30', '0x160', '0x18', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x30', '0x160', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x1b8']",
             "fields": {
                 "order_group": 40,
                 "name_sso": 48,
@@ -9589,8 +15326,19 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "subject_lo": 40
-            }
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x10cdcd0",
+                "0x10c3e80"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CDeployArmyHqCommand": {
             "execute": 20955536,
@@ -9617,7 +15365,47 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40']"
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=21; offs ['0x48', '0x30', '0x40', '0x28', '0x20', '0x58', '0x3c']",
+            "fields": {
+                "subject_or_vec": 40,
+                "id_or_b": 44,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg3": 64,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg7": 80
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4bd40",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x21fce0"
+            ],
+            "isvalid_calls": [
+                "0x1b7950",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x34c220",
+                "0x74adb0",
+                "0xc07b80",
+                "0xc47b10",
+                "0x15bb950",
+                "0x7215e0",
+                "0x22aea40",
+                "0x1e1510",
+                "0x25a04c0"
+            ]
         },
         "CSetArmyLeaderCommand": {
             "execute": 26063552,
@@ -9641,9 +15429,10 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x28', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=22 isv_calls=9; offs ['0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90', '0xb8', '0x30', '0x38']",
             "fields": {
                 "leader": 40,
                 "deploy_army_hq": 56,
@@ -9659,8 +15448,34 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940",
+                "0x716fc0",
+                "0x19dce10"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770",
+                "0x34c220",
+                "0xc412a0",
+                "0xc47980",
+                "0x13f83b0",
+                "0x14027c0"
+            ]
         },
         "CSetArmyTemplateCommand": {
             "execute": 20960592,
@@ -9689,7 +15504,55 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg8": 88
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0']"
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=25; offs ['0x70', '0x6f', '0x58', '0x28', '0x34', '0x77', '0xc0', '0x7f', '0x10', '0x67']",
+            "fields": {
+                "army": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg8": 88
+            },
+            "execute_calls": [
+                "0x13f4010",
+                "0x2284800",
+                "0xceb2b0",
+                "0x34c220",
+                "0xc4b330",
+                "0xc66f80",
+                "0x2607890",
+                "0xc78c50",
+                "0xc78ad0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0x74ad20",
+                "0x13f4010",
+                "0xce5f50",
+                "0xe64be0",
+                "0x34c220",
+                "0xc66f80",
+                "0x12b330"
+            ]
         },
         "CRailwayGunManualOrderCommand": {
             "execute": 15735040,
@@ -9716,7 +15579,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg5": 68
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x40', '0x28', '0x20', '0x58', '0x34', '0x50']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=5; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x60', '0x5c', '0x18', '0x54']",
             "fields": {
                 "subject": 40,
                 "extra_30": 48,
@@ -9731,8 +15594,24 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg8": 88,
                 "arg4_or_child": 64,
-                "owner_or_ctx": 24
-            }
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg5": 68
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770"
+            ]
         },
         "CSetCountryGarrisonPriorityCommand": {
             "execute": 18766208,
@@ -9747,9 +15626,39 @@ LAND_EXE_PROOFS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0xa0', '0xb8', '0x30', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "fields": {
+                "country": 40,
+                "priority": 44,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetCountryReinforcementPriorityCommand": {
             "execute": 18767552,
@@ -9764,9 +15673,39 @@ LAND_EXE_PROOFS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0xa0', '0xb8', '0x30', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0xa0', '0xb8', '0x30', '0x38']",
+            "fields": {
+                "country": 40,
+                "priority": 44,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x717390",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetQuickDeployPreferenceCommand": {
             "execute": 27072400,
@@ -9793,7 +15732,37 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x34', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=3; offs ['0x44', '0x28', '0x10', '0x18', '0x34', '0x30', '0x40', '0x38']",
+            "fields": {
+                "handles_vec": 40,
+                "handles_count": 52,
+                "pref_tag": 64,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg5": 68,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7173a0",
+                "0xca8270",
+                "0x2284800",
+                "0xfeb5a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x741370",
+                "0xcf4da0"
+            ]
         },
         "COrderBlockSectionsCommand": {
             "execute": 26039200,
@@ -9815,9 +15784,11 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x30', '0x50', '0x38', '0x10', '0x18', '0x40']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -9831,8 +15802,20 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd970"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderChildFrontRatioCommand": {
             "execute": 26039280,
@@ -9858,7 +15841,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x38', '0x40']",
             "fields": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -9875,7 +15858,17 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "subject_lo": 40,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd970"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderEditRootCommand": {
             "execute": 26043200,
@@ -9897,7 +15890,7 @@ LAND_EXE_PROOFS = {
                 "subject_hi": 44,
                 "arg0_or_type": 48
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x18', '0x40', '0x28', '0x20', '0x50']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -9910,7 +15903,16 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_hi": 44,
                 "arg0_or_type": 48
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderMembersFairSplitCommand": {
             "execute": 26044544,
@@ -9934,9 +15936,10 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x38', '0x30', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=24 isv_calls=3; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x58', '0x10', '0x34', '0x70']",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -9952,8 +15955,28 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x25a0690",
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10ad830",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x2607f30",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeef8c0"
+            ],
+            "isvalid_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230"
+            ]
         },
         "COrderMergeRootsCommand": {
             "execute": 26053424,
@@ -9978,9 +16001,10 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg3_or_cap": 60,
                 "arg8": 88,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x20', '0x38', '0x30', '0x3c', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=20 isv_calls=4; offs ['0x10', '0x18', '0x20', '0x38', '0x30', '0x3c', '0x1f8', '0x58', '0x80', '0x40']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -9997,8 +16021,29 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg3_or_cap": 60,
                 "arg8": 88,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10b4e50",
+                "0x10b4fa0",
+                "0x10b5ce0",
+                "0x25a0448",
+                "0x25a0310",
+                "0x25a03dc",
+                "0x18dbbc0",
+                "0x18c8960",
+                "0xbbb1e0"
+            ],
+            "isvalid_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0x10bc180"
+            ]
         },
         "COrderReorderChildFrontCommand": {
             "execute": 26059568,
@@ -10018,9 +16063,12 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30', '0x3c']",
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20']",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -10032,8 +16080,30 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cc1d0",
+                "0xc41eb0",
+                "0xc41f60",
+                "0x18e580",
+                "0x18d1460",
+                "0x25c3770",
+                "0x2607890",
+                "0x18c9ab0",
+                "0xbbb1e0",
+                "0x18d99c0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "COrderSetInvasionSourceCommand": {
             "execute": 26061056,
@@ -10062,9 +16132,11 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44,
                 "subject_lo": 40,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=18 isv_calls=19; offs ['0x10', '0x18', '0x30', '0x38', '0xb8', '0x58', '0x3c', '0x20', '0x2c', '0xb0']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -10085,8 +16157,38 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44,
                 "subject_lo": 40,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10b1950",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc07620",
+                "0xc53100",
+                "0xcf4f30",
+                "0xc2da60",
+                "0x254aa00",
+                "0x1098690",
+                "0x10b13a0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x12b3c0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc40230",
+                "0x18cc3f0",
+                "0x747fa0",
+                "0x733090",
+                "0x25a04c0",
+                "0x22aea40",
+                "0x25a05a4",
+                "0x1216a0"
+            ]
         },
         "COrderSetParadropSourceCommand": {
             "execute": 26061744,
@@ -10115,7 +16217,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x20', '0x58', '0x30', '0x34', '0x68', '0x70']",
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x1b0']",
             "fields": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -10135,7 +16237,30 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0xc415b0",
+                "0xc416b0",
+                "0xc40490",
+                "0x18c7d80",
+                "0x57f7b0",
+                "0xbbb1e0",
+                "0x18d41b0",
+                "0xfd0db0",
+                "0x254aa00",
+                "0x25a0390"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x219250",
+                "0xc40230",
+                "0x10bf130"
+            ]
         },
         "COrderSetParadropTargetCommand": {
             "execute": 26062480,
@@ -10166,7 +16291,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg8": 88
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x30', '0x34']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=7; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40']",
             "fields": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -10184,8 +16309,26 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
-            }
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg8": 88
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x18e5dd0",
+                "0x18e5ef0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x219250",
+                "0xc40230",
+                "0x10be690"
+            ]
         },
         "COrderSetTrainingCommand": {
             "execute": 26062672,
@@ -10206,9 +16349,11 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40']",
             "fields": {
                 "subject_or_vec": 40,
                 "training_flag": 48,
@@ -10221,8 +16366,19 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56,
-                "arg4_or_child": 64
-            }
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc4bca0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetOrdersLinkCommand": {
             "execute": 1392688,
@@ -10237,17 +16393,26 @@ LAND_EXE_PROOFS = {
                 "extra_38": 56,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "vptr_or_hdr": 16
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=1 isv_calls=2; offs ['0x30', '0x10']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
                 "extra_38": 56,
                 "arg0": 48,
                 "arg0_or_type": 48,
-                "vptr_or_hdr": 16
-            }
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x10f12f0",
+                "0x10b9f10"
+            ]
         },
         "CSetArmyLeaderPreferredTacticCommand": {
             "execute": 18765376,
@@ -10264,9 +16429,49 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x50', '0x2c', '0x10', '0x18', '0x20', '0x120', '0x40', '0x58', '0xb8', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x30', '0x120', '0x40', '0x28', '0x58', '0xb8', '0x48']",
+            "fields": {
+                "leader_or_army": 40,
+                "tactic": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd26790",
+                "0x239fb0",
+                "0x2607790",
+                "0x254aa00",
+                "0x25a0390",
+                "0x203a50",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc47a80",
+                "0x2284800",
+                "0xc675d0"
+            ]
         },
         "CSetArmyFakeTemplateCommand": {
             "execute": 20959984,
@@ -10291,7 +16496,43 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=8; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x1d8', '0x50', '0x20', '0xb8', '0x10']",
+            "fields": {
+                "army": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "arg1_or_count": 52,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xceb6d0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0",
+                "0x14a470",
+                "0xb9d3d0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xce5f30"
+            ]
         },
         "CAddConveyorLineCommand": {
             "execute": 29558336,
@@ -10309,9 +16550,58 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x28', '0x30', '0x38', '0x40', '0x10', '0x2c', '0x48', '0x50', '0x20', '0x58', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58']",
+            "fields": {
+                "subject_or_vec": 40,
+                "line_id": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd6f0c0",
+                "0xd73120",
+                "0x254aa00",
+                "0xd752e0",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x2284800",
+                "0xd472f0",
+                "0xc07b80",
+                "0x1693c0",
+                "0xd6fe90"
+            ]
         },
         "CChangeConveyorPositionCommand": {
             "execute": 29558528,
@@ -10327,9 +16617,61 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=9; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "fields": {
+                "subject_or_vec": 40,
+                "position": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd73120",
+                "0x254aa00",
+                "0xd752e0",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CCreateConveyorCommand": {
             "execute": 29559168,
@@ -10342,9 +16684,61 @@ LAND_EXE_PROOFS = {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
                 "count_or_id": 52,
-                "extra_38": 56
+                "extra_38": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c', '0x34', '0x50']"
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=12; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c', '0x3c']",
+            "fields": {
+                "subject_or_vec": 40,
+                "id_or_b": 44,
+                "count_or_id": 52,
+                "extra_38": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xbf4ad0",
+                "0xbf4ae0",
+                "0x2284800",
+                "0x172cb20",
+                "0xc07d30",
+                "0x2572c70",
+                "0x1c2d4d0",
+                "0xc07b80",
+                "0x164c870",
+                "0xbf4ce0",
+                "0xbf4af0"
+            ]
         },
         "CCreateConveyorExtendedCommand": {
             "execute": 29559328,
@@ -10362,9 +16756,61 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x20', '0x34', '0x30', '0x38', '0x28', '0x2c', '0x40', '0x48', '0x50', '0x58', '0x10', '0x3c']"
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48']",
+            "fields": {
+                "subject_or_vec": 40,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbea570",
+                "0xc07620",
+                "0xd70c20",
+                "0xd73120",
+                "0xd6f0c0",
+                "0xd4b2c0",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CDeployConveyorCommand": {
             "execute": 29559584,
@@ -10382,9 +16828,59 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "fields": {
+                "subject_or_vec": 40,
+                "id_or_b": 48,
+                "extra_38": 56,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd719a0",
+                "0xd47300",
+                "0xd71a40",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CDeployConveyorLineCommand": {
             "execute": 29559696,
@@ -10402,9 +16898,59 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x40', '0x38', '0x48', '0xb0', '0x17', '0x2c', '0x58', '0xa4', '0x50', '0x3c', '0x3e']"
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "fields": {
+                "subject_or_vec": 40,
+                "line_id": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd71a40",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CRemoveConveyorCommand": {
             "execute": 29559872,
@@ -10419,9 +16965,52 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "vptr_or_hdr": 16,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x30', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=9; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48']",
+            "fields": {
+                "subject_or_vec": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg1_or_count": 52,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd74690",
+                "0x1c32980",
+                "0xd47300",
+                "0xd74850"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CRemoveConveyorLineCommand": {
             "execute": 29560000,
@@ -10439,9 +17028,59 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x40', '0x38', '0x48', '0xb0', '0x17', '0x2c', '0x58', '0xa4', '0x50', '0x3c', '0x3e']"
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "fields": {
+                "subject_or_vec": 40,
+                "line_id": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xd72b50",
+                "0xd74850",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetConveyorGroupCommand": {
             "execute": 29560176,
@@ -10459,9 +17098,63 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70', '0x55', '0x50', '0x54']"
+            "notes": "Phase 2cc callgraph; exe_calls=15 isv_calls=9; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30', '0x18', '0x70']",
+            "fields": {
+                "subject_or_vec": 40,
+                "group": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25c3770",
+                "0xc40230",
+                "0xd4b2e0",
+                "0xd472f0",
+                "0xd4b390",
+                "0xd4b440",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CSetConveyorLocationCommand": {
             "execute": 29560368,
@@ -10479,9 +17172,64 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x40', '0x38', '0x48', '0x70', '0xb0', '0x17', '0x58', '0xa4', '0x3c']"
+            "notes": "Phase 2cc callgraph; exe_calls=12 isv_calls=18; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "fields": {
+                "subject_or_vec": 40,
+                "location": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b390",
+                "0xd472f0",
+                "0xd4b440",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetConveyorNameCommand": {
             "execute": 29560480,
@@ -10499,9 +17247,52 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x40', '0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "fields": {
+                "subject_or_vec": 40,
+                "name_sso": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b440",
+                "0xd472f0",
+                "0xd4b340",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490"
+            ]
         },
         "CSetConveyorPriorityCommand": {
             "execute": 29560592,
@@ -10519,9 +17310,51 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x10', '0x28', '0x2c', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=10 isv_calls=1; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "fields": {
+                "subject_or_vec": 40,
+                "priority": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b340",
+                "0xd472f0",
+                "0xd4b2c0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490"
+            ]
         },
         "CSetConveyorSeriesCommand": {
             "execute": 29560704,
@@ -10539,9 +17372,51 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x10', '0x28', '0x2c', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50']",
+            "fields": {
+                "subject_or_vec": 40,
+                "series": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd4b2c0",
+                "0xd472f0",
+                "0xd47300",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x2284e60"
+            ]
         },
         "CChangeConveyorTemplateCommand": {
             "execute": 29558816,
@@ -10560,9 +17435,57 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x18', '0x20', '0x30', '0x38', '0x58', '0x50', '0x34', '0x2c', '0x40', '0x48', '0x10', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=9; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60']",
+            "fields": {
+                "subject_or_vec": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbab790",
+                "0xbf36e0",
+                "0xd4b440",
+                "0x25a00d8",
+                "0xd472f0",
+                "0x1c32980"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0x2284800",
+                "0xbea570",
+                "0xc07b80",
+                "0xd6fe90",
+                "0xbf3360",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0"
+            ]
         },
         "CSetCountryGarrisonTemplateCommand": {
             "execute": 18766368,
@@ -10581,9 +17504,52 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x2c', '0x10', '0x40', '0x30', '0x18', '0xd0', '0x20', '0x48', '0x34', '0x38', '0x58', '0x3c', '0x60', '0xa0', '0xb8']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=2; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x2c', '0x30', '0x34', '0x38', '0x58']",
+            "fields": {
+                "country_or_state": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0x1079b50",
+                "0x2284800",
+                "0x10841e0",
+                "0x10825c0",
+                "0x254aa00",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x3b65a0",
+                "0xac1e20"
+            ]
         },
         "CSetMainGarrisonTemplateCommand": {
             "execute": 18768480,
@@ -10599,9 +17565,46 @@ LAND_EXE_PROOFS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg2": 56,
-                "arg3": 64
+                "arg3": 64,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x48', '0x38', '0x40', '0x2c', '0x30', '0xa0', '0xb8']"
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x48', '0x38', '0x40', '0x28', '0x2c', '0x30', '0xa0', '0xb8']",
+            "fields": {
+                "country_or_state": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "arg6_or_plan": 72,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7172f0",
+                "0x2284800",
+                "0x1083ca0",
+                "0x10829e0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xc07b80",
+                "0x25a00d8"
+            ]
         },
         "CSetStateGarrisonTemplateCommand": {
             "execute": 18774320,
@@ -10620,9 +17623,55 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x40', '0x20', '0x58', '0x48', '0x2c', '0xcc', '0x10', '0x18', '0x70', '0x30', '0x34', '0x38', '0x3c', '0xa0', '0xb8']"
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x20', '0x48', '0x70', '0x28', '0x58', '0x2c', '0x30', '0x34']",
+            "fields": {
+                "country_or_state": 40,
+                "template": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc07620",
+                "0x7172f0",
+                "0x73aab0",
+                "0x1079b50",
+                "0x2284800",
+                "0x1084240",
+                "0x10825c0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580"
+            ]
         },
         "CRailwayGunSetNameCommand": {
             "execute": 15735616,
@@ -10646,9 +17695,10 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32,
                 "arg7": 80,
-                "owner_or_ctx": 24
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
             "fields": {
                 "subject": 40,
                 "name_sso": 48,
@@ -10664,8 +17714,21 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "flags_or_ctx2": 32,
                 "arg7": 80,
-                "owner_or_ctx": 24
-            }
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0xf01db0",
+                "0xbbb1e0",
+                "0x2284800",
+                "0x2348bf0",
+                "0x25c3770"
+            ]
         },
         "CSetDeploymentLineNameCommand": {
             "execute": 29560816,
@@ -10683,9 +17746,60 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x40', '0x38', '0x48', '0x70', '0xb0', '0x17', '0x58', '0xa4', '0x3c']"
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=18; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54']",
+            "fields": {
+                "subject_or_vec": 40,
+                "name_sso": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xd47300",
+                "0xd472f0",
+                "0xc07620",
+                "0xa138b0",
+                "0xa13da0",
+                "0xa13f80",
+                "0xa0c7b0"
+            ],
+            "isvalid_calls": [
+                "0x1c31490",
+                "0x1e1510",
+                "0x2607890",
+                "0x2284800",
+                "0x1693c0",
+                "0xbf3360",
+                "0xd49500",
+                "0xd472f0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xeebbd0",
+                "0xc08100"
+            ]
         },
         "CSetRepairOrderCommand": {
             "execute": 18772176,
@@ -10714,7 +17828,42 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=6; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40']",
+            "fields": {
+                "subject": 40,
+                "order_or_flag": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "arg3_or_cap": 60,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0xee1870",
+                "0xee0cb0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x3321f0",
+                "0x1b7950",
+                "0x6cad90"
+            ]
         },
         "CUpgradeDivisionOfficerCommand": {
             "execute": 18782368,
@@ -10731,9 +17880,49 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x2c', '0x40', '0x1c8', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x28', '0x1c8', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38']",
+            "fields": {
+                "subject": 40,
+                "officer_or_id": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "subject_hi": 44,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620",
+                "0x7394e0",
+                "0x2574a60",
+                "0x717940",
+                "0x254aa00",
+                "0x25a0390",
+                "0x1f1a40",
+                "0x14ed4e0"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x2284800",
+                "0xc08580",
+                "0xc07b80",
+                "0x7251b0"
+            ]
         },
         "CSetDivisionNameCommand": {
             "execute": 20961888,
@@ -10758,9 +17947,43 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg7": 80,
                 "arg4_or_child": 64,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x18']"
+            "notes": "Phase 2cc callgraph; exe_calls=6 isv_calls=4; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
+            "fields": {
+                "division": 40,
+                "name_sso": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xcebd10",
+                "0xcebcb0",
+                "0xcebe70",
+                "0xc57080",
+                "0x1039990"
+            ],
+            "isvalid_calls": [
+                "0x74ad20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CSetObsoleteDivisionTemplateCommand": {
             "execute": 29544160,
@@ -10789,7 +18012,48 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x40', '0x18']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=12; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40']",
+            "fields": {
+                "template": 40,
+                "flag": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xbf9240",
+                "0xbea570",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x74adb0",
+                "0xbf4ad0",
+                "0xbf4ae0",
+                "0x2284800",
+                "0x172cb20",
+                "0xc07d30",
+                "0x2572c70",
+                "0x1c2d4d0",
+                "0xc07b80",
+                "0x164c870",
+                "0xbf4ce0",
+                "0xbf4af0"
+            ]
         },
         "CBuildRailwayCommand": {
             "execute": 18728992,
@@ -10820,7 +18084,50 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg5": 68
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=6; offs ['0x48', '0x28', '0x20', '0x58', '0x30', '0x50', '0x60', '0x188', '0x3c', '0x38']",
+            "fields": {
+                "from_to_or_vec": 40,
+                "extra": 48,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg7": 80,
+                "arg5": 68
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0xc07620",
+                "0xed1710",
+                "0x3321f0",
+                "0x11f770",
+                "0x12025a0",
+                "0x21da70",
+                "0x25a00d8",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x2e8750",
+                "0x57be70",
+                "0x581900",
+                "0x57c580",
+                "0x25a00d8"
+            ]
         },
         "CLearnTraitCommand": {
             "execute": 26031664,
@@ -10839,9 +18146,55 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x30', '0x28', '0x2c', '0x40', '0x48', '0x120', '0x80', '0x18', '0x70', '0x26', '0x25', '0x1f0', '0x2b', '0x78']"
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=9; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0x58', '0xc8', '0x48']",
+            "fields": {
+                "leader": 40,
+                "trait": 48,
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620",
+                "0x75ccd0",
+                "0x2607890",
+                "0x18e580"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0xb3da70",
+                "0x12b330",
+                "0xc07b80",
+                "0x25a00d8"
+            ]
         },
         "CUpdateLeaderSeenTraitsCountCommand": {
             "execute": 26065792,
@@ -10857,9 +18210,50 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x38', '0x48', '0x50', '0x30', '0x40', '0x20', '0x10', '0x18', '0x1d8', '0x58', '0xe8', '0x28', '0x78', '0x1f8', '0x70', '0x68']"
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
+            "fields": {
+                "leader": 40,
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x2607890",
+                "0xc08580",
+                "0xc50d50",
+                "0x1e25c0"
+            ]
         },
         "CAiDiscardForceConcentrationTargetCommand": {
             "name": "CAiDiscardForceConcentrationTargetCommand",
@@ -10879,7 +18273,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347008,
             "size": 56,
@@ -10894,8 +18288,20 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
+            },
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CAiOnFailedInvasionCommand": {
             "name": "CAiOnFailedInvasionCommand",
@@ -10912,9 +18318,12 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
-                "arg7": 80
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=4; offs ['0x60', '0x28', '0x20']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347024,
             "size": 48,
@@ -10927,8 +18336,25 @@ LAND_EXE_PROOFS = {
                 "base_or_vobj": 24,
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CAiStoreForceConcentrationTargetCommand": {
             "name": "CAiStoreForceConcentrationTargetCommand",
@@ -10948,7 +18374,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347040,
             "size": 64,
@@ -10963,8 +18389,20 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
+            },
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CAiStoreTotalWantedNrDivisionsCommand": {
             "name": "CAiStoreTotalWantedNrDivisionsCommand",
@@ -10984,7 +18422,7 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=3; offs ['0x40', '0x28', '0x20']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347056,
             "size": 56,
@@ -10999,8 +18437,20 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
-            }
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
+            },
+            "execute_calls": [
+                "0xc07b80",
+                "0x716bc0",
+                "0x254aa00"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CClearRepairPinsCommand": {
             "name": "CClearRepairPinsCommand",
@@ -11014,16 +18464,46 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x18', '0x10', '0x12', '0xb8', '0xa0', '0x30', '0x38', '0x40']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x18', '0x28', '0xb8', '0xa0', '0x30', '0x38', '0x40']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18786592,
             "size": 48,
             "factory_idx": 1296,
             "clone": 18698432,
             "serialize": 18857600,
-            "deserialize": 18836000
+            "deserialize": 18836000,
+            "fields": {
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0xed7020",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CCreateAreaDefenseCommand": {
             "name": "CCreateAreaDefenseCommand",
@@ -11043,7 +18523,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=7 isv_calls=3; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069520,
             "size": 80,
@@ -11061,7 +18541,21 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc416b0",
+                "0xc40490",
+                "0x10b0fd0",
+                "0x10cd440",
+                "0x10cd410",
+                "0xfcecf0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc47980"
+            ]
         },
         "CCreateUnitLeaderCommand": {
             "name": "CCreateUnitLeaderCommand",
@@ -11080,14 +18574,42 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_lo": 40
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x2c']",
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=2; offs ['0x20', '0x2c', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18786640,
             "size": 48,
             "factory_idx": 4107,
             "clone": 18699056,
             "serialize": 13956944,
-            "deserialize": 18837120
+            "deserialize": 18837120,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "ctx_or_flag": 32,
+                "subject_hi": 44,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x7394e0",
+                "0x2574a60",
+                "0x717940",
+                "0x72e690",
+                "0x14ecaf0",
+                "0xc7af50",
+                "0x14ecb70",
+                "0xc7bd90",
+                "0x14ecbb0",
+                "0xc7c890",
+                "0x14ecb30"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x7251b0"
+            ]
         },
         "CDeleteUnitCommand": {
             "name": "CDeleteUnitCommand",
@@ -11117,14 +18639,57 @@ LAND_EXE_PROOFS = {
                 "arg8": 88,
                 "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x28', '0x30', '0x40', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=9; offs ['0x48', '0x1dc', '0x50', '0x40', '0x28', '0x20', '0x58', '0x30', '0x38', '0xb8']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964096,
             "size": 56,
             "factory_idx": 3448,
             "clone": 20942736,
             "serialize": 20988480,
-            "deserialize": 20983600
+            "deserialize": 20983600,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x254aa00",
+                "0x25a0390",
+                "0x1ecbe0",
+                "0xc07620",
+                "0x2b7610",
+                "0x733ba0",
+                "0x14a470",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2284800",
+                "0xc08100",
+                "0x25a009c",
+                "0x12b330",
+                "0x25a00d8"
+            ]
         },
         "CEditAreaDefenseStateCommand": {
             "name": "CEditAreaDefenseStateCommand",
@@ -11155,7 +18720,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=14 isv_calls=3; offs ['0x10', '0x18', '0x30', '0x50', '0x38', '0x44', '0xec', '0xe0', '0x3c', '0x40']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069552,
             "size": 88,
@@ -11184,7 +18749,26 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x10cd440",
+                "0x10b0110",
+                "0x10cb7c0",
+                "0x254aa00",
+                "0xbbb1e0",
+                "0x18d58f0",
+                "0xc416b0",
+                "0xc40490",
+                "0x10cd410",
+                "0x10af2e0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CMergeArmiesCommand": {
             "name": "CMergeArmiesCommand",
@@ -11215,14 +18799,55 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg6_or_plan": 72
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=5 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x50', '0x28', '0x40', '0x3c', '0x90', '0x34', '0x30']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964144,
             "size": 72,
             "factory_idx": 5344,
             "clone": 20943280,
             "serialize": 20989008,
-            "deserialize": 20984816
+            "deserialize": 20984816,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x11f6f0",
+                "0x2607890",
+                "0x13f9f40",
+                "0x13f8740"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0xcdb440",
+                "0xc55940",
+                "0x1b8180",
+                "0x11f240"
+            ]
         },
         "CPromoteUnitLeaderCommand": {
             "name": "CPromoteUnitLeaderCommand",
@@ -11236,16 +18861,54 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x28', '0x18', '0x16', '0x48', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x68', '0xd0']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=4; offs ['0x28', '0x38', '0x60', '0x58', '0x30', '0x120', '0xb8', '0x50', '0x20', '0x10']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964208,
             "size": 48,
             "factory_idx": 4306,
             "clone": 20944096,
             "serialize": 20989600,
-            "deserialize": 20985712
+            "deserialize": 20985712,
+            "fields": {
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc6c300",
+                "0xc07620",
+                "0x75ccd0",
+                "0xc76270",
+                "0x2556a60",
+                "0x254aa00",
+                "0x19d980",
+                "0xbbe510"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CQueueUnitActionCommand": {
             "name": "CQueueUnitActionCommand",
@@ -11262,16 +18925,48 @@ LAND_EXE_PROOFS = {
                 "owner_or_ctx": 24,
                 "vptr_or_hdr": 16,
                 "arg6_or_plan": 72,
-                "arg4_or_child": 64
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x18']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=3; offs ['0x18', '0x30', '0xb0', '0x40', '0x28', '0x34', '0x58', '0x1d8', '0x50', '0x20']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964224,
             "size": 56,
             "factory_idx": 4894,
             "clone": 20944224,
             "serialize": 20989664,
-            "deserialize": 20985824
+            "deserialize": 20985824,
+            "fields": {
+                "arg0": 48,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc58510",
+                "0xceb6d0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x23c3a0",
+                "0x14a470",
+                "0xb9d3d0"
+            ],
+            "isvalid_calls": [
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240"
+            ]
         },
         "CReorderPinnedStrategicRegionCommand": {
             "name": "CReorderPinnedStrategicRegionCommand",
@@ -11298,14 +18993,42 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x30', '0x18', '0x14', '0x10']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447136,
             "size": 56,
             "factory_idx": 5994,
             "clone": 32445744,
             "serialize": 32447648,
-            "deserialize": 32447504
+            "deserialize": 32447504,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e0310",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CSelectionGroupCommand": {
             "name": "CSelectionGroupCommand",
@@ -11320,16 +19043,55 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x20', '0x58', '0x48', '0x30', '0x40', '0x2c', '0x50', '0x10', '0x18', '0x70', '0x78', '0x80']",
+            "notes": "Phase 2cc callgraph; exe_calls=8 isv_calls=5; offs ['0x10', '0x18', '0x70', '0x28', '0x20', '0x58', '0x48', '0x30', '0x78', '0x80']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18787184,
             "size": 80,
             "factory_idx": 1285,
             "clone": 18705040,
             "serialize": 18861808,
-            "deserialize": 18846272
+            "deserialize": 18846272,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_hi": 44
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e02c0",
+                "0x1e2ac0",
+                "0xc08580",
+                "0x22aea40",
+                "0xb933b0",
+                "0x25a00d8"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc47a80",
+                "0x2284800",
+                "0xc675d0"
+            ]
         },
         "CSetAreaDefenseSettingCommand": {
             "name": "CSetAreaDefenseSettingCommand",
@@ -11352,7 +19114,7 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30']",
+            "notes": "Phase 2cc callgraph; exe_calls=23 isv_calls=3; offs ['0x30', '0x34', '0x36', '0x20', '0x28', '0x19c', '0x120', '0x98', '0xa0', '0x90']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26070160,
             "size": 56,
@@ -11373,7 +19135,26 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "arg3_or_cap": 60,
                 "subject_hi": 44
-            }
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc40230",
+                "0x13f83b0",
+                "0x14027c0",
+                "0x13fe2a0",
+                "0xc47980",
+                "0xc4b3f0",
+                "0xc07620",
+                "0xc6ad00",
+                "0x2574a60",
+                "0x717940",
+                "0x716fc0"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc40230"
+            ]
         },
         "CSetPendingReassignTargetCommand": {
             "name": "CSetPendingReassignTargetCommand",
@@ -11393,16 +19174,42 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "arg8": 88,
                 "arg0_or_type": 48,
-                "arg2_or_vec_end": 56
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x10']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=3; offs ['0x10', '0x30', '0x38', '0x1d8', '0x174', '0x168', '0x34']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964320,
             "size": 64,
             "factory_idx": 1307,
             "clone": 20945328,
             "serialize": 20990368,
-            "deserialize": 20986704
+            "deserialize": 20986704,
+            "fields": {
+                "arg0": 48,
+                "arg2": 56,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc7d1c0",
+                "0xc4bbc0",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0xc47a80",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetPreferredTacticCommand": {
             "name": "CSetPreferredTacticCommand",
@@ -11416,16 +19223,51 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x28', '0x50', '0x38', '0x1f0', '0x10', '0x18', '0x20', '0x58', '0xb8', '0x60']",
+            "notes": "Phase 2cc callgraph; exe_calls=11 isv_calls=3; offs ['0x10', '0x18', '0x28', '0x30', '0x50', '0x20', '0x58', '0xb8', '0x60']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18787376,
             "size": 56,
             "factory_idx": 10911,
             "clone": 18707088,
             "serialize": 18863184,
-            "deserialize": 18848384
+            "deserialize": 18848384,
+            "fields": {
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0xd26790",
+                "0x239fb0",
+                "0x2607790",
+                "0x254aa00",
+                "0x25a0390",
+                "0x203a50",
+                "0x73ee00",
+                "0x75ccd0",
+                "0xc08580",
+                "0x23c3a0"
+            ],
+            "isvalid_calls": [
+                "0xc07b80",
+                "0x73ee00",
+                "0x707bc0"
+            ]
         },
         "CSetTheatreCommand": {
             "name": "CSetTheatreCommand",
@@ -11438,16 +19280,39 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg1_or_count": 52,
                 "arg2": 56,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x48', '0x50', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x10', '0x1d8', '0x174', '0x168', '0x34', '0x30', '0x38']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964352,
             "size": 56,
             "factory_idx": 3045,
             "clone": 20945632,
             "serialize": 20990544,
-            "deserialize": 20987072
+            "deserialize": 20987072,
+            "fields": {
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg2": 56,
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc07620"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CSetUnitNameCommand": {
             "name": "CSetUnitNameCommand",
@@ -11463,16 +19328,51 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x18', '0x28', '0x20', '0x50', '0x10', '0x2c', '0x1dc', '0x19', '0x48', '0x30', '0x140', '0x34', '0x58', '0x60', '0x40', '0x54']",
+            "notes": "Phase 2cc callgraph; exe_calls=3 isv_calls=5; offs ['0x30', '0x140', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964368,
             "size": 80,
             "factory_idx": 4235,
             "clone": 20945776,
             "serialize": 20990624,
-            "deserialize": 20987216
+            "deserialize": 20987216,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg1_or_count": 52,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xf000d0",
+                "0x19c95d0"
+            ],
+            "isvalid_calls": [
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CTogglePinnedStrategicRegionCommand": {
             "name": "CTogglePinnedStrategicRegionCommand",
@@ -11499,14 +19399,42 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "arg7": 80
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x40', '0x28', '0x20', '0x58', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x18', '0x20', '0x40', '0x28', '0x58', '0x2c', '0x14', '0x10', '0x48', '0x50']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447152,
             "size": 48,
             "factory_idx": 4725,
             "clone": 32445888,
             "serialize": 32447728,
-            "deserialize": 32447584
+            "deserialize": 32447584,
+            "fields": {
+                "subject_or_handle": 40,
+                "subject_hi_or_id": 44,
+                "arg0": 48,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "arg7": 80
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0x1e0310",
+                "0x2607890"
+            ],
+            "isvalid_calls": [
+                "0x254aa00",
+                "0x25a0390"
+            ]
         },
         "CTransportUnitCommand": {
             "name": "CTransportUnitCommand",
@@ -11524,14 +19452,32 @@ LAND_EXE_PROOFS = {
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x48']",
+            "notes": "Phase 2cc callgraph; exe_calls=2 isv_calls=3; offs ['0x28', '0x48']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964432,
             "size": 88,
             "factory_idx": 4533,
             "clone": 20946448,
             "serialize": 20990816,
-            "deserialize": 20987536
+            "deserialize": 20987536,
+            "fields": {
+                "subject_or_handle": 40,
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xc51500"
+            ],
+            "isvalid_calls": [
+                "0x57f7b0",
+                "0x1e1510",
+                "0x2607890"
+            ]
         },
         "CUpdateLeaderSeenAdvisorRolesCountCommand": {
             "name": "CUpdateLeaderSeenAdvisorRolesCountCommand",
@@ -11546,16 +19492,56 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x38', '0x48', '0x50', '0x30', '0x40', '0x20', '0x10', '0x18', '0x1d8', '0x58', '0xe8', '0x28', '0x78', '0x1f8', '0x70', '0x68']",
+            "notes": "Phase 2cc callgraph; exe_calls=9 isv_calls=5; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50', '0x1f8']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26070352,
             "size": 56,
             "factory_idx": 10926,
             "clone": 26015120,
             "serialize": 26121872,
-            "deserialize": 26097488
+            "deserialize": 26097488,
+            "fields": {
+                "subject_or_handle": 40,
+                "arg0": 48,
+                "arg2": 56,
+                "arg3": 64,
+                "base_or_vobj": 24,
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x25694b0",
+                "0x254aa00",
+                "0x2607f30",
+                "0x12e040",
+                "0x10b5f10",
+                "0x2607890",
+                "0x2607790",
+                "0x18dbbc0"
+            ],
+            "isvalid_calls": [
+                "0x11ecb20",
+                "0x2607890",
+                "0xc08580",
+                "0xc50d50",
+                "0x1e25c0"
+            ]
         },
         "CRequestExpeditionariesCommand": {
             "name": "CRequestExpeditionariesCommand",
@@ -11585,7 +19571,42 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6341,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x58', '0x3c', '0x30', '0x38', '0x40']"
+            "notes": "Phase 2cc callgraph; exe_calls=19 isv_calls=6; offs ['0x1a0', '0x100', '0x28', '0x20', '0x58', '0x110', '0x18', '0x108', '0x48', '0x78']",
+            "fields": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg7": 80
+            },
+            "execute_calls": [
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0x2284800",
+                "0x11d2a10",
+                "0x22aea40",
+                "0x254f8e0",
+                "0x12b330",
+                "0x25a00d8",
+                "0x33fd50",
+                "0x25a009c",
+                "0x11f770"
+            ],
+            "isvalid_calls": [
+                "0xbbb1e0",
+                "0x2284800",
+                "0xc07b80",
+                "0xc08580",
+                "0x716bc0",
+                "0x2c2100"
+            ]
         },
         "CGiveMedalCommand": {
             "name": "CGiveMedalCommand",
@@ -11616,7 +19637,47 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6871,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x34', '0x20', '0x38', '0x50', '0x44', '0x58', '0x60']"
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=10; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x44', '0x38', '0x40', '0x50', '0x58']",
+            "fields": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg5": 68,
+                "arg8": 88,
+                "arg4_or_child": 64
+            },
+            "execute_calls": [
+                "0x74ad20",
+                "0x2284800",
+                "0x14e2d60",
+                "0x47aff0",
+                "0x14e2ff0",
+                "0x254aa00",
+                "0x25a0390",
+                "0xc08580",
+                "0xcdb440",
+                "0x226020",
+                "0x74ae40",
+                "0x14e3530"
+            ],
+            "isvalid_calls": [
+                "0x74ad20",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x1b7950",
+                "0xc07b80",
+                "0xc873a0",
+                "0x717370",
+                "0x14e3900",
+                "0x14e2d60"
+            ]
         },
         "CTriggerAbilityCommand": {
             "name": "CTriggerAbilityCommand",
@@ -11645,7 +19706,47 @@ LAND_EXE_PROOFS = {
             "factory_idx": 5513,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x30', '0x18', '0x20', '0x50', '0x5c', '0x28', '0x68', '0x70']"
+            "notes": "Phase 2cc callgraph; exe_calls=16 isv_calls=21; offs ['0x18', '0x30', '0x10', '0x90', '0x28', '0x5c', '0xb0', '0x180', '0x20', '0x68']",
+            "fields": {
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x246ed0",
+                "0x65ad20",
+                "0x57be70",
+                "0x581900",
+                "0x254aa00",
+                "0x5829b0",
+                "0xc07b80",
+                "0x747d00",
+                "0xc07620",
+                "0x7278f0",
+                "0x725460",
+                "0x732040"
+            ],
+            "isvalid_calls": [
+                "0x246ed0",
+                "0x65ad20",
+                "0x1e1510",
+                "0x2607890",
+                "0x11f240",
+                "0x2348bf0",
+                "0x2284800",
+                "0x25c3770",
+                "0x57be70",
+                "0x581900",
+                "0x254aa00",
+                "0x5829b0"
+            ]
         },
         "CRetireCharacterCommand": {
             "name": "CRetireCharacterCommand",
@@ -11672,7 +19773,40 @@ LAND_EXE_PROOFS = {
             "factory_idx": 10624,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28']"
+            "notes": "Phase 2cc callgraph; exe_calls=13 isv_calls=7; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0xa0', '0xb8', '0x38', '0x40', '0x48']",
+            "fields": {
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0xabc220",
+                "0xc07620",
+                "0x716d30",
+                "0x11751f0",
+                "0x7228c0",
+                "0x724c00",
+                "0x746fe0",
+                "0x716fc0",
+                "0xda8130",
+                "0xeddbb0",
+                "0xc08580"
+            ],
+            "isvalid_calls": [
+                "0x4b4fd0",
+                "0x2284800",
+                "0x1029570",
+                "0xabc220",
+                "0xc07b80",
+                "0x734ad0",
+                "0x11721d0"
+            ]
         },
         "CReinstateExileCommand": {
             "name": "CReinstateExileCommand",
@@ -11686,7 +19820,12 @@ LAND_EXE_PROOFS = {
                 "arg0_or_type": 48,
                 "vptr_or_hdr": 16,
                 "owner_or_ctx": 24,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg6_or_plan": 72
             },
             "clone": 18702080,
             "serialize": 18860304,
@@ -11696,7 +19835,45 @@ LAND_EXE_PROOFS = {
             "factory_idx": 6317,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28', '0x30']"
+            "notes": "Phase 2cc callgraph; exe_calls=32 isv_calls=10; offs ['0x28', '0x1f0', '0x30', '0x10', '0x18', '0x20', '0x31', '0xf0', '0x58', '0x38']",
+            "fields": {
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg1_or_count": 52,
+                "arg6_or_plan": 72
+            },
+            "execute_calls": [
+                "0xc07620",
+                "0x716fc0",
+                "0xda93c0",
+                "0xd26790",
+                "0xd31d60",
+                "0xf6c770",
+                "0xf7e150",
+                "0x25a009c",
+                "0xd79810",
+                "0x254aa00",
+                "0x25a0390",
+                "0xd81b10"
+            ],
+            "isvalid_calls": [
+                "0xc08100",
+                "0x25a009c",
+                "0x12b330",
+                "0x2607890",
+                "0x11f240",
+                "0x25a00d8",
+                "0xc07b80",
+                "0x73aab0",
+                "0x1217a0",
+                "0x120530"
+            ]
         },
         "CAmendForeignManpowerActionCommand": {
             "name": "CAmendForeignManpowerActionCommand",
@@ -11725,7 +19902,29 @@ LAND_EXE_PROOFS = {
             "factory_idx": 10138,
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x48']"
+            "notes": "Phase 2cc callgraph; exe_calls=4 isv_calls=2; offs ['0x48', '0x2c', '0x34', '0x28']",
+            "fields": {
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg7": 80,
+                "arg8": 88,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "execute_calls": [
+                "0x2284800",
+                "0x1b3b2b0",
+                "0xc07b80",
+                "0x738e00"
+            ],
+            "isvalid_calls": [
+                "0x2607890",
+                "0x11f240"
+            ]
         }
     }
 }

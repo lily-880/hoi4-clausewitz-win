@@ -431,3 +431,17 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2cc (overnight RO — IsValid/Execute callgraph deepen)
+
+### Works
+- Capstone **callgraph deepen on all 121** land focus cmds (frontline/attack/retreat/move/strategic/theater/order-group/cancel): `execute_calls` / `isvalid_calls` RVAs + field merge.
+- Catalogued **40** shared helpers with ≥3 hits (top: `0x2284800`×185, `0x254aa00`×74, `0x2607890`×65) for future Post-gate IsValid path analysis.
+- **LAND 121/121**, **ISVALID_PATHS 134** unchanged counts; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed
+- midflight_CMoveCommand; ring embed; tool-gate enable; ALLOW_POST; navy/air/division-template/production/GameSpeed.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x.
