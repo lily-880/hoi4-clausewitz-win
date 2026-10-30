@@ -400,3 +400,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2ca (overnight RO — offensive-line/frontline Execute Capstone field naming)
+
+### Works
+- Capstone field naming deepen on **50** offensive-line / frontline / attack / order-group Execute paths (subject_lo/hi, arg0_or_type, arg1_or_count, shared offs).
+- **LAND_EXE_PROOFS / LAND_ARMY_FOCUS** still **115/115**; **ISVALID_PATHS** **128** — no new RTTI (prior 2bz filled remaining land-army set).
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed
+- midflight_CMoveCommand; ring embed; tool-gate enable; ALLOW_POST; navy/air/division-template/production.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x.
