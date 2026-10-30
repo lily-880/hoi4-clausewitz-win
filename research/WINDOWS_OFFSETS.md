@@ -1200,3 +1200,22 @@ Posting remains **DISABLED**. Speed rule: pause or 1x only; never 5x.
 | `+0x20` | `+0x48` | enum_i32 | `0x37bc` | move_priority (skip if ==1) |
 
 Contrast vs `CUnitMoveAction`: army handle instead of unit; single province; no path vector; no safe/avoid/sticky bools; much smaller.
+
+## Phase 2ar — Order* command sizes + serialize fields (RO)
+
+Posting **DISABLED**. Sizes from Clone `mov ecx,imm`.
+
+| Command | VT | type_id | size | serialize |
+|---------|-----|---------|------|-----------|
+| COrderExecuteCommand | `0x2a85468` | `0x3040` | `0x38` | `0x18e87c0` |
+| COrderAssignCommand | `0x2a84498` | `0x303e` | `0x50` | `0x18e80f0` |
+| COrderUnassignCommand | `0x2a84550` | `0x304d` | `0x50` | `0x18e91b0` |
+| COrderDeleteCommand | `0x2a843e0` | `0x303f` | `0x38` | `0x18e86e0` |
+| COrderNewFrontCommand | `0x2a84b10` | `0x3327` | `0x70` | `0x18e8af0` |
+| COrderNewRootCommand | `0x2a84df0` | `0x3328` | `0x70` | `0x18e8bf0` |
+| COrderNewFallbackCommand | `0x2a84c80` | `0x33d7` | `0x60` | `0x18e8a60` |
+| COrderGroupCommand | `0x2a83d68` | `0x2ecf` | `0x60` | `0x18e8830` |
+| CArmyGroupCommand | `0x2a83ed8` | `0x3861` | `0x80` | `0x18e7a50` |
+| CSetArmyLeaderCommand | `0x2a85520` | `0x3051` | `0x40` | `0x18e9390` |
+
+Key fields (live-checked tokens): Assign `order_index@+0x48`, units list; Execute `order_index@+0x30`, `execute_order@+0x34`, `all@+0x35`; NewFront path/units/blitz/withdraw; SetLeader `leader` + `deploy_army_hq`.

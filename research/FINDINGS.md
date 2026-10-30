@@ -79,3 +79,9 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - Action RTTI confirmed; serialize layout live-verified (army handle, single province, clear, move_priority).
 - Execute/serialize thunks shared with `CMoveCommand` — dispatch into embedded action.
 - **Posting still DISABLED**; safe-enable not proven.
+
+## Phase 2ar (Order* sizes + serialize)
+
+- Documented sizes for 10 Order*/ArmyGroup/SetLeader commands via Clone alloc immediates.
+- Field layouts for Assign/Execute/Unassign/Delete/NewFront/SetArmyLeader (token-backed).
+- **Posting still DISABLED**.

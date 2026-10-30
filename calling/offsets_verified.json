@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "DISABLED (FN known; writes gated) — Phase 2aq StrategicRedeploy serialize mapped",
+  "status": "DISABLED (FN known; writes gated) — Phase 2ar Order* sizes+serialize mapped",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -777,6 +777,72 @@
         "live_byte_checks": "all OK on PID live session"
       },
       "safe_enable": "NOT proven — posting DISABLED"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ar": {
+      "result": "0x22c41e0",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x",
+      "order_cmd_sizes": {
+        "COrderExecuteCommand": {
+          "vt": "0x2a85468",
+          "type_id": "0x3040",
+          "size": "0x38"
+        },
+        "COrderAssignCommand": {
+          "vt": "0x2a84498",
+          "type_id": "0x303e",
+          "size": "0x50"
+        },
+        "COrderUnassignCommand": {
+          "vt": "0x2a84550",
+          "type_id": "0x304d",
+          "size": "0x50"
+        },
+        "COrderDeleteCommand": {
+          "vt": "0x2a843e0",
+          "type_id": "0x303f",
+          "size": "0x38"
+        },
+        "COrderNewFrontCommand": {
+          "vt": "0x2a84b10",
+          "type_id": "0x3327",
+          "size": "0x70"
+        },
+        "COrderNewRootCommand": {
+          "vt": "0x2a84df0",
+          "type_id": "0x3328",
+          "size": "0x70"
+        },
+        "COrderNewFallbackCommand": {
+          "vt": "0x2a84c80",
+          "type_id": "0x33d7",
+          "size": "0x60"
+        },
+        "COrderGroupCommand": {
+          "vt": "0x2a83d68",
+          "type_id": "0x2ecf",
+          "size": "0x60"
+        },
+        "CArmyGroupCommand": {
+          "vt": "0x2a83ed8",
+          "type_id": "0x3861",
+          "size": "0x80"
+        },
+        "CSetArmyLeaderCommand": {
+          "vt": "0x2a85520",
+          "type_id": "0x3051",
+          "size": "0x40"
+        }
+      },
+      "field_layouts_documented": [
+        "Assign",
+        "Execute",
+        "Unassign",
+        "Delete",
+        "NewFront",
+        "SetArmyLeader"
+      ],
+      "safe_enable": "NOT proven — posting DISABLED"
     }
   },
   "FN_CMD_QUEUE_POST": "0x22c41e0",
@@ -821,5 +887,11 @@
   "CUnitStrategicMoveAction_PROVINCE": 24,
   "CUnitStrategicMoveAction_CLEAR": 28,
   "CUnitStrategicMoveAction_MOVE_PRIORITY": 32,
-  "CStrategicRedeploymentCommand_ACTION_EMBED": 40
+  "CStrategicRedeploymentCommand_ACTION_EMBED": 40,
+  "COrderAssignCommand_SIZE": 80,
+  "COrderExecuteCommand_SIZE": 56,
+  "COrderNewFrontCommand_SIZE": 112,
+  "COrderUnassignCommand_SIZE": 80,
+  "COrderDeleteCommand_SIZE": 56,
+  "CSetArmyLeaderCommand_SIZE": 64
 }

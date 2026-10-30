@@ -32,6 +32,7 @@ python clausewitz_win.py status
 
 ## What works
 
+- Phase 2ar: Order* sizes + serialize field layouts (Assign/Execute/NewFront/…); writes DISABLED
 - Phase 2aq: StrategicRedeploy serialize (army/province/clear/priority); posting DISABLED now (Phase 2ap)
 
 - **FN_CMD_QUEUE_POST** RVA `0x22c41e0` mapped (CSession post/drop gate) — **writes still DISABLED**
