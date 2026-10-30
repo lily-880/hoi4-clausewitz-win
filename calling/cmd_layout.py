@@ -264,20 +264,98 @@ PIPELINE = {
 
 FACTORY_TABLE = {
     "rva": 0x35011E0,
-    "lookup": 0x22D8D20,
+    "lookup": 0x22D8D20,  # if tid>=0x2710: idx=tid-0x2328; else idx=tid; jmp qword [table+idx*8]
     "recreate": 0x22D8AD0,
-    "index_bias_sub_if_ge": 0x2710,
-    "index_bias": 9000,
-    "max_index": 10999,
-    "note": "Dummy Post serialize→recreate uses this table; hand-built cmds must round-trip",
+    "index_bias_sub_if_ge": 0x2710,  # 10000
+    "index_bias": 0x2328,  # 9000; lea eax,[rcx-0x2328]; cmovge
+    "max_index": 0x2AF7,  # 10999
+    "non_null_live": 456,  # phase2bo RO count
+    "note": (
+        "Dummy Post serialize→recreate uses this table; hand-built cmds must round-trip. "
+        "Dual encoding: for idx<0x2710 both tid=idx and tid=idx+0x2328 hit same slot; "
+        "catalog type_ids prefer the biased form when GetTypeId/imm uses it (e.g. Move 0x28a2)."
+    ),
+}
+
+# vt+0x48 IsValid paths (wrap 0x22d8ea0 → call [vt+0x48]); RO docs only
+ISVALID_PATHS = {
+    "wrap": 0x22D8EA0,  # save/restore guard then call [rcx.vt+0x48]
+    "session_auth_skip_off": 0x3C,  # live SP session+0x3c==1 (auth-skip hyp; not a Post enable)
+    "CMoveCommand": {
+        "vt_off": 0x48,
+        "rva": 0x14002F0,  # thunk: rcx+=0x28; jmp [action.vt+0x50]
+        "action_isvalid": 0x12C2CA0,
+        "kind": "FN",
+        "notes": "Requires valid CUnitMoveAction embed@+0x28; unit handle + province/path vectors",
+    },
+    "CStrategicRedeploymentCommand": {
+        "rva": 0x1402260,
+        "kind": "FN",
+        "notes": "Army handle@+0x10 + dest province@+0x18",
+    },
+    "CCancelMovementCommand": {
+        "rva": 0x13FED40,
+        "kind": "FN",
+        "notes": "Walks units vector@+0x28 count@+0x34; empty → fail",
+    },
+    "COrderExecuteCommand": {
+        "rva": 0x18DEF40,
+        "kind": "FN",
+        "notes": "Subject@+0x28 non-zero pair; order object resolve",
+    },
+    "CPauseGame": {
+        "rva": 0x188D90,  # mov al,1; ret
+        "kind": "TRUE",
+        "notes": "Always-valid — NEVER_POST; pause/unpause is speed-adjacent",
+    },
+}
+
+# Remaining army/order-adjacent subtypes (RTTI+factory RO stubs; not full serialize proof)
+# type_id = preferred biased form when dual-encoded
+REMAINING_ARMY_ORDERS = {
+    "CMassMoveCommand": {"type_id": 0x341F, "factory": 0x13FAEC0, "vt": 0x2A2C848, "factory_idx": 4343},
+    "CMassCancelMovementCommand": {"type_id": 0x3630, "factory": 0x11D8FD0, "vt": 0x2A0FC40, "factory_idx": 4872},
+    "CToggleStrategicDeploymentCommand": {"type_id": 0x3CE0, "factory": 0x13FB640, "vt": 0x2A2CA70, "factory_idx": 6584},
+    "COrderSetPathCommand": {"type_id": 0x3039, "factory": 0x18D08E0, "vt": 0x2A84778, "factory_idx": 3345},
+    "CDeleteOrderGroupCommand": {"type_id": 0x304E, "factory": 0x18CF9E0, "vt": 0x2A83E20, "factory_idx": 3366},
+    "COrderDeleteAllCommand": {"type_id": 0x33F1, "factory": 0x18CFED0, "vt": 0x2A84270, "factory_idx": 4297},
+    "COrderInsertFrontCommand": {"type_id": 0x3398, "factory": 0x18D0150, "vt": 0x2A84A58, "factory_idx": 4208},
+    "COrderReshapeCommand": {"type_id": 0x339E, "factory": 0x18D06C0, "vt": 0x2A84830, "factory_idx": 4214},
+    "COrderConnectCommand": {"type_id": 0x33B1, "factory": 0x18CFE00, "vt": 0x2A849A0, "factory_idx": 4233},
+    "COrderReconnectCommand": {"type_id": 0x33B0, "factory": 0x18D0470, "vt": 0x2A848E8, "factory_idx": 4232},
+    "CAutoMergeOrdersCommand": {"type_id": 0x3552, "factory": 0x18CF910, "vt": 0x2A84BC8, "factory_idx": 4650},
+    "CAssignToArmyGroupCommand": {"type_id": 0x3886, "factory": 0x18CF8A0, "vt": 0x2A83F90, "factory_idx": 5470},
+    "CRemoveFromArmyGroupCommand": {"type_id": 0x3887, "factory": 0x18D0A80, "vt": 0x2A84048, "factory_idx": 5471},
+    "CDeployArmyHqCommand": {"type_id": 0x282B, "factory": 0x13FAE60, "vt": 0x2A2CEC0, "factory_idx": 1283},
+    "CWithdrawArmyHqCommand": {"type_id": 0x2833, "factory": 0x13FB710, "vt": 0x2A2CF78, "factory_idx": 1291},
 }
 
 NEVER_POST = {
-    "CIncreaseGameSpeedCommand": {"vt": 0x29F37C8, "execute": 0xF85930, "reason": "speed/5x ban"},
-    "CDecreaseGameSpeedCommand": {"vt": 0x29F3880, "execute": 0xF853F0, "reason": "speed/5x ban"},
-    "CSetGameSpeedCommand": {"vt": 0x29F3938, "execute": 0xF85B50, "reason": "speed/5x ban"},
-    "CHourlyTickCommand": {"vt": 0x29F3710, "execute": 0xF85630, "reason": "hourly/speed ban"},
-    "CSendPingCommand": {"vt": 0x29E6C80, "execute": 0xE56830, "reason": "not army; leave alone"},
+    "CIncreaseGameSpeedCommand": {
+        "vt": 0x29F37C8, "execute": 0xF85930, "type_id": 0x28D7, "factory": 0xF84830,
+        "reason": "speed/5x ban",
+    },
+    "CDecreaseGameSpeedCommand": {
+        "vt": 0x29F3880, "execute": 0xF853F0, "type_id": 0x28D8, "factory": 0xF84780,
+        "reason": "speed/5x ban",
+    },
+    "CSetGameSpeedCommand": {
+        "vt": 0x29F3938, "execute": 0xF85B50, "type_id": 0x2F42, "factory": 0xF84880,
+        "reason": "speed/5x ban",
+    },
+    "CHourlyTickCommand": {
+        "vt": 0x29F3710, "execute": 0xF85630, "type_id": 0x2F3C, "factory": 0xF847E0,
+        "reason": "hourly/speed ban",
+    },
+    "CSendPingCommand": {
+        "vt": 0x29E6C80, "execute": 0xE56830, "type_id": 0x380E, "factory": 0xE53C00,
+        "reason": "not army; leave alone",
+    },
+    "CPauseGame": {
+        "vt": 0x29E6D38, "execute": 0xE54FF0, "type_id": 0x29EC, "factory": 0xE53990,
+        "size": 0x50, "isvalid": 0x188D90, "isvalid_kind": "TRUE",
+        "reason": "pause/unpause — speed-adjacent; IsValid always TRUE",
+    },
 }
 
 DRAIN_EDGES = {
@@ -298,8 +376,20 @@ def summarize() -> dict:
         "pipeline": PIPELINE,
         "post_gates": POST_GATES,
         "factory_table": FACTORY_TABLE,
+        "isvalid_paths": ISVALID_PATHS,
         "drain_edges": DRAIN_EDGES,
-        "never_post": {k: {"vt": hex(v["vt"]), "reason": v["reason"]} for k, v in NEVER_POST.items()},
+        "never_post": {
+            k: {
+                "vt": hex(v["vt"]),
+                "type_id": hex(v["type_id"]) if "type_id" in v else None,
+                "reason": v["reason"],
+            }
+            for k, v in NEVER_POST.items()
+        },
+        "remaining_army_orders": {
+            k: {"vt": hex(v["vt"]), "type_id": hex(v["type_id"]), "factory": hex(v["factory"])}
+            for k, v in REMAINING_ARMY_ORDERS.items()
+        },
         "base": BASE,
         "move": MOVE,
         "strategic": STRATEGIC,

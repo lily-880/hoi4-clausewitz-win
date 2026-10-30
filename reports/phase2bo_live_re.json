@@ -1,0 +1,544 @@
+{
+  "phase": "2bo",
+  "posting": "DISABLED",
+  "allow_post": false,
+  "speed_rule": "pause or 1x only; never 5x",
+  "pid": 2880,
+  "base": "0x7ff744660000",
+  "ts": "2026-10-31T05:33:47+0800",
+  "session": {
+    "ptr": "0x1ef8f7b2b70",
+    "tick": 1,
+    "flag_725": 1,
+    "flag_6cc": 0,
+    "flag_726": 0,
+    "auth_3c": 1
+  },
+  "factory": {
+    "table": "0x35011e0",
+    "lookup": "0x22d8d20",
+    "bias": "0x2328",
+    "thresh": "0x2710",
+    "max_index": 10999,
+    "non_null": 456,
+    "catalog_ok": 36,
+    "catalog_fail": [],
+    "ok_names": [
+      "MOVE",
+      "STRATEGIC",
+      "CANCEL",
+      "STARTGAME",
+      "CHAT",
+      "COrderExecuteCommand",
+      "COrderAssignCommand",
+      "COrderUnassignCommand",
+      "COrderDeleteCommand",
+      "COrderNewFrontCommand",
+      "COrderNewRootCommand",
+      "COrderNewFallbackCommand",
+      "COrderGroupCommand",
+      "CArmyGroupCommand",
+      "CSetArmyLeaderCommand",
+      "CIncreaseGameSpeedCommand",
+      "CDecreaseGameSpeedCommand",
+      "CSetGameSpeedCommand",
+      "CHourlyTickCommand",
+      "CSendPingCommand",
+      "CPauseGame",
+      "CMassMoveCommand",
+      "CMassCancelMovementCommand",
+      "CToggleStrategicDeploymentCommand",
+      "COrderSetPathCommand",
+      "CDeleteOrderGroupCommand",
+      "COrderDeleteAllCommand",
+      "COrderInsertFrontCommand",
+      "COrderReshapeCommand",
+      "COrderConnectCommand",
+      "COrderReconnectCommand",
+      "CAutoMergeOrdersCommand",
+      "CAssignToArmyGroupCommand",
+      "CRemoveFromArmyGroupCommand",
+      "CDeployArmyHqCommand",
+      "CWithdrawArmyHqCommand"
+    ]
+  },
+  "isvalid": {
+    "CMoveCommand": {
+      "catalog_rva": "0x14002f0",
+      "live_vt48": "0x14002f0",
+      "match": true,
+      "kind": "FN"
+    },
+    "CStrategicRedeploymentCommand": {
+      "catalog_rva": "0x1402260",
+      "live_vt48": "0x1402260",
+      "match": true,
+      "kind": "FN"
+    },
+    "CCancelMovementCommand": {
+      "catalog_rva": "0x13fed40",
+      "live_vt48": "0x13fed40",
+      "match": true,
+      "kind": "FN"
+    },
+    "COrderExecuteCommand": {
+      "live_vt48": "0x18def40",
+      "kind": "FN",
+      "execute": "0x18d6430",
+      "execute_match": true
+    },
+    "COrderAssignCommand": {
+      "live_vt48": "0x18de900",
+      "kind": "FN",
+      "execute": "0x18d41b0",
+      "execute_match": true
+    },
+    "COrderUnassignCommand": {
+      "live_vt48": "0x18e01d0",
+      "kind": "FN",
+      "execute": "0x18db050",
+      "execute_match": true
+    },
+    "COrderDeleteCommand": {
+      "live_vt48": "0x18deee0",
+      "kind": "FN",
+      "execute": "0x18d5fe0",
+      "execute_match": true
+    },
+    "COrderNewFrontCommand": {
+      "live_vt48": "0x18df4e0",
+      "kind": "FN",
+      "execute": "0x18d9000",
+      "execute_match": true
+    },
+    "COrderNewRootCommand": {
+      "live_vt48": "0x18df570",
+      "kind": "FN",
+      "execute": "0x18d99c0",
+      "execute_match": true
+    },
+    "COrderNewFallbackCommand": {
+      "live_vt48": "0x18df4b0",
+      "kind": "FN",
+      "execute": "0x18d8fc0",
+      "execute_match": true
+    },
+    "COrderGroupCommand": {
+      "live_vt48": "0x18defe0",
+      "kind": "FN",
+      "execute": "0x18d64f0",
+      "execute_match": true
+    },
+    "CArmyGroupCommand": {
+      "live_vt48": "0x18ddf70",
+      "kind": "FN",
+      "execute": "0x18d25d0",
+      "execute_match": true
+    },
+    "CSetArmyLeaderCommand": {
+      "live_vt48": "0x18e04d0",
+      "kind": "FN",
+      "execute": "0x18db2c0",
+      "execute_match": true
+    },
+    "CPauseGame": {
+      "live_vt48": "0x188d90",
+      "kind": "TRUE",
+      "catalog": "0x188d90",
+      "match": true,
+      "never_post": true
+    },
+    "wrap": {
+      "rva": "0x22d8ea0",
+      "readable": true,
+      "session_auth_3c": 1
+    }
+  },
+  "army_recipes": {
+    "hai_armies": 22,
+    "samples": [
+      {
+        "army_index": 1037,
+        "handle": [
+          51,
+          1037
+        ],
+        "province_id": 3938,
+        "move": {
+          "unit_handle_off": 16,
+          "unit_handle": [
+            51,
+            1037
+          ],
+          "province_arr_off": 24,
+          "province_size_off": 36,
+          "path_arr_off": 48,
+          "path_size_off": 60,
+          "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+          "source_province_id": 3938,
+          "posting": "DISABLED"
+        },
+        "strategic": {
+          "army_handle_off": 16,
+          "army_handle": [
+            51,
+            1037
+          ],
+          "province_off": 24,
+          "province": 3938,
+          "clear_off": 28,
+          "move_priority_off": 32,
+          "posting": "DISABLED",
+          "clear": 0,
+          "move_priority": 0
+        },
+        "cancel_one": {
+          "units_data_off": 40,
+          "units_count_off": 52,
+          "sticky_off": 64,
+          "unit_handles": [
+            [
+              51,
+              1037
+            ]
+          ],
+          "count": 1,
+          "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+          "posting": "DISABLED"
+        },
+        "cancel_all_hai": {
+          "units_data_off": 40,
+          "units_count_off": 52,
+          "sticky_off": 64,
+          "unit_handles": [
+            [
+              51,
+              1037
+            ],
+            [
+              51,
+              1038
+            ],
+            [
+              51,
+              1039
+            ],
+            [
+              51,
+              1040
+            ],
+            [
+              51,
+              1041
+            ],
+            [
+              51,
+              1042
+            ],
+            [
+              51,
+              1043
+            ],
+            [
+              51,
+              1044
+            ],
+            [
+              51,
+              1045
+            ],
+            [
+              51,
+              1046
+            ],
+            [
+              51,
+              1047
+            ],
+            [
+              51,
+              1048
+            ],
+            [
+              51,
+              1049
+            ],
+            [
+              51,
+              1050
+            ],
+            [
+              51,
+              1051
+            ],
+            [
+              51,
+              1052
+            ],
+            [
+              51,
+              1053
+            ],
+            [
+              51,
+              1062
+            ],
+            [
+              51,
+              1065
+            ],
+            [
+              51,
+              1070
+            ],
+            [
+              51,
+              1080
+            ],
+            [
+              51,
+              1089
+            ]
+          ],
+          "count": 22,
+          "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+          "posting": "DISABLED"
+        }
+      }
+    ],
+    "isvalid_notes": {
+      "wrap": "0x22d8ea0",
+      "posting": "DISABLED",
+      "move": {
+        "vt_off": 72,
+        "rva": 20972272,
+        "action_isvalid": 19672224,
+        "kind": "FN",
+        "notes": "Requires valid CUnitMoveAction embed@+0x28; unit handle + province/path vectors"
+      },
+      "strategic": {
+        "rva": 20980320,
+        "kind": "FN",
+        "notes": "Army handle@+0x10 + dest province@+0x18"
+      },
+      "cancel": {
+        "rva": 20966720,
+        "kind": "FN",
+        "notes": "Walks units vector@+0x28 count@+0x34; empty \u2192 fail"
+      },
+      "order_execute": {
+        "rva": 26079040,
+        "kind": "FN",
+        "notes": "Subject@+0x28 non-zero pair; order object resolve"
+      },
+      "note": "IsValid wrap 0x22d8ea0; midflight Move still required before any enable"
+    }
+  },
+  "remaining_army_orders": {
+    "CMassMoveCommand": {
+      "type_id": "0x341f",
+      "factory": "0x13faec0",
+      "vt": "0x2a2c848",
+      "factory_match": true,
+      "isvalid": "0x13ffba0",
+      "isvalid_kind": "FN",
+      "execute": "0x13fc310",
+      "serialize_proof": "stubbed"
+    },
+    "CMassCancelMovementCommand": {
+      "type_id": "0x3630",
+      "factory": "0x11d8fd0",
+      "vt": "0x2a0fc40",
+      "factory_match": true,
+      "isvalid": "0x11f0a10",
+      "isvalid_kind": "FN",
+      "execute": "0x11e1520",
+      "serialize_proof": "stubbed"
+    },
+    "CToggleStrategicDeploymentCommand": {
+      "type_id": "0x3ce0",
+      "factory": "0x13fb640",
+      "vt": "0x2a2ca70",
+      "factory_match": true,
+      "isvalid": "0x14025c0",
+      "isvalid_kind": "FN",
+      "execute": "0x13fde90",
+      "serialize_proof": "stubbed"
+    },
+    "COrderSetPathCommand": {
+      "type_id": "0x3039",
+      "factory": "0x18d08e0",
+      "vt": "0x2a84778",
+      "factory_match": true,
+      "isvalid": "0x18dff00",
+      "isvalid_kind": "FN",
+      "execute": "0x18daef0",
+      "serialize_proof": "stubbed"
+    },
+    "CDeleteOrderGroupCommand": {
+      "type_id": "0x304e",
+      "factory": "0x18cf9e0",
+      "vt": "0x2a83e20",
+      "factory_match": true,
+      "isvalid": "0x18de300",
+      "isvalid_kind": "FN",
+      "execute": "0x18d3300",
+      "serialize_proof": "stubbed"
+    },
+    "COrderDeleteAllCommand": {
+      "type_id": "0x33f1",
+      "factory": "0x18cfed0",
+      "vt": "0x2a84270",
+      "factory_match": true,
+      "isvalid": "0x18de2f0",
+      "isvalid_kind": "FN",
+      "execute": "0x18d58f0",
+      "serialize_proof": "stubbed"
+    },
+    "COrderInsertFrontCommand": {
+      "type_id": "0x3398",
+      "factory": "0x18d0150",
+      "vt": "0x2a84a58",
+      "factory_match": true,
+      "isvalid": "0x18df230",
+      "isvalid_kind": "FN",
+      "execute": "0x18d65f0",
+      "serialize_proof": "stubbed"
+    },
+    "COrderReshapeCommand": {
+      "type_id": "0x339e",
+      "factory": "0x18d06c0",
+      "vt": "0x2a84830",
+      "factory_match": true,
+      "isvalid": "0x18df6c0",
+      "isvalid_kind": "FN",
+      "execute": "0x18da7d0",
+      "serialize_proof": "stubbed"
+    },
+    "COrderConnectCommand": {
+      "type_id": "0x33b1",
+      "factory": "0x18cfe00",
+      "vt": "0x2a849a0",
+      "factory_match": true,
+      "isvalid": "0x18ded50",
+      "isvalid_kind": "FN",
+      "execute": "0x18d54a0",
+      "serialize_proof": "stubbed"
+    },
+    "COrderReconnectCommand": {
+      "type_id": "0x33b0",
+      "factory": "0x18d0470",
+      "vt": "0x2a848e8",
+      "factory_match": true,
+      "isvalid": "0x18df5b0",
+      "isvalid_kind": "FN",
+      "execute": "0x18d9e10",
+      "serialize_proof": "stubbed"
+    },
+    "CAutoMergeOrdersCommand": {
+      "type_id": "0x3552",
+      "factory": "0x18cf910",
+      "vt": "0x2a84bc8",
+      "factory_match": true,
+      "isvalid": "0x18de2c0",
+      "isvalid_kind": "FN",
+      "execute": "0x18d31f0",
+      "serialize_proof": "stubbed"
+    },
+    "CAssignToArmyGroupCommand": {
+      "type_id": "0x3886",
+      "factory": "0x18cf8a0",
+      "vt": "0x2a83f90",
+      "factory_match": true,
+      "isvalid": "0x18de250",
+      "isvalid_kind": "FN",
+      "execute": "0x18d2e00",
+      "serialize_proof": "stubbed"
+    },
+    "CRemoveFromArmyGroupCommand": {
+      "type_id": "0x3887",
+      "factory": "0x18d0a80",
+      "vt": "0x2a84048",
+      "factory_match": true,
+      "isvalid": "0x18e0310",
+      "isvalid_kind": "FN",
+      "execute": "0x18db1c0",
+      "serialize_proof": "stubbed"
+    },
+    "CDeployArmyHqCommand": {
+      "type_id": "0x282b",
+      "factory": "0x13fae60",
+      "vt": "0x2a2cec0",
+      "factory_match": true,
+      "isvalid": "0x13ff490",
+      "isvalid_kind": "FN",
+      "execute": "0x13fc190",
+      "serialize_proof": "stubbed"
+    },
+    "CWithdrawArmyHqCommand": {
+      "type_id": "0x2833",
+      "factory": "0x13fb710",
+      "vt": "0x2a2cf78",
+      "factory_match": true,
+      "isvalid": "0x14027c0",
+      "isvalid_kind": "FN",
+      "execute": "0x13fe2a0",
+      "serialize_proof": "stubbed"
+    }
+  },
+  "tool_gate": {
+    "command_queue_tool_gate": "open_gap_but_DISABLED",
+    "status": "CLOSED_NOT_OPENED",
+    "allow_post": false,
+    "blocks": [
+      {
+        "id": "midflight_CMoveCommand",
+        "status": "STUBBED",
+        "note": "DX11 ignores synthetic input; watcher armed RO; no injection this phase"
+      },
+      {
+        "id": "serialize_recreate_roundtrip",
+        "status": "open",
+        "note": "factory+lookup deepened; hand-built recreate still unproven"
+      },
+      {
+        "id": "CLAUSEWITZ_ALLOW_POST",
+        "status": "hard-deny",
+        "note": "config.allow_post always False even if env set"
+      },
+      {
+        "id": "session_725",
+        "status": "necessary_not_sufficient",
+        "live": 1,
+        "note": "725==1 on live SP; still not enough to enable"
+      },
+      {
+        "id": "never_post_expanded",
+        "status": "closed",
+        "note": "PauseGame+type_ids for all speed/Hourly/Ping; IsValid TRUE on Pause"
+      }
+    ],
+    "action_this_phase": "analysis only \u2014 gate NOT opened"
+  },
+  "midflight": {
+    "status": "stubbed",
+    "watcher": "phase2bm_midflight_ready armed separately; no wake",
+    "input_injection": false
+  },
+  "works": [
+    "factory table deepen (bias 0x2328 / thresh 0x2710 / max 0x2AF7 / non_null live)",
+    "factory->fn match for MOVE/STRATEGIC/CANCEL/ORDERS/NEVER_POST/REMAINING",
+    "IsValid wrap + vt+0x48 live for Move/Strategic/Cancel/Orders/Pause",
+    "army Strategic+Cancel recipes (HAI)",
+    "CPauseGame NEVER_POST type_id 0x29ec IsValid TRUE",
+    "NEVER_POST type_ids for Inc/Dec/Set/Hourly/Ping",
+    "tool_gate safer analysis; gate stays DISABLED",
+    "allow_post False hard-deny"
+  ],
+  "stubbed": [
+    "midflight_CMoveCommand sample (DX11)",
+    "REMAINING_ARMY_ORDERS serialize/deserialize/clone full proof",
+    "serialize->recreate round-trip into Dummy ring",
+    "command_queue_tool_gate enable"
+  ]
+}

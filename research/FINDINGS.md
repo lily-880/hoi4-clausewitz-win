@@ -189,3 +189,14 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** Never 5x. No guess writes.
 
+
+## Phase 2bo (overnight RO continue, no midflight Move)
+
+- Factory table deepened: lookup `0x22d8d20` (`tid>=0x2710 → idx=tid-0x2328`), table `0x35011e0`, max `0x2AF7`, live non-null **456**. Catalog factory→fn **36/36** (Move/Strategic/Cancel/StartGame/Chat + Orders×10 + NEVER_POST×6 + REMAINING×15).
+- `ISVALID_PATHS`: wrap `0x22d8ea0`; Move thunk `0x14002f0`→action `0x12c2ca0`; Strategic `0x1402260`; Cancel `0x13fed40`; OEC `0x18def40`; Pause `0x188d90` **TRUE** (NEVER_POST).
+- `army_subjects`: Strategic redeploy + Cancel (one/all HAI) recipes; live HAI armies **22**.
+- `CPauseGame` type_id `0x29ec` factory `0xe53990` size `0x50` added to NEVER_POST with Inc/Dec/Set/Hourly/Ping type_ids.
+- Remaining army/order stubs (15): MassMove/MassCancel/ToggleStrategicDeploy/OrderSetPath/DeleteOrderGroup/… — factory+vt+IsValid kind live; serialize/clone **stubbed**.
+- Tool gate: safer analysis only; **CLOSED_NOT_OPENED**. `allow_post` False. Midflight Move still stubbed; watcher armed; no input injection.
+- Posting DISABLED. Speed rule: pause/1x only.
+

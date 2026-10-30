@@ -1,5 +1,5 @@
 {
-  "phase": "2bn",
+  "phase": "2bo",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -13,7 +13,7 @@
     {
       "id": "midflight_move_sample",
       "status": "stubbed",
-      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2bn overnight)."
+      "note": "Still stubbed. phase2bm_midflight_ready armed background RO (2bo overnight; no injection)."
     },
     {
       "id": "action_flag_names",
@@ -38,7 +38,7 @@
     {
       "id": "army_subject_wiring",
       "status": "closed",
-      "note": "2bn calling/army_subjects.py: HAI handles type 0x33 + province id 17+/17+; Move/Strategic recipes RO only"
+      "note": "2bn+2bo: army_subjects Move/Strategic/Cancel recipes; HAI 22 armies live"
     },
     {
       "id": "FN_HANDLE_RESOLVE",
@@ -53,17 +53,17 @@
     {
       "id": "post_gate_analysis",
       "status": "closed",
-      "note": "2bn safer analysis: 725==1 necessary not sufficient; serialize/recreate + ALLOW_POST + midflight still block enable"
+      "note": "2bn+2bo: 725 necessary not sufficient; tool gate stays closed"
     },
     {
       "id": "never_post_speed",
       "status": "closed",
-      "note": "cmd_layout.NEVER_POST live-verified Increase/Decrease/SetGameSpeed/HourlyTick/Ping"
+      "note": "2bo: Inc/Dec/Set/Hourly/Ping+Pause type_ids+factories; Pause NEVER_POST"
     },
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED until midflight Move + CLAUSEWITZ_ALLOW_POST=1"
+      "note": "DISABLED; 2bo safer analysis only \u2014 midflight+ALLOW_POST+recreate still block"
     },
     {
       "id": "network_execlist_path",
@@ -89,6 +89,21 @@
       "id": "cmd_catalog_live",
       "status": "closed",
       "note": "2bm: Move/Strategic/Cancel/StartGame/Chat + 10 Orders + CUnitMoveAction slots; sticky StartGame live; army handles OK"
+    },
+    {
+      "id": "factory_table_deepen",
+      "status": "closed",
+      "note": "2bo: bias 0x2328/thresh 0x2710/max 0x2AF7; 456 non-null; catalog 36/36 factory match incl NEVER_POST+REMAINING"
+    },
+    {
+      "id": "isvalid_paths",
+      "status": "closed",
+      "note": "2bo: wrap 0x22d8ea0 + vt+0x48 live Move/Strategic/Cancel/Orders/Pause; Pause IsValid TRUE"
+    },
+    {
+      "id": "remaining_army_orders",
+      "status": "partial",
+      "note": "2bo: 15 RTTI+factory stubs in REMAINING_ARMY_ORDERS; serialize/clone still stubbed"
     }
   ],
   "enable_when": [
@@ -124,7 +139,7 @@
     {
       "id": "never_speed_cmds",
       "status": "policy",
-      "must": "Never Post NEVER_POST set (speed/HourlyTick/Ping)"
+      "must": "Never Post NEVER_POST set (speed/HourlyTick/Ping/Pause)"
     },
     {
       "id": "tool_gate",
@@ -133,5 +148,6 @@
     }
   ],
   "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
-  "notes_2bn": "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED."
+  "notes_2bn": "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED.",
+  "notes_2bo": "Factory deepen + IsValid paths + Strategic/Cancel recipes + Pause NEVER_POST + 15 remaining army-order stubs. Midflight stubbed; watcher armed. Posting DISABLED. Tool gate NOT opened."
 }
