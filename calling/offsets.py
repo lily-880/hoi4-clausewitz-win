@@ -172,6 +172,14 @@ PROVEN_STATIC = {
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body
     "CUnitMoveAction_ISVALID": 0x12C2CA0,
+    "CUnitMoveAction_CTOR": 0x12C1770,
+    "CUnitMoveAction_SERIALIZE": 0x12C3920,  # vt+0xc0
+    "CMoveCommand_VT_0xA0_THUNK": 0x1404590,
+    "FN_TYPEID_FACTORY_LOOKUP": 0x22D8D20,
+    "TYPEID_FACTORY_TABLE": 0x35011E0,
+    "CCancelMovementCommand_FACTORY": 0x13FACE0,
+    "CChatCommand_FACTORY": 0x13CA430,
+    "CStartGameCommand_FACTORY": 0x16DD5A0,
     "CSession_STAGE_ARRAY": 0x48,
     "CSession_STAGE_COUNT": 0x54,
     "CSession_POSTEXEC_HEAD": 0xF8,

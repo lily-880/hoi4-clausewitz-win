@@ -904,6 +904,36 @@ Posting **DISABLED**. pause/1x only (live: tick stuck, drain idler — `-start_s
 
 Tool: `scripts/phase2af_move_payload.py [--live]`
 
+## Phase 2ag — Typeid→factory table + CUnitMoveAction serialize fields (writes DISABLED)
+
+Factory lookup `0x22d8d20`: if `tid >= 0x2710` then `tid - 0x2328`; index max `0x2af7`; table **`0x35011e0`**.
+
+| Type id | Factory | Size |
+|---------|---------|------|
+| Move `0x28a2` | `0x13fb000` | `0x88` |
+| Cancel `0x28af` | `0x13face0` | `0x48` |
+| Chat `0x184` | `0x13ca430` | `0x98` |
+| StartGame `0x359e` | `0x16dd5a0` | `0x28` |
+
+`CUnitMoveAction` serialize `0x12c3920` (`vt+0xc0`):
+
+| Off | Tag | Kind |
+|-----|-----|------|
+| `+0x10` | `0x28a3` | handle (always) |
+| `+0x18` / cnt `+0x24` | `0x2840` | vector if cnt>0 |
+| `+0x30` / cnt `+0x3c` | `0x174` | vector if cnt>0 |
+| `+0x50` | `0x29f1` | byte if nz |
+| `+0x51` | `0x2c84` | byte if nz |
+| `+0x53` | `0x38f1` | byte if nz |
+| `+0x52` | `0x3a98` | byte if nz |
+| `+0x55` | `0x2c85` | byte if nz |
+| `+0x58` | `0x37bc` | dword if !=1 |
+| `+0x5c` | `0x368f` | byte if nz |
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ag_factory_table.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
