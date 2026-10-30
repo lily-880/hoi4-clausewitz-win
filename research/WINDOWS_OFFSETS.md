@@ -342,6 +342,39 @@ Air wings / characters: RTTI present (`CAirWing`, `CCharacter`, `CUnitLeader`) b
 3. Keep posting **DISABLED**.
 
 
+
+
+## Phase 2l — theatre nest + Chat/Ping LEAs + candidate globals
+
+Tool: `python scripts/phase2l_post_leads.py --live`. Live paused HAI.
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| Priority store cands (2k) re-filtered | `0x1f7640`→SSO `0x2607890`; `0xddcff0`→registry; others ctor/destroy — **not** Post |
+| RIP `0x33dea38` (cand `0x6b8880`) | Live **untyped** ptr — not queue |
+| `CClientPingCommand` / `CChatCommand` LEA softs | SSO/ctor/destroy tops — **not** Post |
+| Theatre nest / country extra | Fronts/armies/areas/modifiers — **no** `Command*` arrays |
+| Air / Character arrays | Still absent on country & theatre (HAI + major0) |
+
+### Newly proven status fields
+
+| Field | Source | Sample (paused HAI) |
+|-------|--------|---------------------|
+| `fronts_count` | primary `CTheatre`+`0x50` `CFront*` | 6 |
+| `controller_areas_count` | Country+`0x548` `CControllerArea*` | 9 |
+| `owner_areas_count` | Country+`0x560` `COwnerArea*` | 9 |
+| `modifiers_count` | Country+`0x5D0` `CModifier*` | 36 |
+
+`CTheatre`+`0x68` `CArmy*` size matches `CO_ARMIES` (not double-counted in status).
+
+### Next (still RO)
+
+1. Air/character containers likely off country object — try equipment DB / GS-level (light, bounded).
+2. Keep posting **DISABLED**.
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

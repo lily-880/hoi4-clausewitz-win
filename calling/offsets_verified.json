@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2k-theatre-states-store-graph",
+  "status": "phase2l-theatre-nest-fronts-areas",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -121,6 +121,44 @@
         "Failed-to-execute LEAs near CRT/string helpers \u2014 not Post",
         "idler Command* arrays: none; prior dead-ends hold",
         "managerish RTTI still only IndustrialOrgTrait*QueueCommand / CCommandHelper"
+      ]
+    },
+    "TH_FRONTS": {
+      "off": "0x50",
+      "parent": "CTheatre",
+      "type": "CPdxArray<CFront*>",
+      "live": "HAI=6 major0=10"
+    },
+    "TH_ARMIES": {
+      "off": "0x68",
+      "parent": "CTheatre",
+      "type": "CPdxArray<CArmy*>",
+      "live": "HAI=17 (==CO_ARMIES)"
+    },
+    "CO_CONTROLLER_AREAS": {
+      "off": "0x548",
+      "type": "CPdxArray<CControllerArea*>",
+      "live": "HAI=9"
+    },
+    "CO_OWNER_AREAS": {
+      "off": "0x560",
+      "type": "CPdxArray<COwnerArea*>",
+      "live": "HAI=9"
+    },
+    "CO_MODIFIERS": {
+      "off": "0x5D0",
+      "type": "CPdxArray<CModifier*>",
+      "live": "HAI=36"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2l": {
+      "result": null,
+      "posting": "DISABLED",
+      "notes": [
+        "Priority 2k store cands re-filtered: SSO/string (0x2607890), registry (0x2284800), destroy helpers",
+        "RIP global 0x33dea38 on cand 0x6b8880: live untyped \u2014 not a queue object",
+        "CClientPing/CChat LEA softs: ctor/SSO/destroy \u2014 not Post",
+        "Theatre nest has fronts/armies/areas; no Command* arrays",
+        "No air/character ptr arrays on country or theatre (HAI+major0)"
       ]
     }
   },

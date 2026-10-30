@@ -450,6 +450,43 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
     if stc is not None:
         out["states_count"] = stc
         out["states_rtti"] = str_
+
+    # Nested: primary theatre fronts (CTheatre+TH_FRONTS)
+    if thc:
+        th_arr = _pdx_array(p, cptr + O.HYPOTHESIS_STRUCT.get("CO_THEATRES", 0x168))
+        if th_arr and th_arr.get("data") and th_arr["size"] > 0:
+            try:
+                th_ptr = struct.unpack_from("<Q", p.try_read(th_arr["data"], 8) or b"\0" * 8, 0)[0]
+            except Exception:
+                th_ptr = 0
+            if th_ptr:
+                frc, frr = _count_typed_array(
+                    th_ptr, O.HYPOTHESIS_STRUCT.get("TH_FRONTS", 0x50), "CFront"
+                )
+                if frc is not None:
+                    out["fronts_count"] = frc
+                    out["fronts_rtti"] = frr
+                    out["fronts_via"] = "CTheatre+0x50"
+
+    # Country areas / modifiers
+    cac, car = _count_typed_array(
+        cptr, O.HYPOTHESIS_STRUCT.get("CO_CONTROLLER_AREAS", 0x548), "CControllerArea"
+    )
+    oac, oar = _count_typed_array(
+        cptr, O.HYPOTHESIS_STRUCT.get("CO_OWNER_AREAS", 0x560), "COwnerArea"
+    )
+    moc, mor = _count_typed_array(
+        cptr, O.HYPOTHESIS_STRUCT.get("CO_MODIFIERS", 0x5D0), "CModifier"
+    )
+    if cac is not None:
+        out["controller_areas_count"] = cac
+        out["controller_areas_rtti"] = car
+    if oac is not None:
+        out["owner_areas_count"] = oac
+        out["owner_areas_rtti"] = oar
+    if moc is not None:
+        out["modifiers_count"] = moc
+        out["modifiers_rtti"] = mor
     return out
 
 

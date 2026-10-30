@@ -49,10 +49,16 @@ HYPOTHESIS_STRUCT = {
     "CO_FLEETS": 0x278,  # CPdxArray<CFleet*> (live Haiti)
     "CO_THEATRES": 0x168,  # CPdxArray<CTheatre*> (live HAI+majors)
     "CO_STATES": 0x460,  # CPdxArray<CState*> (live HAI+majors; twin@0x478 same size peacetime)
+    "CO_CONTROLLER_AREAS": 0x548,  # CPdxArray<CControllerArea*> (live HAI=9)
+    "CO_OWNER_AREAS": 0x560,  # CPdxArray<COwnerArea*> (live HAI=9)
+    "CO_MODIFIERS": 0x5D0,  # CPdxArray<CModifier*> (live HAI=36)
     # CArmy fields (division-like on Windows 1.19.4 — all 17/17 paused HAI)
     "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
     "CA_PROVINCE": 0x1F0,  # CProvince*
     "CA_DIV_TEMPLATE": 0x3B8,  # CReferencedDivisionTemplate*
+    # CTheatre fields (primary theatre from CO_THEATRES)
+    "TH_FRONTS": 0x50,  # CPdxArray<CFront*> (live HAI=6, major0=10)
+    "TH_ARMIES": 0x68,  # CPdxArray<CArmy*> (live HAI=17 matches CO_ARMIES)
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.
