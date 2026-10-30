@@ -1,5 +1,5 @@
 {
-  "phase": "2bp",
+  "phase": "2bq",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -123,9 +123,9 @@
     },
     {
       "id": "serialize_recreate_roundtrip",
-      "status": "wiring_closed_live_buffer_stubbed",
+      "status": "structural_sticky_ok_inprocess_stubbed",
       "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring",
-      "note": "RO wiring proven 2bp; live buffer RT still stubbed"
+      "note": "2bq sticky StartGame structural serdes+factory/recreate RO; ring embed still needs Post/midflight"
     },
     {
       "id": "CLAUSEWITZ_ALLOW_POST",
@@ -163,5 +163,15 @@
     "allow_post": false,
     "midflight_watcher_pid": 29656,
     "speed_rule": "pause or 1x only; never 5x"
+  },
+  "notes_2bq": {
+    "ts": "2026-10-31T05:48:07",
+    "live_buffer_dummy_rt": "STRUCTURAL_LIVE_OK sticky StartGame token 0x1F3; in-process ring embed STUBBED",
+    "extra_land": "6/6",
+    "extra_naval_air": "6/6",
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "allow_post": false,
+    "midflight_watcher_pid": 29656,
+    "ring_empty": true
   }
 }

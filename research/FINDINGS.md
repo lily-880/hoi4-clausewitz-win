@@ -220,3 +220,21 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+
+## Phase 2bq (overnight RO — live-buffer Dummy RT structural + remaining subtypes)
+
+### Works
+- **Live-buffer Dummy RT (structural, no Post):** sticky CStartGameCommand at sess+0xF8 live; GetTypeId/factory/size 0x28 match; shared bin ser/des token 0x1F3 packs/unpacks +0xc/+0x18/+0x1a/+0x1c/+0x20 (proven inverse); StartGame token-ser is NOP; recreate calls factory_lookup; ring empty (safe observe). Status STRUCTURAL_LIVE_OK.
+- Extra land subtypes deepened **6/6**: MoveArmiesInTheater / MoveArmyGroupInTheater / CancelRunningAway / RailwayGunManualOrder / SetQuickDeployPreference / SetCountryGarrisonPriority (mem GetTypeId).
+- Extra naval/air catalogued **6/6** RO (NavalMove/MoveShips/MissionMove/MissionMassMove/DeployAirWing/NavyCancelActivity); all share bin ser/des.
+- NEVER_POST clone sizes filled; STARTGAME size=0x28.
+- Tool-gate predicates deepened; **CLOSED_NOT_OPENED**. allow_post False. Watcher **29656** armed; tick=1; no input.
+
+### Stubbed
+- In-process serialize->recreate->ring embed (needs Post or midflight buffer).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
