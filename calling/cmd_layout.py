@@ -1074,6 +1074,42 @@ ISVALID_PATHS = {
         "rva": 20899664,
         "kind": "FN",
         "notes": "Mission@+0x28 target@+0x30"
+    },
+    "CRequestExpeditionariesCommand": {
+        "isvalid": 18815840,
+        "execute": 18758848,
+        "vt": 44116728,
+        "type_id": 15341
+    },
+    "CGiveMedalCommand": {
+        "isvalid": 18809776,
+        "execute": 18745536,
+        "vt": 44120672,
+        "type_id": 15871
+    },
+    "CTriggerAbilityCommand": {
+        "isvalid": 18824864,
+        "execute": 18777936,
+        "vt": 44116912,
+        "type_id": 14513
+    },
+    "CRetireCharacterCommand": {
+        "isvalid": 18816208,
+        "execute": 18762176,
+        "vt": 44112312,
+        "type_id": 19624
+    },
+    "CReinstateExileCommand": {
+        "isvalid": 18812112,
+        "execute": 18751504,
+        "vt": 44118096,
+        "type_id": 15317
+    },
+    "CAmendForeignManpowerActionCommand": {
+        "isvalid": 18799888,
+        "execute": 18728496,
+        "vt": 44118832,
+        "type_id": 19138
     }
 }
 
@@ -2064,7 +2100,7 @@ LAND_ARMY_FOCUS = {
             "subject_recipe": "army_subjects.support_attack_recipe",
             "isvalid_kind": "FN",
             "execute_kind": "FN",
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18', '0x48', '0x50']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x48', '0x50']",
             "field_map": {
                 "handle": 40,
                 "province": 48,
@@ -2108,16 +2144,34 @@ LAND_ARMY_FOCUS = {
                 "province_or_id": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "arg5": 68
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x54', '0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20', '0x119', '0x60', '0x70']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']",
             "layout_alias": "ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
                 "province_or_id": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "arg5": 68
             }
         },
         "COrderReplaceFallbackCommands": {
@@ -2141,14 +2195,34 @@ LAND_ARMY_FOCUS = {
                 "subject_or_vec": 40,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "vptr_or_hdr": 16,
+                "arg2_or_vec_end": 56,
+                "subject_lo": 40,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x54', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4', '0x98', '0x67', '0x3c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4']",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "vptr_or_hdr": 16,
+                "arg2_or_vec_end": 56,
+                "subject_lo": 40,
+                "arg7": 80
             }
         },
         "CSetSelectedArmyGroupFallback": {
@@ -2171,13 +2245,19 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x39', '0x48', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
             }
         },
         "CCancelRunningAwayCommand": {
@@ -2188,12 +2268,14 @@ LAND_ARMY_FOCUS = {
             "vt": 44225848,
             "size": 48,
             "factory": 20950336,
-            "notes": "Phase 2bz Capstone deepen; offs ['0x34', '0x18', '0x10', '0x19']",
+            "notes": "Phase 2cb Capstone deepen; offs []",
             "subject_recipe": "army_subjects.cancel_running_away_recipe",
             "fields": {
                 "units_handle": 40,
                 "arg1_or_count": 52,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
             "isvalid": 20901168,
             "execute": 20954272,
@@ -2202,7 +2284,9 @@ LAND_ARMY_FOCUS = {
             "field_map": {
                 "units_handle": 40,
                 "arg1_or_count": 52,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             }
         },
         "CWithdrawArmyHqCommand": {
@@ -2227,16 +2311,26 @@ LAND_ARMY_FOCUS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x77', '0x18', '0x28', '0x20', '0x17', '0x2c', '0x1d', '0x19b', '0xd0', '0x37', '0x199', '0x19a', '0x19', '0xc0']",
+            "notes": "Phase 2cb Capstone deepen; offs []",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_handle": 40,
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44
             }
         },
         "CMassMoveCommand": {
@@ -2267,9 +2361,21 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg8": 88,
+                "vptr_or_hdr": 16,
+                "arg3_or_cap": 60,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58', '0x34', '0x10', '0x3c', '0x22', '0x2c', '0x50', '0x39', '0x1d', '0x60', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58']",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "units_vec": 40,
@@ -2282,7 +2388,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg8": 88,
+                "vptr_or_hdr": 16,
+                "arg3_or_cap": 60,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             }
         },
         "CToggleStrategicDeploymentCommand": {
@@ -2312,9 +2430,21 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg8": 88,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg5": 68,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58', '0x18', '0x1d', '0x60', '0x68', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58']",
             "layout_alias": "REMAINING_ARMY_ORDERS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2326,7 +2456,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg8": 88,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg5": 68,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             }
         },
         "CMoveArmiesInTheaterCommand": {
@@ -2355,9 +2497,21 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "arg8": 88,
+                "arg5": 68,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48', '0x18', '0x50', '0xb8', '0x58', '0xc8', '0xc0', '0x44', '0xb0']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48']",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
@@ -2368,7 +2522,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "arg8": 88,
+                "arg5": 68,
+                "subject_hi": 44
             }
         },
         "CMoveArmyGroupInTheaterCommand": {
@@ -2393,16 +2559,30 @@ LAND_ARMY_FOCUS = {
                 "dest_or_path": 64,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x68', '0x64', '0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98', '0x10', '0x90', '0x78', '0x50']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x68']",
             "layout_alias": "EXTRA_ARMY_COMMANDS",
             "field_map": {
                 "subject_or_vec": 40,
                 "dest_or_path": 64,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             }
         },
         "CMassCancelMovementCommand": {
@@ -2427,9 +2607,37 @@ LAND_ARMY_FOCUS = {
                 "units_vec": 40,
                 "units_count": 52,
                 "hdr_10": 16,
-                "hdr_18": 24
+                "hdr_18": 24,
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Mass cancel paths; Execute iterates count@+0x34 over vec@+0x28"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x34', '0x18', '0x28', '0x40']",
+            "field_map": {
+                "units_vec": 40,
+                "units_count": 52,
+                "hdr_10": 16,
+                "hdr_18": 24,
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
+            }
         },
         "COrderNewFrontCommand": {
             "name": "COrderNewFrontCommand",
@@ -2475,7 +2683,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x68', '0x6e', '0x28', '0x30', '0x6d']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x68', '0x6d', '0x6e']",
             "field_map": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -2542,7 +2750,7 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x78', '0x8c', '0x30', '0x54', '0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x54', '0x28', '0x78', '0x8c', '0x30']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2602,7 +2810,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "field_map": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -2662,7 +2870,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2729,7 +2937,7 @@ LAND_ARMY_FOCUS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x30', '0x34', '0x38', '0x28', '0x2c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x34', '0x38']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2799,7 +3007,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x34', '0x38', '0x28', '0x2c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x2c', '0x30', '0x34', '0x38']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -2853,7 +3061,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "field_map": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -2904,7 +3112,7 @@ LAND_ARMY_FOCUS = {
                 "arg4_or_child": 64,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x64']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x64']",
             "field_map": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -2964,7 +3172,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x35']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x35', '0x30']",
             "field_map": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -3048,13 +3256,17 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "theater_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20']",
             "field_map": {
                 "theater_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
             }
         },
         "CReorderTheatersCommand": {
@@ -3139,13 +3351,15 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "theater_group": 40,
                 "priority": 48,
-                "arg0": 48
+                "arg0": 48,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "field_map": {
                 "theater_group": 40,
                 "priority": 48,
-                "arg0": 48
+                "arg0": 48,
+                "arg0_or_type": 48
             }
         },
         "CSetOrderGroupExecutionTypeCommand": {
@@ -4094,9 +4308,18 @@ LAND_ARMY_FOCUS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40', '0x1b8', '0x2c', '0x1cc', '0x50', '0x1e0', '0x1b0', '0x60', '0x5c', '0x70']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -4104,7 +4327,16 @@ LAND_ARMY_FOCUS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg7": 80
             }
         },
         "CSetArmyLeaderCommand": {
@@ -4186,9 +4418,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg8": 88
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0', '0x140', '0x90', '0x40', '0x18', '0x17', '0x30', '0x38', '0x7c', '0x1dc', '0x1e0']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0']",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -4198,7 +4439,16 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg8": 88
             }
         },
         "CRailwayGunManualOrderCommand": {
@@ -4232,9 +4482,11 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg8": 88,
                 "arg4_or_child": 64,
-                "owner_or_ctx": 24
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg5": 68
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x40', '0x28', '0x20', '0x58', '0x34', '0x50']",
             "field_map": {
                 "subject": 40,
                 "extra_30": 48,
@@ -4249,7 +4501,9 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg8": 88,
                 "arg4_or_child": 64,
-                "owner_or_ctx": 24
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg5": 68
             }
         },
         "CSetCountryGarrisonPriorityCommand": {
@@ -4348,9 +4602,16 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg5": 68,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x34', '0x30', '0x44', '0x10', '0x18', '0x40', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x34', '0x30']",
             "field_map": {
                 "handles_vec": 40,
                 "handles_count": 52,
@@ -4360,7 +4621,14 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg5": 68,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             }
         },
         "CMoveCommand": {
@@ -4381,9 +4649,20 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg5": 68,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30', '0x10', '0x44', '0x80', '0x18', '0x12', '0x2e']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30']",
             "field_map": {
                 "unit_move_action": 40,
                 "subject_or_handle": 40,
@@ -4392,7 +4671,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg5": 68,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             }
         },
         "CStrategicRedeploymentCommand": {
@@ -4413,9 +4703,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x50', '0x48', '0x10', '0x18', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60', '0x58', '0x54', '0x88']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x48']",
             "field_map": {
                 "strategic_action": 40,
                 "subject_or_handle": 40,
@@ -4424,7 +4724,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48
             }
         },
         "CCancelMovementCommand": {
@@ -4446,9 +4756,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x28', '0x34', '0x10', '0x20', '0x50', '0x3a', '0x27', '0x15', '0x58', '0x60', '0x68', '0x38', '0x30', '0x40', '0x1f0']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x28', '0x34']",
             "field_map": {
                 "units_vec": 40,
                 "units_count": 52,
@@ -4458,7 +4777,16 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
             }
         },
         "COrderBlockSectionsCommand": {
@@ -4493,7 +4821,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -4544,7 +4872,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
             "field_map": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -4746,7 +5074,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38', '0x3c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30', '0x3c']",
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -4800,7 +5128,7 @@ LAND_ARMY_FOCUS = {
                 "subject_lo": 40,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x10']",
             "field_map": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -4861,7 +5189,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18', '0x30', '0x34', '0x58', '0x70', '0x68', '0x28', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x20', '0x58', '0x30', '0x34', '0x68', '0x70']",
             "field_map": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -4917,9 +5245,12 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg8": 88
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x34', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x30', '0x34']",
             "field_map": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -4937,7 +5268,10 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg8": 88
             }
         },
         "COrderSetTrainingCommand": {
@@ -5085,9 +5419,16 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60', '0x17', '0x40', '0x1d8', '0xb8']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60']",
             "field_map": {
                 "army": 40,
                 "template": 48,
@@ -5095,7 +5436,14 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg4_or_child": 64
             }
         },
         "CAddConveyorLineCommand": {
@@ -5344,13 +5692,19 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "subject_or_vec": 40,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x30', '0x38']",
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             }
         },
         "CRemoveConveyorLineCommand": {
@@ -5799,7 +6153,7 @@ LAND_ARMY_FOCUS = {
                 "arg7": 80,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28', '0x34', '0x58', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x40']",
             "field_map": {
                 "subject": 40,
                 "name_sso": 48,
@@ -5884,9 +6238,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "arg3_or_cap": 60,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30', '0x12', '0x50', '0x20', '0x3c', '0x58', '0x60', '0xb8', '0xa0', '0x38', '0x40']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30']",
             "field_map": {
                 "subject": 40,
                 "order_or_flag": 48,
@@ -5895,7 +6259,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "arg3_or_cap": 60,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             }
         },
         "CUpgradeDivisionOfficerCommand": {
@@ -5962,9 +6336,17 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x28', '0x18', '0x48', '0x54', '0x30', '0x55', '0x50', '0x34', '0x40', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x18']",
             "field_map": {
                 "division": 40,
                 "name_sso": 48,
@@ -5973,7 +6355,15 @@ LAND_ARMY_FOCUS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             }
         },
         "CSetObsoleteDivisionTemplateCommand": {
@@ -6001,9 +6391,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x40', '0x18', '0x10', '0x20', '0x50', '0x1dc', '0x1f0', '0x48', '0x58', '0x30', '0x38', '0xb8', '0xa0']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x40', '0x18']",
             "field_map": {
                 "template": 40,
                 "flag": 48,
@@ -6012,7 +6412,17 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             }
         },
         "CBuildRailwayCommand": {
@@ -6040,9 +6450,21 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg7": 80,
+                "arg5": 68
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60', '0x10', '0x18', '0x40', '0xf0', '0x48', '0x58', '0x50', '0x188', '0x44', '0x4c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60']",
             "field_map": {
                 "from_to_or_vec": 40,
                 "extra": 48,
@@ -6051,7 +6473,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg7": 80,
+                "arg5": 68
             }
         },
         "CLearnTraitCommand": {
@@ -6159,7 +6593,9 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6168,9 +6604,11 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
         },
         "CAiOnFailedInvasionCommand": {
             "name": "CAiOnFailedInvasionCommand",
@@ -6195,16 +6633,22 @@ LAND_ARMY_FOCUS = {
                 "base_or_vobj": 24,
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
             "field_map": {
                 "subject_or_handle": 40,
                 "base_or_vobj": 24,
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
         },
         "CAiStoreForceConcentrationTargetCommand": {
             "name": "CAiStoreForceConcentrationTargetCommand",
@@ -6231,7 +6675,9 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6240,9 +6686,11 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
         },
         "CAiStoreTotalWantedNrDivisionsCommand": {
             "name": "CAiStoreTotalWantedNrDivisionsCommand",
@@ -6269,7 +6717,9 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6278,9 +6728,11 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
         },
         "CClearRepairPinsCommand": {
             "name": "CClearRepairPinsCommand",
@@ -6356,7 +6808,7 @@ LAND_ARMY_FOCUS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']"
         },
         "CCreateUnitLeaderCommand": {
             "name": "CCreateUnitLeaderCommand",
@@ -6379,14 +6831,24 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_hi": 44,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40
             },
             "field_map": {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_hi": 44,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x2c', '0x20', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0', '0x1d8', '0x68']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x2c']"
         },
         "CDeleteUnitCommand": {
             "name": "CDeleteUnitCommand",
@@ -6414,7 +6876,18 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6424,9 +6897,20 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x20', '0x28', '0x30', '0x40', '0x48', '0x10', '0x18', '0x60', '0x2c', '0x34', '0x188', '0x1c', '0x1e', '0x1f', '0x68', '0x70']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x28', '0x30', '0x40', '0x48']"
         },
         "CEditAreaDefenseStateCommand": {
             "name": "CEditAreaDefenseStateCommand",
@@ -6490,7 +6974,7 @@ LAND_ARMY_FOCUS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x50', '0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x30']"
         },
         "CMergeArmiesCommand": {
             "name": "CMergeArmiesCommand",
@@ -6518,7 +7002,19 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6528,9 +7024,21 @@ LAND_ARMY_FOCUS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60', '0x22', '0x39', '0x1d', '0x40', '0x90', '0x34']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60']"
         },
         "CPromoteUnitLeaderCommand": {
             "name": "CPromoteUnitLeaderCommand",
@@ -6587,14 +7095,24 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "arg0": 48,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
             "field_map": {
                 "arg0": 48,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x18', '0x10', '0x48', '0xb0', '0x40']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x18']"
         },
         "CReorderPinnedStrategicRegionCommand": {
             "name": "CReorderPinnedStrategicRegionCommand",
@@ -6620,7 +7138,17 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6628,9 +7156,19 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x18', '0x14', '0x10', '0x50']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48']"
         },
         "CSelectionGroupCommand": {
             "name": "CSelectionGroupCommand",
@@ -6714,7 +7252,7 @@ LAND_ARMY_FOCUS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x28']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30']"
         },
         "CSetPendingReassignTargetCommand": {
             "name": "CSetPendingReassignTargetCommand",
@@ -6738,15 +7276,29 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
             "field_map": {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x20', '0x11', '0x50', '0x58', '0x30', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10']"
         },
         "CSetPreferredTacticCommand": {
             "name": "CSetPreferredTacticCommand",
@@ -6876,7 +7428,17 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
             "field_map": {
                 "subject_or_handle": 40,
@@ -6884,9 +7446,19 @@ LAND_ARMY_FOCUS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x30', '0x18', '0x2c', '0x14', '0x10', '0x50']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x40', '0x28', '0x20', '0x58', '0x48']"
         },
         "CTransportUnitCommand": {
             "name": "CTransportUnitCommand",
@@ -6908,13 +7480,23 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_handle": 40,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24
             },
             "field_map": {
                 "subject_or_handle": 40,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x48', '0x50', '0x10', '0x18']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x48']"
         },
         "CUpdateLeaderSeenAdvisorRolesCountCommand": {
             "name": "CUpdateLeaderSeenAdvisorRolesCountCommand",
@@ -6951,6 +7533,262 @@ LAND_ARMY_FOCUS = {
                 "ctx_or_flag": 32
             },
             "notes": "Phase 2bz RTTI+Capstone; offs ['0x38', '0x48', '0x50', '0x30', '0x40', '0x20', '0x10', '0x18', '0x1d8', '0x58', '0xe8', '0x28', '0x78', '0x1f8', '0x70', '0x68']"
+        },
+        "CRequestExpeditionariesCommand": {
+            "name": "CRequestExpeditionariesCommand",
+            "role": "move",
+            "type_id": 15341,
+            "type_id_kind": "imm_rdx",
+            "vt": 44116728,
+            "size": 80,
+            "factory": 18716528,
+            "factory_idx": 6341,
+            "clone": 18704400,
+            "serialize": 18861328,
+            "deserialize": 18844368,
+            "isvalid": 18815840,
+            "execute": 18758848,
+            "gettypeid": 18787120,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg7": 80
+            },
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg7": 80
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x58', '0x3c', '0x30', '0x38', '0x40']"
+        },
+        "CGiveMedalCommand": {
+            "name": "CGiveMedalCommand",
+            "role": "order_group",
+            "type_id": 15871,
+            "type_id_kind": "imm_rdx",
+            "vt": 44120672,
+            "size": 72,
+            "factory": 18714032,
+            "factory_idx": 6871,
+            "clone": 18700240,
+            "serialize": 18858896,
+            "deserialize": 18839968,
+            "isvalid": 18809776,
+            "execute": 18745536,
+            "gettypeid": 18786736,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg5": 68,
+                "arg8": 88,
+                "arg4_or_child": 64
+            },
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg5": 68,
+                "arg8": 88,
+                "arg4_or_child": 64
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x34', '0x20', '0x38', '0x50', '0x44', '0x58', '0x60']"
+        },
+        "CTriggerAbilityCommand": {
+            "name": "CTriggerAbilityCommand",
+            "role": "order_group",
+            "type_id": 14513,
+            "type_id_kind": "imm_rdx",
+            "vt": 44116912,
+            "size": 120,
+            "factory": 18719984,
+            "factory_idx": 5513,
+            "clone": 18709744,
+            "serialize": 18865232,
+            "deserialize": 18851616,
+            "isvalid": 18824864,
+            "execute": 18777936,
+            "gettypeid": 18787648,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x30', '0x18', '0x20', '0x50', '0x5c', '0x28', '0x68', '0x70']"
+        },
+        "CRetireCharacterCommand": {
+            "name": "CRetireCharacterCommand",
+            "role": "order_group",
+            "type_id": 19624,
+            "type_id_kind": "imm_rdx",
+            "vt": 44112312,
+            "size": 48,
+            "factory": 18716640,
+            "factory_idx": 10624,
+            "clone": 18704608,
+            "serialize": 18861520,
+            "deserialize": 18845328,
+            "isvalid": 18816208,
+            "execute": 18762176,
+            "gettypeid": 18787136,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "field_map": {
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28']"
+        },
+        "CReinstateExileCommand": {
+            "name": "CReinstateExileCommand",
+            "role": "order_group",
+            "type_id": 15317,
+            "type_id_kind": "imm_rdx",
+            "vt": 44118096,
+            "size": 48,
+            "factory": 18715056,
+            "factory_idx": 6317,
+            "clone": 18702080,
+            "serialize": 18860304,
+            "deserialize": 18842304,
+            "isvalid": 18812112,
+            "execute": 18751504,
+            "gettypeid": 18786896,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32
+            },
+            "field_map": {
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28', '0x30']"
+        },
+        "CAmendForeignManpowerActionCommand": {
+            "name": "CAmendForeignManpowerActionCommand",
+            "role": "move",
+            "type_id": 19138,
+            "type_id_kind": "imm_rdx",
+            "vt": 44118832,
+            "size": 56,
+            "factory": 18712032,
+            "factory_idx": 10138,
+            "clone": 18697040,
+            "serialize": 18856736,
+            "deserialize": 18834128,
+            "isvalid": 18799888,
+            "execute": 18728496,
+            "gettypeid": 18786448,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg7": 80,
+                "arg8": 88,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "field_map": {
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg7": 80,
+                "arg8": 88,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x48']"
         }
     },
     "retreat_group": [
@@ -6976,7 +7814,9 @@ LAND_ARMY_FOCUS = {
         "CDeleteUnitCommand",
         "CMergeArmiesCommand",
         "CSetPendingReassignTargetCommand",
-        "CTransportUnitCommand"
+        "CTransportUnitCommand",
+        "CRequestExpeditionariesCommand",
+        "CAmendForeignManpowerActionCommand"
     ],
     "strategic_group": [
         "CStrategicRedeploymentCommand",
@@ -7085,7 +7925,11 @@ LAND_ARMY_FOCUS = {
         "CSelectionGroupCommand",
         "CSetPreferredTacticCommand",
         "CSetUnitNameCommand",
-        "CUpdateLeaderSeenAdvisorRolesCountCommand"
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
     ]
 }
 
@@ -7175,9 +8019,18 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x18', '0x28', '0x34', '0x10', '0x20', '0x50', '0x3a', '0x27', '0x15', '0x58', '0x60', '0x68', '0x38', '0x30', '0x40', '0x1f0']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x28', '0x34']"
         },
         "CCancelRunningAwayCommand": {
             "execute": 20954272,
@@ -7189,9 +8042,11 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "units_handle": 40,
                 "arg1_or_count": 52,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x34', '0x18', '0x10', '0x19']"
+            "notes": "Phase 2cb Capstone deepen; offs []"
         },
         "CCollapseConveyorCommand": {
             "execute": 29559088,
@@ -7256,9 +8111,11 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "theater_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30', '0x20']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20']"
         },
         "CMassCancelMovementCommand": {
             "execute": 18748704,
@@ -7271,9 +8128,20 @@ LAND_EXE_PROOFS = {
                 "units_vec": 40,
                 "units_count": 52,
                 "hdr_10": 16,
-                "hdr_18": 24
+                "hdr_18": 24,
+                "arg1_or_count": 52,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Execute FN proven live 2bv"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x34', '0x18', '0x28', '0x40']"
         },
         "CMassMoveCommand": {
             "execute": 20955920,
@@ -7293,9 +8161,21 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "arg8": 88,
+                "vptr_or_hdr": 16,
+                "arg3_or_cap": 60,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58', '0x34', '0x10', '0x3c', '0x22', '0x2c', '0x50', '0x39', '0x1d', '0x60', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x4c', '0x18', '0x20', '0x30', '0x28', '0x58']"
         },
         "CMoveArmiesInTheaterCommand": {
             "execute": 26031808,
@@ -7313,9 +8193,21 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "arg8": 88,
+                "arg5": 68,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48', '0x18', '0x50', '0xb8', '0x58', '0xc8', '0xc0', '0x44', '0xb0']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x34', '0x28', '0x40', '0x30', '0x38', '0x48']"
         },
         "CMoveArmyGroupInTheaterCommand": {
             "execute": 26033040,
@@ -7329,9 +8221,16 @@ LAND_EXE_PROOFS = {
                 "dest_or_path": 64,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x68', '0x64', '0x58', '0x40', '0xa0', '0xa8', '0xa4', '0x60', '0x48', '0x20', '0x30', '0x98', '0x10', '0x90', '0x78', '0x50']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x68']"
         },
         "CMoveCommand": {
             "execute": 20957584,
@@ -7348,9 +8247,20 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "arg5": 68,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30', '0x10', '0x44', '0x80', '0x18', '0x12', '0x2e']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x40', '0x34', '0x55', '0x20', '0x58', '0x88', '0x38', '0x30']"
         },
         "COrderAddNewCompletePlanCommand": {
             "execute": 26033968,
@@ -7380,7 +8290,7 @@ LAND_EXE_PROOFS = {
                 "arg4_or_child": 64,
                 "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x64']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x64']",
             "fields": {
                 "plan_subject": 40,
                 "units_or_path": 72,
@@ -7479,7 +8389,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x30', '0x34', '0x38', '0x28', '0x2c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x34', '0x38']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -7533,7 +8443,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x35']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x35', '0x30']",
             "fields": {
                 "order_index": 48,
                 "execute_order": 52,
@@ -7621,7 +8531,7 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x78', '0x8c', '0x30', '0x54', '0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x54', '0x28', '0x78', '0x8c', '0x30']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -7656,9 +8566,18 @@ LAND_EXE_PROOFS = {
                 "province_or_id": 48,
                 "subject_or_handle": 40,
                 "arg0": 48,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "vptr_or_hdr": 16,
+                "arg5": 68
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x54', '0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20', '0x119', '0x60', '0x70']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x48', '0x30', '0x190', '0x108', '0x68', '0x58', '0x6e', '0x50', '0x78', '0xf8', '0x28', '0x20']"
         },
         "COrderNewFrontCommand": {
             "execute": 26054656,
@@ -7693,7 +8612,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x68', '0x6e', '0x28', '0x30', '0x6d']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x68', '0x6d', '0x6e']",
             "fields": {
                 "sub_group": 48,
                 "units_data": 56,
@@ -7797,7 +8716,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x34', '0x38', '0x28', '0x2c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x2c', '0x30', '0x34', '0x38']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -7834,9 +8753,19 @@ LAND_EXE_PROOFS = {
                 "subject_or_vec": 40,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "vptr_or_hdr": 16,
+                "arg2_or_vec_end": 56,
+                "subject_lo": 40,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x54', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4', '0x98', '0x67', '0x3c']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x30', '0x20', '0xe0', '0x77', '0x40', '0x58', '0xa4']"
         },
         "COrderReshapeCommand": {
             "execute": 26060752,
@@ -7866,7 +8795,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -7907,7 +8836,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "fields": {
                 "order_handle_lo": 40,
                 "order_handle_hi": 44,
@@ -7946,7 +8875,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']",
             "fields": {
                 "order_id_a": 40,
                 "order_id_b": 44,
@@ -8126,9 +9055,12 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "flags_or_ctx2": 32
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x39', '0x48', '0x20']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']"
         },
         "CSetTheaterGroupNameCommand": {
             "execute": 28391552,
@@ -8155,9 +9087,10 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "theater_group": 40,
                 "priority": 48,
-                "arg0": 48
+                "arg0": 48,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x30']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30']"
         },
         "CStrategicRedeploymentCommand": {
             "execute": 20957584,
@@ -8174,9 +9107,19 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg0_or_type": 48
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x50', '0x48', '0x10', '0x18', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0', '0x60', '0x58', '0x54', '0x88']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x48']"
         },
         "CSupportAttackCommand": {
             "execute": 20962560,
@@ -8205,7 +9148,7 @@ LAND_EXE_PROOFS = {
                 "arg6_or_plan": 72,
                 "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18', '0x48', '0x50']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x48', '0x50']",
             "fields": {
                 "handle": 40,
                 "province": 48,
@@ -8244,9 +9187,21 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg7": 80,
+                "arg8": 88,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg5": 68,
+                "arg6_or_plan": 72,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58', '0x18', '0x1d', '0x60', '0x68', '0x30', '0x38', '0xb0', '0x40', '0x44', '0x48']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x50', '0x58']"
         },
         "CWithdrawArmyHqCommand": {
             "execute": 20964000,
@@ -8260,9 +9215,14 @@ LAND_EXE_PROOFS = {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "subject_hi": 44
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x77', '0x18', '0x28', '0x20', '0x17', '0x2c', '0x1d', '0x19b', '0xd0', '0x37', '0x199', '0x19a', '0x19', '0xc0']"
+            "notes": "Phase 2cb Capstone deepen; offs []"
         },
         "CSetOrderGroupIconAndColorCommand": {
             "execute": 26064672,
@@ -8646,9 +9606,18 @@ LAND_EXE_PROOFS = {
                 "subject_hi_or_id": 44,
                 "arg0": 48,
                 "arg3": 64,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64,
+                "subject_hi": 44,
+                "arg7": 80
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40', '0x1b8', '0x2c', '0x1cc', '0x50', '0x1e0', '0x1b0', '0x60', '0x5c', '0x70']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x3c', '0x20', '0x58', '0x30', '0x48', '0x40']"
         },
         "CSetArmyLeaderCommand": {
             "execute": 26063552,
@@ -8709,9 +9678,18 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg8": 88
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0', '0x140', '0x90', '0x40', '0x18', '0x17', '0x30', '0x38', '0x7c', '0x1dc', '0x1e0']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x20', '0x28', '0x34', '0x70', '0xc0']"
         },
         "CRailwayGunManualOrderCommand": {
             "execute": 15735040,
@@ -8734,9 +9712,11 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg8": 88,
                 "arg4_or_child": 64,
-                "owner_or_ctx": 24
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg5": 68
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x20', '0x50', '0x28', '0x58', '0x40', '0x34', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x40', '0x28', '0x20', '0x58', '0x34', '0x50']",
             "fields": {
                 "subject": 40,
                 "extra_30": 48,
@@ -8804,9 +9784,16 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg5": 68,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x34', '0x30', '0x44', '0x10', '0x18', '0x40', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x34', '0x30']"
         },
         "COrderBlockSectionsCommand": {
             "execute": 26039200,
@@ -8830,7 +9817,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 48,
@@ -8871,7 +9858,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30']",
             "fields": {
                 "subject_or_vec": 40,
                 "ratio": 48,
@@ -9033,7 +10020,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x38', '0x3c']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x38', '0x30', '0x3c']",
             "fields": {
                 "subject_or_vec": 40,
                 "subject_or_handle": 40,
@@ -9077,7 +10064,7 @@ LAND_EXE_PROOFS = {
                 "subject_lo": 40,
                 "arg4_or_child": 64
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x18', '0x10']",
             "fields": {
                 "subject_or_vec": 40,
                 "id_or_b": 44,
@@ -9128,7 +10115,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x18', '0x30', '0x34', '0x58', '0x70', '0x68', '0x28', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x20', '0x58', '0x30', '0x34', '0x68', '0x70']",
             "fields": {
                 "subject_or_vec": 40,
                 "source": 48,
@@ -9174,9 +10161,12 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "subject_hi": 44
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg8": 88
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x34', '0x20']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x30', '0x34']",
             "fields": {
                 "subject_or_vec": 40,
                 "target": 48,
@@ -9292,9 +10282,16 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60', '0x17', '0x40', '0x1d8', '0xb8']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x50', '0x20', '0x28', '0x34', '0x58', '0x60']"
         },
         "CAddConveyorLineCommand": {
             "execute": 29558336,
@@ -9419,9 +10416,12 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "subject_or_vec": 40,
                 "arg0": 48,
-                "arg2": 56
+                "arg2": 56,
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x30', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x30', '0x38']"
         },
         "CRemoveConveyorLineCommand": {
             "execute": 29560000,
@@ -9648,7 +10648,7 @@ LAND_EXE_PROOFS = {
                 "arg7": 80,
                 "owner_or_ctx": 24
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28', '0x34', '0x58', '0x40', '0x20', '0x50', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x40']",
             "fields": {
                 "subject": 40,
                 "name_sso": 48,
@@ -9702,9 +10702,19 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "flags_or_ctx2": 32,
+                "arg3_or_cap": 60,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30', '0x12', '0x50', '0x20', '0x3c', '0x58', '0x60', '0xb8', '0xa0', '0x38', '0x40']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30']"
         },
         "CUpgradeDivisionOfficerCommand": {
             "execute": 18782368,
@@ -9740,9 +10750,17 @@ LAND_EXE_PROOFS = {
                 "arg1_or_count": 52,
                 "arg2": 56,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "vptr_or_hdr": 16,
+                "subject_lo": 40,
+                "owner_or_ctx": 24,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "arg7": 80,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x10', '0x28', '0x18', '0x48', '0x54', '0x30', '0x55', '0x50', '0x34', '0x40', '0x38']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x28', '0x18']"
         },
         "CSetObsoleteDivisionTemplateCommand": {
             "execute": 29544160,
@@ -9759,9 +10777,19 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x40', '0x18', '0x10', '0x20', '0x50', '0x1dc', '0x1f0', '0x48', '0x58', '0x30', '0x38', '0xb8', '0xa0']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x40', '0x18']"
         },
         "CBuildRailwayCommand": {
             "execute": 18728992,
@@ -9778,9 +10806,21 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "arg8": 88,
+                "arg7": 80,
+                "arg5": 68
             },
-            "notes": "Phase 2bz Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60', '0x10', '0x18', '0x40', '0xf0', '0x48', '0x58', '0x50', '0x188', '0x44', '0x4c']"
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30', '0x38', '0x3c', '0x20', '0x60']"
         },
         "CLearnTraitCommand": {
             "execute": 26031664,
@@ -9835,9 +10875,11 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347008,
             "size": 56,
@@ -9867,9 +10909,12 @@ LAND_EXE_PROOFS = {
                 "base_or_vobj": 24,
                 "ctx_or_flag": 32,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347024,
             "size": 48,
@@ -9899,9 +10944,11 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347040,
             "size": 64,
@@ -9933,9 +10980,11 @@ LAND_EXE_PROOFS = {
                 "ctx_or_flag": 32,
                 "arg4_or_child": 64,
                 "subject_lo": 40,
-                "flags_or_ctx2": 32
+                "flags_or_ctx2": 32,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 28347056,
             "size": 56,
@@ -9994,7 +11043,7 @@ LAND_EXE_PROOFS = {
                 "arg2_or_vec_end": 56,
                 "subject_lo": 40
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x3c', '0x30', '0x48', '0xc8', '0x38']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069520,
             "size": 80,
@@ -10024,9 +11073,14 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "subject_or_handle": 40,
                 "subject_hi_or_id": 44,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "subject_hi": 44,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg7": 80,
+                "subject_lo": 40
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x2c', '0x20', '0x58', '0x60', '0x50', '0xd8', '0x28', '0xa0', '0xb8', '0x1e0', '0x1d8', '0x68']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x2c']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 18786640,
             "size": 48,
@@ -10050,9 +11104,20 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x20', '0x28', '0x30', '0x40', '0x48', '0x10', '0x18', '0x60', '0x2c', '0x34', '0x188', '0x1c', '0x1e', '0x1f', '0x68', '0x70']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x20', '0x28', '0x30', '0x40', '0x48']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964096,
             "size": 56,
@@ -10090,7 +11155,7 @@ LAND_EXE_PROOFS = {
                 "flags_or_ctx2": 32,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x50', '0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x50', '0x30']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26069552,
             "size": 88,
@@ -10136,9 +11201,21 @@ LAND_EXE_PROOFS = {
                 "arg2": 56,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "arg3_or_cap": 60,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg7": 80,
+                "arg8": 88,
+                "arg4_or_child": 64,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60', '0x22', '0x39', '0x1d', '0x40', '0x90', '0x34']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10', '0x18', '0x3c', '0x20', '0x30', '0x28', '0x2c', '0x50', '0x58', '0x60']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964144,
             "size": 72,
@@ -10180,9 +11257,14 @@ LAND_EXE_PROOFS = {
             "field_map": {
                 "arg0": 48,
                 "arg3": 64,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg6_or_plan": 72,
+                "arg4_or_child": 64
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x18', '0x10', '0x48', '0xb0', '0x40']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x18']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964224,
             "size": 56,
@@ -10204,9 +11286,19 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg0_or_type": 48,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "subject_hi": 44,
+                "owner_or_ctx": 24,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48', '0x2c', '0x18', '0x14', '0x10', '0x50']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x30', '0x40', '0x28', '0x20', '0x58', '0x48']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447136,
             "size": 56,
@@ -10260,7 +11352,7 @@ LAND_EXE_PROOFS = {
                 "arg3_or_cap": 60,
                 "subject_hi": 44
             },
-            "notes": "Phase 2ca offensive-line Capstone; offs ['0x30', '0x28']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x30']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 26070160,
             "size": 56,
@@ -10294,9 +11386,16 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg2": 56,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "arg8": 88,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x10', '0x18', '0x20', '0x11', '0x50', '0x58', '0x30', '0x38']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x10']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964320,
             "size": 64,
@@ -10388,9 +11487,19 @@ LAND_EXE_PROOFS = {
                 "arg0": 48,
                 "arg3": 64,
                 "base_or_vobj": 24,
-                "ctx_or_flag": 32
+                "ctx_or_flag": 32,
+                "arg4_or_child": 64,
+                "subject_lo": 40,
+                "flags_or_ctx2": 32,
+                "arg8": 88,
+                "arg6_or_plan": 72,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "subject_hi": 44,
+                "vptr_or_hdr": 16,
+                "arg7": 80
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x40', '0x28', '0x20', '0x58', '0x48', '0x30', '0x18', '0x2c', '0x14', '0x10', '0x50']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x40', '0x28', '0x20', '0x58', '0x48']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 32447152,
             "size": 48,
@@ -10408,9 +11517,14 @@ LAND_EXE_PROOFS = {
             "factory": 20952736,
             "field_map": {
                 "subject_or_handle": 40,
-                "base_or_vobj": 24
+                "base_or_vobj": 24,
+                "subject_lo": 40,
+                "arg6_or_plan": 72,
+                "arg7": 80,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24
             },
-            "notes": "Phase 2bz RTTI+Capstone; offs ['0x28', '0x48', '0x50', '0x10', '0x18']",
+            "notes": "Phase 2cb Capstone deepen; offs ['0x28', '0x48']",
             "type_id_kind": "imm_rdx",
             "gettypeid": 20964432,
             "size": 88,
@@ -10442,6 +11556,176 @@ LAND_EXE_PROOFS = {
             "clone": 26015120,
             "serialize": 26121872,
             "deserialize": 26097488
+        },
+        "CRequestExpeditionariesCommand": {
+            "name": "CRequestExpeditionariesCommand",
+            "vt": 44116728,
+            "type_id": 15341,
+            "isvalid": 18815840,
+            "execute": 18758848,
+            "factory": 18716528,
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg6_or_plan": 72,
+                "subject_lo": 40,
+                "arg8": 88,
+                "arg3_or_cap": 60,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg7": 80
+            },
+            "clone": 18704400,
+            "serialize": 18861328,
+            "deserialize": 18844368,
+            "gettypeid": 18787120,
+            "size": 80,
+            "factory_idx": 6341,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x20', '0x48', '0x28', '0x58', '0x3c', '0x30', '0x38', '0x40']"
+        },
+        "CGiveMedalCommand": {
+            "name": "CGiveMedalCommand",
+            "vt": 44120672,
+            "type_id": 15871,
+            "isvalid": 18809776,
+            "execute": 18745536,
+            "factory": 18714032,
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "subject_lo": 40,
+                "subject_hi": 44,
+                "arg0_or_type": 48,
+                "arg1_or_count": 52,
+                "flags_or_ctx2": 32,
+                "arg2_or_vec_end": 56,
+                "arg7": 80,
+                "arg5": 68,
+                "arg8": 88,
+                "arg4_or_child": 64
+            },
+            "clone": 18700240,
+            "serialize": 18858896,
+            "deserialize": 18839968,
+            "gettypeid": 18786736,
+            "size": 72,
+            "factory_idx": 6871,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x34', '0x20', '0x38', '0x50', '0x44', '0x58', '0x60']"
+        },
+        "CTriggerAbilityCommand": {
+            "name": "CTriggerAbilityCommand",
+            "vt": 44116912,
+            "type_id": 14513,
+            "isvalid": 18824864,
+            "execute": 18777936,
+            "factory": 18719984,
+            "field_map": {
+                "vptr_or_hdr": 16,
+                "arg0_or_type": 48,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg7": 80,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg8": 88,
+                "arg2_or_vec_end": 56,
+                "arg6_or_plan": 72
+            },
+            "clone": 18709744,
+            "serialize": 18865232,
+            "deserialize": 18851616,
+            "gettypeid": 18787648,
+            "size": 120,
+            "factory_idx": 5513,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x10', '0x30', '0x18', '0x20', '0x50', '0x5c', '0x28', '0x68', '0x70']"
+        },
+        "CRetireCharacterCommand": {
+            "name": "CRetireCharacterCommand",
+            "vt": 44112312,
+            "type_id": 19624,
+            "isvalid": 18816208,
+            "execute": 18762176,
+            "factory": 18716640,
+            "field_map": {
+                "subject_lo": 40,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "arg0_or_type": 48,
+                "arg2_or_vec_end": 56,
+                "arg4_or_child": 64,
+                "arg6_or_plan": 72
+            },
+            "clone": 18704608,
+            "serialize": 18861520,
+            "deserialize": 18845328,
+            "gettypeid": 18787136,
+            "size": 48,
+            "factory_idx": 10624,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28']"
+        },
+        "CReinstateExileCommand": {
+            "name": "CReinstateExileCommand",
+            "vt": 44118096,
+            "type_id": 15317,
+            "isvalid": 18812112,
+            "execute": 18751504,
+            "factory": 18715056,
+            "field_map": {
+                "subject_lo": 40,
+                "arg0_or_type": 48,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32
+            },
+            "clone": 18702080,
+            "serialize": 18860304,
+            "deserialize": 18842304,
+            "gettypeid": 18786896,
+            "size": 48,
+            "factory_idx": 6317,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x28', '0x30']"
+        },
+        "CAmendForeignManpowerActionCommand": {
+            "name": "CAmendForeignManpowerActionCommand",
+            "vt": 44118832,
+            "type_id": 19138,
+            "isvalid": 18799888,
+            "execute": 18728496,
+            "factory": 18712032,
+            "field_map": {
+                "arg6_or_plan": 72,
+                "vptr_or_hdr": 16,
+                "owner_or_ctx": 24,
+                "flags_or_ctx2": 32,
+                "subject_lo": 40,
+                "arg4_or_child": 64,
+                "arg7": 80,
+                "arg8": 88,
+                "subject_hi": 44,
+                "arg1_or_count": 52
+            },
+            "clone": 18697040,
+            "serialize": 18856736,
+            "deserialize": 18834128,
+            "gettypeid": 18786448,
+            "size": 56,
+            "factory_idx": 10138,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2cb land-adjacent RTTI; offs ['0x48']"
         }
     }
 }

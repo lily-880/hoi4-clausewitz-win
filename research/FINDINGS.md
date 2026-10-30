@@ -413,3 +413,21 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x.
+
+## Phase 2cb (overnight RO — land-adjacent expeditionary/medal/ability + Capstone deepen)
+
+### Works
+- **LAND_EXE_PROOFS / LAND_ARMY_FOCUS** **121/121** (was 115): +6 land-adjacent RTTI with live IsValid/Execute FN + factory type_ids —
+  `CRequestExpeditionariesCommand`, `CGiveMedalCommand`, `CTriggerAbilityCommand`, `CRetireCharacterCommand`, `CReinstateExileCommand`, `CAmendForeignManpowerActionCommand`.
+- Capstone **thin deepen 57/57** on retreat/move/strategic/cancel/attack/frontline + sparse field maps.
+- **ISVALID_PATHS** **134**. Groups: order_group **56**, move **17**, frontline18, theater13, attack7, strategic4.
+- Recipes: expeditionaries/medal/ability/retire/exile/foreign-manpower + ai_wanted_divs / country_reinforce_prio / ai_force_conc. HAI×3.
+- Remaining soft-miss Commands are chat/sync/science/navy/production/HourlyTick — out of land Post scope (no further in-scope RTTI).
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; tool-gate enable; ALLOW_POST.
+- MergeNavies / PromoteToCountryLeader / MaxAllowedRepairFactories / GameSpeed / division-template / navy/air/production.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

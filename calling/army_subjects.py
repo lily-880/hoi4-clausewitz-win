@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bz",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2cb",
     }
 
 
@@ -949,5 +949,109 @@ def clear_repair_pins_recipe(subject_handle: list[int] | tuple[int, int] | None 
     return {
         "subject_or_vec_off": 0x28,
         "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def request_expeditionaries_recipe(subject_handle: list[int] | tuple[int, int],
+                                   count_or_tag: int = 0) -> dict[str, Any]:
+    """CRequestExpeditionariesCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "count_or_tag_off": 0x30,
+        "count_or_tag": count_or_tag,
+        "posting": "DISABLED",
+    }
+
+
+def give_medal_recipe(leader_handle: list[int] | tuple[int, int],
+                      medal_id: int = 0) -> dict[str, Any]:
+    """CGiveMedalCommand — RO only."""
+    return {
+        "leader_off": 0x28,
+        "leader": list(leader_handle),
+        "medal_id_off": 0x30,
+        "medal_id": medal_id,
+        "posting": "DISABLED",
+    }
+
+
+def trigger_ability_recipe(subject_handle: list[int] | tuple[int, int],
+                           ability_id: int = 0) -> dict[str, Any]:
+    """CTriggerAbilityCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "ability_id_off": 0x30,
+        "ability_id": ability_id,
+        "posting": "DISABLED",
+    }
+
+
+def retire_character_recipe(character_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CRetireCharacterCommand — RO only."""
+    return {
+        "character_off": 0x28,
+        "character": list(character_handle),
+        "posting": "DISABLED",
+    }
+
+
+def reinstate_exile_recipe(character_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CReinstateExileCommand — RO only."""
+    return {
+        "character_off": 0x28,
+        "character": list(character_handle),
+        "posting": "DISABLED",
+    }
+
+
+def amend_foreign_manpower_recipe(subject_handle: list[int] | tuple[int, int],
+                                  amount: int = 0) -> dict[str, Any]:
+    """CAmendForeignManpowerActionCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "amount_off": 0x30,
+        "amount": amount,
+        "posting": "DISABLED",
+    }
+
+
+def ai_store_wanted_divisions_recipe(subject_handle: list[int] | tuple[int, int],
+                                     count: int = 0) -> dict[str, Any]:
+    """CAiStoreTotalWantedNrDivisionsCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "count_off": 0x30,
+        "count": count,
+        "posting": "DISABLED",
+    }
+
+
+def country_reinforcement_priority_recipe(country_or_subject: list[int] | tuple[int, int] | int,
+                                          priority: int = 0) -> dict[str, Any]:
+    """CSetCountryReinforcementPriorityCommand — RO only."""
+    subj = list(country_or_subject) if isinstance(country_or_subject, (list, tuple)) else [int(country_or_subject), 0]
+    return {
+        "subject_off": 0x28,
+        "subject": subj,
+        "priority_off": 0x30,
+        "priority": priority,
+        "posting": "DISABLED",
+    }
+
+
+def ai_force_concentration_recipe(subject_handle: list[int] | tuple[int, int],
+                                  which: str = "store", target: int = 0) -> dict[str, Any]:
+    """CAiStore/DiscardForceConcentrationTargetCommand — RO only."""
+    return {
+        "which": which,
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "target_off": 0x30,
+        "target": target,
         "posting": "DISABLED",
     }
