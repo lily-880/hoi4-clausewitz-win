@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2o-session-post-gate-hyp-post-still-null",
+  "status": "phase2p-post-gate-proven-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -246,8 +246,24 @@
         "Ctor-caller hyps from 2n demoted/classified via phase2o_post_hyps.py + dig",
         "Posting stays DISABLED until server vt+0x28 enqueue semantics proven"
       ]
+    },
+    "FN_CMD_QUEUE_POST_hunt_2p": {
+      "result": "0x22c41e0",
+      "role": "CSession post/drop gate; callers pass (session, CCommand*)",
+      "sp_sink": "CDummyServer vt+0x28 @ 0x23f5cd0",
+      "enqueue_proof": [
+        "lock xadd server+0xd0 assigns cmd ids",
+        "fan-out G_POST_LISTENERS (0x3667be8) count (0x3667bf4); live count=1 = DummyServer self",
+        "per listener+0xa0 concurrent ring: spinlock, grow via 0x6d01e0, store qword at [slot]",
+        "store insn 0x23f5ec6; inc [rbx+0x28]; unlock",
+        "then call cmd.vt+0 (edx=1) \u2014 releasing dtor after fan-out"
+      ],
+      "CServer_vt28": "0x25c21e0 abort/stub \u2014 base not used in SP",
+      "CNetworkServer_vt28": "0x23fa830 (MP path; not live this session)",
+      "posting": "DISABLED \u2014 FN RVA recorded; tooling must not call/write until explicit enable",
+      "speed_rule": "pause or 1x only; never 5x"
     }
   },
-  "FN_CMD_QUEUE_POST": null,
+  "FN_CMD_QUEUE_POST": "0x22c41e0",
   "command_queue": "DISABLED"
 }

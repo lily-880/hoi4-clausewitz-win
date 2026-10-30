@@ -59,7 +59,7 @@ python clausewitz_win.py status
 | CO_STATES | Country+`0x460` | **matches Linux** (CState* arrays; vptr `0x29b4d38`) |
 | CO_ARMIES `0x290` | Country+`0x290` | **verified in-game** (`CArmy*`; see Phase 2h) |
 
-## Command queue — DISABLED (Phase 2e stronger RE)
+## Command queue — FN known (Phase 2p); writes still DISABLED
 
 Linux path (Clausewitz-MCP FINDINGS): `CCommandQueue::Post` @ ELF `img+0x2DC1C40`; queue from `CInGameIdler`, reached via **idler vtable+0x90**.
 
@@ -487,6 +487,43 @@ Session: paused/in-game `CInGameIdler` (pid 31364, HAI). **Never 5x.** Posting *
 3. Keep posting **DISABLED**; game pause/1x only.
 
 Tools: `scripts/phase2o_post_hyps.py`, `scripts/phase2o_string_hunt.py`.
+
+
+
+## Phase 2p — CDummyServer enqueue PROVEN (writes still DISABLED)
+
+Capstone disasm of live SP sink `CDummyServer` vt+`0x28` @ **`0x23f5cd0`**.
+
+### Proof chain
+
+1. AI/UI → **`0x22c41e0(session, cmd)`** (drop strings + auth; 625 E8 callers).
+2. Success: `server=[session+0x40]`; **`call [server.vt+0x28](cmd)`**.
+3. Live server = `CDummyServer`; method **`0x23f5cd0`**.
+4. Inside sink: null-check cmd; stamp token from `[server+0x18]` session; `lock xadd [server+0xd0]`.
+5. Fan-out loop over **`G_POST_LISTENERS` `0x3667be8`** / count **`0x3667bf4`** (live count=1 → DummyServer self).
+6. Per listener **`+0xa0` ring**: spinlock dword`[rbx]`; optional grow **`0x6d01e0`**; **`mov [rcx+r13*8], rax` @ `0x23f5ec6`** — **enqueue write**; `inc [rbx+0x28]`; unlock.
+7. Then `call cmd.vt+0` with `edx=1` (release after fan-out).
+
+### Promoted
+
+| Symbol | RVA / off | Notes |
+|--------|-----------|-------|
+| **`FN_CMD_QUEUE_POST`** | **`0x22c41e0`** | Session gate (public Post entry) |
+| `FN_CMD_QUEUE_POST_SINK_DUMMY` | `0x23f5cd0` | SP enqueue sink |
+| `G_POST_LISTENERS` | `0x3667be8` | Listener ptr array |
+| `G_POST_LISTENER_COUNT` | `0x3667bf4` | |
+
+### Still DISABLED
+
+Tooling **must not call** Post / must not write memory to enqueue. `command_queue=DISABLED` until an explicit write-enable step. Game **pause or 1x only**.
+
+### Compare
+
+| Class | vt+`0x28` | Role |
+|-------|-----------|------|
+| CDummyServer | `0x23f5cd0` | SP enqueue — **proven** |
+| CServer | `0x25c21e0` | abort/stub |
+| CNetworkServer | `0x23fa830` | MP path (not live) |
 
 ## Write gate
 

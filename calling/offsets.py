@@ -94,8 +94,10 @@ PROVEN_STATIC = {
     "CGameApplication_SESSION": 0x380,  # CSession* (live RTTI)
     "CSession_SERVER": 0x40,  # CServer* (live CDummyServer in SP)
     "CInGameIdler_vt88_session_forward": 0xB8E390,  # [this+0x530]->App.vt+0x88
-    "HYP_SESSION_POST_GATE": 0x22C41E0,  # strong hyp; NOT promoted to FN_CMD_QUEUE_POST
-    "HYP_DUMMYSERVER_VT28_SINK": 0x23F5CD0,  # CDummyServer vt+0x28; SP post sink hyp
+    "FN_CMD_QUEUE_POST": 0x22C41E0,  # CSession post/drop gate (AI + UI); SP sink CDummyServer vt+0x28
+    "FN_CMD_QUEUE_POST_SINK_DUMMY": 0x23F5CD0,  # proven enqueue into listener+0xa0 ring
+    "G_POST_LISTENERS": 0x3667BE8,  # ptr to CServer* array fan-out
+    "G_POST_LISTENER_COUNT": 0x3667BF4,
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,
@@ -109,7 +111,6 @@ WINDOWS_GLOBALS = {
     "G_CONSOLE_MANAGER": None,
     "G_DEFAULT_ALLOC": None,
     "FN_CONSOLE_EXECUTE": None,
-    "FN_CMD_QUEUE_POST": None,
 }
 
 RUNTIME = {
