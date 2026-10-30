@@ -30,12 +30,12 @@ python clausewitz_win.py peinfo
 python clausewitz_win.py status
 ```
 
-## What works now (Phase 2 / 2c)
+## What works now (Phase 2d)
 
 - Find `hoi4.exe` install; PE parse; `OpenProcess` + `ReadProcessMemory` (read-only)
 - MSVC RTTI → COL → vtable recovery for `CGameState` / `CCurrentGameState` / idlers / `CCommand` (live COL MATCH)
 - `session-probe` — lobby vs in-campaign via heap vptrs
-- `live-gs` — `.data` slot + heap scan; heuristic **`G_GAMESTATE` RVA `0x33dd6b0`** when campaign object live (→ gitignored `offsets_runtime.json`)
+- `live-gs` — `.data` slot + heap scan; heuristic **`G_GAMESTATE` RVA `0x33dd6b0`** when campaign object live (→ gitignored `offsets_verified.json`)
 - `status` returns real campaign probe fields once runtime/verified offset loaded (countries size, player tag)
 - MCP stdio stub: `hoi4_win_doctor`, `hoi4_win_status`
 
