@@ -827,6 +827,33 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ab_post_gates.py [--live]`
 
+## Phase 2ac — DummyServer Post destroys; Execute list empty (writes DISABLED)
+
+Live server is **`.?AVCDummyServer@@`** (`vt 0x2bcb040`).
+
+| Slot | RVA | Role |
+|------|-----|------|
+| `vt+0x28` Post | `0x23f5cd0` | stamp seq `+0xd0`; worker-ring log; **`cmd.vt+0(edx=1)` destroy** |
+| `vt+0x30` drain | `0x23f64e0` | pops `server+0xc8` |
+| `vt+0x78` | `0x247620` | `lea rax,[rcx+0x40]; ret` — Execute list head |
+
+`FN_EXECUTE_LOOP` (`0x22c4710`) walks `*[server.vt+0x78()]` i.e. `server+0x40`. Live heads `+0x40/+0x58/+0xc8` are **0**; `exec` stuck at 13.
+
+`CNetworkServer` (`vt 0x2bcb330`, Post `0x23fa830`, insert `0x23fa510`) inserts by `cmd+0x1a` into `+0x40` or `+0x58` — **not live in SP**.
+
+Auth: live `session+0x3c==1` skips `vt+0x90`.
+
+### Safe-enable checklist (NOT enabled)
+
+1. Do **not** Post via live DummyServer (destroy, no Execute).
+2. Need NetworkServer or equivalent insert into `server+0x40/+0x58`.
+3. Prove Execute increments on that cmd before enabling queue.
+4. Never Post speed cmds. pause/1x only.
+
+Posting **DISABLED**.
+
+Tool: `scripts/phase2ac_dummy_execute.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

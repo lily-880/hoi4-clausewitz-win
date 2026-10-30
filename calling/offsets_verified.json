@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2ab-post-earlygate-order-writes-still-disabled",
+  "status": "phase2ac-dummy-post-destroys-no-execute-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -450,6 +450,18 @@
       "live_0x725": 1,
       "Chat_vt_0x90": "0x13cc9a0 multi-path; al=1 at 0x13ccc20",
       "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ac": {
+      "CDummyServer_Post": "log+destroy via vt+0(edx=1); does NOT insert server+0x40/+0x58",
+      "FN_EXECUTE_LOOP": "pulls server.vt+0x78=&server+0x40; live head 0",
+      "CNetworkServer": {
+        "vt": "0x2bcb330",
+        "Post": "0x23fa830",
+        "insert": "0x23fa510"
+      },
+      "session_0x3c": 1,
+      "safe_enable": "NOT proven — posting DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }
   },

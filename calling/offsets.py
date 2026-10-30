@@ -139,6 +139,17 @@ PROVEN_STATIC = {
     "SESSION_EARLY_BYPASS_0x725": 0x725,
     "SESSION_POST_DURING_EXEC_0x726": 0x726,
     "SESSION_TICK_0x84": 0x84,
+    "CDummyServer_VT": 0x2BCB040,
+    "CDummyServer_POST_0x28": 0x23F5CD0,
+    "CDummyServer_DRAIN_0x30": 0x23F64E0,
+    "CDummyServer_EXECLIST_0x78": 0x247620,  # lea rax,[rcx+0x40];ret
+    "CNetworkServer_VT": 0x2BCB330,
+    "CNetworkServer_POST_0x28": 0x23FA830,
+    "CNetworkServer_INSERT": 0x23FA510,
+    "SERVER_EXECLIST_HEAD_0x40": 0x40,
+    "SERVER_DRAINLIST_HEAD_0x58": 0x58,
+    "SERVER_SEQ_0xD0": 0xD0,
+    "SESSION_SKIP_AUTH_0x3C": 0x3C,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body
