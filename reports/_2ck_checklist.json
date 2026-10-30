@@ -1,0 +1,54 @@
+{
+  "phase": "2ck",
+  "allow_post": false,
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "posting": "DISABLED",
+  "land_cmds": "121/121 unchanged",
+  "preferred_cores": 34,
+  "named_helpers": 96,
+  "helpers_total_after": 237,
+  "shared_execute_edges_cataloged": 0,
+  "singleton_edges_documented_only": {
+    "attack": 0,
+    "retreat": 10,
+    "move": 30,
+    "strategic": 2,
+    "frontline": 0,
+    "theater": 15,
+    "order_group": 30
+  },
+  "role_matrix_roles": [
+    "attack",
+    "retreat",
+    "move",
+    "strategic",
+    "frontline",
+    "theater",
+    "order_group"
+  ],
+  "requirements_before_any_post": [
+    "CLAUSEWITZ_ALLOW_POST remains unset/false",
+    "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+    "midflight watcher RO only \u2014 no inject",
+    "never HourlyTick / GameSpeed writes",
+    "IsValid gate helpers observed but not patched",
+    "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "inflate LAND cmd count without new RTTI evidence"
+  ],
+  "readiness_summary": {
+    "attack": "primary attack_core / army_subject_pair; railwaygun divergences separate",
+    "retreat": "retreat_fallback_core + retreat_bbb_only_core",
+    "move": "move_army_core primary; theater/c07b80/amend divergences",
+    "strategic": "strategic_redeploy / pin / unit_redeploy cores",
+    "frontline": "frontline_core + bbb; collapse divergence",
+    "theater": "theater_core family; template divergences",
+    "order_group": "order_group_core (42) primary; several singleton divergences"
+  }
+}

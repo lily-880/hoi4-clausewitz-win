@@ -1662,3 +1662,80 @@ def land_divergence_gate_delta_recipe(core: str | None = None) -> dict:
             continue
         out["divergences"].append(d)
     return out
+
+
+# --- Phase 2ck: role post-path matrix + singleton edge docs (READ-ONLY) ---
+
+def land_role_post_path_matrix_recipe(role: str | None = None) -> dict:
+    """Per-role Post readiness paths (preferred cores, named gates, steps). Docs only — never enables Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    matrix = pr.get("role_post_path_matrix_2ck") or {}
+    out = {
+        "phase": "2ck",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "roles": {},
+        "note": "Use preferred_core hard gates per role; soft gates are advisory. Do not Post.",
+    }
+    for r, meta in matrix.items():
+        if role and r != role:
+            continue
+        out["roles"][r] = meta
+    out["role_count"] = len(out["roles"])
+    return out
+
+
+def land_singleton_execute_edge_recipe(role: str | None = None) -> dict:
+    """Document singleton (hit=1) execute edges without cataloging helpers (anti-inflation)."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    edges = pr.get("singleton_execute_edges_2ck") or {}
+    out = {
+        "phase": "2ck",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "edges": {},
+        "note": "Singletons documented only — not added to SHARED_LAND_HELPERS.",
+    }
+    for r, items in edges.items():
+        if role and r != role:
+            continue
+        out["edges"][r] = items
+    out["total"] = sum(len(v) for v in out["edges"].values())
+    return out
+
+
+def land_post_readiness_checklist_2ck_recipe(role: str | None = None) -> dict:
+    """Consolidated 2ck checklist + optional role matrix slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2ck") or {})
+    matrix = pr.get("role_post_path_matrix_2ck") or {}
+    out = {
+        "phase": "2ck",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "role_slice": matrix.get(role) if role else None,
+        "do_not": checklist.get("do_not") or [
+            "enable ALLOW_POST",
+            "patch/hook helpers",
+            "Post inject",
+            "HourlyTick / GameSpeed writes",
+            "guess writes",
+        ],
+        "note": "Checklist for future Post readiness docs only.",
+    }
+    return out

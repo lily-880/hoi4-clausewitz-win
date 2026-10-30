@@ -1,0 +1,2766 @@
+{
+  "phase": "2ck",
+  "posting": "DISABLED",
+  "allow_post": false,
+  "pid": 2880,
+  "image_base": "0x7ff744660000",
+  "land_focus_unchanged": "121/121",
+  "named_new": {
+    "0x120530": "isvalid_move_order_group_field_gate",
+    "0x2607f30": "isvalid_cross_role_field_gate_b",
+    "0x10b4e50": "execute_frontline_wide_object_walk",
+    "0xc08100": "execute_order_group_inline_helper_a",
+    "0xa13f80": "execute_shared_dispatcher_composite_a",
+    "0xa13da0": "execute_shared_dispatcher_composite_b",
+    "0xa138b0": "execute_shared_dispatcher_composite_c",
+    "0xa0c7b0": "execute_shared_field_predicate_a",
+    "0x25a0448": "execute_shared_field_predicate_b",
+    "0x25a03dc": "execute_shared_field_predicate_c",
+    "0x25a0310": "execute_shared_inline_predicate_a",
+    "0x10b4fa0": "execute_shared_field_predicate_d",
+    "0xd73120": "execute_shared_leaf_helper_a",
+    "0xd71a40": "execute_shared_dispatcher_d71a40",
+    "0xd4b390": "execute_shared_field_predicate_e",
+    "0xc45030": "isvalid_frontline_retreat_field_gate",
+    "0x74ad20": "isvalid_move_order_field_gate_b",
+    "0x18d41b0": "execute_shared_dispatcher_18d41b0",
+    "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+    "0x1693c0": "isvalid_order_group_field_gate_c",
+    "0x12b3c0": "isvalid_order_group_inline_second_order"
+  },
+  "named_helpers": {
+    "0xc07620": "gamestate_instance_guard",
+    "0xc07b80": "gamestate_instance_guard_b",
+    "0xc08580": "gamestate_instance_guard_c",
+    "0xeebbd0": "gamestate_instance_guard_d",
+    "0x1c32980": "gamestate_instance_guard_e",
+    "0x23c3a0": "thread_is_main_thread",
+    "0xc40490": "get_order_instance",
+    "0xd6fe90": "deployment_train_gate",
+    "0xbea570": "division_subunit_type_check",
+    "0x2284800": "isvalid_field_gate_primary",
+    "0xbbb1e0": "isvalid_order_fallback_gate",
+    "0xc40230": "isvalid_order_object_walk_gate",
+    "0x1e1510": "isvalid_army_subject_gate_a",
+    "0x2607890": "isvalid_army_subject_gate_b",
+    "0x254aa00": "isvalid_strategic_region_gate_a",
+    "0x25a0390": "isvalid_strategic_region_gate_b",
+    "0x57f7b0": "isvalid_army_subject_gate_c",
+    "0x11f240": "isvalid_dispatcher_gate_a",
+    "0x2348bf0": "isvalid_cancel_pair_gate_a",
+    "0x25c3770": "isvalid_cancel_pair_gate_b",
+    "0x18dde70": "isvalid_theater_assign_gate",
+    "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+    "0xac1e20": "isvalid_theater_garrison_prio_gate_b",
+    "0xd73540": "isvalid_theater_reorder_gate",
+    "0x11ecb20": "isvalid_leader_seen_gate",
+    "0x1c31490": "isvalid_conveyor_gate",
+    "0x10f12f0": "isvalid_thin_alt_gate",
+    "0xf01db0": "isvalid_railwaygun_name_gate",
+    "0x25a00d8": "isvalid_misc_field_gate_30_8",
+    "0xd472f0": "execute_order_group_dispatcher_a",
+    "0xd47300": "execute_order_group_dispatcher_b",
+    "0xc47980": "isvalid_order_inline_gate_88_68",
+    "0x74adb0": "isvalid_calls_cancel_pair_gate",
+    "0x12b330": "isvalid_via_army_subject_gate_b",
+    "0xc416b0": "execute_frontline_dispatcher_a",
+    "0xbf3360": "execute_order_group_via_gs_guard_b",
+    "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+    "0xd72b50": "isvalid_order_inline_gate_54_48",
+    "0xc415b0": "execute_frontline_dispatcher_b",
+    "0x25a009c": "isvalid_second_order_field_gate",
+    "0xd4b2c0": "execute_order_group_wide_walk",
+    "0x10b5f10": "execute_via_strategic_region_gate_a",
+    "0xd4b440": "execute_shared_inline_predicate_top",
+    "0x1b8180": "isvalid_dispatcher_via_subject_misc",
+    "0x22aea40": "execute_via_strategic_region_dispatcher",
+    "0x25694b0": "execute_via_strategic_region_dispatcher_b",
+    "0x10adc70": "execute_frontline_leaf_helper",
+    "0x10b0110": "offensive_line_unique_exe_00",
+    "0x10b5fb0": "offensive_line_unique_exe_01",
+    "0x10ba8f0": "offensive_line_unique_exe_02",
+    "0x10be690": "offensive_line_unique_exe_03",
+    "0x10c3640": "offensive_line_unique_exe_04",
+    "0x10c3e10": "offensive_line_unique_exe_05",
+    "0x10cb7c0": "offensive_line_unique_exe_06",
+    "0x10cc1d0": "offensive_line_unique_exe_07",
+    "0x12c4230": "offensive_line_unique_exe_08",
+    "0x13f64b0": "offensive_line_unique_exe_09",
+    "0x13f7ca0": "offensive_line_unique_exe_10",
+    "0x13fc190": "offensive_line_unique_exe_11",
+    "0x13fdb90": "offensive_line_unique_exe_12",
+    "0x13ff490": "offensive_line_unique_exe_13",
+    "0x1401bb0": "offensive_line_unique_exe_14",
+    "0x164d340": "offensive_line_unique_exe_15",
+    "0x18c97d0": "offensive_line_unique_exe_16",
+    "0x18d58f0": "offensive_line_unique_exe_17",
+    "0x18e5ce0": "offensive_line_unique_exe_18",
+    "0x18e5dd0": "offensive_line_unique_exe_19",
+    "0x1b15d0": "offensive_line_unique_exe_20",
+    "0x1bd0c0": "offensive_line_unique_exe_21",
+    "0xb9fac0": "offensive_line_unique_exe_22",
+    "0xbba820": "offensive_line_unique_exe_23",
+    "0xc44880": "offensive_line_unique_exe_24",
+    "0xd551e0": "offensive_line_unique_exe_25",
+    "0xfcf660": "offensive_line_unique_exe_26",
+    "0xfd0db0": "offensive_line_unique_exe_27",
+    "0x120530": "isvalid_move_order_group_field_gate",
+    "0x2607f30": "isvalid_cross_role_field_gate_b",
+    "0x10b4e50": "execute_frontline_wide_object_walk",
+    "0xc08100": "execute_order_group_inline_helper_a",
+    "0xa13f80": "execute_shared_dispatcher_composite_a",
+    "0xa13da0": "execute_shared_dispatcher_composite_b",
+    "0xa138b0": "execute_shared_dispatcher_composite_c",
+    "0xa0c7b0": "execute_shared_field_predicate_a",
+    "0x25a0448": "execute_shared_field_predicate_b",
+    "0x25a03dc": "execute_shared_field_predicate_c",
+    "0x25a0310": "execute_shared_inline_predicate_a",
+    "0x10b4fa0": "execute_shared_field_predicate_d",
+    "0xd73120": "execute_shared_leaf_helper_a",
+    "0xd71a40": "execute_shared_dispatcher_d71a40",
+    "0xd4b390": "execute_shared_field_predicate_e",
+    "0xc45030": "isvalid_frontline_retreat_field_gate",
+    "0x74ad20": "isvalid_move_order_field_gate_b",
+    "0x18d41b0": "execute_shared_dispatcher_18d41b0",
+    "0x18c7d80": "execute_shared_dispatcher_18c7d80",
+    "0x1693c0": "isvalid_order_group_field_gate_c",
+    "0x12b3c0": "isvalid_order_group_inline_second_order"
+  },
+  "new_helpers": {},
+  "helper_deep": {
+    "0x10b4e50": {
+      "rva": "0x10b4e50",
+      "n_insns": 59,
+      "calls": [
+        "0x121d60"
+      ],
+      "field_offs": [
+        24,
+        72,
+        64,
+        504,
+        492,
+        480,
+        80
+      ],
+      "size": 295
+    },
+    "0x10b4fa0": {
+      "rva": "0x10b4fa0",
+      "n_insns": 66,
+      "calls": [
+        "0x121d60"
+      ],
+      "field_offs": [
+        24,
+        492,
+        64,
+        72,
+        80
+      ],
+      "size": 330
+    },
+    "0x120530": {
+      "rva": "0x120530",
+      "n_insns": 24,
+      "calls": [
+        "0x25a00d8"
+      ],
+      "field_offs": [
+        24,
+        16
+      ],
+      "size": 120
+    },
+    "0x12b3c0": {
+      "rva": "0x12b3c0",
+      "n_insns": 93,
+      "calls": [
+        "0x2607890",
+        "0x25a009c",
+        "0x25a00d8"
+      ],
+      "field_offs": [
+        16,
+        24,
+        64,
+        1,
+        39,
+        80,
+        72
+      ],
+      "size": 465
+    },
+    "0x1693c0": {
+      "rva": "0x1693c0",
+      "n_insns": 2,
+      "calls": [],
+      "field_offs": [
+        32
+      ],
+      "size": 16
+    },
+    "0x18c7d80": {
+      "rva": "0x18c7d80",
+      "n_insns": 172,
+      "calls": [
+        "0x11f6f0",
+        "0x2284800",
+        "0x254aa00",
+        "0x2607890",
+        "0xc08580",
+        "0xc50d50",
+        "0x1e25c0"
+      ],
+      "field_offs": [
+        16,
+        8,
+        12,
+        24,
+        28,
+        64,
+        136,
+        40,
+        32,
+        72,
+        76,
+        48,
+        56,
+        52,
+        472,
+        60
+      ],
+      "size": 860
+    },
+    "0x18d41b0": {
+      "rva": "0x18d41b0",
+      "n_insns": 250,
+      "calls": [
+        "0x2284800",
+        "0xc40230",
+        "0x18c4f80",
+        "0x121d60",
+        "0x10b9960",
+        "0x2607890"
+      ],
+      "field_offs": [
+        8,
+        224,
+        4,
+        88,
+        72,
+        440,
+        164,
+        152,
+        236,
+        40,
+        56,
+        127,
+        64,
+        48,
+        80,
+        32
+      ],
+      "size": 1024
+    },
+    "0x25a0310": {
+      "rva": "0x25a0310",
+      "n_insns": 8,
+      "calls": [
+        "0x25a02d4"
+      ],
+      "field_offs": [],
+      "size": 40
+    },
+    "0x25a03dc": {
+      "rva": "0x25a03dc",
+      "n_insns": 86,
+      "calls": [],
+      "field_offs": [
+        88,
+        24,
+        32,
+        16,
+        8,
+        80,
+        40,
+        96,
+        104
+      ],
+      "size": 430
+    },
+    "0x25a0448": {
+      "rva": "0x25a0448",
+      "n_insns": 62,
+      "calls": [],
+      "field_offs": [
+        88,
+        24,
+        32,
+        16,
+        8,
+        80,
+        40,
+        96,
+        104
+      ],
+      "size": 310
+    },
+    "0x2607f30": {
+      "rva": "0x2607f30",
+      "n_insns": 19,
+      "calls": [],
+      "field_offs": [],
+      "size": 95
+    },
+    "0x74ad20": {
+      "rva": "0x74ad20",
+      "n_insns": 21,
+      "calls": [
+        "0x2348bf0",
+        "0x2284800"
+      ],
+      "field_offs": [
+        4
+      ],
+      "size": 105
+    },
+    "0xa0c7b0": {
+      "rva": "0xa0c7b0",
+      "n_insns": 30,
+      "calls": [
+        "0x254dff0",
+        "0xa0d1b0",
+        "0x12b3c0"
+      ],
+      "field_offs": [
+        8,
+        16,
+        96,
+        136,
+        24,
+        169,
+        48,
+        56
+      ],
+      "size": 150
+    },
+    "0xa138b0": {
+      "rva": "0xa138b0",
+      "n_insns": 231,
+      "calls": [
+        "0xa0ee00",
+        "0xa107a0",
+        "0xa10ab0",
+        "0xa0b570",
+        "0xa0c690",
+        "0xa0d330",
+        "0x2607790",
+        "0x25a00d8",
+        "0xa13da0",
+        "0x12b3c0"
+      ],
+      "field_offs": [
+        16,
+        32,
+        24,
+        152,
+        128,
+        168,
+        64,
+        164,
+        8,
+        1,
+        80,
+        188,
+        176,
+        88,
+        136,
+        169
+      ],
+      "size": 1024
+    },
+    "0xa13da0": {
+      "rva": "0xa13da0",
+      "n_insns": 109,
+      "calls": [
+        "0x12b3c0",
+        "0xa0ee00",
+        "0xa107a0",
+        "0xa10ab0",
+        "0x254dff0",
+        "0x346930"
+      ],
+      "field_offs": [
+        8,
+        16,
+        24,
+        32,
+        128,
+        168,
+        7,
+        23,
+        39,
+        47,
+        63,
+        71,
+        79,
+        80,
+        88,
+        96
+      ],
+      "size": 545
+    },
+    "0xa13f80": {
+      "rva": "0xa13f80",
+      "n_insns": 109,
+      "calls": [
+        "0x12b3c0",
+        "0xa0ee00",
+        "0xa107a0",
+        "0xa10ab0",
+        "0x254dff0",
+        "0x346930"
+      ],
+      "field_offs": [
+        8,
+        16,
+        24,
+        32,
+        128,
+        168,
+        7,
+        23,
+        39,
+        47,
+        63,
+        71,
+        79,
+        80,
+        88,
+        96
+      ],
+      "size": 545
+    },
+    "0xc08100": {
+      "rva": "0xc08100",
+      "n_insns": 44,
+      "calls": [
+        "0x25a0390",
+        "0x254aa00"
+      ],
+      "field_offs": [
+        88,
+        64,
+        72,
+        40,
+        32
+      ],
+      "size": 220
+    },
+    "0xc45030": {
+      "rva": "0xc45030",
+      "n_insns": 7,
+      "calls": [],
+      "field_offs": [
+        64,
+        272
+      ],
+      "size": 35
+    },
+    "0xd4b390": {
+      "rva": "0xd4b390",
+      "n_insns": 43,
+      "calls": [
+        "0xd49850"
+      ],
+      "field_offs": [
+        76,
+        128,
+        140,
+        164,
+        188,
+        152,
+        48,
+        88,
+        84
+      ],
+      "size": 215
+    },
+    "0xd71a40": {
+      "rva": "0xd71a40",
+      "n_insns": 252,
+      "calls": [
+        "0x254aa00",
+        "0xd490f0",
+        "0x25a0690",
+        "0x25a0448",
+        "0x25a0310",
+        "0x25a03dc",
+        "0x10956f0",
+        "0x1d6ed0",
+        "0xc27d60",
+        "0x25a06e0",
+        "0x222eff0",
+        "0xd6e0c0"
+      ],
+      "field_offs": [
+        8,
+        24,
+        84,
+        72,
+        40,
+        32,
+        64,
+        80,
+        16,
+        280,
+        88,
+        96,
+        104,
+        100,
+        112,
+        120
+      ],
+      "size": 1024
+    },
+    "0xd73120": {
+      "rva": "0xd73120",
+      "n_insns": 2,
+      "calls": [],
+      "field_offs": [
+        72
+      ],
+      "size": 16
+    }
+  },
+  "helper_deep_count": 21,
+  "shared_miss_ge2_count": 0,
+  "singleton_execute_edges": {
+    "attack": [],
+    "retreat": [
+      {
+        "rva": "0xc51a20",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc91770",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc873a0",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13df8a0",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13efb80",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13eb450",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc915b0",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xddcd10",
+        "cmd": "CCancelRunningAwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc4bd40",
+        "cmd": "CDeployArmyHqCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x21fce0",
+        "cmd": "CDeployArmyHqCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      }
+    ],
+    "move": [
+      {
+        "rva": "0xc4f450",
+        "cmd": "CMassMoveCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13f4010",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xceb2b0",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc4b330",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc66f80",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc78c50",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc78ad0",
+        "cmd": "CSetArmyTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x7173a0",
+        "cmd": "CSetQuickDeployPreferenceCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xca8270",
+        "cmd": "CSetQuickDeployPreferenceCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xfeb5a0",
+        "cmd": "CSetQuickDeployPreferenceCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xee1870",
+        "cmd": "CSetRepairOrderCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xee0cb0",
+        "cmd": "CSetRepairOrderCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xcebd10",
+        "cmd": "CSetDivisionNameCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xcebcb0",
+        "cmd": "CSetDivisionNameCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xcebe70",
+        "cmd": "CSetDivisionNameCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc57080",
+        "cmd": "CSetDivisionNameCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1039990",
+        "cmd": "CSetDivisionNameCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xbf9240",
+        "cmd": "CSetObsoleteDivisionTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xed1710",
+        "cmd": "CBuildRailwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x3321f0",
+        "cmd": "CBuildRailwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x12025a0",
+        "cmd": "CBuildRailwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x21da70",
+        "cmd": "CBuildRailwayCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x2b7610",
+        "cmd": "CDeleteUnitCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x733ba0",
+        "cmd": "CDeleteUnitCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13f9f40",
+        "cmd": "CMergeArmiesCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x13f8740",
+        "cmd": "CMergeArmiesCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc7d1c0",
+        "cmd": "CSetPendingReassignTargetCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc4bbc0",
+        "cmd": "CSetPendingReassignTargetCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc51500",
+        "cmd": "CTransportUnitCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x11d2a10",
+        "cmd": "CRequestExpeditionariesCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      }
+    ],
+    "strategic": [
+      {
+        "rva": "0xc57070",
+        "cmd": "CToggleStrategicDeploymentCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xcd5190",
+        "cmd": "CToggleStrategicDeploymentCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      }
+    ],
+    "frontline": [],
+    "theater": [
+      {
+        "rva": "0xf6ba20",
+        "cmd": "CAssignToTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf703f0",
+        "cmd": "CAssignToTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x14d7070",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x254de20",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x11d5c0",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x12bbb0",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x12b930",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x12b710",
+        "cmd": "CDisbandTheaterGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xd3ca90",
+        "cmd": "CReorderTheatersCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x717390",
+        "cmd": "CSetCountryReinforcementPriorityCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10841e0",
+        "cmd": "CSetCountryGarrisonTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1083ca0",
+        "cmd": "CSetMainGarrisonTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10829e0",
+        "cmd": "CSetMainGarrisonTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x73aab0",
+        "cmd": "CSetStateGarrisonTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1084240",
+        "cmd": "CSetStateGarrisonTemplateCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      }
+    ],
+    "order_group": [
+      {
+        "rva": "0xd4a3d0",
+        "cmd": "CCollapseConveyorCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xd4b2d0",
+        "cmd": "CCollapseConveyorCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf70260",
+        "cmd": "COrderGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x18c4f80",
+        "cmd": "COrderAssignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10b9960",
+        "cmd": "COrderAssignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf69810",
+        "cmd": "COrderAssignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10bc370",
+        "cmd": "COrderAssignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc4f070",
+        "cmd": "COrderAssignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x18e7810",
+        "cmd": "COrderUnassignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x2b61f0",
+        "cmd": "COrderUnassignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x16bca50",
+        "cmd": "COrderUnassignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc79350",
+        "cmd": "COrderUnassignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x16bd4d0",
+        "cmd": "COrderUnassignCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x18e37e0",
+        "cmd": "COrderDeleteCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x2283ae0",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1b11420",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1b141c0",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1b12b80",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1b11ea0",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc40330",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc4a2a0",
+        "cmd": "CAssignToArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xc49740",
+        "cmd": "CDeleteOrderGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf7f2f0",
+        "cmd": "CDeleteOrderGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf7f8c0",
+        "cmd": "CDeleteOrderGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10b4d60",
+        "cmd": "COrderDeleteAllCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xf700a0",
+        "cmd": "CArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x10ce2e0",
+        "cmd": "CArmyGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xd74690",
+        "cmd": "CRemoveConveyorCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0xd4b2e0",
+        "cmd": "CSetConveyorGroupCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      },
+      {
+        "rva": "0x1f1a40",
+        "cmd": "CUpgradeDivisionOfficerCommand",
+        "note": "singleton execute edge \u2014 observe-only; not cataloged to avoid helper inflation"
+      }
+    ]
+  },
+  "role_post_path_matrix": {
+    "attack": {
+      "n_commands": 7,
+      "soft_gates_majority_advisory": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "soft_named": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "primary_preferred_core": "army_subject_pair_adjacent_core",
+      "preferred_cores": [
+        {
+          "core": "attack_core",
+          "commands": [
+            "CSupportAttackCommand",
+            "CAiDiscardForceConcentrationTargetCommand",
+            "CAiOnFailedInvasionCommand",
+            "CAiStoreForceConcentrationTargetCommand",
+            "CAiStoreTotalWantedNrDivisionsCommand"
+          ],
+          "coverage_n": 5,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "named_gates": {
+            "0x1e1510": "isvalid_army_subject_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b"
+          },
+          "basis": "share army subject gates",
+          "allow_post": false
+        },
+        {
+          "core": "army_subject_pair_adjacent_core",
+          "commands": [
+            "CSupportAttackCommand",
+            "CCancelRunningAwayCommand",
+            "CWithdrawArmyHqCommand",
+            "CMassMoveCommand",
+            "COrderAssignCommand",
+            "CSetArmyTemplateCommand",
+            "CMoveCommand",
+            "COrderSetTrainingCommand",
+            "CSetArmyFakeTemplateCommand",
+            "CDeployConveyorLineCommand",
+            "CRemoveConveyorLineCommand",
+            "CSetConveyorLocationCommand",
+            "CSetDeploymentLineNameCommand",
+            "CSetRepairOrderCommand",
+            "CSetDivisionNameCommand",
+            "CLearnTraitCommand",
+            "CAiDiscardForceConcentrationTargetCommand",
+            "CAiOnFailedInvasionCommand",
+            "CAiStoreForceConcentrationTargetCommand",
+            "CAiStoreTotalWantedNrDivisionsCommand",
+            "CClearRepairPinsCommand",
+            "CDeleteUnitCommand",
+            "CMergeArmiesCommand",
+            "CPromoteUnitLeaderCommand",
+            "CQueueUnitActionCommand",
+            "CSetPendingReassignTargetCommand",
+            "CSetUnitNameCommand",
+            "CTransportUnitCommand",
+            "CTriggerAbilityCommand"
+          ],
+          "coverage_n": 29,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "named_gates": {
+            "0x1e1510": "isvalid_army_subject_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b"
+          },
+          "basis": "cross-role army subject pair (CancelRunningAway/ClearRepairPins/QueueUnitAction family)",
+          "allow_post": false
+        },
+        {
+          "core": "railwaygun_manual_core",
+          "commands": [
+            "CRailwayGunManualOrderCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x2284800",
+            "0x2348bf0",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770"
+          ],
+          "named_gates": {
+            "0x2284800": "isvalid_field_gate_primary",
+            "0x2348bf0": "isvalid_cancel_pair_gate_a",
+            "0x254aa00": "isvalid_strategic_region_gate_a",
+            "0x25a0390": "isvalid_strategic_region_gate_b",
+            "0x25c3770": "isvalid_cancel_pair_gate_b"
+          },
+          "basis": "genuine divergence: cancel-pair + strategic-region gates, not army-subject pair",
+          "allow_post": false
+        },
+        {
+          "core": "railwaygun_name_core",
+          "commands": [
+            "CRailwayGunSetNameCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0xf01db0"
+          ],
+          "named_gates": {
+            "0xf01db0": "isvalid_railwaygun_name_gate"
+          },
+          "basis": "genuine divergence: sole gate 0xf01db0",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [
+        {
+          "core": "railwaygun_manual_core",
+          "role": "attack",
+          "commands": [
+            "CRailwayGunManualOrderCommand"
+          ],
+          "gates": [
+            "0x2284800",
+            "0x2348bf0",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770"
+          ],
+          "gate_union": [
+            "0x2284800",
+            "0x2348bf0",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770"
+          ],
+          "primary_core": "attack_core",
+          "delta_vs_primary_hard_missing": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x2284800",
+            "0x2348bf0",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x2284800",
+            "0x2348bf0",
+            "0x254aa00",
+            "0x25a0390",
+            "0x25c3770"
+          ],
+          "basis": "genuine divergence: cancel-pair + strategic-region gates, not army-subject pair",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "railwaygun_name_core",
+          "role": "attack",
+          "commands": [
+            "CRailwayGunSetNameCommand"
+          ],
+          "gates": [
+            "0xf01db0"
+          ],
+          "gate_union": [
+            "0xf01db0"
+          ],
+          "primary_core": "attack_core",
+          "delta_vs_primary_hard_missing": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0xf01db0"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0xf01db0"
+          ],
+          "basis": "genuine divergence: sole gate 0xf01db0",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        }
+      ],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        },
+        {
+          "rva": "0xc07b80",
+          "name": "gamestate_instance_guard_b"
+        }
+      ],
+      "singleton_execute_edges_documented": 0,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "retreat": {
+      "n_commands": 6,
+      "soft_gates_majority_advisory": [
+        "0x1e1510",
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "soft_named": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2284800": "isvalid_field_gate_primary",
+        "0xbbb1e0": "isvalid_order_fallback_gate"
+      },
+      "primary_preferred_core": "retreat_bbb_only_core",
+      "preferred_cores": [
+        {
+          "core": "retreat_fallback_core",
+          "commands": [
+            "CSetSelectedArmyGroupFallback",
+            "CWithdrawArmyHqCommand",
+            "CDeployArmyHqCommand"
+          ],
+          "coverage_n": 3,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x2284800",
+            "0xbbb1e0"
+          ],
+          "named_gates": {
+            "0x2284800": "isvalid_field_gate_primary",
+            "0xbbb1e0": "isvalid_order_fallback_gate"
+          },
+          "basis": "share 2284800+bbb1e0",
+          "allow_post": false
+        },
+        {
+          "core": "retreat_bbb_only_core",
+          "commands": [
+            "COrderNewFallbackCommand",
+            "COrderReplaceFallbackCommands",
+            "CSetSelectedArmyGroupFallback",
+            "CWithdrawArmyHqCommand",
+            "CDeployArmyHqCommand"
+          ],
+          "coverage_n": 5,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0xbbb1e0"
+          ],
+          "named_gates": {
+            "0xbbb1e0": "isvalid_order_fallback_gate"
+          },
+          "basis": "share bbb1e0",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0xc40230",
+          "name": "isvalid_order_object_walk_gate"
+        },
+        {
+          "rva": "0x25a0448",
+          "name": "execute_shared_field_predicate_b"
+        },
+        {
+          "rva": "0x25a0310",
+          "name": "execute_shared_inline_predicate_a"
+        },
+        {
+          "rva": "0x25a03dc",
+          "name": "execute_shared_field_predicate_c"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0xc415b0",
+          "name": "execute_frontline_dispatcher_b"
+        },
+        {
+          "rva": "0xc416b0",
+          "name": "execute_frontline_dispatcher_a"
+        },
+        {
+          "rva": "0x10b4e50",
+          "name": "execute_frontline_wide_object_walk"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0x10b5f10",
+          "name": "execute_via_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x10b4fa0",
+          "name": "execute_shared_field_predicate_d"
+        },
+        {
+          "rva": "0x18e580",
+          "name": "isvalid_via_army_subject_gate_b_alt"
+        },
+        {
+          "rva": "0x25c3770",
+          "name": "isvalid_cancel_pair_gate_b"
+        },
+        {
+          "rva": "0xbbb1e0",
+          "name": "isvalid_order_fallback_gate"
+        },
+        {
+          "rva": "0x25694b0",
+          "name": "execute_via_strategic_region_dispatcher_b"
+        },
+        {
+          "rva": "0x2607f30",
+          "name": "isvalid_cross_role_field_gate_b"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        },
+        {
+          "rva": "0xc08580",
+          "name": "gamestate_instance_guard_c"
+        }
+      ],
+      "singleton_execute_edges_documented": 10,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "move": {
+      "n_commands": 17,
+      "soft_gates_majority_advisory": [
+        "0x1e1510",
+        "0x2284800",
+        "0x2607890"
+      ],
+      "soft_named": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2284800": "isvalid_field_gate_primary",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "primary_preferred_core": "move_army_core",
+      "preferred_cores": [
+        {
+          "core": "move_army_core",
+          "commands": [
+            "CMassMoveCommand",
+            "CSetArmyTemplateCommand",
+            "CMoveCommand",
+            "CSetArmyFakeTemplateCommand",
+            "CSetRepairOrderCommand",
+            "CSetDivisionNameCommand",
+            "CDeleteUnitCommand",
+            "CMergeArmiesCommand",
+            "CSetPendingReassignTargetCommand",
+            "CTransportUnitCommand"
+          ],
+          "coverage_n": 10,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "named_gates": {
+            "0x1e1510": "isvalid_army_subject_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b"
+          },
+          "basis": "army subject pair",
+          "allow_post": false
+        },
+        {
+          "core": "move_theater_core",
+          "commands": [
+            "CMoveArmiesInTheaterCommand",
+            "CRequestExpeditionariesCommand"
+          ],
+          "coverage_n": 2,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x2284800",
+            "0xbbb1e0"
+          ],
+          "named_gates": {
+            "0x2284800": "isvalid_field_gate_primary",
+            "0xbbb1e0": "isvalid_order_fallback_gate"
+          },
+          "basis": "theater-move",
+          "allow_post": false
+        },
+        {
+          "core": "move_c07b80_core",
+          "commands": [
+            "CSetQuickDeployPreferenceCommand",
+            "CMoveCommand",
+            "CSetObsoleteDivisionTemplateCommand",
+            "CBuildRailwayCommand",
+            "CRequestExpeditionariesCommand"
+          ],
+          "coverage_n": 5,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0xc07b80"
+          ],
+          "named_gates": {
+            "0xc07b80": "gamestate_instance_guard_b"
+          },
+          "basis": "gamestate_instance_guard_b",
+          "allow_post": false
+        },
+        {
+          "core": "move_armygroup_theater_core",
+          "commands": [
+            "CMoveArmyGroupInTheaterCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x10f12f0"
+          ],
+          "named_gates": {
+            "0x10f12f0": "isvalid_thin_alt_gate"
+          },
+          "basis": "genuine divergence: sole thin gate 0x10f12f0",
+          "allow_post": false
+        },
+        {
+          "core": "move_amend_manpower_core",
+          "commands": [
+            "CAmendForeignManpowerActionCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x11f240",
+            "0x2607890"
+          ],
+          "named_gates": {
+            "0x11f240": "isvalid_dispatcher_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b"
+          },
+          "basis": "genuine divergence: 0x11f240+0x2607890 (partial army-subject)",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [
+        {
+          "core": "move_armygroup_theater_core",
+          "role": "move",
+          "commands": [
+            "CMoveArmyGroupInTheaterCommand"
+          ],
+          "gates": [
+            "0x10f12f0"
+          ],
+          "gate_union": [
+            "0x10f12f0"
+          ],
+          "primary_core": "move_army_core",
+          "delta_vs_primary_hard_missing": [
+            "0x1e1510",
+            "0x2607890"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x10f12f0"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x1e1510",
+            "0x2284800",
+            "0x2607890"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x10f12f0"
+          ],
+          "basis": "genuine divergence: sole thin gate 0x10f12f0",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "move_amend_manpower_core",
+          "role": "move",
+          "commands": [
+            "CAmendForeignManpowerActionCommand"
+          ],
+          "gates": [
+            "0x11f240",
+            "0x2607890"
+          ],
+          "gate_union": [
+            "0x11f240",
+            "0x2607890"
+          ],
+          "primary_core": "move_army_core",
+          "delta_vs_primary_hard_missing": [
+            "0x1e1510"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x11f240"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x1e1510",
+            "0x2284800"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x11f240"
+          ],
+          "basis": "genuine divergence: 0x11f240+0x2607890 (partial army-subject)",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        }
+      ],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0x18e580",
+          "name": "isvalid_via_army_subject_gate_b_alt"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        },
+        {
+          "rva": "0xc08580",
+          "name": "gamestate_instance_guard_c"
+        },
+        {
+          "rva": "0x23c3a0",
+          "name": "thread_is_main_thread"
+        },
+        {
+          "rva": "0xc07620",
+          "name": "gamestate_instance_guard"
+        },
+        {
+          "rva": "0x25694b0",
+          "name": "execute_via_strategic_region_dispatcher_b"
+        },
+        {
+          "rva": "0x2607f30",
+          "name": "isvalid_cross_role_field_gate_b"
+        },
+        {
+          "rva": "0xbea570",
+          "name": "division_subunit_type_check"
+        },
+        {
+          "rva": "0x25a00d8",
+          "name": "isvalid_misc_field_gate_30_8"
+        },
+        {
+          "rva": "0x22aea40",
+          "name": "execute_via_strategic_region_dispatcher"
+        },
+        {
+          "rva": "0x12b330",
+          "name": "isvalid_via_army_subject_gate_b"
+        },
+        {
+          "rva": "0x25a009c",
+          "name": "isvalid_second_order_field_gate"
+        },
+        {
+          "rva": "0x120530",
+          "name": "isvalid_move_order_group_field_gate"
+        },
+        {
+          "rva": "0xc07b80",
+          "name": "gamestate_instance_guard_b"
+        }
+      ],
+      "singleton_execute_edges_documented": 30,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "strategic": {
+      "n_commands": 4,
+      "soft_gates_majority_advisory": [
+        "0x254aa00",
+        "0x25a0390",
+        "0x2607890"
+      ],
+      "soft_named": {
+        "0x254aa00": "isvalid_strategic_region_gate_a",
+        "0x25a0390": "isvalid_strategic_region_gate_b",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      },
+      "primary_preferred_core": "strategic_redeploy_core",
+      "preferred_cores": [
+        {
+          "core": "strategic_redeploy_core",
+          "commands": [
+            "CReorderPinnedStrategicRegionCommand",
+            "CTogglePinnedStrategicRegionCommand"
+          ],
+          "coverage_n": 2,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x254aa00",
+            "0x25a0390"
+          ],
+          "named_gates": {
+            "0x254aa00": "isvalid_strategic_region_gate_a",
+            "0x25a0390": "isvalid_strategic_region_gate_b"
+          },
+          "basis": "strategic region pair",
+          "allow_post": false
+        },
+        {
+          "core": "strategic_pin_core",
+          "commands": [
+            "CToggleStrategicDeploymentCommand",
+            "CStrategicRedeploymentCommand"
+          ],
+          "coverage_n": 2,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x2607890"
+          ],
+          "named_gates": {
+            "0x2607890": "isvalid_army_subject_gate_b"
+          },
+          "basis": "2607890 without region pair",
+          "allow_post": false
+        },
+        {
+          "core": "strategic_unit_redeploy_core",
+          "commands": [
+            "CStrategicRedeploymentCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1e1510",
+            "0x2607890",
+            "0x57f7b0"
+          ],
+          "named_gates": {
+            "0x1e1510": "isvalid_army_subject_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b",
+            "0x57f7b0": "isvalid_army_subject_gate_c"
+          },
+          "basis": "unit strategic redeploy",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0x25694b0",
+          "name": "execute_via_strategic_region_dispatcher_b"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x2607f30",
+          "name": "isvalid_cross_role_field_gate_b"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        }
+      ],
+      "singleton_execute_edges_documented": 2,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "frontline": {
+      "n_commands": 15,
+      "soft_gates_majority_advisory": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "soft_named": {
+        "0x2284800": "isvalid_field_gate_primary",
+        "0xbbb1e0": "isvalid_order_fallback_gate",
+        "0xc40230": "isvalid_order_object_walk_gate"
+      },
+      "primary_preferred_core": "frontline_bbb_core",
+      "preferred_cores": [
+        {
+          "core": "frontline_core",
+          "commands": [
+            "COrderNewFrontCommand",
+            "COrderInsertFrontCommand",
+            "COrderSetPathCommand",
+            "COrderReshapeCommand",
+            "COrderConnectCommand",
+            "COrderReconnectCommand",
+            "COrderExecuteCommand",
+            "COrderChildFrontRatioCommand",
+            "COrderReorderChildFrontCommand",
+            "COrderSetParadropSourceCommand",
+            "COrderSetParadropTargetCommand"
+          ],
+          "coverage_n": 11,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x2284800",
+            "0xbbb1e0",
+            "0xc40230"
+          ],
+          "named_gates": {
+            "0x2284800": "isvalid_field_gate_primary",
+            "0xbbb1e0": "isvalid_order_fallback_gate",
+            "0xc40230": "isvalid_order_object_walk_gate"
+          },
+          "basis": "triple",
+          "allow_post": false
+        },
+        {
+          "core": "frontline_bbb_core",
+          "commands": [
+            "COrderNewFrontCommand",
+            "COrderInsertFrontCommand",
+            "COrderSetPathCommand",
+            "COrderReshapeCommand",
+            "COrderConnectCommand",
+            "COrderReconnectCommand",
+            "COrderAddNewCompletePlanCommand",
+            "COrderExecuteCommand",
+            "COrderBlockSectionsCommand",
+            "COrderChildFrontRatioCommand",
+            "COrderReorderChildFrontCommand",
+            "COrderSetInvasionSourceCommand",
+            "COrderSetParadropSourceCommand",
+            "COrderSetParadropTargetCommand"
+          ],
+          "coverage_n": 14,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0xbbb1e0"
+          ],
+          "named_gates": {
+            "0xbbb1e0": "isvalid_order_fallback_gate"
+          },
+          "basis": "bbb1e0",
+          "allow_post": false
+        },
+        {
+          "core": "frontline_collapse_core",
+          "commands": [
+            "COrderSetCollapseCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x10f12f0",
+            "0x2284800"
+          ],
+          "named_gates": {
+            "0x10f12f0": "isvalid_thin_alt_gate",
+            "0x2284800": "isvalid_field_gate_primary"
+          },
+          "basis": "genuine divergence: 0x2284800+0x10f12f0 without bbb/c402",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [
+        {
+          "core": "frontline_collapse_core",
+          "role": "frontline",
+          "commands": [
+            "COrderSetCollapseCommand"
+          ],
+          "gates": [
+            "0x10f12f0",
+            "0x2284800"
+          ],
+          "gate_union": [
+            "0x10f12f0",
+            "0x2284800"
+          ],
+          "primary_core": "frontline_core",
+          "delta_vs_primary_hard_missing": [
+            "0xbbb1e0",
+            "0xc40230"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x10f12f0"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0xbbb1e0",
+            "0xc40230"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x10f12f0"
+          ],
+          "basis": "genuine divergence: 0x2284800+0x10f12f0 without bbb/c402",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        }
+      ],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0xc40230",
+          "name": "isvalid_order_object_walk_gate"
+        },
+        {
+          "rva": "0x25a0448",
+          "name": "execute_shared_field_predicate_b"
+        },
+        {
+          "rva": "0x25a0310",
+          "name": "execute_shared_inline_predicate_a"
+        },
+        {
+          "rva": "0x25a03dc",
+          "name": "execute_shared_field_predicate_c"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0xc415b0",
+          "name": "execute_frontline_dispatcher_b"
+        },
+        {
+          "rva": "0xc416b0",
+          "name": "execute_frontline_dispatcher_a"
+        },
+        {
+          "rva": "0x10b4e50",
+          "name": "execute_frontline_wide_object_walk"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0x10b5f10",
+          "name": "execute_via_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x10b4fa0",
+          "name": "execute_shared_field_predicate_d"
+        },
+        {
+          "rva": "0x18c7d80",
+          "name": "execute_shared_dispatcher_18c7d80"
+        },
+        {
+          "rva": "0x18d41b0",
+          "name": "execute_shared_dispatcher_18d41b0"
+        },
+        {
+          "rva": "0x25c3770",
+          "name": "isvalid_cancel_pair_gate_b"
+        },
+        {
+          "rva": "0x2607f30",
+          "name": "isvalid_cross_role_field_gate_b"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        },
+        {
+          "rva": "0xd551e0",
+          "name": "offensive_line_unique_exe_25"
+        },
+        {
+          "rva": "0x18e580",
+          "name": "isvalid_via_army_subject_gate_b_alt"
+        },
+        {
+          "rva": "0x10c3640",
+          "name": "offensive_line_unique_exe_04"
+        },
+        {
+          "rva": "0x25694b0",
+          "name": "execute_via_strategic_region_dispatcher_b"
+        },
+        {
+          "rva": "0x1bd0c0",
+          "name": "offensive_line_unique_exe_21"
+        },
+        {
+          "rva": "0xb9fac0",
+          "name": "offensive_line_unique_exe_22"
+        },
+        {
+          "rva": "0x10ba8f0",
+          "name": "offensive_line_unique_exe_02"
+        }
+      ],
+      "singleton_execute_edges_documented": 0,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "theater": {
+      "n_commands": 11,
+      "soft_gates_majority_advisory": [],
+      "soft_named": {},
+      "primary_preferred_core": "theater_core",
+      "preferred_cores": [
+        {
+          "core": "theater_core",
+          "commands": [
+            "CAssignToTheaterGroupCommand",
+            "CSetTheaterGroupNameCommand",
+            "CSetTheaterGroupPriorityCommand"
+          ],
+          "coverage_n": 3,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x18dde70"
+          ],
+          "named_gates": {
+            "0x18dde70": "isvalid_theater_assign_gate"
+          },
+          "basis": "theater assign",
+          "allow_post": false
+        },
+        {
+          "core": "theater_garrison_prio_core",
+          "commands": [
+            "CSetCountryGarrisonPriorityCommand",
+            "CSetCountryReinforcementPriorityCommand",
+            "CSetCountryGarrisonTemplateCommand"
+          ],
+          "coverage_n": 3,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x3b65a0",
+            "0xac1e20"
+          ],
+          "named_gates": {
+            "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+            "0xac1e20": "isvalid_theater_garrison_prio_gate_b"
+          },
+          "basis": "garrison prio",
+          "allow_post": false
+        },
+        {
+          "core": "theater_reorder_core",
+          "commands": [
+            "CDisbandTheaterGroupCommand",
+            "CReorderTheatersCommand"
+          ],
+          "coverage_n": 2,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0xd73540"
+          ],
+          "named_gates": {
+            "0xd73540": "isvalid_theater_reorder_gate"
+          },
+          "basis": "reorder/disband",
+          "allow_post": false
+        },
+        {
+          "core": "theater_main_garrison_template_core",
+          "commands": [
+            "CSetMainGarrisonTemplateCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x74adb0"
+          ],
+          "named_gates": {
+            "0x74adb0": "isvalid_calls_cancel_pair_gate"
+          },
+          "basis": "genuine divergence: sole 0x74adb0",
+          "allow_post": false
+        },
+        {
+          "core": "theater_state_garrison_template_core",
+          "commands": [
+            "CSetStateGarrisonTemplateCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+          ],
+          "named_gates": {
+            "0x254aa00": "isvalid_strategic_region_gate_a",
+            "0x25a0390": "isvalid_strategic_region_gate_b",
+            "0xc08580": "gamestate_instance_guard_c"
+          },
+          "basis": "genuine divergence: strategic-region pair + gamestate_guard_c",
+          "allow_post": false
+        },
+        {
+          "core": "theater_set_theatre_core",
+          "commands": [
+            "CSetTheatreCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1e1510",
+            "0x2607890",
+            "0x57f7b0"
+          ],
+          "named_gates": {
+            "0x1e1510": "isvalid_army_subject_gate_a",
+            "0x2607890": "isvalid_army_subject_gate_b",
+            "0x57f7b0": "isvalid_army_subject_gate_c"
+          },
+          "basis": "shares army-subject pair + gate_c with unit strategic redeploy",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [
+        {
+          "core": "theater_main_garrison_template_core",
+          "role": "theater",
+          "commands": [
+            "CSetMainGarrisonTemplateCommand"
+          ],
+          "gates": [
+            "0x74adb0"
+          ],
+          "gate_union": [
+            "0x74adb0"
+          ],
+          "primary_core": "theater_core",
+          "delta_vs_primary_hard_missing": [
+            "0x18dde70"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x74adb0"
+          ],
+          "delta_vs_role_soft_missing": [],
+          "delta_vs_role_soft_extra": [
+            "0x74adb0"
+          ],
+          "basis": "genuine divergence: sole 0x74adb0",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "theater_state_garrison_template_core",
+          "role": "theater",
+          "commands": [
+            "CSetStateGarrisonTemplateCommand"
+          ],
+          "gates": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+          ],
+          "gate_union": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+          ],
+          "primary_core": "theater_core",
+          "delta_vs_primary_hard_missing": [
+            "0x18dde70"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+          ],
+          "delta_vs_role_soft_missing": [],
+          "delta_vs_role_soft_extra": [
+            "0x254aa00",
+            "0x25a0390",
+            "0xc08580"
+          ],
+          "basis": "genuine divergence: strategic-region pair + gamestate_guard_c",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        }
+      ],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0xd4b440",
+          "name": "execute_shared_inline_predicate_top"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0xc07620",
+          "name": "gamestate_instance_guard"
+        },
+        {
+          "rva": "0xc08580",
+          "name": "gamestate_instance_guard_c"
+        },
+        {
+          "rva": "0x23c3a0",
+          "name": "thread_is_main_thread"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        }
+      ],
+      "singleton_execute_edges_documented": 15,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "order_group": {
+      "n_commands": 56,
+      "soft_gates_majority_advisory": [
+        "0x2284800"
+      ],
+      "soft_named": {
+        "0x2284800": "isvalid_field_gate_primary"
+      },
+      "primary_preferred_core": "order_group_core",
+      "preferred_cores": [
+        {
+          "core": "order_group_core",
+          "commands": [
+            "CSetOrderGroupExecutionTypeCommand",
+            "CSetOrderGroupCohesionTypeCommand",
+            "CSetOrderGroupMotorizationCommand",
+            "CSetOrderGroupNameCommand",
+            "CCollapseConveyorCommand",
+            "COrderGroupCommand",
+            "COrderNewRootCommand",
+            "COrderAssignCommand",
+            "COrderUnassignCommand",
+            "COrderDeleteCommand",
+            "CRemoveFromArmyGroupCommand",
+            "CSetOrderGroupIconAndColorCommand",
+            "CSetOrderGroupLeaderProximityCommand",
+            "CSetOrderGroupOrdersInstanceNamesCommand",
+            "CAutoMergeOrdersCommand",
+            "CDeleteOrderGroupCommand",
+            "COrderDeleteAllCommand",
+            "CArmyGroupCommand",
+            "CSetArmyLeaderCommand",
+            "COrderEditRootCommand",
+            "COrderMembersFairSplitCommand",
+            "COrderMergeRootsCommand",
+            "CSetArmyLeaderPreferredTacticCommand",
+            "CAddConveyorLineCommand",
+            "CChangeConveyorPositionCommand",
+            "CCreateConveyorCommand",
+            "CCreateConveyorExtendedCommand",
+            "CDeployConveyorCommand",
+            "CDeployConveyorLineCommand",
+            "CRemoveConveyorCommand",
+            "CRemoveConveyorLineCommand",
+            "CSetConveyorGroupCommand",
+            "CSetConveyorLocationCommand",
+            "CChangeConveyorTemplateCommand",
+            "CSetDeploymentLineNameCommand",
+            "CUpgradeDivisionOfficerCommand",
+            "CLearnTraitCommand",
+            "CSelectionGroupCommand",
+            "CSetUnitNameCommand",
+            "CGiveMedalCommand",
+            "CTriggerAbilityCommand",
+            "CRetireCharacterCommand"
+          ],
+          "coverage_n": 42,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x2284800"
+          ],
+          "named_gates": {
+            "0x2284800": "isvalid_field_gate_primary"
+          },
+          "basis": "2284800",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_bbb_core",
+          "commands": [
+            "CSetOrderGroupExecutionTypeCommand",
+            "CSetOrderGroupCohesionTypeCommand",
+            "CSetOrderGroupMotorizationCommand",
+            "CSetOrderGroupNameCommand",
+            "COrderNewRootCommand",
+            "COrderAssignCommand",
+            "COrderUnassignCommand",
+            "COrderDeleteCommand",
+            "CAssignToArmyGroupCommand",
+            "CSetOrderGroupIconAndColorCommand",
+            "CSetOrderGroupLeaderProximityCommand",
+            "CSetOrderGroupOrdersInstanceNamesCommand",
+            "CAutoMergeOrdersCommand",
+            "CDeleteOrderGroupCommand",
+            "COrderDeleteAllCommand",
+            "CSetArmyLeaderCommand",
+            "COrderEditRootCommand",
+            "COrderSetTrainingCommand"
+          ],
+          "coverage_n": 18,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0xbbb1e0"
+          ],
+          "named_gates": {
+            "0xbbb1e0": "isvalid_order_fallback_gate"
+          },
+          "basis": "bbb1e0",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_leader_core",
+          "commands": [
+            "CLearnTraitCommand",
+            "CUpdateLeaderSeenTraitsCountCommand",
+            "CPromoteUnitLeaderCommand",
+            "CUpdateLeaderSeenAdvisorRolesCountCommand"
+          ],
+          "coverage_n": 4,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x11ecb20"
+          ],
+          "named_gates": {
+            "0x11ecb20": "isvalid_leader_seen_gate"
+          },
+          "basis": "leader seen",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_conveyor_core",
+          "commands": [
+            "CAddConveyorLineCommand",
+            "CDeployConveyorLineCommand",
+            "CRemoveConveyorLineCommand",
+            "CSetConveyorLocationCommand",
+            "CSetConveyorNameCommand",
+            "CSetConveyorPriorityCommand",
+            "CSetConveyorSeriesCommand",
+            "CSetDeploymentLineNameCommand"
+          ],
+          "coverage_n": 8,
+          "genuine_divergence": false,
+          "min_gates_intersection": [
+            "0x1c31490"
+          ],
+          "named_gates": {
+            "0x1c31490": "isvalid_conveyor_gate"
+          },
+          "basis": "conveyor",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_orders_link_core",
+          "commands": [
+            "CSetOrdersLinkCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x10b9f10",
+            "0x10f12f0"
+          ],
+          "named_gates": {
+            "0x10f12f0": "isvalid_thin_alt_gate"
+          },
+          "basis": "genuine divergence: 0x10b9f10+0x10f12f0",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_create_leader_core",
+          "commands": [
+            "CCreateUnitLeaderCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x7251b0",
+            "0xc07b80"
+          ],
+          "named_gates": {
+            "0xc07b80": "gamestate_instance_guard_b"
+          },
+          "basis": "genuine divergence: 0x7251b0+0xc07b80",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_preferred_tactic_core",
+          "commands": [
+            "CSetPreferredTacticCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x707bc0",
+            "0x73ee00",
+            "0xc07b80"
+          ],
+          "named_gates": {
+            "0xc07b80": "gamestate_instance_guard_b"
+          },
+          "basis": "genuine divergence: tactic helpers + gamestate_guard_b",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_reinstate_exile_core",
+          "commands": [
+            "CReinstateExileCommand"
+          ],
+          "coverage_n": 1,
+          "genuine_divergence": true,
+          "min_gates_intersection": [
+            "0x11f240",
+            "0x120530",
+            "0x1217a0",
+            "0x12b330",
+            "0x25a009c",
+            "0x25a00d8",
+            "0x2607890",
+            "0x73aab0",
+            "0xc07b80",
+            "0xc08100"
+          ],
+          "named_gates": {
+            "0x11f240": "isvalid_dispatcher_gate_a",
+            "0x120530": "isvalid_move_order_group_field_gate",
+            "0x12b330": "isvalid_via_army_subject_gate_b",
+            "0x25a009c": "isvalid_second_order_field_gate",
+            "0x25a00d8": "isvalid_misc_field_gate_30_8",
+            "0x2607890": "isvalid_army_subject_gate_b",
+            "0xc07b80": "gamestate_instance_guard_b",
+            "0xc08100": "execute_order_group_inline_helper_a"
+          },
+          "basis": "genuine divergence: wide unique IsValid set",
+          "allow_post": false
+        }
+      ],
+      "genuine_divergences": [
+        {
+          "core": "order_group_orders_link_core",
+          "role": "order_group",
+          "commands": [
+            "CSetOrdersLinkCommand"
+          ],
+          "gates": [
+            "0x10b9f10",
+            "0x10f12f0"
+          ],
+          "gate_union": [
+            "0x10b9f10",
+            "0x10f12f0"
+          ],
+          "primary_core": "order_group_core",
+          "delta_vs_primary_hard_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x10b9f10",
+            "0x10f12f0"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x10b9f10",
+            "0x10f12f0"
+          ],
+          "basis": "genuine divergence: 0x10b9f10+0x10f12f0",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_create_leader_core",
+          "role": "order_group",
+          "commands": [
+            "CCreateUnitLeaderCommand"
+          ],
+          "gates": [
+            "0x7251b0",
+            "0xc07b80"
+          ],
+          "gate_union": [
+            "0x7251b0",
+            "0xc07b80"
+          ],
+          "primary_core": "order_group_core",
+          "delta_vs_primary_hard_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x7251b0",
+            "0xc07b80"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x7251b0",
+            "0xc07b80"
+          ],
+          "basis": "genuine divergence: 0x7251b0+0xc07b80",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_preferred_tactic_core",
+          "role": "order_group",
+          "commands": [
+            "CSetPreferredTacticCommand"
+          ],
+          "gates": [
+            "0x707bc0",
+            "0x73ee00",
+            "0xc07b80"
+          ],
+          "gate_union": [
+            "0x707bc0",
+            "0x73ee00",
+            "0xc07b80"
+          ],
+          "primary_core": "order_group_core",
+          "delta_vs_primary_hard_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x707bc0",
+            "0x73ee00",
+            "0xc07b80"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x707bc0",
+            "0x73ee00",
+            "0xc07b80"
+          ],
+          "basis": "genuine divergence: tactic helpers + gamestate_guard_b",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        },
+        {
+          "core": "order_group_reinstate_exile_core",
+          "role": "order_group",
+          "commands": [
+            "CReinstateExileCommand"
+          ],
+          "gates": [
+            "0x11f240",
+            "0x120530",
+            "0x1217a0",
+            "0x12b330",
+            "0x25a009c",
+            "0x25a00d8",
+            "0x2607890",
+            "0x73aab0",
+            "0xc07b80",
+            "0xc08100"
+          ],
+          "gate_union": [
+            "0x11f240",
+            "0x120530",
+            "0x1217a0",
+            "0x12b330",
+            "0x25a009c",
+            "0x25a00d8",
+            "0x2607890",
+            "0x73aab0",
+            "0xc07b80",
+            "0xc08100"
+          ],
+          "primary_core": "order_group_core",
+          "delta_vs_primary_hard_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_primary_hard_extra": [
+            "0x11f240",
+            "0x120530",
+            "0x1217a0",
+            "0x12b330",
+            "0x25a009c",
+            "0x25a00d8",
+            "0x2607890",
+            "0x73aab0",
+            "0xc07b80",
+            "0xc08100"
+          ],
+          "delta_vs_role_soft_missing": [
+            "0x2284800"
+          ],
+          "delta_vs_role_soft_extra": [
+            "0x11f240",
+            "0x120530",
+            "0x1217a0",
+            "0x12b330",
+            "0x25a009c",
+            "0x25a00d8",
+            "0x2607890",
+            "0x73aab0",
+            "0xc07b80",
+            "0xc08100"
+          ],
+          "basis": "genuine divergence: wide unique IsValid set",
+          "post_path_note": "If Post ever enabled: treat as separate recipe path; do not require primary role soft gates that this cmd's IsValid never calls. Observe-only until ALLOW_POST explicitly set by user.",
+          "allow_post": false
+        }
+      ],
+      "named_execute_bodies_sample": [
+        {
+          "rva": "0x2284800",
+          "name": "isvalid_field_gate_primary"
+        },
+        {
+          "rva": "0x254aa00",
+          "name": "isvalid_strategic_region_gate_a"
+        },
+        {
+          "rva": "0x25a0390",
+          "name": "isvalid_strategic_region_gate_b"
+        },
+        {
+          "rva": "0xc08580",
+          "name": "gamestate_instance_guard_c"
+        },
+        {
+          "rva": "0xd472f0",
+          "name": "execute_order_group_dispatcher_a"
+        },
+        {
+          "rva": "0xbea570",
+          "name": "division_subunit_type_check"
+        },
+        {
+          "rva": "0xc07620",
+          "name": "gamestate_instance_guard"
+        },
+        {
+          "rva": "0xd73120",
+          "name": "execute_shared_leaf_helper_a"
+        },
+        {
+          "rva": "0xd4b2c0",
+          "name": "execute_order_group_wide_walk"
+        },
+        {
+          "rva": "0xd4b390",
+          "name": "execute_shared_field_predicate_e"
+        },
+        {
+          "rva": "0xd72b50",
+          "name": "isvalid_order_inline_gate_54_48"
+        },
+        {
+          "rva": "0xc415b0",
+          "name": "execute_frontline_dispatcher_b"
+        },
+        {
+          "rva": "0xc416b0",
+          "name": "execute_frontline_dispatcher_a"
+        },
+        {
+          "rva": "0xc40490",
+          "name": "get_order_instance"
+        },
+        {
+          "rva": "0x18c7d80",
+          "name": "execute_shared_dispatcher_18c7d80"
+        },
+        {
+          "rva": "0x57f7b0",
+          "name": "isvalid_army_subject_gate_c"
+        },
+        {
+          "rva": "0xbbb1e0",
+          "name": "isvalid_order_fallback_gate"
+        },
+        {
+          "rva": "0x18d41b0",
+          "name": "execute_shared_dispatcher_18d41b0"
+        },
+        {
+          "rva": "0xc40230",
+          "name": "isvalid_order_object_walk_gate"
+        },
+        {
+          "rva": "0x2607890",
+          "name": "isvalid_army_subject_gate_b"
+        },
+        {
+          "rva": "0x18e580",
+          "name": "isvalid_via_army_subject_gate_b_alt"
+        },
+        {
+          "rva": "0x25a00d8",
+          "name": "isvalid_misc_field_gate_30_8"
+        },
+        {
+          "rva": "0x2348bf0",
+          "name": "isvalid_cancel_pair_gate_a"
+        },
+        {
+          "rva": "0x25c3770",
+          "name": "isvalid_cancel_pair_gate_b"
+        }
+      ],
+      "singleton_execute_edges_documented": 30,
+      "post_path_steps_observe_only": [
+        "1. Identify cmd role and matching preferred_core (not full-role soft).",
+        "2. Require that core's min_gates_intersection IsValid helpers (named where available).",
+        "3. If cmd is in a genuine_divergence core, use THAT core's gates \u2014 do not force primary soft.",
+        "4. Observe Execute body helpers RO; do not patch/hook.",
+        "5. Confirm midflight watcher RO / tool-gate CLOSED / allow_post False.",
+        "6. STOP \u2014 do not Post until user explicitly sets ALLOW_POST and opens tool-gate."
+      ],
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    }
+  },
+  "post_readiness_checklist_2ck": {
+    "phase": "2ck",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "posting": "DISABLED",
+    "land_cmds": "121/121 unchanged",
+    "preferred_cores": 34,
+    "named_helpers": 96,
+    "helpers_total_after": 237,
+    "shared_execute_edges_cataloged": 0,
+    "singleton_edges_documented_only": {
+      "attack": 0,
+      "retreat": 10,
+      "move": 30,
+      "strategic": 2,
+      "frontline": 0,
+      "theater": 15,
+      "order_group": 30
+    },
+    "role_matrix_roles": [
+      "attack",
+      "retreat",
+      "move",
+      "strategic",
+      "frontline",
+      "theater",
+      "order_group"
+    ],
+    "requirements_before_any_post": [
+      "CLAUSEWITZ_ALLOW_POST remains unset/false",
+      "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+      "midflight watcher RO only \u2014 no inject",
+      "never HourlyTick / GameSpeed writes",
+      "IsValid gate helpers observed but not patched",
+      "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes",
+      "inflate LAND cmd count without new RTTI evidence"
+    ],
+    "readiness_summary": {
+      "attack": "primary attack_core / army_subject_pair; railwaygun divergences separate",
+      "retreat": "retreat_fallback_core + retreat_bbb_only_core",
+      "move": "move_army_core primary; theater/c07b80/amend divergences",
+      "strategic": "strategic_redeploy / pin / unit_redeploy cores",
+      "frontline": "frontline_core + bbb; collapse divergence",
+      "theater": "theater_core family; template divergences",
+      "order_group": "order_group_core (42) primary; several singleton divergences"
+    }
+  }
+}

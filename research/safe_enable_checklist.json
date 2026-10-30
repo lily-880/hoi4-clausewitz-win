@@ -1,5 +1,5 @@
 {
-  "phase": "2cj",
+  "phase": "2ck",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -987,5 +987,33 @@
     ],
     "note": "2cj RO deepen only. Post remains disabled."
   },
-  "allow_post": false
+  "allow_post": false,
+  "notes_2ck": {
+    "phase": "2ck",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 237,
+    "helpers_inflation": "none (shared\u22652 miss=0; singletons docs-only)",
+    "named_helpers": 96,
+    "preferred_cores": 34,
+    "coverage": "121/121",
+    "role_post_path_matrix": true,
+    "singleton_execute_edges_documented": 87,
+    "watcher_pid": 36128,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_role_post_path_matrix_recipe",
+      "land_singleton_execute_edge_recipe",
+      "land_post_readiness_checklist_2ck_recipe"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes"
+    ],
+    "note": "2ck RO matrix/checklist focus. Post remains disabled."
+  }
 }

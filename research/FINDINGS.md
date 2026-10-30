@@ -585,3 +585,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 pid 2880; midflight watcher **36128** alive RO; `allow_post` False; tool-gate **CLOSED_NOT_OPENED**; named/OL spot reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject. Naval/production out of scope.
 
+## Phase 2ck (overnight RO) — role post-path matrix + selective naming (anti-inflation)
+
+- **HEAD parent**: `ce6ceff` (2cj). Focus: checklist/post-path readiness artifacts over helper-count inflation. **LAND 121/121 unchanged**.
+- **Helpers**: **237 unchanged** (shared≥2 missing execute edges: **0**; singletons documented only, not cataloged).
+- **Named helpers**: 75 → **96** (+21 high-hit gate/body labels). Capstone deepen 21 named RVAs RO.
+- **Preferred cores**: still **34** / **121/121** coverage (no churn).
+- **Primary deliverable**: `role_post_path_matrix_2ck` for attack/retreat/move/strategic/frontline/theater/order_group — primary preferred core, soft advisory, named gates, divergence notes, observe-only post_path_steps.
+- **Singleton execute edges**: **87** documented under `singleton_execute_edges_2ck` (retreat 10, move 30, strategic 2, theater 15, order_group 30; attack/frontline 0).
+- **Checklist**: `post_readiness_checklist_2ck` consolidated readiness summary; allow_post False.
+- **Recipes**: `land_role_post_path_matrix_recipe`, `land_singleton_execute_edge_recipe`, `land_post_readiness_checklist_2ck_recipe`.
+- **Live**: hoi4 pid 2880; watcher **36128** RO alive; tool-gate **CLOSED_NOT_OPENED**; named spot reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+
