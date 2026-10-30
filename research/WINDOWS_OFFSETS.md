@@ -1106,3 +1106,25 @@ Proven from serialize `0x12c3920` lea/movzx sites (live byte-checked):
 - Heap scan paused tick=1: 0 live `CUnitMoveAction` vt hits (expected).
 
 Script: `scripts/phase2an_serialize_layout.py --live`
+
+## Phase 2ao — move_priority enum + Cancel/Chat fields (READ-ONLY)
+
+Posting **DISABLED**.
+
+### move_priority (`FN_MOVE_PRIORITY_ENUM` `0x19d7560`)
+| value | name | serialize token |
+|------:|------|----------------:|
+| 0 | front_order | 0x37bd |
+| 1 | normal (default; serialize skipped) | 0x77 |
+| 2 | player_order | 0x37be |
+| 3 | ai_player_order | 0x4c91 |
+
+### CCancelMovement serialize (`0x1404130`)
+- `+0x28` units handle array data
+- `+0x34` count — each entry token `unit` (0x28a3)
+- `+0x40` sticky bool (0x368f)
+
+### CChatCommand serialize (`0x13d7fa0`) — partial
+message@+0x28 (0xdd), user@+0x64 (0xe2), channel@+0x68 (0xd6), color@+0x6c (0x56), datetime@+0x74 (0xd9), receiver@+0x70 (0xc6), sender@+0x78 (0x240), chat_localize_on_receipt@+0x60 (0x302e), key_value_pairs@+0x54 (0x2e2).
+
+Script: `scripts/phase2ao_enums_cancel_chat.py --live`
