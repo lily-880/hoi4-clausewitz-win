@@ -125,7 +125,11 @@ def isvalid_path_notes() -> dict[str, Any]:
         "replace_fallback": cmd_layout.ISVALID_PATHS.get("COrderReplaceFallbackCommands"),
         "army_group_fallback": cmd_layout.ISVALID_PATHS.get("CSetSelectedArmyGroupFallback"),
         "land_army_focus": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("priority"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required before any enable; land focus 2bt",
+        "cancel_abort": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("cancel_abort_group"),
+        "frontline": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("frontline_group"),
+        "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
+        "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bu",
     }
 
 
@@ -185,5 +189,94 @@ def fallback_order_recipe(fallback_flag_or_id: int = 1) -> dict[str, Any]:
         "fallback_flag_or_id_off": 0x54,
         "fallback_flag_or_id": fallback_flag_or_id,
         "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def mass_cancel_movement_recipe(army_rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """CMassCancelMovementCommand — units vec@+0x28 count@+0x34. RO docs only."""
+    handles = [list(r["handle"]) for r in army_rows]
+    return {
+        "units_vec_off": 0x28,
+        "units_count_off": 0x34,
+        "unit_handles": handles,
+        "count": len(handles),
+        "note": "Execute iterates count@+0x34; vector must be game-allocated; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def order_execute_recipe(order_index: int = 0, execute_order: int = 1, all_flag: int = 0) -> dict[str, Any]:
+    """COrderExecuteCommand — battle-plan execute. RO docs only."""
+    return {
+        "order_index_off": 0x30,
+        "order_index": order_index,
+        "execute_order_off": 0x34,
+        "execute_order": execute_order,
+        "all_off": 0x35,
+        "all": all_flag,
+        "note": "Subject pair@+0x28 required by IsValid; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def new_front_recipe(unit_handles: list[list[int]] | None = None, blitz: int = 0, withdraw: int = 0) -> dict[str, Any]:
+    """COrderNewFrontCommand field sketch — RO docs only."""
+    return {
+        "sub_group_off": 0x30,
+        "units_data_off": 0x38,
+        "units_count_off": 0x44,
+        "path_off": 0x50,
+        "attach_off": 0x68,
+        "split_from_off": 0x6C,
+        "blitz_off": 0x6D,
+        "blitz": blitz,
+        "withdraw_off": 0x6E,
+        "withdraw": withdraw,
+        "unit_handles": unit_handles or [],
+        "note": "Front geometry/path must be game-allocated; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def set_path_recipe(order_id_a: int, order_id_b: int = 0, order_id_c: int = 0) -> dict[str, Any]:
+    """COrderSetPathCommand — RO docs only."""
+    return {
+        "order_id_a_off": 0x28,
+        "order_id_a": order_id_a,
+        "order_id_b_off": 0x2C,
+        "order_id_b": order_id_b,
+        "order_id_c_off": 0x30,
+        "order_id_c": order_id_c,
+        "path_payload_off": 0x38,
+        "note": "Path payload must be game-allocated; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def set_collapse_recipe(order_handle: list[int] | tuple[int, int], collapse_flag: int = 1) -> dict[str, Any]:
+    """COrderSetCollapseCommand — RO docs only."""
+    h = list(order_handle)
+    return {
+        "order_handle_lo_off": 0x28,
+        "order_handle_lo": h[0] if h else 0,
+        "order_handle_hi_off": 0x2C,
+        "order_handle_hi": h[1] if len(h) > 1 else 0,
+        "collapse_flag_or_id_off": 0x30,
+        "collapse_flag_or_id": collapse_flag,
+        "note": "Front/order collapse; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def assign_theater_group_recipe(subject_handle: list[int] | tuple[int, int],
+                                theater_or_group: int) -> dict[str, Any]:
+    """CAssignToTheaterGroupCommand — RO docs only."""
+    return {
+        "subject_off": 0x28,
+        "subject_handle": list(subject_handle),
+        "theater_or_group_off": 0x3C,
+        "theater_or_group": theater_or_group,
+        "note": "Theater assign; posting DISABLED",
         "posting": "DISABLED",
     }

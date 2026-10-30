@@ -296,3 +296,21 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bu (overnight RO — land cancel/abort + frontline/plan + theater)
+
+### Works
+- **LAND_ARMY_FOCUS** expanded to **25/25** live: added cancel_abort / frontline / theater groups alongside move/strategic/attack/retreat.
+- **Cancel/abort:** `CMassCancelMovementCommand` Execute FN proof (iterate count@+0x34 over vec@+0x28) + `mass_cancel_movement_recipe`; CancelMovement / CancelRunningAway wired in group.
+- **Frontline/plan:** NewFront / InsertFront / SetPath / Reshape / Connect / Reconnect + new **COrderSetCollapseCommand** (0x3a2f size 0x38) + **COrderAddNewCompletePlanCommand** (0x365e size 0x80) + OrderExecute; Capstone subject offs; recipes for new_front / set_path / set_collapse / order_execute.
+- **Theater (land):** AssignToTheaterGroup / Disband / ReorderTheaters / SetTheaterGroupName / SetTheaterGroupPriority catalogued + assign_theater recipe; MoveArmies/GroupInTheater remain in group.
+- **LAND_EXE_PROOFS** **11/11** Execute+IsValid FN (SupportAttack, MassCancel, Cancel, NewFront, SetPath, SetCollapse, AddNewCompletePlan, Move, Strategic, OrderExecute, AssignTheater).
+- `ISVALID_PATHS` **59**. HAI×3 full verb recipes. Tool-gate **CLOSED_NOT_OPENED**. `allow_post` False. Watcher **29656**; tick=1; no input. Naval/production out of scope.
+
+### Stubbed
+- In-process serialize→recreate→ring embed (needs Post/midflight).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
