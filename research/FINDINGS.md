@@ -132,3 +132,11 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 
 ### Safety
 pause/1x only; never 5x; no WriteProcessMemory enqueue.
+
+
+## Phase 2ba (2026-10-31 Asia/Shanghai)
+
+### Works
+- `calling/cmd_layout.py` — Move / Strategic / Cancel field maps (RO).
+- `scripts/phase2ba_status_pipeline.py` — live session/server counters + army handle/province sample.
+- Posting remains **DISABLED**.

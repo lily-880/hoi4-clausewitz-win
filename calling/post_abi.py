@@ -5,7 +5,10 @@ Proven against HOI4 1.19.4.1 (Operation Postern) on Windows — Haiti SP.
 """
 from __future__ import annotations
 
-from .config import assert_post_allowed, allow_post
+try:
+    from .config import assert_post_allowed, allow_post
+except ImportError:
+    from config import assert_post_allowed, allow_post
 
 # --- Proven RVAs (image-relative) ---
 FN_CMD_QUEUE_POST = 0x22C41E0

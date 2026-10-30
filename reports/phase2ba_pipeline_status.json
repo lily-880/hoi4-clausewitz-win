@@ -1,0 +1,134 @@
+{
+  "phase": "2ba",
+  "posting": "DISABLED",
+  "speed_rule": "pause or 1x only; never 5x",
+  "pid": 2880,
+  "base": "0x7ff744660000",
+  "g_session_matches": true,
+  "session": "0x1ef8f7b2b70",
+  "server": "0x1efeb828970",
+  "server_vt_rva": "0x2bcb040",
+  "session_state": 2,
+  "drain_counter": 146272,
+  "exec_counter": 13,
+  "executing_flag": 0,
+  "stage_count": 0,
+  "pending_count": 0,
+  "execlist_count": 0,
+  "ring_count": 0,
+  "post_ids": 15,
+  "post_abi": {
+    "posting": "DISABLED",
+    "allow_post": false,
+    "pipeline": "UI/AI -> FN_CMD_QUEUE_POST(session, cmd) -> CDummyServer.vt+0x28 sink -> ring@+0xa0 -> SessionUpdate drain vt+0x30 -> pending@+0x58 -> stage session+0x48 -> IsValid vt+0x48 -> Execute vt+0x50 @ site A; optional execlist@+0x40 via loop B",
+    "FN_CMD_QUEUE_POST": "0x22c41e0",
+    "G_SESSION": "0x34ffbe8",
+    "CDummyServer_VT": "0x2bcb040"
+  },
+  "cmd_layout": {
+    "posting": "DISABLED",
+    "pipeline": {
+      "post": 36454880,
+      "sink_dummy": 37706960,
+      "drain_dummy": 37709024,
+      "session_update": 36463632,
+      "execute_site_a": 36465821,
+      "execute_loop_b": 36456208,
+      "g_session": 55573480,
+      "cmd_vt_execute": 80,
+      "cmd_vt_isvalid": 72,
+      "cmd_vt_clone": 104
+    },
+    "move": {
+      "name": "CMoveCommand",
+      "vt": 44222352,
+      "type_id": 10402,
+      "size": 136,
+      "factory": 20951040,
+      "clone": 20943696,
+      "execute": 20957584,
+      "action_embed": 40,
+      "action": {
+        "name": "CUnitMoveAction",
+        "vt": 44168776,
+        "execute": 19670640,
+        "fields": {
+          "unit_handle": 16,
+          "province_arr": 24,
+          "province_size": 36,
+          "path_arr": 48,
+          "path_size": 60,
+          "clear": 80,
+          "safe": 81,
+          "safe_until_end": 82,
+          "safe_nonsafe_fb": 83,
+          "avoid": 85,
+          "move_priority": 88,
+          "sticky": 92
+        }
+      }
+    },
+    "strategic": {
+      "name": "CStrategicRedeploymentCommand",
+      "vt": 44226584,
+      "type_id": 13753,
+      "size": 80,
+      "factory": 20952448,
+      "execute": 20957584,
+      "action_embed": 40,
+      "action": {
+        "name": "CUnitStrategicMoveAction",
+        "vt": 44169192,
+        "type_id": 13898,
+        "size": 40,
+        "serialize": 19675808,
+        "deserialize": 19674944,
+        "fields": {
+          "army_handle": 16,
+          "province": 24,
+          "clear": 28,
+          "move_priority": 32
+        }
+      }
+    },
+    "cancel": {
+      "name": "CCancelMovementCommand",
+      "vt": 44222904,
+      "type_id": 10415,
+      "execute": 20954064,
+      "fields": {
+        "units_data": 40,
+        "units_count": 52,
+        "sticky": 64
+      }
+    }
+  },
+  "player_tag": 15,
+  "armies_count": 17,
+  "army_sample": [
+    {
+      "army": "0x1f04ffd83a0",
+      "handle": [
+        51,
+        1037
+      ],
+      "province_id": 3938
+    },
+    {
+      "army": "0x1f04ffd8a30",
+      "handle": [
+        51,
+        1038
+      ],
+      "province_id": 7183
+    },
+    {
+      "army": "0x1f04ffd5c40",
+      "handle": [
+        51,
+        1039
+      ],
+      "province_id": 6906
+    }
+  ]
+}
