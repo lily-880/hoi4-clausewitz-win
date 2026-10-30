@@ -110,6 +110,11 @@ PROVEN_STATIC = {
     "CCommand_VT_EXECUTE": 0x50,  # real Execute slot
     "CCommand_VT_POSTEXEC": 0x58,  # post-Execute hook
     "CDummyServer_EXECLIST": 0x40,  # list head via vt+0x78 getter 0x247620
+    "FN_CMD_QUEUE_POST_SINK_NETWORK": 0x23FA830,  # CNetworkServer vt+0x28 (MP; not live SP)
+    "FN_CMD_QUEUE_DRAIN_NETWORK": 0x23FB470,  # CNetworkServer vt+0x30 — also fills +0x58 only
+    "CSession_EXECUTING_FLAG": 0x6CC,  # set around Execute; Post-during-exec DROPS
+    "CSession_EXEC_COUNTER": 0x6C8,
+    "CSession_DRAIN_COUNTER": 0x60,
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,

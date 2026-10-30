@@ -587,6 +587,42 @@ Read-only Capstone + live counters on paused HAI (`CInGameIdler`, session state+
 
 Tool: `scripts/phase2r_execute_tick.py [--live]`
 
+## Phase 2s — drain-list vs exe-list; Execute catalog (writes still DISABLED)
+
+### Two server command lists
+
+| Off | Shape | Filled by | Consumed by |
+|-----|-------|-----------|-------------|
+| **`+0x58`** | linked list head/tail/count (`+0x60`/`+0x68`) | Dummy drain `0x23f64e0` **and** Network drain `0x23fb470` | `FN_SESSION_UPDATE` stage → `session+0x48` → Execute site A `0x22c6c9d` |
+| **`+0x40`** | secondary channel (head ptr) | **UNPINNED** | `FN_EXECUTE_LOOP` `0x22c4710` → Execute site B `0x22c47dd` |
+
+Getters are **shared lea thunks**: vt+`0x40` → `0x2e9e50` (`&this+0x58`); vt+`0x78` → `0x247620` (`&this+0x40`). E8 callers of those RVAs are not DummyServer-specific.
+
+SP paused HAI: `+0x40` and `+0x58` both empty; drain counter climbs; exec counter=13. **SP army path = `+0x58` staging**, not `+0x40`.
+
+### Post-during-Execute
+
+`session+0x6cc` set around Execute. `FN_CMD_QUEUE_POST` sees it and **drops** (`"Dropped (posted during command execution)"` LEA `0x22c4371`) — does **not** defer into `+0x40`.
+
+### CCommand Execute catalog (vt+`0x50` ≠ abort `0x25c21e0`)
+
+- ~382 Command RTTI with real Execute; **174** army/unit/naval/air/order-ish names
+- Examples: `CMoveCommand` Exec `0x13fc990`; `CCancelMovementCommand` `0x13fbbd0`; `COrderExecuteCommand` `0x18d6430`; `CChatCommand` `0x13caee0`
+
+### NetworkServer slots (not live in SP)
+
+| Slot | RVA |
+|------|-----|
+| vt+`0x28` Post | `0x23fa830` |
+| vt+`0x30` Drain | `0x23fb470` (fills `+0x58` only, same shape as Dummy) |
+| vt+`0x48` Clear | `0x23f79f0` |
+
+### Still DISABLED
+
+No Post calls / no enqueue writes. pause or 1x only (never 5x).
+
+Tools: `scripts/phase2s_execlist_fill.py [--live]`, `scripts/phase2s_network.py` (army catalog dump).
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
@@ -606,5 +642,6 @@ python scripts/session_probe.py
 python scripts/phase2j_cmd_execute_graph.py [--live]  # CCommand Execute/soft-call graph; no heap
 python scripts/phase2h_light_post_army.py  # RO Post hunt + army markers; no heap
 python scripts/phase2r_execute_tick.py [--live]  # Execute tick pin; no writes
+python scripts/phase2s_execlist_fill.py [--live]  # drain vs +0x40; army Execute catalog
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```

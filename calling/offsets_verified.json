@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2r-execute-tick-pinned-writes-still-disabled",
+  "status": "phase2s-execlist-vs-drain-documented-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -303,6 +303,29 @@
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x",
       "note": "Full Post->drain->IsValid->Execute graph proven read-only; tooling must not call Post or write enqueue"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2s": {
+      "drain_list": "+0x58/+0x60/+0x68 filled by Dummy 0x23f64e0 and Network 0x23fb470",
+      "execlist_plus_0x40": "consumed by 0x22c4710; filler UNPINNED",
+      "post_during_exec_flag": "session+0x6cc; drops at 0x22c4371 — does not fill +0x40",
+      "shared_lea_thunks": {
+        "0x247620": "+0x40",
+        "0x2e9e50": "+0x58"
+      },
+      "army_execute_overrides": 174,
+      "examples": {
+        "CMoveCommand_Execute": "0x13fc990",
+        "CCancelMovementCommand_Execute": "0x13fbbd0",
+        "COrderExecuteCommand_Execute": "0x18d6430",
+        "CChatCommand_Execute": "0x13caee0"
+      },
+      "network_slots": {
+        "vt+0x28": "0x23fa830",
+        "vt+0x30": "0x23fb470",
+        "vt+0x48": "0x23f79f0"
+      },
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
     }
   },
   "FN_CMD_QUEUE_POST": "0x22c41e0",
