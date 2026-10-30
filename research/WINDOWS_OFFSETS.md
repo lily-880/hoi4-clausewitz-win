@@ -30,6 +30,9 @@ python clausewitz_win.py status
 | CInGameIdler vtable | `0x29e5838` | |
 | CGameIdler vtable | `0x27b4158` | |
 | CCommand vtable | `0x279f4a0` | |
+| CArmy vtables | `0x29d6d68` (+ MI `0x29d6f48`, `0x29d6fb8`, `0x29d7000`) | RTTI COL; live army arrays **not** yet proven |
+| CUnit vtables | `0x29cfac0` (+ MI) | RTTI COL; no live hits this campaign sample |
+| CDate | TypeDescriptor only | **no vtable** (POD); not used for status yet |
 | CGameState ctor LEAs | `0x1d78ae`, `0x1da5a6` | |
 
 ## G_GAMESTATE — promoted (Phase 2d)
@@ -49,20 +52,49 @@ python clausewitz_win.py status
 | countries_count | GS+`0x310` CPdxArray.size | **verified** (440) |
 | majors_count | GS+`0x328` | **verified** (3) |
 | player_tag | GS+`0x518` | **verified** (15) |
-| date_year | GS+`0x478` i32 | **hypothesis** (1936); full Y-M-D TBD |
-| divisions_count | — | **stubbed** (need CCountry army offset) |
+| date_year | GS+`0x478` i32 | **hypothesis** (1936); exposed in status with note |
+| date_aux | GS+`0x47c` i32 | **hypothesis** (seen 31) — possible day-of-year; **not** full Y-M-D |
+| divisions_count | — | **stubbed** — see dead ends |
 | GS_PAUSE_HOURS `0x908` | Linux | **invalid** on Windows (pointer-looking) |
+| CO_STATES | Country+`0x460` | **matches Linux** (CState* arrays; vptr `0x29b4d38`) |
+| CO_ARMIES `0x290` | Linux | **empty / not CArmy*** on Windows live majors+player this sample |
 
-## Command queue — DISABLED
+## Command queue — DISABLED (Phase 2e stronger RE)
+
+Linux path (Clausewitz-MCP FINDINGS): `CCommandQueue::Post` @ ELF `img+0x2DC1C40`; queue from `CInGameIdler`, reached via **idler vtable+0x90**.
+
+### Windows decode (static, proven as code shape — not as Post RVA)
+
+| Item | Value |
+|------|-------|
+| CInGameIdler vt+`0x90` method | RVA **`0xe34e90`** |
+| Shape | Optional `CFileLogger` global `0x33dd090` → load **`[this+0x530]`** → **`jmp [rax+0x90]`** |
+| Hypothesis | Queue-like object at **Idler+`0x530`**; Post-analog = that object's **vtable+0x90** |
+| FN_CMD_QUEUE_POST | **null** — need live idler + typed queue + callee proof |
+
+### Dead ends (do not promote)
 
 | Lead | Result |
 |------|--------|
-| `.?AVCCommandQueue@@` | Absent |
-| `PostCommand` strings | 0 |
-| `QueueCommand` strings | 8 (no LEA xrefs / soft call targets) |
-| `FN_CMD_QUEUE_POST` | **null** — posting **DISABLED** |
+| `.?AVCCommandQueue@@` / `CGameCommandQueue` / `CPdxCommandQueue` | Absent |
+| `PostCommand` / mangled `?Post@` | 0 hits |
+| `CommandQueue` ASCII | SDL2 GL red herring |
+| `QueueCommand` / `ExecuteCommand` strings | RTTI name fragments of command *subclasses*, not a Post API; LEA soft-call targets (e.g. `0x25a009c`) are ctor-neighborhood helpers — **not** Post |
+| Copy Linux `0x2DC1C40` | Invalid on PE |
+| Live `CInGameIdler` heap vptr | **0 hits** in ≤512 MB heap sample while `G_GAMESTATE` live — cannot read `+0x530` yet |
+| Live `CArmy` / `CUnit` heap vptrs | **0 hits** in large samples; country array hunt found **no** `CArmy*` CPdxArray (player + 3 majors); divisions stay stubbed |
+| DATE float sig `0x3D2AAAAB` | 0 hits in GS blob this sample |
 
-See `scripts/phase2d_post_hunt.py` → `phase2d_post_hunt.json` (gitignored dumps dir). Do not invent Post. `CLAUSEWITZ_ALLOW_WRITE` does not enable posting.
+See `scripts/phase2e_post_graph.py` → `research/re-dumps/phase2e_post_graph.json`  
+Live follow-up: `scripts/phase2e_live_scan.py` (idler / `+0x530` / army arrays).  
+Do not invent Post. `CLAUSEWITZ_ALLOW_WRITE` does not enable posting.
+
+### Next proof steps (still read-only until done)
+
+1. Catch live `CInGameIdler` while map UI is active (re-run `phase2e_live_scan.py`).
+2. Read `idler+0x530` → RTTI-identify queue object vtable.
+3. Characterize that object's `vtable+0x90` (must take `CCommand*`, enqueue).
+4. Only then set `FN_CMD_QUEUE_POST` (writes still gated).
 
 ## Write gate
 
@@ -75,5 +107,7 @@ Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.
 python clausewitz_win.py doctor|status|peinfo|scan|session-probe|live-gs
 python scripts/phase2c_recover.py
 python scripts/phase2d_post_hunt.py
+python scripts/phase2e_post_graph.py
+python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
 python scripts/session_probe.py
 ```

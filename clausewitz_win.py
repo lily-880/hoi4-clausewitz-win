@@ -133,7 +133,7 @@ def cmd_status(args):
             k: camp.get("fields", {}).get(k)
             for k in ("player_tag_raw", "date_year_hypothesis", "date_aux_0x47c", "divisions_count", "divisions_note")
         }
-    proven["phase"] = "2d"
+    proven["phase"] = "2e"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0

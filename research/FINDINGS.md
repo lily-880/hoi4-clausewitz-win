@@ -42,3 +42,19 @@ Read-only default. Vision Channel / Auto Kessel untouched.
 
 ### Safety
 Command posting remains disabled until `FN_CMD_QUEUE_POST` is independently verified.
+
+## Phase 2e — Post graph + dead ends (2026-10-31 Asia/Shanghai)
+
+### Works
+- Static decode: CInGameIdler vt+0x90 = RVA 0xe34e90 loads [this+0x530] then jmp [rax+0x90] (Linux-analog queue/Post shape)
+- Tools: scripts/phase2e_post_graph.py, scripts/phase2e_live_scan.py
+- Status: date_aux_0x47c exposed as hypothesis; CArmy/CUnit RTTI vtables recorded
+- CO_STATES @ country+0x460 matches Linux
+
+### Stubbed / refused
+- FN_CMD_QUEUE_POST still null (no live idler; no typed Post)
+- divisions_count stubbed (no live CArmy* arrays; CO_ARMIES@0x290 empty)
+- full date Y-M-D not proven (year@+0x478 only)
+
+### Safety
+Command posting remains DISABLED.

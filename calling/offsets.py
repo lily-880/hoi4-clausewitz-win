@@ -42,6 +42,7 @@ HYPOTHESIS_STRUCT = {
     "GS_PLAYER_TAG": 0x518,
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
     "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
+    "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year — not full date
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.
@@ -53,6 +54,11 @@ PROVEN_STATIC = {
     "CInGameIdler_vtable": 0x29E5838,
     "CGameIdler_vtable": 0x27B4158,
     "CCommand_vtable": 0x279F4A0,
+    "CArmy_vtable": 0x29D6D68,
+    "CArmy_vtable_mi": [0x29D6F48, 0x29D6FB8, 0x29D7000],
+    "CUnit_vtable": 0x29CFAC0,
+    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90 loads [this+0x530]
+    "CInGameIdler_vt_post_wrapper": 0xE34E90,
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,

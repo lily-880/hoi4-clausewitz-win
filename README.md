@@ -83,3 +83,11 @@ This repo’s Windows PE backend and 1.19.4 tables are original work.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Phase 2e (Post graph / dead ends)
+
+- Stronger READ-ONLY Post hunt: `scripts/phase2e_post_graph.py`, `scripts/phase2e_live_scan.py`
+- Idler vt+0x90 @ `0xe34e90` wraps `[this+0x530]` then tail-calls vt+0x90 (Linux-analog shape)
+- `FN_CMD_QUEUE_POST` still **null**; divisions still stubbed; date year+aux hypotheses only
+- See `research/WINDOWS_OFFSETS.md`
+

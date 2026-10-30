@@ -243,17 +243,23 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     if 0 <= tag < 2000:
         out["verified"]["player_tag"] = tag
 
-    # Date hypothesis: i32 year at +0x478 (observed 1936); adjacent i32 at +0x47c opaque
-    year = struct.unpack_from("<i", blob, 0x478)[0]
-    aux = struct.unpack_from("<i", blob, 0x47C)[0]
+    # Date hypothesis: i32 year at +0x478 (observed 1936); +0x47c aux (seen 31) maybe DOY — not full Y-M-D
+    year = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_YEAR", 0x478))[0]
+    aux = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_AUX", 0x47C))[0]
     out["fields"]["date_year_hypothesis"] = year
     out["fields"]["date_aux_0x47c"] = aux
+    out["fields"]["date_aux_note"] = "hypothesis only (possible day-of-year); full date not proven"
     if 1936 <= year <= 1950:
         out["verified"]["date_year"] = year
-        out["verified"]["date_note"] = "year@+0x478 hypothesis; full Y-M-D not confirmed"
+        out["verified"]["date_note"] = "year@+0x478; full Y-M-D not confirmed (aux@+0x47c unproven)"
+    # expose aux in fields always; never mark verified without independent UI/day proof
+    out["fields"]["date_full"] = None
 
     out["fields"]["divisions_count"] = None
-    out["fields"]["divisions_note"] = "stubbed — need proven CCountry army/division array offset"
+    out["fields"]["divisions_note"] = (
+        "stubbed — CArmy RTTI known but live CArmy* arrays not found "
+        "(Linux CO_ARMIES@0x290 empty on Win sample; see WINDOWS_OFFSETS.md Phase 2e)"
+    )
     return out
 
 
