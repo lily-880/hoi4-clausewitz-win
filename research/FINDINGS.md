@@ -314,3 +314,20 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bv (overnight RO — full land EXE proofs + order-group/offensive-line)
+
+### Works
+- **LAND_EXE_PROOFS** expanded **11 → 37/37**: every LAND_ARMY_FOCUS command + cores + order-group execution helpers; live vt+0x48/0x50 FN match.
+- **LAND_ARMY_FOCUS** **37/37**: new **order_group_group** (12) for encirclement/offensive-line agent — `CSetOrderGroupExecutionTypeCommand` (tid 0x36a8), Cohesion/Motorization/Name, CollapseConveyor, OrderGroup/NewRoot/Assign/Unassign/Delete, AssignTo/RemoveFromArmyGroup.
+- Capstone field maps on remaining retreat/move/theater edges previously missing from EXE proofs.
+- Recipes: `set_order_group_execution_type_recipe`, cohesion, `assign_to_army_group_recipe`, `order_assign_recipe`, `collapse_conveyor_recipe`.
+- `ISVALID_PATHS` **64**. HAI×3 recipes include exec_type/cohesion/army-group. Tool-gate **CLOSED_NOT_OPENED**. `allow_post` False. Watcher **29656**; tick=1; no input.
+
+### Stubbed
+- In-process serialize→recreate→ring embed (needs Post/midflight).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

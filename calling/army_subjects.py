@@ -129,7 +129,8 @@ def isvalid_path_notes() -> dict[str, Any]:
         "frontline": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("frontline_group"),
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bu",
+        "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bv",
     }
 
 
@@ -278,5 +279,63 @@ def assign_theater_group_recipe(subject_handle: list[int] | tuple[int, int],
         "theater_or_group_off": 0x3C,
         "theater_or_group": theater_or_group,
         "note": "Theater assign; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_execution_type_recipe(order_group_handle: list[int] | tuple[int, int],
+                                         execution_type: int = 1) -> dict[str, Any]:
+    """CSetOrderGroupExecutionTypeCommand — offensive-line/plan execution type. RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "execution_type_off": 0x30,
+        "execution_type": execution_type,
+        "note": "Sets order-group execution type (balanced/rush/etc.); posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_cohesion_recipe(order_group_handle: list[int] | tuple[int, int],
+                                    cohesion_type: int = 0) -> dict[str, Any]:
+    """CSetOrderGroupCohesionTypeCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "cohesion_type_off": 0x30,
+        "cohesion_type": cohesion_type,
+        "posting": "DISABLED",
+    }
+
+
+def assign_to_army_group_recipe(army_handle: list[int] | tuple[int, int],
+                                group_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CAssignToArmyGroupCommand — RO only."""
+    return {
+        "army_or_units_off": 0x28,
+        "army_or_units": list(army_handle),
+        "group_off": 0x30,
+        "group": list(group_handle),
+        "note": "Assign army to army group; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def order_assign_recipe(order_subject: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderAssignCommand sketch — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(order_subject) if order_subject else [],
+        "units_or_path_off": 0x34,
+        "note": "Assign units to order; vector/path game-allocated; posting DISABLED",
+        "posting": "DISABLED",
+    }
+
+
+def collapse_conveyor_recipe(subject_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CCollapseConveyorCommand — RO only."""
+    return {
+        "subject_handle_off": 0x28,
+        "subject_handle": list(subject_handle),
         "posting": "DISABLED",
     }
