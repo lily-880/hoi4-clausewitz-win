@@ -1128,3 +1128,42 @@ Posting **DISABLED**.
 message@+0x28 (0xdd), user@+0x64 (0xe2), channel@+0x68 (0xd6), color@+0x6c (0x56), datetime@+0x74 (0xd9), receiver@+0x70 (0xc6), sender@+0x78 (0x240), chat_localize_on_receipt@+0x60 (0x302e), key_value_pairs@+0x54 (0x2e2).
 
 Script: `scripts/phase2ao_enums_cancel_chat.py --live`
+
+## Phase 2ap — army command catalog + midflight attempt (READ-ONLY)
+
+Posting **DISABLED**. Pause/1x only (never 5x). Full-heap allowed.
+
+### Army / order command catalog (live type ids via vt+0x58)
+
+| Class | vt | type_id |
+|------|---:|--------:|
+| CMoveCommand | 0x2a2c790 | 0x28a2 |
+| CCancelMovementCommand | 0x2a2c9b8 | 0x28af |
+| CStrategicRedeploymentCommand | 0x2a2d818 | 0x35b9 |
+| COrderExecuteCommand | 0x2a85468 | 0x3040 |
+| COrderAssignCommand | 0x2a84498 | 0x303e |
+| COrderUnassignCommand | 0x2a84550 | 0x304d |
+| COrderDeleteCommand | 0x2a843e0 | 0x303f |
+| COrderGroupCommand | 0x2a83d68 | 0x2ecf |
+| CArmyGroupCommand | 0x2a83ed8 | 0x3861 |
+| CSetArmyLeaderCommand | 0x2a85520 | 0x3051 |
+| COrderNewFrontCommand | 0x2a84b10 | 0x3327 |
+| COrderNewRootCommand | 0x2a84df0 | 0x3328 |
+| COrderNewFallbackCommand | 0x2a84c80 | 0x33d7 |
+| CPauseGame | 0x29e6d38 | 0x29ec |
+| CHourlyTickCommand | 0x29f3710 | (system; seen midflight) |
+
+Most army cmds: vt+0x60/0x80 **FALSE** stubs (`0x11d530`); Chat vt+0x80 TRUE; StartGame both TRUE.
+
+### Midflight (1x Haiti + AI)
+
+- Full-heap (~7830 MB): only sticky `CStartGameCommand`; **0** live Move/Strategic.
+- Pending/stage rapid poll (1500×20ms): StartGame sticky + `CHourlyTickCommand`; **0** Move.
+- Exec/seq counters climbed (commands flow) but army cmds free inside the same tick on DummyServer SP path.
+
+### Safe-enable gaps (still open)
+
+See `research/re-dumps/safe_enable_checklist.json`. `command_queue` remains **DISABLED**.
+
+Scripts: `phase2ap_army_cmds_midflight.py`, `phase2ap_midflight_light.py`, `phase2ap_pending_poll.py`.
+

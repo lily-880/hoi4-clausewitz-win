@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2al-consolidated-post-execute-graph-writes-still-disabled",
+  "status": "phase2ap-army-cmd-catalog-midflight-attempt-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -634,6 +634,94 @@
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x",
       "safe_enable": "NOT proven"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ap": {
+      "result": "0x22c41e0",
+      "role": "CSession post/drop gate (unchanged)",
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x",
+      "army_cmd_catalog": {
+        "CMoveCommand": {
+          "vt": "0x2a2c790",
+          "type_id": "0x28a2",
+          "size": "0x88"
+        },
+        "CCancelMovementCommand": {
+          "vt": "0x2a2c9b8",
+          "type_id": "0x28af",
+          "size": "0x48"
+        },
+        "CStrategicRedeploymentCommand": {
+          "vt": "0x2a2d818",
+          "type_id": "0x35b9"
+        },
+        "COrderExecuteCommand": {
+          "vt": "0x2a85468",
+          "type_id": "0x3040"
+        },
+        "COrderAssignCommand": {
+          "vt": "0x2a84498",
+          "type_id": "0x303e"
+        },
+        "COrderUnassignCommand": {
+          "vt": "0x2a84550",
+          "type_id": "0x304d"
+        },
+        "COrderDeleteCommand": {
+          "vt": "0x2a843e0",
+          "type_id": "0x303f"
+        },
+        "COrderGroupCommand": {
+          "vt": "0x2a83d68",
+          "type_id": "0x2ecf"
+        },
+        "CArmyGroupCommand": {
+          "vt": "0x2a83ed8",
+          "type_id": "0x3861"
+        },
+        "CSetArmyLeaderCommand": {
+          "vt": "0x2a85520",
+          "type_id": "0x3051"
+        },
+        "COrderNewFrontCommand": {
+          "vt": "0x2a84b10",
+          "type_id": "0x3327"
+        },
+        "COrderNewRootCommand": {
+          "vt": "0x2a84df0",
+          "type_id": "0x3328"
+        },
+        "COrderNewFallbackCommand": {
+          "vt": "0x2a84c80",
+          "type_id": "0x33d7"
+        },
+        "CPauseGame": {
+          "vt": "0x29e6d38",
+          "type_id": "0x29ec"
+        },
+        "CHourlyTickCommand": {
+          "vt": "0x29f3710",
+          "note": "seen midflight on pending/stage at 1x; system tick"
+        }
+      },
+      "midflight": {
+        "full_heap_1x": {
+          "CMoveCommand": 0,
+          "CStrategicRedeploymentCommand": 0,
+          "CStartGameCommand": 1,
+          "scanned_mb": 7830
+        },
+        "pending_poll_1500": {
+          "caught_move": false,
+          "seen": [
+            "CStartGameCommand",
+            "CHourlyTickCommand"
+          ],
+          "exec_delta_high": true
+        },
+        "gap": "SP Dummy path destroys army cmds inside tick; RO poll of lists rarely catches Move without UI click"
+      },
+      "safe_enable": "NOT proven \u2014 see research/re-dumps/safe_enable_checklist.json"
     }
   },
   "FN_CMD_QUEUE_POST": "0x22c41e0",
@@ -661,5 +749,9 @@
   "FN_MOVE_PRIORITY_ENUM": 27096416,
   "CCancelMovement_UNITS_DATA": 40,
   "CCancelMovement_UNITS_COUNT": 52,
-  "CCancelMovement_STICKY": 64
+  "CCancelMovement_STICKY": 64,
+  "CStrategicRedeploymentCommand_VT": 44226584,
+  "CStrategicRedeploymentCommand_TYPE_ID": 13753,
+  "CHourlyTickCommand_VT": 43988752,
+  "COrderExecuteCommand_TYPE_ID": 12352
 }

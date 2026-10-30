@@ -58,3 +58,17 @@ Command posting remains disabled until `FN_CMD_QUEUE_POST` is independently veri
 
 ### Safety
 Command posting remains DISABLED.
+
+## Phase 2ap (2026-10-31 Asia/Shanghai)
+
+### Works
+- Army/order command RTTI + type_id catalog (Move/Cancel/StrategicRedeploy/Orders/...)
+- Formal `safe_enable_checklist.json`
+- 1x midflight attempts (heap + pending poll); identified `CHourlyTickCommand` traffic
+
+### Stubbed / refused
+- Mid-flight `CMoveCommand` capture still open (destroyed inside SP tick)
+- Posting **DISABLED**; no WriteProcessMemory enqueue
+
+### Safety
+pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.

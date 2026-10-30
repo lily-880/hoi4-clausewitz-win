@@ -115,7 +115,7 @@ def cmd_status(args):
         "mz_ok": p.try_read(p.base, 2) == b"MZ",
         "target": O.TARGET,
         "globals": {k: (hex(v) if isinstance(v, int) else v) for k, v in O.WINDOWS_GLOBALS.items()},
-        "command_queue": "disabled (need verified FN_CMD_QUEUE_POST)",
+        "command_queue": "DISABLED (FN_CMD_QUEUE_POST=0x22c41e0 known; writes gated — see safe_enable_checklist)",
     }
     strings = []
     for s in (b"CGameState", b"CCommandQueue", b"CLandCombat", b"Hearts of Iron", b".?AVCGameState@@"):
