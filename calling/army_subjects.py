@@ -1079,6 +1079,8 @@ def land_post_readiness_recipe() -> dict[str, Any]:
         "execute_shared_unknown_count": pr.get("execute_shared_unknown_count") or sh.get("execute_shared_unknown_count"),
         "hot_execute_unknown_by_class": pr.get("hot_execute_unknown_by_class"),
         "expanded_roles_2cf": pr.get("expanded_roles_2cf"),
+        "expanded_cores_2cg": pr.get("expanded_cores_2cg"),
+        "unknown_second_order_count": pr.get("unknown_second_order_count") or sh.get("unknown_second_order_count"),
         "named_helpers": pr.get("named_helpers"),
         "isvalid_gate_helpers": pr.get("isvalid_gate_helpers"),
         "execute_body_helpers": pr.get("execute_body_helpers"),
@@ -1086,12 +1088,25 @@ def land_post_readiness_recipe() -> dict[str, Any]:
             role: {
                 "commands": (meta or {}).get("commands"),
                 "min_gates_intersection": (meta or {}).get("min_gates_intersection"),
+                "soft_gates_majority": (meta or {}).get("soft_gates_majority"),
                 "union_gates": (meta or {}).get("union_gates"),
             }
             for role, meta in ((pr.get("role_post_paths") or {}) or {}).items()
         },
+        "preferred_cores": {
+            k: {
+                "core_commands": (m or {}).get("core_commands"),
+                "min_gates_intersection": (m or {}).get("min_gates_intersection"),
+                "coverage": (m or {}).get("coverage"),
+                "basis": (m or {}).get("basis"),
+                "excluded": (m or {}).get("excluded"),
+            }
+            for k, m in ((pr.get("preferred_cores") or {}) or {}).items()
+        },
+        "soft_to_hard_closures_2cg": pr.get("soft_to_hard_closures_2cg"),
         "requirements_before_any_post": pr.get("requirements_before_any_post"),
         "post_implications_2ce": pr.get("post_implications_2ce"),
+        "post_implications_2cg": pr.get("post_implications_2cg"),
         "posting": "DISABLED",
         "allow_post": False,
         "tool_gate": "CLOSED_NOT_OPENED",
@@ -1162,6 +1177,19 @@ def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
     paths = pr.get("role_post_paths") or {}
     if role:
         meta = paths.get(role) or {}
+        prefs = pr.get("preferred_cores") or {}
+        # match preferred cores whose key starts with role
+        matched = {
+            k: {
+                "core_commands": (m or {}).get("core_commands"),
+                "min_gates_intersection": (m or {}).get("min_gates_intersection"),
+                "coverage": (m or {}).get("coverage"),
+                "basis": (m or {}).get("basis"),
+                "excluded": (m or {}).get("excluded"),
+            }
+            for k, m in prefs.items()
+            if k == f"{role}_core" or k.startswith(f"{role}_")
+        }
         return {
             "role": role,
             "commands": meta.get("commands"),
@@ -1173,6 +1201,7 @@ def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
             "union_body": meta.get("union_body"),
             "union_second": meta.get("union_second"),
             "union_exe_unknown_hot": meta.get("union_exe_unknown_hot"),
+            "preferred_cores": matched,
             "posting": "DISABLED",
             "allow_post": False,
         }
@@ -1236,3 +1265,88 @@ def order_group_role_post_path_recipe() -> dict[str, Any]:
 def garrison_role_post_path_recipe() -> dict[str, Any]:
     """Convenience RO wrapper for garrison role_post_paths (2cf expanded)."""
     return land_role_post_path_recipe("garrison")
+
+def land_preferred_core_recipe(core_name: str | None = None) -> dict[str, Any]:
+    """RO: preferred role cores that close soft_gates_majority into hard intersections on subsets."""
+    try:
+        import cmd_layout as _cl
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    prefs = pr.get("preferred_cores") or {}
+    if core_name:
+        m = prefs.get(core_name) or {}
+        return {
+            "core": core_name,
+            "core_commands": m.get("core_commands"),
+            "min_gates_intersection": m.get("min_gates_intersection"),
+            "coverage": m.get("coverage"),
+            "basis": m.get("basis"),
+            "excluded": m.get("excluded"),
+            "posting": "DISABLED",
+            "allow_post": False,
+            "tool_gate": "CLOSED_NOT_OPENED",
+        }
+    return {
+        "cores": {
+            k: {
+                "coverage": (m or {}).get("coverage"),
+                "min_gates_intersection": (m or {}).get("min_gates_intersection"),
+                "basis": (m or {}).get("basis"),
+                "n_core": len((m or {}).get("core_commands") or []),
+                "n_excluded": len((m or {}).get("excluded") or []),
+            }
+            for k, m in prefs.items()
+        },
+        "soft_to_hard_closures_2cg": pr.get("soft_to_hard_closures_2cg"),
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def land_unknown_second_order_recipe(limit: int = 16) -> dict[str, Any]:
+    """RO catalog of unknown_second_order helpers mined from execute_shared_unknown. Never posts."""
+    try:
+        import cmd_layout as _cl
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    helpers = sh.get("helpers") or {}
+    rows = []
+    for rva, h in helpers.items():
+        if h.get("tier") != "unknown_second_order":
+            continue
+        rows.append({
+            "rva": rva,
+            "hits": h.get("hits"),
+            "class": h.get("class"),
+            "caller_groups": h.get("caller_groups"),
+        })
+    rows.sort(key=lambda r: (-(r.get("hits") or 0), r["rva"]))
+    return {
+        "phase": pr.get("phase") or sh.get("phase"),
+        "count": len(rows),
+        "top": rows[:limit],
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def attack_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("attack_core")
+
+
+def move_army_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("move_army_core")
+
+
+def frontline_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("frontline_core")
+
+
+def retreat_fallback_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("retreat_fallback_core")
+

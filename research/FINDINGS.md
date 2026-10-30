@@ -503,3 +503,28 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2cg (overnight RO — preferred role cores soft→hard + unknown_second_order)
+
+### Works
+- Capstone deepen **79** land cmds (near-miss soft gates + attack/retreat/move/strategic/frontline + thin); fresh IsValid calls **6**, fresh Execute calls **49**.
+- Mined **6** `unknown_second_order` helpers (≥3 hits from execute_shared_unknown parents) → helpers total **107** (40+14+47+6).
+- Gate/body catalogs: IsValid-gate **76**, Execute-body **86**.
+- **Preferred role cores** close soft_gates_majority into hard intersections on coherent subsets (full-role hard may stay empty when outliers differ):
+  - attack_core 5/7 → `{0x1e1510, 0x2607890}` (exclude RailwayGun*)
+  - retreat_fallback_core → `{0x2284800, 0xbbb1e0}`
+  - frontline_core → `{0x2284800, 0xbbb1e0, 0xc40230}` (soft bbb/c402 closed)
+  - garrison_core → same triple
+  - move_army_core 10/17 → `{0x1e1510, 0x2607890}`
+  - strategic_redeploy_core → `{0x254aa00, 0x25a0390}`; strategic_pin_core → `{0x2607890}`
+  - order_group_core → `{0x2284800}`; theater_core → `{0x18dde70}`
+- Recipes: `land_preferred_core_recipe`, `land_unknown_second_order_recipe`, attack/move/frontline/retreat core wrappers; readiness + role recipes enriched.
+- **LAND 121/121**, **ISVALID_PATHS 134**; live FN proofs green.
+- Live: allow_post False; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Helper patch / Post inject; navy/air/division-template/production/GameSpeed/HourlyTick.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+

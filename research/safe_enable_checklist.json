@@ -525,5 +525,255 @@
       "helper_patch",
       "Post_inject"
     ]
+  },
+  "notes_2cg": {
+    "phase": "2cg",
+    "when": "2026-10-31 06:47 Asia/Shanghai",
+    "land_focus": "121/121",
+    "exe_proofs": "121/121",
+    "isvalid_paths": 134,
+    "helpers_total": 107,
+    "by_tier": {
+      "primary_shared": 40,
+      "second_order": 14,
+      "execute_shared_unknown": 47,
+      "unknown_second_order": 6
+    },
+    "isvalid_gate_helpers": 76,
+    "execute_body_helpers": 86,
+    "preferred_cores": {
+      "attack_core": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "retreat_fallback_core": [
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "frontline_core": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "garrison_core": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "move_army_core": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "strategic_redeploy_core": [
+        "0x254aa00",
+        "0x25a0390"
+      ],
+      "strategic_pin_core": [
+        "0x2607890"
+      ],
+      "order_group_core": [
+        "0x2284800"
+      ],
+      "theater_core": [
+        "0x18dde70"
+      ]
+    },
+    "soft_to_hard_closures": [
+      {
+        "role": "attack",
+        "closed_soft_into_core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "core_coverage": "5/7",
+        "full_role_hard": []
+      },
+      {
+        "role": "frontline",
+        "closed_soft_into_core_hard": [
+          "0x2284800",
+          "0xbbb1e0",
+          "0xc40230"
+        ],
+        "core_coverage": "11/15",
+        "full_role_hard": []
+      },
+      {
+        "role": "garrison",
+        "closed_soft_into_core_hard": [
+          "0xc40230"
+        ],
+        "core_coverage": "2/3",
+        "full_role_hard": [
+          "0x2284800",
+          "0xbbb1e0"
+        ]
+      },
+      {
+        "role": "move",
+        "closed_soft_into_core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "core_coverage": "10/17",
+        "full_role_hard": []
+      },
+      {
+        "role": "order_group",
+        "closed_soft_into_core_hard": [
+          "0x2284800"
+        ],
+        "core_coverage": "42/56",
+        "full_role_hard": []
+      },
+      {
+        "role": "retreat",
+        "closed_soft_into_core_hard": [
+          "0xbbb1e0"
+        ],
+        "core_coverage": "5/6",
+        "full_role_hard": []
+      },
+      {
+        "role": "strategic",
+        "closed_soft_into_core_hard": [
+          "0x2607890"
+        ],
+        "core_coverage": "2/4",
+        "full_role_hard": []
+      },
+      {
+        "preferred_core": "attack_core",
+        "closed_soft_into_core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "coverage": "5/7",
+        "basis": "exclude RailwayGun* outliers"
+      },
+      {
+        "preferred_core": "retreat_fallback_core",
+        "closed_soft_into_core_hard": [
+          "0x2284800",
+          "0xbbb1e0"
+        ],
+        "core_hard": [
+          "0x2284800",
+          "0xbbb1e0"
+        ],
+        "coverage": "3/6",
+        "basis": "share 0x2284800+0xbbb1e0"
+      },
+      {
+        "preferred_core": "frontline_core",
+        "closed_soft_into_core_hard": [
+          "0x2284800",
+          "0xbbb1e0",
+          "0xc40230"
+        ],
+        "core_hard": [
+          "0x2284800",
+          "0xbbb1e0",
+          "0xc40230"
+        ],
+        "coverage": "11/15",
+        "basis": "share 0x2284800+0xbbb1e0+0xc40230 (close soft->hard)"
+      },
+      {
+        "preferred_core": "garrison_core",
+        "closed_soft_into_core_hard": [
+          "0xc40230"
+        ],
+        "core_hard": [
+          "0x2284800",
+          "0xbbb1e0",
+          "0xc40230"
+        ],
+        "coverage": "2/3",
+        "basis": "share triple incl 0xc40230"
+      },
+      {
+        "preferred_core": "move_army_core",
+        "closed_soft_into_core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "core_hard": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "coverage": "10/17",
+        "basis": "share 0x2607890+0x1e1510"
+      },
+      {
+        "preferred_core": "strategic_redeploy_core",
+        "closed_soft_into_core_hard": [
+          "0x254aa00",
+          "0x25a0390"
+        ],
+        "core_hard": [
+          "0x254aa00",
+          "0x25a0390"
+        ],
+        "coverage": "2/4",
+        "basis": "share 0x254aa00+0x25a0390"
+      },
+      {
+        "preferred_core": "strategic_pin_core",
+        "closed_soft_into_core_hard": [
+          "0x2607890"
+        ],
+        "core_hard": [
+          "0x2607890"
+        ],
+        "coverage": "2/4",
+        "basis": "0x2607890 cluster excluding redeploy"
+      },
+      {
+        "preferred_core": "order_group_core",
+        "closed_soft_into_core_hard": [
+          "0x2284800"
+        ],
+        "core_hard": [
+          "0x2284800"
+        ],
+        "coverage": "42/56",
+        "basis": "share 0x2284800 (soft majority closed for core)"
+      },
+      {
+        "preferred_core": "theater_core",
+        "closed_soft_into_core_hard": [],
+        "core_hard": [
+          "0x18dde70"
+        ],
+        "coverage": "3/11",
+        "basis": "share seed 0x18dde70"
+      }
+    ],
+    "recipes_added": [
+      "land_preferred_core_recipe",
+      "land_unknown_second_order_recipe",
+      "attack_core_post_path_recipe",
+      "move_army_core_post_path_recipe",
+      "frontline_core_post_path_recipe",
+      "retreat_fallback_core_post_path_recipe"
+    ],
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "watcher_pid": 36128,
+    "posting": "DISABLED",
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "command_queue_tool_gate enable",
+      "ALLOW_POST",
+      "CLAUSEWITZ_ALLOW_POST",
+      "helper_patch",
+      "Post_inject"
+    ]
   }
 }
