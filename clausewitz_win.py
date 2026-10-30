@@ -146,46 +146,90 @@ def cmd_scan(args):
 
 
 def cmd_live_gs(args):
-    """Live G_GAMESTATE discovery using static_scan.json vtable candidates."""
+    """Live G_GAMESTATE discovery: session check + .data slot probe + heap vptr scan.
+
+    Requires an in-campaign session (map visible). Lobby/menu yields 0 hits by design.
+    """
     if platform.system() != "Windows":
         print("live-gs requires Windows"); return 1
     import config
     from mem import Proc, find_pid
-    from gamestate import scan_candidate_globals, try_global_rva
+    from gamestate import (
+        scan_candidate_globals,
+        heap_find_gamestate,
+        probe_zero_data_slots,
+        detect_session,
+    )
     import offsets as O
 
     pid = find_pid(config.EXE_NAME)
     if not pid:
-        print("hoi4.exe not running — start a game first"); return 1
-    scan_path = os.path.join(ROOT, "research", "re-dumps", "static_scan.json")
-    if not os.path.isfile(scan_path):
-        print("missing static_scan.json — run: python clausewitz_win.py scan"); return 1
-    data = json.load(open(scan_path, encoding="utf-8"))
-    vt = []
-    for v in data.get("rtti", {}).get("CGameState", {}).get("vtables", []):
-        vt.append(int(v["vtable_rva"], 16))
-    # dedupe
-    vt = sorted(set(vt))
-    print(json.dumps({"pid": pid, "vtable_rva_candidates": [hex(x) for x in vt]}, indent=2))
-    if not vt:
-        print("No CGameState vtable candidates in static scan — cannot live-gs yet")
-        return 2
+        print(json.dumps({"error": "hoi4.exe not running", "guidance": "Start HOI4 and load a campaign/save until the map is visible."}, indent=2))
+        return 1
+    vt = [
+        O.PROVEN_STATIC["CGameState_vtable"],
+        O.PROVEN_STATIC["CGameState_vtable_secondary"],
+        O.PROVEN_STATIC["CCurrentGameState_vtable"],
+        O.PROVEN_STATIC["CCurrentGameState_vtable_secondary"],
+    ]
     p = Proc(pid)
-    hits = scan_candidate_globals(p, vt)
-    result = {"hits": hits, "verified": None}
-    for h in hits:
-        if h.get("probe", {}).get("ok"):
-            rva = int(h["global_rva"], 16)
-            result["verified"] = {"G_GAMESTATE": hex(rva), "probe": h["probe"]}
-            # Write into a local overrides file (not auto-enabling writes)
+    session = detect_session(p)
+    result = {
+        "pid": pid,
+        "session": session,
+        "vtable_rva_candidates": [hex(x) for x in vt],
+        "global_slot_hits": [],
+        "zero_slot_hits": [],
+        "heap_object_hits": [],
+        "verified": None,
+        "command_queue": "DISABLED",
+    }
+    if session["session"] != "in_campaign":
+        result["note"] = session["guidance"]
+        print(json.dumps(result, indent=2))
+        p.close()
+        return 3
+
+    # 1) image .data slots holding ptr to GS-vptr object
+    result["global_slot_hits"] = scan_candidate_globals(p, vt)
+    # 2) static zero-init written .data slots
+    slots_path = os.path.join(ROOT, "research", "re-dumps", "data_zero_ptr_slots.json")
+    if os.path.isfile(slots_path):
+        slot_rvas = [int(x, 16) for x in json.load(open(slots_path, encoding="utf-8")).get("zero_data_ptr_slots", [])]
+        result["zero_slot_hits"] = probe_zero_data_slots(p, slot_rvas, vt)
+    # 3) heap objects even without a known global
+    result["heap_object_hits"] = heap_find_gamestate(p, vt)
+
+    def _commit(rva, probe, how):
+        result["verified"] = {"G_GAMESTATE": hex(rva) if rva is not None else None, "how": how, "probe": probe}
+        if rva is not None:
             ov = os.path.join(ROOT, "calling", "offsets_runtime.json")
-            json.dump({"G_GAMESTATE": rva, "status": "live-verified-heuristic", "probe": h["probe"]}, open(ov, "w"), indent=2)
-            # Also update in-memory table for this process
+            json.dump({"G_GAMESTATE": rva, "status": "live-verified-heuristic", "how": how, "probe": probe}, open(ov, "w"), indent=2)
             O.WINDOWS_GLOBALS["G_GAMESTATE"] = rva
+
+    for h in result["zero_slot_hits"] + result["global_slot_hits"]:
+        if h.get("probe", {}).get("ok"):
+            _commit(int(h["global_rva"], 16), h["probe"], "data_slot")
             break
+    if result["verified"] is None:
+        for h in result["heap_object_hits"]:
+            if h.get("probe", {}).get("ok"):
+                # object found but global RVA unknown — still useful for read-only status
+                result["verified"] = {"G_GAMESTATE": None, "object": h["object"], "how": "heap_only", "probe": h["probe"]}
+                ov = os.path.join(ROOT, "calling", "offsets_runtime.json")
+                json.dump({"G_GAMESTATE_OBJECT": h["object"], "status": "heap-only-heuristic", "probe": h["probe"]}, open(ov, "w"), indent=2)
+                break
+
     print(json.dumps(result, indent=2))
     p.close()
     return 0 if result["verified"] else 3
+
+
+def cmd_session_probe(args):
+    """Report lobby vs in-campaign; optionally probe G_GAMESTATE candidates."""
+    import subprocess
+    script = os.path.join(ROOT, "scripts", "session_probe.py")
+    return subprocess.call([sys.executable, script])
 
 
 def cmd_probe(args):
@@ -198,6 +242,7 @@ def cmd_serve(args):
 
 COMMANDS = {
     "doctor": cmd_doctor,
+    "session-probe": cmd_session_probe,
     "status": cmd_status,
     "peinfo": cmd_peinfo,
     "scan": cmd_scan,

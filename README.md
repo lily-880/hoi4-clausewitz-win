@@ -30,20 +30,28 @@ python clausewitz_win.py peinfo
 python clausewitz_win.py status
 ```
 
-## What works now (Phase 1)
+## What works now (Phase 2 / 2c)
 
-- Find `hoi4.exe` install (`HOI4_PATH` / Steam paths / `libraryfolders.vdf`)
-- Parse PE32+ headers of `hoi4.exe` (image base, sections)
-- `OpenProcess` + `ReadProcessMemory` attach (read-only)
-- Prove `MZ` at runtime image base; list committed regions
-- Optional string hits inside the main module (`CGameState`, `CCommandQueue`, …)
-- Minimal MCP stdio stub: `hoi4_win_doctor`, `hoi4_win_status`
+- Find `hoi4.exe` install; PE parse; `OpenProcess` + `ReadProcessMemory` (read-only)
+- MSVC RTTI → COL → vtable recovery for `CGameState` / `CCurrentGameState` / idlers / `CCommand` (live COL MATCH)
+- `session-probe` — lobby vs in-campaign via heap vptrs
+- `live-gs` — `.data` slot + heap scan; heuristic **`G_GAMESTATE` RVA `0x33dd6b0`** when campaign object live (→ gitignored `offsets_runtime.json`)
+- `status` returns real campaign probe fields once runtime/verified offset loaded (countries size, player tag)
+- MCP stdio stub: `hoi4_win_doctor`, `hoi4_win_status`
+
+```powershell
+python clausewitz_win.py session-probe
+python clausewitz_win.py live-gs
+python clausewitz_win.py status
+```
+
+**Must have a live campaign object** (not pure empty menu). See `research/WINDOWS_OFFSETS.md`.
 
 ## What is stubbed
 
-- **All game-state globals** (`G_GAMESTATE`, idler, tag DB, …) — Linux RVAs do not transfer
-- **`CCommandQueue::Post` / Injector** — Phase 2 (gated behind `CLAUSEWITZ_ALLOW_WRITE=1` even then)
-- Combat planner / encirclement search / 107 MCP tools — port later from upstream ideas
+- **`G_GAMESTATE` in `offsets_verified.json`** — heuristic only until re-verified on fresh load
+- **`FN_CMD_QUEUE_POST` / command posting** — **DISABLED**; no `CCommandQueue` RTTI; do not invent Post
+- `G_IDLER`, console execute, combat planner / 107 tools — later
 
 ## Safety
 

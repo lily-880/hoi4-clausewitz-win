@@ -111,3 +111,100 @@ def scan_candidate_globals(p, vtable_rvas: List[int], limit_slots: int = 5000) -
                     if len(hits) >= 20:
                         return hits
     return hits
+
+
+def heap_find_gamestate(p, vtable_rvas, max_region=16 << 20, max_hits=12):
+    """Scan writable non-image regions for objects whose vptr matches known GS vtables.
+    Works without G_GAMESTATE when a campaign is loaded. Read-only.
+    """
+    import struct
+    runtime = [p.base + r for r in vtable_rvas]
+    needles = [struct.pack("<Q", v) for v in runtime]
+    hits = []
+    for m in p.regions(writable=True, min_size=0x1000):
+        start, end = m["start"], m["end"]
+        size = end - start
+        if size > max_region:
+            continue
+        if p.base <= start < p.base + p.image_size:
+            continue
+        data = p.try_read(start, size)
+        if not data:
+            continue
+        for needle, vt in zip(needles, runtime):
+            off = 0
+            while len(hits) < max_hits:
+                i = data.find(needle, off)
+                if i < 0:
+                    break
+                if i % 8 == 0:
+                    obj = start + i
+                    hits.append({"object": hex(obj), "vptr": hex(vt), "probe": looks_like_gamestate(p, obj)})
+                off = i + 8
+        if len(hits) >= max_hits:
+            break
+    return hits
+
+
+def probe_zero_data_slots(p, slot_rvas, vtable_rvas):
+    """Live-check static zero-init .data slots that code writes (pointer globals)."""
+    import struct
+    vt_set = {p.base + r for r in vtable_rvas}
+    out = []
+    for rva in slot_rvas:
+        slot = p.base + rva
+        ptr = p.ptr(slot)
+        entry = {"global_rva": hex(rva), "value": hex(ptr) if ptr else None}
+        if ptr and ptr > 0x10000:
+            obj = p.try_read(ptr, 8)
+            if obj:
+                vptr = struct.unpack_from("<Q", obj, 0)[0]
+                entry["vptr"] = hex(vptr)
+                if vptr in vt_set:
+                    entry["probe"] = looks_like_gamestate(p, ptr)
+                    entry["match"] = True
+                    out.append(entry)
+                    if entry["probe"].get("ok"):
+                        return out  # early exit on strong hit
+    return out
+
+
+def detect_session(p):
+    """Heuristic lobby vs in-campaign via proven idler/GS vptrs on the heap."""
+    import offsets as O
+    vts = {
+        "CInGameIdler": O.PROVEN_STATIC["CInGameIdler_vtable"],
+        "CGameState": O.PROVEN_STATIC["CGameState_vtable"],
+        "CCurrentGameState": O.PROVEN_STATIC["CCurrentGameState_vtable"],
+        "CGameIdler": O.PROVEN_STATIC["CGameIdler_vtable"],
+    }
+    hits = heap_find_gamestate(p, list(vts.values()), max_hits=4)
+    # remap rough
+    names = list(vts.keys())
+    # simpler dedicated tiny scan:
+    import struct
+    found = {n: False for n in vts}
+    for m in p.regions(writable=True, min_size=0x1000):
+        start, end = m["start"], m["end"]
+        if end - start > (16 << 20):
+            continue
+        if p.base <= start < p.base + p.image_size:
+            continue
+        data = p.try_read(start, end - start)
+        if not data:
+            continue
+        for n, rva in vts.items():
+            if found[n]:
+                continue
+            if data.find(struct.pack("<Q", p.base + rva)) >= 0:
+                found[n] = True
+        if all(found.values()):
+            break
+    in_campaign = found["CInGameIdler"] or found["CGameState"] or found["CCurrentGameState"]
+    return {
+        "session": "in_campaign" if in_campaign else "lobby_or_menu_or_unloaded",
+        "signals": found,
+        "guidance": "Load a save/start game until the map is visible, then re-run live-gs / session-probe."
+        if not in_campaign else "Campaign objects present; probe globals/heap for G_GAMESTATE.",
+    }
+
