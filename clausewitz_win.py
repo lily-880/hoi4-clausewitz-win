@@ -3,12 +3,14 @@
 
 Commands:
   doctor   check install + (if running) attach read-only to hoi4.exe
-  status   attach and print what Phase 1 can safely prove
-  peinfo   static summary of hoi4.exe (no process needed)
-  serve    start a minimal MCP stdio stub (Phase 1 tools only)
-  probe    scan for a few string signatures in the live image (read-only)
+  status   attach and print proven live facts (+ gamestate probe if offsets known)
+  peinfo   static summary of hoi4.exe
+  scan     static RTTI/string offset scan (writes research/re-dumps/static_scan.json)
+  probe    alias for status
+  live-gs  live scan for G_GAMESTATE using RTTI vtable candidates (read-only)
+  serve    minimal MCP stdio stub
 
-Read-only by default. Never claims full upstream tool parity.
+Read-only by default. Command-queue posting stays disabled until offsets verified.
 """
 from __future__ import annotations
 
@@ -29,20 +31,16 @@ def cmd_doctor(args):
     print("-" * 56)
     print("  python      : %s" % sys.version.split()[0])
     print("  platform    : %s (%s)" % (platform.system(), platform.machine()))
-    print("  target pin  : Windows HOI4 1.19.4.0 (Operation Postern)")
+    print("  target pin  : Windows HOI4 1.19.4.x (Operation Postern)")
     if sys.version_info < (3, 8):
-        print("  ! Python 3.8+ required")
-        ok = False
+        print("  ! Python 3.8+ required"); ok = False
     if platform.system() != "Windows":
-        print("  ! Runtime attach requires Windows (you can still run peinfo on a copied exe)")
-        # not a hard fail for packaging on Linux box
+        print("  ! Runtime attach requires Windows")
     import config
-
     game = config.find_game_dir()
     print("  game dir    : %s" % (game or "NOT FOUND"))
     if not game:
-        print("    -> set HOI4_PATH")
-        ok = False
+        print("    -> set HOI4_PATH"); ok = False
     else:
         exe = config.binary_path(required=False)
         print("  executable  : %s" % (exe or "none"))
@@ -51,79 +49,63 @@ def cmd_doctor(args):
         else:
             try:
                 from pe import PE
-
                 pe = PE(exe)
                 print("  pe imagebase: %#x" % pe.image_base)
                 print("  pe imagesize: %#x (%d MB)" % (pe.size_of_image, pe.size_of_image // (1024 * 1024)))
                 print("  pe sections : %d" % len(pe.sections))
             except Exception as e:
-                print("  pe parse    : FAIL (%s)" % e)
-                ok = False
+                print("  pe parse    : FAIL (%s)" % e); ok = False
         ver = config.read_launcher_version(game)
         print("  launcher ver: %s" % (ver or "(unknown)"))
         if ver and "1.19.4" not in str(ver):
-            print("  ! WARNING: this tree is pinned for 1.19.4; found %s" % ver)
-        for sub in (
-            "map/definition.csv",
-            "common/terrain/00_terrain.txt",
-            "common/defines/00_defines.lua",
-            "history/states",
-        ):
-            p = os.path.join(game, sub)
-            mark = "ok " if os.path.exists(p) else "--"
+            print("  ! WARNING: pinned for 1.19.4; found %s" % ver)
+        for sub in ("map/definition.csv", "common/terrain/00_terrain.txt",
+                    "common/defines/00_defines.lua", "history/states"):
+            path = os.path.join(game, sub)
+            mark = "ok " if os.path.exists(path) else "--"
             print("    [%s] %s" % (mark, sub))
-            if not os.path.exists(p):
+            if not os.path.exists(path):
                 ok = False
-
-    # live process
     if platform.system() == "Windows":
         try:
-            from mem import find_pid
-
+            from mem import find_pid, Proc
+            import config
             pid = find_pid(config.EXE_NAME)
             print("  running     : %s" % (("pid %d" % pid) if pid else "none (start the game)"))
             if pid:
-                from mem import Proc
-
                 p = Proc(pid)
                 print("  attach      : OK")
                 print("  image base  : %#x" % p.base)
                 print("  image size  : %#x" % p.image_size)
-                print("  image path  : %s" % p.image_path)
-                # prove a read of DOS header at image base
-                hdr = p.try_read(p.base, 2)
-                print("  read MZ     : %s" % (hdr == b"MZ"))
-                if hdr != b"MZ":
-                    ok = False
+                print("  read MZ     : %s" % (p.try_read(p.base, 2) == b"MZ"))
                 print("  regions     : %d committed" % len(p.maps))
                 p.close()
         except Exception as e:
-            print("  attach      : FAIL (%s)" % e)
-            ok = False
+            print("  attach      : FAIL (%s)" % e); ok = False
     else:
         print("  running     : (skip attach — not Windows)")
-
+    import offsets as O
+    known = {k: v for k, v in O.WINDOWS_GLOBALS.items() if v is not None}
+    print("  known RVAs  : %s" % (known or "(none yet)"))
     print("-" * 56)
-    print("RESULT: %s" % ("ready (Phase 1 read path)" if ok else "problems found"))
-    print("NOTE: game-state globals / CCommandQueue are NOT recovered yet.")
+    print("RESULT: %s" % ("ready" if ok else "problems found"))
+    print("NOTE: command-queue posting remains DISABLED until FN_CMD_QUEUE_POST verified.")
     return 0 if ok else 1
 
 
 def cmd_status(args):
     if platform.system() != "Windows":
-        print("status requires Windows + a running hoi4.exe")
-        return 1
+        print("status requires Windows + running hoi4.exe"); return 1
     import config
     from mem import Proc, find_pid
     import offsets as O
-
     pid = find_pid(config.EXE_NAME)
     if not pid:
-        print("hoi4.exe not running")
-        return 1
+        print("hoi4.exe not running"); return 1
     p = Proc(pid)
+    O.RUNTIME.update(image_base=p.base, image_size=p.image_size, pid=p.pid)
     proven = {
-        "phase": 1,
+        "phase": 2,
         "read_only": True,
         "pid": p.pid,
         "image_base": hex(p.base),
@@ -132,18 +114,19 @@ def cmd_status(args):
         "regions_committed": len(p.maps),
         "mz_ok": p.try_read(p.base, 2) == b"MZ",
         "target": O.TARGET,
-        "globals_ready": {k: v is not None for k, v in O.WINDOWS_GLOBALS.items()},
-        "game_state": "unavailable until G_GAMESTATE RVA recovered",
-        "command_queue": "unavailable (Phase 2)",
+        "globals": {k: (hex(v) if isinstance(v, int) else v) for k, v in O.WINDOWS_GLOBALS.items()},
+        "command_queue": "disabled (need verified FN_CMD_QUEUE_POST)",
     }
-    # Optional: search for a few distinctive ASCII strings inside the module mapping
     strings = []
-    for s in (b"CGameState", b"CCommandQueue", b"CLandCombat", b"Hearts of Iron"):
-        # scan only the main image mapping range
+    for s in (b"CGameState", b"CCommandQueue", b"CLandCombat", b"Hearts of Iron", b".?AVCGameState@@"):
         region = [dict(start=p.base, end=p.base + p.image_size, perms="r--p", path="hoi4.exe")]
-        hits = p.scan_value(s, regions=region, limit=3, align=1)
+        hits = p.scan_value(s, regions=region, limit=5, align=1)
         strings.append({"needle": s.decode("ascii", "replace"), "hits": [hex(h) for h in hits]})
     proven["string_hits_in_image"] = strings
+    # If G_GAMESTATE known, probe
+    if O.WINDOWS_GLOBALS.get("G_GAMESTATE") is not None:
+        from gamestate import try_global_rva
+        proven["gamestate_probe"] = try_global_rva(p, O.WINDOWS_GLOBALS["G_GAMESTATE"])
     print(json.dumps(proven, indent=2))
     p.close()
     return 0
@@ -152,11 +135,57 @@ def cmd_status(args):
 def cmd_peinfo(args):
     import config
     from pe import PE
-
     path = args.exe or config.binary_path(required=True)
-    pe = PE(path)
-    print(json.dumps(pe.summary(), indent=2))
+    print(json.dumps(PE(path).summary(), indent=2))
     return 0
+
+
+def cmd_scan(args):
+    script = os.path.join(ROOT, "scripts", "scan_static_offsets.py")
+    return os.spawnv(os.P_WAIT, sys.executable, [sys.executable, script])
+
+
+def cmd_live_gs(args):
+    """Live G_GAMESTATE discovery using static_scan.json vtable candidates."""
+    if platform.system() != "Windows":
+        print("live-gs requires Windows"); return 1
+    import config
+    from mem import Proc, find_pid
+    from gamestate import scan_candidate_globals, try_global_rva
+    import offsets as O
+
+    pid = find_pid(config.EXE_NAME)
+    if not pid:
+        print("hoi4.exe not running — start a game first"); return 1
+    scan_path = os.path.join(ROOT, "research", "re-dumps", "static_scan.json")
+    if not os.path.isfile(scan_path):
+        print("missing static_scan.json — run: python clausewitz_win.py scan"); return 1
+    data = json.load(open(scan_path, encoding="utf-8"))
+    vt = []
+    for v in data.get("rtti", {}).get("CGameState", {}).get("vtables", []):
+        vt.append(int(v["vtable_rva"], 16))
+    # dedupe
+    vt = sorted(set(vt))
+    print(json.dumps({"pid": pid, "vtable_rva_candidates": [hex(x) for x in vt]}, indent=2))
+    if not vt:
+        print("No CGameState vtable candidates in static scan — cannot live-gs yet")
+        return 2
+    p = Proc(pid)
+    hits = scan_candidate_globals(p, vt)
+    result = {"hits": hits, "verified": None}
+    for h in hits:
+        if h.get("probe", {}).get("ok"):
+            rva = int(h["global_rva"], 16)
+            result["verified"] = {"G_GAMESTATE": hex(rva), "probe": h["probe"]}
+            # Write into a local overrides file (not auto-enabling writes)
+            ov = os.path.join(ROOT, "calling", "offsets_runtime.json")
+            json.dump({"G_GAMESTATE": rva, "status": "live-verified-heuristic", "probe": h["probe"]}, open(ov, "w"), indent=2)
+            # Also update in-memory table for this process
+            O.WINDOWS_GLOBALS["G_GAMESTATE"] = rva
+            break
+    print(json.dumps(result, indent=2))
+    p.close()
+    return 0 if result["verified"] else 3
 
 
 def cmd_probe(args):
@@ -164,27 +193,23 @@ def cmd_probe(args):
 
 
 def cmd_serve(args):
-    os.execv(
-        sys.executable,
-        [sys.executable, os.path.join(ROOT, "mcp", "server.py")],
-    )
+    os.execv(sys.executable, [sys.executable, os.path.join(ROOT, "mcp", "server.py")])
 
 
 COMMANDS = {
     "doctor": cmd_doctor,
     "status": cmd_status,
     "peinfo": cmd_peinfo,
+    "scan": cmd_scan,
+    "live-gs": cmd_live_gs,
     "probe": cmd_probe,
     "serve": cmd_serve,
 }
 
 
 def main():
-    ap = argparse.ArgumentParser(
-        prog="clausewitz_win",
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
+    ap = argparse.ArgumentParser(prog="clausewitz_win", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", nargs="?", default="doctor", choices=sorted(COMMANDS))
     ap.add_argument("--exe", help="path to hoi4.exe for peinfo")
     args = ap.parse_args()

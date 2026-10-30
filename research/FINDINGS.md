@@ -25,3 +25,20 @@
 ## Safety
 
 Read-only default. Vision Channel / Auto Kessel untouched.
+
+
+## Phase 2 — static RTTI + attach (2026-10-31 Asia/Shanghai)
+
+### Works
+- PE parse, doctor, attach when `hoi4.exe` running (MZ + region walk + string scan in image)
+- MSVC RTTI recovery for `CGameState` / `CInGameIdler` / `CCommand` / `CLandCombat` / `CArmy` / `CCountry`
+- Primary `CGameState` vtable RVA **`0x279f0f0`** (safely static-proven)
+- `live-gs` path: scan image `.data` for global slot → heap object with that vptr; heuristic countries/@player
+
+### Stubbed / refused
+- `G_GAMESTATE` global RVA — only after live-gs verifies (not committed as verified yet)
+- **Command-queue Post** — no `CCommandQueue` RTTI; SDL GL strings are red herrings; **read-only**
+- Full MCP tool parity with Linux Clausewitz-MCP
+
+### Safety
+Command posting remains disabled until `FN_CMD_QUEUE_POST` is independently verified.

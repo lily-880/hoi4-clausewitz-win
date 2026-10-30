@@ -11,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 # Target pin for this fork's offset work
-TARGET_VERSION = "1.19.4.x"
+TARGET_VERSION = "1.19.4.0"
 TARGET_VERSION_NAME = "Operation Postern"
 
 _STEAM_DIRS = [

@@ -1,0 +1,54 @@
+{
+  "target": {
+    "os": "Windows",
+    "exe": "hoi4.exe",
+    "game_version": "1.19.4.1",
+    "sha256": "CF781ED178CD801643B233B7E3FCD1C0EFD19BD01AECD24BF07A35F69F10476F",
+    "image_base_preferred": "0x140000000",
+    "size_of_image": "0x38a3000"
+  },
+  "method": "MSVC RTTI TypeDescriptor (.?AV*) -> CompleteObjectLocator -> vtable[-1] COL slot; live COL slot verified MATCH under ASLR",
+  "proven_static": {
+    "RTTI_CGameState_name": "0x31e75a0",
+    "RTTI_CGameState_td": "0x31e7590",
+    "CGameState_vtable_primary": "0x279f0f0",
+    "CGameState_vtable_secondary": "0x279f148",
+    "CGameState_col_primary": "0x2c2fa08",
+    "CGameState_ctor_lea_sites": [
+      "0x1d78ae",
+      "0x1da5a6"
+    ],
+    "RTTI_CCurrentGameState_name": "0x31e78b8",
+    "CCurrentGameState_vtable_primary": "0x279f168",
+    "CCurrentGameState_vtable_secondary": "0x279f1c0",
+    "RTTI_CInGameIdler_name": "0x32e31b0",
+    "CInGameIdler_vtables": [
+      "0x29e5838",
+      "0x29e5c00",
+      "0x29e5c20",
+      "0x29e5c40"
+    ],
+    "RTTI_CGameIdler_name": "0x31ee078",
+    "CGameIdler_vtables": [
+      "0x27b4158",
+      "0x27b4510"
+    ],
+    "RTTI_CCommand_name": "0x31e74b8",
+    "CCommand_vtable": "0x279f4a0"
+  },
+  "live_verified": {
+    "attach_readprocessmemory": true,
+    "aslr_image_base_example": "0x7ff744660000",
+    "col_slot_matches_runtime": true,
+    "G_GAMESTATE": null,
+    "G_IDLER": null,
+    "FN_CMD_QUEUE_POST": null,
+    "note": "No CGameState/CCurrentGameState heap instances with primary vptr found during menu/session scan; G_GAMESTATE not safely committed. CCommandQueue RTTI absent (SDL GL_RunCommandQueue red herring)."
+  },
+  "hypothesis_struct_from_linux": {
+    "GS_COUNTRIES": "0x310",
+    "GS_PLAYER_TAG": "0x518",
+    "warning": "Linux field offsets \u2014 validate before any write use"
+  },
+  "write_policy": "CLAUSEWITZ_ALLOW_WRITE ignored until FN_CMD_QUEUE_POST in offsets_verified.json"
+}
