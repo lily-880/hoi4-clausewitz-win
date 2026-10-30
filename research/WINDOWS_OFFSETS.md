@@ -808,6 +808,25 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2aa_early_gates.py [--live]`
 
+## Phase 2ab — Post early-gate order pinned (writes DISABLED)
+
+`FN_CMD_QUEUE_POST` (`0x22c41e0`) early path — bypass stamp/delivery if **any**:
+
+1. `r8b != 0` (caller force)
+2. `session+0x725 != 0` (live **1**)
+3. `cmd.vt+0x80` returns TRUE
+4. `cmd.vt+0x60` returns TRUE
+
+Else DROP `"Dropped command:"`.
+
+After bypass: stamp `cmd+0xc=session+0x84`, `cmd+0x18=min(session+0x60,0x7fff)`; if `+0x6cc && !+0x726` DROP during-exec; auth may DROP `"sender not authorized"`; success → `server.vt+0x28(cmd)`.
+
+`+0x725` writers set 1 via Idler→App `vt+0x88` session getter. Chat `vt+0x90` (`0x13cc9a0`) multi-path; `mov al,1` @ `0x13ccc20`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ab_post_gates.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

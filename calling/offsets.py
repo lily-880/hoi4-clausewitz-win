@@ -136,6 +136,9 @@ PROVEN_STATIC = {
     "CDecreaseGameSpeedCommand_VT": 0x29F3880,
     "CSetGameSpeedCommand_VT": 0x29F3938,
     "CHourlyTickCommand_VT": 0x29F3710,
+    "SESSION_EARLY_BYPASS_0x725": 0x725,
+    "SESSION_POST_DURING_EXEC_0x726": 0x726,
+    "SESSION_TICK_0x84": 0x84,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

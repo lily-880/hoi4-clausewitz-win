@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2aa-earlygate-catalog-writes-still-disabled",
+  "status": "phase2ab-post-earlygate-order-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -435,6 +435,20 @@
       },
       "session_0x725_bypass": "live=1 allows FALSE vt+0x60 past Post drop",
       "speed_cmds_documented": true,
+      "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2ab": {
+      "early_bypass_any_of": [
+        "r8b",
+        "session+0x725",
+        "vt+0x80 TRUE",
+        "vt+0x60 TRUE"
+      ],
+      "else_drop": "Dropped command:",
+      "during_exec": "session+0x6cc && !session+0x726 => Dropped (posted during command execution)",
+      "live_0x725": 1,
+      "Chat_vt_0x90": "0x13cc9a0 multi-path; al=1 at 0x13ccc20",
       "posting": "DISABLED",
       "speed_rule": "pause or 1x only; never 5x"
     }
