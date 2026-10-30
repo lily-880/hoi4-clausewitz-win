@@ -169,44 +169,140 @@ def probe_zero_data_slots(p, slot_rvas, vtable_rvas):
     return out
 
 
-def detect_session(p):
-    """Heuristic lobby vs in-campaign via proven idler/GS vptrs on the heap."""
-    import offsets as O
-    vts = {
-        "CInGameIdler": O.PROVEN_STATIC["CInGameIdler_vtable"],
-        "CGameState": O.PROVEN_STATIC["CGameState_vtable"],
-        "CCurrentGameState": O.PROVEN_STATIC["CCurrentGameState_vtable"],
-        "CGameIdler": O.PROVEN_STATIC["CGameIdler_vtable"],
-    }
-    hits = heap_find_gamestate(p, list(vts.values()), max_hits=4)
-    # remap rough
-    names = list(vts.keys())
-    # simpler dedicated tiny scan:
+def _rtti_name_from_vtable(pe, vt_rva: int):
+    """Best-effort .?AV name from COL at vtable-8 (PE image bytes)."""
     import struct
-    found = {n: False for n in vts}
-    for m in p.regions(writable=True, min_size=0x1000):
-        start, end = m["start"], m["end"]
-        if end - start > (16 << 20):
-            continue
-        if p.base <= start < p.base + p.image_size:
-            continue
-        data = p.try_read(start, end - start)
-        if not data:
-            continue
-        for n, rva in vts.items():
-            if found[n]:
-                continue
-            if data.find(struct.pack("<Q", p.base + rva)) >= 0:
-                found[n] = True
-        if all(found.values()):
-            break
-    in_campaign = found["CInGameIdler"] or found["CGameState"] or found["CCurrentGameState"]
-    return {
-        "session": "in_campaign" if in_campaign else "lobby_or_menu_or_unloaded",
-        "signals": found,
-        "guidance": "Load a save/start game until the map is visible, then re-run live-gs / session-probe."
-        if not in_campaign else "Campaign objects present; probe globals/heap for G_GAMESTATE.",
+    try:
+        col_va = struct.unpack_from("<Q", pe.data, pe.rva_to_off(vt_rva - 8))[0]
+        if not col_va:
+            return None
+        col_rva = col_va - pe.image_base if col_va >= pe.image_base else col_va
+        td_rva = struct.unpack_from("<I", pe.data, pe.rva_to_off(col_rva) + 0x0C)[0]
+        name = pe.data[pe.rva_to_off(td_rva) + 0x10 :].split(b"\0", 1)[0]
+        return name.decode("ascii", "replace")
+    except Exception:
+        return None
+
+
+def detect_session(p, pe=None) -> Dict[str, Any]:
+    """Classify lobby/frontend vs in-game via G_IDLER (preferred) + GS.
+
+    Phase 2f proved G_GAMESTATE can be live while G_IDLER is still
+    CFrontEndIdler (lobby with bookmark/scenario GS). Treat idler type as
+    the session gate for Post-path and army spawn — not mere GS presence.
+    """
+    import offsets as O
+
+    FE = O.PROVEN_STATIC.get("CFrontEndIdler_vtable")
+    IG = O.PROVEN_STATIC["CInGameIdler_vtable"]
+    APP = O.PROVEN_STATIC.get("CGameApplication_vtable")
+    gidler = O.WINDOWS_GLOBALS.get("G_IDLER")
+    ggs = O.WINDOWS_GLOBALS.get("G_GAMESTATE")
+
+    out: Dict[str, Any] = {
+        "session": "unknown",
+        "in_game": False,
+        "frontend": False,
+        "G_IDLER": hex(gidler) if isinstance(gidler, int) else None,
+        "G_GAMESTATE": hex(ggs) if isinstance(ggs, int) else None,
+        "idler": None,
+        "gamestate_live": False,
+        "user_action": None,
+        "guidance": None,
+        "signals": {},
     }
+
+    idler_ptr = None
+    if isinstance(gidler, int):
+        try:
+            idler_ptr = p.u64(p.base + gidler)
+        except OSError:
+            idler_ptr = None
+    out["signals"]["idler_ptr"] = hex(idler_ptr) if idler_ptr else None
+
+    gs_ptr = None
+    if isinstance(ggs, int):
+        try:
+            gs_ptr = p.u64(p.base + ggs)
+        except OSError:
+            gs_ptr = None
+    out["signals"]["gs_ptr"] = hex(gs_ptr) if gs_ptr else None
+    out["gamestate_live"] = bool(gs_ptr and gs_ptr > 0x10000)
+
+    if not idler_ptr:
+        out["session"] = "menu_or_unloaded"
+        out["guidance"] = (
+            "No live idler at G_IDLER. Start HOI4 and load a campaign/save until the "
+            "map is visible, then re-run: python clausewitz_win.py status"
+        )
+        out["user_action"] = "LOAD_CAMPAIGN_MAP"
+        return out
+
+    try:
+        vt = p.u64(idler_ptr)
+        vt_rva = vt - p.base
+    except OSError:
+        out["session"] = "unreadable_idler"
+        out["user_action"] = "LOAD_CAMPAIGN_MAP"
+        out["guidance"] = "Idler pointer unreadable; reload into a campaign map."
+        return out
+
+    rtti = _rtti_name_from_vtable(pe, vt_rva) if pe is not None else None
+
+    idler_info: Dict[str, Any] = {
+        "ptr": hex(idler_ptr),
+        "vtable_rva": hex(vt_rva),
+        "rtti": rtti,
+    }
+    try:
+        q = p.u64(idler_ptr + O.PROVEN_STATIC["CInGameIdler_queue_field_hyp"])
+        idler_info["field_0x530"] = hex(q) if q else None
+        if q:
+            qvt = p.u64(q)
+            qvt_rva = qvt - p.base if p.base <= qvt < p.base + p.image_size else None
+            idler_info["field_0x530_vtable_rva"] = hex(qvt_rva) if qvt_rva is not None else None
+            if pe is not None and qvt_rva is not None:
+                idler_info["field_0x530_rtti"] = _rtti_name_from_vtable(pe, qvt_rva)
+            elif APP is not None and qvt_rva == APP:
+                idler_info["field_0x530_rtti"] = ".?AVCGameApplication@@"
+    except OSError:
+        pass
+    out["idler"] = idler_info
+
+    if vt_rva == IG or (rtti and "CInGameIdler" in rtti):
+        out["session"] = "in_game"
+        out["in_game"] = True
+        out["signals"]["idler_class"] = "CInGameIdler"
+        out["guidance"] = (
+            "CInGameIdler live — resolve idler+0x530 queue object READ-ONLY; "
+            "hunt FN_CMD_QUEUE_POST; scan CArmy/CArmyGroup. Posting stays DISABLED."
+        )
+        out["user_action"] = None
+        return out
+
+    if FE is not None and (vt_rva == FE or (rtti and "CFrontEndIdler" in rtti)):
+        out["session"] = "frontend"
+        out["frontend"] = True
+        out["signals"]["idler_class"] = "CFrontEndIdler"
+        out["user_action"] = "LOAD_CAMPAIGN_MAP"
+        out["guidance"] = (
+            "G_IDLER is CFrontEndIdler (lobby/frontend). Gamestate may already be "
+            "allocated, but armies are not spawned and Post-path +0x530 points at "
+            "CGameApplication (setter), not a command queue. "
+            "USER ACTION: load a campaign or save until the map UI is visible, then "
+            "re-run: python clausewitz_win.py status   or   "
+            "python scripts/phase2g_session_postpath.py"
+        )
+        return out
+
+    out["session"] = "other_idler"
+    out["signals"]["idler_class"] = rtti or hex(vt_rva)
+    out["user_action"] = "LOAD_CAMPAIGN_MAP"
+    out["guidance"] = (
+        "Unexpected idler type %s. Load into a campaign map and re-probe."
+        % (rtti or hex(vt_rva))
+    )
+    return out
 
 
 
@@ -257,8 +353,8 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (
-        "stubbed — CArmy/CArmyGroup/CUnit RTTI known; 0 live heap hits in frontend "
-        "session (~6.5GB scan). CO_ARMIES@0x290 empty; need map/in-game spawn. Phase 2f"
+        "stubbed — need G_IDLER=CInGameIdler (map). Frontend: 0 CArmy/CArmyGroup/CUnit "
+        "heap hits (~6.5GB). CO_ARMIES@0x290 empty. Phase 2g"
     )
     return out
 

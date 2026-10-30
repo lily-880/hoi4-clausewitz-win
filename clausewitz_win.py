@@ -123,9 +123,27 @@ def cmd_status(args):
         hits = p.scan_value(s, regions=region, limit=5, align=1)
         strings.append({"needle": s.decode("ascii", "replace"), "hits": [hex(h) for h in hits]})
     proven["string_hits_in_image"] = strings
+    # Session classification (G_IDLER type — not mere GS presence)
+    from gamestate import detect_session, try_global_summary
+    from pe import PE
+    pe = None
+    try:
+        dump = os.path.join(ROOT, "research", "re-dumps", "hoi4_1.19.4.exe")
+        pe = PE(dump if os.path.isfile(dump) else (p.image_path or ""))
+    except Exception:
+        pe = None
+    session = detect_session(p, pe)
+    proven["session"] = session
+    if session.get("user_action"):
+        proven["user_action"] = session["user_action"]
+        print(
+            "\n*** USER ACTION: %s ***\n%s\n"
+            % (session["user_action"], session.get("guidance") or ""),
+            file=sys.stderr,
+        )
+
     # If G_GAMESTATE known, probe + campaign summary fields
     if O.WINDOWS_GLOBALS.get("G_GAMESTATE") is not None:
-        from gamestate import try_global_summary
         proven["gamestate_probe"] = try_global_summary(p, O.WINDOWS_GLOBALS["G_GAMESTATE"])
         camp = proven["gamestate_probe"].get("campaign") or {}
         proven["campaign"] = camp.get("verified") or {}
@@ -133,7 +151,7 @@ def cmd_status(args):
             k: camp.get("fields", {}).get(k)
             for k in ("player_tag_raw", "date_year_hypothesis", "date_aux_0x47c", "divisions_count", "divisions_note")
         }
-    proven["phase"] = "2f"
+    proven["phase"] = "2g"
     print(json.dumps(proven, indent=2))
     p.close()
     return 0
@@ -181,7 +199,14 @@ def cmd_live_gs(args):
         O.PROVEN_STATIC["CCurrentGameState_vtable_secondary"],
     ]
     p = Proc(pid)
-    session = detect_session(p)
+    pe = None
+    try:
+        from pe import PE
+        dump = os.path.join(ROOT, "research", "re-dumps", "hoi4_1.19.4.exe")
+        pe = PE(dump if os.path.isfile(dump) else (p.image_path or ""))
+    except Exception:
+        pe = None
+    session = detect_session(p, pe)
     result = {
         "pid": pid,
         "session": session,
@@ -192,8 +217,15 @@ def cmd_live_gs(args):
         "verified": None,
         "command_queue": "DISABLED",
     }
-    if session["session"] != "in_campaign":
-        result["note"] = session["guidance"]
+    if not session.get("in_game"):
+        result["note"] = session.get("guidance")
+        result["user_action"] = session.get("user_action") or "LOAD_CAMPAIGN_MAP"
+        if session.get("user_action"):
+            print(
+                "\n*** USER ACTION: %s ***\n%s\n"
+                % (result["user_action"], session.get("guidance") or ""),
+                file=sys.stderr,
+            )
         print(json.dumps(result, indent=2))
         p.close()
         return 3

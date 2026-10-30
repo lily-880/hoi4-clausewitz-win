@@ -30,11 +30,12 @@ python clausewitz_win.py peinfo
 python clausewitz_win.py status
 ```
 
-## What works now (Phase 2d)
+## What works now (Phase 2g)
 
 - Find `hoi4.exe` install; PE parse; `OpenProcess` + `ReadProcessMemory` (read-only)
 - MSVC RTTI → COL → vtable recovery for `CGameState` / `CCurrentGameState` / idlers / `CCommand` (live COL MATCH)
-- `session-probe` — lobby vs in-campaign via heap vptrs
+- `session-probe` / `status` — **frontend vs in_game via G_IDLER** (CFrontEndIdler vs CInGameIdler); GS alone ≠ in-game
+- `scripts/phase2g_session_postpath.py` — one-shot Post-path RO + army scan when map is up; exit 3 + USER ACTION if still frontend
 - `live-gs` — `.data` slot + heap scan; heuristic **`G_GAMESTATE` RVA `0x33dd6b0`** when campaign object live (→ gitignored `offsets_verified.json`)
 - `status` returns real campaign probe fields once runtime/verified offset loaded (countries size, player tag)
 - MCP stdio stub: `hoi4_win_doctor`, `hoi4_win_status`
@@ -90,4 +91,12 @@ MIT — see [LICENSE](LICENSE).
 - Idler vt+0x90 @ `0xe34e90` wraps `[this+0x530]` then tail-calls vt+0x90 (Linux-analog shape)
 - `FN_CMD_QUEUE_POST` still **null**; divisions still stubbed; date year+aux hypotheses only
 - See `research/WINDOWS_OFFSETS.md`
+
+
+
+## Phase 2g (session gate)
+
+HOI4 was still in **frontend** (`G_IDLER` → `CFrontEndIdler`) with live GS but no armies.
+**You must load a campaign/save until the map is visible**, then re-run `status` or `phase2g_session_postpath.py` once (no polling).
+Posting stays DISABLED until `FN_CMD_QUEUE_POST` is proven on a live `CInGameIdler`.
 

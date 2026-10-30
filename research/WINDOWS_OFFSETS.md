@@ -155,6 +155,38 @@ Tooling: `scripts/phase2f_idler_postpath.py` (RO resolve + optional heap counts)
 4. Only then set `FN_CMD_QUEUE_POST` (writes still gated).
 
 
+
+## Phase 2g — session gate (frontend vs in-game)
+
+**One-shot check (no polling):** this process was still **`CFrontEndIdler`** after Phase 2f.
+
+### Classification rule (promoted)
+
+| Signal | Meaning |
+|--------|---------|
+| `G_IDLER` → `CFrontEndIdler` | **frontend / lobby** — even if `G_GAMESTATE` live |
+| `G_IDLER` → `CInGameIdler` | **in_game / map** — unlock Post-path + army scans |
+| `G_IDLER` null | menu / unloaded |
+
+Do **not** treat `CCurrentGameState` alone as in-campaign (2f counterexample).
+
+### CLI
+
+```text
+python clausewitz_win.py status          # stderr banner if LOAD_CAMPAIGN_MAP
+python clausewitz_win.py session-probe   # exit 3 frontend, 0 in_game
+python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/phase2g.json]
+```
+
+When frontend: scanners record the known Application-setter dead end and exit 3.
+When in-game: resolve `idler+0x530` RTTI + vt+`0x90` **READ-ONLY**; optional heap army counts; try player-country `CArmy*` arrays for `divisions_count` (hypothesis only until second sample).
+`FN_CMD_QUEUE_POST` stays **null**; posting **DISABLED**.
+
+### USER ACTION
+
+**Load a campaign or save until the HOI4 map UI is visible**, then re-run `status` / `phase2g_session_postpath.py` once. Do not poll.
+
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
@@ -169,5 +201,6 @@ python scripts/phase2d_post_hunt.py
 python scripts/phase2e_post_graph.py
 python scripts/phase2e_live_scan.py [--out research/re-dumps/phase2e_live.json]
 python scripts/phase2f_idler_postpath.py [--out research/re-dumps/phase2f_idler.json] [--skip-heap]
+python scripts/phase2g_session_postpath.py [--heap] [--out research/re-dumps/phase2g.json]
 python scripts/session_probe.py
 ```
