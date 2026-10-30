@@ -155219,3 +155219,16 @@ def summarize() -> dict:
         },
         "land_exe_proofs": list(LAND_EXE_PROOFS["commands"].keys()),
     }
+
+# --- phase 2cw embed ---
+try:
+    from pathlib import Path as _P2cw
+    import importlib.util as _ilu2cw
+    _fp2cw = _P2cw(__file__).with_name('_land_post_2cw_fragment.py')
+    if _fp2cw.exists():
+        _spec2cw = _ilu2cw.spec_from_file_location('land_post_2cw_fragment', _fp2cw)
+        _mod2cw = _ilu2cw.module_from_spec(_spec2cw)
+        _mod2cw.LAND_POST_READINESS = LAND_POST_READINESS
+        _spec2cw.loader.exec_module(_mod2cw)
+except Exception:
+    pass

@@ -752,3 +752,18 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Artifacts**: `cmd_post_path_index_2cv`, `role_post_path_matrix_2cv`, `role_observe_2cv`, `confidence_report_2cv`, `checklist_2cv`, `offensive_line_post_path_2cv`, `midflight_move_watcher_readiness_2cv`, `live_army_subject_observe_2cv`.
 - **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2cv_recipe`.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / revive rejected org offsets.
+
+
+## Phase 2cw (overnight RO) — CArmyRequests / theatre air-mgr / FrontSection observe
+
+- **HEAD parent**: `03cfd23` (2cv). Focus: theatre/army crosslink deepen; org stays rejected; movement_dest not invented. **LAND 121/121 unchanged**. No Capstone naming / helper inflation.
+- **CArmyRequests (new field-map, 17/17)**: owner CArmy `@+0x8/+0x30/+0x90`; `CReinforcementStatus` `@+0x50` (vt `0x2a4b158`, shared singleton); `CArmyUpgradesStatus` `@+0x98` (vt `0x2a4b308`, shared); peer CArmy hyp `@+0x108` (partial chain).
+- **CArmy+0x418**: self-ref (17/17) — identity pointer, not peer chain.
+- **CTheatre**: `CStrategicAirManager` `@+0x268` (vt `0x29d51e8`); repeats at `+0x448/+0x628/+0x808/+0x9e8/+0xbc8` (stride `0x1e0`). HAI unique theatres still **1**.
+- **Front/order heap observe**: `CFrontSection` **1570** (`CFront` via `+0x10` vt `0x29f2280`; `SPerCountrySection` via `+0x18`); `COrdersGroup`/`COrdersGroupMember`/`COrderInstance`/`CArmyGroup` **0** (no player orders). `CTheatre` heap **90** (HAI=1).
+- **Org/str**: still **REJECTED**. **movement_dest**: empty (paused).
+- **Role observe**: theater/frontline/order_group crosslink notes; read_ok preserved; OL refreshed; midflight watcher RO.
+- **Operator checklist**: A–H; allow_post False.
+- **Artifacts**: `cmd_post_path_index_2cw`, `role_post_path_matrix_2cw`, `role_observe_2cw`, `confidence_report_2cw`, `checklist_2cw`, `offensive_line_post_path_2cw`, `midflight_move_watcher_readiness_2cw`, `live_army_subject_observe_2cw`.
+- **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army_2cw.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / command_queue_tool_gate CLOSED_NOT_OPENED. Never Post / speed / input / wake user.

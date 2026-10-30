@@ -63,7 +63,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED; 2bs TOOL_GATE_PREDICATES analysis only \u2014 midflight+ALLOW_POST+recreate still block; gate NOT opened"
+      "note": "DISABLED; 2bs TOOL_GATE_PREDICATES analysis only — midflight+ALLOW_POST+recreate still block; gate NOT opened"
     },
     {
       "id": "network_execlist_path",
@@ -83,7 +83,7 @@
     {
       "id": "move_early_gate_docs",
       "status": "closed",
-      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES \u2014 not a Post enable."
+      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES — not a Post enable."
     },
     {
       "id": "cmd_catalog_live",
@@ -98,7 +98,7 @@
     {
       "id": "isvalid_paths",
       "status": "closed",
-      "note": "2bs: 49 paths \u2014 EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
+      "note": "2bs: 49 paths — EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
     },
     {
       "id": "remaining_army_orders",
@@ -112,8 +112,8 @@
     }
   ],
   "enable_when": [
-    "Independent non-destructive Post proof \u2014 DONE 2bc/2bm",
-    "Mid-flight CMoveCommand (+ action embed) captured \u2014 STUBBED; watcher ready",
+    "Independent non-destructive Post proof — DONE 2bc/2bm",
+    "Mid-flight CMoveCommand (+ action embed) captured — STUBBED; watcher ready",
     "Explicit CLAUSEWITZ_ALLOW_POST=1",
     "Never auto-enable inside per-tick loops",
     "Never Post speed/HourlyTick commands"
@@ -363,11 +363,11 @@
       "division_subunit_type_check"
     ],
     "post_implications": [
-      "ThreadIsMainThread (0x23c3a0) must hold at any future Post \u2014 observe only; never patch",
-      "gamestate_instance_guard* family gates many IsValid paths \u2014 Post candidates must pass live IsValid first",
-      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes \u2014 subject must be live order id",
-      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges \u2014 land Post recipes must carry valid subunit/type",
-      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds \u2014 treat as shared plumbing not command-specific fields",
+      "ThreadIsMainThread (0x23c3a0) must hold at any future Post — observe only; never patch",
+      "gamestate_instance_guard* family gates many IsValid paths — Post candidates must pass live IsValid first",
+      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes — subject must be live order id",
+      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges — land Post recipes must carry valid subunit/type",
+      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds — treat as shared plumbing not command-specific fields",
       "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
     ],
     "allow_post": false,
@@ -994,7 +994,7 @@
     "tool_gate": "CLOSED_NOT_OPENED",
     "land_cmds": "121/121 unchanged",
     "helpers_total": 237,
-    "helpers_inflation": "none (shared\u22652 miss=0; singletons docs-only)",
+    "helpers_inflation": "none (shared≥2 miss=0; singletons docs-only)",
     "named_helpers": 96,
     "preferred_cores": 34,
     "coverage": "121/121",
@@ -1388,7 +1388,7 @@
       "patch helpers",
       "Post inject",
       "HourlyTick / GameSpeed",
-      "promote 0x520/0x6ec as CArmy org (REJECTED \u2014 CTaskForce)",
+      "promote 0x520/0x6ec as CArmy org (REJECTED — CTaskForce)",
       "invent movement_dest while paused",
       "wake user / inject input"
     ]
@@ -1466,5 +1466,16 @@
       "invent movement_dest while paused",
       "wake user / inject input"
     ]
+  },
+  "notes_2cw": {
+    "phase": "2cw",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land": "121/121",
+    "confidence": 1.0,
+    "focus": "CArmyRequests field-map + theatre air-mgr + FrontSection observe",
+    "org_str": "REJECTED_AS_CARMY_ORG",
+    "movement_dest": "empty_paused",
+    "watcher": 36128
   }
 }
