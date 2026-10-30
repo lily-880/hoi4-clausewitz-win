@@ -1080,7 +1080,11 @@ def land_post_readiness_recipe() -> dict[str, Any]:
         "hot_execute_unknown_by_class": pr.get("hot_execute_unknown_by_class"),
         "expanded_roles_2cf": pr.get("expanded_roles_2cf"),
         "expanded_cores_2cg": pr.get("expanded_cores_2cg"),
+        "expanded_cores_2ch": pr.get("expanded_cores_2ch"),
         "unknown_second_order_count": pr.get("unknown_second_order_count") or sh.get("unknown_second_order_count"),
+        "unknown_third_order_count": pr.get("unknown_third_order_count") or sh.get("unknown_third_order_count"),
+        "cross_land_fresh_count": pr.get("cross_land_fresh_count") or sh.get("cross_land_fresh_count"),
+        "core_expansions_2ch": pr.get("core_expansions_2ch"),
         "named_helpers": pr.get("named_helpers"),
         "isvalid_gate_helpers": pr.get("isvalid_gate_helpers"),
         "execute_body_helpers": pr.get("execute_body_helpers"),
@@ -1104,6 +1108,8 @@ def land_post_readiness_recipe() -> dict[str, Any]:
             for k, m in ((pr.get("preferred_cores") or {}) or {}).items()
         },
         "soft_to_hard_closures_2cg": pr.get("soft_to_hard_closures_2cg"),
+        "soft_to_hard_closures_2ch": pr.get("soft_to_hard_closures_2ch"),
+        "post_implications_2ch": pr.get("post_implications_2ch"),
         "requirements_before_any_post": pr.get("requirements_before_any_post"),
         "post_implications_2ce": pr.get("post_implications_2ce"),
         "post_implications_2cg": pr.get("post_implications_2cg"),
@@ -1349,4 +1355,57 @@ def frontline_core_post_path_recipe() -> dict[str, Any]:
 
 def retreat_fallback_core_post_path_recipe() -> dict[str, Any]:
     return land_preferred_core_recipe("retreat_fallback_core")
+
+def land_cross_fresh_helper_recipe(limit: int = 16) -> dict[str, Any]:
+    """RO catalog of cross_land_fresh helpers mined in 2ch deepen. Never posts."""
+    try:
+        import cmd_layout as _cl
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    helpers = sh.get("helpers") or {}
+    rows = []
+    for rva, h in helpers.items():
+        if h.get("tier") != "cross_land_fresh":
+            continue
+        rows.append({
+            "rva": rva,
+            "hits": h.get("hits"),
+            "class": h.get("class"),
+            "caller_groups": h.get("caller_groups"),
+        })
+    rows.sort(key=lambda r: (-(r.get("hits") or 0), r["rva"]))
+    return {
+        "phase": pr.get("phase") or sh.get("phase"),
+        "count": len(rows),
+        "top": rows[:limit],
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def garrison_bbb_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("garrison_bbb_core")
+
+
+def frontline_bbb_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("frontline_bbb_core")
+
+
+def move_theater_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("move_theater_core")
+
+
+def theater_garrison_prio_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("theater_garrison_prio_core")
+
+
+def strategic_unit_redeploy_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("strategic_unit_redeploy_core")
+
+
+def cancel_abort_core_post_path_recipe() -> dict[str, Any]:
+    return land_preferred_core_recipe("cancel_abort_core")
 

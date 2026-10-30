@@ -528,3 +528,28 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2ch (overnight RO — expanded preferred cores + cross_land_fresh)
+
+### Works
+- Capstone deepen **83** land cmds (near-miss excluded + offensive-line + primary roles); fresh IsValid **1**, fresh Execute **17**. Near-miss soft gates remain absent after wider windows — genuine IsValid divergence, not disasm artifact.
+- Mined **30** `cross_land_fresh` helpers (≥3 land hits from deepen) → helpers total **137** (40+14+47+6+30).
+- Gate/body catalogs: IsValid-gate **90**, Execute-body **103**.
+- Expanded preferred cores **9 → 21**, covering prior exclusions via alternate gate families:
+  - garrison_bbb_core **3/3** `{0x2284800,0xbbb1e0}` (closes CreateAreaDefense into hard)
+  - frontline_bbb_core **14/15** `{0xbbb1e0}`; retreat_bbb_only_core **5/6**
+  - move_theater_core `{0x2284800,0xbbb1e0}`; move_c07b80_core `{0xc07b80}`
+  - strategic_unit_redeploy_core `{0x1e1510,0x2607890,0x57f7b0}` (true CStrategicRedeploymentCommand family)
+  - order_group_bbb / leader `{0x11ecb20}` / conveyor `{0x1c31490}`
+  - theater_garrison_prio `{0x3b65a0,0xac1e20}`; theater_reorder `{0xd73540}`
+  - cancel_abort_core full-role hard `{0x2284800,0x2348bf0,0x25c3770}`
+- Recipes: land_cross_fresh_helper_recipe; garrison/frontline/move_theater/strategic_unit_redeploy/cancel_abort/theater_garrison_prio wrappers; readiness enriched.
+- **LAND 121/121**, **ISVALID_PATHS 134**; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Helper patch / Post inject; navy/air/division-template/production/GameSpeed/HourlyTick.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
