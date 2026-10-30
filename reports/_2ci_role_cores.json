@@ -1,0 +1,2437 @@
+{
+  "preferred_cores": {
+    "attack_core": {
+      "core_commands": [
+        "CSupportAttackCommand",
+        "CAiDiscardForceConcentrationTargetCommand",
+        "CAiOnFailedInvasionCommand",
+        "CAiStoreForceConcentrationTargetCommand",
+        "CAiStoreTotalWantedNrDivisionsCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "excluded": [
+        "CRailwayGunManualOrderCommand",
+        "CRailwayGunSetNameCommand"
+      ],
+      "coverage": "5/7",
+      "basis": "share army subject gates",
+      "genuine_divergence": false
+    },
+    "retreat_fallback_core": {
+      "core_commands": [
+        "CSetSelectedArmyGroupFallback",
+        "CWithdrawArmyHqCommand",
+        "CDeployArmyHqCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "excluded": [
+        "COrderNewFallbackCommand",
+        "COrderReplaceFallbackCommands",
+        "CCancelRunningAwayCommand"
+      ],
+      "coverage": "3/6",
+      "basis": "share 2284800+bbb1e0",
+      "genuine_divergence": false
+    },
+    "retreat_bbb_only_core": {
+      "core_commands": [
+        "COrderNewFallbackCommand",
+        "COrderReplaceFallbackCommands",
+        "CSetSelectedArmyGroupFallback",
+        "CWithdrawArmyHqCommand",
+        "CDeployArmyHqCommand"
+      ],
+      "min_gates_intersection": [
+        "0xbbb1e0"
+      ],
+      "excluded": [
+        "CCancelRunningAwayCommand"
+      ],
+      "coverage": "5/6",
+      "basis": "share bbb1e0",
+      "genuine_divergence": false
+    },
+    "frontline_core": {
+      "core_commands": [
+        "COrderNewFrontCommand",
+        "COrderInsertFrontCommand",
+        "COrderSetPathCommand",
+        "COrderReshapeCommand",
+        "COrderConnectCommand",
+        "COrderReconnectCommand",
+        "COrderExecuteCommand",
+        "COrderChildFrontRatioCommand",
+        "COrderReorderChildFrontCommand",
+        "COrderSetParadropSourceCommand",
+        "COrderSetParadropTargetCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "excluded": [
+        "COrderSetCollapseCommand",
+        "COrderAddNewCompletePlanCommand",
+        "COrderBlockSectionsCommand",
+        "COrderSetInvasionSourceCommand"
+      ],
+      "coverage": "11/15",
+      "basis": "triple",
+      "genuine_divergence": false
+    },
+    "frontline_bbb_core": {
+      "core_commands": [
+        "COrderNewFrontCommand",
+        "COrderInsertFrontCommand",
+        "COrderSetPathCommand",
+        "COrderReshapeCommand",
+        "COrderConnectCommand",
+        "COrderReconnectCommand",
+        "COrderAddNewCompletePlanCommand",
+        "COrderExecuteCommand",
+        "COrderBlockSectionsCommand",
+        "COrderChildFrontRatioCommand",
+        "COrderReorderChildFrontCommand",
+        "COrderSetInvasionSourceCommand",
+        "COrderSetParadropSourceCommand",
+        "COrderSetParadropTargetCommand"
+      ],
+      "min_gates_intersection": [
+        "0xbbb1e0"
+      ],
+      "excluded": [
+        "COrderSetCollapseCommand"
+      ],
+      "coverage": "14/15",
+      "basis": "bbb1e0",
+      "genuine_divergence": false
+    },
+    "garrison_core": {
+      "core_commands": [
+        "CEditAreaDefenseStateCommand",
+        "CSetAreaDefenseSettingCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "excluded": [
+        "CCreateAreaDefenseCommand"
+      ],
+      "coverage": "2/3",
+      "basis": "triple",
+      "genuine_divergence": false
+    },
+    "garrison_bbb_core": {
+      "core_commands": [
+        "CCreateAreaDefenseCommand",
+        "CEditAreaDefenseStateCommand",
+        "CSetAreaDefenseSettingCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "excluded": [],
+      "coverage": "3/3",
+      "basis": "2284800+bbb1e0",
+      "genuine_divergence": false
+    },
+    "move_army_core": {
+      "core_commands": [
+        "CMassMoveCommand",
+        "CSetArmyTemplateCommand",
+        "CMoveCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "excluded": [
+        "CMoveArmiesInTheaterCommand",
+        "CMoveArmyGroupInTheaterCommand",
+        "CSetQuickDeployPreferenceCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CRequestExpeditionariesCommand",
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "coverage": "10/17",
+      "basis": "army subject pair",
+      "genuine_divergence": false
+    },
+    "move_theater_core": {
+      "core_commands": [
+        "CMoveArmiesInTheaterCommand",
+        "CRequestExpeditionariesCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "excluded": [
+        "CMassMoveCommand",
+        "CMoveArmyGroupInTheaterCommand",
+        "CSetArmyTemplateCommand",
+        "CSetQuickDeployPreferenceCommand",
+        "CMoveCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand",
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "coverage": "2/17",
+      "basis": "theater-move",
+      "genuine_divergence": false
+    },
+    "move_c07b80_core": {
+      "core_commands": [
+        "CSetQuickDeployPreferenceCommand",
+        "CMoveCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CRequestExpeditionariesCommand"
+      ],
+      "min_gates_intersection": [
+        "0xc07b80"
+      ],
+      "excluded": [
+        "CMassMoveCommand",
+        "CMoveArmiesInTheaterCommand",
+        "CMoveArmyGroupInTheaterCommand",
+        "CSetArmyTemplateCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand",
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "coverage": "5/17",
+      "basis": "gamestate_instance_guard_b",
+      "genuine_divergence": false
+    },
+    "strategic_redeploy_core": {
+      "core_commands": [
+        "CReorderPinnedStrategicRegionCommand",
+        "CTogglePinnedStrategicRegionCommand"
+      ],
+      "min_gates_intersection": [
+        "0x254aa00",
+        "0x25a0390"
+      ],
+      "excluded": [
+        "CToggleStrategicDeploymentCommand",
+        "CStrategicRedeploymentCommand"
+      ],
+      "coverage": "2/4",
+      "basis": "strategic region pair",
+      "genuine_divergence": false
+    },
+    "strategic_pin_core": {
+      "core_commands": [
+        "CToggleStrategicDeploymentCommand",
+        "CStrategicRedeploymentCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2607890"
+      ],
+      "excluded": [
+        "CReorderPinnedStrategicRegionCommand",
+        "CTogglePinnedStrategicRegionCommand"
+      ],
+      "coverage": "2/4",
+      "basis": "2607890 without region pair",
+      "genuine_divergence": false
+    },
+    "strategic_unit_redeploy_core": {
+      "core_commands": [
+        "CStrategicRedeploymentCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1e1510",
+        "0x2607890",
+        "0x57f7b0"
+      ],
+      "excluded": [
+        "CToggleStrategicDeploymentCommand",
+        "CReorderPinnedStrategicRegionCommand",
+        "CTogglePinnedStrategicRegionCommand"
+      ],
+      "coverage": "1/4",
+      "basis": "unit strategic redeploy",
+      "genuine_divergence": false
+    },
+    "order_group_core": {
+      "core_commands": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CSelectionGroupCommand",
+        "CSetUnitNameCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800"
+      ],
+      "excluded": [
+        "CAssignToArmyGroupCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSetPreferredTacticCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "42/56",
+      "basis": "2284800",
+      "genuine_divergence": false
+    },
+    "order_group_bbb_core": {
+      "core_commands": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderSetTrainingCommand"
+      ],
+      "min_gates_intersection": [
+        "0xbbb1e0"
+      ],
+      "excluded": [
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CArmyGroupCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "18/56",
+      "basis": "bbb1e0",
+      "genuine_divergence": false
+    },
+    "order_group_leader_core": {
+      "core_commands": [
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CPromoteUnitLeaderCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand"
+      ],
+      "min_gates_intersection": [
+        "0x11ecb20"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "4/56",
+      "basis": "leader seen",
+      "genuine_divergence": false
+    },
+    "order_group_conveyor_core": {
+      "core_commands": [
+        "CAddConveyorLineCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CSetDeploymentLineNameCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1c31490"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CRemoveConveyorCommand",
+        "CSetConveyorGroupCommand",
+        "CChangeConveyorTemplateCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "8/56",
+      "basis": "conveyor",
+      "genuine_divergence": false
+    },
+    "theater_core": {
+      "core_commands": [
+        "CAssignToTheaterGroupCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand"
+      ],
+      "min_gates_intersection": [
+        "0x18dde70"
+      ],
+      "excluded": [
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "coverage": "3/11",
+      "basis": "theater assign",
+      "genuine_divergence": false
+    },
+    "theater_garrison_prio_core": {
+      "core_commands": [
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand"
+      ],
+      "min_gates_intersection": [
+        "0x3b65a0",
+        "0xac1e20"
+      ],
+      "excluded": [
+        "CAssignToTheaterGroupCommand",
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "coverage": "3/11",
+      "basis": "garrison prio",
+      "genuine_divergence": false
+    },
+    "theater_reorder_core": {
+      "core_commands": [
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand"
+      ],
+      "min_gates_intersection": [
+        "0xd73540"
+      ],
+      "excluded": [
+        "CAssignToTheaterGroupCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "coverage": "2/11",
+      "basis": "reorder/disband",
+      "genuine_divergence": false
+    },
+    "cancel_abort_core": {
+      "core_commands": [
+        "CMassCancelMovementCommand",
+        "CCancelMovementCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770"
+      ],
+      "excluded": [],
+      "coverage": "2/2",
+      "basis": "full-role hard",
+      "genuine_divergence": false
+    },
+    "army_subject_pair_adjacent_core": {
+      "core_commands": [
+        "CSupportAttackCommand",
+        "CCancelRunningAwayCommand",
+        "CWithdrawArmyHqCommand",
+        "CMassMoveCommand",
+        "COrderAssignCommand",
+        "CSetArmyTemplateCommand",
+        "CMoveCommand",
+        "COrderSetTrainingCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorLocationCommand",
+        "CSetDeploymentLineNameCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CLearnTraitCommand",
+        "CAiDiscardForceConcentrationTargetCommand",
+        "CAiOnFailedInvasionCommand",
+        "CAiStoreForceConcentrationTargetCommand",
+        "CAiStoreTotalWantedNrDivisionsCommand",
+        "CClearRepairPinsCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSetPendingReassignTargetCommand",
+        "CSetUnitNameCommand",
+        "CTransportUnitCommand",
+        "CTriggerAbilityCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "excluded": [
+        "CAddConveyorLineCommand",
+        "CArmyGroupCommand",
+        "CAssignToArmyGroupCommand",
+        "CAutoMergeOrdersCommand",
+        "CChangeConveyorPositionCommand",
+        "CChangeConveyorTemplateCommand",
+        "CCollapseConveyorCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CCreateUnitLeaderCommand",
+        "CDeleteOrderGroupCommand",
+        "CDeployArmyHqCommand",
+        "CDeployConveyorCommand",
+        "CGiveMedalCommand",
+        "COrderDeleteAllCommand",
+        "COrderDeleteCommand",
+        "COrderEditRootCommand",
+        "COrderGroupCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderNewFallbackCommand",
+        "COrderNewRootCommand",
+        "COrderReplaceFallbackCommands",
+        "COrderUnassignCommand",
+        "CReinstateExileCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CRetireCharacterCommand",
+        "CSelectionGroupCommand",
+        "CSetArmyLeaderCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CSetOrdersLinkCommand",
+        "CSetPreferredTacticCommand",
+        "CSetSelectedArmyGroupFallback",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CUpgradeDivisionOfficerCommand"
+      ],
+      "coverage": "29/62",
+      "basis": "cross-role army subject pair (CancelRunningAway/ClearRepairPins/QueueUnitAction family)",
+      "genuine_divergence": false
+    },
+    "railwaygun_manual_core": {
+      "core_commands": [
+        "CRailwayGunManualOrderCommand"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770"
+      ],
+      "excluded": [
+        "CSupportAttackCommand",
+        "CRailwayGunSetNameCommand",
+        "CAiDiscardForceConcentrationTargetCommand",
+        "CAiOnFailedInvasionCommand",
+        "CAiStoreForceConcentrationTargetCommand",
+        "CAiStoreTotalWantedNrDivisionsCommand"
+      ],
+      "coverage": "1/7",
+      "basis": "genuine divergence: cancel-pair + strategic-region gates, not army-subject pair",
+      "genuine_divergence": true
+    },
+    "railwaygun_name_core": {
+      "core_commands": [
+        "CRailwayGunSetNameCommand"
+      ],
+      "min_gates_intersection": [
+        "0xf01db0"
+      ],
+      "excluded": [
+        "CSupportAttackCommand",
+        "CRailwayGunManualOrderCommand",
+        "CAiDiscardForceConcentrationTargetCommand",
+        "CAiOnFailedInvasionCommand",
+        "CAiStoreForceConcentrationTargetCommand",
+        "CAiStoreTotalWantedNrDivisionsCommand"
+      ],
+      "coverage": "1/7",
+      "basis": "genuine divergence: sole gate 0xf01db0",
+      "genuine_divergence": true
+    },
+    "frontline_collapse_core": {
+      "core_commands": [
+        "COrderSetCollapseCommand"
+      ],
+      "min_gates_intersection": [
+        "0x10f12f0",
+        "0x2284800"
+      ],
+      "excluded": [
+        "COrderNewFrontCommand",
+        "COrderInsertFrontCommand",
+        "COrderSetPathCommand",
+        "COrderReshapeCommand",
+        "COrderConnectCommand",
+        "COrderReconnectCommand",
+        "COrderAddNewCompletePlanCommand",
+        "COrderExecuteCommand",
+        "COrderBlockSectionsCommand",
+        "COrderChildFrontRatioCommand",
+        "COrderReorderChildFrontCommand",
+        "COrderSetInvasionSourceCommand",
+        "COrderSetParadropSourceCommand",
+        "COrderSetParadropTargetCommand"
+      ],
+      "coverage": "1/15",
+      "basis": "genuine divergence: 0x2284800+0x10f12f0 without bbb/c402",
+      "genuine_divergence": true
+    },
+    "move_armygroup_theater_core": {
+      "core_commands": [
+        "CMoveArmyGroupInTheaterCommand"
+      ],
+      "min_gates_intersection": [
+        "0x10f12f0"
+      ],
+      "excluded": [
+        "CMassMoveCommand",
+        "CMoveArmiesInTheaterCommand",
+        "CSetArmyTemplateCommand",
+        "CSetQuickDeployPreferenceCommand",
+        "CMoveCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand",
+        "CRequestExpeditionariesCommand",
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "coverage": "1/17",
+      "basis": "genuine divergence: sole thin gate 0x10f12f0",
+      "genuine_divergence": true
+    },
+    "move_amend_manpower_core": {
+      "core_commands": [
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "min_gates_intersection": [
+        "0x11f240",
+        "0x2607890"
+      ],
+      "excluded": [
+        "CMassMoveCommand",
+        "CMoveArmiesInTheaterCommand",
+        "CMoveArmyGroupInTheaterCommand",
+        "CSetArmyTemplateCommand",
+        "CSetQuickDeployPreferenceCommand",
+        "CMoveCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand",
+        "CRequestExpeditionariesCommand"
+      ],
+      "coverage": "1/17",
+      "basis": "genuine divergence: 0x11f240+0x2607890 (partial army-subject)",
+      "genuine_divergence": true
+    },
+    "theater_main_garrison_template_core": {
+      "core_commands": [
+        "CSetMainGarrisonTemplateCommand"
+      ],
+      "min_gates_intersection": [
+        "0x74adb0"
+      ],
+      "excluded": [
+        "CAssignToTheaterGroupCommand",
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "coverage": "1/11",
+      "basis": "genuine divergence: sole 0x74adb0",
+      "genuine_divergence": true
+    },
+    "theater_state_garrison_template_core": {
+      "core_commands": [
+        "CSetStateGarrisonTemplateCommand"
+      ],
+      "min_gates_intersection": [
+        "0x254aa00",
+        "0x25a0390",
+        "0xc08580"
+      ],
+      "excluded": [
+        "CAssignToTheaterGroupCommand",
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "coverage": "1/11",
+      "basis": "genuine divergence: strategic-region pair + gamestate_guard_c",
+      "genuine_divergence": true
+    },
+    "theater_set_theatre_core": {
+      "core_commands": [
+        "CSetTheatreCommand"
+      ],
+      "min_gates_intersection": [
+        "0x1e1510",
+        "0x2607890",
+        "0x57f7b0"
+      ],
+      "excluded": [
+        "CAssignToTheaterGroupCommand",
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand"
+      ],
+      "coverage": "1/11",
+      "basis": "shares army-subject pair + gate_c with unit strategic redeploy",
+      "genuine_divergence": false
+    },
+    "order_group_orders_link_core": {
+      "core_commands": [
+        "CSetOrdersLinkCommand"
+      ],
+      "min_gates_intersection": [
+        "0x10b9f10",
+        "0x10f12f0"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "1/56",
+      "basis": "genuine divergence: 0x10b9f10+0x10f12f0",
+      "genuine_divergence": true
+    },
+    "order_group_create_leader_core": {
+      "core_commands": [
+        "CCreateUnitLeaderCommand"
+      ],
+      "min_gates_intersection": [
+        "0x7251b0",
+        "0xc07b80"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "1/56",
+      "basis": "genuine divergence: 0x7251b0+0xc07b80",
+      "genuine_divergence": true
+    },
+    "order_group_preferred_tactic_core": {
+      "core_commands": [
+        "CSetPreferredTacticCommand"
+      ],
+      "min_gates_intersection": [
+        "0x707bc0",
+        "0x73ee00",
+        "0xc07b80"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "coverage": "1/56",
+      "basis": "genuine divergence: tactic helpers + gamestate_guard_b",
+      "genuine_divergence": true
+    },
+    "order_group_reinstate_exile_core": {
+      "core_commands": [
+        "CReinstateExileCommand"
+      ],
+      "min_gates_intersection": [
+        "0x11f240",
+        "0x120530",
+        "0x1217a0",
+        "0x12b330",
+        "0x25a009c",
+        "0x25a00d8",
+        "0x2607890",
+        "0x73aab0",
+        "0xc07b80",
+        "0xc08100"
+      ],
+      "excluded": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand"
+      ],
+      "coverage": "1/56",
+      "basis": "genuine divergence: wide unique IsValid set",
+      "genuine_divergence": true
+    }
+  },
+  "role_post_paths": {
+    "attack": {
+      "commands": [
+        "CSupportAttackCommand",
+        "CRailwayGunManualOrderCommand",
+        "CRailwayGunSetNameCommand",
+        "CAiDiscardForceConcentrationTargetCommand",
+        "CAiOnFailedInvasionCommand",
+        "CAiStoreForceConcentrationTargetCommand",
+        "CAiStoreTotalWantedNrDivisionsCommand"
+      ],
+      "union_gates": [
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x57f7b0",
+        "0xf01db0"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 7,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "cmds_with_gates": 7
+    },
+    "cancel_abort": {
+      "commands": [
+        "CMassCancelMovementCommand",
+        "CCancelMovementCommand"
+      ],
+      "union_gates": [
+        "0x11f240",
+        "0x1b8180",
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770",
+        "0x2607890",
+        "0xc4f8e0"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770"
+      ],
+      "command_count": 2,
+      "soft_gates_majority": [
+        "0x11f240",
+        "0x1b8180",
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770",
+        "0x2607890",
+        "0xc4f8e0"
+      ],
+      "cmds_with_gates": 2
+    },
+    "frontline": {
+      "commands": [
+        "COrderNewFrontCommand",
+        "COrderInsertFrontCommand",
+        "COrderSetPathCommand",
+        "COrderReshapeCommand",
+        "COrderConnectCommand",
+        "COrderReconnectCommand",
+        "COrderSetCollapseCommand",
+        "COrderAddNewCompletePlanCommand",
+        "COrderExecuteCommand",
+        "COrderBlockSectionsCommand",
+        "COrderChildFrontRatioCommand",
+        "COrderReorderChildFrontCommand",
+        "COrderSetInvasionSourceCommand",
+        "COrderSetParadropSourceCommand",
+        "COrderSetParadropTargetCommand"
+      ],
+      "union_gates": [
+        "0x10be690",
+        "0x10bf130",
+        "0x10f12f0",
+        "0x12b3c0",
+        "0x219250",
+        "0x2284800",
+        "0x254aa00",
+        "0x25a0390",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 15,
+      "soft_gates_majority": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "cmds_with_gates": 15
+    },
+    "garrison": {
+      "commands": [
+        "CCreateAreaDefenseCommand",
+        "CEditAreaDefenseStateCommand",
+        "CSetAreaDefenseSettingCommand"
+      ],
+      "union_gates": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230",
+        "0xc47980"
+      ],
+      "min_gates_intersection": [
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "command_count": 3,
+      "soft_gates_majority": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "cmds_with_gates": 3
+    },
+    "move": {
+      "commands": [
+        "CMassMoveCommand",
+        "CMoveArmiesInTheaterCommand",
+        "CMoveArmyGroupInTheaterCommand",
+        "CSetArmyTemplateCommand",
+        "CSetQuickDeployPreferenceCommand",
+        "CMoveCommand",
+        "CSetArmyFakeTemplateCommand",
+        "CSetRepairOrderCommand",
+        "CSetDivisionNameCommand",
+        "CSetObsoleteDivisionTemplateCommand",
+        "CBuildRailwayCommand",
+        "CDeleteUnitCommand",
+        "CMergeArmiesCommand",
+        "CSetPendingReassignTargetCommand",
+        "CTransportUnitCommand",
+        "CRequestExpeditionariesCommand",
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "union_gates": [
+        "0x10f12f0",
+        "0x11f240",
+        "0x12b330",
+        "0x13f4010",
+        "0x164c870",
+        "0x172cb20",
+        "0x1b7950",
+        "0x1b8180",
+        "0x1c2d4d0",
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x2572c70",
+        "0x25a009c",
+        "0x25a00d8",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x2c2100",
+        "0x2e8750",
+        "0x3321f0",
+        "0x34c220",
+        "0x57be70",
+        "0x57c580",
+        "0x57f7b0",
+        "0x581900",
+        "0x6cad90",
+        "0x716bc0",
+        "0x726d80",
+        "0x741370",
+        "0x74ad20",
+        "0x74adb0",
+        "0x74ae40",
+        "0xbbb1e0",
+        "0xbf4ad0",
+        "0xbf4ae0",
+        "0xbf4af0",
+        "0xbf4ce0",
+        "0xc07b80",
+        "0xc07d30",
+        "0xc08100",
+        "0xc08580",
+        "0xc47a80",
+        "0xc55940",
+        "0xc57080",
+        "0xc66f80",
+        "0xcdb440",
+        "0xce5f30",
+        "0xce5f50",
+        "0xcf4da0",
+        "0xe64be0"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 17,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2284800",
+        "0x2607890"
+      ],
+      "cmds_with_gates": 17
+    },
+    "order_group": {
+      "commands": [
+        "CSetOrderGroupExecutionTypeCommand",
+        "CSetOrderGroupCohesionTypeCommand",
+        "CSetOrderGroupMotorizationCommand",
+        "CSetOrderGroupNameCommand",
+        "CCollapseConveyorCommand",
+        "COrderGroupCommand",
+        "COrderNewRootCommand",
+        "COrderAssignCommand",
+        "COrderUnassignCommand",
+        "COrderDeleteCommand",
+        "CAssignToArmyGroupCommand",
+        "CRemoveFromArmyGroupCommand",
+        "CSetOrderGroupIconAndColorCommand",
+        "CSetOrderGroupLeaderProximityCommand",
+        "CSetOrderGroupOrdersInstanceNamesCommand",
+        "CAutoMergeOrdersCommand",
+        "CDeleteOrderGroupCommand",
+        "COrderDeleteAllCommand",
+        "CArmyGroupCommand",
+        "CSetArmyLeaderCommand",
+        "COrderEditRootCommand",
+        "COrderMembersFairSplitCommand",
+        "COrderMergeRootsCommand",
+        "COrderSetTrainingCommand",
+        "CSetOrdersLinkCommand",
+        "CSetArmyLeaderPreferredTacticCommand",
+        "CAddConveyorLineCommand",
+        "CChangeConveyorPositionCommand",
+        "CCreateConveyorCommand",
+        "CCreateConveyorExtendedCommand",
+        "CDeployConveyorCommand",
+        "CDeployConveyorLineCommand",
+        "CRemoveConveyorCommand",
+        "CRemoveConveyorLineCommand",
+        "CSetConveyorGroupCommand",
+        "CSetConveyorLocationCommand",
+        "CSetConveyorNameCommand",
+        "CSetConveyorPriorityCommand",
+        "CSetConveyorSeriesCommand",
+        "CChangeConveyorTemplateCommand",
+        "CSetDeploymentLineNameCommand",
+        "CUpgradeDivisionOfficerCommand",
+        "CLearnTraitCommand",
+        "CUpdateLeaderSeenTraitsCountCommand",
+        "CClearRepairPinsCommand",
+        "CCreateUnitLeaderCommand",
+        "CPromoteUnitLeaderCommand",
+        "CQueueUnitActionCommand",
+        "CSelectionGroupCommand",
+        "CSetPreferredTacticCommand",
+        "CSetUnitNameCommand",
+        "CUpdateLeaderSeenAdvisorRolesCountCommand",
+        "CGiveMedalCommand",
+        "CTriggerAbilityCommand",
+        "CRetireCharacterCommand",
+        "CReinstateExileCommand"
+      ],
+      "union_gates": [
+        "0x1029570",
+        "0x10b9f10",
+        "0x10bc180",
+        "0x10f12f0",
+        "0x10f1410",
+        "0x11721d0",
+        "0x11ecb20",
+        "0x11f240",
+        "0x120530",
+        "0x1217a0",
+        "0x12b330",
+        "0x13f83b0",
+        "0x14027c0",
+        "0x14e2d60",
+        "0x14e3900",
+        "0x164c870",
+        "0x1693c0",
+        "0x172cb20",
+        "0x18dde70",
+        "0x1b7950",
+        "0x1b8180",
+        "0x1c2d4d0",
+        "0x1c31490",
+        "0x1e1510",
+        "0x2284800",
+        "0x22aea40",
+        "0x2348bf0",
+        "0x246ed0",
+        "0x254aa00",
+        "0x2572c70",
+        "0x25a009c",
+        "0x25a00d8",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x34c220",
+        "0x4b4fd0",
+        "0x57be70",
+        "0x57f7b0",
+        "0x581900",
+        "0x5829b0",
+        "0x65ad20",
+        "0x707bc0",
+        "0x717370",
+        "0x7251b0",
+        "0x734ad0",
+        "0x73aab0",
+        "0x73ee00",
+        "0x747bd0",
+        "0x74ad20",
+        "0x74adb0",
+        "0xabc220",
+        "0xb3da70",
+        "0xbbb1e0",
+        "0xbea570",
+        "0xbf3360",
+        "0xbf4ad0",
+        "0xbf4ae0",
+        "0xbf4af0",
+        "0xbf4ce0",
+        "0xc07b80",
+        "0xc07d30",
+        "0xc08100",
+        "0xc08580",
+        "0xc40230",
+        "0xc412a0",
+        "0xc47980",
+        "0xc47a80",
+        "0xc4f070",
+        "0xc50d50",
+        "0xc675d0",
+        "0xc873a0",
+        "0xd472f0",
+        "0xd49500",
+        "0xd6fe90",
+        "0xeebbd0",
+        "0xf75ef0"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 56,
+      "soft_gates_majority": [
+        "0x2284800"
+      ],
+      "cmds_with_gates": 56
+    },
+    "retreat": {
+      "commands": [
+        "COrderNewFallbackCommand",
+        "COrderReplaceFallbackCommands",
+        "CSetSelectedArmyGroupFallback",
+        "CCancelRunningAwayCommand",
+        "CWithdrawArmyHqCommand",
+        "CDeployArmyHqCommand"
+      ],
+      "union_gates": [
+        "0x11f240",
+        "0x11f770",
+        "0x1216a0",
+        "0x12b330",
+        "0x15bb950",
+        "0x1b7950",
+        "0x1e1510",
+        "0x2284800",
+        "0x22aea40",
+        "0x25a00d8",
+        "0x25a04c0",
+        "0x25a05a4",
+        "0x2607890",
+        "0x34c220",
+        "0x7215e0",
+        "0x74adb0",
+        "0xbbb1e0",
+        "0xc07b80",
+        "0xc47980",
+        "0xc47b10",
+        "0xc734f0"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 6,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "cmds_with_gates": 6
+    },
+    "strategic": {
+      "commands": [
+        "CToggleStrategicDeploymentCommand",
+        "CStrategicRedeploymentCommand",
+        "CReorderPinnedStrategicRegionCommand",
+        "CTogglePinnedStrategicRegionCommand"
+      ],
+      "union_gates": [
+        "0x11f240",
+        "0x1b8180",
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x57f7b0"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 4,
+      "soft_gates_majority": [
+        "0x254aa00",
+        "0x25a0390",
+        "0x2607890"
+      ],
+      "cmds_with_gates": 4
+    },
+    "theater": {
+      "commands": [
+        "CAssignToTheaterGroupCommand",
+        "CDisbandTheaterGroupCommand",
+        "CReorderTheatersCommand",
+        "CSetTheaterGroupNameCommand",
+        "CSetTheaterGroupPriorityCommand",
+        "CSetCountryGarrisonPriorityCommand",
+        "CSetCountryReinforcementPriorityCommand",
+        "CSetCountryGarrisonTemplateCommand",
+        "CSetMainGarrisonTemplateCommand",
+        "CSetStateGarrisonTemplateCommand",
+        "CSetTheatreCommand"
+      ],
+      "union_gates": [
+        "0x16d9250",
+        "0x18dde70",
+        "0x1e1510",
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770",
+        "0x2607890",
+        "0x3b65a0",
+        "0x57f7b0",
+        "0x74adb0",
+        "0xac1e20",
+        "0xc08580",
+        "0xd73540"
+      ],
+      "min_gates_intersection": [],
+      "command_count": 11,
+      "soft_gates_majority": [],
+      "cmds_with_gates": 11
+    }
+  },
+  "core_expansions": [
+    {
+      "core": "army_subject_pair_adjacent_core",
+      "was": null,
+      "now": "29/62",
+      "hard": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "new": true
+    },
+    {
+      "core": "railwaygun_manual_core",
+      "was": null,
+      "now": "1/7",
+      "hard": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770"
+      ],
+      "new": true
+    },
+    {
+      "core": "railwaygun_name_core",
+      "was": null,
+      "now": "1/7",
+      "hard": [
+        "0xf01db0"
+      ],
+      "new": true
+    },
+    {
+      "core": "frontline_collapse_core",
+      "was": null,
+      "now": "1/15",
+      "hard": [
+        "0x10f12f0",
+        "0x2284800"
+      ],
+      "new": true
+    },
+    {
+      "core": "move_armygroup_theater_core",
+      "was": null,
+      "now": "1/17",
+      "hard": [
+        "0x10f12f0"
+      ],
+      "new": true
+    },
+    {
+      "core": "move_amend_manpower_core",
+      "was": null,
+      "now": "1/17",
+      "hard": [
+        "0x11f240",
+        "0x2607890"
+      ],
+      "new": true
+    },
+    {
+      "core": "theater_main_garrison_template_core",
+      "was": null,
+      "now": "1/11",
+      "hard": [
+        "0x74adb0"
+      ],
+      "new": true
+    },
+    {
+      "core": "theater_state_garrison_template_core",
+      "was": null,
+      "now": "1/11",
+      "hard": [
+        "0x254aa00",
+        "0x25a0390",
+        "0xc08580"
+      ],
+      "new": true
+    },
+    {
+      "core": "theater_set_theatre_core",
+      "was": null,
+      "now": "1/11",
+      "hard": [
+        "0x1e1510",
+        "0x2607890",
+        "0x57f7b0"
+      ],
+      "new": true
+    }
+  ],
+  "new_cores": [
+    "army_subject_pair_adjacent_core",
+    "railwaygun_manual_core",
+    "railwaygun_name_core",
+    "frontline_collapse_core",
+    "move_armygroup_theater_core",
+    "move_amend_manpower_core",
+    "theater_main_garrison_template_core",
+    "theater_state_garrison_template_core",
+    "theater_set_theatre_core"
+  ],
+  "genuine_divergences": [
+    {
+      "core": "railwaygun_manual_core",
+      "commands": [
+        "CRailwayGunManualOrderCommand"
+      ],
+      "gates": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x254aa00",
+        "0x25a0390",
+        "0x25c3770"
+      ],
+      "basis": "genuine divergence: cancel-pair + strategic-region gates, not army-subject pair",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "railwaygun_name_core",
+      "commands": [
+        "CRailwayGunSetNameCommand"
+      ],
+      "gates": [
+        "0xf01db0"
+      ],
+      "basis": "genuine divergence: sole gate 0xf01db0",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "frontline_collapse_core",
+      "commands": [
+        "COrderSetCollapseCommand"
+      ],
+      "gates": [
+        "0x10f12f0",
+        "0x2284800"
+      ],
+      "basis": "genuine divergence: 0x2284800+0x10f12f0 without bbb/c402",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "move_armygroup_theater_core",
+      "commands": [
+        "CMoveArmyGroupInTheaterCommand"
+      ],
+      "gates": [
+        "0x10f12f0"
+      ],
+      "basis": "genuine divergence: sole thin gate 0x10f12f0",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "move_amend_manpower_core",
+      "commands": [
+        "CAmendForeignManpowerActionCommand"
+      ],
+      "gates": [
+        "0x11f240",
+        "0x2607890"
+      ],
+      "basis": "genuine divergence: 0x11f240+0x2607890 (partial army-subject)",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "theater_main_garrison_template_core",
+      "commands": [
+        "CSetMainGarrisonTemplateCommand"
+      ],
+      "gates": [
+        "0x74adb0"
+      ],
+      "basis": "genuine divergence: sole 0x74adb0",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "core": "theater_state_garrison_template_core",
+      "commands": [
+        "CSetStateGarrisonTemplateCommand"
+      ],
+      "gates": [
+        "0x254aa00",
+        "0x25a0390",
+        "0xc08580"
+      ],
+      "basis": "genuine divergence: strategic-region pair + gamestate_guard_c",
+      "note": "IsValid call set does not join primary role soft/hard families after wide Capstone \u2014 treat as separate Post path if ever enabled"
+    },
+    {
+      "role": "attack",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "role": "frontline",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x2284800",
+        "0xbbb1e0",
+        "0xc40230"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "role": "move",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2284800",
+        "0x2607890"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "role": "order_group",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x2284800"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "role": "retreat",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x1e1510",
+        "0x2284800",
+        "0xbbb1e0"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "role": "strategic",
+      "full_role_hard_empty": true,
+      "soft_gates_majority": [
+        "0x254aa00",
+        "0x25a0390",
+        "0x2607890"
+      ],
+      "note": "Full-role hard intersection empty; use preferred_cores subsets"
+    },
+    {
+      "core": "order_group_orders_link_core",
+      "commands": [
+        "CSetOrdersLinkCommand"
+      ],
+      "gates": [
+        "0x10b9f10",
+        "0x10f12f0"
+      ],
+      "basis": "genuine divergence: 0x10b9f10+0x10f12f0",
+      "note": "Separate Post path if ever enabled \u2014 do not merge into primary role soft gates"
+    },
+    {
+      "core": "order_group_create_leader_core",
+      "commands": [
+        "CCreateUnitLeaderCommand"
+      ],
+      "gates": [
+        "0x7251b0",
+        "0xc07b80"
+      ],
+      "basis": "genuine divergence: 0x7251b0+0xc07b80",
+      "note": "Separate Post path if ever enabled \u2014 do not merge into primary role soft gates"
+    },
+    {
+      "core": "order_group_preferred_tactic_core",
+      "commands": [
+        "CSetPreferredTacticCommand"
+      ],
+      "gates": [
+        "0x707bc0",
+        "0x73ee00",
+        "0xc07b80"
+      ],
+      "basis": "genuine divergence: tactic helpers + gamestate_guard_b",
+      "note": "Separate Post path if ever enabled \u2014 do not merge into primary role soft gates"
+    },
+    {
+      "core": "order_group_reinstate_exile_core",
+      "commands": [
+        "CReinstateExileCommand"
+      ],
+      "gates": [
+        "0x11f240",
+        "0x120530",
+        "0x1217a0",
+        "0x12b330",
+        "0x25a009c",
+        "0x25a00d8",
+        "0x2607890",
+        "0x73aab0",
+        "0xc07b80",
+        "0xc08100"
+      ],
+      "basis": "genuine divergence: wide unique IsValid set",
+      "note": "Separate Post path if ever enabled \u2014 do not merge into primary role soft gates"
+    }
+  ],
+  "named_helpers": {
+    "0xc07620": "gamestate_instance_guard",
+    "0xc07b80": "gamestate_instance_guard_b",
+    "0xc08580": "gamestate_instance_guard_c",
+    "0xeebbd0": "gamestate_instance_guard_d",
+    "0x1c32980": "gamestate_instance_guard_e",
+    "0x23c3a0": "thread_is_main_thread",
+    "0xc40490": "get_order_instance",
+    "0xd6fe90": "deployment_train_gate",
+    "0xbea570": "division_subunit_type_check",
+    "0x2284800": "isvalid_field_gate_primary",
+    "0xbbb1e0": "isvalid_order_fallback_gate",
+    "0xc40230": "isvalid_order_object_walk_gate",
+    "0x1e1510": "isvalid_army_subject_gate_a",
+    "0x2607890": "isvalid_army_subject_gate_b",
+    "0x254aa00": "isvalid_strategic_region_gate_a",
+    "0x25a0390": "isvalid_strategic_region_gate_b",
+    "0x57f7b0": "isvalid_army_subject_gate_c",
+    "0x11f240": "isvalid_dispatcher_gate_a",
+    "0x2348bf0": "isvalid_cancel_pair_gate_a",
+    "0x25c3770": "isvalid_cancel_pair_gate_b",
+    "0x18dde70": "isvalid_theater_assign_gate",
+    "0x3b65a0": "isvalid_theater_garrison_prio_gate_a",
+    "0xac1e20": "isvalid_theater_garrison_prio_gate_b",
+    "0xd73540": "isvalid_theater_reorder_gate",
+    "0x11ecb20": "isvalid_leader_seen_gate",
+    "0x1c31490": "isvalid_conveyor_gate",
+    "0x10f12f0": "isvalid_thin_alt_gate",
+    "0xf01db0": "isvalid_railwaygun_name_gate"
+  },
+  "coverage": {
+    "covered": 121,
+    "total": 121,
+    "uncovered": []
+  },
+  "offensive_line_execute": {
+    "CAiDiscardForceConcentrationTargetCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0xc07b80",
+        "0x716bc0",
+        "0x254aa00"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CAiOnFailedInvasionCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0xc07b80",
+        "0x716bc0",
+        "0x254aa00"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CAiStoreForceConcentrationTargetCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0xc07b80",
+        "0x716bc0",
+        "0x254aa00"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CAiStoreTotalWantedNrDivisionsCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0xc07b80",
+        "0x716bc0",
+        "0x254aa00"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CCreateAreaDefenseCommand": {
+      "n_exe_calls": 7,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc416b0",
+        "0xc40490",
+        "0x10b0fd0",
+        "0x10cd440",
+        "0x10cd410",
+        "0xfcecf0"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CEditAreaDefenseStateCommand": {
+      "n_exe_calls": 14,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x10cd440",
+        "0x254aa00",
+        "0xbbb1e0",
+        "0xc416b0",
+        "0xc40490",
+        "0x10cd410",
+        "0x10af2e0",
+        "0x10b0fd0",
+        "0xfcecf0"
+      ],
+      "still_unique_unknown": [
+        "0x10b0110",
+        "0x10cb7c0",
+        "0x18d58f0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderAddNewCompletePlanCommand": {
+      "n_exe_calls": 6,
+      "known_or_cataloged": [
+        "0x25a009c",
+        "0x2284800",
+        "0x18c9ab0",
+        "0x18c7d80",
+        "0x18d41b0"
+      ],
+      "still_unique_unknown": [
+        "0x18c97d0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderBlockSectionsCommand": {
+      "n_exe_calls": 2,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "COrderChildFrontRatioCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x10cd970"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "COrderConnectCommand": {
+      "n_exe_calls": 13,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0xc415b0",
+        "0xc416b0",
+        "0x10b4e50",
+        "0x10af2c0",
+        "0x10b4fa0",
+        "0x12e040",
+        "0x2607890",
+        "0x18d1460",
+        "0xc07620",
+        "0xd75a30"
+      ],
+      "still_unique_unknown": [
+        "0xc44880"
+      ],
+      "fresh_exe": []
+    },
+    "COrderExecuteCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230"
+      ],
+      "still_unique_unknown": [
+        "0x18e5ce0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderInsertFrontCommand": {
+      "n_exe_calls": 28,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0xc415b0",
+        "0xc416b0",
+        "0x10b0d20",
+        "0x10b4e50",
+        "0x10b5f10",
+        "0x10b0ba0",
+        "0x10cc4c0",
+        "0x18c7d80",
+        "0x18d41b0",
+        "0x25a0690",
+        "0x25c3770",
+        "0x10ad830",
+        "0x25a0448",
+        "0x25a0310",
+        "0x25a03dc",
+        "0x2607f30",
+        "0x254aa00",
+        "0x25a0390",
+        "0xeef8c0",
+        "0x18e580",
+        "0x25694b0"
+      ],
+      "still_unique_unknown": [
+        "0xd551e0",
+        "0x10c3640",
+        "0x1bd0c0",
+        "0xb9fac0",
+        "0x10ba8f0"
+      ],
+      "fresh_exe": [
+        "0xd551e0",
+        "0x18e580",
+        "0x10c3640",
+        "0x25694b0",
+        "0x1bd0c0",
+        "0xb9fac0",
+        "0x10ba8f0"
+      ]
+    },
+    "COrderNewFrontCommand": {
+      "n_exe_calls": 24,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x25a0448",
+        "0x25a0310",
+        "0x25a03dc",
+        "0x10b85b0",
+        "0x10af090",
+        "0x254aa00",
+        "0xc415b0",
+        "0xc41b40",
+        "0x10b0d20",
+        "0xc416b0",
+        "0x10b4e50",
+        "0x10bb530",
+        "0x10b2bf0",
+        "0x2607890",
+        "0x10b5f10",
+        "0x10c3e80",
+        "0x121c500",
+        "0x10ce790",
+        "0x10cdb80",
+        "0x10b4fa0",
+        "0x18e47a0",
+        "0xc4c100"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": [
+        "0x18e47a0",
+        "0xc4c100"
+      ]
+    },
+    "COrderReconnectCommand": {
+      "n_exe_calls": 17,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x254aa00",
+        "0x10af2c0",
+        "0x18e580",
+        "0x10cbe40",
+        "0x10b5f10",
+        "0x10b4e50",
+        "0x10b4fa0",
+        "0x25a0448",
+        "0x25a0310",
+        "0x25a03dc",
+        "0x18d1460",
+        "0xc07620",
+        "0xd75a30"
+      ],
+      "still_unique_unknown": [
+        "0x10b5fb0",
+        "0x10c3e10"
+      ],
+      "fresh_exe": []
+    },
+    "COrderReorderChildFrontCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230"
+      ],
+      "still_unique_unknown": [
+        "0x10cc1d0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderReshapeCommand": {
+      "n_exe_calls": 6,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x2607890",
+        "0x10cc4c0",
+        "0x10ce790"
+      ],
+      "still_unique_unknown": [
+        "0x1b15d0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderSetCollapseCommand": {
+      "n_exe_calls": 1,
+      "known_or_cataloged": [
+        "0x2284800"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "COrderSetInvasionSourceCommand": {
+      "n_exe_calls": 18,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x10b1950",
+        "0xc415b0",
+        "0xc416b0",
+        "0xc07620",
+        "0xc53100",
+        "0xcf4f30",
+        "0xc2da60",
+        "0x254aa00",
+        "0x1098690",
+        "0x10b13a0",
+        "0xc40490",
+        "0x18c7d80",
+        "0x57f7b0",
+        "0xbbb1e0",
+        "0x18d41b0"
+      ],
+      "still_unique_unknown": [
+        "0xfcf660"
+      ],
+      "fresh_exe": []
+    },
+    "COrderSetParadropSourceCommand": {
+      "n_exe_calls": 13,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0xc415b0",
+        "0xc416b0",
+        "0xc40490",
+        "0x18c7d80",
+        "0x57f7b0",
+        "0xbbb1e0",
+        "0x18d41b0",
+        "0x254aa00",
+        "0x25a0390"
+      ],
+      "still_unique_unknown": [
+        "0xfd0db0",
+        "0x10be690"
+      ],
+      "fresh_exe": []
+    },
+    "COrderSetParadropTargetCommand": {
+      "n_exe_calls": 4,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x18e5ef0"
+      ],
+      "still_unique_unknown": [
+        "0x18e5dd0"
+      ],
+      "fresh_exe": []
+    },
+    "COrderSetPathCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x18e5ef0"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CRailwayGunManualOrderCommand": {
+      "n_exe_calls": 5,
+      "known_or_cataloged": [
+        "0x254aa00",
+        "0x25a0390",
+        "0x2284800",
+        "0xf000d0",
+        "0x19c95d0"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CRailwayGunSetNameCommand": {
+      "n_exe_calls": 3,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xf000d0",
+        "0x19c95d0"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    },
+    "CSetAreaDefenseSettingCommand": {
+      "n_exe_calls": 23,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc40230",
+        "0x13f83b0",
+        "0x14027c0",
+        "0x13fe2a0",
+        "0xc47980",
+        "0xc4b3f0",
+        "0xc07620",
+        "0xc6ad00",
+        "0x2574a60",
+        "0x717940",
+        "0x716fc0",
+        "0x19dce10",
+        "0x2fbee0"
+      ],
+      "still_unique_unknown": [
+        "0xbba820",
+        "0x12c4230",
+        "0x164d340",
+        "0x13f64b0",
+        "0x13ff490",
+        "0x13fc190",
+        "0x13f7ca0",
+        "0x1401bb0",
+        "0x13fdb90"
+      ],
+      "fresh_exe": []
+    },
+    "CSupportAttackCommand": {
+      "n_exe_calls": 5,
+      "known_or_cataloged": [
+        "0x2284800",
+        "0xc50ed0",
+        "0x254aa00",
+        "0x25a0390",
+        "0xc5a750"
+      ],
+      "still_unique_unknown": [],
+      "fresh_exe": []
+    }
+  }
+}

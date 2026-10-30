@@ -1081,6 +1081,11 @@ def land_post_readiness_recipe() -> dict[str, Any]:
         "expanded_roles_2cf": pr.get("expanded_roles_2cf"),
         "expanded_cores_2cg": pr.get("expanded_cores_2cg"),
         "expanded_cores_2ch": pr.get("expanded_cores_2ch"),
+        "expanded_cores_2ci": pr.get("expanded_cores_2ci"),
+        "named_helpers": pr.get("named_helpers"),
+        "genuine_divergences": pr.get("genuine_divergences"),
+        "coverage_2ci": pr.get("coverage_2ci"),
+        "post_implications_2ci": pr.get("post_implications_2ci"),
         "unknown_second_order_count": pr.get("unknown_second_order_count") or sh.get("unknown_second_order_count"),
         "unknown_third_order_count": pr.get("unknown_third_order_count") or sh.get("unknown_third_order_count"),
         "cross_land_fresh_count": pr.get("cross_land_fresh_count") or sh.get("cross_land_fresh_count"),
@@ -1408,4 +1413,97 @@ def strategic_unit_redeploy_core_post_path_recipe() -> dict[str, Any]:
 
 def cancel_abort_core_post_path_recipe() -> dict[str, Any]:
     return land_preferred_core_recipe("cancel_abort_core")
+
+def land_named_gate_recipe() -> dict[str, Any]:
+    """RO: named IsValid/shared helper labels from LAND_POST_READINESS. Never posts."""
+    try:
+        import cmd_layout as _cl
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    named = pr.get("named_helpers") or {}
+    helpers = sh.get("helpers") or {}
+    rows = []
+    for rva, label in sorted(named.items(), key=lambda kv: kv[1]):
+        h = helpers.get(rva) or {}
+        rows.append({
+            "rva": rva,
+            "name": label,
+            "tier": h.get("tier"),
+            "class": h.get("class"),
+            "hits": h.get("hits"),
+            "looks_like_isvalid_gate": (h.get("post_readiness") or {}).get("looks_like_isvalid_gate"),
+        })
+    return {
+        "phase": pr.get("phase"),
+        "count": len(rows),
+        "gates": rows,
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def land_genuine_divergence_recipe(role: str | None = None) -> dict[str, Any]:
+    """RO catalog of documented genuine IsValid divergences (separate Post paths if ever)."""
+    try:
+        import cmd_layout as _cl
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    rows = list(pr.get("genuine_divergences") or [])
+    if role:
+        rows = [r for r in rows if r.get("role") == role or role in str(r.get("core") or "")]
+    return {
+        "phase": pr.get("phase"),
+        "count": len(rows),
+        "divergences": rows,
+        "coverage": pr.get("coverage_2ci"),
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+        "note": "Divergences are observe-only documentation — never merge into primary soft gates for Post",
+    }
+
+
+def land_execute_unknown_shared_recipe(limit: int = 16) -> dict[str, Any]:
+    """RO catalog of land_execute_unknown_shared helpers (2ci). Never posts."""
+    try:
+        import cmd_layout as _cl
+        sh = getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}
+        pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED"}
+    helpers = sh.get("helpers") or {}
+    rows = []
+    for rva, h in helpers.items():
+        if h.get("tier") != "land_execute_unknown_shared":
+            continue
+        rows.append({
+            "rva": rva,
+            "hits": h.get("hits"),
+            "class": h.get("class"),
+            "name": h.get("name"),
+            "caller_groups": h.get("caller_groups"),
+        })
+    rows.sort(key=lambda r: (-(r.get("hits") or 0), r["rva"]))
+    return {
+        "phase": pr.get("phase") or sh.get("phase"),
+        "count": len(rows),
+        "top": rows[:limit],
+        "posting": "DISABLED",
+        "allow_post": False,
+        "tool_gate": "CLOSED_NOT_OPENED",
+    }
+
+
+def railwaygun_divergence_recipe() -> dict[str, Any]:
+    """RO: RailwayGun attack-role genuine divergences."""
+    return {
+        "manual": land_preferred_core_recipe("railwaygun_manual_core"),
+        "name": land_preferred_core_recipe("railwaygun_name_core"),
+        "posting": "DISABLED",
+        "allow_post": False,
+    }
 

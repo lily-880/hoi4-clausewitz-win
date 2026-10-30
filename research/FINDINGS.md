@@ -553,3 +553,22 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2ci (overnight RO — named IsValid gates + divergence cores + land_execute_unknown_shared)
+
+### Works
+- Capstone deepen **71** land cmds (offensive-line + uncovered + primary roles); fresh IsValid **0**, fresh Execute **9**.
+- Mined **58** `land_execute_unknown_shared` helpers (≥2 land Execute hits) → helpers total **195**.
+- Gate/body catalogs: IsValid-gate **105**, Execute-body **144**.
+- **Named 19 new IsValid gate labels** (28 total incl prior gamestate guards): e.g. `isvalid_field_gate_primary`@0x2284800, `isvalid_army_subject_gate_a/b`@0x1e1510/0x2607890, `isvalid_order_fallback_gate`@0xbbb1e0, strategic/theater/conveyor/leader labels.
+- Preferred cores **21→34** with **121/121 coverage**; documented **17 genuine divergences** (RailwayGun manual/name, frontline collapse, move armygroup-theater, amend-manpower, theater template outliers, order_group singleton outliers, plus full-role soft-without-hard notes).
+- Recipes: `land_named_gate_recipe`, `land_genuine_divergence_recipe`, `land_execute_unknown_shared_recipe`, `railwaygun_divergence_recipe`.
+- **LAND 121/121**, **ISVALID_PATHS 134**; live FN proofs green.
+- Live: allow_post False; tick=1; watcher **36128**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST / CLAUSEWITZ_ALLOW_POST.
+- Helper patch / Post inject; navy/air/division-template/production/GameSpeed/HourlyTick.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
