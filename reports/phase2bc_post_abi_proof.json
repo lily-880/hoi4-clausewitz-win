@@ -1,0 +1,114 @@
+{
+  "phase": "2bc",
+  "posting": "DISABLED",
+  "speed_rule": "pause or 1x only; never 5x",
+  "pid": 2880,
+  "base": "0x7ff744660000",
+  "checks": [
+    {
+      "check": "G_SESSION_eq_App380",
+      "ok": true,
+      "detail": {
+        "g": "0x1ef8f7b2b70",
+        "s": "0x1ef8f7b2b70"
+      }
+    },
+    {
+      "check": "DummyServer_VT",
+      "ok": true,
+      "detail": "0x2bcb040"
+    },
+    {
+      "check": "vt28_sink",
+      "ok": true,
+      "detail": "0x23f5cd0"
+    },
+    {
+      "check": "vt30_drain",
+      "ok": true,
+      "detail": "0x23f64e0"
+    },
+    {
+      "check": "Post_prologue",
+      "ok": true,
+      "detail": "48895c2408555657"
+    },
+    {
+      "check": "session_gate_0x725_readable",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "Move_Execute_slot",
+      "ok": true,
+      "detail": "0x13fc990"
+    },
+    {
+      "check": "Move_Clone_nonzero",
+      "ok": true,
+      "detail": "0x13f9350"
+    },
+    {
+      "check": "Move_IsValid_nonzero",
+      "ok": true,
+      "detail": "0x14002f0"
+    },
+    {
+      "check": "Strategic_Execute_shared_thunk",
+      "ok": true,
+      "detail": "0x13fc990"
+    },
+    {
+      "check": "CUnitMoveAction_VT_table_readable",
+      "ok": true,
+      "detail": "0x7ff745921a90"
+    },
+    {
+      "check": "CUnitStrategicMoveAction_VT_table_readable",
+      "ok": true,
+      "detail": "0x7ff7447c4640"
+    },
+    {
+      "check": "handle_resolve_17",
+      "ok": true,
+      "detail": "17/17"
+    },
+    {
+      "check": "province_resolve_17",
+      "ok": true,
+      "detail": "17/17"
+    },
+    {
+      "check": "allow_post_false",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "post_command_raises",
+      "ok": true,
+      "detail": "RuntimeError: Command posting DISABLED (CLAUSEWITZ_ALLOW_POST gate + checklist). Read-only only."
+    },
+    {
+      "check": "session_state_2",
+      "ok": true,
+      "detail": 2
+    },
+    {
+      "check": "drain_counter_nonzero",
+      "ok": true,
+      "detail": 252025
+    }
+  ],
+  "passed": 18,
+  "failed": 0,
+  "post_abi_describe": {
+    "posting": "DISABLED",
+    "allow_post": false,
+    "pipeline": "UI/AI -> FN_CMD_QUEUE_POST(session, cmd) -> CDummyServer.vt+0x28 sink -> ring@+0xa0 -> SessionUpdate drain vt+0x30 -> pending@+0x58 -> stage session+0x48 -> IsValid vt+0x48 -> Execute vt+0x50 @ site A; optional execlist@+0x40 via loop B",
+    "FN_CMD_QUEUE_POST": "0x22c41e0",
+    "G_SESSION": "0x34ffbe8",
+    "CDummyServer_VT": "0x2bcb040"
+  },
+  "note": "Proof is live layout + gate + helper consistency; NO Post call / NO write",
+  "all_ok": true
+}

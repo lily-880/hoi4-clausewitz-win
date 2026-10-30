@@ -1,5 +1,5 @@
 {
-  "phase": "2ay",
+  "phase": "2bl",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -7,13 +7,13 @@
   "gaps": [
     {
       "id": "no_tooling_post",
-      "status": "open",
-      "note": "Tooling has never called Post \u2014 independent non-destructive proof missing"
+      "status": "closed",
+      "note": "Phase 2bc: independent RO tooling proof via post_abi.py + cmd_layout.py \u2014 18/18 live checks (G_SESSION, Dummy VT/sink/drain, Post prologue, Move/Strategic VT slots, handle+province 17/17, allow_post False, post_command raises). NO Post call / NO write."
     },
     {
       "id": "midflight_move_sample",
-      "status": "open",
-      "note": "SP Dummy frees army cmds inside tick; UI click or hook still needed (RO)"
+      "status": "stubbed",
+      "note": "STUBBED overnight: SP frees Move inside tick (pause heap 0 hits 2bd). DX11 ignores SendInput/PostMessage/mouse_event/UI click \u2014 DummyServer seq stuck 15 (2be-2bk). Live equivalent: sticky CStartGameCommand vt 0x2A5F448 via sess+0xF8 wrapper (2bl). Needs real user right-click / hardware input for midflight CMoveCommand."
     },
     {
       "id": "action_flag_names",
@@ -43,7 +43,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED until checklist closed"
+      "note": "DISABLED until midflight Move captured + explicit CLAUSEWITZ_ALLOW_POST=1"
     },
     {
       "id": "network_execlist_path",
@@ -62,10 +62,11 @@
     }
   ],
   "enable_when": [
-    "Independent non-destructive Post proof on live SP DummyServer path",
-    "At least one mid-flight CMoveCommand captured + serialize round-trip understood",
+    "Independent non-destructive Post proof on live SP DummyServer path \u2014 DONE 2bc",
+    "At least one mid-flight CMoveCommand captured + serialize round-trip understood \u2014 STUBBED pending real input",
     "Explicit CLAUSEWITZ_ALLOW_POST=1 gate (separate from ALLOW_WRITE)",
     "Never auto-enable inside per-tick loops"
   ],
-  "notes_2ay": "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open"
+  "notes_2ay": "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open",
+  "notes_2bl": "2bc Post ABI tooling proof CLOSED. midflight Move STUBBED (DX11 input). Sticky StartGame equivalent RO sample captured. Posting remains DISABLED."
 }

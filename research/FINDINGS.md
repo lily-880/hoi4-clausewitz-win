@@ -140,3 +140,15 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - `calling/cmd_layout.py` — Move / Strategic / Cancel field maps (RO).
 - `scripts/phase2ba_status_pipeline.py` — live session/server counters + army handle/province sample.
 - Posting remains **DISABLED**.
+
+## Phase 2bb–2bl (2026-10-31 Asia/Shanghai) — overnight continue
+
+- **Post ABI tooling proof (2bc): WORKS** — `calling/post_abi.py` + `calling/cmd_layout.py`; `scripts/phase2bc_post_abi_proof.py` **18/18** live RO checks (G_SESSION, Dummy VT/sink/drain, Post prologue, Move/Strategic VT slots, handle+province 17/17 HAI, `allow_post` False, `post_command` raises). **NO Post / NO write.**
+- Checklist gap `no_tooling_post` → **closed**.
+- **Midflight CMoveCommand (2bb–2bk): STUBBED** — pause heap empty (2bd 8GB/2GB scans 0 Move/MoveAction). Drain rises on empty ring; DummyServer **seq stuck 15 / exec 13** across SendInput Space, UI click, PostMessage, `SetCursorPos`+`mouse_event` (DX11 gameplay input ignored by tooling). Game stayed **paused** (never 5x).
+- **Equivalent live CCommand (2bl): WORKS (RO)** — sticky `CStartGameCommand` vt `0x2A5F448` at wrapper `sess+0xF8` → cmd ptr; VT slots IsValid/Execute/PostExec/Clone readable. Not a Move sample.
+- Checklist gap `midflight_move_sample` → **stubbed** (needs real user right-click / hardware input).
+- **Posting DISABLED**; `command_queue_tool_gate` still open.
+- Scripts: `phase2bb_midflight_ring.py` … `phase2bk_mouse_event.py`, `phase2bl_sticky_equivalent.py`.
+- Reports: `phase2bb`…`phase2bl` JSON under `reports/`.
+

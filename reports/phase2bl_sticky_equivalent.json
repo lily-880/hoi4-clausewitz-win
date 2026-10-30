@@ -1,0 +1,73 @@
+{
+  "phase": "2bl",
+  "posting": "DISABLED",
+  "speed_rule": "pause or 1x only; never 5x",
+  "pid": 2880,
+  "base": "0x7ff744660000",
+  "sess": "0x1ef8f7b2b70",
+  "server": "0x1efeb828970",
+  "server_vt_rva": "0x2bcb040",
+  "drain": 254532,
+  "exec": 13,
+  "seq": 15,
+  "pending": {
+    "head": null,
+    "tail": null,
+    "count": 0
+  },
+  "execlist": {
+    "head": null,
+    "count": 0
+  },
+  "ring_hex": "000000005f007300805e9fedef010000c0b03749f00100000800000000000000000000000000000000000000000000000f00000073000000d7aec53c00020090",
+  "sticky_startgame": {
+    "wrapper_sess_F8": "0x1f053d29b20",
+    "addr": "0x1f053d294c0",
+    "vt_rva": "0x2a5f448",
+    "expect_CStartGameCommand": "0x2a5f448",
+    "match": true,
+    "hex_0x88": "48f40b47f77f0000005f6172010000000000000000000000010000000e0000000e000000000000003dafdbca008f04906261636b67726f756e645f627574746f6e000000000000000f00000000000000000000000000000022afdeca00900490726573656172636865645f69636f6e73000000000000000000000000000000000000000000000000",
+    "fields_u64": [
+      "0x7ff7470bf448",
+      "0x172615f00",
+      "0x0",
+      "0xe00000001",
+      "0xe",
+      "0x90048f00cadbaf3d",
+      "0x756f72676b636162",
+      "0x6f747475625f646e",
+      "0x6e",
+      "0xf",
+      "0x0",
+      "0x90049000cadeaf22",
+      "0x6863726165736572",
+      "0x736e6f63695f6465",
+      "0x0",
+      "0x0",
+      "0x0"
+    ],
+    "vt_slots_rva": {
+      "IsValid": "0x188d90",
+      "Execute": "0x16de180",
+      "PostExec": "0x16de500",
+      "Clone": "0x16dd0d0"
+    },
+    "note": "sess+0xF8 is wrapper; +0x0 -> live CStartGameCommand (sticky across pause)"
+  },
+  "stage_count": 0,
+  "stage_hits": [],
+  "cmd_layout_move_vt": "0x2a2c790",
+  "cmd_layout_strategic_vt": "0x2a2d818",
+  "post_abi": {
+    "posting": "DISABLED",
+    "allow_post": false,
+    "pipeline": "UI/AI -> FN_CMD_QUEUE_POST(session, cmd) -> CDummyServer.vt+0x28 sink -> ring@+0xa0 -> SessionUpdate drain vt+0x30 -> pending@+0x58 -> stage session+0x48 -> IsValid vt+0x48 -> Execute vt+0x50 @ site A; optional execlist@+0x40 via loop B",
+    "FN_CMD_QUEUE_POST": "0x22c41e0",
+    "G_SESSION": "0x34ffbe8",
+    "CDummyServer_VT": "0x2bcb040"
+  },
+  "allow_post": false,
+  "midflight_move": "STUBBED",
+  "midflight_note": "SP frees Move inside tick; pause heap empty (2bd). DX11 ignores SendInput/PostMessage/mouse_event/UI click for gameplay (seq stuck 15 across 2be-2bk). Sticky CStartGameCommand is live CCommand equivalent sample. Needs real user right-click or hardware input for midflight Move.",
+  "equivalent_sample": "CStartGameCommand live (not Move)"
+}
