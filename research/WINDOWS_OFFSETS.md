@@ -1041,3 +1041,42 @@ python scripts/phase2s_execlist_fill.py [--live]  # drain vs +0x40; army Execute
 python scripts/phase2t_move_staging.py [--live]  # CMoveCommand/CUnitMoveAction; post-exec list
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```
+
+## Phase 2am — token names + APPLY correction (READ-ONLY)
+
+Posting still **DISABLED**. Game pause/1x only (never 5x).
+
+### Correction
+- `CUnitMoveAction_APPLY` was listed as `0x12af450` in 2ak — **wrong** (Capstone absolute address treated as RVA).
+- Real wrapper: **`0xc4f450`** (Execute `0x12c2670` call at `0x12c26e7`).
+- Inner body: **`0xc4d700`**.
+- Call args: `rcx=unit*`, `rdx=&action+0x30` (path), `r8=byte[action+0x50]`, `r9=dword[action+0x58]`.
+
+### Token dictionary (live)
+- `G_TOKEN_ARRAY` `0x368f5a0` → ptr to MSVC SSO string array, entry size **32**.
+- `G_TOKEN_MAX` `0x368f574` (i32, live ~70378).
+- `FN_TOKEN_TO_STRING` `0x253eb90` — `(token) -> &array[token]`.
+- `FN_TOKEN_NAME_GET` `0x1f8360` — writer-scoped name get.
+- `FN_TOKEN_WRITE` `0x2546ba0` — serialize writes tag name then value.
+
+### CUnitMoveAction serialize tags (all live-verified)
+| token | name |
+|------:|------|
+| 0x28a3 | unit |
+| 0x2840 | province |
+| 0x174 | path |
+| 0x29f1 | clear |
+| 0x2c84 | safe |
+| 0x3a98 | safe_until_very_end |
+| 0x38f1 | safe_with_nonsafe_fallback |
+| 0x2c85 | avoid |
+| 0x37bc | move_priority |
+| 0x368f | sticky |
+
+### Still stubbed / not proven
+- Safe-enable of Posting: **NOT proven** (DISABLED).
+- Mid-flight live Move object capture: needs brief 1x + player/AI move (optional).
+- Full payload byte layout ↔ field offsets: hypothesis from tag order only.
+- `command_queue` path: still unused in SP (DummyServer ring only).
+
+Script: `scripts/phase2am_tokens_apply.py --live`

@@ -172,7 +172,13 @@ PROVEN_STATIC = {
     "CCommand_VT_PAYLOAD_READ_0xA8": 0xA8,
     "CMoveCommand_VT_0xA8_THUNK": 0x1403570,
     "CUnitMoveAction_DESERIALIZE": 0x12C3340,  # vt+0xb8
-    "CUnitMoveAction_APPLY": 0x12AF450,  # Execute body calls with path vec
+    "CUnitMoveAction_APPLY": 0xC4F450,  # 2am corrects 2ak 0x12af450 (abs/base miscalc); wrapper
+    "CUnitMoveAction_APPLY_INNER": 0xC4D700,  # real body; unit mode switch + path apply
+    "FN_TOKEN_WRITE": 0x2546BA0,  # serialize tag writer
+    "FN_TOKEN_TO_STRING": 0x253EB90,  # token id -> SSO name in G_TOKEN_ARRAY
+    "FN_TOKEN_NAME_GET": 0x1F8360,  # (writer, token) -> std::string*
+    "G_TOKEN_ARRAY": 0x368F5A0,  # ptr; entry size 32 (MSVC SSO string)
+    "G_TOKEN_MAX": 0x368F574,  # i32
     "FN_HANDLE_RESOLVE": 0x6E4800,
     "CCancelMovementCommand_SERIALIZE": 0x1404130,
     "CChatCommand_SERIALIZE": 0x13D7FA0,
