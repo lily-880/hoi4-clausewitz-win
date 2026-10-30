@@ -52,6 +52,7 @@ MOVE = {
     "size": 0x88,
     "factory": 0x13FB000,
     "clone": 0x13F9350,
+    "gettypeid": 0x13FE350,
     "serialize": 0x1404590,  # vt+0xa0 thunk -> action
     "deserialize": 0x1403570,  # vt+0xa8
     "execute": 0x13FC990,  # thunk -> action.vt+0x48
@@ -101,7 +102,13 @@ STRATEGIC = {
     "type_id": 0x35B9,
     "size": 0x50,
     "factory": 0x13FB580,
+    "factory_idx": 4505,
     "execute": 0x13FC990,  # shared thunk
+    "clone": 0x13F9C10,
+    "serialize": 0x1404590,  # thunk -> action.vt+0xc0 (shared w/ Move)
+    "deserialize": 0x1403570,  # thunk -> action.vt+0xb8 (shared w/ Move)
+    "isvalid": 0x1402260,
+    "gettypeid": 0x13FE420,
     "action_embed": 0x28,
     "action": {
         "name": "CUnitStrategicMoveAction",
@@ -125,6 +132,9 @@ CANCEL = {
     "type_id": 0x28AF,
     "size": 0x48,
     "factory": 0x13FACE0,
+    "clone": 0x13F8DB0,
+    "isvalid": 0x13FED40,
+    "gettypeid": 0x13FE2D0,
     "serialize": 0x1404130,
     "deserialize": 0x1402D50,
     "execute": 0x13FBBD0,
@@ -141,8 +151,15 @@ STARTGAME = {
     "name": "CStartGameCommand",
     "vt": 0x2A5F448,
     "type_id": 0x359E,
+    "factory": 0x16DD5A0,
+    "clone": 0x16DD0D0,
+    "serialize": 0x154030,
+    "deserialize": 0xD4EE30,
+    "execute": 0x16DE180,
+    "isvalid": 0x188D90,  # TRUE stub
+    "gettypeid": 0x16DE500,
     "sticky_session_off": 0xF8,  # wrapper; +0 -> cmd*
-    "note": "Live sticky post-exec sample on paused SP (Phase 2bl)",
+    "note": "Live sticky post-exec sample on paused SP (Phase 2bl); factory/serdes filled 2bp",
 }
 
 CHAT = {
@@ -313,21 +330,81 @@ ISVALID_PATHS = {
 # Remaining army/order-adjacent subtypes (RTTI+factory RO stubs; not full serialize proof)
 # type_id = preferred biased form when dual-encoded
 REMAINING_ARMY_ORDERS = {
-    "CMassMoveCommand": {"type_id": 0x341F, "factory": 0x13FAEC0, "vt": 0x2A2C848, "factory_idx": 4343},
-    "CMassCancelMovementCommand": {"type_id": 0x3630, "factory": 0x11D8FD0, "vt": 0x2A0FC40, "factory_idx": 4872},
-    "CToggleStrategicDeploymentCommand": {"type_id": 0x3CE0, "factory": 0x13FB640, "vt": 0x2A2CA70, "factory_idx": 6584},
-    "COrderSetPathCommand": {"type_id": 0x3039, "factory": 0x18D08E0, "vt": 0x2A84778, "factory_idx": 3345},
-    "CDeleteOrderGroupCommand": {"type_id": 0x304E, "factory": 0x18CF9E0, "vt": 0x2A83E20, "factory_idx": 3366},
-    "COrderDeleteAllCommand": {"type_id": 0x33F1, "factory": 0x18CFED0, "vt": 0x2A84270, "factory_idx": 4297},
-    "COrderInsertFrontCommand": {"type_id": 0x3398, "factory": 0x18D0150, "vt": 0x2A84A58, "factory_idx": 4208},
-    "COrderReshapeCommand": {"type_id": 0x339E, "factory": 0x18D06C0, "vt": 0x2A84830, "factory_idx": 4214},
-    "COrderConnectCommand": {"type_id": 0x33B1, "factory": 0x18CFE00, "vt": 0x2A849A0, "factory_idx": 4233},
-    "COrderReconnectCommand": {"type_id": 0x33B0, "factory": 0x18D0470, "vt": 0x2A848E8, "factory_idx": 4232},
-    "CAutoMergeOrdersCommand": {"type_id": 0x3552, "factory": 0x18CF910, "vt": 0x2A84BC8, "factory_idx": 4650},
-    "CAssignToArmyGroupCommand": {"type_id": 0x3886, "factory": 0x18CF8A0, "vt": 0x2A83F90, "factory_idx": 5470},
-    "CRemoveFromArmyGroupCommand": {"type_id": 0x3887, "factory": 0x18D0A80, "vt": 0x2A84048, "factory_idx": 5471},
-    "CDeployArmyHqCommand": {"type_id": 0x282B, "factory": 0x13FAE60, "vt": 0x2A2CEC0, "factory_idx": 1283},
-    "CWithdrawArmyHqCommand": {"type_id": 0x2833, "factory": 0x13FB710, "vt": 0x2A2CF78, "factory_idx": 1291},
+    "CMassMoveCommand": {
+        "type_id": 0x341F, "factory": 0x13FAEC0, "vt": 0x2A2C848, "factory_idx": 4343,
+        "size": 0x60, "clone": 0x13F90B0, "serialize": 0x14042F0, "deserialize": 0x1403160,
+        "execute": 0x13FC310, "isvalid": 0x13FFBA0, "gettypeid": 0x13FE320,
+    },
+    "CMassCancelMovementCommand": {
+        "type_id": 0x3630, "factory": 0x11D8FD0, "vt": 0x2A0FC40, "factory_idx": 4872,
+        "size": 0x40, "clone": 0x11D5B50, "serialize": 0x11FC660, "deserialize": 0x11F7F30,
+        "execute": 0x11E1520, "isvalid": 0x11F0A10, "gettypeid": 0x11EAA00,
+    },
+    "CToggleStrategicDeploymentCommand": {
+        "type_id": 0x3CE0, "factory": 0x13FB640, "vt": 0x2A2CA70, "factory_idx": 6584,
+        "size": 0x40, "clone": 0x13F9D50, "serialize": 0x1404B40, "deserialize": 0x1403E70,
+        "execute": 0x13FDE90, "isvalid": 0x14025C0, "gettypeid": 0x13FE440,
+    },
+    "COrderSetPathCommand": {
+        "type_id": 0x3039, "factory": 0x18D08E0, "vt": 0x2A84778, "factory_idx": 3345,
+        "size": 0x58, "clone": 0x18CEA40, "serialize": 0x18E90C0, "deserialize": 0x18E2D60,
+        "execute": 0x18DAEF0, "isvalid": 0x18DFF00, "gettypeid": 0x18DCC30,
+    },
+    "CDeleteOrderGroupCommand": {
+        "type_id": 0x304E, "factory": 0x18CF9E0, "vt": 0x2A83E20, "factory_idx": 3366,
+        "size": 0x30, "clone": 0x18CD140, "serialize": 0x18E7DF0, "deserialize": 0x18E1490,
+        "execute": 0x18D3300, "isvalid": 0x18DE300, "gettypeid": 0x18DCA20,
+    },
+    "COrderDeleteAllCommand": {
+        "type_id": 0x33F1, "factory": 0x18CFED0, "vt": 0x2A84270, "factory_idx": 4297,
+        "size": 0x30, "clone": 0x18CD980, "serialize": 0x18E7DF0, "deserialize": 0x18E1490,
+        "execute": 0x18D58F0, "isvalid": 0x18DE2F0, "gettypeid": 0x18DCAD0,
+    },
+    "COrderInsertFrontCommand": {
+        "type_id": 0x3398, "factory": 0x18D0150, "vt": 0x2A84A58, "factory_idx": 4208,
+        "size": 0x98, "clone": 0x18CDD50, "serialize": 0x18E8910, "deserialize": 0x18E22E0,
+        "execute": 0x18D65F0, "isvalid": 0x18DF230, "gettypeid": 0x18DCB30,
+    },
+    "COrderReshapeCommand": {
+        "type_id": 0x339E, "factory": 0x18D06C0, "vt": 0x2A84830, "factory_idx": 4214,
+        "size": 0x50, "clone": 0x18CE690, "serialize": 0x18E8E90, "deserialize": 0x18E2A70,
+        "execute": 0x18DA7D0, "isvalid": 0x18DF6C0, "gettypeid": 0x18DCBE0,
+    },
+    "COrderConnectCommand": {
+        "type_id": 0x33B1, "factory": 0x18CFE00, "vt": 0x2A849A0, "factory_idx": 4233,
+        "size": 0x40, "clone": 0x18CD810, "serialize": 0x18E8560, "deserialize": 0x18E1E30,
+        "execute": 0x18D54A0, "isvalid": 0x18DED50, "gettypeid": 0x18DCAB0,
+    },
+    "COrderReconnectCommand": {
+        "type_id": 0x33B0, "factory": 0x18D0470, "vt": 0x2A848E8, "factory_idx": 4232,
+        "size": 0x40, "clone": 0x18CE2F0, "serialize": 0x18E8CE0, "deserialize": 0x18E27E0,
+        "execute": 0x18D9E10, "isvalid": 0x18DF5B0, "gettypeid": 0x18DCB90,
+    },
+    "CAutoMergeOrdersCommand": {
+        "type_id": 0x3552, "factory": 0x18CF910, "vt": 0x2A84BC8, "factory_idx": 4650,
+        "size": 0x38, "clone": 0x18CCFE0, "serialize": 0x18E7D50, "deserialize": 0x18E1390,
+        "execute": 0x18D31F0, "isvalid": 0x18DE2C0, "gettypeid": 0x18DCA00,
+    },
+    "CAssignToArmyGroupCommand": {
+        "type_id": 0x3886, "factory": 0x18CF8A0, "vt": 0x2A83F90, "factory_idx": 5470,
+        "size": 0x50, "clone": 0x18CCF10, "serialize": 0x18E7C80, "deserialize": 0x18E12A0,
+        "execute": 0x18D2E00, "isvalid": 0x18DE250, "gettypeid": 0x18DC9F0,
+    },
+    "CRemoveFromArmyGroupCommand": {
+        "type_id": 0x3887, "factory": 0x18D0A80, "vt": 0x2A84048, "factory_idx": 5471,
+        "size": 0x40, "clone": 0x18CED10, "serialize": 0x18E92A0, "deserialize": 0x18E3090,
+        "execute": 0x18DB1C0, "isvalid": 0x18E0310, "gettypeid": 0x18DCC70,
+    },
+    "CDeployArmyHqCommand": {
+        "type_id": 0x282B, "factory": 0x13FAE60, "vt": 0x2A2CEC0, "factory_idx": 1283,
+        "size": 0x38, "clone": 0x13F9020, "serialize": 0x14042B0, "deserialize": 0x14030A0,
+        "execute": 0x13FC190, "isvalid": 0x13FF490, "gettypeid": 0x13FE310,
+    },
+    "CWithdrawArmyHqCommand": {
+        "type_id": 0x2833, "factory": 0x13FB710, "vt": 0x2A2CF78, "factory_idx": 1291,
+        "size": 0x30, "clone": 0x13F9EC0, "serialize": 0x1404BC0, "deserialize": 0x1403F10,
+        "execute": 0x13FE2A0, "isvalid": 0x14027C0, "gettypeid": 0x13FE460,
+    },
 }
 
 NEVER_POST = {
@@ -370,6 +447,32 @@ DRAIN_EDGES = {
 }
 
 
+# Dummy sink serialize → recreate → ring (RO wiring). Live buffer RT still needs midflight/post.
+DUMMY_ROUNDTRIP = {
+    "sink": 0x23F5CD0,  # CDummyServer.vt+0x28
+    "recreate": 0x22D8AD0,
+    "factory_lookup": 0x22D8D20,
+    "serialize_with_typeid": 0x2545780,  # writes tid then jmp [cmd.vt+0x8]
+    "gettypeid_vt_off": 0x58,  # mov dword [rdx], IMM; mov rax,rdx; ret
+    "bin_serialize_vt_off": 0x8,  # shared 0x2541580 → call [vt+0x10]
+    "bin_serialize_body_vt_off": 0x10,  # shared 0x22D9390
+    "bin_deserialize_vt_off": 0x18,  # shared 0x2540FC0; recreate→ba33f0→jmp [vt+0x18]
+    "bin_deserialize_body_vt_off": 0x20,  # shared 0x22D90F0
+    "token_serialize_vt_off": 0xA0,  # type-specific (Move thunk→action+0xC0)
+    "token_deserialize_vt_off": 0xA8,  # type-specific (Move thunk→action+0xB8)
+    "ring_embed_off": 0xA0,
+    "seq_off": 0xD0,
+    "shared_bin_ser": 0x2541580,
+    "shared_bin_des": 0x2540FC0,
+    "shared_bin_ser_body": 0x22D9390,
+    "shared_bin_des_body": 0x22D90F0,
+    "note": (
+        "RO wiring proven 2bp: GetTypeId→ser_helper→vt+8→recreate(factory+vt+18)→ring. "
+        "Live in-memory buffer round-trip still STUBBED (needs midflight sample or Post)."
+    ),
+}
+
+
 def summarize() -> dict:
     return {
         "posting": "DISABLED",
@@ -377,6 +480,7 @@ def summarize() -> dict:
         "post_gates": POST_GATES,
         "factory_table": FACTORY_TABLE,
         "isvalid_paths": ISVALID_PATHS,
+        "dummy_roundtrip": DUMMY_ROUNDTRIP,
         "drain_edges": DRAIN_EDGES,
         "never_post": {
             k: {

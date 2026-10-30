@@ -1,5 +1,5 @@
 {
-  "phase": "2bo",
+  "phase": "2bp",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -123,8 +123,9 @@
     },
     {
       "id": "serialize_recreate_roundtrip",
-      "status": "open",
-      "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring"
+      "status": "wiring_closed_live_buffer_stubbed",
+      "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring",
+      "note": "RO wiring proven 2bp; live buffer RT still stubbed"
     },
     {
       "id": "CLAUSEWITZ_ALLOW_POST",
@@ -149,5 +150,18 @@
   ],
   "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
   "notes_2bn": "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED.",
-  "notes_2bo": "Factory deepen + IsValid paths + Strategic/Cancel recipes + Pause NEVER_POST + 15 remaining army-order stubs. Midflight stubbed; watcher armed. Posting DISABLED. Tool gate NOT opened."
+  "notes_2bo": "Factory deepen + IsValid paths + Strategic/Cancel recipes + Pause NEVER_POST + 15 remaining army-order stubs. Midflight stubbed; watcher armed. Posting DISABLED. Tool gate NOT opened.",
+  "notes_2bp": {
+    "ts": "2026-10-31T05:42:01",
+    "gettypeid": "36/36",
+    "factory": "36/36",
+    "shared_bin_serdes": "36/36 vt+8/10/18/20",
+    "move_strategic_cancel_serdes_clone": "full proof",
+    "remaining_army_orders_15": "serialize+deserialize+clone+gettypeid full",
+    "dummy_roundtrip": "wiring_closed_live_buffer_stubbed",
+    "tool_gate": "CLOSED_NOT_OPENED analysis only",
+    "allow_post": false,
+    "midflight_watcher_pid": 29656,
+    "speed_rule": "pause or 1x only; never 5x"
+  }
 }

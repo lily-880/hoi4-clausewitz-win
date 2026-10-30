@@ -200,3 +200,23 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - Tool gate: safer analysis only; **CLOSED_NOT_OPENED**. `allow_post` False. Midflight Move still stubbed; watcher armed; no input injection.
 - Posting DISABLED. Speed rule: pause/1x only.
 
+
+## Phase 2bp (overnight RO — serialize/clone full proof + Dummy RT wiring)
+
+### Works
+- `GetTypeId` imm proof **36/36**; factory→fn **36/36**; shared bin ser/des `vt+8/10/18/20` **36/36**.
+- Move / Strategic / Cancel: serialize + deserialize + clone + GetTypeId **full proof** (token thunks Move≡Strategic `0x1404590`/`0x1403570`).
+- `REMAINING_ARMY_ORDERS` **15/15**: size + serialize + deserialize + clone + gettypeid + factory + IsValid live-matched.
+- `DUMMY_ROUNDTRIP` documented in `cmd_layout`: sink `0x23F5CD0` → `serialize_with_typeid 0x2545780` → shared `vt+8` → recreate `0x22D8AD0` → factory_lookup → `vt+18` des → ring@+0xa0. **Wiring closed RO.**
+- STARTGAME factory/serdes/clone filled (`0x16DD5A0`).
+- Tool-gate **analysis only** — `CLOSED_NOT_OPENED`. `allow_post` False. Midflight watcher pid **29656** still armed; no input.
+- Tick=1 (paused), session+0x725=1. Posting DISABLED. Never 5x.
+
+### Stubbed
+- `midflight_CMoveCommand` sample (DX11).
+- Live-buffer serialize→recreate Dummy ring round-trip (needs midflight sample or Post — blocked).
+- `command_queue_tool_gate` enable.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
