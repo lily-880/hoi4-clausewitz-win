@@ -1,0 +1,232 @@
+{
+  "posting": "DISABLED",
+  "pipeline": {
+    "post": 36454880,
+    "sink_dummy": 37706960,
+    "drain_dummy": 37709024,
+    "session_update": 36463632,
+    "execute_site_a": 36465821,
+    "execute_loop_b": 36456208,
+    "g_session": 55573480,
+    "cmd_vt_execute": 80,
+    "cmd_vt_isvalid": 72,
+    "cmd_vt_clone": 104,
+    "dummy_ring": 160,
+    "dummy_pending": 88,
+    "dummy_execlist": 64,
+    "dummy_seq": 208
+  },
+  "post_gates": {
+    "FN_CMD_QUEUE_POST": 36454880,
+    "order": [
+      "r8b != 0 (caller force)",
+      "session+0x725 != 0 (live SP often 1)",
+      "cmd.vt+0x80 TRUE OR cmd.vt+0x60 TRUE"
+    ],
+    "else_drop": "Dropped command:",
+    "during_exec_drop": "session+0x6CC && !session+0x726 -> Dropped (posted during command execution)",
+    "auth_drop": "cmd.vt+0x90 fail -> Dropped (sender not authorized)",
+    "gate_stub_TRUE": 1609104,
+    "gate_stub_FALSE": 1168688,
+    "CMoveCommand_gate": "vt+0x60 AND vt+0x80 both FALSE \u2014 needs session+0x725 or r8b",
+    "never_post_speed": [
+      "CSetGameSpeedCommand",
+      "CIncreaseGameSpeedCommand",
+      "CDecreaseGameSpeedCommand",
+      "CHourlyTickCommand"
+    ]
+  },
+  "base": {
+    "name": "CCommand",
+    "fields": {
+      "vt": 0,
+      "refcount_or_pad": 8,
+      "tick": 12,
+      "word_0x18": 24,
+      "execlist_select": 26,
+      "sink_seq": 28
+    },
+    "vt_slots": {
+      "IsValid": 72,
+      "Execute": 80,
+      "PostExec": 88,
+      "gate_0x60": 96,
+      "Clone": 104,
+      "gate_0x80": 128,
+      "auth_0x90": 144,
+      "serialize_payload": 160
+    },
+    "shared_serialize_header_write": 36541328,
+    "shared_serialize_header_read": 36540656
+  },
+  "move": {
+    "name": "CMoveCommand",
+    "vt": 44222352,
+    "type_id": 10402,
+    "size": 136,
+    "factory": 20951040,
+    "clone": 20943696,
+    "execute": 20957584,
+    "isvalid": 20972272,
+    "action_embed": 40,
+    "gate_0x60": false,
+    "gate_0x80": false,
+    "action": {
+      "name": "CUnitMoveAction",
+      "vt": 44168776,
+      "type_id_at_plus8": 13896,
+      "execute": 19670640,
+      "isvalid": 19672224,
+      "serialize": 19675424,
+      "fields": {
+        "unit_handle": 16,
+        "province_arr": 24,
+        "province_size": 36,
+        "path_arr": 48,
+        "path_size": 60,
+        "clear": 80,
+        "safe": 81,
+        "safe_until_end": 82,
+        "safe_nonsafe_fb": 83,
+        "avoid": 85,
+        "move_priority": 88,
+        "sticky": 92
+      },
+      "serialize_tokens": {
+        "16": 10403,
+        "24": 10304,
+        "48": 372,
+        "80": 10737,
+        "81": 11396,
+        "82": 15000,
+        "83": 14577,
+        "85": 11397,
+        "88": 14268,
+        "92": 13967
+      }
+    }
+  },
+  "strategic": {
+    "name": "CStrategicRedeploymentCommand",
+    "vt": 44226584,
+    "type_id": 13753,
+    "size": 80,
+    "factory": 20952448,
+    "execute": 20957584,
+    "action_embed": 40,
+    "action": {
+      "name": "CUnitStrategicMoveAction",
+      "vt": 44169192,
+      "type_id": 13898,
+      "size": 40,
+      "serialize": 19675808,
+      "deserialize": 19674944,
+      "fields": {
+        "army_handle": 16,
+        "province": 24,
+        "clear": 28,
+        "move_priority": 32
+      }
+    }
+  },
+  "cancel": {
+    "name": "CCancelMovementCommand",
+    "vt": 44222904,
+    "type_id": 10415,
+    "size": 72,
+    "execute": 20954064,
+    "fields": {
+      "units_data": 40,
+      "units_count": 52,
+      "sticky": 64
+    }
+  },
+  "startgame": {
+    "name": "CStartGameCommand",
+    "vt": 44430408,
+    "type_id": 13726,
+    "sticky_session_off": 248,
+    "note": "Live sticky post-exec sample on paused SP (Phase 2bl)"
+  },
+  "chat": {
+    "name": "CChatCommand",
+    "vt": 44203816,
+    "type_id": 388,
+    "size": 152,
+    "factory": 20751408,
+    "execute": 20754144,
+    "gate_0x60": false,
+    "gate_0x80": true,
+    "fields": {
+      "message_sso": 40,
+      "chat_localize_on_receipt": 96,
+      "user": 100,
+      "channel": 104,
+      "color": 108,
+      "receiver": 112,
+      "datetime": 116,
+      "sender_sso": 120
+    }
+  },
+  "orders": {
+    "COrderExecuteCommand": {
+      "vt": "0x2a85468",
+      "type_id": "0x3040",
+      "size": "0x38"
+    },
+    "COrderAssignCommand": {
+      "vt": "0x2a84498",
+      "type_id": "0x303e",
+      "size": "0x50"
+    },
+    "COrderUnassignCommand": {
+      "vt": "0x2a84550",
+      "type_id": "0x304d",
+      "size": "0x50"
+    },
+    "COrderDeleteCommand": {
+      "vt": "0x2a843e0",
+      "type_id": "0x303f",
+      "size": "0x38"
+    },
+    "COrderNewFrontCommand": {
+      "vt": "0x2a84b10",
+      "type_id": "0x3327",
+      "size": "0x70"
+    },
+    "COrderNewRootCommand": {
+      "vt": "0x2a84df0",
+      "type_id": "0x3328",
+      "size": "0x70"
+    },
+    "COrderNewFallbackCommand": {
+      "vt": "0x2a84c80",
+      "type_id": "0x33d7",
+      "size": "0x60"
+    },
+    "COrderGroupCommand": {
+      "vt": "0x2a83d68",
+      "type_id": "0x2ecf",
+      "size": "0x60"
+    },
+    "CArmyGroupCommand": {
+      "vt": "0x2a83ed8",
+      "type_id": "0x3861",
+      "size": "0x80"
+    },
+    "CSetArmyLeaderCommand": {
+      "vt": "0x2a85520",
+      "type_id": "0x3051",
+      "size": "0x40"
+    }
+  },
+  "army_move_subjects": {
+    "FN_HANDLE_RESOLVE": 36194304,
+    "HANDLE_TYPE_ARMY": 51,
+    "CArmy_handle_off": 24,
+    "CArmy_province_id_off": 40,
+    "CProvince_id_off": 164,
+    "FN_PROVINCE_RESOLVE": 12954080,
+    "note": "Build Move action unit_handle from CArmy+0x18; province path from CArmy+0x28 / resolve"
+  }
+}

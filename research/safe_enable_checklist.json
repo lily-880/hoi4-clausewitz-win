@@ -1,5 +1,5 @@
 {
-  "phase": "2bl",
+  "phase": "2bm",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -8,12 +8,12 @@
     {
       "id": "no_tooling_post",
       "status": "closed",
-      "note": "Phase 2bc: independent RO tooling proof via post_abi.py + cmd_layout.py \u2014 18/18 live checks (G_SESSION, Dummy VT/sink/drain, Post prologue, Move/Strategic VT slots, handle+province 17/17, allow_post False, post_command raises). NO Post call / NO write."
+      "note": "2bc 18/18 RO post_abi+cmd_layout; 2bm reconfirmed"
     },
     {
       "id": "midflight_move_sample",
       "status": "stubbed",
-      "note": "STUBBED overnight: SP frees Move inside tick (pause heap 0 hits 2bd). DX11 ignores SendInput/PostMessage/mouse_event/UI click \u2014 DummyServer seq stuck 15 (2be-2bk). Live equivalent: sticky CStartGameCommand vt 0x2A5F448 via sess+0xF8 wrapper (2bl). Needs real user right-click / hardware input for midflight CMoveCommand."
+      "note": "Still stubbed. Watcher ready: scripts/phase2bm_midflight_ready.py (RO, no input). Needs real user right-click."
     },
     {
       "id": "action_flag_names",
@@ -28,7 +28,7 @@
     {
       "id": "order_cmd_layouts",
       "status": "closed",
-      "note": "Phase 2ar"
+      "note": "2ar + 2bm live: 10/10 Order* Execute vt slots match"
     },
     {
       "id": "army_handle_province",
@@ -43,7 +43,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "open",
-      "note": "DISABLED until midflight Move captured + explicit CLAUSEWITZ_ALLOW_POST=1"
+      "note": "DISABLED until midflight Move captured AND CLAUSEWITZ_ALLOW_POST=1 explicit"
     },
     {
       "id": "network_execlist_path",
@@ -59,14 +59,53 @@
       "id": "ALLOW_POST_gate",
       "status": "closed",
       "note": "config.allow_post stub always False"
+    },
+    {
+      "id": "move_early_gate_docs",
+      "status": "closed",
+      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES \u2014 not a Post enable."
+    },
+    {
+      "id": "cmd_catalog_live",
+      "status": "closed",
+      "note": "2bm: Move/Strategic/Cancel/StartGame/Chat + 10 Orders + CUnitMoveAction slots; sticky StartGame live; army handles OK"
     }
   ],
   "enable_when": [
-    "Independent non-destructive Post proof on live SP DummyServer path \u2014 DONE 2bc",
-    "At least one mid-flight CMoveCommand captured + serialize round-trip understood \u2014 STUBBED pending real input",
-    "Explicit CLAUSEWITZ_ALLOW_POST=1 gate (separate from ALLOW_WRITE)",
-    "Never auto-enable inside per-tick loops"
+    "Independent non-destructive Post proof \u2014 DONE 2bc/2bm",
+    "Mid-flight CMoveCommand (+ action embed) captured \u2014 STUBBED; watcher ready",
+    "Explicit CLAUSEWITZ_ALLOW_POST=1",
+    "Never auto-enable inside per-tick loops",
+    "Never Post speed/HourlyTick commands"
   ],
   "notes_2ay": "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open",
-  "notes_2bl": "2bc Post ABI tooling proof CLOSED. midflight Move STUBBED (DX11 input). Sticky StartGame equivalent RO sample captured. Posting remains DISABLED."
+  "notes_2bl": "2bc Post ABI tooling proof CLOSED. midflight Move STUBBED (DX11 input). Sticky StartGame equivalent RO sample captured. Posting remains DISABLED.",
+  "blocks_enabling_post": [
+    {
+      "id": "midflight_CMoveCommand",
+      "status": "STUBBED",
+      "must": "Capture at least one live mid-flight CMoveCommand (or Strategic) with action embed fields; watcher armed as phase2bm_midflight_ready.py"
+    },
+    {
+      "id": "CLAUSEWITZ_ALLOW_POST",
+      "status": "hard-deny",
+      "must": "Explicit env/config CLAUSEWITZ_ALLOW_POST=1 separate from ALLOW_WRITE; allow_post() currently always False"
+    },
+    {
+      "id": "no_guess_writes",
+      "status": "policy",
+      "must": "Never WriteProcessMemory / Post on guessed layouts; only after midflight sample + gate"
+    },
+    {
+      "id": "never_speed_cmds",
+      "status": "policy",
+      "must": "Never Post CSet/Increase/DecreaseGameSpeed or HourlyTick (5x ban)"
+    },
+    {
+      "id": "tool_gate",
+      "status": "open",
+      "must": "command_queue_tool_gate stays DISABLED until above closed"
+    }
+  ],
+  "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED."
 }

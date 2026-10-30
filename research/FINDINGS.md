@@ -152,3 +152,23 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - Scripts: `phase2bb_midflight_ring.py` … `phase2bk_mouse_event.py`, `phase2bl_sticky_equivalent.py`.
 - Reports: `phase2bb`…`phase2bl` JSON under `reports/`.
 
+
+## Phase 2bm (2026-10-31 Asia/Shanghai) — layout / alternate entry RO
+
+### Works
+- Expanded `calling/cmd_layout.py`: `BASE`, `POST_GATES`, `MOVE`(+serialize tokens), `STRATEGIC`, `CANCEL`, `STARTGAME`, `CHAT`, `ORDERS` (10), `ARMY_MOVE_SUBJECTS`, `PIPELINE`.
+- `scripts/phase2bm_cmd_catalog_live.py` — live VT slot verify **16/16**: Move/Strategic/Cancel/StartGame/Chat; `CUnitMoveAction` Execute/IsValid/serialize; **10/10 Order* Execute** slots; Dummy sink/drain; `session+0x725==1`; sticky StartGame; army handles; `allow_post` False.
+- Move early gates both **FALSE** (needs `+0x725` or `r8b`) — documented, not an enable.
+- `scripts/phase2bm_midflight_ready.py` — RO watcher armed (no input injection); smoke polls empty while paused (expected).
+
+### Stubbed
+- `midflight_move_sample` still stubbed (no user right-click overnight).
+
+### Blocks enabling Post (checklist)
+1. Midflight `CMoveCommand` sample
+2. Explicit `CLAUSEWITZ_ALLOW_POST=1` (hard-deny now)
+3. No guess writes; never speed/HourlyTick Post
+4. `command_queue_tool_gate` open
+
+**Posting DISABLED.** pause/1x only; never 5x.
+
