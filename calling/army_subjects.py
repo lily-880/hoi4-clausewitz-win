@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bx",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2by",
     }
 
 
@@ -599,5 +599,196 @@ def add_complete_plan_recipe(plan_subject: list[int] | tuple[int, int] | None = 
         "plan_subject_off": 0x28,
         "plan_subject": list(plan_subject) if plan_subject else [],
         "units_or_path_off": 0x48,
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_motorization_recipe(order_group_handle: list[int] | tuple[int, int],
+                                        motorization: int = 0) -> dict[str, Any]:
+    """CSetOrderGroupMotorizationCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "motorization_off": 0x30,
+        "motorization": motorization,
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_name_recipe(order_group_handle: list[int] | tuple[int, int],
+                                name: str = "") -> dict[str, Any]:
+    """CSetOrderGroupNameCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "name_sso_off": 0x30,
+        "name": name,
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_proximity_recipe(order_group_handle: list[int] | tuple[int, int],
+                                     proximity: int = 0) -> dict[str, Any]:
+    """CSetOrderGroupLeaderProximityCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "proximity_off": 0x30,
+        "proximity": proximity,
+        "posting": "DISABLED",
+    }
+
+
+def order_unassign_recipe(units: list[list[int]] | None = None,
+                          unassign_group: int = 0) -> dict[str, Any]:
+    """COrderUnassignCommand — RO only."""
+    units = units or []
+    return {
+        "units_data_off": 0x28,
+        "units": units,
+        "units_count_off": 0x34,
+        "units_count": len(units),
+        "unassign_group_off": 0x48,
+        "unassign_group": unassign_group,
+        "posting": "DISABLED",
+    }
+
+
+def order_set_paradrop_recipe(subject_handle: list[int] | tuple[int, int],
+                              province_or_id: int = 0, which: str = "target") -> dict[str, Any]:
+    """COrderSetParadropSource/TargetCommand — RO only."""
+    return {
+        "which": which,
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "id_off": 0x30,
+        "province_or_id": province_or_id,
+        "posting": "DISABLED",
+    }
+
+
+def order_set_training_recipe(subject_handle: list[int] | tuple[int, int],
+                              training_flag: int = 1) -> dict[str, Any]:
+    """COrderSetTrainingCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "training_flag_off": 0x30,
+        "training_flag": training_flag,
+        "posting": "DISABLED",
+    }
+
+
+def remove_from_army_group_recipe(army_handle: list[int] | tuple[int, int],
+                                  group_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CRemoveFromArmyGroupCommand — RO only."""
+    return {
+        "army_or_units_off": 0x28,
+        "army_or_units": list(army_handle),
+        "group_off": 0x30,
+        "group": list(group_handle),
+        "posting": "DISABLED",
+    }
+
+
+def disband_theater_group_recipe(theater_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CDisbandTheaterGroupCommand — RO only."""
+    return {
+        "theater_handle_off": 0x28,
+        "theater_handle": list(theater_handle),
+        "posting": "DISABLED",
+    }
+
+
+def reorder_theaters_recipe(theater_ids: list[int] | None = None) -> dict[str, Any]:
+    """CReorderTheatersCommand — RO only."""
+    theater_ids = theater_ids or []
+    return {
+        "theater_vec_off": 0x28,
+        "theater_ids": theater_ids,
+        "count_or_id_off": 0x30,
+        "count": len(theater_ids),
+        "posting": "DISABLED",
+    }
+
+
+def set_conveyor_field_recipe(subject_handle: list[int] | tuple[int, int],
+                              field: str = "priority", value: int = 0) -> dict[str, Any]:
+    """CSetConveyor* / ChangeConveyor* sketch — RO only."""
+    return {
+        "field": field,
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "value_off": 0x30,
+        "value": value,
+        "posting": "DISABLED",
+    }
+
+
+def remove_conveyor_recipe(subject_handle: list[int] | tuple[int, int],
+                           which: str = "conveyor") -> dict[str, Any]:
+    """CRemoveConveyor(Command|LineCommand) — RO only."""
+    return {
+        "which": which,
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "posting": "DISABLED",
+    }
+
+
+def learn_trait_recipe(leader_handle: list[int] | tuple[int, int],
+                       trait: int = 0) -> dict[str, Any]:
+    """CLearnTraitCommand — RO only."""
+    return {
+        "leader_off": 0x28,
+        "leader": list(leader_handle),
+        "trait_off": 0x30,
+        "trait": trait,
+        "posting": "DISABLED",
+    }
+
+
+def set_repair_order_recipe(subject_handle: list[int] | tuple[int, int],
+                            order_or_flag: int = 1) -> dict[str, Any]:
+    """CSetRepairOrderCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "order_or_flag_off": 0x30,
+        "order_or_flag": order_or_flag,
+        "posting": "DISABLED",
+    }
+
+
+def set_division_name_recipe(division_handle: list[int] | tuple[int, int],
+                             name: str = "") -> dict[str, Any]:
+    """CSetDivisionNameCommand — RO only."""
+    return {
+        "division_off": 0x28,
+        "division": list(division_handle),
+        "name_sso_off": 0x30,
+        "name": name,
+        "posting": "DISABLED",
+    }
+
+
+def upgrade_division_officer_recipe(subject_handle: list[int] | tuple[int, int],
+                                    officer_or_id: int = 0) -> dict[str, Any]:
+    """CUpgradeDivisionOfficerCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "officer_or_id_off": 0x30,
+        "officer_or_id": officer_or_id,
+        "posting": "DISABLED",
+    }
+
+
+def build_railway_recipe(from_to_or_vec: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """CBuildRailwayCommand — RO only (land logistics edge)."""
+    return {
+        "from_to_or_vec_off": 0x28,
+        "from_to_or_vec": list(from_to_or_vec) if from_to_or_vec else [],
+        "extra_off": 0x30,
         "posting": "DISABLED",
     }

@@ -361,3 +361,19 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2by (overnight RO — land leftovers + Capstone thin + recipe completeness)
+
+### Works
+- **LAND_EXE_PROOFS / LAND_ARMY_FOCUS** **93/93** (was 86): +7 land RTTI cmds — `CSetRepairOrderCommand`, `CUpgradeDivisionOfficerCommand`, `CSetDivisionNameCommand`, `CSetObsoleteDivisionTemplateCommand`, `CBuildRailwayCommand`, `CLearnTraitCommand`, `CUpdateLeaderSeenTraitsCountCommand`. All IsValid/Execute FN.
+- Capstone **thin deepen 37/37** on conveyor/front/order-group/theater/core edges; field maps filled for recipe-gap cmds.
+- **ISVALID_PATHS** **106**. Groups: order_group **44**, move **11**, frontline15, theater12.
+- Recipes: motorization/name/proximity, unassign, paradrop, training, remove_army_group, disband/reorder theaters, conveyor set/remove, learn_trait, repair_order, division_name, upgrade_officer, build_railway. HAI×3.
+- Live: allow_post False; tick=1; watcher **29656**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed / skipped
+- midflight_CMoveCommand; ring embed; command_queue_tool_gate enable; ALLOW_POST.
+- Navy theater cmds + pinned strategic region (no vt) + division-template create/update/remove/symbol (tid unresolved / out of land Post scope).
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

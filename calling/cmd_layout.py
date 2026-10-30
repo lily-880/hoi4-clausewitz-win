@@ -1045,6 +1045,69 @@ ISVALID_PATHS = {
         "type_id": 0x3914,
         "phase": "2bx",
     },
+    "CSetRepairOrderCommand": {
+        "isvalid": 0x11f2df0,
+        "isvalid_kind": "FN",
+        "execute": 0x11e70d0,
+        "execute_kind": "FN",
+        "vt": 0x2a10fa8,
+        "type_id": 0x2bcd,
+        "phase": "2by",
+    },
+    "CUpgradeDivisionOfficerCommand": {
+        "isvalid": 0x11f49e0,
+        "isvalid_kind": "FN",
+        "execute": 0x11e98a0,
+        "execute_kind": "FN",
+        "vt": 0x2a138f0,
+        "type_id": 0x2b35,
+        "phase": "2by",
+    },
+    "CSetDivisionNameCommand": {
+        "isvalid": 0x1401a30,
+        "isvalid_kind": "FN",
+        "execute": 0x13fda60,
+        "execute_kind": "FN",
+        "vt": 0x2a2ce08,
+        "type_id": 0x3909,
+        "phase": "2by",
+    },
+    "CSetObsoleteDivisionTemplateCommand": {
+        "isvalid": 0x1c2dd10,
+        "isvalid_kind": "FN",
+        "execute": 0x1c2cee0,
+        "execute_kind": "FN",
+        "vt": 0x2abedc8,
+        "type_id": 0x4d12,
+        "phase": "2by",
+    },
+    "CBuildRailwayCommand": {
+        "isvalid": 0x11ee270,
+        "isvalid_kind": "FN",
+        "execute": 0x11dc820,
+        "execute_kind": "FN",
+        "vt": 0x2a134a0,
+        "type_id": 0x4cf9,
+        "phase": "2by",
+    },
+    "CLearnTraitCommand": {
+        "isvalid": 0x18de3e0,
+        "isvalid_kind": "FN",
+        "execute": 0x18d3630,
+        "execute_kind": "FN",
+        "vt": 0x2a85dc0,
+        "type_id": 0x38bd,
+        "phase": "2by",
+    },
+    "CUpdateLeaderSeenTraitsCountCommand": {
+        "isvalid": 0x18e0780,
+        "isvalid_kind": "FN",
+        "execute": 0x18dbb80,
+        "execute_kind": "FN",
+        "vt": 0x2a85e78,
+        "type_id": 0x3a46,
+        "phase": "2by",
+    },
 }
 
 # Remaining army/order-adjacent subtypes (RTTI+factory RO stubs; not full serialize proof)
@@ -1950,7 +2013,7 @@ SUPPORT_ATTACK = {
 }
 
 LAND_ARMY_FOCUS = {
-    "phase": "2bx",
+    "phase": "2by",
     "priority": ["move", "strategic_redeploy", "attack_support", "retreat_fallback", "order_group", "frontline"],
     "posting": "DISABLED",
     "core": {
@@ -2000,8 +2063,8 @@ LAND_ARMY_FOCUS = {
             "gate_0x80_kind": "FALSE",
             "shared_bin": True,
             "fields": {
-                "unit_or_attacker_handle": 0x28,
-                "target_province": 0x30,
+                "handle": 0x28,
+                "province": 0x30,
             },
             "serialize_tokens": {
                 40: 0x28a3,
@@ -2009,6 +2072,9 @@ LAND_ARMY_FOCUS = {
             },
             "isvalid_notes": "validate handle@+0x28 via 0x57f7b0; gates 60/80 FALSE",
             "subject_recipe": "army_subjects.support_attack_recipe",
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x30', '0x48', '0x50', '0x58', '0x38', '0xb0', '0x44']",
         },
         "COrderNewFallbackCommand": {
             "name": "COrderNewFallbackCommand",
@@ -2396,7 +2462,7 @@ LAND_ARMY_FOCUS = {
                 "id_or_b": 0x2c,
                 "id_or_c": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x40', '0x3c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x40', '0x3c']",
         },
         "COrderSetCollapseCommand": {
             "name": "COrderSetCollapseCommand",
@@ -2512,10 +2578,9 @@ LAND_ARMY_FOCUS = {
             "execute_kind": "FN",
             "shared_bin": True,
             "fields": {
-                "theater_group": 0x28,
-                "flag_or_id": 0x30,
+                "theater_handle": 0x28,
             },
-            "notes": "Disband theater group; handle@+0x28",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x10', '0x18', '0x30', '0xd0']",
         },
         "CReorderTheatersCommand": {
             "name": "CReorderTheatersCommand",
@@ -2538,7 +2603,7 @@ LAND_ARMY_FOCUS = {
                 "theater_vec": 0x28,
                 "count_or_id": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40', '0x28']",
         },
         "CSetTheaterGroupNameCommand": {
             "name": "CSetTheaterGroupNameCommand",
@@ -2607,7 +2672,7 @@ LAND_ARMY_FOCUS = {
                 "order_group": 0x28,
                 "execution_type": 0x30,
             },
-            "notes": "Offensive-line / plan execution type on order group; group@+0x28 type@+0x30",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x39', '0x50', '0x120', '0x40', '0x110', '0x58', '0x38', '0x48', '0x28', '0x20']",
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "name": "CSetOrderGroupCohesionTypeCommand",
@@ -2653,7 +2718,7 @@ LAND_ARMY_FOCUS = {
                 "order_group": 0x28,
                 "motorization": 0x30,
             },
-            "notes": "Order-group motorization; group@+0x28",
+            "notes": "Phase 2by Capstone deepen; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c', '0x18', '0x10']",
         },
         "CSetOrderGroupNameCommand": {
             "name": "CSetOrderGroupNameCommand",
@@ -2676,7 +2741,7 @@ LAND_ARMY_FOCUS = {
                 "order_group": 0x28,
                 "name_sso": 0x30,
             },
-            "notes": "Phase 2bw EXE/layout deepen",
+            "notes": "Phase 2by Capstone deepen; offs ['0x40', '0x30', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x48', '0x28', '0x20']",
         },
         "CCollapseConveyorCommand": {
             "name": "CCollapseConveyorCommand",
@@ -2719,11 +2784,9 @@ LAND_ARMY_FOCUS = {
             "execute_kind": "FN",
             "shared_bin": True,
             "fields": {
-                "theatre": 0x48,
-                "theater_group": 0x50,
-                "army_group": 0x58,
+                "subject_or_vec": 0x28,
             },
-            "notes": "Create/edit order group container",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48', '0xc8', '0x78', '0xd0', '0xd8', '0x60', '0xc0', '0x8c', '0x80']",
         },
         "COrderNewRootCommand": {
             "name": "COrderNewRootCommand",
@@ -2748,7 +2811,7 @@ LAND_ARMY_FOCUS = {
                 "id_or_b": 0x2c,
                 "id_or_c": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x17', '0x10', '0x67', '0x28', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x17', '0x10', '0x67', '0x28', '0x20']",
         },
         "COrderAssignCommand": {
             "name": "COrderAssignCommand",
@@ -2798,7 +2861,7 @@ LAND_ARMY_FOCUS = {
                 "units_count": 0x34,
                 "unassign_group": 0x48,
             },
-            "notes": "Phase 2bw EXE/layout deepen",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x38', '0x18', '0x40', '0x120', '0x28', '0x34', '0x48', '0x50']",
             "layout_alias": "ORDERS",
         },
         "COrderDeleteCommand": {
@@ -2870,16 +2933,10 @@ LAND_ARMY_FOCUS = {
             "execute_kind": "FN",
             "shared_bin": True,
             "fields": {
-                "subject_or_vec": 0x28,
-                "count_34": 0x34,
-                "hdr_10": 0x10,
-                "hdr_18": 0x18,
-                "off_40": 0x40,
-                "off_48": 0x48,
-                "off_50": 0x50,
-                "off_58": 0x58,
+                "army_or_units": 0x28,
+                "group": 0x30,
             },
-            "notes": "Phase 2bv EXE/layout deepen",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x34', '0x30', '0x28', '0x38', '0x36', '0x20', '0x120']",
         },
         "CSetOrderGroupIconAndColorCommand": {
             "name": "CSetOrderGroupIconAndColorCommand",
@@ -2925,7 +2982,7 @@ LAND_ARMY_FOCUS = {
                 "order_group": 0x28,
                 "proximity": 0x30,
             },
-            "notes": "Leader proximity on order group; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x39', '0x30', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20', '0x3c']",
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "name": "CSetOrderGroupOrdersInstanceNamesCommand",
@@ -2948,7 +3005,7 @@ LAND_ARMY_FOCUS = {
                 "order_group": 0x28,
                 "names_blob": 0x30,
             },
-            "notes": "Orders instance names on order group; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x48', '0x28', '0x20', '0x18', '0x10', '0x58']",
         },
         "CAutoMergeOrdersCommand": {
             "name": "CAutoMergeOrdersCommand",
@@ -3040,7 +3097,7 @@ LAND_ARMY_FOCUS = {
                 "payload_2c": 0x2c,
                 "flag_3c": 0x3c,
             },
-            "notes": "Army group container command; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x50', '0x28', '0x2c', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60', '0x58']",
         },
         "CDeployArmyHqCommand": {
             "name": "CDeployArmyHqCommand",
@@ -3218,7 +3275,7 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "unit_move_action": 0x28,
             },
-            "notes": "Primary land move; promoted into focus commands in 2bw",
+            "notes": "Phase 2by Capstone deepen; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0']",
         },
         "CStrategicRedeploymentCommand": {
             "name": "CStrategicRedeploymentCommand",
@@ -3233,7 +3290,7 @@ LAND_ARMY_FOCUS = {
             "fields": {
                 "strategic_action": 0x28,
             },
-            "notes": "Strategic redeploy; promoted into focus commands in 2bw",
+            "notes": "Phase 2by Capstone deepen; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0']",
         },
         "CCancelMovementCommand": {
             "name": "CCancelMovementCommand",
@@ -3295,11 +3352,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "ratio": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x30', '0x38', '0x40', '0x34', '0x3c', '0x20', '0x50', '0xa8', '0x28']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x38', '0x40', '0x34', '0x3c', '0x20', '0x50', '0xa8', '0x28']",
         },
         "COrderEditRootCommand": {
             "name": "COrderEditRootCommand",
@@ -3345,11 +3400,8 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x10', '0x34']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x10', '0x34']",
         },
         "COrderMergeRootsCommand": {
             "name": "COrderMergeRootsCommand",
@@ -3394,10 +3446,8 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20', '0xe0', '0x77', '0x40', '0xa4', '0x98']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20', '0xe0', '0x77', '0x40', '0xa4', '0x98', '0x67']",
         },
         "COrderSetInvasionSourceCommand": {
             "name": "COrderSetInvasionSourceCommand",
@@ -3442,11 +3492,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "source": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x70', '0x68', '0xc8', '0x7c', '0xa0', '0x28', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x70', '0x68', '0xc8', '0x7c', '0xa0', '0x28', '0x20']",
         },
         "COrderSetParadropTargetCommand": {
             "name": "COrderSetParadropTargetCommand",
@@ -3467,11 +3515,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "target": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39', '0x98']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39', '0x98', '0xb0', '0x49']",
         },
         "COrderSetTrainingCommand": {
             "name": "COrderSetTrainingCommand",
@@ -3492,10 +3538,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "training_flag": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40', '0x98', '0xb0', '0x49', '0x120']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40', '0x98', '0xb0', '0x49', '0x120', '0x28', '0x34', '0x48']",
         },
         "CSetOrdersLinkCommand": {
             "name": "CSetOrdersLinkCommand",
@@ -3565,7 +3610,7 @@ LAND_ARMY_FOCUS = {
                 "army": 0x28,
                 "template": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x50', '0x20', '0xb8']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x50', '0x20', '0xb8']",
         },
         "CAddConveyorLineCommand": {
             "name": "CAddConveyorLineCommand",
@@ -3586,9 +3631,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58', '0x60']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58', '0x60']",
         },
         "CChangeConveyorPositionCommand": {
             "name": "CChangeConveyorPositionCommand",
@@ -3609,10 +3654,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "position": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
         },
         "CCreateConveyorCommand": {
             "name": "CCreateConveyorCommand",
@@ -3658,11 +3702,8 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48', '0x50', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48', '0x50', '0x20']",
         },
         "CDeployConveyorCommand": {
             "name": "CDeployConveyorCommand",
@@ -3707,10 +3748,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
         },
         "CRemoveConveyorCommand": {
             "name": "CRemoveConveyorCommand",
@@ -3731,10 +3771,8 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48', '0x2c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48', '0x2c']",
         },
         "CRemoveConveyorLineCommand": {
             "name": "CRemoveConveyorLineCommand",
@@ -3755,10 +3793,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c']",
         },
         "CSetConveyorGroupCommand": {
             "name": "CSetConveyorGroupCommand",
@@ -3779,10 +3816,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "group": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30']",
         },
         "CSetConveyorLocationCommand": {
             "name": "CSetConveyorLocationCommand",
@@ -3803,10 +3839,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "location": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20']",
         },
         "CSetConveyorNameCommand": {
             "name": "CSetConveyorNameCommand",
@@ -3827,10 +3862,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "name_sso": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54']",
         },
         "CSetConveyorPriorityCommand": {
             "name": "CSetConveyorPriorityCommand",
@@ -3851,10 +3885,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "priority": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
         },
         "CSetConveyorSeriesCommand": {
             "name": "CSetConveyorSeriesCommand",
@@ -3875,10 +3908,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "series": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
         },
         "CChangeConveyorTemplateCommand": {
             "name": "CChangeConveyorTemplateCommand",
@@ -3899,10 +3931,9 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "template": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60', '0x40', '0x48']",
         },
         "CSetCountryGarrisonTemplateCommand": {
             "name": "CSetCountryGarrisonTemplateCommand",
@@ -3994,7 +4025,7 @@ LAND_ARMY_FOCUS = {
                 "subject": 0x28,
                 "name_sso": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x30', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18', '0x54']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18', '0x54', '0x10']",
         },
         "CSetDeploymentLineNameCommand": {
             "name": "CSetDeploymentLineNameCommand",
@@ -4015,24 +4046,185 @@ LAND_ARMY_FOCUS = {
             "shared_bin": True,
             "fields": {
                 "subject_or_vec": 0x28,
+                "name_sso": 0x30,
             },
-            "notes": "Phase 2bx RTTI+EXE deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54', '0x38', '0x40', '0x48']",
+        },
+        "CSetRepairOrderCommand": {
+            "name": "CSetRepairOrderCommand",
+            "role": "move",
+            "type_id": 0x2bcd,
+            "vt": 0x2a10fa8,
+            "size": 72,
+            "factory": 0x11da070,
+            "factory_idx": 2213,
+            "clone": 0x11d7620,
+            "serialize": 0x11fd640,
+            "deserialize": 0x11f9d00,
+            "isvalid": 0x11f2df0,
+            "execute": 0x11e70d0,
+            "gettypeid": 0x11eac90,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "subject": 0x28,
+                "order_or_flag": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40', '0x20', '0x58', '0x3d', '0x3c']",
+        },
+        "CUpgradeDivisionOfficerCommand": {
+            "name": "CUpgradeDivisionOfficerCommand",
+            "role": "order_group",
+            "type_id": 0x2b35,
+            "vt": 0x2a138f0,
+            "size": 56,
+            "factory": 0x11da660,
+            "factory_idx": 2061,
+            "clone": 0x11d7f10,
+            "serialize": 0x11fde40,
+            "deserialize": 0x11fada0,
+            "isvalid": 0x11f49e0,
+            "execute": 0x11e98a0,
+            "gettypeid": 0x11ead70,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "subject": 0x28,
+                "officer_or_id": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x28', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38', '0x48', '0x40', '0x78']",
+        },
+        "CSetDivisionNameCommand": {
+            "name": "CSetDivisionNameCommand",
+            "role": "move",
+            "type_id": 0x3909,
+            "vt": 0x2a2ce08,
+            "size": 88,
+            "factory": 0x13fb2e0,
+            "factory_idx": 5601,
+            "clone": 0x13f9830,
+            "serialize": 0x1404870,
+            "deserialize": 0x1403aa0,
+            "isvalid": 0x1401a30,
+            "execute": 0x13fda60,
+            "gettypeid": 0x13fe3c0,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "division": 0x28,
+                "name_sso": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
+        },
+        "CSetObsoleteDivisionTemplateCommand": {
+            "name": "CSetObsoleteDivisionTemplateCommand",
+            "role": "move",
+            "type_id": 0x4d12,
+            "vt": 0x2abedc8,
+            "size": 56,
+            "factory": 0x1c2bf30,
+            "factory_idx": 10730,
+            "clone": 0x1c2be40,
+            "serialize": 0x1c2e690,
+            "deserialize": 0x1c2e200,
+            "isvalid": 0x1c2dd10,
+            "execute": 0x1c2cee0,
+            "gettypeid": 0x1c2d4c0,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "template": 0x28,
+                "flag": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40', '0x20', '0x70', '0x10']",
+        },
+        "CBuildRailwayCommand": {
+            "name": "CBuildRailwayCommand",
+            "role": "move",
+            "type_id": 0x4cf9,
+            "vt": 0x2a134a0,
+            "size": 80,
+            "factory": 0x11d8700,
+            "factory_idx": 10705,
+            "clone": 0x11d4d20,
+            "serialize": 0x11fbc60,
+            "deserialize": 0x11f6530,
+            "isvalid": 0x11ee270,
+            "execute": 0x11dc820,
+            "gettypeid": 0x11ea8c0,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "from_to_or_vec": 0x28,
+                "extra": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x48', '0x28', '0x20', '0x30', '0x50', '0x60']",
+        },
+        "CLearnTraitCommand": {
+            "name": "CLearnTraitCommand",
+            "role": "order_group",
+            "type_id": 0x38bd,
+            "vt": 0x2a85dc0,
+            "size": 56,
+            "factory": 0x18cfad0,
+            "factory_idx": 5525,
+            "clone": 0x18cd2a0,
+            "serialize": 0x18e7ef0,
+            "deserialize": 0x18e1610,
+            "isvalid": 0x18de3e0,
+            "execute": 0x18d3630,
+            "gettypeid": 0x18dca40,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "leader": 0x28,
+                "trait": 0x30,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0xc8', '0x48', '0x34', '0xc0', '0x10', '0x44', '0xb0']",
+        },
+        "CUpdateLeaderSeenTraitsCountCommand": {
+            "name": "CUpdateLeaderSeenTraitsCountCommand",
+            "role": "order_group",
+            "type_id": 0x3a46,
+            "vt": 0x2a85e78,
+            "size": 56,
+            "factory": 0x18d1080,
+            "factory_idx": 5918,
+            "clone": 0x18cf620,
+            "serialize": 0x18e9690,
+            "deserialize": 0x18e3750,
+            "isvalid": 0x18e0780,
+            "execute": 0x18dbb80,
+            "gettypeid": 0x18dcd60,
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {
+                "leader": 0x28,
+            },
+            "notes": "Phase 2by RTTI+EXE deepen; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50']",
         },
     },
     "retreat_group": ["COrderNewFallbackCommand", "COrderReplaceFallbackCommands", "CSetSelectedArmyGroupFallback", "CCancelRunningAwayCommand", "CWithdrawArmyHqCommand", "CDeployArmyHqCommand"],
-    "move_group": ["CMoveCommand", "CMassMoveCommand", "CMoveArmiesInTheaterCommand", "CMoveArmyGroupInTheaterCommand", "CSetArmyTemplateCommand", "CSetQuickDeployPreferenceCommand", "CSetArmyFakeTemplateCommand"],
+    "move_group": ["CMoveCommand", "CMassMoveCommand", "CMoveArmiesInTheaterCommand", "CMoveArmyGroupInTheaterCommand", "CSetArmyTemplateCommand", "CSetQuickDeployPreferenceCommand", "CSetArmyFakeTemplateCommand", "CSetRepairOrderCommand", "CSetDivisionNameCommand", "CSetObsoleteDivisionTemplateCommand", "CBuildRailwayCommand"],
     "strategic_group": ["CStrategicRedeploymentCommand", "CToggleStrategicDeploymentCommand"],
     "attack_group": ["CSupportAttackCommand", "CRailwayGunManualOrderCommand", "CRailwayGunSetNameCommand"],
     "cancel_abort_group": ["CCancelMovementCommand", "CMassCancelMovementCommand", "CCancelRunningAwayCommand"],
     "frontline_group": ["COrderNewFrontCommand", "COrderInsertFrontCommand", "COrderSetPathCommand", "COrderReshapeCommand", "COrderConnectCommand", "COrderReconnectCommand", "COrderSetCollapseCommand", "COrderAddNewCompletePlanCommand", "COrderExecuteCommand", "COrderBlockSectionsCommand", "COrderChildFrontRatioCommand", "COrderReorderChildFrontCommand", "COrderSetInvasionSourceCommand", "COrderSetParadropSourceCommand", "COrderSetParadropTargetCommand"],
     "theater_group": ["CAssignToTheaterGroupCommand", "CDisbandTheaterGroupCommand", "CReorderTheatersCommand", "CSetTheaterGroupNameCommand", "CSetTheaterGroupPriorityCommand", "CMoveArmiesInTheaterCommand", "CMoveArmyGroupInTheaterCommand", "CSetCountryGarrisonPriorityCommand", "CSetCountryReinforcementPriorityCommand", "CSetCountryGarrisonTemplateCommand", "CSetMainGarrisonTemplateCommand", "CSetStateGarrisonTemplateCommand"],
-    "order_group_group": ["CSetOrderGroupExecutionTypeCommand", "CSetOrderGroupCohesionTypeCommand", "CSetOrderGroupMotorizationCommand", "CSetOrderGroupNameCommand", "CSetOrderGroupIconAndColorCommand", "CSetOrderGroupLeaderProximityCommand", "CSetOrderGroupOrdersInstanceNamesCommand", "CCollapseConveyorCommand", "COrderGroupCommand", "COrderNewRootCommand", "COrderEditRootCommand", "COrderAssignCommand", "COrderUnassignCommand", "COrderDeleteCommand", "COrderDeleteAllCommand", "CDeleteOrderGroupCommand", "CAutoMergeOrdersCommand", "COrderMergeRootsCommand", "COrderMembersFairSplitCommand", "COrderSetTrainingCommand", "CSetOrdersLinkCommand", "CArmyGroupCommand", "CAssignToArmyGroupCommand", "CRemoveFromArmyGroupCommand", "CSetArmyLeaderCommand", "CSetArmyLeaderPreferredTacticCommand", "CCreateConveyorCommand", "CCreateConveyorExtendedCommand", "CAddConveyorLineCommand", "CDeployConveyorCommand", "CDeployConveyorLineCommand", "CRemoveConveyorCommand", "CRemoveConveyorLineCommand", "CChangeConveyorPositionCommand", "CChangeConveyorTemplateCommand", "CSetConveyorGroupCommand", "CSetConveyorLocationCommand", "CSetConveyorNameCommand", "CSetConveyorPriorityCommand", "CSetConveyorSeriesCommand", "CSetDeploymentLineNameCommand"],
+    "order_group_group": ["CSetOrderGroupExecutionTypeCommand", "CSetOrderGroupCohesionTypeCommand", "CSetOrderGroupMotorizationCommand", "CSetOrderGroupNameCommand", "CSetOrderGroupIconAndColorCommand", "CSetOrderGroupLeaderProximityCommand", "CSetOrderGroupOrdersInstanceNamesCommand", "CCollapseConveyorCommand", "COrderGroupCommand", "COrderNewRootCommand", "COrderEditRootCommand", "COrderAssignCommand", "COrderUnassignCommand", "COrderDeleteCommand", "COrderDeleteAllCommand", "CDeleteOrderGroupCommand", "CAutoMergeOrdersCommand", "COrderMergeRootsCommand", "COrderMembersFairSplitCommand", "COrderSetTrainingCommand", "CSetOrdersLinkCommand", "CArmyGroupCommand", "CAssignToArmyGroupCommand", "CRemoveFromArmyGroupCommand", "CSetArmyLeaderCommand", "CSetArmyLeaderPreferredTacticCommand", "CCreateConveyorCommand", "CCreateConveyorExtendedCommand", "CAddConveyorLineCommand", "CDeployConveyorCommand", "CDeployConveyorLineCommand", "CRemoveConveyorCommand", "CRemoveConveyorLineCommand", "CChangeConveyorPositionCommand", "CChangeConveyorTemplateCommand", "CSetConveyorGroupCommand", "CSetConveyorLocationCommand", "CSetConveyorNameCommand", "CSetConveyorPriorityCommand", "CSetConveyorSeriesCommand", "CSetDeploymentLineNameCommand", "CLearnTraitCommand", "CUpdateLeaderSeenTraitsCountCommand", "CUpgradeDivisionOfficerCommand"],
 }
 
 
 # Phase 2bu — Execute FN proofs (Capstone subject offs); RO only
 LAND_EXE_PROOFS = {
-    "phase": "2bx",
+    "phase": "2by",
     "posting": "DISABLED",
     "commands": {
         "CAssignToArmyGroupCommand": {
@@ -4111,10 +4303,9 @@ LAND_EXE_PROOFS = {
             "vt": 0x2aaa190,
             "type_id": 0x35de,
             "field_map": {
-                "theater_group": 0x28,
-                "flag_or_id": 0x30,
+                "theater_handle": 0x28,
             },
-            "notes": "Execute FN proven live 2bv",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x10', '0x18', '0x30', '0xd0']",
         },
         "CMassCancelMovementCommand": {
             "execute": 0x11e1520,
@@ -4179,9 +4370,9 @@ LAND_EXE_PROOFS = {
             "vt": 0x2a2c790,
             "type_id": 0x28a2,
             "field_map": {
-                "action_embed": 0x28,
+                "unit_move_action": 0x28,
             },
-            "notes": "Execute FN proven live 2bv",
+            "notes": "Phase 2by Capstone deepen; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0']",
         },
         "COrderAddNewCompletePlanCommand": {
             "execute": 0x18d3f30,
@@ -4247,11 +4438,9 @@ LAND_EXE_PROOFS = {
             "vt": 0x2a83d68,
             "type_id": 0x2ecf,
             "field_map": {
-                "theatre": 0x48,
-                "theater_group": 0x50,
-                "army_group": 0x58,
+                "subject_or_vec": 0x28,
             },
-            "notes": "Create/edit order group container",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x3c', '0x28', '0x50', '0x20', '0x58', '0x30', '0x48', '0xc8', '0x78', '0xd0', '0xd8', '0x60', '0xc0', '0x8c', '0x80']",
         },
         "COrderInsertFrontCommand": {
             "execute": 0x18d65f0,
@@ -4311,7 +4500,7 @@ LAND_EXE_PROOFS = {
                 "id_or_b": 0x2c,
                 "id_or_c": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x17', '0x10', '0x67', '0x28', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x18', '0x6f', '0x6c', '0x50', '0x48', '0x60', '0x58', '0x3c', '0x30', '0x17', '0x10', '0x67', '0x28', '0x20']",
         },
         "COrderReconnectCommand": {
             "execute": 0x18d9e10,
@@ -4325,7 +4514,7 @@ LAND_EXE_PROOFS = {
                 "id_or_b": 0x2c,
                 "id_or_c": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x40', '0x3c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0x38', '0x80', '0x28', '0x20', '0x40', '0x3c']",
         },
         "COrderReplaceFallbackCommands": {
             "execute": 0x18da3b0,
@@ -4390,16 +4579,10 @@ LAND_EXE_PROOFS = {
             "vt": 0x2a84048,
             "type_id": 0x3887,
             "field_map": {
-                "subject_or_vec": 0x28,
-                "count_34": 0x34,
-                "hdr_10": 0x10,
-                "hdr_18": 0x18,
-                "off_40": 0x40,
-                "off_48": 0x48,
-                "off_50": 0x50,
-                "off_58": 0x58,
+                "army_or_units": 0x28,
+                "group": 0x30,
             },
-            "notes": "Execute FN proven live 2bv",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x34', '0x30', '0x28', '0x38', '0x36', '0x20', '0x120']",
         },
         "CReorderTheatersCommand": {
             "execute": 0x1b12f80,
@@ -4412,7 +4595,7 @@ LAND_EXE_PROOFS = {
                 "theater_vec": 0x28,
                 "count_or_id": 0x30,
             },
-            "notes": "Phase 2bx Capstone deepen; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x30', '0x48', '0x10', '0x38', '0x40', '0x28']",
         },
         "CSetOrderGroupCohesionTypeCommand": {
             "execute": 0x18db640,
@@ -4438,7 +4621,7 @@ LAND_EXE_PROOFS = {
                 "order_group": 0x28,
                 "execution_type": 0x30,
             },
-            "notes": "Offensive-line / plan execution type on order group; group@+0x28 type@+0x30",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x39', '0x50', '0x120', '0x40', '0x110', '0x58', '0x38', '0x48', '0x28', '0x20']",
         },
         "CSetOrderGroupMotorizationCommand": {
             "execute": 0x18db7d0,
@@ -4451,7 +4634,7 @@ LAND_EXE_PROOFS = {
                 "order_group": 0x28,
                 "motorization": 0x30,
             },
-            "notes": "Order-group motorization; group@+0x28",
+            "notes": "Phase 2by Capstone deepen; offs ['0x58', '0x30', '0x38', '0x48', '0x39', '0x50', '0x40', '0x28', '0x20', '0x3c', '0x18', '0x10']",
         },
         "CSetSelectedArmyGroupFallback": {
             "execute": 0x18dbae0,
@@ -4499,9 +4682,9 @@ LAND_EXE_PROOFS = {
             "vt": 0x2a2d818,
             "type_id": 0x35b9,
             "field_map": {
-                "action_embed": 0x28,
+                "strategic_action": 0x28,
             },
-            "notes": "Execute FN proven live 2bv",
+            "notes": "Phase 2by Capstone deepen; offs ['0x28', '0x48', '0x20', '0x34', '0x55', '0x40', '0xa0', '0xa8', '0xb0']",
         },
         "CSupportAttackCommand": {
             "execute": 0x13fdd00,
@@ -4511,10 +4694,10 @@ LAND_EXE_PROOFS = {
             "vt": 0x2a2cb28,
             "type_id": 0x314c,
             "field_map": {
-                "unit_or_attacker_handle": 0x28,
-                "target_province": 0x30,
+                "handle": 0x28,
+                "province": 0x30,
             },
-            "notes": "Execute FN proven live 2bv",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x40', '0x30', '0x48', '0x50', '0x58', '0x38', '0xb0', '0x44']",
         },
         "CToggleStrategicDeploymentCommand": {
             "execute": 0x13fde90,
@@ -4565,7 +4748,7 @@ LAND_EXE_PROOFS = {
                 "order_group": 0x28,
                 "proximity": 0x30,
             },
-            "notes": "Leader proximity on order group; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x39', '0x30', '0x58', '0x38', '0x48', '0x50', '0x40', '0x28', '0x20', '0x3c']",
         },
         "CSetOrderGroupOrdersInstanceNamesCommand": {
             "execute": 0x18db9f0,
@@ -4578,7 +4761,7 @@ LAND_EXE_PROOFS = {
                 "order_group": 0x28,
                 "names_blob": 0x30,
             },
-            "notes": "Orders instance names on order group; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x40', '0xa4', '0x30', '0x38', '0x98', '0x48', '0x28', '0x20', '0x18', '0x10', '0x58']",
         },
         "CAutoMergeOrdersCommand": {
             "execute": 0x18d31f0,
@@ -4630,7 +4813,7 @@ LAND_EXE_PROOFS = {
                 "payload_2c": 0x2c,
                 "flag_3c": 0x3c,
             },
-            "notes": "Army group container command; RO only",
+            "notes": "Phase 2by Capstone deepen; offs ['0x50', '0x28', '0x2c', '0x54', '0x3c', '0x10', '0x30', '0x39', '0x60', '0x58']",
         },
         "COrderDeleteCommand": {
             "execute": 0x18d5fe0,
@@ -4656,7 +4839,7 @@ LAND_EXE_PROOFS = {
                 "units_count": 0x34,
                 "unassign_group": 0x48,
             },
-            "notes": "Phase 2bw EXE deepen; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x38', '0x18', '0x40', '0x28', '0x34', '0x48', '0x50']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x98', '0xb0', '0x49', '0x30', '0x38', '0x18', '0x40', '0x120', '0x28', '0x34', '0x48', '0x50']",
         },
         "CSetOrderGroupNameCommand": {
             "execute": 0x18db980,
@@ -4669,7 +4852,7 @@ LAND_EXE_PROOFS = {
                 "order_group": 0x28,
                 "name_sso": 0x30,
             },
-            "notes": "Phase 2bw EXE deepen; offs ['0x40', '0x30', '0x18', '0x10', '0xa4', '0x38', '0x98']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x40', '0x30', '0x18', '0x10', '0xa4', '0x38', '0x98', '0x48', '0x28', '0x20']",
         },
         "CDeployArmyHqCommand": {
             "execute": 0x13fc190,
@@ -4788,11 +4971,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x3d8e,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "ratio": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x30', '0x38', '0x40', '0x34', '0x3c', '0x20', '0x50', '0xa8', '0x28']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x38', '0x40', '0x34', '0x3c', '0x20', '0x50', '0xa8', '0x28']",
         },
         "COrderEditRootCommand": {
             "execute": 0x18d6340,
@@ -4818,11 +4999,8 @@ LAND_EXE_PROOFS = {
             "type_id": 0x332b,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x10', '0x34']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x20', '0x38', '0x30', '0x3c', '0x7c', '0x28', '0x10', '0x34']",
         },
         "COrderMergeRootsCommand": {
             "execute": 0x18d8b30,
@@ -4847,10 +5025,8 @@ LAND_EXE_PROOFS = {
             "type_id": 0x3da9,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20', '0xe0', '0x77', '0x40', '0xa4', '0x98']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x30', '0x38', '0x3c', '0xbc', '0xb0', '0xd4', '0xc8', '0x48', '0x20', '0xe0', '0x77', '0x40', '0xa4', '0x98', '0x67']",
         },
         "COrderSetInvasionSourceCommand": {
             "execute": 0x18da900,
@@ -4875,11 +5051,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x31b9,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "source": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x70', '0x68', '0xc8', '0x7c', '0xa0', '0x28', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x34', '0xb8', '0x44', '0x38', '0x64', '0x58', '0x70', '0x68', '0xc8', '0x7c', '0xa0', '0x28', '0x20']",
         },
         "COrderSetParadropTargetCommand": {
             "execute": 0x18dae90,
@@ -4890,11 +5064,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x31ba,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
+                "target": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39', '0x98']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x34', '0x50', '0x38', '0x20', '0x40', '0x10', '0x18', '0x31', '0x39', '0x98', '0xb0', '0x49']",
         },
         "COrderSetTrainingCommand": {
             "execute": 0x18daf50,
@@ -4905,10 +5077,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x339f,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "training_flag": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40', '0x98', '0xb0', '0x49', '0x120']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x31', '0x30', '0x39', '0x38', '0x40', '0x98', '0xb0', '0x49', '0x120', '0x28', '0x34', '0x48']",
         },
         "CSetOrdersLinkCommand": {
             "execute": 0x154030,
@@ -4948,7 +5119,7 @@ LAND_EXE_PROOFS = {
                 "army": 0x28,
                 "template": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x50', '0x20', '0xb8']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x18', '0x28', '0x34', '0x58', '0x40', '0x50', '0x20', '0xb8']",
         },
         "CAddConveyorLineCommand": {
             "execute": 0x1c30640,
@@ -4959,9 +5130,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34ac,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58', '0x60']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x30', '0x40', '0x48', '0x50', '0x20', '0x58', '0x60']",
         },
         "CChangeConveyorPositionCommand": {
             "execute": 0x1c30700,
@@ -4972,10 +5143,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x36b4,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "position": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x30', '0x50', '0x28', '0x20', '0x58', '0x60', '0x38']",
         },
         "CCreateConveyorCommand": {
             "execute": 0x1c30980,
@@ -5001,11 +5171,8 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34b5,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "count_or_id": 0x34,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48', '0x50', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x2c', '0x3c', '0x34', '0x30', '0x38', '0x40', '0x48', '0x50', '0x20']",
         },
         "CDeployConveyorCommand": {
             "execute": 0x1c30b20,
@@ -5030,10 +5197,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34ad,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48']",
         },
         "CRemoveConveyorCommand": {
             "execute": 0x1c30c40,
@@ -5044,10 +5210,8 @@ LAND_EXE_PROOFS = {
             "type_id": 0x3521,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48', '0x2c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x30', '0x38', '0x18', '0x20', '0x28', '0x40', '0x48', '0x2c']",
         },
         "CRemoveConveyorLineCommand": {
             "execute": 0x1c30cc0,
@@ -5058,10 +5222,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34af,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "line_id": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x30', '0x38', '0x40', '0x48', '0x2c']",
         },
         "CSetConveyorGroupCommand": {
             "execute": 0x1c30d70,
@@ -5072,10 +5235,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34ba,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "group": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x38', '0x20', '0x28', '0x2c', '0x40', '0x48', '0x30']",
         },
         "CSetConveyorLocationCommand": {
             "execute": 0x1c30e30,
@@ -5086,10 +5248,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34a9,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "location": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20']",
         },
         "CSetConveyorNameCommand": {
             "execute": 0x1c30ea0,
@@ -5100,10 +5261,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34a8,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "name_sso": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54']",
         },
         "CSetConveyorPriorityCommand": {
             "execute": 0x1c30f10,
@@ -5114,10 +5274,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34aa,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "priority": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
         },
         "CSetConveyorSeriesCommand": {
             "execute": 0x1c30f80,
@@ -5128,10 +5287,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x34ab,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x2c,
-                "extra_38": 0x38,
+                "series": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x28', '0x2c', '0x30', '0x38', '0x18', '0x20', '0x70', '0x55', '0x50', '0x54', '0x40', '0x48']",
         },
         "CChangeConveyorTemplateCommand": {
             "execute": 0x1c30820,
@@ -5142,10 +5300,9 @@ LAND_EXE_PROOFS = {
             "type_id": 0x36c6,
             "field_map": {
                 "subject_or_vec": 0x28,
-                "id_or_b": 0x30,
-                "extra_38": 0x38,
+                "template": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x28', '0x30', '0x20', '0x38', '0x50', '0x58', '0x60', '0x40', '0x48']",
         },
         "CSetCountryGarrisonTemplateCommand": {
             "execute": 0x11e5a20,
@@ -5197,7 +5354,7 @@ LAND_EXE_PROOFS = {
                 "subject": 0x28,
                 "name_sso": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x30', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18', '0x54']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x30', '0x28', '0x34', '0x58', '0x60', '0x40', '0x20', '0x50', '0x18', '0x54', '0x10']",
         },
         "CSetDeploymentLineNameCommand": {
             "execute": 0x1c30ff0,
@@ -5208,8 +5365,99 @@ LAND_EXE_PROOFS = {
             "type_id": 0x3914,
             "field_map": {
                 "subject_or_vec": 0x28,
+                "name_sso": 0x30,
             },
-            "notes": "Phase 2bx; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54', '0x38', '0x40', '0x48']",
+            "notes": "Phase 2by Capstone deepen; offs ['0x10', '0x18', '0x20', '0x28', '0x2c', '0x70', '0x55', '0x30', '0x50', '0x54', '0x38', '0x40', '0x48']",
+        },
+        "CSetRepairOrderCommand": {
+            "execute": 0x11e70d0,
+            "execute_kind": "FN",
+            "isvalid": 0x11f2df0,
+            "isvalid_kind": "FN",
+            "vt": 0x2a10fa8,
+            "type_id": 0x2bcd,
+            "field_map": {
+                "subject": 0x28,
+                "order_or_flag": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x10', '0x18', '0x28', '0x30', '0xb8', '0xa0', '0x38', '0x40', '0x20', '0x58', '0x3d', '0x3c']",
+        },
+        "CUpgradeDivisionOfficerCommand": {
+            "execute": 0x11e98a0,
+            "execute_kind": "FN",
+            "isvalid": 0x11f49e0,
+            "isvalid_kind": "FN",
+            "vt": 0x2a138f0,
+            "type_id": 0x2b35,
+            "field_map": {
+                "subject": 0x28,
+                "officer_or_id": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x28', '0x30', '0x58', '0x60', '0x50', '0x20', '0x98', '0x38', '0x48', '0x40', '0x78']",
+        },
+        "CSetDivisionNameCommand": {
+            "execute": 0x13fda60,
+            "execute_kind": "FN",
+            "isvalid": 0x1401a30,
+            "isvalid_kind": "FN",
+            "vt": 0x2a2ce08,
+            "type_id": 0x3909,
+            "field_map": {
+                "division": 0x28,
+                "name_sso": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x54', '0x30', '0x55', '0x50', '0x10', '0x18', '0x28', '0x34', '0x40', '0x38']",
+        },
+        "CSetObsoleteDivisionTemplateCommand": {
+            "execute": 0x1c2cee0,
+            "execute_kind": "FN",
+            "isvalid": 0x1c2dd10,
+            "isvalid_kind": "FN",
+            "vt": 0x2abedc8,
+            "type_id": 0x4d12,
+            "field_map": {
+                "template": 0x28,
+                "flag": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x18', '0x28', '0x30', '0x38', '0xb8', '0xa0', '0x40', '0x20', '0x70', '0x10']",
+        },
+        "CBuildRailwayCommand": {
+            "execute": 0x11dc820,
+            "execute_kind": "FN",
+            "isvalid": 0x11ee270,
+            "isvalid_kind": "FN",
+            "vt": 0x2a134a0,
+            "type_id": 0x4cf9,
+            "field_map": {
+                "from_to_or_vec": 0x28,
+                "extra": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x48', '0x28', '0x20', '0x30', '0x50', '0x60']",
+        },
+        "CLearnTraitCommand": {
+            "execute": 0x18d3630,
+            "execute_kind": "FN",
+            "isvalid": 0x18de3e0,
+            "isvalid_kind": "FN",
+            "vt": 0x2a85dc0,
+            "type_id": 0x38bd,
+            "field_map": {
+                "leader": 0x28,
+                "trait": 0x30,
+            },
+            "notes": "Phase 2by; offs ['0x120', '0x28', '0x30', '0x50', '0x40', '0xb8', '0x38', '0xc8', '0x48', '0x34', '0xc0', '0x10', '0x44', '0xb0']",
+        },
+        "CUpdateLeaderSeenTraitsCountCommand": {
+            "execute": 0x18dbb80,
+            "execute_kind": "FN",
+            "isvalid": 0x18e0780,
+            "isvalid_kind": "FN",
+            "vt": 0x2a85e78,
+            "type_id": 0x3a46,
+            "field_map": {
+                "leader": 0x28,
+            },
+            "notes": "Phase 2by; offs ['0x30', '0x18', '0x10', '0x58', '0xe8', '0x28', '0x20', '0x78', '0x50']",
         },
     },
 }
