@@ -1,7 +1,7 @@
 {
   "G_GAMESTATE": 54384304,
   "G_IDLER": 54385416,
-  "status": "phase2u-plus40-filler-pinned-writes-still-disabled",
+  "status": "phase2v-post-gates-and-cancelmovement-documented-writes-still-disabled",
   "evidence": {
     "G_GAMESTATE": {
       "rva": "0x33dd6b0",
@@ -348,6 +348,22 @@
         "consumer": "FN_EXECUTE_LOOP 0x22c4710"
       },
       "posting": "DISABLED",
+      "speed_rule": "pause or 1x only; never 5x"
+    },
+    "FN_CMD_QUEUE_POST_hunt_2v": {
+      "delivery": "session+0x40 server → vt+0x28(cmd) @ 0x22c46a0",
+      "drop_logs": [
+        "Dropped command:",
+        "Dropped (posted during command execution):",
+        "Dropped (sender not authorized):"
+      ],
+      "CCancelMovement": {
+        "vt": "0x2a2c9b8",
+        "Execute": "0x13fbbd0",
+        "size": "0x48"
+      },
+      "posting": "DISABLED",
+      "safe_enable": "NOT proven — checklist only",
       "speed_rule": "pause or 1x only; never 5x"
     }
   },

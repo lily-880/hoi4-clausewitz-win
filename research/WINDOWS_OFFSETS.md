@@ -678,6 +678,34 @@ Posting off. pause/1x only.
 
 Tool: `scripts/phase2u_plus40_fill.py [--live]`
 
+## Phase 2v — FN_CMD_QUEUE_POST drop gates + delivery; CCancelMovement (writes DISABLED)
+
+### Delivery (success)
+
+`FN_CMD_QUEUE_POST` (`0x22c41e0`) → stamps `cmd+0xc` / `cmd+0x18` → **`call [server.vt+0x28](cmd)`** at `0x22c46a0` (`server = session+0x40`). Dummy sink = `0x23f5cd0` → ring → drain → `+0x58`.
+
+### Drop gates (log strings in binary)
+
+| Log | Condition |
+|-----|-----------|
+| `Dropped command:` | early `cmd.vt+0x80` / `vt+0x60` when `r8b==0` and `session+0x725==0` |
+| `Dropped (posted during command execution):` | `session+0x6cc!=0` (and related flags) |
+| `Dropped (sender not authorized):` | `cmd.vt+0x90` auth fails |
+
+### CCancelMovement
+
+| Item | Value |
+|------|-------|
+| vt | `0x2a2c9b8` |
+| size | `0x48` |
+| IsValid / Execute | `0x13fed40` / `0x13fbbd0` |
+
+### Safe-enable checklist — NOT DONE
+
+Posting remains **DISABLED** until independent paused-SP proof. Checklist only in `phase2v_post_gates.py` report.
+
+Tool: `scripts/phase2v_post_gates.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  

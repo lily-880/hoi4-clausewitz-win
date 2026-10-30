@@ -132,6 +132,14 @@ PROVEN_STATIC = {
     "CDummyServer_EXECLIST_HEAD": 0x40,
     "CDummyServer_EXECLIST_TAIL": 0x48,
     "CDummyServer_EXECLIST_COUNT": 0x50,
+    # Phase 2v — Post gates / CancelMovement
+    "CCancelMovement_VT": 0x2A2C9B8,
+    "CCancelMovement_EXECUTE": 0x13FBBD0,
+    "CCancelMovement_ISVALID": 0x13FED40,
+    "CSession_POST_FLAG_725": 0x725,
+    "CSession_POST_FLAG_726": 0x726,
+    "CSession_POST_FLAG_3C": 0x3C,
+    "CServer_VT_SINK_POST": 0x28,  # FN_CMD_QUEUE_POST delivery
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,
