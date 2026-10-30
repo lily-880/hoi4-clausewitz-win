@@ -184,7 +184,8 @@ When in-game: resolve `idler+0x530` RTTI + vt+`0x90` **READ-ONLY**; optional hea
 
 ### USER ACTION
 
-Agent path: `python scripts/launch_into_map.py` (paused HAI). Avoid old saves / `-hands_off` for long RE. Then `status` / `phase2g_session_postpath.py` once (no `--heap` by default).
+Agent path: `python scripts/phase2n_cmd_heap_hunt.py [--live]  # full-heap CCommand owners; no writes
+python scripts/launch_into_map.py` (paused HAI). Avoid old saves / `-hands_off` for long RE. Then `status` / `phase2g_session_postpath.py` once (no `--heap` by default).
 
 
 ﻿## Phase 2h — map reached (paused Haiti 1.19.4) + armies promoted
@@ -408,6 +409,36 @@ SAM+`0xd8` also `CAirBase*` (size 14) — not promoted to status (role unproven)
 
 1. Country-scoped air wings / leaders (filter world arrays by tag) — light, bounded.
 2. Keep posting **DISABLED**.
+
+
+
+
+## Phase 2n — full-heap CCommand owners + ctor-caller softs
+
+Tools: `python scripts/phase2n_cmd_heap_hunt.py --live` (+ detail/static/ctor-caller follow-ups).
+Live paused HAI. Full-heap allowed (t37u); game kept paused/1x.
+
+### FN_CMD_QUEUE_POST — still null (posting DISABLED)
+
+| Probe | Result |
+|-------|--------|
+| RTTI `*Queue*` / `*Command*` catalog | 166 names; **no** `CCommandQueue`. Queueish = industrial/naval/speech/UI only |
+| Heap vptr `CCommand` | **27** live base instances (clustered free-list-like); **0** live subclass instances while paused |
+| Backrefs to sample `CCommand*` | No `CPdxArray` owner; owner hyps mostly untyped / `CModifier` noise |
+| Subclass vtables resolved | `CSetGameSpeed`/`Increase`/`Decrease`/`HourlyTick`/`Chat`/`Ping`/… |
+| Vtable diffs vs `CCommand` | Slot `0x48` commonly overridden (Execute-shaped); shared stub `0x188d90` |
+| Ctor LEA softs | Tops still `0x25a009c` / `0x25a00d8` (prior SSO/destroy) |
+| Ctor **caller** softs (new) | Shared non-dead hyps: `0x25c3770`, `0x22c41e0`, `0x254aa00`, `0x25a0390`, `0x216e50` — **unproven**, not promoted |
+
+### Status fields
+
+No new status offsets this slice (air/character already in 2m).
+
+### Next (still RO)
+
+1. Disasm/prove or reject ctor-caller hyps `0x254aa00` / `0x22c41e0` / `0x25c3770` independently.
+2. Optional: catch a live subclass vptr by observing a UI speed toggle at **1x** (never 5x) without writing from tooling.
+3. Keep posting **DISABLED**.
 
 
 ## Write gate
