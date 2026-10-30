@@ -1,5 +1,5 @@
 {
-  "phase": "2cc",
+  "phase": "2cj",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -956,5 +956,36 @@
       "helper_patch",
       "Post_inject"
     ]
-  }
+  },
+  "notes_2cj": {
+    "phase": "2cj",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 237,
+    "named_helpers": 75,
+    "preferred_cores": 34,
+    "coverage": "121/121",
+    "genuine_divergences_refined": 17,
+    "offensive_line_execute_fully_cataloged": "25/25",
+    "isvalid_gate_helpers": 107,
+    "execute_body_helpers": 183,
+    "watcher_pid": 36128,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_named_helper_expansion_recipe",
+      "offensive_line_execute_recipe",
+      "land_post_path_checklist_recipe",
+      "land_divergence_gate_delta_recipe"
+    ],
+    "do_not": [
+      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+      "patch/hook helpers",
+      "Post inject / midflight write",
+      "HourlyTick / GameSpeed writes",
+      "guess writes"
+    ],
+    "note": "2cj RO deepen only. Post remains disabled."
+  },
+  "allow_post": false
 }

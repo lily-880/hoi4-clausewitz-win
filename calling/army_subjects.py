@@ -1507,3 +1507,158 @@ def railwaygun_divergence_recipe() -> dict[str, Any]:
         "allow_post": False,
     }
 
+
+
+# --- Phase 2cj: named helper expansion + OL unique execute + post-path checklist (READ-ONLY) ---
+
+def land_named_helper_expansion_recipe(command_name: str | None = None) -> dict:
+    """Map named IsValid/Execute helpers to land cmds (2cj). Observe-only; never hook/Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    helpers = (getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}).get("helpers") or {}
+    named = pr.get("named_helpers") or {}
+    focus = (getattr(_cl, "LAND_ARMY_FOCUS", {}) or {}).get("commands") or {}
+    ivp = getattr(_cl, "ISVALID_PATHS", {}) or {}
+    out = {
+        "phase": "2cj",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "named_count": len(named),
+        "by_helper": {},
+        "note": "Named helpers are documentation labels for RO Capstone hits; do not patch/hook.",
+    }
+    for addr, label in named.items():
+        h = helpers.get(addr) or {}
+        cmds = []
+        for n, meta in ivp.items():
+            if not isinstance(meta, dict):
+                continue
+            calls = set(meta.get("isvalid_calls") or [])
+            if addr in calls:
+                cmds.append(n)
+        out["by_helper"][addr] = {
+            "name": label,
+            "tier": h.get("tier"),
+            "class": h.get("class"),
+            "caller_groups": h.get("caller_groups"),
+            "isvalid_cmds_sample": cmds[:12],
+            "post_readiness": h.get("post_readiness"),
+            "do_not_hook_for_post": True,
+        }
+    if command_name:
+        out["filter_command"] = command_name
+        out["command_role"] = (focus.get(command_name) or {}).get("role")
+    return out
+
+
+def offensive_line_execute_recipe(command_name: str | None = None) -> dict:
+    """Offensive-line Execute unique helpers cataloged in 2cj. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ol = pr.get("offensive_line_execute_2cj") or pr.get("offensive_line_execute_2ci") or {}
+    named = pr.get("named_helpers") or {}
+    out = {
+        "phase": "2cj",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "commands": {},
+        "note": "OL unique Execute RVAs cataloged as offensive_line_unique_execute; still observe-only.",
+    }
+    for n, meta in ol.items():
+        if command_name and n != command_name:
+            continue
+        still = meta.get("still_unique_unknown") or []
+        cataloged = meta.get("known_or_cataloged") or []
+        out["commands"][n] = {
+            "n_exe_calls": meta.get("n_exe_calls"),
+            "cataloged": cataloged,
+            "still_unique_unknown": still,
+            "named": {a: named.get(a) for a in cataloged if a in named},
+            "fully_cataloged": not still,
+            "do_not_post": True,
+        }
+    out["fully_cataloged_count"] = sum(1 for v in out["commands"].values() if v.get("fully_cataloged"))
+    out["total"] = len(out["commands"])
+    return out
+
+
+def land_post_path_checklist_recipe(role: str | None = None) -> dict:
+    """Document preferred-core Post readiness paths WITHOUT enabling Post (2cj)."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    prefs = pr.get("preferred_cores") or {}
+    divs = pr.get("genuine_divergences") or []
+    checklist = pr.get("post_readiness_checklist_2cj") or {}
+    role_paths = pr.get("role_post_paths") or {}
+    focus = (getattr(_cl, "LAND_ARMY_FOCUS", {}) or {}).get("commands") or {}
+    out = {
+        "phase": "2cj",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "requirements_before_any_post": pr.get("requirements_before_any_post"),
+        "do_not": (checklist.get("do_not") or [
+            "enable ALLOW_POST",
+            "patch/hook helpers",
+            "Post inject",
+            "HourlyTick / GameSpeed writes",
+            "guess writes",
+        ]),
+        "preferred_cores": {},
+        "genuine_divergences": [],
+        "note": "Checklist for future Post readiness docs. ALLOW_POST remains False.",
+    }
+    for k, m in prefs.items():
+        if role:
+            cmds = m.get("core_commands") or []
+            if cmds:
+                r0 = (focus.get(cmds[0]) or {}).get("role")
+                if r0 != role and not k.startswith(role):
+                    continue
+            elif not k.startswith(role):
+                continue
+        out["preferred_cores"][k] = {
+            "min_gates_intersection": m.get("min_gates_intersection"),
+            "coverage": m.get("coverage"),
+            "genuine_divergence": m.get("genuine_divergence", False),
+            "basis": m.get("basis"),
+            "allow_post": False,
+        }
+    for d in divs:
+        if role and d.get("role") and d.get("role") != role:
+            continue
+        out["genuine_divergences"].append(d)
+    if role and role in role_paths:
+        out["role_soft"] = role_paths[role]
+    return out
+
+
+def land_divergence_gate_delta_recipe(core: str | None = None) -> dict:
+    """Expose refined divergence gate deltas vs primary role cores (2cj)."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    divs = (getattr(_cl, "LAND_POST_READINESS", {}) or {}).get("genuine_divergences") or []
+    out = {
+        "phase": "2cj",
+        "allow_post": False,
+        "divergences": [],
+        "note": "Gate deltas are Capstone IsValid call set differences — not Post enablement.",
+    }
+    for d in divs:
+        if d.get("full_role_hard_empty"):
+            continue
+        if core and d.get("core") != core:
+            continue
+        out["divergences"].append(d)
+    return out

@@ -572,3 +572,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
 
+## Phase 2cj (overnight RO) — named helpers + OL unique execute + divergence gate deltas
+
+- **HEAD parent**: `2f6d8ff` (2ci). Focus: deepen remaining land Execute/IsValid edges, recipe gaps, offensive-line execute paths; mine Post readiness **without** enabling Post. **LAND 121/121 unchanged** (no new cmds).
+- **Helpers**: 195 → **237** (`offensive_line_unique_execute` 28, `les_second_order` 14). Capstone deepened 106 helper RVAs RO.
+- **Named helpers**: 28 → **75** (19 high-hit gate/body labels + 28 OL unique exe labels).
+- **Gates / bodies**: IsValid-gate helpers 105→**107**; Execute-body 144→**183**.
+- **Preferred cores**: still **34** with **121/121** coverage (no churn).
+- **Genuine divergences**: 17 refined with `delta_vs_primary_hard_*` / `delta_vs_role_soft_*` and post_path_note (docs only).
+- **Offensive-line Execute**: **25/25** cmds fully cataloged (unique unknowns → `offensive_line_unique_execute` tier + names).
+- **Recipes**: `land_named_helper_expansion_recipe`, `offensive_line_execute_recipe`, `land_post_path_checklist_recipe`, `land_divergence_gate_delta_recipe`.
+- **Live**: hoi4 pid 2880; midflight watcher **36128** alive RO; `allow_post` False; tool-gate **CLOSED_NOT_OPENED**; named/OL spot reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject. Naval/production out of scope.
+
