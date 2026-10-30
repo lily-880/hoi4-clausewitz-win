@@ -2744,3 +2744,211 @@ def land_live_army_subject_observe_2ct_recipe(limit: int = 8) -> dict:
         "field_recipes_docs_only": obs.get("field_recipes_docs_only"),
         "note": obs.get("note") or "Deepened RO army scan; org/str hyp only; never alloc/Post/WPM.",
     }
+
+
+def land_cmd_post_path_index_2cu_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Command post-path index observe steps 2cu. Docs only; never Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = dict(pr.get("cmd_post_path_index_2cu") or {})
+    if command_name:
+        return {
+            "phase": "2cu",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "command": command_name,
+            "entry": idx.get(command_name),
+            "note": "Observe steps only; never Post.",
+        }
+    if role:
+        idx = {n: v for n, v in idx.items() if v.get("role") == role}
+    confs = [v.get("post_path_confidence") or 0 for v in idx.values()]
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "count": len(idx),
+        "avg_post_path_confidence": round(sum(confs) / max(1, len(confs)), 3) if confs else 0,
+        "index": idx,
+        "note": "Usability index refresh; confidence unchanged 1.0; never Post.",
+    }
+
+
+def land_role_post_path_matrix_2cu_recipe(role: str | None = None) -> dict:
+    """Role post-path matrix with observe playbooks 2cu. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    matrix = dict(pr.get("role_post_path_matrix_2cu") or {})
+    if role:
+        return {
+            "phase": "2cu",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "role": role,
+            "entry": matrix.get(role),
+            "note": "Role playbook; never Post.",
+        }
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "roles": matrix,
+        "n_roles": len(matrix),
+        "note": "9-role matrix; never Post.",
+    }
+
+
+def land_role_observe_2cu_recipe(role: str | None = None, command_name: str | None = None) -> dict:
+    """Retreat/frontline/theater (+ move/attack/strategic) live FN/gate/field_map observe 2cu. RO only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ro = dict(pr.get("role_observe_2cu") or {})
+    if role and command_name:
+        entry = ((ro.get(role) or {}).get("commands") or {}).get(command_name)
+        return {
+            "phase": "2cu",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "role": role,
+            "command": command_name,
+            "entry": entry,
+            "note": "Prologue/gates/field_map observe-only; never patch/Post.",
+        }
+    if role:
+        return {
+            "phase": "2cu",
+            "allow_post": False,
+            "posting": "DISABLED",
+            "role": role,
+            "entry": ro.get(role),
+            "note": "Role focus observe; never Post.",
+        }
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "roles": ro,
+        "n_roles": len(ro),
+        "note": "Retreat/frontline/theater + move/attack/strategic observe package; never Post.",
+    }
+
+
+def land_confidence_report_2cu_recipe(role: str | None = None) -> dict:
+    """Confidence report 2cu (unchanged 1.0; classify focus). Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2cu") or {})
+    out = {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "report": rep,
+        "note": "Confidence saturated; org hyp rejected; never Post.",
+    }
+    if role:
+        out["role"] = role
+        out["role_matrix_slice"] = (pr.get("role_post_path_matrix_2cu") or {}).get(role)
+    return out
+
+
+def land_post_readiness_checklist_2cu_recipe(command_name: str | None = None) -> dict:
+    """Operator usability checklist A–H 2cu. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cu") or {})
+    idx = pr.get("cmd_post_path_index_2cu") or {}
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "operator_sequence": checklist.get("operator_sequence"),
+        "command_slice": idx.get(command_name) if command_name else None,
+        "do_not": checklist.get("do_not") or [],
+        "note": "Operator usability checklist only; never Post.",
+    }
+
+
+def land_offensive_line_post_path_2cu_recipe(command_name: str | None = None) -> dict:
+    """Deepened OL post-path observe playbooks 2cu. Docs only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ol = dict(pr.get("offensive_line_post_path_2cu") or {})
+    if command_name:
+        ol = {command_name: ol[command_name]} if command_name in ol else {}
+    confs = [v.get("post_path_confidence") or 0 for v in ol.values()]
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "count": len(ol),
+        "avg_post_path_confidence": round(sum(confs) / max(1, len(confs)), 3) if confs else 0,
+        "commands": ol,
+        "note": "OL observe playbooks with field_map + army/role cross-links; never Post.",
+    }
+
+
+def land_midflight_move_watcher_readiness_2cu_recipe() -> dict:
+    """Midflight Move watcher readiness docs + live counters 2cu. RO only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    doc = dict(pr.get("midflight_move_watcher_readiness_2cu") or {})
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "readiness": doc,
+        "note": "Watcher RO armed; captures=0 while paused; never inject / never Post / never 5x.",
+    }
+
+
+def land_live_army_subject_observe_2cu_recipe(limit: int = 8, carmy_only: bool = True) -> dict:
+    """Live Haiti subject observe 2cu — CArmy vs CTaskForce classify; org REJECTED. Never Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2cu") or {})
+    if carmy_only:
+        subjects = list(obs.get("carmy_only") or [])[: max(0, int(limit))]
+    else:
+        subjects = list(obs.get("subjects") or [])[: max(0, int(limit))]
+    return {
+        "phase": "2cu",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "country_tag_filter": obs.get("country_tag_filter"),
+        "subjects_found_total": obs.get("subjects_found_total"),
+        "carmy_count": obs.get("carmy_count"),
+        "ctaskforce_count": obs.get("ctaskforce_count"),
+        "rtti_vt": obs.get("rtti_vt"),
+        "org_str_status": obs.get("org_str_status"),
+        "movement_dest_nonempty_count": obs.get("movement_dest_nonempty_count"),
+        "carmy_only_filter": carmy_only,
+        "subjects": subjects,
+        "field_recipes_docs_only_carmy": obs.get("field_recipes_docs_only_carmy"),
+        "note": obs.get("note") or "CArmy vs CTaskForce classify; org REJECTED; never Post.",
+    }

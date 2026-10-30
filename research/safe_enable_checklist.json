@@ -1,5 +1,5 @@
 {
-  "phase": "2ct",
+  "phase": "2cu",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -1330,6 +1330,66 @@
       "Post inject",
       "HourlyTick / GameSpeed",
       "promote hyp org/str offsets",
+      "wake user / inject input"
+    ]
+  },
+  "notes_2cu": {
+    "phase": "2cu",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land_cmds": "121/121 unchanged",
+    "helpers_total": 308,
+    "helpers_inflation": "none",
+    "named_helpers": 658,
+    "named_new": 0,
+    "avg_post_path_confidence": 1.0,
+    "cmds_below_1_0": 0,
+    "focus": "classify_reject_org",
+    "carmy_count": 17,
+    "ctaskforce_count": 5,
+    "org_str_status": "REJECTED_AS_CARMY_ORG",
+    "movement_dest_nonempty": 0,
+    "rtti_vt": {
+      "CArmy": "0x29d6d68",
+      "CTaskForce": "0x29df8a0"
+    },
+    "role_observe_roles": [
+      "move",
+      "attack",
+      "strategic",
+      "retreat",
+      "frontline",
+      "theater",
+      "order_group",
+      "garrison",
+      "cancel_abort"
+    ],
+    "watcher_pid": 36128,
+    "watcher_alive": true,
+    "hoi4_pid": 2880,
+    "recipes": [
+      "land_cmd_post_path_index_2cu_recipe",
+      "land_role_post_path_matrix_2cu_recipe",
+      "land_role_observe_2cu_recipe",
+      "land_confidence_report_2cu_recipe",
+      "land_post_readiness_checklist_2cu_recipe",
+      "land_offensive_line_post_path_2cu_recipe",
+      "land_midflight_move_watcher_readiness_2cu_recipe",
+      "land_live_army_subject_observe_2cu_recipe"
+    ],
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "ALLOW_POST",
+      "command_queue_tool_gate"
+    ],
+    "do_not": [
+      "enable ALLOW_POST",
+      "patch helpers",
+      "Post inject",
+      "HourlyTick / GameSpeed",
+      "promote 0x520/0x6ec as CArmy org (REJECTED \u2014 CTaskForce)",
+      "invent movement_dest while paused",
       "wake user / inject input"
     ]
   }

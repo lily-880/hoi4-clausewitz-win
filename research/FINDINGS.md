@@ -720,3 +720,19 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Artifacts**: `cmd_post_path_index_2ct`, `role_post_path_matrix_2ct`, `role_observe_2ct`, `confidence_report_2ct`, `checklist_2ct`, `offensive_line_post_path_2ct`, `midflight_move_watcher_readiness_2ct`, `live_army_subject_observe_2ct`.
 - **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2ct_recipe`.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / promote hyp org offsets.
+
+## Phase 2cu (overnight RO) — CArmy vs CTaskForce classify; org hyp rejected
+
+- **HEAD parent**: `42b360b` (2ct). Focus: stronger RO on org/str + movement_dest; deepen role/OL/midflight usability. **LAND 121/121 unchanged**. No Capstone naming churn.
+- **Helpers**: **308 unchanged**. **Named**: **658** unchanged.
+- **Confidence**: avg **1.000** (unchanged); below 1.0: **0**.
+- **Live subject classify**: iterator hits = **17 CArmy** + **5 CTaskForce** (RTTI). VT RVAs: CArmy `0x29d6d68`, CTaskForce `0x29df8a0`.
+- **Org/str REJECTED**: prior 0x520/0x6ec nonzero rows were **CTaskForce**, not CArmy. All CArmy divisions have those floats **0.0** while paused. Do not promote.
+- **movement_dest**: still **empty** (paused; midflight captures=0 after 57k+ polls). Do not invent.
+- **Role observe**: retreat/frontline/theater (+ move/attack/strategic/…) with field_map docs + live FN/gates.
+- **OL post-path**: 25 cmds refreshed with field_map + cross-links.
+- **Midflight Move watcher**: pid **36128** alive RO; captures=0; no inject.
+- **Operator checklist**: A–H; allow_post False.
+- **Artifacts**: `cmd_post_path_index_2cu`, `role_post_path_matrix_2cu`, `role_observe_2cu`, `confidence_report_2cu`, `checklist_2cu`, `offensive_line_post_path_2cu`, `midflight_move_watcher_readiness_2cu`, `live_army_subject_observe_2cu`.
+- **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army `_2cu_recipe` (live army defaults CArmy-only).
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject / wake user / promote rejected org offsets.

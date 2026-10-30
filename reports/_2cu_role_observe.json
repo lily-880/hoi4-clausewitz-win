@@ -1,0 +1,1842 @@
+{
+  "move": {
+    "role": "move",
+    "allow_post": false,
+    "n_cmds_in_index_role": 17,
+    "focus_commands": [
+      "CMoveCommand",
+      "CMassMoveCommand",
+      "CDeleteUnitCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CMoveCommand": {
+        "command": "CMoveCommand",
+        "role": "move",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "move_army_core",
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x14002f0",
+        "vt_rva": "0x2a2c790",
+        "execute_prologue": "488b41284883c12848ff6048cccccccc",
+        "isvalid_prologue": "488b41284883c12848ff6050cccccccc",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "unit_move_action": 40,
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "subject_lo": 40,
+          "arg7": 80,
+          "arg4_or_child": 64,
+          "flags_or_ctx2": 32,
+          "arg8": 88,
+          "arg2_or_vec_end": 56,
+          "arg0_or_type": 48,
+          "vptr_or_hdr": 16
+        },
+        "field_map_n": 19,
+        "observe_playbook": [
+          "1. Role=move; conf=1.0; core=move_army_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890'] (named); do not patch.",
+          "3. Field map docs (19 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CMassMoveCommand": {
+        "command": "CMassMoveCommand",
+        "role": "move",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "move_army_core",
+        "execute_rva": "0x13fc310",
+        "isvalid_rva": "0x13ffba0",
+        "vt_rva": "0x2a2c848",
+        "execute_prologue": "48896c241848897c242041564883ec20",
+        "isvalid_prologue": "8b414c83f8017c073b41340f94c0c332",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "units_vec": 40,
+          "units_count": 52,
+          "dest": 56,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "owner_or_ctx": 24,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "subject_lo": 40,
+          "arg8": 88
+        },
+        "field_map_n": 23,
+        "observe_playbook": [
+          "1. Role=move; conf=1.0; core=move_army_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890'] (named); do not patch.",
+          "3. Field map docs (23 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CDeleteUnitCommand": {
+        "command": "CDeleteUnitCommand",
+        "role": "move",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "move_army_core",
+        "execute_rva": "0x13fbfa0",
+        "isvalid_rva": "0x13ff270",
+        "vt_rva": "0x2a2cc98",
+        "execute_prologue": "40534883ec304889742448488bf14883",
+        "isvalid_prologue": "48895c241048896c2418488974242057",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "flags_or_ctx2": 32,
+          "subject_lo": 40,
+          "arg0_or_type": 48,
+          "arg4_or_child": 64,
+          "arg6_or_plan": 72,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "subject_hi": 44
+        },
+        "field_map_n": 19,
+        "observe_playbook": [
+          "1. Role=move; conf=1.0; core=move_army_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890'] (named); do not patch.",
+          "3. Field map docs (19 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "move_army_core",
+      "move_c07b80_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "observe_playbook": [
+      "1. Role=move; focus cmds=['CMoveCommand', 'CMassMoveCommand', 'CDeleteUnitCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "attack": {
+    "role": "attack",
+    "allow_post": false,
+    "n_cmds_in_index_role": 7,
+    "focus_commands": [
+      "CSupportAttackCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CSupportAttackCommand": {
+        "command": "CSupportAttackCommand",
+        "role": "attack",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "army_subject_pair_adjacent_core",
+        "execute_rva": "0x13fdd00",
+        "isvalid_rva": "0x1402270",
+        "vt_rva": "0x2a2cb28",
+        "execute_prologue": "48895c241048896c2418488974242057",
+        "isvalid_prologue": "48895c24104889742418574883ec3048",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "handle": 40,
+          "province": 48,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "flags_or_ctx2": 32,
+          "subject_lo": 40,
+          "subject_hi": 44,
+          "arg4_or_child": 64,
+          "arg8": 88,
+          "arg0_or_type": 48
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=attack; conf=1.0; core=army_subject_pair_adjacent_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "attack_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "observe_playbook": [
+      "1. Role=attack; focus cmds=['CSupportAttackCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "strategic": {
+    "role": "strategic",
+    "allow_post": false,
+    "n_cmds_in_index_role": 4,
+    "focus_commands": [
+      "CStrategicRedeploymentCommand",
+      "CToggleStrategicDeploymentCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CStrategicRedeploymentCommand": {
+        "command": "CStrategicRedeploymentCommand",
+        "role": "strategic",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "strategic_pin_core",
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x1402260",
+        "vt_rva": "0x2a2d818",
+        "execute_prologue": "488b41284883c12848ff6048cccccccc",
+        "isvalid_prologue": "488b41284883c12833d248ff6050cccc",
+        "gates_live": {
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "strategic_action": 40,
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "subject_lo": 40,
+          "arg7": 80,
+          "arg6_or_plan": 72,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "flags_or_ctx2": 32,
+          "arg4_or_child": 64,
+          "arg8": 88
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=strategic; conf=1.0; core=strategic_pin_core.",
+          "2. Observe required_gates ['0x2607890'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CToggleStrategicDeploymentCommand": {
+        "command": "CToggleStrategicDeploymentCommand",
+        "role": "strategic",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "strategic_pin_core",
+        "execute_rva": "0x13fde90",
+        "isvalid_rva": "0x14025c0",
+        "vt_rva": "0x2a2ca70",
+        "execute_prologue": "488bc448895820488948085556574154",
+        "isvalid_prologue": "48895c241048896c2418488974242057",
+        "gates_live": {
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "flag_30": 48,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "flags_or_ctx2": 32,
+          "subject_lo": 40,
+          "arg7": 80,
+          "arg8": 88,
+          "owner_or_ctx": 24
+        },
+        "field_map_n": 22,
+        "observe_playbook": [
+          "1. Role=strategic; conf=1.0; core=strategic_pin_core.",
+          "2. Observe required_gates ['0x2607890'] (named); do not patch.",
+          "3. Field map docs (22 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "strategic_pin_core",
+      "strategic_unit_redeploy_core"
+    ],
+    "observe_playbook": [
+      "1. Role=strategic; focus cmds=['CStrategicRedeploymentCommand', 'CToggleStrategicDeploymentCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "retreat": {
+    "role": "retreat",
+    "allow_post": false,
+    "n_cmds_in_index_role": 6,
+    "focus_commands": [
+      "COrderNewFallbackCommand",
+      "COrderReplaceFallbackCommands",
+      "CSetSelectedArmyGroupFallback",
+      "CWithdrawArmyHqCommand",
+      "CDeployArmyHqCommand",
+      "CCancelRunningAwayCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "COrderNewFallbackCommand": {
+        "command": "COrderNewFallbackCommand",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "retreat_bbb_only_core",
+        "execute_rva": "0x18d8fc0",
+        "isvalid_rva": "0x18df4b0",
+        "vt_rva": "0x2a84c80",
+        "execute_prologue": "40534883ec20488bd94883c128833900",
+        "isvalid_prologue": "40534883ec20488bd94883c128e81ebd",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "province_or_id": 48,
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "ctx_or_flag": 32,
+          "arg6_or_plan": 72,
+          "arg0_or_type": 48,
+          "arg8": 88,
+          "arg7": 80,
+          "subject_lo": 40,
+          "flags_or_ctx2": 32,
+          "arg4_or_child": 64,
+          "vptr_or_hdr": 16,
+          "arg5": 68,
+          "subject_hi": 44
+        },
+        "field_map_n": 15,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=retreat_bbb_only_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (15 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderReplaceFallbackCommands": {
+        "command": "COrderReplaceFallbackCommands",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "retreat_bbb_only_core",
+        "execute_rva": "0x18da3b0",
+        "isvalid_rva": "0x18df4b0",
+        "vt_rva": "0x2a84d38",
+        "execute_prologue": "48895c2408574883ec20488bf94883c1",
+        "isvalid_prologue": "40534883ec20488bd94883c128e81ebd",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "arg0": 48,
+          "arg3": 64,
+          "ctx_or_flag": 32,
+          "arg6_or_plan": 72,
+          "arg0_or_type": 48,
+          "flags_or_ctx2": 32,
+          "arg4_or_child": 64,
+          "arg8": 88,
+          "arg3_or_cap": 60,
+          "vptr_or_hdr": 16,
+          "arg2_or_vec_end": 56,
+          "subject_lo": 40,
+          "arg7": 80,
+          "subject_hi": 44
+        },
+        "field_map_n": 15,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=retreat_bbb_only_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (15 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CSetSelectedArmyGroupFallback": {
+        "command": "CSetSelectedArmyGroupFallback",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "retreat_bbb_only_core",
+        "execute_rva": "0x18dbae0",
+        "isvalid_rva": "0x18e0730",
+        "vt_rva": "0x2a86158",
+        "execute_prologue": "4883ec38803d263bdb0100744e803d74",
+        "isvalid_prologue": "40534883ec20488d5928488bcbe89eaa",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "subject_or_handle": 40,
+          "ctx_or_flag": 32,
+          "subject_lo": 40,
+          "arg6_or_plan": 72,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "owner_or_ctx": 24,
+          "arg4_or_child": 64,
+          "arg2_or_vec_end": 56
+        },
+        "field_map_n": 10,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=retreat_bbb_only_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (10 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CWithdrawArmyHqCommand": {
+        "command": "CWithdrawArmyHqCommand",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "retreat_bbb_only_core",
+        "execute_rva": "0x13fe2a0",
+        "isvalid_rva": "0x14027c0",
+        "vt_rva": "0x2a2cf78",
+        "execute_prologue": "4883ec284883c1288339007506837904",
+        "isvalid_prologue": "48895c2408488974241055574156488d",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_handle": 40,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "subject_lo": 40,
+          "flags_or_ctx2": 32,
+          "subject_hi": 44
+        },
+        "field_map_n": 10,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=retreat_bbb_only_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (10 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CDeployArmyHqCommand": {
+        "command": "CDeployArmyHqCommand",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "retreat_bbb_only_core",
+        "execute_rva": "0x13fc190",
+        "isvalid_rva": "0x13ff490",
+        "vt_rva": "0x2a2cec0",
+        "execute_prologue": "40534883ec30488bd94883c128833900",
+        "isvalid_prologue": "48895c24085556574154415541564157",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "id_or_b": 44,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg3": 64,
+          "ctx_or_flag": 32,
+          "subject_lo": 40,
+          "arg3_or_cap": 60,
+          "flags_or_ctx2": 32,
+          "arg8": 88,
+          "arg0_or_type": 48,
+          "arg6_or_plan": 72,
+          "arg4_or_child": 64,
+          "subject_hi": 44,
+          "arg7": 80
+        },
+        "field_map_n": 16,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=retreat_bbb_only_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (16 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CCancelRunningAwayCommand": {
+        "command": "CCancelRunningAwayCommand",
+        "role": "retreat",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "army_subject_pair_adjacent_core",
+        "execute_rva": "0x13fbca0",
+        "isvalid_rva": "0x13eed30",
+        "vt_rva": "0x2a2d538",
+        "execute_prologue": "40534883ec204883c128833900750683",
+        "isvalid_prologue": "4883c128e9478386ffcccccccccccccc",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "units_handle": 40,
+          "arg1_or_count": 52,
+          "base_or_vobj": 24,
+          "owner_or_ctx": 24,
+          "vptr_or_hdr": 16,
+          "subject_lo": 40,
+          "arg4_or_child": 64,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48
+        },
+        "field_map_n": 9,
+        "observe_playbook": [
+          "1. Role=retreat; conf=1.0; core=army_subject_pair_adjacent_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890'] (named); do not patch.",
+          "3. Field map docs (9 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "retreat_fallback_core",
+      "retreat_bbb_only_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "observe_playbook": [
+      "1. Role=retreat; focus cmds=['COrderNewFallbackCommand', 'COrderReplaceFallbackCommands', 'CSetSelectedArmyGroupFallback', 'CWithdrawArmyHqCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "frontline": {
+    "role": "frontline",
+    "allow_post": false,
+    "n_cmds_in_index_role": 15,
+    "focus_commands": [
+      "COrderNewFrontCommand",
+      "COrderExecuteCommand",
+      "COrderSetPathCommand",
+      "COrderInsertFrontCommand",
+      "COrderReshapeCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "COrderNewFrontCommand": {
+        "command": "COrderNewFrontCommand",
+        "role": "frontline",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "frontline_bbb_core",
+        "execute_rva": "0x18d9000",
+        "isvalid_rva": "0x18df4e0",
+        "vt_rva": "0x2a84b10",
+        "execute_prologue": "48894c24085553565741544155415641",
+        "isvalid_prologue": "48895c2408574883ec2083795c00488b",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "sub_group": 48,
+          "units_data": 56,
+          "units_count": 68,
+          "path": 80,
+          "attach": 104,
+          "split_from": 108,
+          "blitz": 109,
+          "withdraw": 110,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "ctx_or_flag": 32,
+          "arg8": 88,
+          "arg7": 80,
+          "subject_lo": 40,
+          "flags_or_ctx2": 32
+        },
+        "field_map_n": 24,
+        "observe_playbook": [
+          "1. Role=frontline; conf=1.0; core=frontline_bbb_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (24 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderExecuteCommand": {
+        "command": "COrderExecuteCommand",
+        "role": "frontline",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "frontline_bbb_core",
+        "execute_rva": "0x18d6430",
+        "isvalid_rva": "0x18def40",
+        "vt_rva": "0x2a85468",
+        "execute_prologue": "48895c24104889742418574883ec2048",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "order_index": 48,
+          "execute_order": 52,
+          "all": 53,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "arg0_or_type": 48,
+          "arg2_or_vec_end": 56,
+          "arg4_or_child": 64,
+          "subject_lo": 40
+        },
+        "field_map_n": 17,
+        "observe_playbook": [
+          "1. Role=frontline; conf=1.0; core=frontline_bbb_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (17 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderSetPathCommand": {
+        "command": "COrderSetPathCommand",
+        "role": "frontline",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "frontline_bbb_core",
+        "execute_rva": "0x18daef0",
+        "isvalid_rva": "0x18dff00",
+        "vt_rva": "0x2a84778",
+        "execute_prologue": "48895c2408574883ec30488bd94883c1",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "order_id_a": 40,
+          "order_id_b": 44,
+          "order_id_c": 48,
+          "path_payload": 56,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg2": 56,
+          "arg3": 64,
+          "ctx_or_flag": 32,
+          "arg0_or_type": 48,
+          "arg7": 80,
+          "arg2_or_vec_end": 56,
+          "flags_or_ctx2": 32,
+          "arg4_or_child": 64,
+          "subject_lo": 40
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=frontline; conf=1.0; core=frontline_bbb_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderInsertFrontCommand": {
+        "command": "COrderInsertFrontCommand",
+        "role": "frontline",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "frontline_bbb_core",
+        "execute_rva": "0x18d65f0",
+        "isvalid_rva": "0x18df230",
+        "vt_rva": "0x2a84a58",
+        "execute_prologue": "405355565741544155415641574883ec",
+        "isvalid_prologue": "48895c2408574883ec2083795400488b",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "id_or_b": 44,
+          "id_or_c": 48,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "arg6_or_plan": 72,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "arg3_or_cap": 60,
+          "owner_or_ctx": 24,
+          "arg8": 88,
+          "vptr_or_hdr": 16,
+          "arg2_or_vec_end": 56
+        },
+        "field_map_n": 19,
+        "observe_playbook": [
+          "1. Role=frontline; conf=1.0; core=frontline_bbb_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (19 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderReshapeCommand": {
+        "command": "COrderReshapeCommand",
+        "role": "frontline",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "frontline_bbb_core",
+        "execute_rva": "0x18da7d0",
+        "isvalid_rva": "0x18df6c0",
+        "vt_rva": "0x2a84830",
+        "execute_prologue": "48895c240848896c2410488974241848",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "id_or_b": 44,
+          "id_or_c": 48,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "arg2_or_vec_end": 56,
+          "arg4_or_child": 64
+        },
+        "field_map_n": 19,
+        "observe_playbook": [
+          "1. Role=frontline; conf=1.0; core=frontline_bbb_core.",
+          "2. Observe required_gates ['0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (19 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "frontline_core",
+      "frontline_bbb_core"
+    ],
+    "observe_playbook": [
+      "1. Role=frontline; focus cmds=['COrderNewFrontCommand', 'COrderExecuteCommand', 'COrderSetPathCommand', 'COrderInsertFrontCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "theater": {
+    "role": "theater",
+    "allow_post": false,
+    "n_cmds_in_index_role": 11,
+    "focus_commands": [
+      "CAssignToTheaterGroupCommand",
+      "CDisbandTheaterGroupCommand",
+      "CSetTheatreCommand",
+      "CReorderTheatersCommand",
+      "CSetTheaterGroupNameCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CAssignToTheaterGroupCommand": {
+        "command": "CAssignToTheaterGroupCommand",
+        "role": "theater",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x18dde70"
+        ],
+        "named_gates": {
+          "0x18dde70": "isvalid_theater_assign_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "theater_core",
+        "execute_rva": "0x1b12b80",
+        "isvalid_rva": "0x1b141c0",
+        "vt_rva": "0x2aaa020",
+        "execute_prologue": "4155415641574883ec304c8bf94883c1",
+        "isvalid_prologue": "48895c2408488974241048897c241855",
+        "gates_live": {
+          "0x18dde70": {
+            "name": "isvalid_theater_assign_gate",
+            "prologue": "40534883ec30488bd9e872ad",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_at_28": 40,
+          "theater_or_group": 60,
+          "name_or_extra": 80,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "subject_lo": 40,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "arg4_or_child": 64,
+          "arg6_or_plan": 72,
+          "owner_or_ctx": 24
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=theater; conf=1.0; core=theater_core.",
+          "2. Observe required_gates ['0x18dde70'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CDisbandTheaterGroupCommand": {
+        "command": "CDisbandTheaterGroupCommand",
+        "role": "theater",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xd73540"
+        ],
+        "named_gates": {
+          "0xd73540": "isvalid_theater_reorder_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "theater_reorder_core",
+        "execute_rva": "0x1b12d10",
+        "isvalid_rva": "0x1b144b0",
+        "vt_rva": "0x2aaa190",
+        "execute_prologue": "4883ec284883c1288339007506837904",
+        "isvalid_prologue": "4883c128e9b799dcffcccccccccccccc",
+        "gates_live": {
+          "0xd73540": {
+            "name": "isvalid_theater_reorder_gate",
+            "prologue": "40534883ec30488bd9e8a256",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "theater_handle": 40,
+          "arg0": 48,
+          "ctx_or_flag": 32,
+          "arg0_or_type": 48,
+          "flags_or_ctx2": 32,
+          "owner_or_ctx": 24,
+          "subject_lo": 40
+        },
+        "field_map_n": 7,
+        "observe_playbook": [
+          "1. Role=theater; conf=1.0; core=theater_reorder_core.",
+          "2. Observe required_gates ['0xd73540'] (named); do not patch.",
+          "3. Field map docs (7 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CSetTheatreCommand": {
+        "command": "CSetTheatreCommand",
+        "role": "theater",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x1e1510",
+          "0x2607890",
+          "0x57f7b0"
+        ],
+        "named_gates": {
+          "0x1e1510": "isvalid_army_subject_gate_a",
+          "0x2607890": "isvalid_army_subject_gate_b",
+          "0x57f7b0": "isvalid_army_subject_gate_c"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "theater_set_theatre_core",
+        "execute_rva": "0x13fdc50",
+        "isvalid_rva": "0x1401e40",
+        "vt_rva": "0x2a2cbe0",
+        "execute_prologue": "48895c24084889742410574883ec2048",
+        "isvalid_prologue": "48895c24104889742418574883ec3048",
+        "gates_live": {
+          "0x1e1510": {
+            "name": "isvalid_army_subject_gate_a",
+            "prologue": "488b41104885c0741d488379",
+            "readable": true
+          },
+          "0x2607890": {
+            "name": "isvalid_army_subject_gate_b",
+            "prologue": "488bc14c8d1566879ffd4983",
+            "readable": true
+          },
+          "0x57f7b0": {
+            "name": "isvalid_army_subject_gate_c",
+            "prologue": "40534883ec30488bd9e83294",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "base_or_vobj": 24,
+          "arg0_or_type": 48,
+          "arg2_or_vec_end": 56,
+          "owner_or_ctx": 24,
+          "arg6_or_plan": 72
+        },
+        "field_map_n": 8,
+        "observe_playbook": [
+          "1. Role=theater; conf=1.0; core=theater_set_theatre_core.",
+          "2. Observe required_gates ['0x1e1510', '0x2607890', '0x57f7b0'] (named); do not patch.",
+          "3. Field map docs (8 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CReorderTheatersCommand": {
+        "command": "CReorderTheatersCommand",
+        "role": "theater",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0xd73540"
+        ],
+        "named_gates": {
+          "0xd73540": "isvalid_theater_reorder_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "theater_reorder_core",
+        "execute_rva": "0x1b12f80",
+        "isvalid_rva": "0x1b144b0",
+        "vt_rva": "0x2aaa0d8",
+        "execute_prologue": "48895c242041564883ec20488bd94883",
+        "isvalid_prologue": "4883c128e9b799dcffcccccccccccccc",
+        "gates_live": {
+          "0xd73540": {
+            "name": "isvalid_theater_reorder_gate",
+            "prologue": "40534883ec30488bd9e8a256",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "theater_vec": 40,
+          "count_or_id": 48,
+          "arg0": 48,
+          "ctx_or_flag": 32,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "arg6_or_plan": 72,
+          "arg2_or_vec_end": 56,
+          "arg4_or_child": 64,
+          "subject_lo": 40
+        },
+        "field_map_n": 10,
+        "observe_playbook": [
+          "1. Role=theater; conf=1.0; core=theater_reorder_core.",
+          "2. Observe required_gates ['0xd73540'] (named); do not patch.",
+          "3. Field map docs (10 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CSetTheaterGroupNameCommand": {
+        "command": "CSetTheaterGroupNameCommand",
+        "role": "theater",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x18dde70"
+        ],
+        "named_gates": {
+          "0x18dde70": "isvalid_theater_assign_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "theater_core",
+        "execute_rva": "0x1b13880",
+        "isvalid_rva": "0x1b14560",
+        "vt_rva": "0x2aaa248",
+        "execute_prologue": "40534883ec20488bd94883c128833900",
+        "isvalid_prologue": "40534883ec20488bd94883c128e8fe98",
+        "gates_live": {
+          "0x18dde70": {
+            "name": "isvalid_theater_assign_gate",
+            "prologue": "40534883ec30488bd9e872ad",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "theater_group": 40,
+          "name_sso": 48,
+          "arg0": 48,
+          "arg3": 64,
+          "arg0_or_type": 48,
+          "arg4_or_child": 64
+        },
+        "field_map_n": 6,
+        "observe_playbook": [
+          "1. Role=theater; conf=1.0; core=theater_core.",
+          "2. Observe required_gates ['0x18dde70'] (named); do not patch.",
+          "3. Field map docs (6 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "theater_core",
+      "theater_reorder_core",
+      "theater_set_theatre_core"
+    ],
+    "observe_playbook": [
+      "1. Role=theater; focus cmds=['CAssignToTheaterGroupCommand', 'CDisbandTheaterGroupCommand', 'CSetTheatreCommand', 'CReorderTheatersCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "order_group": {
+    "role": "order_group",
+    "allow_post": false,
+    "n_cmds_in_index_role": 56,
+    "focus_commands": [
+      "COrderAssignCommand",
+      "COrderDeleteCommand",
+      "CArmyGroupCommand",
+      "COrderGroupCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "COrderAssignCommand": {
+        "command": "COrderAssignCommand",
+        "role": "order_group",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "order_group_core",
+        "execute_rva": "0x18d41b0",
+        "isvalid_rva": "0x18de900",
+        "vt_rva": "0x2a84498",
+        "execute_prologue": "48894c24085553565741544155415641",
+        "isvalid_prologue": "48895c241048896c2418565741564883",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "units_data": 40,
+          "units_count": 52,
+          "order_index": 72,
+          "assign_to_minimum_order": 76,
+          "arg8": 88,
+          "arg6_or_plan": 72,
+          "subject_lo": 40,
+          "arg2_or_vec_end": 56,
+          "arg4_or_child": 64,
+          "arg0_or_type": 48,
+          "arg7": 80,
+          "flags_or_ctx2": 32,
+          "vptr_or_hdr": 16,
+          "arg5": 68,
+          "arg1_or_count": 52,
+          "owner_or_ctx": 24
+        },
+        "field_map_n": 16,
+        "observe_playbook": [
+          "1. Role=order_group; conf=1.0; core=order_group_core.",
+          "2. Observe required_gates ['0x2284800'] (named); do not patch.",
+          "3. Field map docs (16 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderDeleteCommand": {
+        "command": "COrderDeleteCommand",
+        "role": "order_group",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "order_group_core",
+        "execute_rva": "0x18d5fe0",
+        "isvalid_rva": "0x18deee0",
+        "vt_rva": "0x2a843e0",
+        "execute_prologue": "48895c241048896c2418488974242057",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "order_index": 48,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "flags_or_ctx2": 32,
+          "arg0_or_type": 48,
+          "arg8": 88,
+          "arg2_or_vec_end": 56,
+          "arg4_or_child": 64,
+          "arg3_or_cap": 60
+        },
+        "field_map_n": 20,
+        "observe_playbook": [
+          "1. Role=order_group; conf=1.0; core=order_group_core.",
+          "2. Observe required_gates ['0x2284800'] (named); do not patch.",
+          "3. Field map docs (20 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CArmyGroupCommand": {
+        "command": "CArmyGroupCommand",
+        "role": "order_group",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "order_group_core",
+        "execute_rva": "0x18d25d0",
+        "isvalid_rva": "0x18ddf70",
+        "vt_rva": "0x2a83ed8",
+        "execute_prologue": "48894c24085553565741544155415641",
+        "isvalid_prologue": "48895c241048896c2418565741564883",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "payload_28": 40,
+          "payload_2c": 44,
+          "flag_3c": 60,
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "arg7": 80,
+          "subject_lo": 40,
+          "subject_hi": 44,
+          "arg8": 88,
+          "arg3_or_cap": 60,
+          "vptr_or_hdr": 16,
+          "arg0_or_type": 48,
+          "flags_or_ctx2": 32
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=order_group; conf=1.0; core=order_group_core.",
+          "2. Observe required_gates ['0x2284800'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "COrderGroupCommand": {
+        "command": "COrderGroupCommand",
+        "role": "order_group",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "order_group_core",
+        "execute_rva": "0x18d64f0",
+        "isvalid_rva": "0x18defe0",
+        "vt_rva": "0x2a83d68",
+        "execute_prologue": "48895c2410574883ec4083793c00488b",
+        "isvalid_prologue": "48895c241048896c2418565741544156",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_vec": 40,
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "arg2": 56,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "arg3_or_cap": 60,
+          "subject_lo": 40,
+          "arg7": 80,
+          "flags_or_ctx2": 32,
+          "arg8": 88,
+          "arg0_or_type": 48,
+          "arg6_or_plan": 72,
+          "owner_or_ctx": 24,
+          "arg2_or_vec_end": 56
+        },
+        "field_map_n": 16,
+        "observe_playbook": [
+          "1. Role=order_group; conf=1.0; core=order_group_core.",
+          "2. Observe required_gates ['0x2284800'] (named); do not patch.",
+          "3. Field map docs (16 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "order_group_core",
+      "order_group_bbb_core",
+      "army_subject_pair_adjacent_core"
+    ],
+    "observe_playbook": [
+      "1. Role=order_group; focus cmds=['COrderAssignCommand', 'COrderDeleteCommand', 'CArmyGroupCommand', 'COrderGroupCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "garrison": {
+    "role": "garrison",
+    "allow_post": false,
+    "n_cmds_in_index_role": 3,
+    "focus_commands": [
+      "CCreateAreaDefenseCommand",
+      "CEditAreaDefenseStateCommand",
+      "CSetAreaDefenseSettingCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CCreateAreaDefenseCommand": {
+        "command": "CCreateAreaDefenseCommand",
+        "role": "garrison",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800",
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary",
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "garrison_bbb_core",
+        "execute_rva": "0x18d3250",
+        "isvalid_rva": "0x18de2f0",
+        "vt_rva": "0x2a85970",
+        "execute_prologue": "48895c24084889742410574883ec2048",
+        "isvalid_prologue": "4883c128e9e7ce2dffcccccccccccccc",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          },
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "arg2": 56,
+          "vptr_or_hdr": 16,
+          "arg3_or_cap": 60,
+          "arg0_or_type": 48,
+          "arg6_or_plan": 72,
+          "arg2_or_vec_end": 56,
+          "subject_lo": 40
+        },
+        "field_map_n": 9,
+        "observe_playbook": [
+          "1. Role=garrison; conf=1.0; core=garrison_bbb_core.",
+          "2. Observe required_gates ['0x2284800', '0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (9 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CEditAreaDefenseStateCommand": {
+        "command": "CEditAreaDefenseStateCommand",
+        "role": "garrison",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800",
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary",
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "garrison_bbb_core",
+        "execute_rva": "0x18d3390",
+        "isvalid_rva": "0x18de370",
+        "vt_rva": "0x2a858b8",
+        "execute_prologue": "48895c241048896c2418565741564883",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          },
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "vptr_or_hdr": 16,
+          "owner_or_ctx": 24,
+          "arg0_or_type": 48,
+          "arg7": 80,
+          "arg2_or_vec_end": 56,
+          "arg5": 68,
+          "arg3_or_cap": 60,
+          "arg4_or_child": 64,
+          "arg6_or_plan": 72
+        },
+        "field_map_n": 20,
+        "observe_playbook": [
+          "1. Role=garrison; conf=1.0; core=garrison_bbb_core.",
+          "2. Observe required_gates ['0x2284800', '0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (20 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      },
+      "CSetAreaDefenseSettingCommand": {
+        "command": "CSetAreaDefenseSettingCommand",
+        "role": "garrison",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800",
+          "0xbbb1e0"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary",
+          "0xbbb1e0": "isvalid_order_fallback_gate"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "garrison_bbb_core",
+        "execute_rva": "0x18db270",
+        "isvalid_rva": "0x18e0470",
+        "vt_rva": "0x2a85a28",
+        "execute_prologue": "40534883ec20488bd94883c128833900",
+        "isvalid_prologue": "48895c2408574883ec20488bf94883c1",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          },
+          "0xbbb1e0": {
+            "name": "isvalid_order_fallback_gate",
+            "prologue": "40534883ec30488bd9e802da",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "subject_or_handle": 40,
+          "subject_hi_or_id": 44,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "ctx_or_flag": 32,
+          "arg0_or_type": 48,
+          "flags_or_ctx2": 32,
+          "subject_lo": 40,
+          "arg2_or_vec_end": 56,
+          "arg3_or_cap": 60,
+          "subject_hi": 44
+        },
+        "field_map_n": 12,
+        "observe_playbook": [
+          "1. Role=garrison; conf=1.0; core=garrison_bbb_core.",
+          "2. Observe required_gates ['0x2284800', '0xbbb1e0'] (named); do not patch.",
+          "3. Field map docs (12 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "garrison_core",
+      "garrison_bbb_core"
+    ],
+    "observe_playbook": [
+      "1. Role=garrison; focus cmds=['CCreateAreaDefenseCommand', 'CEditAreaDefenseStateCommand', 'CSetAreaDefenseSettingCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  },
+  "cancel_abort": {
+    "role": "cancel_abort",
+    "allow_post": false,
+    "n_cmds_in_index_role": 2,
+    "focus_commands": [
+      "CCancelMovementCommand"
+    ],
+    "avg_confidence": 1.0,
+    "commands": {
+      "CCancelMovementCommand": {
+        "command": "CCancelMovementCommand",
+        "role": "cancel_abort",
+        "post_path_confidence": 1.0,
+        "required_gates": [
+          "0x2284800",
+          "0x2348bf0",
+          "0x25c3770"
+        ],
+        "named_gates": {
+          "0x2284800": "isvalid_field_gate_primary",
+          "0x2348bf0": "isvalid_cancel_pair_gate_a",
+          "0x25c3770": "isvalid_cancel_pair_gate_b"
+        },
+        "unnamed_execute_remaining": [],
+        "recommended_core": "cancel_abort_core",
+        "execute_rva": "0x13fbbd0",
+        "isvalid_rva": "0x13fed40",
+        "vt_rva": "0x2a2c9b8",
+        "execute_prologue": "48896c2418564883ec2033ed488bf139",
+        "isvalid_prologue": "48895c241048896c2418488974242057",
+        "gates_live": {
+          "0x2284800": {
+            "name": "isvalid_field_gate_primary",
+            "prologue": "4883ec288b013d6812000076",
+            "readable": true
+          },
+          "0x2348bf0": {
+            "name": "isvalid_cancel_pair_gate_a",
+            "prologue": "0fb60569dcde00c3cccccccc",
+            "readable": true
+          },
+          "0x25c3770": {
+            "name": "isvalid_cancel_pair_gate_b",
+            "prologue": "48895c241048897424185741",
+            "readable": true
+          }
+        },
+        "field_map": {
+          "units_vec": 40,
+          "units_count": 52,
+          "subject_or_handle": 40,
+          "arg0": 48,
+          "arg1_or_count": 52,
+          "arg2": 56,
+          "arg3": 64,
+          "base_or_vobj": 24,
+          "ctx_or_flag": 32,
+          "owner_or_ctx": 24,
+          "subject_lo": 40,
+          "vptr_or_hdr": 16,
+          "flags_or_ctx2": 32,
+          "arg7": 80,
+          "arg8": 88,
+          "arg2_or_vec_end": 56
+        },
+        "field_map_n": 18,
+        "observe_playbook": [
+          "1. Role=cancel_abort; conf=1.0; core=cancel_abort_core.",
+          "2. Observe required_gates ['0x2284800', '0x2348bf0', '0x25c3770'] (named); do not patch.",
+          "3. Field map docs (18 keys) \u2014 docs only, never WPM.",
+          "4. Pair with land_live_army_subject_observe_2cu_recipe (CArmy-only filter).",
+          "5. Midflight watcher RO if move-related; no inject.",
+          "6. STOP \u2014 allow_post False / tool-gate CLOSED."
+        ],
+        "allow_post": false
+      }
+    },
+    "preferred_cores": [
+      "cancel_abort_core"
+    ],
+    "observe_playbook": [
+      "1. Role=cancel_abort; focus cmds=['CCancelMovementCommand'].",
+      "2. Walk each focus command observe_playbook; confirm gates readable; review field_map docs.",
+      "3. For move/attack/strategic: land_live_army_subject_observe_2cu_recipe (CArmy only).",
+      "4. For frontline/OL: land_offensive_line_post_path_2cu_recipe.",
+      "5. Midflight Move watcher RO readiness recipe.",
+      "6. STOP \u2014 never Post."
+    ]
+  }
+}
