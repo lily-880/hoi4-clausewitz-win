@@ -1822,3 +1822,97 @@ def land_post_readiness_checklist_2cl_recipe(command_name: str | None = None) ->
         "note": "Checklist + cmd index for future Post readiness docs only.",
     }
     return out
+
+
+# --- Phase 2cm: gate_label_only closed + cmd index 121/121 (READ-ONLY) ---
+
+def land_cmd_post_path_index_2cm_recipe(command_name: str | None = None, role: str | None = None) -> dict:
+    """Per-command Post readiness index 2cm (121/121, confidence). Docs only — never enables Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = pr.get("cmd_post_path_index_2cm") or pr.get("cmd_post_path_index_2cl") or {}
+    out = {
+        "phase": "2cm",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "commands": {},
+        "note": "121/121 index; gate_label_only closed. Do not Post.",
+    }
+    for n, meta in idx.items():
+        if command_name and n != command_name:
+            continue
+        if role and meta.get("role") != role:
+            continue
+        out["commands"][n] = meta
+    out["count"] = len(out["commands"])
+    out["fully_named_required_gates"] = sum(
+        1 for v in out["commands"].values() if not v.get("unnamed_gates_remaining")
+    )
+    confs = [v.get("post_path_confidence") or 0 for v in out["commands"].values()]
+    out["avg_post_path_confidence"] = round(sum(confs) / max(1, len(confs)), 3) if confs else 0
+    return out
+
+
+def land_gate_label_promoted_recipe() -> dict:
+    """List Capstone-promoted gate_label_only helpers (2cm). Observe-only."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    promoted = pr.get("promoted_gate_labels_2cm") or {}
+    helpers = (getattr(_cl, "SHARED_LAND_HELPERS", {}) or {}).get("helpers") or {}
+    out = {
+        "phase": "2cm",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "gate_label_only_closed": bool(pr.get("gate_label_only_closed_2cm")),
+        "remaining_gate_label_only": len(pr.get("gate_label_only_2cl") or {}),
+        "promoted": {},
+        "note": "Promoted from gate_label_only via Capstone RO; do not patch/hook/Post.",
+    }
+    for addr, label in promoted.items():
+        h = helpers.get(addr) or {}
+        out["promoted"][addr] = {
+            "name": label,
+            "tier": h.get("tier"),
+            "class": h.get("class"),
+            "calls": h.get("calls"),
+            "field_offs": h.get("field_offs"),
+            "post_readiness": h.get("post_readiness"),
+            "do_not_hook_for_post": True,
+        }
+    out["count"] = len(out["promoted"])
+    return out
+
+
+def land_post_readiness_checklist_2cm_recipe(command_name: str | None = None) -> dict:
+    """2cm checklist + optional cmd index slice. ALLOW_POST remains False."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    checklist = dict(pr.get("post_readiness_checklist_2cm") or {})
+    idx = pr.get("cmd_post_path_index_2cm") or {}
+    out = {
+        "phase": "2cm",
+        "allow_post": False,
+        "posting": "DISABLED",
+        "tool_gate": pr.get("tool_gate") or "CLOSED_NOT_OPENED",
+        "checklist": checklist,
+        "command_slice": idx.get(command_name) if command_name else None,
+        "do_not": checklist.get("do_not") or [
+            "enable ALLOW_POST",
+            "patch/hook helpers",
+            "Post inject",
+            "HourlyTick / GameSpeed writes",
+            "guess writes",
+        ],
+        "note": "Checklist for future Post readiness docs only.",
+    }
+    return out

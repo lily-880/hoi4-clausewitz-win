@@ -611,3 +611,18 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; named reads OK.
 - **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
 
+## Phase 2cm (overnight RO) — close gate_label_only + cmd index 121/121
+
+- **HEAD parent**: `4a101a4` (2cl). Focus: close `gate_label_only_2cl` safely; extend cmd index; name high-hit exe. **LAND 121/121 unchanged**.
+- **gate_label_only**: **CLOSED** — 15 Capstone-promoted into `SHARED_LAND_HELPERS` tier `gate_label_promoted` (observe-only). Remaining: **0**.
+- **Helpers**: 237 → **252** (+15 promoted only; no singleton inflation).
+- **Named**: 116 → **145** (+15 promoted + 29 high-hit execute helpers already in catalog).
+- **IsValid-gate helpers**: → **122**; Execute-body still 183.
+- **Primary**: `cmd_post_path_index_2cm` — **121/121** cmds (now includes garrison/cancel_abort), required gates **121/121 named**, avg `post_path_confidence` **0.911**.
+- **Matrix**: `role_post_path_matrix_2cm` for 9 roles (added garrison, cancel_abort).
+- **Checklist**: `post_readiness_checklist_2cm`.
+- **Recipes**: `land_cmd_post_path_index_2cm_recipe`, `land_gate_label_promoted_recipe`, `land_post_readiness_checklist_2cm_recipe`.
+- **Preferred cores**: still **34** / **121/121**.
+- **Live**: hoi4 2880; watcher **36128** RO; tool-gate CLOSED; promoted/named reads OK.
+- **Hard no**: posting / ALLOW_POST / guess writes / HourlyTick / GameSpeed / helper patch / Post inject.
+

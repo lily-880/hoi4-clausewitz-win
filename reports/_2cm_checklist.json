@@ -1,0 +1,51 @@
+{
+  "phase": "2cm",
+  "allow_post": false,
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "posting": "DISABLED",
+  "land_cmds": "121/121 unchanged",
+  "preferred_cores": 34,
+  "named_helpers": 145,
+  "helpers_total": 252,
+  "gate_label_only_closed": true,
+  "gate_label_promoted": 15,
+  "gate_label_only_remaining": 0,
+  "named_exe_new": 29,
+  "cmd_post_path_index_count": 121,
+  "cmds_required_gates_fully_named": 121,
+  "avg_post_path_confidence": 0.911,
+  "roles_indexed": [
+    "attack",
+    "retreat",
+    "move",
+    "strategic",
+    "frontline",
+    "theater",
+    "order_group",
+    "garrison",
+    "cancel_abort"
+  ],
+  "requirements_before_any_post": [
+    "CLAUSEWITZ_ALLOW_POST remains unset/false",
+    "command_queue_tool_gate stays CLOSED_NOT_OPENED",
+    "midflight watcher RO only \u2014 no inject",
+    "never HourlyTick / GameSpeed writes",
+    "IsValid gate helpers observed but not patched",
+    "Main-thread / gamestate_instance_guard must hold at Post time (observe only)"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "inflate LAND cmd count without new RTTI evidence"
+  ],
+  "how_to_use": [
+    "Look up command in cmd_post_path_index_2cm",
+    "Follow recommended_core + required_gates (named_gates)",
+    "Check post_path_confidence; respect genuine_divergence",
+    "gate_label_only closed \u2014 promoted helpers are observe-only",
+    "Never Post"
+  ]
+}
