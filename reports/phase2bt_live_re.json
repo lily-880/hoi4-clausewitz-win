@@ -1,0 +1,545 @@
+{
+  "phase": "2bt",
+  "ts": "2026-10-31T06:03:38",
+  "pid": 2880,
+  "image_base": "0x7ff744660000",
+  "posting": "DISABLED",
+  "focus": "land army attack/retreat/move/strategic_redeploy",
+  "support_attack": {
+    "name": "CSupportAttackCommand",
+    "type_id": "0x314c",
+    "size": "0x38",
+    "vt": "0x2a2cb28",
+    "factory_doc": "0x13fb5e0",
+    "factory_live": "0x13fb5e0",
+    "factory_match": true,
+    "isvalid_doc": "0x1402270",
+    "isvalid_live": "0x1402270",
+    "isvalid_match": true,
+    "isvalid_kind": "FN",
+    "execute_doc": "0x13fdd00",
+    "execute_live": "0x13fdd00",
+    "execute_match": true,
+    "execute_kind": "FN",
+    "gettypeid_live": "0x13fe430",
+    "fields": {
+      "unit_or_attacker_handle": "0x28",
+      "target_province": "0x30"
+    },
+    "serialize_tokens": {
+      "0x28": "0x28a3",
+      "0x30": "0x286d"
+    },
+    "gate_0x60_kind": "FALSE",
+    "gate_0x80_kind": "FALSE"
+  },
+  "strategic_action": {
+    "name": "CUnitStrategicMoveAction",
+    "vt": "0x2a1f7e8",
+    "type_id": "0x364a",
+    "size": "0x28",
+    "serialize": "0x12c3aa0",
+    "deserialize": "0x12c3740",
+    "execute_doc": "0x12c3190",
+    "execute_live": "0x12c3190",
+    "execute_match": true,
+    "execute_kind": "FN",
+    "isvalid_doc": "0x12c2c20",
+    "isvalid_live": "0x12c2c20",
+    "isvalid_match": true,
+    "isvalid_kind": "FN",
+    "serialize_tokens": {
+      "0x10": "0x289d",
+      "0x18": "0x2840",
+      "0x1c": "0x29f1",
+      "0x20": "0x37bc"
+    },
+    "fields": {
+      "army_handle": "0x10",
+      "province": "0x18",
+      "clear": "0x1c",
+      "move_priority": "0x20"
+    }
+  },
+  "land_focus": {
+    "ok": 10,
+    "total": 10,
+    "commands": {
+      "CSupportAttackCommand": {
+        "name": "CSupportAttackCommand",
+        "role": "attack",
+        "type_id": "0x314c",
+        "vt": "0x2a2cb28",
+        "isvalid_live": "0x1402270",
+        "isvalid_kind": "FN",
+        "execute_live": "0x13fdd00",
+        "execute_kind": "FN",
+        "isvalid_match": true,
+        "execute_match": true,
+        "factory_live": "0x13fb5e0",
+        "factory_match": true,
+        "ok": true
+      },
+      "COrderNewFallbackCommand": {
+        "name": "COrderNewFallbackCommand",
+        "role": "retreat",
+        "type_id": "0x33d7",
+        "vt": "0x2a84c80",
+        "isvalid_live": "0x18df4b0",
+        "isvalid_kind": "FN",
+        "execute_live": "0x18d8fc0",
+        "execute_kind": "FN",
+        "isvalid_match": true,
+        "execute_match": true,
+        "factory_live": "0x18d02c0",
+        "factory_match": true,
+        "ok": true
+      },
+      "COrderReplaceFallbackCommands": {
+        "name": "COrderReplaceFallbackCommands",
+        "role": "retreat",
+        "type_id": "0x350c",
+        "vt": "0x2a84d38",
+        "isvalid_live": "0x18df4b0",
+        "isvalid_kind": "FN",
+        "execute_live": "0x18da3b0",
+        "execute_kind": "FN",
+        "isvalid_match": true,
+        "execute_match": true,
+        "factory_live": "0x18d05a0",
+        "factory_match": true,
+        "ok": true
+      },
+      "CSetSelectedArmyGroupFallback": {
+        "name": "CSetSelectedArmyGroupFallback",
+        "role": "retreat",
+        "type_id": "0x3a8b",
+        "vt": "0x2a86158",
+        "isvalid_live": "0x18e0730",
+        "isvalid_kind": "FN",
+        "execute_live": "0x18dbae0",
+        "execute_kind": "FN",
+        "isvalid_match": true,
+        "execute_match": true,
+        "factory_live": "0x18d0fc0",
+        "factory_match": true,
+        "ok": true
+      },
+      "CCancelRunningAwayCommand": {
+        "name": "CCancelRunningAwayCommand",
+        "role": "retreat",
+        "type_id": "0x3bb4",
+        "vt": "0x2a2d538",
+        "isvalid_live": "0x13eed30",
+        "isvalid_kind": "FN",
+        "execute_live": "0x13fbca0",
+        "execute_kind": "FN",
+        "factory_live": "0x13fad40",
+        "factory_match": true,
+        "ok": true
+      },
+      "CWithdrawArmyHqCommand": {
+        "name": "CWithdrawArmyHqCommand",
+        "role": "retreat",
+        "type_id": "0x2833",
+        "vt": "0x2a2cf78",
+        "isvalid_live": "0x14027c0",
+        "isvalid_kind": "FN",
+        "execute_live": "0x13fe2a0",
+        "execute_kind": "FN",
+        "factory_live": "0x13fb710",
+        "factory_match": true,
+        "ok": true
+      },
+      "CMassMoveCommand": {
+        "name": "CMassMoveCommand",
+        "role": "move",
+        "type_id": "0x341f",
+        "layout_alias": "REMAINING_ARMY_ORDERS",
+        "vt": "0x2a2c848",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "ok": true
+      },
+      "CToggleStrategicDeploymentCommand": {
+        "name": "CToggleStrategicDeploymentCommand",
+        "role": "strategic",
+        "type_id": "0x3ce0",
+        "layout_alias": "REMAINING_ARMY_ORDERS",
+        "vt": "0x2a2ca70",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "ok": true
+      },
+      "CMoveArmiesInTheaterCommand": {
+        "name": "CMoveArmiesInTheaterCommand",
+        "role": "move",
+        "type_id": "0x3a8e",
+        "layout_alias": "EXTRA_ARMY_COMMANDS",
+        "vt": "0x2a84100",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "ok": true
+      },
+      "CMoveArmyGroupInTheaterCommand": {
+        "name": "CMoveArmyGroupInTheaterCommand",
+        "role": "move",
+        "type_id": "0x3a8f",
+        "layout_alias": "EXTRA_ARMY_COMMANDS",
+        "vt": "0x2a841b8",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "ok": true
+      }
+    }
+  },
+  "core_layouts": {
+    "MOVE": {
+      "name": "CMoveCommand",
+      "vt": "0x2a2c790",
+      "type_id": "0x28a2",
+      "isvalid_kind": "FN",
+      "execute_kind": "FN",
+      "isvalid_match": true,
+      "execute_match": true
+    },
+    "STRATEGIC": {
+      "name": "CStrategicRedeploymentCommand",
+      "vt": "0x2a2d818",
+      "type_id": "0x35b9",
+      "isvalid_kind": "FN",
+      "execute_kind": "FN",
+      "isvalid_match": true,
+      "execute_match": true
+    },
+    "CANCEL": {
+      "name": "CCancelMovementCommand",
+      "vt": "0x2a2c9b8",
+      "type_id": "0x28af",
+      "isvalid_kind": "FN",
+      "execute_kind": "FN",
+      "isvalid_match": true,
+      "execute_match": true
+    }
+  },
+  "isvalid_paths_count": 52,
+  "hai_recipes": [
+    {
+      "handle": [
+        51,
+        1037
+      ],
+      "province_id": 3938,
+      "move": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1037
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 3938,
+        "posting": "DISABLED"
+      },
+      "strategic": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1037
+        ],
+        "province_off": 24,
+        "province": 3939,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1037
+        ],
+        "target_province_off": 48,
+        "target_province": 3939,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 3938,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "cancel": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1037
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "fallback": {
+        "fallback_flag_or_id_off": 84,
+        "fallback_flag_or_id": 1,
+        "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "posting": "DISABLED"
+      },
+      "cancel_running_away": {
+        "units_vec_off": 40,
+        "unit_handles": [
+          [
+            51,
+            1037
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    },
+    {
+      "handle": [
+        51,
+        1038
+      ],
+      "province_id": 7183,
+      "move": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1038
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 7183,
+        "posting": "DISABLED"
+      },
+      "strategic": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1038
+        ],
+        "province_off": 24,
+        "province": 7184,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1038
+        ],
+        "target_province_off": 48,
+        "target_province": 7184,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 7183,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "cancel": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1038
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "fallback": {
+        "fallback_flag_or_id_off": 84,
+        "fallback_flag_or_id": 1,
+        "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "posting": "DISABLED"
+      },
+      "cancel_running_away": {
+        "units_vec_off": 40,
+        "unit_handles": [
+          [
+            51,
+            1038
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    },
+    {
+      "handle": [
+        51,
+        1039
+      ],
+      "province_id": 6906,
+      "move": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1039
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 6906,
+        "posting": "DISABLED"
+      },
+      "strategic": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1039
+        ],
+        "province_off": 24,
+        "province": 6907,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1039
+        ],
+        "target_province_off": 48,
+        "target_province": 6907,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 6906,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "cancel": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1039
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "fallback": {
+        "fallback_flag_or_id_off": 84,
+        "fallback_flag_or_id": 1,
+        "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "posting": "DISABLED"
+      },
+      "cancel_running_away": {
+        "units_vec_off": 40,
+        "unit_handles": [
+          [
+            51,
+            1039
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    }
+  ],
+  "isvalid_notes": {
+    "wrap": "0x22d8ea0",
+    "posting": "DISABLED",
+    "move": {
+      "vt_off": 72,
+      "rva": 20972272,
+      "action_isvalid": 19672224,
+      "kind": "FN",
+      "notes": "Requires valid CUnitMoveAction embed@+0x28; unit handle + province/path vectors"
+    },
+    "strategic": {
+      "rva": 20980320,
+      "kind": "FN",
+      "notes": "Army handle@+0x10 + dest province@+0x18"
+    },
+    "cancel": {
+      "rva": 20966720,
+      "kind": "FN",
+      "notes": "Walks units vector@+0x28 count@+0x34; empty \u2192 fail"
+    },
+    "order_execute": {
+      "rva": 26079040,
+      "kind": "FN",
+      "notes": "Subject@+0x28 non-zero pair; order object resolve"
+    },
+    "support_attack": {
+      "rva": 20980336,
+      "kind": "FN",
+      "notes": "handle@+0x28 via 0x57f7b0; province@+0x30; gates FALSE"
+    },
+    "replace_fallback": {
+      "rva": 26080432,
+      "kind": "FN",
+      "notes": "Fallback field@+0x54 (shared IsValid w/ NewFallback)"
+    },
+    "army_group_fallback": {
+      "rva": 26085168,
+      "kind": "FN",
+      "notes": "Army-group@+0x28 + fallback_flag@+0x30"
+    },
+    "land_army_focus": [
+      "move",
+      "strategic_redeploy",
+      "attack_support",
+      "retreat_fallback"
+    ],
+    "note": "IsValid wrap 0x22d8ea0; midflight Move still required before any enable; land focus 2bt"
+  },
+  "hygiene": {
+    "sess": "0x1ef8f7b2b70",
+    "tick_725": 1,
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED"
+  },
+  "watcher": {
+    "alive": true,
+    "pids": [
+      29656
+    ]
+  },
+  "stubbed": [
+    "midflight_CMoveCommand",
+    "in_process_ring_embed",
+    "command_queue_tool_gate_enable",
+    "ALLOW_POST"
+  ],
+  "elapsed_s": 0.649,
+  "tool_gate_status": "CLOSED_NOT_OPENED"
+}

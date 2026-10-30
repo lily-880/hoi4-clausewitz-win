@@ -277,3 +277,22 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bt (overnight RO — land army attack/retreat/move/strategic redeploy)
+
+### Works
+- **LAND_ARMY_FOCUS** for user army agent: priority move → strategic_redeploy → attack_support → retreat_fallback. Posting DISABLED. Naval/production left out of scope.
+- **CSupportAttackCommand** layout complete: tid `0x314c` size `0x38` factory `0x13fb5e0`; fields handle@+0x28 / province@+0x30; ser tokens `0x28a3`/`0x286d`; IsValid/Execute FN; gates 60/80 FALSE. `army_subjects.support_attack_recipe`.
+- **CUnitStrategicMoveAction** ser tokens proven: `0x289D`/`0x2840`/`0x29F1`/`0x37BC` at +0x10/+0x18/+0x1C/+0x20; live IsValid `0x12c2c20` / Execute `0x12c3190` (FN).
+- Retreat group deepened: NewFallback / ReplaceFallback / SetSelectedArmyGroupFallback / CancelRunningAway / WithdrawArmyHq — recipes + `ISVALID_PATHS` (ReplaceFallback + ArmyGroupFallback new).
+- Land focus live verify **10/10**. Core MOVE/STRATEGIC/CANCEL still FN. HAI sample recipes ×3 (move/strategic/support_attack/cancel/fallback).
+- `ISVALID_PATHS` **52** (was 49). Tool-gate **CLOSED_NOT_OPENED**. `allow_post` False. Watcher **29656** armed; tick=1; no input.
+
+### Stubbed
+- In-process serialize→recreate→ring embed (needs Post/midflight).
+- midflight_CMoveCommand sample (DX11).
+- command_queue_tool_gate enable.
+- Broader naval/production Commands remain out of scope.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

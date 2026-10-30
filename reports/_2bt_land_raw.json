@@ -1,0 +1,557 @@
+{
+  "focus": {
+    "phase": "2bt",
+    "priority": [
+      "move",
+      "strategic_redeploy",
+      "attack_support",
+      "retreat_fallback"
+    ],
+    "core": {
+      "move": {
+        "command": "CMoveCommand",
+        "layout_ref": "MOVE",
+        "type_id": 10402,
+        "vt": 44222352,
+        "size": 136,
+        "factory": 20951040,
+        "serialize": 20989328,
+        "deserialize": 20985200,
+        "isvalid": 20972272,
+        "execute": 20957584,
+        "action_embed_off": 40,
+        "action": {
+          "name": "CUnitMoveAction",
+          "vt": 44168776,
+          "type_id_at_plus8": 13896,
+          "execute": 19670640,
+          "isvalid": 19672224,
+          "serialize": 19675424,
+          "fields": {
+            "unit_handle": 16,
+            "province_arr": 24,
+            "province_size": 36,
+            "path_arr": 48,
+            "path_size": 60,
+            "clear": 80,
+            "safe": 81,
+            "safe_until_end": 82,
+            "safe_nonsafe_fb": 83,
+            "avoid": 85,
+            "move_priority": 88,
+            "sticky": 92
+          },
+          "serialize_tokens": {
+            "16": 10403,
+            "24": 10304,
+            "48": 372,
+            "80": 10737,
+            "81": 11396,
+            "82": 15000,
+            "83": 14577,
+            "85": 11397,
+            "88": 14268,
+            "92": 13967
+          }
+        },
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE",
+        "subject_recipe": "army_subjects.move_action_recipe",
+        "notes": "Primary land move; CUnitMoveAction@+0x28; IsValid thunks to action"
+      },
+      "strategic_redeploy": {
+        "command": "CStrategicRedeploymentCommand",
+        "layout_ref": "STRATEGIC",
+        "type_id": 13753,
+        "vt": 44226584,
+        "size": 80,
+        "factory": 20952448,
+        "serialize": 20989328,
+        "deserialize": 20985200,
+        "isvalid": 20980320,
+        "execute": 20957584,
+        "action_embed_off": 40,
+        "action": {
+          "name": "CUnitStrategicMoveAction",
+          "vt": 44169192,
+          "type_id": 13898,
+          "size": 40,
+          "serialize": 19675808,
+          "deserialize": 19674944,
+          "fields": {
+            "army_handle": 16,
+            "province": 24,
+            "clear": 28,
+            "move_priority": 32
+          },
+          "serialize_tokens": {
+            "16": 10397,
+            "24": 10304,
+            "28": 10737,
+            "32": 14268
+          },
+          "execute": 19672096,
+          "isvalid": 19673488,
+          "isvalid_kind": "FN",
+          "execute_kind": "FN"
+        },
+        "subject_recipe": "army_subjects.strategic_redeploy_recipe",
+        "notes": "Strategic redeploy; CUnitStrategicMoveAction@+0x28; ser tokens proven 2bt"
+      },
+      "cancel_movement": {
+        "command": "CCancelMovementCommand",
+        "layout_ref": "CANCEL",
+        "type_id": 10415,
+        "vt": 44222904,
+        "size": 72,
+        "factory": 20950240,
+        "serialize": 20988208,
+        "deserialize": 20983120,
+        "isvalid": 20966720,
+        "execute": 20954064,
+        "fields": {
+          "units_data": 40,
+          "units_count": 52,
+          "sticky": 64
+        },
+        "subject_recipe": "army_subjects.cancel_movement_recipe",
+        "notes": "Cancel ongoing move path; units vector@+0x28"
+      },
+      "attack_support": {
+        "command": "CSupportAttackCommand",
+        "layout_ref": "LAND_ARMY_FOCUS.commands",
+        "type_id": 12620,
+        "vt": 44223272,
+        "size": 56,
+        "factory": 20952544,
+        "serialize": 20990704,
+        "deserialize": 20987360,
+        "isvalid": 20980336,
+        "execute": 20962560,
+        "fields": {
+          "unit_or_attacker_handle": 40,
+          "target_province": 48
+        },
+        "serialize_tokens": {
+          "handle_token": 10403,
+          "province_token": 10349
+        },
+        "subject_recipe": "army_subjects.support_attack_recipe",
+        "notes": "IsValid: validate handle@+0x28 via 0x57f7b0; ser token 0x28a3 handle + 0x286d province@+0x30; gates 60/80 FALSE"
+      }
+    },
+    "commands": {
+      "CSupportAttackCommand": {
+        "name": "CSupportAttackCommand",
+        "role": "attack",
+        "type_id": 12620,
+        "type_id_kind": "imm",
+        "factory": 20952544,
+        "vt": 44223272,
+        "size": 56,
+        "clone": 20946112,
+        "serialize": 20990704,
+        "deserialize": 20987360,
+        "isvalid": 20980336,
+        "execute": 20962560,
+        "gettypeid": 20964400,
+        "factory_idx": 3620,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "unit_or_attacker_handle": 40,
+          "target_province": 48
+        },
+        "notes": "IsValid: validate handle@+0x28 via 0x57f7b0; ser token 0x28a3 handle + 0x286d province@+0x30; gates 60/80 FALSE"
+      },
+      "COrderNewFallbackCommand": {
+        "name": "COrderNewFallbackCommand",
+        "role": "retreat",
+        "type_id": 13271,
+        "type_id_kind": "imm",
+        "factory": 26018496,
+        "vt": 44584064,
+        "size": 96,
+        "clone": 26009584,
+        "serialize": 26118752,
+        "deserialize": 26092800,
+        "isvalid": 26080432,
+        "execute": 26054592,
+        "gettypeid": 26069856,
+        "factory_idx": 4271,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "fallback_flag_or_id": 84
+        },
+        "notes": "Battle-plan fallback order; IsValid checks@+0x54; already in ORDERS \u2014 focus alias"
+      },
+      "COrderReplaceFallbackCommands": {
+        "name": "COrderReplaceFallbackCommands",
+        "role": "retreat",
+        "type_id": 13580,
+        "type_id_kind": "imm",
+        "factory": 26019232,
+        "vt": 44584248,
+        "size": 96,
+        "clone": 26010800,
+        "serialize": 26118752,
+        "deserialize": 26092800,
+        "isvalid": 26080432,
+        "execute": 26059696,
+        "gettypeid": 26069952,
+        "factory_idx": 4580,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "fallback_flag_or_id": 84
+        },
+        "notes": "Replace fallback set; IsValid@+0x54"
+      },
+      "CSetSelectedArmyGroupFallback": {
+        "name": "CSetSelectedArmyGroupFallback",
+        "role": "retreat",
+        "type_id": 14987,
+        "type_id_kind": "imm",
+        "factory": 26021824,
+        "vt": 44589400,
+        "size": 56,
+        "clone": 26014976,
+        "serialize": 26121792,
+        "deserialize": 26097344,
+        "isvalid": 26085168,
+        "execute": 26065632,
+        "gettypeid": 26070336,
+        "factory_idx": 5987,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "army_group": 40,
+          "fallback_flag": 48
+        },
+        "notes": "Selected army-group fallback; subject@+0x28"
+      },
+      "CCancelRunningAwayCommand": {
+        "name": "CCancelRunningAwayCommand",
+        "role": "retreat",
+        "type_id": 15284,
+        "type_id_kind": "imm",
+        "factory": 20950336,
+        "vt": 44225848,
+        "size": 48,
+        "clone": 20942464,
+        "serialize": 20988336,
+        "deserialize": 20983296,
+        "isvalid": 20901168,
+        "execute": 20954272,
+        "gettypeid": 20964064,
+        "factory_idx": 6284,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "units_vec": 40
+        },
+        "notes": "Cancel flee/run-away; already EXTRA \u2014 focus alias"
+      },
+      "CWithdrawArmyHqCommand": {
+        "name": "CWithdrawArmyHqCommand",
+        "role": "retreat",
+        "type_id": 10291,
+        "type_id_kind": "imm",
+        "factory": 20952848,
+        "vt": 44224376,
+        "size": 48,
+        "clone": 20946624,
+        "serialize": 20990912,
+        "deserialize": 20987664,
+        "isvalid": 20981696,
+        "execute": 20964000,
+        "gettypeid": 20964448,
+        "factory_idx": 1291,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "hq_handle": 40
+        },
+        "notes": "Withdraw army HQ; already REMAINING \u2014 focus alias"
+      },
+      "CMassMoveCommand": {
+        "name": "CMassMoveCommand",
+        "role": "move",
+        "type_id": 13343,
+        "type_id_kind": "imm",
+        "factory": 20950720,
+        "vt": 44222536,
+        "size": 96,
+        "clone": 20943024,
+        "serialize": 20988656,
+        "deserialize": 20984160,
+        "isvalid": 20970400,
+        "execute": 20955920,
+        "gettypeid": 20964128,
+        "factory_idx": 4343,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "units_count": 52,
+          "dest_cluster": 76
+        },
+        "notes": "Mass move; already REMAINING \u2014 focus alias"
+      },
+      "CToggleStrategicDeploymentCommand": {
+        "name": "CToggleStrategicDeploymentCommand",
+        "role": "strategic",
+        "type_id": 15584,
+        "type_id_kind": "imm",
+        "factory": 20952640,
+        "vt": 44223088,
+        "size": 64,
+        "clone": 20946256,
+        "serialize": 20990784,
+        "deserialize": 20987504,
+        "isvalid": 20981184,
+        "execute": 20962960,
+        "gettypeid": 20964416,
+        "factory_idx": 6584,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "units_vec": 40,
+          "units_count": 52
+        },
+        "notes": "Toggle strategic deployment mode; already REMAINING \u2014 focus alias"
+      },
+      "CMoveArmiesInTheaterCommand": {
+        "name": "CMoveArmiesInTheaterCommand",
+        "role": "move",
+        "type_id": 14990,
+        "type_id_kind": "imm",
+        "factory": 26016560,
+        "vt": 44581120,
+        "size": 72,
+        "clone": 26006320,
+        "serialize": 26115888,
+        "deserialize": 26089408,
+        "isvalid": 26077152,
+        "execute": 26031808,
+        "gettypeid": 26069584,
+        "factory_idx": 5990,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "units_vec": 40,
+          "units_count": 52,
+          "theater_or_dest": 64
+        },
+        "notes": "Theater multi-army move; EXTRA alias"
+      },
+      "CMoveArmyGroupInTheaterCommand": {
+        "name": "CMoveArmyGroupInTheaterCommand",
+        "role": "move",
+        "type_id": 14991,
+        "type_id_kind": "imm",
+        "factory": 26016672,
+        "vt": 44581304,
+        "size": 56,
+        "clone": 26006528,
+        "serialize": 26116032,
+        "deserialize": 26089616,
+        "isvalid": 26077344,
+        "execute": 26033040,
+        "gettypeid": 26069600,
+        "factory_idx": 5991,
+        "gate_0x60": 1168688,
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80": 1168688,
+        "gate_0x80_kind": "FALSE",
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "shared_bin": true,
+        "fields": {
+          "group_handle": 40,
+          "theater_or_dest": 48
+        },
+        "notes": "Theater army-group move; EXTRA alias"
+      }
+    },
+    "retreat_group": [
+      "COrderNewFallbackCommand",
+      "COrderReplaceFallbackCommands",
+      "CSetSelectedArmyGroupFallback",
+      "CCancelRunningAwayCommand",
+      "CWithdrawArmyHqCommand"
+    ],
+    "move_group": [
+      "CMoveCommand",
+      "CMassMoveCommand",
+      "CMoveArmiesInTheaterCommand",
+      "CMoveArmyGroupInTheaterCommand"
+    ],
+    "strategic_group": [
+      "CStrategicRedeploymentCommand",
+      "CToggleStrategicDeploymentCommand"
+    ],
+    "attack_group": [
+      "CSupportAttackCommand"
+    ],
+    "note": "RO land-army focus for user army agent. Posting DISABLED. No naval/production."
+  },
+  "hai_sample": [
+    {
+      "handle": [
+        51,
+        1037
+      ],
+      "province_id": 3938,
+      "move_recipe_keys": [
+        "unit_handle_off",
+        "unit_handle",
+        "province_arr_off",
+        "province_size_off",
+        "path_arr_off",
+        "path_size_off",
+        "note",
+        "source_province_id",
+        "posting"
+      ],
+      "strategic_recipe_keys": [
+        "army_handle_off",
+        "army_handle",
+        "province_off",
+        "province",
+        "clear_off",
+        "move_priority_off",
+        "posting",
+        "clear",
+        "move_priority"
+      ]
+    },
+    {
+      "handle": [
+        51,
+        1038
+      ],
+      "province_id": 7183,
+      "move_recipe_keys": [
+        "unit_handle_off",
+        "unit_handle",
+        "province_arr_off",
+        "province_size_off",
+        "path_arr_off",
+        "path_size_off",
+        "note",
+        "source_province_id",
+        "posting"
+      ],
+      "strategic_recipe_keys": [
+        "army_handle_off",
+        "army_handle",
+        "province_off",
+        "province",
+        "clear_off",
+        "move_priority_off",
+        "posting",
+        "clear",
+        "move_priority"
+      ]
+    },
+    {
+      "handle": [
+        51,
+        1039
+      ],
+      "province_id": 6906,
+      "move_recipe_keys": [
+        "unit_handle_off",
+        "unit_handle",
+        "province_arr_off",
+        "province_size_off",
+        "path_arr_off",
+        "path_size_off",
+        "note",
+        "source_province_id",
+        "posting"
+      ],
+      "strategic_recipe_keys": [
+        "army_handle_off",
+        "army_handle",
+        "province_off",
+        "province",
+        "clear_off",
+        "move_priority_off",
+        "posting",
+        "clear",
+        "move_priority"
+      ]
+    }
+  ],
+  "strat_act": {
+    "name": "CUnitStrategicMoveAction",
+    "vt": 44169192,
+    "type_id": 13898,
+    "size": 40,
+    "serialize": 19675808,
+    "deserialize": 19674944,
+    "fields": {
+      "army_handle": 16,
+      "province": 24,
+      "clear": 28,
+      "move_priority": 32
+    },
+    "serialize_tokens": {
+      "16": 10397,
+      "24": 10304,
+      "28": 10737,
+      "32": 14268
+    },
+    "execute": 19672096,
+    "isvalid": 19673488,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN"
+  }
+}

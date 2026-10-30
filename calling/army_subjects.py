@@ -121,6 +121,69 @@ def isvalid_path_notes() -> dict[str, Any]:
         "strategic": cmd_layout.ISVALID_PATHS["CStrategicRedeploymentCommand"],
         "cancel": cmd_layout.ISVALID_PATHS["CCancelMovementCommand"],
         "order_execute": cmd_layout.ISVALID_PATHS["COrderExecuteCommand"],
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required before any enable",
+        "support_attack": cmd_layout.ISVALID_PATHS.get("CSupportAttackCommand"),
+        "replace_fallback": cmd_layout.ISVALID_PATHS.get("COrderReplaceFallbackCommands"),
+        "army_group_fallback": cmd_layout.ISVALID_PATHS.get("CSetSelectedArmyGroupFallback"),
+        "land_army_focus": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("priority"),
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required before any enable; land focus 2bt",
     }
 
+
+
+def support_attack_recipe(army_row: dict[str, Any], target_province_id: int) -> dict[str, Any]:
+    """Fields for CSupportAttackCommand — RO docs only, no alloc/post."""
+    return {
+        "unit_or_attacker_handle_off": 0x28,
+        "unit_or_attacker_handle": list(army_row["handle"]),
+        "target_province_off": 0x30,
+        "target_province": target_province_id,
+        "serialize_tokens": {"handle": 0x28A3, "province": 0x286D},
+        "source_province_id": army_row["province_id"],
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED",
+    }
+
+
+def army_group_fallback_recipe(army_group_handle: list[int] | tuple[int, int],
+                               fallback_flag: int = 1) -> dict[str, Any]:
+    """CSetSelectedArmyGroupFallback subject fields — RO docs only."""
+    return {
+        "army_group_off": 0x28,
+        "army_group": list(army_group_handle),
+        "fallback_flag_off": 0x30,
+        "fallback_flag": fallback_flag,
+        "note": "Battle-plan army-group fallback; do NOT hand-wave WPM",
+        "posting": "DISABLED",
+    }
+
+
+def cancel_running_away_recipe(army_rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """CCancelRunningAwayCommand — units vector of army handles. RO docs only."""
+    handles = [list(r["handle"]) for r in army_rows]
+    return {
+        "units_vec_off": 0x28,
+        "unit_handles": handles,
+        "count": len(handles),
+        "note": "vector must be game-allocated; do NOT hand-wave WPM",
+        "posting": "DISABLED",
+    }
+
+
+def withdraw_army_hq_recipe(hq_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CWithdrawArmyHqCommand — RO docs only."""
+    return {
+        "hq_handle_off": 0x28,
+        "hq_handle": list(hq_handle),
+        "note": "Withdraw HQ; do NOT hand-wave WPM",
+        "posting": "DISABLED",
+    }
+
+
+def fallback_order_recipe(fallback_flag_or_id: int = 1) -> dict[str, Any]:
+    """COrderNewFallbackCommand / COrderReplaceFallbackCommands — RO docs only."""
+    return {
+        "fallback_flag_or_id_off": 0x54,
+        "fallback_flag_or_id": fallback_flag_or_id,
+        "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "posting": "DISABLED",
+    }

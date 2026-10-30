@@ -123,6 +123,17 @@ STRATEGIC = {
             "clear": 0x1C,
             "move_priority": 0x20,
         },
+        "serialize_tokens": {
+            0x10: 0x289D,  # army handle (2bt Capstone)
+            0x18: 0x2840,  # province id
+            0x1C: 0x29F1,  # clear
+            0x20: 0x37BC,  # move_priority
+        },
+        "execute": 0x12C3190,  # live vt+0x50 (2bt)
+        "isvalid": 0x12C2C20,  # live vt+0x48 (2bt)
+        "isvalid_kind": "FN",
+        "execute_kind": "FN",
+        "note": "ser tokens proven Phase 2bt; IsValid/Execute FN on action vt",
     },
 }
 
@@ -557,6 +568,21 @@ ISVALID_PATHS = {
         "rva": 0x14027c0,
         "kind": "FN",
         "notes": 'HQ handle@+0x10/+0x18/+0x28',
+    },
+    "CSupportAttackCommand": {
+        "rva": 0x1402270,
+        "kind": "FN",
+        "notes": "handle@+0x28 via 0x57f7b0; province@+0x30; gates FALSE",
+    },
+    "COrderReplaceFallbackCommands": {
+        "rva": 0x18DF4B0,
+        "kind": "FN",
+        "notes": "Fallback field@+0x54 (shared IsValid w/ NewFallback)",
+    },
+    "CSetSelectedArmyGroupFallback": {
+        "rva": 0x18E0730,
+        "kind": "FN",
+        "notes": "Army-group@+0x28 + fallback_flag@+0x30",
     },
 }
 
@@ -1428,6 +1454,212 @@ DUMMY_ROUNDTRIP = {
 }
 
 
+
+# Phase 2bt — land army agent focus (attack / retreat / move / strategic redeploy)
+# RO only. Posting DISABLED. Prioritized over naval/production sprawl.
+SUPPORT_ATTACK = {
+    "name": "CSupportAttackCommand",
+    "role": "attack",
+    "type_id": 0x314C,
+    "vt": 0x2A2CB28,
+    "size": 0x38,
+    "factory": 0x13FB5E0,
+    "factory_idx": 0xE24,
+    "clone": 0x13F9CC0,
+    "serialize": 0x1404AF0,
+    "deserialize": 0x1403DE0,
+    "isvalid": 0x1402270,
+    "execute": 0x13FDD00,
+    "gettypeid": 0x13FE430,
+    "gate_0x60": False,
+    "gate_0x80": False,
+    "gate_0x60_kind": "FALSE",
+    "gate_0x80_kind": "FALSE",
+    "shared_bin": True,
+    "fields": {
+        "unit_or_attacker_handle": 0x28,
+        "target_province": 0x30,
+    },
+    "serialize_tokens": {
+        0x28: 0x28A3,  # handle
+        0x30: 0x286D,  # province
+    },
+    "isvalid_notes": "validate handle@+0x28 via 0x57f7b0; gates 60/80 FALSE",
+    "subject_recipe": "army_subjects.support_attack_recipe",
+}
+
+LAND_ARMY_FOCUS = {
+    "phase": "2bt",
+    "priority": ["move", "strategic_redeploy", "attack_support", "retreat_fallback"],
+    "posting": "DISABLED",
+    "core": {
+        "move": {
+            "command": "CMoveCommand",
+            "layout_ref": "MOVE",
+            "subject_recipe": "army_subjects.move_action_recipe",
+            "notes": "Primary land move; CUnitMoveAction@+0x28; IsValid thunks to action",
+        },
+        "strategic_redeploy": {
+            "command": "CStrategicRedeploymentCommand",
+            "layout_ref": "STRATEGIC",
+            "subject_recipe": "army_subjects.strategic_redeploy_recipe",
+            "notes": "CUnitStrategicMoveAction@+0x28; ser tokens proven 2bt",
+        },
+        "cancel_movement": {
+            "command": "CCancelMovementCommand",
+            "layout_ref": "CANCEL",
+            "subject_recipe": "army_subjects.cancel_movement_recipe",
+            "notes": "Cancel ongoing move path; units vector@+0x28",
+        },
+        "attack_support": {
+            "command": "CSupportAttackCommand",
+            "layout_ref": "SUPPORT_ATTACK",
+            "subject_recipe": "army_subjects.support_attack_recipe",
+            "notes": SUPPORT_ATTACK["isvalid_notes"],
+        },
+    },
+    "commands": {
+        "CSupportAttackCommand": SUPPORT_ATTACK,
+        "COrderNewFallbackCommand": {
+            "name": "COrderNewFallbackCommand",
+            "role": "retreat",
+            "type_id": 0x33D7,
+            "vt": 0x2A84C80,
+            "size": 0x60,
+            "factory": 0x18D02C0,
+            "factory_idx": 0x10AF,
+            "clone": 0x18CDFF0,
+            "serialize": 0x18E8A60,
+            "deserialize": 0x18E2500,
+            "isvalid": 0x18DF4B0,
+            "execute": 0x18D8FC0,
+            "gettypeid": 0x18DCB60,
+            "gate_0x60_kind": "FALSE",
+            "gate_0x80_kind": "FALSE",
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {"fallback_flag_or_id": 0x54},
+            "notes": "Battle-plan fallback; IsValid checks@+0x54; ORDERS alias",
+            "layout_alias": "ORDERS",
+        },
+        "COrderReplaceFallbackCommands": {
+            "name": "COrderReplaceFallbackCommands",
+            "role": "retreat",
+            "type_id": 0x350C,
+            "vt": 0x2A84D38,
+            "size": 0x60,
+            "factory": 0x18D05A0,
+            "factory_idx": 0x11E4,
+            "clone": 0x18CE4B0,
+            "serialize": 0x18E8A60,
+            "deserialize": 0x18E2500,
+            "isvalid": 0x18DF4B0,
+            "execute": 0x18DA3B0,
+            "gettypeid": 0x18DCBC0,
+            "gate_0x60_kind": "FALSE",
+            "gate_0x80_kind": "FALSE",
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {"fallback_flag_or_id": 0x54},
+            "notes": "Replace fallback set; IsValid@+0x54",
+        },
+        "CSetSelectedArmyGroupFallback": {
+            "name": "CSetSelectedArmyGroupFallback",
+            "role": "retreat",
+            "type_id": 0x3A8B,
+            "vt": 0x2A86158,
+            "size": 0x38,
+            "factory": 0x18D0FC0,
+            "factory_idx": 0x1763,
+            "clone": 0x18CF500,
+            "serialize": 0x18E9640,
+            "deserialize": 0x18E36C0,
+            "isvalid": 0x18E0730,
+            "execute": 0x18DBAE0,
+            "gettypeid": 0x18DCD40,
+            "gate_0x60_kind": "FALSE",
+            "gate_0x80_kind": "FALSE",
+            "isvalid_kind": "FN",
+            "execute_kind": "FN",
+            "shared_bin": True,
+            "fields": {"army_group": 0x28, "fallback_flag": 0x30},
+            "notes": "Selected army-group fallback; subject@+0x28",
+            "subject_recipe": "army_subjects.army_group_fallback_recipe",
+        },
+        "CCancelRunningAwayCommand": {
+            "name": "CCancelRunningAwayCommand",
+            "role": "retreat",
+            "layout_alias": "EXTRA_ARMY_COMMANDS",
+            "type_id": 0x3BB4,
+            "vt": 0x2A2D538,
+            "size": 0x30,
+            "factory": 0x13FAD40,
+            "notes": "Cancel flee/run-away; EXTRA alias",
+            "subject_recipe": "army_subjects.cancel_running_away_recipe",
+        },
+        "CWithdrawArmyHqCommand": {
+            "name": "CWithdrawArmyHqCommand",
+            "role": "retreat",
+            "layout_alias": "REMAINING_ARMY_ORDERS",
+            "type_id": 0x2833,
+            "vt": 0x2A2CF78,
+            "size": 0x30,
+            "factory": 0x13FB710,
+            "notes": "Withdraw army HQ; REMAINING alias",
+            "subject_recipe": "army_subjects.withdraw_army_hq_recipe",
+        },
+        "CMassMoveCommand": {
+            "name": "CMassMoveCommand",
+            "role": "move",
+            "layout_alias": "REMAINING_ARMY_ORDERS",
+            "type_id": 0x341F,
+            "notes": "Mass move; REMAINING alias",
+        },
+        "CToggleStrategicDeploymentCommand": {
+            "name": "CToggleStrategicDeploymentCommand",
+            "role": "strategic",
+            "layout_alias": "REMAINING_ARMY_ORDERS",
+            "type_id": 0x3CE0,
+            "notes": "Toggle strategic deployment mode; REMAINING alias",
+        },
+        "CMoveArmiesInTheaterCommand": {
+            "name": "CMoveArmiesInTheaterCommand",
+            "role": "move",
+            "layout_alias": "EXTRA_ARMY_COMMANDS",
+            "type_id": 0x3A8E,
+            "notes": "Theater multi-army move; EXTRA alias",
+        },
+        "CMoveArmyGroupInTheaterCommand": {
+            "name": "CMoveArmyGroupInTheaterCommand",
+            "role": "move",
+            "layout_alias": "EXTRA_ARMY_COMMANDS",
+            "type_id": 0x3A8F,
+            "notes": "Theater army-group move; EXTRA alias",
+        },
+    },
+    "retreat_group": [
+        "COrderNewFallbackCommand",
+        "COrderReplaceFallbackCommands",
+        "CSetSelectedArmyGroupFallback",
+        "CCancelRunningAwayCommand",
+        "CWithdrawArmyHqCommand",
+    ],
+    "move_group": [
+        "CMoveCommand",
+        "CMassMoveCommand",
+        "CMoveArmiesInTheaterCommand",
+        "CMoveArmyGroupInTheaterCommand",
+    ],
+    "strategic_group": [
+        "CStrategicRedeploymentCommand",
+        "CToggleStrategicDeploymentCommand",
+    ],
+    "attack_group": ["CSupportAttackCommand"],
+    "note": "RO land-army focus for user army agent. Posting DISABLED. No naval/production.",
+}
+
 def summarize() -> dict:
     return {
         "posting": "DISABLED",
@@ -1468,4 +1700,15 @@ def summarize() -> dict:
             for k, v in ORDERS.items()
         },
         "army_move_subjects": ARMY_MOVE_SUBJECTS,
+        "support_attack": SUPPORT_ATTACK,
+        "land_army_focus": {
+            "phase": LAND_ARMY_FOCUS["phase"],
+            "priority": LAND_ARMY_FOCUS["priority"],
+            "posting": LAND_ARMY_FOCUS["posting"],
+            "attack_group": LAND_ARMY_FOCUS["attack_group"],
+            "retreat_group": LAND_ARMY_FOCUS["retreat_group"],
+            "move_group": LAND_ARMY_FOCUS["move_group"],
+            "strategic_group": LAND_ARMY_FOCUS["strategic_group"],
+            "commands": list(LAND_ARMY_FOCUS["commands"].keys()),
+        },
     }
