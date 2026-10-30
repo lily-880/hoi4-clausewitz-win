@@ -887,6 +887,23 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2ae_typeids.py [--live]`
 
+## Phase 2af — CUnitMoveAction serialize + Dummy Post ring feed (writes DISABLED)
+
+`CMoveCommand` (`vt 0x2a2c790`, size `0x88`, factory `0x13fb000`) embeds `CUnitMoveAction` at `+0x28` (ctor `0x12c1770`, **vt `0x2a1f648`**).
+
+| Slot | RVA | Role |
+|------|-----|------|
+| Move `vt+0xa0` | `0x1404590` | thunk → `[this+0x28].vt+0xc0` |
+| Action `vt+0xc0` | `0x12c3920` | payload serialize (tag `0x28a3` handle `+0x10`; tag `0x2840` vec `+0x18`) |
+| Action `vt+0x48` | `0x12c2670` | Execute |
+| Action `vt+0x50` | `0x12c2ca0` | IsValid |
+
+DummyServer `Post 0x23f5cd0` → helper `0x22d8ad0` (typeid factory table `0x22d8d20`) recreates cmd from bitstream → push into listener ring `server+0xa0` → destroy original. **Can feed Execute** if serialize ok (corrects pure-destroy reading).
+
+Posting **DISABLED**. pause/1x only (live: tick stuck, drain idler — `-start_speed=0`).
+
+Tool: `scripts/phase2af_move_payload.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
