@@ -331,3 +331,17 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 
 ### Posting
 **DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.
+
+## Phase 2bw (overnight RO — remaining land EXE/IsValid + Icon/delete/merge)
+
+### Works
+- **LAND_EXE_PROOFS** **54/54** (was 37): filled OrderDelete/Unassign/Name proofs + IconAndColor / LeaderProximity / OrdersInstanceNames + AutoMerge / DeleteOrderGroup / OrderDeleteAll / ArmyGroup / DeployArmyHq / SetArmyLeader / SetArmyTemplate / RailwayGunManual / Garrison+Reinforcement priority / QuickDeploy.
+- **LAND_ARMY_FOCUS** **54/54**: cores Move/Strategic/Cancel promoted into `commands`; order_group_group **20**; retreat6 / move6 / strategic2 / attack2 / theater9.
+- **ISVALID_PATHS** **67**. Recipes: delete_order_group / order_delete(_all) / auto_merge / icon / set_army_leader / set_army_template / railway_gun / deploy_hq. HAI×3.
+- Live: allow_post False; tick=1; watcher **29656**; tool-gate **CLOSED_NOT_OPENED**; no input.
+
+### Stubbed
+- midflight_CMoveCommand; in-process ring embed; command_queue_tool_gate enable; ALLOW_POST.
+
+### Posting
+**DISABLED.** pause/1x only; never 5x. No guess writes / HourlyTick / speed.

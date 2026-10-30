@@ -130,7 +130,7 @@ def isvalid_path_notes() -> dict[str, Any]:
         "theater": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("theater_group"),
         "land_exe_proofs": list(getattr(cmd_layout, "LAND_EXE_PROOFS", {}).get("commands", {})),
         "order_group": getattr(cmd_layout, "LAND_ARMY_FOCUS", {}).get("order_group_group"),
-        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bv",
+        "note": "IsValid wrap 0x22d8ea0; midflight Move still required; land focus 2bw",
     }
 
 
@@ -337,5 +337,107 @@ def collapse_conveyor_recipe(subject_handle: list[int] | tuple[int, int]) -> dic
     return {
         "subject_handle_off": 0x28,
         "subject_handle": list(subject_handle),
+        "posting": "DISABLED",
+    }
+
+
+def delete_order_group_recipe(order_group_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
+    """CDeleteOrderGroupCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "posting": "DISABLED",
+    }
+
+
+def order_delete_recipe(order_index: int = 0) -> dict[str, Any]:
+    """COrderDeleteCommand — RO only."""
+    return {
+        "order_index_off": 0x30,
+        "order_index": order_index,
+        "posting": "DISABLED",
+    }
+
+
+def order_delete_all_recipe(subject_handle: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
+    """COrderDeleteAllCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "posting": "DISABLED",
+    }
+
+
+def auto_merge_orders_recipe(subject_handle: list[int] | tuple[int, int] | None = None,
+                             id_b: int = 0, id_c: int = 0) -> dict[str, Any]:
+    """CAutoMergeOrdersCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle) if subject_handle else [],
+        "id_or_b_off": 0x2c,
+        "id_or_b": id_b,
+        "id_or_c_off": 0x30,
+        "id_or_c": id_c,
+        "posting": "DISABLED",
+    }
+
+
+def set_order_group_icon_recipe(order_group_handle: list[int] | tuple[int, int],
+                                icon_or_color: int = 0) -> dict[str, Any]:
+    """CSetOrderGroupIconAndColorCommand — RO only."""
+    return {
+        "order_group_off": 0x28,
+        "order_group": list(order_group_handle),
+        "icon_or_color_off": 0x30,
+        "icon_or_color": icon_or_color,
+        "posting": "DISABLED",
+    }
+
+
+def set_army_leader_recipe(leader_handle: list[int] | tuple[int, int],
+                           deploy_army_hq: int = 0) -> dict[str, Any]:
+    """CSetArmyLeaderCommand — RO only."""
+    return {
+        "leader_off": 0x28,
+        "leader": list(leader_handle),
+        "deploy_army_hq_off": 0x38,
+        "deploy_army_hq": deploy_army_hq,
+        "posting": "DISABLED",
+    }
+
+
+def set_army_template_recipe(army_handle: list[int] | tuple[int, int],
+                             template_id: int = 0) -> dict[str, Any]:
+    """CSetArmyTemplateCommand — RO only."""
+    return {
+        "army_off": 0x28,
+        "army": list(army_handle),
+        "template_off": 0x30,
+        "template": template_id,
+        "posting": "DISABLED",
+    }
+
+
+def railway_gun_manual_order_recipe(subject_handle: list[int] | tuple[int, int],
+                                    order_or_prov: int = 0) -> dict[str, Any]:
+    """CRailwayGunManualOrderCommand — RO only."""
+    return {
+        "subject_off": 0x28,
+        "subject": list(subject_handle),
+        "extra_30_off": 0x30,
+        "order_or_prov_off": 0x40,
+        "order_or_prov": order_or_prov,
+        "posting": "DISABLED",
+    }
+
+
+def deploy_army_hq_recipe(subject_handle: list[int] | tuple[int, int],
+                          id_or_b: int = 0) -> dict[str, Any]:
+    """CDeployArmyHqCommand — RO only."""
+    return {
+        "subject_or_vec_off": 0x28,
+        "subject": list(subject_handle),
+        "id_or_b_off": 0x2c,
+        "id_or_b": id_or_b,
         "posting": "DISABLED",
     }
