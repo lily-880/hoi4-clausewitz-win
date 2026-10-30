@@ -107,3 +107,25 @@ def read_launcher_version(game=None):
             continue
     # fallback: checksum file / steam_appid presence only
     return None
+
+
+# --- write / post gates (default OFF; posting DISABLED until checklist closed) ---
+import os as _os
+
+def allow_write() -> bool:
+    return _os.environ.get('CLAUSEWITZ_ALLOW_WRITE', '').strip() in ('1', 'true', 'TRUE', 'yes')
+
+
+def allow_post() -> bool:
+    """Separate from allow_write. Must stay false until safe_enable_checklist closed."""
+    if _os.environ.get('CLAUSEWITZ_ALLOW_POST', '').strip() not in ('1', 'true', 'TRUE', 'yes'):
+        return False
+    # Hard deny until an explicit future checklist file says closed — never auto-enable.
+    return False
+
+
+def assert_post_allowed() -> None:
+    if not allow_post():
+        raise RuntimeError(
+            'Command posting DISABLED (CLAUSEWITZ_ALLOW_POST gate + checklist). Read-only only.'
+        )

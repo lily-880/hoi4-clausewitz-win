@@ -1235,3 +1235,18 @@ Posting **DISABLED**.
 | CA_PROVINCE | `CArmy+0x1F0` | `CProvince*` |
 | CP_PROVINCE_ID | `CProvince+0xA4` | **hypothesis_strong** (unique ids 740..13071 on sample) |
 | FN_HANDLE_RESOLVE | — | prior `0x6e4800` **UNVERIFIED**; not promoted |
+
+## Phase 2at — DummyServer ring embed + resolve candidates (RO)
+
+Posting **DISABLED**. `CLAUSEWITZ_ALLOW_POST` stub always denies.
+
+| Symbol | Value | Notes |
+|--------|-------|-------|
+| Ring embed | `DummyServer+0xA0` | Sink `add rbx, 0xa0` then spinlock |
+| RING_BUCKETS | embed+`0x10` | |
+| RING_CAPACITY | embed+`0x18` | may be packed/tagged |
+| RING_CURSOR | embed+`0x20` | |
+| RING_SEQ | embed+`0x28` | `inc` after store |
+| HYP_ORDER_CHECK | `0x748390` | permission — **not** resolve |
+| HYP_GS_UNIT_THUNK | `0xC5A9E0` | GS virtual id lookup — candidate |
+| FN_HANDLE_RESOLVE | null | `0x6e4800` rejected (epilogue) |

@@ -91,3 +91,10 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - Live HAI: 17 `CArmy` handles type `0x33`, indices 1037..1053 sequential; country tag @`+0x1e0` = player 15.
 - `CProvince+0xa4` province-id hypothesis (15 unique / 17 armies).
 - `FN_HANDLE_RESOLVE` left unverified. **Posting DISABLED**.
+
+## Phase 2at (ring embed / resolve)
+
+- Confirmed `CDummyServer` sink embeds ring at `+0xa0` (`add rbx,0xa0`).
+- `CLAUSEWITZ_ALLOW_POST` tooling gate stubbed (always False).
+- Handle resolve still open; `0x6e4800` rejected; `0xc5a9e0` is GS thunk candidate.
+- **Posting DISABLED**.
