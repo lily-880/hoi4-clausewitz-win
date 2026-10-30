@@ -115,6 +115,17 @@ PROVEN_STATIC = {
     "CSession_EXECUTING_FLAG": 0x6CC,  # set around Execute; Post-during-exec DROPS
     "CSession_EXEC_COUNTER": 0x6C8,
     "CSession_DRAIN_COUNTER": 0x60,
+    # Phase 2t — move command / session staging / post-exec list
+    "CMoveCommand_VT": 0x2A2C790,
+    "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
+    "CUnitMoveAction_VT": 0x2A1F648,
+    "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body
+    "CUnitMoveAction_ISVALID": 0x12C2CA0,
+    "CSession_STAGE_ARRAY": 0x48,
+    "CSession_STAGE_COUNT": 0x54,
+    "CSession_POSTEXEC_HEAD": 0xF8,
+    "CSession_POSTEXEC_TAIL": 0x100,
+    "CSession_POSTEXEC_COUNT": 0x108,
     "RTTI_CGameState_name": 0x31E75A0,
     "RTTI_CCurrentGameState_name": 0x31E78B8,
     "RTTI_CCommand_name": 0x31E74B8,

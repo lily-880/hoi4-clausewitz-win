@@ -623,6 +623,38 @@ No Post calls / no enqueue writes. pause or 1x only (never 5x).
 
 Tools: `scripts/phase2s_execlist_fill.py [--live]`, `scripts/phase2s_network.py` (army catalog dump).
 
+## Phase 2t — CMoveCommand→CUnitMoveAction; session post-exec list (writes DISABLED)
+
+### CMoveCommand (army move)
+
+| Item | Value |
+|------|-------|
+| vt | `0x2a2c790` |
+| size | `0x58` (factory `0x13fb060`) |
+| IsValid vt+`0x48` | thunk `0x14002f0` → **`CUnitMoveAction.vt+0x50`** `0x12c2ca0` |
+| Execute vt+`0x50` | thunk `0x13fc990` → **`CUnitMoveAction.vt+0x48`** `0x12c2670` |
+| embedded @`+0x28` | `.?AVCUnitMoveAction@@` vt `0x2a1f648`; sub-ctor `0x12c1770`; type-id `+8=0x3648` |
+
+Ctor LEA-vt sites: `0x13f6bef`, `0x13f939c`, `0x13fb039`.
+
+### Session staging (from drain-pending)
+
+| Off | Role |
+|-----|------|
+| `+0x48` | `CCommand*` array |
+| `+0x50` | capacity |
+| `+0x54` | count |
+
+### Session post-Execute list (NOT server+`0x40`)
+
+After Execute, if `cmd.vt+0x60` and flags allow: clone via `cmd.vt+0x68`, link **`session+0xf8`/`+0x100`/`+0x108`** (0x20 nodes). Server `+0x40` filler remains **UNPINNED**.
+
+### Still DISABLED
+
+Posting off. pause/1x only.
+
+Tool: `scripts/phase2t_move_staging.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
@@ -643,5 +675,6 @@ python scripts/phase2j_cmd_execute_graph.py [--live]  # CCommand Execute/soft-ca
 python scripts/phase2h_light_post_army.py  # RO Post hunt + army markers; no heap
 python scripts/phase2r_execute_tick.py [--live]  # Execute tick pin; no writes
 python scripts/phase2s_execlist_fill.py [--live]  # drain vs +0x40; army Execute catalog
+python scripts/phase2t_move_staging.py [--live]  # CMoveCommand/CUnitMoveAction; post-exec list
 python scripts/launch_into_map.py   # paused HAI map; avoid --hands-off
 ```
