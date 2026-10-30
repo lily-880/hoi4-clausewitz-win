@@ -172,6 +172,8 @@ PROVEN_STATIC = {
     "CCommand_VT_PAYLOAD_READ_0xA8": 0xA8,
     "CMoveCommand_VT_0xA8_THUNK": 0x1403570,
     "CUnitMoveAction_DESERIALIZE": 0x12C3340,  # vt+0xb8
+    "CUnitMoveAction_APPLY": 0x12AF450,  # Execute body calls with path vec
+    "FN_HANDLE_RESOLVE": 0x6E4800,
     "CCancelMovementCommand_SERIALIZE": 0x1404130,
     "CChatCommand_SERIALIZE": 0x13D7FA0,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48

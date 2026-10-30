@@ -976,6 +976,24 @@ Posting **DISABLED**. pause/1x only.
 
 Tool: `scripts/phase2aj_stage_bridge.py [--live]`
 
+## Phase 2ak — CUnitMoveAction field semantics (writes DISABLED)
+
+| Off | Role |
+|-----|------|
+| `+0x08` | type token `0x3648` |
+| `+0x10` | **CHandle** (2×dword); `FN_HANDLE_RESOLVE 0x6e4800` → subject object* |
+| `+0x18` / cnt `+0x24` | vector (IsValid); serialize tag `0x2840` |
+| `+0x30` / cnt `+0x3c` | **path/id dword vector** tag `0x174`; Execute → `0x12af450` |
+| `+0x50` | byte flag into apply |
+| `+0x58` | mode dword (ctor default **1**) |
+| `+0x5c` | if set, last path dword → `subject+0x2b4` |
+
+Execute `0x12c2670`: resolve `+0x10`, then `apply(subject, &+0x30, flag+0x50, mode+0x58)`.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ak_action_semantics.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
