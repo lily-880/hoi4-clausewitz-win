@@ -159,6 +159,15 @@ PROVEN_STATIC = {
     "FN_RING_RECREATE": 0x22D8AD0,
     "CCommand_VT_CLONE_0x68": 0x68,
     "SESSION_STATE2_EXECUTE_SITE": 0x22C6C9D,
+    "CMoveCommand_TYPEID": 0x28A2,
+    "CCancelMovementCommand_TYPEID": 0x28AF,
+    "CChatCommand_TYPEID": 0x184,
+    "CStartGameCommand_TYPEID": 0x359E,
+    "CCommand_VT_WRITE_0x10": 0x10,
+    "CCommand_VT_READ_0x20": 0x20,
+    "CCommand_WRITE_SHARED": 0x22D9390,
+    "CCommand_READ_SHARED": 0x22D90F0,
+    "CCommand_VT_PAYLOAD_WRITE_0xA0": 0xA0,
     "CMoveCommand_EXECUTE": 0x13FC990,  # thunk -> CUnitMoveAction.vt+0x48
     "CUnitMoveAction_VT": 0x2A1F648,
     "CUnitMoveAction_EXECUTE": 0x12C2670,  # real move body

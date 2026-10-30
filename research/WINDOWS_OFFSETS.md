@@ -870,6 +870,23 @@ Safe-enable still **NOT** proven: hand-built objects must survive serialize/recr
 
 Tool: `scripts/phase2ad_sp_pipeline.py [--live]`
 
+## Phase 2ae — Command type ids + shared serialize slots (writes DISABLED)
+
+| Command | `vt+0x58` type id |
+|---------|-------------------|
+| CMoveCommand | `0x28a2` |
+| CCancelMovementCommand | `0x28af` |
+| CChatCommand | `0x184` |
+| CStartGameCommand | `0x359e` |
+
+Shared header serialize: `vt+0x10` write `0x22d9390` / `vt+0x20` read `0x22d90f0` (tags `0x1f3` header, `0x41` payload). Write then calls `vt+0xa0` for subclass payload (Move → CUnitMoveAction fields).
+
+Mid-flight poll: ring/lists empty; `exec=13` sticky; no UI cmds observed.
+
+Posting **DISABLED**. pause/1x only.
+
+Tool: `scripts/phase2ae_typeids.py [--live]`
+
 ## Write gate
 
 Command **writes** stay off until `FN_CMD_QUEUE_POST` is independently proven.  
