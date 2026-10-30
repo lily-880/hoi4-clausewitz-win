@@ -1250,3 +1250,16 @@ Posting **DISABLED**. `CLAUSEWITZ_ALLOW_POST` stub always denies.
 | HYP_ORDER_CHECK | `0x748390` | permission — **not** resolve |
 | HYP_GS_UNIT_THUNK | `0xC5A9E0` | GS virtual id lookup — candidate |
 | FN_HANDLE_RESOLVE | null | `0x6e4800` rejected (epilogue) |
+
+## Phase 2au — Province resolve PROVEN (RO)
+
+Posting **DISABLED**.
+
+| Symbol | Value | Notes |
+|--------|-------|-------|
+| FN_PROVINCE_RESOLVE | `0x1E07F0` | `array[id]`; bounds `[1, size)` |
+| FN_PROVINCE_THUNK | `0xC5A9E0` | was mislabeled unit thunk; loads GS, MI `this+8` |
+| GS_PROVINCES_BEGIN | `GS+0x2B0` | |
+| GS_PROVINCES_SIZE | `GS+0x2BC` | live 13414 |
+| CA_PROVINCE_ID | `CArmy+0x28` | equals `CProvince+0xA4`; 17/17 |
+| CP_PROVINCE_ID | `CProvince+0xA4` | **proven** via resolve round-trip |

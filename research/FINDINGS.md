@@ -98,3 +98,9 @@ pause/1x only; never 5x; FN_CMD_QUEUE_POST known `0x22c41e0` but writes gated.
 - `CLAUSEWITZ_ALLOW_POST` tooling gate stubbed (always False).
 - Handle resolve still open; `0x6e4800` rejected; `0xc5a9e0` is GS thunk candidate.
 - **Posting DISABLED**.
+
+## Phase 2au (province resolve)
+
+- `0xc5a9e0` → `0x1e07f0` is **province** resolve (GS+`0x2b0` / size `0x2bc`), not unit.
+- `CArmy+0x28` province id; `CProvince+0xa4` proven 17/17 on HAI.
+- Unit/army `FN_HANDLE_RESOLVE` still open. **Posting DISABLED**.
