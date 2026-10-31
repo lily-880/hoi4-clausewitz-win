@@ -1,0 +1,118 @@
+{
+  "phase": "2gf",
+  "allow_post": false,
+  "live_start": {
+    "pid": 14248,
+    "hours": 39,
+    "ui_date": "1936-01-02 15:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH@1x Assign/Unassign edge deepen (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1",
+    "gs": "0x11fe2ac42a0"
+  },
+  "live_end": {
+    "pid": 14248,
+    "hours": 47,
+    "ui_date": "1936-01-02 23:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH@1x Assign/Unassign edge deepen (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1",
+    "gs": "0x11fe2ac42a0"
+  },
+  "handle_type_0x35_registry": "0x11f69272410",
+  "observe": {
+    "elapsed_s": 90.02,
+    "polls": 1276,
+    "last_counters": {
+      "drain": 40070,
+      "exec": 15002,
+      "seq": 15018,
+      "stage_count": 0
+    },
+    "sight_counts": {},
+    "other_focus_counts": {},
+    "assigns": [],
+    "unassigns": [],
+    "oi_type35_ties": [],
+    "units_nonzero_cmds": 0,
+    "army_resolve_ok_sum": 0
+  },
+  "isvalid_polish": {
+    "COrderAssignCommand": {
+      "vt": "0x2a84498",
+      "type_id": "0x303e",
+      "factory_idx": 3350,
+      "isvalid": "0x18de900",
+      "execute": "0x18d41b0",
+      "serialize": "0x18e80f0",
+      "deserialize": "0x18e1a70",
+      "fields": {
+        "units_data": 40,
+        "units_capacity": 48,
+        "units_count": 52,
+        "units_alloc": 56,
+        "order_index": 72,
+        "assign_to_minimum_order": 76
+      },
+      "fields_note": "2fn/2fo: units=CPdxArray@+0x28 (size@+0x34); elem={u32 type,u32 index}@data stride8; order_index@+0x48; posting DISABLED"
+    },
+    "COrderUnassignCommand": {
+      "vt": "0x2a84550",
+      "type_id": "0x304d",
+      "factory_idx": 3365,
+      "isvalid": "0x18e01d0",
+      "execute": "0x18db050",
+      "serialize": "0x18e91b0",
+      "deserialize": "0x18e2ee0",
+      "fields": {
+        "units_data": 40,
+        "units_capacity": 48,
+        "units_count": 52,
+        "units_alloc": 56,
+        "unassign_group": 72,
+        "unassign_army_group_instances": 73
+      },
+      "fields_note": "2fn/2fo: units=CPdxArray@+0x28 (size@+0x34); elem={u32 type,u32 index}@data stride8; unassign_group@+0x48; posting DISABLED"
+    },
+    "COrderExecuteCommand": {
+      "vt": "0x2a85468",
+      "type_id": "0x3040",
+      "factory_idx": 3352,
+      "isvalid": "0x18def40",
+      "execute": "0x18d6430",
+      "serialize": "0x18e87c0",
+      "deserialize": "0x18e2100",
+      "fields": {
+        "order_index": 48,
+        "execute_order": 52,
+        "all": 53
+      },
+      "fields_note": null
+    },
+    "COrderNewFallbackCommand": {
+      "vt": "0x2a84c80",
+      "type_id": "0x33d7",
+      "factory_idx": 4271,
+      "isvalid": "0x18df4b0",
+      "execute": "0x18d8fc0",
+      "serialize": "0x18e8a60",
+      "deserialize": "0x18e2500",
+      "fields": {
+        "subject_handle": 40,
+        "units_data": 48,
+        "units_capacity": 56,
+        "units_count": 60,
+        "units_alloc": 64,
+        "provinces_data": 72,
+        "provinces_capacity": 80,
+        "provinces_size": 84,
+        "provinces_alloc": 88
+      },
+      "fields_note": "2fm: CPdxArray packing (2de layout); +0x54=provinces.size not AG fallback_flag; subject_handle=order-domain via gate 0xbbb1e0; posting DISABLED",
+      "isvalid_calls_from_ISVALID_PATHS": [
+        "0xbbb1e0"
+      ]
+    },
+    "delta_note": "no Capstone; documented Assign isvalid=0x18de900 execute=0x18d41b0 factory_idx=3350; Unassign isvalid=0x18e01d0 execute=0x18db050 factory_idx=3365; packing already 2fn/2fo (units CPdxArray@+0x28 size@+0x34 stride8 {type,index})"
+  }
+}
