@@ -1,0 +1,34 @@
+{
+  "phase": "2fj",
+  "result": "PATH_EMPTY_LEAF_SIGHT_EMPTY",
+  "scenario": "ETH war-dense relaunch @1x AI-on bounded path/leaf (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 28492,
+  "ui_date": "1936-01-01 08:00",
+  "hours": 8,
+  "path_nonempty": 0,
+  "path_polls": 37,
+  "path_elapsed_s": 75.25,
+  "leaf_focus_seen": [],
+  "map_wait_s": 46.9,
+  "works": [
+    "relaunch ETH -start_tag=ETH -start_speed=1 --allow-ai (no -noai)",
+    "map_wait ok=True elapsed=46.9s carmy=17",
+    "bounded path poll 75.25s nonempty=0",
+    "allow_post stays False; recipe not executed; never 5x",
+    "fallback leaf sight 30.0s focus=[]"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty (this war-dense window)"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling even on fresh ETH war-start window \u2014 next cheapest: ITA@1x war-dense relaunch OR catalog NewFallback subject beyond +0x54; still NO ALLOW_POST",
+  "parent_sha_base": "7920ce9"
+}

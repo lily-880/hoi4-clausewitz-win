@@ -1,0 +1,135 @@
+{
+  "phase": "2fj",
+  "ts": "2026-10-31T04:19:13.619889+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "result": "PATH_EMPTY_LEAF_SIGHT_EMPTY",
+  "relaunch": {
+    "cmd": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\scripts\\launch_into_map.py",
+      "--start-tag",
+      "ETH",
+      "--speed",
+      "1",
+      "--allow-ai"
+    ],
+    "rc": 0,
+    "stdout": "Launching: D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe -gdpr-compliant -start_tag=ETH -start_speed=1\nStarted. Wait for map, then: python clausewitz_win.py status\nExpect G_IDLER -> CInGameIdler. Posting stays DISABLED. Prefer paused (speed 0).\n",
+    "stderr": ""
+  },
+  "map_wait": {
+    "ok": true,
+    "elapsed_s": 46.9,
+    "pid": 28492,
+    "hours": 0,
+    "ui_date": "1936-01-01 00:00",
+    "carmy": 17
+  },
+  "live": {
+    "pid": 28492,
+    "hours": 8,
+    "ui_date": "1936-01-01 08:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH war-dense relaunch @1x AI-on bounded path/leaf (no Post)",
+    "country_tag_filter": 15,
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1"
+  },
+  "path_poll": {
+    "window_s": 75.0,
+    "interval_s": 2.0,
+    "polls": 37,
+    "elapsed_s": 75.25,
+    "first_hit_at_s": null,
+    "best_nonempty_count": 0,
+    "best_hits": [],
+    "timeline_tail": [
+      {
+        "poll": 30,
+        "t": 59.01,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 31,
+        "t": 61.03,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 32,
+        "t": 63.06,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 33,
+        "t": 65.1,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 34,
+        "t": 67.14,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 35,
+        "t": 69.17,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 36,
+        "t": 71.19,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 37,
+        "t": 73.22,
+        "nonempty": 0,
+        "carmy": 17
+      }
+    ],
+    "note": "BOUNDED; stop early on useful hit or window end. No invent."
+  },
+  "leaf_sight": {
+    "window_s": 30.0,
+    "interval_s": 0.05,
+    "polls": 594,
+    "sight_counts": {
+      "CHourlyTickCommand": 19
+    },
+    "focus_samples": [],
+    "focus_names_seen": [],
+    "note": "BOUNDED leaf sight after empty paths. No Post."
+  },
+  "works": [
+    "relaunch ETH -start_tag=ETH -start_speed=1 --allow-ai (no -noai)",
+    "map_wait ok=True elapsed=46.9s carmy=17",
+    "bounded path poll 75.25s nonempty=0",
+    "allow_post stays False; recipe not executed; never 5x",
+    "fallback leaf sight 30.0s focus=[]"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty (this war-dense window)"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling even on fresh ETH war-start window \u2014 next cheapest: ITA@1x war-dense relaunch OR catalog NewFallback subject beyond +0x54; still NO ALLOW_POST",
+  "parent_sha_base": "7920ce9",
+  "haiti_return": {
+    "recipe": "python scripts/launch_into_map.py --speed 1 --allow-ai",
+    "equiv_cli": "-gdpr-compliant -start_tag=HAI -start_speed=1",
+    "paused_cool": "python scripts/launch_into_map.py  # HAI speed 0 -noai"
+  }
+}
