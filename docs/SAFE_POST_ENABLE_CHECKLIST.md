@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2iq — checklist polish (CLOSED)
+## Phase 2gj … 2ir — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -307,6 +307,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2io | CONTINUOUS PATH200×live-Inst70-tri denser → OG50+481 hub | **PATH200_INST70_TRI_DENSE_HIT** (Post still CLOSED) |
 | 2ip | CONTINUOUS PATH200 path-only-outside-Inst70 → OG50+481 hub | **PATH200_PATHONLY_OUTSIDE70_HIT** (Post still CLOSED) |
 | 2iq | CONTINUOUS PATH200 mixed-Inst70+outside-companion → OG50+481 hub | **PATH200_MIXED70_COMPANION_HIT** (Post still CLOSED) |
+| 2ir | CONTINUOUS PATH200 dense-mixed+hiband-pathonly → OG50+481 hub | **PATH200_DENSE_MIXED_PATHONLY_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -324,5 +325,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2iq — PATH200 mixed70_comp dense. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2ir — PATH200 dense mixed+pathonly. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
