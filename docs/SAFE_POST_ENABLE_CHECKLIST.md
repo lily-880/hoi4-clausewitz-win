@@ -125,7 +125,7 @@ Until every box is checked, **Post remains disabled.**
 | Step | Original | 2fc state |
 | --- | --- | --- |
 | 1 midflight leaf | CMove (+ embed) | **Strategic leaf CAPTURED (2fa)** + layout MATCH (2fb); ordinary CMove still STUBBED |
-| 2 recreate/ring embed | Move or equivalent | **DESIGN drafted (2fb recipe)** — execution STUBBED; needs Dummy recreate proof |
+| 2 recreate/ring embed | Move or equivalent | Offline Strategic **bit_identical PASS (2fd)**; recipe **v2 DESIGN (2gk)** + StartGame sticky RT (2bq) — **execution STUBBED** |
 | 3 human ALLOW_POST env | required | **HARD_DENY** — unset / ignored |
 | 4 tool-gate | CLOSED | **CLOSED_NOT_OPENED** |
 | 5 one land Post | forbidden | **FORBIDDEN** |
@@ -140,12 +140,12 @@ Until every box is checked, **Post remains disabled.**
 
 ### Still blocking any Post (Strategic path)
 
-1. Dummy ring recreate proof on Strategic sample — STUBBED  
+1. In-process Dummy ring_embed push on Strategic sample — STUBBED (offline PASS 2fd; design v2 2gk)  
 2. Human `CLAUSEWITZ_ALLOW_POST=1` — HARD_DENY  
 3. Tool-gate dedicated open — CLOSED  
 4. NEVER invent writes / helper patches / recipe execution from agents  
 
-Docs: `docs/PHASE2FC_STRATEGIC_ISVALID_SAFE.md`, `reports/phase2fc_strategic_isvalid_path.json`, `reports/phase2fb_ring_embed_recipe.json`.
+Docs: `docs/PHASE2FC_STRATEGIC_ISVALID_SAFE.md`, `reports/phase2fc_strategic_isvalid_path.json`, `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json`.
 
 *Phase 2fc — documentation only. Gate stays CLOSED.*
 
@@ -183,7 +183,7 @@ Docs: `docs/PHASE2FD_STRATEGIC_RING_RECREATE_RO.md`.
 | Offline 0x50 bit-identical rebuild | **PASS** | 2fd |
 | Live factory idx→slot MATCH | **PASS** (idx **4753**) | 2fd/2fe |
 | In-process ring embed / Post | **STUBBED — needs Post** | — |
-| Ordinary CMove live sample | STUBBED (catalog complete) | 2fe note |
+| Ordinary CMove live sample | STUBBED midflight; offline skeleton + factory **1402 MATCH (2gj)** | 2gj |
 
 ### Exact next **human-gated** step (NOT agent-auto)
 
@@ -194,8 +194,41 @@ Docs: `docs/PHASE2FD_STRATEGIC_RING_RECREATE_RO.md`.
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset env
 ```
 
-Until then: **agents must not Post, inject, patch helpers, or execute 2fb recipe.**
+Until then: **agents must not Post, inject, patch helpers, or execute 2fb/2gk recipe.**
 
 Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_idx filled.
 
 *Phase 2fe — documentation + catalog only. Gate stays CLOSED.*
+
+---
+
+## Phase 2gj / 2gk / 2gl — checklist polish (CLOSED)
+
+**Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
+
+Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas below).
+
+| Phase | Delta | State |
+| --- | --- | --- |
+| 2gj | MOVE offline `0x88` skeleton; factory_idx **1402** live MATCH; ≤45s CMove observe | **HONEST_EMPTY** midflight; skeleton **PASS** (no bit_identical) |
+| 2gk | ring_embed recipe **v2** DESIGN; StartGame sticky ↔ Strategic offline concordance; live ring VT MATCH | Steps 1–4 proof-tagged; step 5 ring push **STUBBED** |
+| 2gl | This checklist + LAND_POST polish with 2gj/2gk deltas | **Docs only** |
+
+### HARD_DENY unchanged
+
+- `allow_post()` hard-returns **False**
+- `CLAUSEWITZ_ALLOW_POST` unset / ignored
+- No Post inject / helper patch / guess writes / 5x / ask-user right-click
+- No Capstone/121/confidence re-churn
+
+### Exact next human-gated (unchanged order)
+
+```
+[ ] Midflight CMove hex OR accept Strategic-only path with human SAFE Post for ring_embed
+[ ] Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
+[ ] Dedicated tool-gate open + NEVER_POST
+[ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
+```
+
+*Phase 2gl — documentation only. Gate stays CLOSED. 2026-10-31 15:21 Asia/Shanghai*
+
