@@ -974,3 +974,14 @@ eports/phase2el_gs_datetime.json.
 
 **Next shortest blocker:** live midflight CMoveCommand (+ embed) — decode path ready to record it fully.
 
+## Phase 2es (efficient RO) — AI-without-Post skip + substitute sightline + path deepen @1x
+
+- **HEAD parent**: `be11ef7` (2eo embed decode). **ONE slice**. No Capstone/121/confidence re-churn.
+- **Live**: HOI4 pid `7892`; cmdline **no `-noai`** (AI already on); speed **1x**; UI `1936-01-03 12:00` (hours `60`).
+- **A) Brief AI enable**: **SKIPPED** further toggle — already AI-on; 45s expanded poll sighted only `CHourlyTickCommand` (no autonomous land Move/Attack/Front). Console/Post AI toggle FORBIDDEN.
+- **B) Substitute land cmds**: expanded midflight WATCH; poll polls=2186, substitutes=[], sight=`CHourlyTickCommand`: 61.
+- **C) movement_dest/path**: CArmy rows `17`; nonempty candidates `0` (do not invent).
+- **Watcher**: re-armed with expanded WATCH (pid ~36680); `allow_post` False; tool-gate CLOSED_NOT_OPENED; never 5x; never Post.
+- **Still stubbed**: live midflight `CMoveCommand` sample; ring_embed; SAFE_POST enable.
+- Reports: `reports/phase2es_ro_slice.json`, `reports/phase2es_summary.json`.
+

@@ -125,3 +125,8 @@ When a move-like cmd appears, dump_cmd now records full fields from cmd_layout:
 
 Smoke @ 1x: HourlyTick sightline still OK; Move sample still absent (expected under -noai). Instant capture JSON will carry phase_decode=2eo + full embed when Move hits.
 
+## Phase 2es note (AI / substitutes)
+
+- Current preferred launch for clock proof: `-start_tag=HAI -start_speed=1` (**no** `-noai`). AI-on alone does **not** produce peacetime Haiti land `CMoveCommand`.
+- Watcher WATCH expanded for substitute land VTs (attack/retreat/order/frontline family). Sightline may count them; Move-break still only on Move-class names.
+- Do **not** enable Post to force a move sample.

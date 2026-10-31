@@ -38,8 +38,24 @@ WATCH = {
     cmd_layout.STRATEGIC["vt"]: "CStrategicRedeploymentCommand",
     cmd_layout.STRATEGIC["action"]["vt"]: "CUnitStrategicMoveAction",
     cmd_layout.CANCEL["vt"]: "CCancelMovementCommand",
+    cmd_layout.SUPPORT_ATTACK["vt"]: "CSupportAttackCommand",
     cmd_layout.ORDERS["COrderExecuteCommand"]["vt"]: "COrderExecuteCommand",
     cmd_layout.ORDERS["COrderAssignCommand"]["vt"]: "COrderAssignCommand",
+    cmd_layout.ORDERS["COrderUnassignCommand"]["vt"]: "COrderUnassignCommand",
+    cmd_layout.ORDERS["COrderDeleteCommand"]["vt"]: "COrderDeleteCommand",
+    cmd_layout.ORDERS["COrderNewFrontCommand"]["vt"]: "COrderNewFrontCommand",
+    cmd_layout.ORDERS["COrderNewRootCommand"]["vt"]: "COrderNewRootCommand",
+    cmd_layout.ORDERS["COrderNewFallbackCommand"]["vt"]: "COrderNewFallbackCommand",
+    cmd_layout.ORDERS["COrderGroupCommand"]["vt"]: "COrderGroupCommand",
+    0x2A2C848: "CMassMoveCommand",
+    0x2A2D538: "CCancelRunningAwayCommand",
+    0x2A2CF78: "CWithdrawArmyHqCommand",
+    0x2A2CA70: "CToggleStrategicDeploymentCommand",
+    0x2A0FC40: "CMassCancelMovementCommand",
+    0x2A84100: "CMoveArmiesInTheaterCommand",
+    0x2A84A58: "COrderInsertFrontCommand",
+    0x2A84778: "COrderSetPathCommand",
+    0x2A84830: "COrderReshapeCommand",
     0x29F3710: "CHourlyTickCommand",
     cmd_layout.CHAT["vt"]: "CChatCommand",
     cmd_layout.STARTGAME["vt"]: "CStartGameCommand",
@@ -388,7 +404,7 @@ def main():
                 "sight_counts": sight_counts,
                 "sightline_ok": bool(sight_counts),
                 "ts_asia_shanghai": datetime.now().strftime("%Y-%m-%d %H:%M:%S %z"),
-                "note": "RO heartbeat; edge-burst armed. Move capture still needs real right-click.",
+                "note": "RO heartbeat; edge-burst armed. Move capture still needs live land order (peacetime Haiti AI-on alone insufficient).",
             })
         if args.sightline_every and polls % args.sightline_every == 0:
             write_json(SIGHTLINE, {
@@ -426,7 +442,7 @@ def main():
         "heartbeat": str(HEARTBEAT),
         "capture_path": str(CAPTURE),
         "sightline_path": str(SIGHTLINE),
-        "note": "Armed RO watcher (2em edge-burst+sightline). Empty Move captures expected without right-click.",
+        "note": "Armed RO watcher (2em edge-burst+sightline). Empty Move captures expected without live land order; Phase 2es expanded land VT sightline.",
     }
     write_json(OUT, out)
     write_json(SIGHTLINE, {

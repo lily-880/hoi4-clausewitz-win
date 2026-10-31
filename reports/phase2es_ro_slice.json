@@ -1,0 +1,451 @@
+{
+  "phase": "2es",
+  "works": {
+    "live_date_ro": true,
+    "clock_advancing_1x": true,
+    "expanded_land_vt_sightline": true,
+    "ai_status_documented_without_post": true,
+    "army_path_candidate_scan": true
+  },
+  "stubbed": [
+    "live_midflight_CMoveCommand_sample",
+    "ring_embed",
+    "ALLOW_POST",
+    "command_queue_tool_gate",
+    "autonomous_peacetime_Haiti_land_move"
+  ],
+  "choice_A_ai_enable": {
+    "attempted": true,
+    "already_ai_enabled_no_noai_flag": true,
+    "cmdline": "\"D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe\" -gdpr-compliant -start_tag=HAI -start_speed=1",
+    "autonomous_land_moves_observed_before_poll": false,
+    "decision": "SKIP_FURTHER_AI_ENABLE",
+    "reason": "Session already launched without -noai (AI on at engine level). Peacetime Haiti historically produces only CHourlyTick in midflight watcher; toggling AI further would need console or Post (FORBIDDEN). No ALLOW_POST / no Post inject.",
+    "safe_without_post": true,
+    "skipped_post_dependent_ai_toggle": true,
+    "autonomous_land_moves_observed_during_poll": false
+  },
+  "choice_B_substitute_poll": {
+    "watched_extra": [
+      "CCancelMovementCommand",
+      "CCancelRunningAwayCommand",
+      "CMassCancelMovementCommand",
+      "CMassMoveCommand",
+      "CMoveArmiesInTheaterCommand",
+      "CMoveCommand",
+      "COrderAssignCommand",
+      "COrderDeleteCommand",
+      "COrderExecuteCommand",
+      "COrderGroupCommand",
+      "COrderInsertFrontCommand",
+      "COrderNewFallbackCommand",
+      "COrderNewFrontCommand",
+      "COrderNewRootCommand",
+      "COrderReshapeCommand",
+      "COrderSetPathCommand",
+      "COrderUnassignCommand",
+      "CStrategicRedeploymentCommand",
+      "CSupportAttackCommand",
+      "CToggleStrategicDeploymentCommand",
+      "CUnitMoveAction",
+      "CUnitStrategicMoveAction",
+      "CWithdrawArmyHqCommand"
+    ],
+    "seconds": 45.0,
+    "interval": 0.02,
+    "polls": 2186,
+    "edge_events": 2176,
+    "sight_counts": {
+      "CHourlyTickCommand": 61
+    },
+    "substitute_names_seen": [],
+    "last_counters": {
+      "sess": "0x1b4890cb8a0",
+      "server": "0x1b521087540",
+      "drain": 52113,
+      "exec": 18165,
+      "seq": 18181,
+      "stage_count": 0,
+      "pending": "0x0",
+      "stage": "0x1b561a55160"
+    },
+    "substitute_sample_count": 0,
+    "substitute_samples": [],
+    "sight_first_non_hourly": {}
+  },
+  "choice_C_path_deepen": {
+    "carmy_rows": 17,
+    "movement_dest_nonempty_count": 0,
+    "note": "Candidates only; empty means do NOT invent destinations.",
+    "armies_preview": [
+      {
+        "index": 1037,
+        "handle": [
+          51,
+          1037
+        ],
+        "province_id": 3931,
+        "province_id_ok": true,
+        "army": "0x1b545f30970",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      },
+      {
+        "index": 1038,
+        "handle": [
+          51,
+          1038
+        ],
+        "province_id": 11838,
+        "province_id_ok": true,
+        "army": "0x1b545f302e0",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      },
+      {
+        "index": 1039,
+        "handle": [
+          51,
+          1039
+        ],
+        "province_id": 3898,
+        "province_id_ok": true,
+        "army": "0x1b545f31690",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      },
+      {
+        "index": 1040,
+        "handle": [
+          51,
+          1040
+        ],
+        "province_id": 12857,
+        "province_id_ok": true,
+        "army": "0x1b545f323b0",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      },
+      {
+        "index": 1041,
+        "handle": [
+          51,
+          1041
+        ],
+        "province_id": 1903,
+        "province_id_ok": true,
+        "army": "0x1b545f32a40",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      },
+      {
+        "index": 1042,
+        "handle": [
+          51,
+          1042
+        ],
+        "province_id": 6906,
+        "province_id_ok": true,
+        "army": "0x1b545f330d0",
+        "vt_rva": "0x29d6d68",
+        "vector_cands": [],
+        "actionish_cands": [],
+        "movement_dest_status": "empty_or_absent"
+      }
+    ],
+    "all_armies_path_file_hint": "full list embedded below under armies_full"
+  },
+  "armies_full": [
+    {
+      "index": 1037,
+      "handle": [
+        51,
+        1037
+      ],
+      "province_id": 3931,
+      "province_id_ok": true,
+      "army": "0x1b545f30970",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1038,
+      "handle": [
+        51,
+        1038
+      ],
+      "province_id": 11838,
+      "province_id_ok": true,
+      "army": "0x1b545f302e0",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1039,
+      "handle": [
+        51,
+        1039
+      ],
+      "province_id": 3898,
+      "province_id_ok": true,
+      "army": "0x1b545f31690",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1040,
+      "handle": [
+        51,
+        1040
+      ],
+      "province_id": 12857,
+      "province_id_ok": true,
+      "army": "0x1b545f323b0",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1041,
+      "handle": [
+        51,
+        1041
+      ],
+      "province_id": 1903,
+      "province_id_ok": true,
+      "army": "0x1b545f32a40",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1042,
+      "handle": [
+        51,
+        1042
+      ],
+      "province_id": 6906,
+      "province_id_ok": true,
+      "army": "0x1b545f330d0",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1043,
+      "handle": [
+        51,
+        1043
+      ],
+      "province_id": 9979,
+      "province_id_ok": true,
+      "army": "0x1b545f351a0",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1044,
+      "handle": [
+        51,
+        1044
+      ],
+      "province_id": 740,
+      "province_id_ok": true,
+      "army": "0x1b545f37900",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1045,
+      "handle": [
+        51,
+        1045
+      ],
+      "province_id": 9764,
+      "province_id_ok": true,
+      "army": "0x1b545f37f90",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1046,
+      "handle": [
+        51,
+        1046
+      ],
+      "province_id": 3940,
+      "province_id_ok": true,
+      "army": "0x1b545f38620",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1047,
+      "handle": [
+        51,
+        1047
+      ],
+      "province_id": 874,
+      "province_id_ok": true,
+      "army": "0x1b545f35830",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1048,
+      "handle": [
+        51,
+        1048
+      ],
+      "province_id": 7153,
+      "province_id_ok": true,
+      "army": "0x1b545f36550",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1049,
+      "handle": [
+        51,
+        1049
+      ],
+      "province_id": 11851,
+      "province_id_ok": true,
+      "army": "0x1b545f37270",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1050,
+      "handle": [
+        51,
+        1050
+      ],
+      "province_id": 12070,
+      "province_id_ok": true,
+      "army": "0x1b545f3c130",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1051,
+      "handle": [
+        51,
+        1051
+      ],
+      "province_id": 6902,
+      "province_id_ok": true,
+      "army": "0x1b545f39340",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1052,
+      "handle": [
+        51,
+        1052
+      ],
+      "province_id": 758,
+      "province_id_ok": true,
+      "army": "0x1b545f38cb0",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    },
+    {
+      "index": 1053,
+      "handle": [
+        51,
+        1053
+      ],
+      "province_id": 9945,
+      "province_id_ok": true,
+      "army": "0x1b545f3db70",
+      "vt_rva": "0x29d6d68",
+      "vector_cands": [],
+      "actionish_cands": [],
+      "movement_dest_status": "empty_or_absent"
+    }
+  ],
+  "allow_post": false,
+  "post_touched": false,
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "speed": "1x",
+  "never_5x": true,
+  "hoi4_pid": 7892,
+  "live_date_start": {
+    "gs": "0x1b463b55250",
+    "year_0x478": 1936,
+    "hours_0x484": 57,
+    "ui": "1936-01-03 09:00",
+    "past_bookmark_1200": true
+  },
+  "live_date_end": {
+    "gs": "0x1b463b55250",
+    "year_0x478": 1936,
+    "hours_0x484": 60,
+    "ui": "1936-01-03 12:00",
+    "past_bookmark_1200": true
+  },
+  "counters_start": {
+    "sess": "0x1b4890cb8a0",
+    "server": "0x1b521087540",
+    "drain": 49049,
+    "exec": 17518,
+    "seq": 17534,
+    "stage_count": 0,
+    "pending": "0x0",
+    "stage": "0x1b561a55160"
+  },
+  "counters_end": {
+    "sess": "0x1b4890cb8a0",
+    "server": "0x1b521087540",
+    "drain": 52116,
+    "exec": 18165,
+    "seq": 18181,
+    "stage_count": 0,
+    "pending": "0x0",
+    "stage": "0x1b561a55160"
+  },
+  "base_sha_expected": "be11ef7",
+  "when_asia_shanghai": "2026-10-31 10:51:04",
+  "next_shortest_blocker": "live midflight CMoveCommand (+ CUnitMoveAction embed) still missing under peacetime Haiti without Post; substitute land cmds also absent in stage/pending this slice"
+}
