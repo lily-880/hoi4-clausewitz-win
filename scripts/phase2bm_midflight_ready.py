@@ -61,33 +61,95 @@ def try_u64(b, a):
         return None
 
 
+def _u32(buf, off):
+    return struct.unpack_from("<I", buf, off)[0]
+
+
+def _u64(buf, off):
+    return struct.unpack_from("<Q", buf, off)[0]
+
+
+def dump_unit_move_action(act: bytes, base: int, *, as_embed: bool) -> dict:
+    """Phase 2eo: full CUnitMoveAction field decode (cmd_layout.MOVE.action.fields)."""
+    need = 0x60  # through sticky@0x5C
+    if len(act) < need:
+        return {"error": f"short action buf {len(act)}<{need}", "hex": act.hex()}
+    vt_raw = _u64(act, 0)
+    return {
+        "layout": "CUnitMoveAction",
+        "as_embed": as_embed,
+        "vt_rva": hex(vt_raw - base) if vt_raw >= base else hex(vt_raw),
+        "type_id_at_plus8": _u32(act, 8),
+        "unit_handle": [_u32(act, 0x10), _u32(act, 0x14)],
+        "province_arr": hex(_u64(act, 0x18)),
+        "province_size": _u32(act, 0x24),
+        "path_arr": hex(_u64(act, 0x30)),
+        "path_size": _u32(act, 0x3C),
+        "clear": act[0x50],
+        "safe": act[0x51],
+        "safe_until_end": act[0x52],
+        "safe_nonsafe_fb": act[0x53],
+        "avoid": act[0x55],
+        "move_priority": _u32(act, 0x58),
+        "sticky": act[0x5C],
+        "hex": act[:need].hex(),
+    }
+
+
+def dump_strategic_move_action(act: bytes, base: int, *, as_embed: bool) -> dict:
+    """Phase 2eo: CUnitStrategicMoveAction fields (cmd_layout.STRATEGIC.action.fields)."""
+    need = 0x28
+    if len(act) < need:
+        return {"error": f"short strategic action {len(act)}<{need}", "hex": act.hex()}
+    vt_raw = _u64(act, 0)
+    return {
+        "layout": "CUnitStrategicMoveAction",
+        "as_embed": as_embed,
+        "vt_rva": hex(vt_raw - base) if vt_raw >= base else hex(vt_raw),
+        "army_handle": [_u32(act, 0x10), _u32(act, 0x14)],
+        "province": _u32(act, 0x18),
+        "clear": act[0x1C],
+        "move_priority": _u32(act, 0x20),
+        "hex": act[:need].hex(),
+    }
+
+
+def dump_cancel_fields(blob: bytes) -> dict:
+    """Phase 2eo: CCancelMovementCommand fields."""
+    if len(blob) < 0x48:
+        return {"error": f"short cancel {len(blob)}", "hex": blob.hex()}
+    return {
+        "layout": "CCancelMovementCommand",
+        "units_data": hex(_u64(blob, 0x28)),
+        "units_count": _u32(blob, 0x34),
+        "sticky": blob[0x40],
+    }
+
+
 def dump_cmd(b, base, addr, name):
-    blob = b.read(addr, min(0x88, 0xA0))
+    # Move cmd size 0x88; read enough for embeds / cancel
+    blob = b.read(addr, 0xA0)
     vt = struct.unpack_from("<Q", blob, 0)[0] - base
     out = {
         "name": name,
         "addr": hex(addr),
         "vt_rva": hex(vt),
-        "tick": struct.unpack_from("<I", blob, 0xC)[0],
-        "seq": struct.unpack_from("<I", blob, 0x1C)[0],
-        "hex": blob.hex(),
+        "tick": struct.unpack_from("<I", blob, 0xC)[0] if len(blob) >= 0x10 else None,
+        "seq": struct.unpack_from("<I", blob, 0x1C)[0] if len(blob) >= 0x20 else None,
+        "hex": blob[:0x88].hex() if len(blob) >= 0x88 else blob.hex(),
         "captured_at_asia_shanghai": datetime.now().strftime("%Y-%m-%d %H:%M:%S %z"),
+        "phase_decode": "2eo",
     }
-    if name == "CMoveCommand" and len(blob) >= 0x88:
-        act = blob[0x28:]
-        out["action_embed"] = {
-            "vt_rva": hex(struct.unpack_from("<Q", act, 0)[0] - base),
-            "unit_handle": [
-                struct.unpack_from("<I", act, 0x10)[0],
-                struct.unpack_from("<I", act, 0x14)[0],
-            ],
-            "province_size": struct.unpack_from("<I", act, 0x24)[0],
-            "path_size": struct.unpack_from("<I", act, 0x3C)[0],
-            "clear": act[0x50],
-            "safe": act[0x51],
-            "move_priority": struct.unpack_from("<I", act, 0x58)[0],
-            "sticky": act[0x5C],
-        }
+    if name == "CMoveCommand" and len(blob) >= 0x28 + 0x60:
+        out["action_embed"] = dump_unit_move_action(blob[0x28:], base, as_embed=True)
+    elif name == "CUnitMoveAction":
+        out["action_fields"] = dump_unit_move_action(blob, base, as_embed=False)
+    elif name == "CStrategicRedeploymentCommand" and len(blob) >= 0x28 + 0x28:
+        out["action_embed"] = dump_strategic_move_action(blob[0x28:], base, as_embed=True)
+    elif name == "CUnitStrategicMoveAction":
+        out["action_fields"] = dump_strategic_move_action(blob, base, as_embed=False)
+    elif name == "CCancelMovementCommand":
+        out["cancel_fields"] = dump_cancel_fields(blob)
     return out
 
 

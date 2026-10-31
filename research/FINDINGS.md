@@ -962,3 +962,15 @@ eports/phase2el_gs_datetime.json.
 
 **Next shortest blocker:** live midflight CMoveCommand (+ CUnitMoveAction embed) capture.
 
+## Phase 2eo — midflight CUnitMoveAction embed decode (RO) — 2026-10-31
+
+**Choice:** A — improve capture decode for move-like embeds; keep watcher armed; no Post.
+
+**Works:** Full CUnitMoveAction / Strategic / Cancel field dump wired into phase2bm_midflight_ready.dump_cmd (cmd_layout offsets). Synthetic CMoveCommand embed decode OK; live smoke still sees HourlyTick only.
+
+**Stubbed:** live CMoveCommand sample (still missing).
+
+**Safety:** allow_post False; re-armed RO watcher; no inject/ALLOW_POST/5x.
+
+**Next shortest blocker:** live midflight CMoveCommand (+ embed) — decode path ready to record it fully.
+

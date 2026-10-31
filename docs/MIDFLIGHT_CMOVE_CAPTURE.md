@@ -83,14 +83,14 @@ Army path / movement destination vectors are **empty under pause** (observed 0 n
 
 Out of scope for this capture path.
 
-## Phase 2em strengthen (edge-burst + sightline) ¡ª 2026-10-31
+## Phase 2em strengthen (edge-burst + sightline) ï¿½ï¿½ 2026-10-31
 
 **Still CLOSED for Post.** `allow_post` hard-False. No inject / right-click asked.
 
 ### What changed
 - `--burst-on-edge N` (default 12): on drain/exec/seq advance, immediately re-sample pending+stage N times (no sleep) to catch short-lived cmds at 1x.
 - `--interval 0.02` preferred for long arm (was 0.05).
-- Sightline JSON: `reports/midflight_watcher_sightline.json` counts **any** watched VT (HourlyTick/Orders/Move¡­); Move still the only break/capture class.
+- Sightline JSON: `reports/midflight_watcher_sightline.json` counts **any** watched VT (HourlyTick/Orders/Moveï¿½ï¿½); Move still the only break/capture class.
 - Heartbeat phase `2em_midflight_heartbeat` includes `sight_counts`, `edge_events`, `burst_samples`, `sightline_ok`.
 
 ### Live smoke (25s @ 1x Haiti, -noai)
@@ -103,10 +103,25 @@ Out of scope for this capture path.
 | caught_army_move | false (expected; no right-click / -noai) |
 | allow_post | False |
 
-**Proof:** RO queue sightline works at 1x ¡ª HourlyTick is visible midflight via stage under edge-burst. Move sample remains the blocker; when a real right-click happens, capture path is tighter.
+**Proof:** RO queue sightline works at 1x ï¿½ï¿½ HourlyTick is visible midflight via stage under edge-burst. Move sample remains the blocker; when a real right-click happens, capture path is tighter.
 
 ### Re-arm
 ```
 python scripts/phase2bm_midflight_ready.py --seconds 86400 --interval 0.02 --heap-every 0 --burst-on-edge 12
 ```
+
+## Phase 2eo â€” full action-embed decode on capture â€” 2026-10-31
+
+**Still no Post / no right-click ask.** Watcher remains RO-armed.
+
+When a move-like cmd appears, dump_cmd now records full fields from cmd_layout:
+
+| Object | Fields decoded |
+| --- | --- |
+| CMoveCommand embed @+0x28 | CUnitMoveAction: unit_handle, province_arr/size, path_arr/size, clear/safe/safe_until_end/safe_nonsafe_fb/avoid, move_priority, sticky, type_id@+8 |
+| standalone CUnitMoveAction | same via ction_fields |
+| CStrategicRedeploymentCommand embed | army_handle, province, clear, move_priority |
+| CCancelMovementCommand | units_data, units_count, sticky |
+
+Smoke @ 1x: HourlyTick sightline still OK; Move sample still absent (expected under -noai). Instant capture JSON will carry phase_decode=2eo + full embed when Move hits.
 
