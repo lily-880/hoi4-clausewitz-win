@@ -1,0 +1,52 @@
+{
+  "phase": "2fu",
+  "result": "orders_group_internals_mapped",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-02 01:00",
+  "hours": 25,
+  "ui_date_start": "1936-01-01 21:00",
+  "scenario": "ITA@1x COrdersGroup internals map (no Post)",
+  "speed_policy": "pause-or-1x only (never change speed)",
+  "live_ois": [
+    17,
+    20,
+    52
+  ],
+  "nonempty_heap_arrays": 20,
+  "member_elems": 0,
+  "handle_elems": 0,
+  "army_overlap_n": 0,
+  "instance_pool_len": 0,
+  "nf_midflight_ran": false,
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "stage sight {'COrderAssignCommand': 3} live_ois=[17, 20, 52]",
+    "OG maps resolve_ok=10/10",
+    "COrdersGroup+0x98 size=1 \u2192 COrderInstance* (10/10 OGs); +0x50 opaque ptr array; +0x18 empty sentinel",
+    "nonempty_heap_arrays=20 member_elems=0 handle_elems=0 army_overlap=[]",
+    "heap Instance=0 Member=0 pool_len=0",
+    "CPdxArray layout used: data@0 cap@8 size@0xC alloc@0x10"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "order_index\u2192COrderInstance pool-slot arithmetic (object path via OG+0x98 works)",
+    "stable G_GAMESTATE\u2192pool root pointer path",
+    "full G_GAMESTATE\u2192type-0x35-reg owner path",
+    "typed identity of COrdersGroup+0x50 opaque elems",
+    "named fields inside COrderInstance from OG+0x98"
+  ],
+  "next_shortest_blocker": "NON-Post: type +0x50 opaque elems (Member/units/path) OR map COrderInstance fields from OG+0x98 targets OR bounded NF/RF subject; still NO ALLOW_POST",
+  "parent_sha_base": "34af121"
+}
