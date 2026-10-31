@@ -903,3 +903,12 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - Watcher re-armed RO (`phase2bm_midflight_ready.py`, heap-every 0). Posting stays DISABLED. Never 5x.
 - Report: `reports/phase2ej_1x_move.json`.
 
+
+## Phase 2ek (2026-10-31 Asia/Shanghai) — MOVE issue-path audit (Post still DISABLED)
+
+- **Cannot self-issue land MOVE/attack** without Post: all `move_command_recipe` / `order_execute` / offensive-line / frontline recipes are RO field maps; `config.allow_post()` **hard-returns False** (even if `CLAUSEWITZ_ALLOW_POST=1`). Console `G_CONSOLE_MANAGER` / `FN_CONSOLE_EXECUTE` still null. DX11 ignores synthetic input.
+- **Clock**: sim running at 1x — `CHourlyTickCommand` seen in stage; DummyServer `exec`/`seq` keep rising (not paused sticky 13/15). `G_GAMESTATE+0x478` year=1936; `+0x480/+0x484` change over wall time (hour-like hyp). Full UI `Y-M-D H:M` pack still unproven — top-bar may still look near 1936-01-01 12:00 until mapped.
+- **Shortest blocker**: ALLOW_POST hard-deny + tool-gate CLOSED + missing midflight `CMoveCommand` sample.
+- **Next cheapest (RO)**: map UI-accurate date/hour from `G_GAMESTATE`; keep watcher armed. Do not open Post yet.
+- Report: `reports/phase2ek_issue_path_audit.json`. Never 5x. `allow_post` False.
+

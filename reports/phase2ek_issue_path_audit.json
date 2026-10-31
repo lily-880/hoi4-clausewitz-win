@@ -1,0 +1,90 @@
+{
+  "phase": "2ek",
+  "ts_asia_shanghai": "2026-10-31 10:09:30",
+  "head_base": "7af9a86",
+  "allow_post": false,
+  "allow_post_runtime": false,
+  "allow_post_note": "config.allow_post() hard-returns False even if CLAUSEWITZ_ALLOW_POST=1",
+  "never_5x": true,
+  "speed": "1x (start_speed=1 session; never 5x)",
+  "hoi4_pid": 25112,
+  "works": {
+    "clock_sim_running": true,
+    "hourly_tick_seen_in_stage": true,
+    "gs_time_fields_hyp": "G_GAMESTATE+0x480/+0x484 change while exec grows; year@+0x478=1936; aux@+0x47c hyp unstable/unproven as day-of-year"
+  },
+  "stubbed": {
+    "land_move_issue_without_post": true,
+    "console_issue": true,
+    "planner_execute_without_post": true,
+    "midflight_cmove_capture": true
+  },
+  "clock": {
+    "s0": {
+      "exec": 1806,
+      "seq": 1808,
+      "drain": 32243,
+      "gs_year": 1936,
+      "gs_aux": 28,
+      "gs_480": 6,
+      "gs_484": 37
+    },
+    "s1": {
+      "exec": 1818,
+      "seq": 1820,
+      "drain": 32451,
+      "gs_year": 1936,
+      "gs_aux": 28,
+      "gs_480": 6,
+      "gs_484": 37
+    },
+    "deltas": {
+      "exec": 12,
+      "seq": 12,
+      "drain": 208,
+      "gs_year": 0,
+      "gs_aux": 0,
+      "gs_480": 0,
+      "gs_484": 0
+    },
+    "hourly_stage_hits_3s": 2,
+    "user_ui_1200_note": "DummyServer exec/seq advance and CHourlyTickCommand appears in stage — simulation is NOT paused. Full UI Y-M-D H:M still not proven as one struct; date_year stays 1936; if top-bar still reads 1936-01-01 12:00 exactly, that display field is not yet mapped — but this is not the old paused sticky exec=13/seq=15 freeze."
+  },
+  "console_recheck": {
+    "G_CONSOLE_MANAGER": null,
+    "FN_CONSOLE_EXECUTE": null,
+    "result": "still unavailable — no console issue path"
+  },
+  "issue_path_audit": {
+    "move_command_recipe": "docs-only; issue requires Post/assert_post_allowed",
+    "order_execute_recipe": "docs-only battle-plan execute; Post-gated",
+    "offensive_line / frontline / attack recipes": "LAND_POST_READINESS catalogs; all say never Post / Post path",
+    "synthetic_input": "DX11 ignores SendInput/mouse_event (2bf/2bg/2ej)",
+    "allow_ai_relaunch": "not an agent issue path; peacetime HAI may not move; optional future harvest only",
+    "shortest_blocker": "No RO-safe land MOVE/attack ISSUE path exists without enabling Post. Shortest blocker = ALLOW_POST hard-deny + command_queue_tool_gate CLOSED_NOT_OPENED + missing independent midflight CMoveCommand sample (policy prerequisite). Console null; UI inject dead; recipes are field maps only.",
+    "next_cheapest_experiment": "Map UI-accurate clock (pack CFixedDate / hour from G_GAMESTATE around +0x478..+0x484) — RO only; OR keep watcher armed until a real midflight Move appears; do NOT open Post until midflight sample + tool-gate proof."
+  },
+  "armies_ro": {
+    "armies_count": 17,
+    "player_tag": 15,
+    "movement_dest": "not issued; expect empty under -noai without Post/UI"
+  },
+  "midflight": {
+    "capture_exists": false,
+    "heartbeat": {
+      "polls": 7800,
+      "elapsed_s": 394.6,
+      "last_counters": {
+        "drain": 32482,
+        "exec": 1820,
+        "seq": 1822,
+        "stage_count": 0
+      },
+      "captures": 0,
+      "caught_army_move": false,
+      "allow_post": false,
+      "ts_asia_shanghai": "2026-10-31 10:09:30 "
+    }
+  },
+  "answer_to_user_t42u": "不能在当前策略下自己下达移动/进攻：仓库里所有 move/order/offensive/frontline recipe 都是只读字段图，真正下发必须过 DummyServer Post，而 allow_post 硬门仍为 False（即使设环境变量也 return False）。键鼠注入被 DX11 忽略；控制台 G_CONSOLE_MANAGER/FN_CONSOLE_EXECUTE 为空。时间：已不是暂停卡死（exec/seq 从 13/15 离开并持续增加，stage 可见 CHourlyTickCommand）；完整顶栏 Y-M-D 12:00 字段尚未完全映射，故可能仍看到接近开局的日期显示——这与“完全没在跑”不是同一状态。"
+}
