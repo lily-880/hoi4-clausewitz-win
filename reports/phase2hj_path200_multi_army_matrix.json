@@ -1,0 +1,188 @@
+{
+  "phase": "2hj",
+  "result": "PATH200_MULTI_ARMY_MATRIX_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 66,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-03 18:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA PATH200 multi-army matrix one-shot (no Post, no midflight, no oi\u22600 poll)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 369664,
+    "exec": 94230,
+    "allow_post": false
+  },
+  "path": {
+    "window_s": 5.0,
+    "carmy_rows": 6,
+    "movement_dest_nonempty_count": 2,
+    "multi_province_cand_count": 1,
+    "poll_ticks": 1,
+    "elapsed_s": 0.03,
+    "tag_singleton_fps_filtered": 12
+  },
+  "matrix": {
+    "army_rows": [
+      {
+        "index": 1039,
+        "handle": [
+          51,
+          1039
+        ],
+        "province_id": 915,
+        "army": "0x1eac93f3690",
+        "bucket": "empty",
+        "status": "current_only_or_tag_fp",
+        "cands": [],
+        "off60": null
+      },
+      {
+        "index": 1042,
+        "handle": [
+          51,
+          1042
+        ],
+        "province_id": 11819,
+        "army": "0x1eac93f5df0",
+        "bucket": "multi",
+        "status": "nonempty_candidate",
+        "cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x60",
+            "n": 2,
+            "province_ids": [
+              915,
+              490
+            ]
+          }
+        ],
+        "off60": {
+          "kind": "cpdx_u32",
+          "off": "0x60",
+          "n": 2,
+          "province_ids": [
+            915,
+            490
+          ]
+        }
+      },
+      {
+        "index": 1043,
+        "handle": [
+          51,
+          1043
+        ],
+        "province_id": 9778,
+        "army": "0x1eac93f4a40",
+        "bucket": "empty",
+        "status": "current_only_or_tag_fp",
+        "cands": [],
+        "off60": null
+      },
+      {
+        "index": 1046,
+        "handle": [
+          51,
+          1046
+        ],
+        "province_id": 3859,
+        "army": "0x1eac9428150",
+        "bucket": "empty",
+        "status": "current_only_or_tag_fp",
+        "cands": [],
+        "off60": null
+      },
+      {
+        "index": 1048,
+        "handle": [
+          51,
+          1048
+        ],
+        "province_id": 985,
+        "army": "0x1eac942a220",
+        "bucket": "nonempty",
+        "status": "nonempty_candidate",
+        "cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x60",
+            "n": 1,
+            "province_ids": [
+              3938
+            ]
+          }
+        ],
+        "off60": {
+          "kind": "cpdx_u32",
+          "off": "0x60",
+          "n": 1,
+          "province_ids": [
+            3938
+          ]
+        }
+      },
+      {
+        "index": 1049,
+        "handle": [
+          51,
+          1049
+        ],
+        "province_id": 7213,
+        "army": "0x1eac942a8b0",
+        "bucket": "empty",
+        "status": "current_only_or_tag_fp",
+        "cands": [],
+        "off60": null
+      }
+    ],
+    "counts": {
+      "total": 6,
+      "empty": 4,
+      "nonempty": 2,
+      "multi": 1
+    },
+    "off60_hits": [
+      {
+        "index": 1042,
+        "province_id": 11819,
+        "n": 2,
+        "province_ids": [
+          915,
+          490
+        ]
+      },
+      {
+        "index": 1048,
+        "province_id": 985,
+        "n": 1,
+        "province_ids": [
+          3938
+        ]
+      }
+    ],
+    "cand_off_histogram": {
+      "0x60": 2
+    },
+    "note": "Full tag-FP CArmy matrix (empty+nonempty+multi); province-vector cands NOT demangled movement_dest; NOT midflight"
+  },
+  "sha_base": "58b465c",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "named movement_dest invent"
+  ],
+  "semantics": "Full ITA CArmy PATH200 matrix (empty+nonempty+multi); not demangled dest; not midflight; no Post"
+}
