@@ -1,0 +1,241 @@
+{
+  "result": "inst70_not_army_current_prov__inst88_is_cprovince_array",
+  "result_note": "A: Instance+0x70 \u2260 assigned army current provinces (0 overlap). B: Instance+0x88 = CProvince* array (VT 0x29ee248); province ids@+0xA4 partially overlap +0x70 u32 stream; neither equals army current provinces. No invent of path.",
+  "allow_post": false,
+  "live_at_A": {
+    "pid": 34188,
+    "hours": 160,
+    "ui_date": "1936-01-07 16:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Instance+0x70 vs army provinces (no Post)",
+    "gs": "0x1b8e2e76740"
+  },
+  "live_post_B_check": {
+    "pid": 34188,
+    "hours": 172,
+    "ui_date": "1936-01-08 04:00",
+    "speed_policy": "pause-or-1x only"
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run; NF skipped (A+B progressed)",
+    "A RESULT inst70_no_army_province_overlap: with_both=5 overlap 0/0 vs CArmy current provinces (+0x28==+0x1f0\u2192+0xa4)",
+    "stage sight Assigns=10; rows_ok=11 with_70=6 with_army_prov=10",
+    "B RESULT inst88_cprovince_partial_overlap_inst70: +0x88 elems VT 0x29ee248 = CProvince (WINDOWS_OFFSETS / 2cy proven); ids@+0xA4 partial-overlap +0x70 u32s (~32\u201360% of 70-in-88); sets NOT equal; +0x88 vs army current provinces overlap 0",
+    "OG+0x50: VT 0x29d6fb8 catalogued CArmy MI; +0x08\u2192OG* +0x20\u2192Instance*; carmy_primary via -delta hits=0 (not invent CArmy*)",
+    "live at A probe: pid 34188 hours 160 UI 1936-01-07 16:00; post-B check hours 172 UI 1936-01-08 04:00 @1x policy"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty confirm as named path field",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "order_index\u2192COrderInstance pool-slot arithmetic",
+    "stable G_GAMESTATE\u2192pool root pointer path",
+    "full G_GAMESTATE\u2192type-0x35-reg owner path",
+    "demangled RTTI string dump for VT 0x29d6fb8 beyond WINDOWS_OFFSETS CArmy MI catalog",
+    "named Instance +0x70 role (not current-province; related-to but \u2260 +0x88 CProvince set)",
+    "named Instance +0xe0/+0x100 field names",
+    "full demangled RTTI string dump for VT 0x29d6fb8 beyond WINDOWS_OFFSETS CArmy MI catalog",
+    "path-vector nonempty confirm as named movement path"
+  ],
+  "next_shortest_blocker": "NON-Post: interpret +0x70 vs +0x88 relationship (superset/path/graph?) with larger sample OR army path/history field beyond current province OR bounded NF/RF midflight; still NO ALLOW_POST",
+  "aggregate_A": {
+    "with_70": 6,
+    "with_army": 10,
+    "with_both": 5,
+    "overlap_stats": [
+      {
+        "oi": 6,
+        "n70": 26,
+        "n_army_prov": 3,
+        "overlap": 0,
+        "frac": 0.0,
+        "army_ids": [
+          13237,
+          1984,
+          13238,
+          1984,
+          13237
+        ],
+        "sample70": [
+          6208,
+          11060,
+          9083,
+          6055,
+          9178,
+          6155,
+          58,
+          11058,
+          9175,
+          6152,
+          9095,
+          9171
+        ]
+      },
+      {
+        "oi": 9,
+        "n70": 6,
+        "n_army_prov": 3,
+        "overlap": 0,
+        "frac": 0.0,
+        "army_ids": [
+          12812,
+          4995,
+          8062,
+          12812,
+          4995,
+          4995
+        ],
+        "sample70": [
+          9418,
+          9444,
+          13081,
+          9536,
+          3576,
+          6446
+        ]
+      },
+      {
+        "oi": 68,
+        "n70": 25,
+        "n_army_prov": 2,
+        "overlap": 0,
+        "frac": 0.0,
+        "army_ids": [
+          738,
+          11688,
+          738
+        ],
+        "sample70": [
+          3058,
+          6130,
+          3145,
+          192,
+          3034,
+          3132,
+          9126,
+          6214,
+          173,
+          6111,
+          9208,
+          9069
+        ]
+      },
+      {
+        "oi": 70,
+        "n70": 6,
+        "n_army_prov": 1,
+        "overlap": 0,
+        "frac": 0.0,
+        "army_ids": [
+          9703
+        ],
+        "sample70": [
+          11856,
+          833,
+          867,
+          9849,
+          6913,
+          9809
+        ]
+      },
+      {
+        "oi": 13,
+        "n70": 4,
+        "n_army_prov": 5,
+        "overlap": 0,
+        "frac": 0.0,
+        "army_ids": [
+          10009,
+          7183,
+          7068,
+          1048,
+          10009,
+          1048,
+          13231
+        ],
+        "sample70": [
+          3288,
+          3337,
+          6407,
+          11312
+        ]
+      }
+    ],
+    "carmy50_primary_hits": 0,
+    "kind88": {
+      "opaque_or_unknown_vt": 47
+    }
+  },
+  "aggregate_B": {
+    "result": "inst88_cprovince_partial_overlap_inst70",
+    "n_rows": 11,
+    "any_equal_sets": false,
+    "any_70_88_overlap": true,
+    "any_88_army_overlap": false,
+    "frac_samples": [
+      {
+        "oi": 6,
+        "n70": 26,
+        "n88": 50,
+        "vt_ok_88": 32,
+        "frac_70_in_88": 0.34615384615384615,
+        "frac_88_in_70": 0.5294117647058824,
+        "n_overlap": 9
+      },
+      {
+        "oi": 9,
+        "n70": 6,
+        "n88": 13,
+        "vt_ok_88": 13,
+        "frac_70_in_88": 0.5,
+        "frac_88_in_70": 0.42857142857142855,
+        "n_overlap": 3
+      },
+      {
+        "oi": 68,
+        "n70": 25,
+        "n88": 50,
+        "vt_ok_88": 32,
+        "frac_70_in_88": 0.32,
+        "frac_88_in_70": 0.47058823529411764,
+        "n_overlap": 8
+      },
+      {
+        "oi": 70,
+        "n70": 6,
+        "n88": 11,
+        "vt_ok_88": 11,
+        "frac_70_in_88": 0.5,
+        "frac_88_in_70": 0.42857142857142855,
+        "n_overlap": 3
+      },
+      {
+        "oi": 13,
+        "n70": 4,
+        "n88": 7,
+        "vt_ok_88": 7,
+        "frac_70_in_88": 0.5,
+        "frac_88_in_70": 0.4,
+        "n_overlap": 2
+      },
+      {
+        "oi": 17,
+        "n70": 5,
+        "n88": 9,
+        "vt_ok_88": 9,
+        "frac_70_in_88": 0.6,
+        "frac_88_in_70": 0.5,
+        "n_overlap": 3
+      }
+    ]
+  }
+}
