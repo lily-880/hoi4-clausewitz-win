@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hj `PATH200_MULTI_ARMY_MATRIX_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hk `OG50_MEMBERSHIP_POLISH_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -245,9 +245,9 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | ID | Signal | How / status |
 | --- | --- | --- |
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
-| `PATH200` | multi-prov candidates | 2hj matrix empty=4 nonempty=2 multi=1 offs=[0x60] |
+| `PATH200` | multi-prov candidates | 2hj/2hk matrix multi=1042→[915,490] nonempty=1048→[3938] empty=1039/1043/1046/1049 @+0x60 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` (⊀ `+0x200`) — HIT 2gm/2gn |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — walkback 387/387 (2hh post-reload) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — walkback 387/387 ita=21 (2hk polish) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -286,6 +286,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hh post-reload perception:** result=`POST_RELOAD_PERCEPTION_HIT` · carmy=6 nonempty=2 multi=1 · walkback 387/387 · clock=RELOAD_OR_NEW_CAMPAIGN_LIKELY hours=41 UI=1936-01-02 17:00 · allow_post=False.
 **2hi PATH200 denser:** result=`PATH200_DENSE_MULTI_HIT` · carmy=6 nonempty=2 multi=1 · offs=[0x60] · hours=52 UI=1936-01-03 04:00 · allow_post=False.
 **2hj PATH200 multi-army matrix:** result=`PATH200_MULTI_ARMY_MATRIX_HIT` · carmy=6 empty=4 nonempty=2 multi=1 · off60=[idx=1042→[915, 490]; idx=1048→[3938]] · hours=66 UI=1936-01-03 18:00 · allow_post=False.
+**2hk OG50 membership polish:** result=`OG50_MEMBERSHIP_POLISH_HIT` · walkback 387/387 · ita_members=21 · 2hj matrix fold multi=1042 nonempty=1048 empty=1039/1043/1046/1049 · hours=76 UI=1936-01-04 04:00 · allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -334,6 +335,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hh** | `POST_RELOAD_PERCEPTION_HIT` | Post-reload ≤45s PATH200+OG50; 2hg CLOCK fold | oi≠0 / midflight / Post HARD_DENY |
 | **2hi** | `PATH200_DENSE_MULTI_HIT` | PATH200 denser one-shot (nonempty/multi province vectors) | oi≠0 / midflight / Post HARD_DENY |
 | **2hj** | `PATH200_MULTI_ARMY_MATRIX_HIT` | PATH200 multi-army matrix (empty+nonempty+multi @+0x60) | oi≠0 / midflight / Post HARD_DENY |
+| **2hk** | `OG50_MEMBERSHIP_POLISH_HIT` | OG50 walkback polish + 2hj matrix fold into §6f | oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -341,4 +343,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hj · PATH200 multi-army matrix · 2026-10-31 Asia/Shanghai*
+*Phase 2hk · OG50 membership polish + 2hj matrix fold · 2026-10-31 Asia/Shanghai*
