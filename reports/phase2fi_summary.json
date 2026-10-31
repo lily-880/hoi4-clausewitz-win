@@ -1,0 +1,48 @@
+{
+  "phase": "2fi",
+  "result": "RETREAT_ATTACK_FIELD_POLISH_OK",
+  "scenario": "ETH@1x retreat/attack catalog field polish (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 9928,
+  "ui_date": "1936-01-05 19:00",
+  "hours": 115,
+  "factory_match": 10,
+  "factory_mismatch": 0,
+  "core_keys": [
+    "move",
+    "strategic_redeploy",
+    "cancel_movement",
+    "attack_support",
+    "retreat_fallback"
+  ],
+  "fills": [
+    "CANCEL_RUNNING_AWAY.clone=0x13f8e80",
+    "CANCEL_RUNNING_AWAY.serialize=0x14041b0",
+    "CANCEL_RUNNING_AWAY.deserialize=0x1402e00",
+    "CANCEL_RUNNING_AWAY.gettypeid=0x13fe2e0",
+    "CANCEL_RUNNING_AWAY.gate_0x60=False",
+    "CANCEL_RUNNING_AWAY.gate_0x80=False"
+  ],
+  "works": [
+    "first-class CANCEL_RUNNING_AWAY / WITHDRAW_ARMY_HQ / ARMY_GROUP_FALLBACK / MASS_CANCEL / ORDER_REPLACE_FALLBACK",
+    "ORDERS NewFallback fields fallback_flag_or_id@+0x54",
+    "LAND_ARMY_FOCUS.core now includes retreat_fallback; keys=['move', 'strategic_redeploy', 'cancel_movement', 'attack_support', 'retreat_fallback']",
+    "live factory MATCH=10 MISMATCH=0",
+    "CancelRunningAway live VT fills: ['CANCEL_RUNNING_AWAY.clone=0x13f8e80', 'CANCEL_RUNNING_AWAY.serialize=0x14041b0', 'CANCEL_RUNNING_AWAY.deserialize=0x1402e00', 'CANCEL_RUNNING_AWAY.gettypeid=0x13fe2e0', 'CANCEL_RUNNING_AWAY.gate_0x60=False', 'CANCEL_RUNNING_AWAY.gate_0x80=False']",
+    "allow_post stays False; recipe not executed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty (peacetime ETH)",
+    "battle-plan NewFallback subject wiring beyond +0x54"
+  ],
+  "next_shortest_blocker": "NON-Post: peacetime ETH RO ceiling on midflight path/leaf \u2014 next cheapest: pause+1x war-dense relaunch observe (ITA/ETH war) for nonempty path OR leaf sight; still NO ALLOW_POST",
+  "parent_sha_base": "ef62e72"
+}

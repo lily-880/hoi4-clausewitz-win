@@ -257,6 +257,9 @@ ORDERS = {
         "clone": 0x18CDFF0, "serialize": 0x18E8A60, "deserialize": 0x18E2500, "execute": 0x18D8FC0,
         "isvalid": 0x18df4b0,
         "isvalid_kind": "FN",
+        # Phase 2fi field polish (army_subjects.fallback_order_recipe; no invent)
+        "fields": {"fallback_flag_or_id": 0x54},
+        "fields_note": "IsValid checks@+0x54; battle-plan subject wiring TBD",
     },
     "COrderGroupCommand": {
         "factory": 0x18d00d0,
@@ -132631,7 +132634,127 @@ SUPPORT_ATTACK = {
     "subject_recipe": "army_subjects.support_attack_recipe",
 }
 
-LAND_ARMY_FOCUS = {'phase': '2by',
+
+
+# Phase 2fi — retreat / cancel-abort / attack-adjacent first-class layouts (RO field polish)
+# Proven offsets only (army_subjects recipes + prior LAND_ARMY_FOCUS FNs). No invent.
+CANCEL_RUNNING_AWAY = {
+    "name": "CCancelRunningAwayCommand",
+    "role": "retreat",
+    "type_id": 0x3BB4,
+    "vt": 0x2A2D538,
+    "size": 0x30,
+    "factory": 0x13FAD40,
+    "factory_idx": 6284,  # Phase 2fg: tid-0x2328; LAND_ARMY_FOCUS gap fill
+    "isvalid": 0x13EED30,
+    "execute": 0x13FBCA0,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "gate_0x60": False,  # Phase 2fi live VT FALSE stub
+    "gate_0x80": False,  # Phase 2fi live VT FALSE stub
+    "clone": 0x13f8e80,  # Phase 2fi live VT fill
+    "serialize": 0x14041b0,  # Phase 2fi live VT fill
+    "deserialize": 0x1402e00,  # Phase 2fi live VT fill
+    "gettypeid": 0x13fe2e0,  # Phase 2fi live VT fill
+    "fields": {
+        "units_data": 0x28,  # army_subjects.cancel_running_away_recipe units_vec_off
+    },
+    "fields_note": "units vector of army handles@+0x28; count wiring via MSVC vec (begin/end); do NOT invent count off",
+    "subject_recipe": "army_subjects.cancel_running_away_recipe",
+}
+
+WITHDRAW_ARMY_HQ = {
+    "name": "CWithdrawArmyHqCommand",
+    "role": "retreat",
+    "type_id": 0x2833,
+    "vt": 0x2A2CF78,
+    "size": 0x30,
+    "factory": 0x13FB710,
+    "factory_idx": 1291,
+    "clone": 0x13F9EC0,
+    "serialize": 0x1404BC0,
+    "deserialize": 0x1403F10,
+    "isvalid": 0x14027C0,
+    "execute": 0x13FE2A0,
+    "gettypeid": 0x13FE460,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "fields": {
+        "hq_handle": 0x28,  # army_subjects.withdraw_army_hq_recipe
+    },
+    "subject_recipe": "army_subjects.withdraw_army_hq_recipe",
+}
+
+ARMY_GROUP_FALLBACK = {
+    "name": "CSetSelectedArmyGroupFallback",
+    "role": "retreat",
+    "type_id": 0x3A8B,
+    "vt": 0x2A86158,
+    "size": 0x38,
+    "factory": 0x18D0FC0,
+    "factory_idx": 5987,
+    "clone": 0x18CF500,
+    "serialize": 0x18E9640,
+    "deserialize": 0x18E36C0,
+    "isvalid": 0x18E0730,
+    "execute": 0x18DBAE0,
+    "gettypeid": 0x18DCD40,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "fields": {
+        "army_group": 0x28,  # army_subjects.army_group_fallback_recipe
+        "fallback_flag": 0x30,
+    },
+    "subject_recipe": "army_subjects.army_group_fallback_recipe",
+}
+
+MASS_CANCEL = {
+    "name": "CMassCancelMovementCommand",
+    "role": "cancel_abort",
+    "type_id": 0x3630,
+    "vt": 0x2A0FC40,
+    "size": 0x40,
+    "factory": 0x11D8FD0,
+    "factory_idx": 4872,
+    "clone": 0x11D5B50,
+    "serialize": 0x11FC660,
+    "deserialize": 0x11F7F30,
+    "isvalid": 0x11F0A10,
+    "execute": 0x11E1520,
+    "gettypeid": 0x11EAA00,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "fields": {
+        "units_data": 0x28,  # army_subjects.mass_cancel_movement_recipe
+        "units_count": 0x34,
+    },
+    "subject_recipe": "army_subjects.mass_cancel_movement_recipe",
+}
+
+ORDER_REPLACE_FALLBACK = {
+    "name": "COrderReplaceFallbackCommands",
+    "role": "retreat",
+    "type_id": 0x350C,
+    "vt": 0x2A84D38,
+    "size": 0x60,
+    "factory": 0x18D05A0,
+    "factory_idx": 4580,
+    "clone": 0x18CE4B0,
+    "serialize": 0x18E8A60,  # shared w/ NewFallback
+    "deserialize": 0x18E2500,  # shared w/ NewFallback
+    "isvalid": 0x18DF4B0,  # shared w/ NewFallback
+    "execute": 0x18DA3B0,
+    "gettypeid": 0x18DCBC0,
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "fields": {
+        "fallback_flag_or_id": 0x54,  # same IsValid check family as NewFallback
+    },
+    "fields_note": "IsValid shared w/ NewFallback; battle-plan subject wiring TBD",
+    "subject_recipe": "army_subjects.fallback_order_recipe",
+}
+
+LAND_ARMY_FOCUS = {'phase': '2fi',
  'priority': ['move', 'strategic_redeploy', 'attack_support', 'retreat_fallback', 'order_group', 'frontline'],
  'posting': 'DISABLED',
  'core': {'move': {'command': 'CMoveCommand',
@@ -132649,7 +132772,11 @@ LAND_ARMY_FOCUS = {'phase': '2by',
           'attack_support': {'command': 'CSupportAttackCommand',
                              'layout_ref': 'SUPPORT_ATTACK',
                              'subject_recipe': 'army_subjects.support_attack_recipe',
-                             'notes': 'validate handle@+0x28 via 0x57f7b0; gates 60/80 FALSE'}},
+                             'notes': 'validate handle@+0x28 via 0x57f7b0; gates 60/80 FALSE'},
+          'retreat_fallback': {'command': 'CCancelRunningAwayCommand',
+                               'layout_ref': 'CANCEL_RUNNING_AWAY',
+                               'subject_recipe': 'army_subjects.cancel_running_away_recipe',
+                               'notes': 'Phase 2fi: primary retreat leaf; units vec@+0x28; alt: WITHDRAW_ARMY_HQ / ARMY_GROUP_FALLBACK / ORDER_*_FALLBACK'}},
  'commands': {'CSupportAttackCommand': {'name': 'CSupportAttackCommand',
                                         'role': 'attack',
                                         'type_id': 12620,

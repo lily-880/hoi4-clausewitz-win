@@ -1,0 +1,517 @@
+{
+  "phase": "2fi",
+  "ts": "2026-10-31T04:13:34.488151+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "RETREAT_ATTACK_FIELD_POLISH_OK",
+  "live": {
+    "pid": 9928,
+    "hours": 115,
+    "ui_date": "1936-01-05 19:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH@1x retreat/attack catalog field polish (no Post)"
+  },
+  "field_maps": {
+    "SUPPORT_ATTACK": {
+      "unit_or_attacker_handle": 40,
+      "target_province": 48
+    },
+    "CANCEL_RUNNING_AWAY": {
+      "units_data": 40
+    },
+    "WITHDRAW_ARMY_HQ": {
+      "hq_handle": 40
+    },
+    "ARMY_GROUP_FALLBACK": {
+      "army_group": 40,
+      "fallback_flag": 48
+    },
+    "MASS_CANCEL": {
+      "units_data": 40,
+      "units_count": 52
+    },
+    "ORDER_REPLACE_FALLBACK": {
+      "fallback_flag_or_id": 84
+    },
+    "ORDERS.COrderNewFallbackCommand": {
+      "fallback_flag_or_id": 84
+    }
+  },
+  "land_army_focus_core_keys": [
+    "move",
+    "strategic_redeploy",
+    "cancel_movement",
+    "attack_support",
+    "retreat_fallback"
+  ],
+  "factory_table": {
+    "match": 10,
+    "mismatch": 0,
+    "skip": 0,
+    "details": [
+      {
+        "name": "CSupportAttackCommand",
+        "key": "SUPPORT_ATTACK",
+        "factory_idx": 3620,
+        "catalog_factory": "0x13fb5e0",
+        "live_factory": "0x13fb5e0",
+        "live_status": "MATCH",
+        "fields": {
+          "unit_or_attacker_handle": 40,
+          "target_province": 48
+        }
+      },
+      {
+        "name": "CCancelRunningAwayCommand",
+        "key": "CANCEL_RUNNING_AWAY",
+        "factory_idx": 6284,
+        "catalog_factory": "0x13fad40",
+        "live_factory": "0x13fad40",
+        "live_status": "MATCH",
+        "fields": {
+          "units_data": 40
+        }
+      },
+      {
+        "name": "CWithdrawArmyHqCommand",
+        "key": "WITHDRAW_ARMY_HQ",
+        "factory_idx": 1291,
+        "catalog_factory": "0x13fb710",
+        "live_factory": "0x13fb710",
+        "live_status": "MATCH",
+        "fields": {
+          "hq_handle": 40
+        }
+      },
+      {
+        "name": "CSetSelectedArmyGroupFallback",
+        "key": "ARMY_GROUP_FALLBACK",
+        "factory_idx": 5987,
+        "catalog_factory": "0x18d0fc0",
+        "live_factory": "0x18d0fc0",
+        "live_status": "MATCH",
+        "fields": {
+          "army_group": 40,
+          "fallback_flag": 48
+        }
+      },
+      {
+        "name": "CMassCancelMovementCommand",
+        "key": "MASS_CANCEL",
+        "factory_idx": 4872,
+        "catalog_factory": "0x11d8fd0",
+        "live_factory": "0x11d8fd0",
+        "live_status": "MATCH",
+        "fields": {
+          "units_data": 40,
+          "units_count": 52
+        }
+      },
+      {
+        "name": "COrderReplaceFallbackCommands",
+        "key": "ORDER_REPLACE_FALLBACK",
+        "factory_idx": 4580,
+        "catalog_factory": "0x18d05a0",
+        "live_factory": "0x18d05a0",
+        "live_status": "MATCH",
+        "fields": {
+          "fallback_flag_or_id": 84
+        }
+      },
+      {
+        "name": "CMoveCommand",
+        "key": "MOVE",
+        "factory_idx": 1402,
+        "catalog_factory": "0x13fb000",
+        "live_factory": "0x13fb000",
+        "live_status": "MATCH",
+        "fields": null
+      },
+      {
+        "name": "CStrategicRedeploymentCommand",
+        "key": "STRATEGIC",
+        "factory_idx": 4753,
+        "catalog_factory": "0x13fb580",
+        "live_factory": "0x13fb580",
+        "live_status": "MATCH",
+        "fields": null
+      },
+      {
+        "name": "CCancelMovementCommand",
+        "key": "CANCEL",
+        "factory_idx": 1415,
+        "catalog_factory": "0x13face0",
+        "live_factory": "0x13face0",
+        "live_status": "MATCH",
+        "fields": {
+          "units_data": 40,
+          "units_count": 52,
+          "sticky": 64
+        }
+      },
+      {
+        "name": "COrderNewFallbackCommand",
+        "key": "ORDERS.COrderNewFallbackCommand",
+        "factory_idx": 4271,
+        "catalog_factory": "0x18d02c0",
+        "live_factory": "0x18d02c0",
+        "live_status": "MATCH",
+        "fields": {
+          "fallback_flag_or_id": 84
+        }
+      }
+    ]
+  },
+  "vt_fills": {
+    "SUPPORT_ATTACK": {
+      "isvalid": "0x1402270",
+      "execute": "0x13fdd00",
+      "gettypeid_or_postexec": "0x13fe430",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f9cc0",
+      "serialize": "0x1404af0",
+      "deserialize": "0x1403de0",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "CANCEL_RUNNING_AWAY": {
+      "isvalid": "0x13eed30",
+      "execute": "0x13fbca0",
+      "gettypeid_or_postexec": "0x13fe2e0",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f8e80",
+      "serialize": "0x14041b0",
+      "deserialize": "0x1402e00",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "WITHDRAW_ARMY_HQ": {
+      "isvalid": "0x14027c0",
+      "execute": "0x13fe2a0",
+      "gettypeid_or_postexec": "0x13fe460",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f9ec0",
+      "serialize": "0x1404bc0",
+      "deserialize": "0x1403f10",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "ARMY_GROUP_FALLBACK": {
+      "isvalid": "0x18e0730",
+      "execute": "0x18dbae0",
+      "gettypeid_or_postexec": "0x18dcd40",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x18cf500",
+      "serialize": "0x18e9640",
+      "deserialize": "0x18e36c0",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "MASS_CANCEL": {
+      "isvalid": "0x11f0a10",
+      "execute": "0x11e1520",
+      "gettypeid_or_postexec": "0x11eaa00",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x11d5b50",
+      "serialize": "0x11fc660",
+      "deserialize": "0x11f7f30",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "ORDER_REPLACE_FALLBACK": {
+      "isvalid": "0x18df4b0",
+      "execute": "0x18da3b0",
+      "gettypeid_or_postexec": "0x18dcbc0",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x18ce4b0",
+      "serialize": "0x18e8a60",
+      "deserialize": "0x18e2500",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "MOVE": {
+      "isvalid": "0x14002f0",
+      "execute": "0x13fc990",
+      "gettypeid_or_postexec": "0x13fe350",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f9350",
+      "serialize": "0x1404590",
+      "deserialize": "0x1403570",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "STRATEGIC": {
+      "isvalid": "0x1402260",
+      "execute": "0x13fc990",
+      "gettypeid_or_postexec": "0x13fe420",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f9c10",
+      "serialize": "0x1404590",
+      "deserialize": "0x1403570",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    },
+    "CANCEL": {
+      "isvalid": "0x13fed40",
+      "execute": "0x13fbbd0",
+      "gettypeid_or_postexec": "0x13fe2d0",
+      "gate_0x60": "0x11d530",
+      "gate_0x80": "0x11d530",
+      "clone": "0x13f8db0",
+      "serialize": "0x1404130",
+      "deserialize": "0x1402d50",
+      "gate_0x60_kind": "FALSE",
+      "gate_0x80_kind": "FALSE"
+    }
+  },
+  "catalog_live_fills_applied": [
+    "CANCEL_RUNNING_AWAY.clone=0x13f8e80",
+    "CANCEL_RUNNING_AWAY.serialize=0x14041b0",
+    "CANCEL_RUNNING_AWAY.deserialize=0x1402e00",
+    "CANCEL_RUNNING_AWAY.gettypeid=0x13fe2e0",
+    "CANCEL_RUNNING_AWAY.gate_0x60=False",
+    "CANCEL_RUNNING_AWAY.gate_0x80=False"
+  ],
+  "rows": [
+    {
+      "key": "SUPPORT_ATTACK",
+      "name": "CSupportAttackCommand",
+      "factory_idx": 3620,
+      "fields": {
+        "unit_or_attacker_handle": 40,
+        "target_province": 48
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x1402270",
+        "execute": "0x13fdd00",
+        "gettypeid_or_postexec": "0x13fe430",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f9cc0",
+        "serialize": "0x1404af0",
+        "deserialize": "0x1403de0",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "CANCEL_RUNNING_AWAY",
+      "name": "CCancelRunningAwayCommand",
+      "factory_idx": 6284,
+      "fields": {
+        "units_data": 40
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x13eed30",
+        "execute": "0x13fbca0",
+        "gettypeid_or_postexec": "0x13fe2e0",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f8e80",
+        "serialize": "0x14041b0",
+        "deserialize": "0x1402e00",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "WITHDRAW_ARMY_HQ",
+      "name": "CWithdrawArmyHqCommand",
+      "factory_idx": 1291,
+      "fields": {
+        "hq_handle": 40
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x14027c0",
+        "execute": "0x13fe2a0",
+        "gettypeid_or_postexec": "0x13fe460",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f9ec0",
+        "serialize": "0x1404bc0",
+        "deserialize": "0x1403f10",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "ARMY_GROUP_FALLBACK",
+      "name": "CSetSelectedArmyGroupFallback",
+      "factory_idx": 5987,
+      "fields": {
+        "army_group": 40,
+        "fallback_flag": 48
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x18e0730",
+        "execute": "0x18dbae0",
+        "gettypeid_or_postexec": "0x18dcd40",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x18cf500",
+        "serialize": "0x18e9640",
+        "deserialize": "0x18e36c0",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "MASS_CANCEL",
+      "name": "CMassCancelMovementCommand",
+      "factory_idx": 4872,
+      "fields": {
+        "units_data": 40,
+        "units_count": 52
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x11f0a10",
+        "execute": "0x11e1520",
+        "gettypeid_or_postexec": "0x11eaa00",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x11d5b50",
+        "serialize": "0x11fc660",
+        "deserialize": "0x11f7f30",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "ORDER_REPLACE_FALLBACK",
+      "name": "COrderReplaceFallbackCommands",
+      "factory_idx": 4580,
+      "fields": {
+        "fallback_flag_or_id": 84
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x18df4b0",
+        "execute": "0x18da3b0",
+        "gettypeid_or_postexec": "0x18dcbc0",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x18ce4b0",
+        "serialize": "0x18e8a60",
+        "deserialize": "0x18e2500",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "MOVE",
+      "name": "CMoveCommand",
+      "factory_idx": 1402,
+      "fields": null,
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x14002f0",
+        "execute": "0x13fc990",
+        "gettypeid_or_postexec": "0x13fe350",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f9350",
+        "serialize": "0x1404590",
+        "deserialize": "0x1403570",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "STRATEGIC",
+      "name": "CStrategicRedeploymentCommand",
+      "factory_idx": 4753,
+      "fields": null,
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x1402260",
+        "execute": "0x13fc990",
+        "gettypeid_or_postexec": "0x13fe420",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f9c10",
+        "serialize": "0x1404590",
+        "deserialize": "0x1403570",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "CANCEL",
+      "name": "CCancelMovementCommand",
+      "factory_idx": 1415,
+      "fields": {
+        "units_data": 40,
+        "units_count": 52,
+        "sticky": 64
+      },
+      "isvalid_match": true,
+      "execute_match": true,
+      "live_vt": {
+        "isvalid": "0x13fed40",
+        "execute": "0x13fbbd0",
+        "gettypeid_or_postexec": "0x13fe2d0",
+        "gate_0x60": "0x11d530",
+        "gate_0x80": "0x11d530",
+        "clone": "0x13f8db0",
+        "serialize": "0x1404130",
+        "deserialize": "0x1402d50",
+        "gate_0x60_kind": "FALSE",
+        "gate_0x80_kind": "FALSE"
+      }
+    },
+    {
+      "key": "ORDERS.COrderNewFallbackCommand",
+      "name": "COrderNewFallbackCommand",
+      "factory_idx": 4271,
+      "fields": {
+        "fallback_flag_or_id": 84
+      },
+      "isvalid_match": null,
+      "execute_match": null,
+      "live_vt": null
+    }
+  ],
+  "works": [
+    "first-class CANCEL_RUNNING_AWAY / WITHDRAW_ARMY_HQ / ARMY_GROUP_FALLBACK / MASS_CANCEL / ORDER_REPLACE_FALLBACK",
+    "ORDERS NewFallback fields fallback_flag_or_id@+0x54",
+    "LAND_ARMY_FOCUS.core now includes retreat_fallback; keys=['move', 'strategic_redeploy', 'cancel_movement', 'attack_support', 'retreat_fallback']",
+    "live factory MATCH=10 MISMATCH=0",
+    "CancelRunningAway live VT fills: ['CANCEL_RUNNING_AWAY.clone=0x13f8e80', 'CANCEL_RUNNING_AWAY.serialize=0x14041b0', 'CANCEL_RUNNING_AWAY.deserialize=0x1402e00', 'CANCEL_RUNNING_AWAY.gettypeid=0x13fe2e0', 'CANCEL_RUNNING_AWAY.gate_0x60=False', 'CANCEL_RUNNING_AWAY.gate_0x80=False']",
+    "allow_post stays False; recipe not executed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty (peacetime ETH)",
+    "battle-plan NewFallback subject wiring beyond +0x54"
+  ],
+  "next_shortest_blocker": "NON-Post: peacetime ETH RO ceiling on midflight path/leaf \u2014 next cheapest: pause+1x war-dense relaunch observe (ITA/ETH war) for nonempty path OR leaf sight; still NO ALLOW_POST",
+  "parent_sha_base": "ef62e72"
+}
