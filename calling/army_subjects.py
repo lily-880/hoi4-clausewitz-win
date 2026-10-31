@@ -184,14 +184,30 @@ def withdraw_army_hq_recipe(hq_handle: list[int] | tuple[int, int]) -> dict[str,
     }
 
 
-def fallback_order_recipe(fallback_flag_or_id: int = 1) -> dict[str, Any]:
-    """COrderNewFallbackCommand / COrderReplaceFallbackCommands — RO docs only."""
+def fallback_order_recipe(fallback_flag_or_id: int = 1,
+                          subject_handle: list[int] | tuple[int, int] | None = None,
+                          unit_handles: list[list[int]] | None = None,
+                          province_ids: list[int] | None = None) -> dict[str, Any]:
+    """COrderNewFallbackCommand / COrderReplaceFallbackCommands — RO docs only.
+
+    Phase 2fl field map from shared serialize@0x18e8a60 (not NewFront@0x18e8af0).
+    """
     return {
+        "subject_handle_off": 0x28,
+        "subject_handle": list(subject_handle) if subject_handle is not None else None,
+        "units_data_off": 0x30,
+        "units_count_off": 0x3c,
+        "unit_handles": [list(h) for h in (unit_handles or [])],
+        "units_count": len(unit_handles or []),
+        "provinces_data_off": 0x48,
+        "province_ids": list(province_ids or []),
         "fallback_flag_or_id_off": 0x54,
         "fallback_flag_or_id": fallback_flag_or_id,
-        "note": "IsValid checks@+0x54; battle-plan subject wiring TBD; posting DISABLED",
+        "serialize_tokens": {"unit_handle": 0x28A3, "province_array": 0x174, "header": 0x3F},
+        "note": "2fl: IsValid=gate(this+0x28)+flag@+0x54; vectors must be game-alloc; posting DISABLED",
         "posting": "DISABLED",
     }
+
 
 
 def mass_cancel_movement_recipe(army_rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1162,20 +1178,22 @@ def order_reconnect_recipe(order_a: int = 0, order_b: int = 0, order_c: int = 0)
     }
 
 
-def replace_fallback_recipe(unit_handles: list[list[int]] | None = None,
-                            province_or_path: int = 0) -> dict[str, Any]:
-    """COrderReplaceFallbackCommands — RO docs only."""
-    handles = unit_handles or []
-    return {
-        "subject_or_vec_off": 0x28,
-        "units": [list(h) for h in handles],
-        "units_count": len(handles),
-        "province_or_path_off": 0x30,
-        "province_or_path": province_or_path,
-        "post_gate_candidates": ["0x2284800", "0xbbb1e0", "0xc40230"],
-        "note": "Retreat/fallback replace; IsValid gates shared with NewFallback; posting DISABLED",
-        "posting": "DISABLED",
-    }
+def replace_fallback_recipe(subject_handle: list[int] | tuple[int, int] | None = None,
+                            unit_handles: list[list[int]] | None = None,
+                            province_ids: list[int] | None = None,
+                            fallback_flag_or_id: int = 1) -> dict[str, Any]:
+    """COrderReplaceFallbackCommands — RO docs only; shares ser/deser/isvalid w/ NewFallback."""
+    out = fallback_order_recipe(
+        fallback_flag_or_id=fallback_flag_or_id,
+        subject_handle=subject_handle,
+        unit_handles=unit_handles,
+        province_ids=province_ids,
+    )
+    out["post_gate_candidates"] = ["0x2284800", "0xbbb1e0", "0xc40230"]
+    out["note"] = "2fl: same field map as NewFallback; Execute@0x18da3b0; posting DISABLED"
+    out["posting"] = "DISABLED"
+    return out
+
 
 
 def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:

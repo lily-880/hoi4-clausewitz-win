@@ -1,0 +1,55 @@
+{
+  "phase": "2fl",
+  "result": "NEWFALLBACK_FIELDS_DEEPENED",
+  "scenario": "ITA@1x NewFallback subject field deepen (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 34188,
+  "ui_date": "1936-01-03 22:00",
+  "hours": 70,
+  "newfallback_fields": {
+    "subject_handle": 40,
+    "units_data": 48,
+    "units_count": 60,
+    "provinces_data": 72,
+    "fallback_flag_or_id": 84
+  },
+  "replace_fallback_fields": {
+    "subject_handle": 40,
+    "units_data": 48,
+    "units_count": 60,
+    "provinces_data": 72,
+    "fallback_flag_or_id": 84
+  },
+  "army_group_fallback_fields": {
+    "army_group": 40,
+    "fallback_flag": 48
+  },
+  "shared_ser_deser_isvalid": true,
+  "works": [
+    "Capstone NewFallback shared ser@0x18e8a60 (stop before NewFront@0x18e8af0 bleed)",
+    "IsValid: gate(this+0x28)=0xbbb1e0 + dword@+0x54!=0",
+    "Execute NewFallback: resolve handle@+0x28; helper(units@+0x30, provinces@+0x48)",
+    "fields {'subject_handle': 40, 'units_data': 48, 'units_count': 60, 'provinces_data': 72, 'fallback_flag_or_id': 84}",
+    "ORDER_REPLACE_FALLBACK shares ser/deser/isvalid; same field map",
+    "ARMY_GROUP_FALLBACK unchanged (army_group@+0x28, fallback_flag@+0x30)",
+    "allow_post stays False; recipe not executed; never 5x"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "units_end/cap exact packing between +0x30..+0x40",
+    "provinces size/cap packing between +0x48..+0x50",
+    "live midflight NewFallback hex capture",
+    "subject_handle semantic (order vs army-group vs country)"
+  ],
+  "next_shortest_blocker": "NON-Post: recover subject_handle semantic + units/provinces vector packing OR Assign/Unassign edge deepen; still NO ALLOW_POST",
+  "parent_sha_base": "24ac836",
+  "ts": "2026-10-31T04:37:39.991410+00:00"
+}
