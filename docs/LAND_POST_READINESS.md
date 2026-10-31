@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hx `HIBAND_OG962_976_DIG_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hy `PATH200_HXFOCUS_DENSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -245,7 +245,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | ID | Signal | How / status |
 | --- | --- | --- |
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
-| `PATH200` | multi-prov candidates | 2hq focus hits=3 by_prov=[915:1,3816:2] nonempty=4 |
+| `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
 | `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2hx hi-band oi962 size=20 walk=20 arr70=0 expect_in=True tri=0, oi976 size=21 walk=21 arr70=0 expect_in=True tri=0 (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
@@ -300,6 +300,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hv OG481 member rollup + cover reverse:** result=`OG481_MEMBER_ROLLUP_COVER_REVERSE_HIT` · og50=6 walk=6 arr70=28 · ita_tri_members=2 ita_path=4 · cover_only=1 reverse_hit=0 · hours=247 UI=1936-01-11 07:00 · allow_post=False. ita_mem=[idx=461 path=[3816] tri=True; idx=410 path=[] tri=False; idx=455 path=[1176] tri=True; idx=445 path=[] tri=False; idx=382 path=[] tri=False; idx=463 path=[3938] tri=False] cover_rev=[idx=1046→ois=[]]
 **2hw path∉Inst70 + cover widen:** result=`PATH_OUTLIER_COVER_WIDEN_HIT` · outliers=1 cover_only=2 · prov→oi={} · widen_rev=2/2 band=[512, 1023] · hours=260 UI=1936-01-11 20:00 · allow_post=False. out=[idx=463 out=[3938]→{}] widen=[idx=1042→[962]; idx=1046→[976]]
 **2hx hi-band OG962/976 dig:** result=`HIBAND_OG962_976_DIG_HIT` · oi962 size=20 walk=20 arr70=0 expect_in=True tri=0, oi976 size=21 walk=21 arr70=0 expect_in=True tri=0 · cross70_n=0 shared=[] · ref481_arr70=28 · hours=280 UI=1936-01-12 16:00 · allow_post=False
+**2hy PATH200 hxfocus denser:** result=`PATH200_HXFOCUS_DENSE_HIT` · focus_hit_n=25 by_prov=[1176:9,3816:3,3938:13] · new1176=9 focus_hiband=21 · ita_ok=50 nonempty=25 · hours=295 UI=1936-01-13 07:00 · allow_post=False. hits=[idx=455→[1176] hb=[]; idx=461→[3816] hb=[]; idx=463→[3938] hb=[]; idx=1042→[1176] hb=[962]; idx=1046→[3816] hb=[976]; idx=2640→[3938] hb=[]; idx=2641→[1176] hb=[962]; idx=2643→[1176] hb=[976]]
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -362,6 +363,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hv** | `OG481_MEMBER_ROLLUP_COVER_REVERSE_HIT` | OG481 member rollup + cover_only reverse | oi≠0 / midflight / Post HARD_DENY |
 | **2hw** | `PATH_OUTLIER_COVER_WIDEN_HIT` | path∉Inst70 covering-oi + cover_only reverse widen | oi≠0 / midflight / Post HARD_DENY |
 | **2hx** | `HIBAND_OG962_976_DIG_HIT` | hi-band OG962/976 dig Inst70+OG50+PATH | oi≠0 / midflight / Post HARD_DENY |
+| **2hy** | `PATH200_HXFOCUS_DENSE_HIT` | PATH200 denser @2hx focus {1176,3938,3816,915} × hiband OG50 | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -369,4 +371,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hx · hi-band OG962/976 dig · 2026-10-31 Asia/Shanghai*
+*Phase 2hy · PATH200 hxfocus denser · 2026-10-31 Asia/Shanghai*
