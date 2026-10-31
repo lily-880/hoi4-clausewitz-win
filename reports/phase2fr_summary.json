@@ -1,0 +1,53 @@
+{
+  "phase": "2fr",
+  "result": "orders_group_type0x35_documented",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-12 09:00",
+  "hours": 273,
+  "ui_date_start": "1936-01-12 04:00",
+  "scenario": "ITA@1x order pool root / OG handle map (no Post)",
+  "speed_policy": "pause-or-1x only (never change speed)",
+  "pool_len": 0,
+  "pool_base": null,
+  "index_map_any_hit": null,
+  "oi_fits_pool_len": null,
+  "live_order_indices": [
+    6,
+    9
+  ],
+  "og_mapped_n": 10,
+  "og_resolved_n": 10,
+  "og_type0x35_n": 10,
+  "owner_classified_n": 0,
+  "nf_midflight_ran": false,
+  "nf_hits": 0,
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "heap COrderInstance=0 COrdersGroup=10",
+    "expanded COrderInstance pool len=0 stride=0x3D0 base=None",
+    "oi\u2192pool_base+oi*stride any_hit=None oi_fits_pool_len=None test_ois=[6, 9]",
+    "HANDLE_TYPE_TABLE[0x35]=0x1b85d2ee700",
+    "COrdersGroup +0x8/+0xc mapped n=10 resolved=10 type0x35=10",
+    "pool-base owners classified=0",
+    "Assign sight ois=[6, 9] counts={'COrderAssignCommand': 2}"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "order_index\u2192COrderInstance pool-slot proven",
+    "stable G_GAMESTATE\u2192pool root pointer path"
+  ],
+  "next_shortest_blocker": "NON-Post: deepen type-0x35 handle resolve path or bounded NF/RF subject midflight; still NO ALLOW_POST",
+  "parent_sha_base": "11fe169"
+}
