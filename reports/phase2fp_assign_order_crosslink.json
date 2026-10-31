@@ -1,0 +1,471 @@
+{
+  "phase": "2fp",
+  "ts": "2026-10-31T05:01:01.485520+00:00",
+  "result": "ASSIGN_ORDER_CROSSLINK_DOCUMENTED",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "executed_2fb_recipe": false,
+  "parent_sha_base": "39a915c",
+  "semantic": {
+    "COrderAssignCommand": {
+      "units_cpdxarray@+0x28": "armies (HANDLE_TYPE_ARMY=0x33) and rare non-ARMY elems",
+      "order_index@+0x48": "battle-plan order slot index (same index space as Execute/Delete @+0x30)",
+      "assign_to_minimum_order@+0x4C": "u8 flag",
+      "link": "Assign binds units[] \u2192 order_index slot (army\u2192order subject link)",
+      "not_proven": [
+        "exact COrder* object pointer for order_index (no order-table walk this slice)",
+        "NewFallback subject type-id table",
+        "name of u32@+0x40 (still observed-only)"
+      ]
+    },
+    "sibling_index_space": {
+      "COrderExecuteCommand.order_index@+0x30": "same integer space",
+      "COrderDeleteCommand.order_index@+0x30": "same integer space",
+      "COrderNewFallbackCommand.subject_handle@+0x28": "order-domain {type,index} via gate 0xbbb1e0 \u2014 distinct from Assign.order_index"
+    }
+  },
+  "live_at_start": {
+    "pid": 34188,
+    "hours": 174,
+    "ui_date": "1936-01-08 06:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign\u2192order_index cross-link (no Post)"
+  },
+  "live": {
+    "pid": 34188,
+    "hours": 180,
+    "ui_date": "1936-01-08 12:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign\u2192order_index cross-link (no Post)"
+  },
+  "prior_2fo_examples": [
+    {
+      "origin": "2fo_sight",
+      "order_index": 1,
+      "units": {
+        "data": "0x1b9f2c0e040",
+        "capacity": 2,
+        "size": 2,
+        "alloc": "0x7ff74775d000"
+      },
+      "army_lists": [
+        [
+          51,
+          1803
+        ]
+      ],
+      "other_lists": [
+        [
+          4713,
+          3906
+        ]
+      ]
+    },
+    {
+      "origin": "2fo_sight",
+      "order_index": 6,
+      "units": {
+        "data": "0x1b9f27d26d0",
+        "capacity": 4,
+        "size": 4,
+        "alloc": "0x7ff74775d000"
+      },
+      "army_lists": [
+        [
+          51,
+          1810
+        ],
+        [
+          51,
+          1811
+        ],
+        [
+          51,
+          1816
+        ],
+        [
+          51,
+          1815
+        ]
+      ],
+      "other_lists": []
+    }
+  ],
+  "bounded_sight": {
+    "observe_seconds": 75.0,
+    "elapsed": 75.0,
+    "polls": 5217532,
+    "sight_counts": {
+      "CHourlyTickCommand": 66008,
+      "COrderAssignCommand": 2
+    },
+    "assigns": [
+      {
+        "source": "stage[14]",
+        "addr": "0x1b9de31f7b0",
+        "t": 9.413,
+        "units_cpdx": {
+          "data": "0x1b9f27d1ec0",
+          "capacity": 4,
+          "size": 4,
+          "alloc": "0x7ff74775d000"
+        },
+        "u32_at_0x40_observed": 53,
+        "u32_at_0x40_hex": "0x35",
+        "order_index": 6,
+        "assign_to_minimum_order": 0,
+        "units": {
+          "elements": [
+            {
+              "i": 0,
+              "type": 51,
+              "index": 1810,
+              "as_list": [
+                51,
+                1810
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f0f80",
+              "army_plus18_echo": [
+                51,
+                1810
+              ],
+              "echo_matches": true,
+              "province_id": 13237,
+              "country_tag": 44
+            },
+            {
+              "i": 1,
+              "type": 51,
+              "index": 1811,
+              "as_list": [
+                51,
+                1811
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81edb00",
+              "army_plus18_echo": [
+                51,
+                1811
+              ],
+              "echo_matches": true,
+              "province_id": 1984,
+              "country_tag": 44
+            },
+            {
+              "i": 2,
+              "type": 51,
+              "index": 1816,
+              "as_list": [
+                51,
+                1816
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f5120",
+              "army_plus18_echo": [
+                51,
+                1816
+              ],
+              "echo_matches": true,
+              "province_id": 13238,
+              "country_tag": 44
+            },
+            {
+              "i": 3,
+              "type": 51,
+              "index": 1815,
+              "as_list": [
+                51,
+                1815
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f3d70",
+              "army_plus18_echo": [
+                51,
+                1815
+              ],
+              "echo_matches": true,
+              "province_id": 13237,
+              "country_tag": 44
+            }
+          ],
+          "army": [
+            {
+              "i": 0,
+              "type": 51,
+              "index": 1810,
+              "as_list": [
+                51,
+                1810
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f0f80",
+              "army_plus18_echo": [
+                51,
+                1810
+              ],
+              "echo_matches": true,
+              "province_id": 13237,
+              "country_tag": 44
+            },
+            {
+              "i": 1,
+              "type": 51,
+              "index": 1811,
+              "as_list": [
+                51,
+                1811
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81edb00",
+              "army_plus18_echo": [
+                51,
+                1811
+              ],
+              "echo_matches": true,
+              "province_id": 1984,
+              "country_tag": 44
+            },
+            {
+              "i": 2,
+              "type": 51,
+              "index": 1816,
+              "as_list": [
+                51,
+                1816
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f5120",
+              "army_plus18_echo": [
+                51,
+                1816
+              ],
+              "echo_matches": true,
+              "province_id": 13238,
+              "country_tag": 44
+            },
+            {
+              "i": 3,
+              "type": 51,
+              "index": 1815,
+              "as_list": [
+                51,
+                1815
+              ],
+              "type_hex": "0x33",
+              "large_type": false,
+              "note": "HANDLE_TYPE_ARMY",
+              "resolved": "0x1b9c81f3d70",
+              "army_plus18_echo": [
+                51,
+                1815
+              ],
+              "echo_matches": true,
+              "province_id": 13237,
+              "country_tag": 44
+            }
+          ],
+          "other": [],
+          "hex": "3300000012070000330000001307000033000000180700003300000017070000"
+        },
+        "army_lists": [
+          [
+            51,
+            1810
+          ],
+          [
+            51,
+            1811
+          ],
+          [
+            51,
+            1816
+          ],
+          [
+            51,
+            1815
+          ]
+        ],
+        "other_lists": []
+      },
+      {
+        "source": "stage[1]",
+        "addr": "0x1b905afe450",
+        "t": 47.631,
+        "units_cpdx": {
+          "data": "0x1b9cbda3dd0",
+          "capacity": 0,
+          "size": 0,
+          "alloc": "0x7ff74775d000"
+        },
+        "u32_at_0x40_observed": 53,
+        "u32_at_0x40_hex": "0x35",
+        "order_index": 25,
+        "assign_to_minimum_order": 0,
+        "units": {
+          "elements": [],
+          "army": [],
+          "other": []
+        },
+        "army_lists": [],
+        "other_lists": []
+      }
+    ],
+    "executes": [],
+    "deletes": [],
+    "fallbacks": [],
+    "fronts_n": 0,
+    "fronts_sample": [],
+    "crosslink": {
+      "by_order_index": {
+        "6": [
+          {
+            "addr": "0x1b9de31f7b0",
+            "t": 9.413,
+            "army_lists": [
+              [
+                51,
+                1810
+              ],
+              [
+                51,
+                1811
+              ],
+              [
+                51,
+                1816
+              ],
+              [
+                51,
+                1815
+              ]
+            ],
+            "other_lists": [],
+            "size": 4,
+            "assign_to_minimum_order": 0
+          }
+        ],
+        "25": [
+          {
+            "addr": "0x1b905afe450",
+            "t": 47.631,
+            "army_lists": [],
+            "other_lists": [],
+            "size": 0,
+            "assign_to_minimum_order": 0
+          }
+        ]
+      },
+      "assign_order_indices": [
+        6,
+        25
+      ],
+      "execute_order_indices": [],
+      "delete_order_indices": [],
+      "overlap_assign_execute": [],
+      "overlap_assign_delete": []
+    },
+    "fallback_seen": false,
+    "assign_seen": true
+  },
+  "army_examples": [
+    {
+      "order_index": 6,
+      "assign_to_minimum_order": 0,
+      "army_lists": [
+        [
+          51,
+          1810
+        ],
+        [
+          51,
+          1811
+        ],
+        [
+          51,
+          1816
+        ],
+        [
+          51,
+          1815
+        ]
+      ],
+      "other_lists": [],
+      "army_detail": [
+        {
+          "as_list": [
+            51,
+            1810
+          ],
+          "province_id": 13237,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1811
+          ],
+          "province_id": 1984,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1816
+          ],
+          "province_id": 13238,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1815
+          ],
+          "province_id": 13237,
+          "country_tag": 44,
+          "echo_matches": true
+        }
+      ]
+    }
+  ],
+  "works": [
+    "Assign semantic: units[] (army handles) bind to order_index@+0x48 battle-plan slot",
+    "Execute/Delete share order_index integer space @+0x30 (catalog+live)",
+    "live assigns=2 executes=0 deletes=0 NF=0",
+    "overlap assign\u2229execute=[] assign\u2229delete=[]",
+    "prior 2fo examples reused=2",
+    "allow_post False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "order_index\u2192COrder* table walk",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: NewFallback/ReplaceFallback midflight subject type-id OR order_index\u2192order-object table walk; still NO ALLOW_POST"
+}

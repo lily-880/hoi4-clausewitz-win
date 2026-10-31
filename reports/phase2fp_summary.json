@@ -1,0 +1,202 @@
+{
+  "phase": "2fp",
+  "result": "ASSIGN_ORDER_CROSSLINK_DOCUMENTED",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-08 12:00",
+  "hours": 180,
+  "scenario": "ITA@1x Assign\u2192order_index cross-link (no Post)",
+  "assigns_n": 2,
+  "executes_n": 0,
+  "fallbacks_n": 0,
+  "crosslink": {
+    "assign_order_indices": [
+      6,
+      25
+    ],
+    "overlap_assign_execute": [],
+    "overlap_assign_delete": [],
+    "by_order_index": {
+      "6": [
+        {
+          "addr": "0x1b9de31f7b0",
+          "t": 9.413,
+          "army_lists": [
+            [
+              51,
+              1810
+            ],
+            [
+              51,
+              1811
+            ],
+            [
+              51,
+              1816
+            ],
+            [
+              51,
+              1815
+            ]
+          ],
+          "other_lists": [],
+          "size": 4,
+          "assign_to_minimum_order": 0
+        }
+      ],
+      "25": [
+        {
+          "addr": "0x1b905afe450",
+          "t": 47.631,
+          "army_lists": [],
+          "other_lists": [],
+          "size": 0,
+          "assign_to_minimum_order": 0
+        }
+      ]
+    }
+  },
+  "army_examples": [
+    {
+      "order_index": 6,
+      "assign_to_minimum_order": 0,
+      "army_lists": [
+        [
+          51,
+          1810
+        ],
+        [
+          51,
+          1811
+        ],
+        [
+          51,
+          1816
+        ],
+        [
+          51,
+          1815
+        ]
+      ],
+      "other_lists": [],
+      "army_detail": [
+        {
+          "as_list": [
+            51,
+            1810
+          ],
+          "province_id": 13237,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1811
+          ],
+          "province_id": 1984,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1816
+          ],
+          "province_id": 13238,
+          "country_tag": 44,
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1815
+          ],
+          "province_id": 13237,
+          "country_tag": 44,
+          "echo_matches": true
+        }
+      ]
+    }
+  ],
+  "prior_2fo_examples": [
+    {
+      "origin": "2fo_sight",
+      "order_index": 1,
+      "units": {
+        "data": "0x1b9f2c0e040",
+        "capacity": 2,
+        "size": 2,
+        "alloc": "0x7ff74775d000"
+      },
+      "army_lists": [
+        [
+          51,
+          1803
+        ]
+      ],
+      "other_lists": [
+        [
+          4713,
+          3906
+        ]
+      ]
+    },
+    {
+      "origin": "2fo_sight",
+      "order_index": 6,
+      "units": {
+        "data": "0x1b9f27d26d0",
+        "capacity": 4,
+        "size": 4,
+        "alloc": "0x7ff74775d000"
+      },
+      "army_lists": [
+        [
+          51,
+          1810
+        ],
+        [
+          51,
+          1811
+        ],
+        [
+          51,
+          1816
+        ],
+        [
+          51,
+          1815
+        ]
+      ],
+      "other_lists": []
+    }
+  ],
+  "sight_counts": {
+    "CHourlyTickCommand": 66008,
+    "COrderAssignCommand": 2
+  },
+  "works": [
+    "Assign semantic: units[] (army handles) bind to order_index@+0x48 battle-plan slot",
+    "Execute/Delete share order_index integer space @+0x30 (catalog+live)",
+    "live assigns=2 executes=0 deletes=0 NF=0",
+    "overlap assign\u2229execute=[] assign\u2229delete=[]",
+    "prior 2fo examples reused=2",
+    "allow_post False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "order_index\u2192COrder* table walk",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: NewFallback/ReplaceFallback midflight subject type-id OR order_index\u2192order-object table walk; still NO ALLOW_POST",
+  "parent_sha_base": "39a915c"
+}
