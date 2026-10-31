@@ -9,6 +9,7 @@ Commands:
   probe    alias for status
   live-gs  live scan for G_GAMESTATE using RTTI vtable candidates (read-only)
   serve    minimal MCP stdio stub
+  say      natural language -> the console command from the 1.19 docs
 
 Read-only by default. Command-queue posting stays disabled until offsets verified.
 """
@@ -318,6 +319,17 @@ def cmd_serve(args):
     os.execv(sys.executable, [sys.executable, os.path.join(ROOT, "mcp", "server.py")])
 
 
+def cmd_say(args):
+    import nl_console
+    text = " ".join(getattr(args, "words", []) or []).strip()
+    result = nl_console.translate(text)
+    if result.get("line"):
+        print(result["line"])
+    if result.get("detail"):
+        print(result["detail"])
+    return 0 if result.get("ok") else 1
+
+
 COMMANDS = {
     "doctor": cmd_doctor,
     "session-probe": cmd_session_probe,
@@ -327,6 +339,7 @@ COMMANDS = {
     "live-gs": cmd_live_gs,
     "probe": cmd_probe,
     "serve": cmd_serve,
+    "say": cmd_say,
 }
 
 
@@ -334,6 +347,7 @@ def main():
     ap = argparse.ArgumentParser(prog="clausewitz_win", description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", nargs="?", default="doctor", choices=sorted(COMMANDS))
+    ap.add_argument("words", nargs=argparse.REMAINDER, help="text for say")
     ap.add_argument("--exe", help="path to hoi4.exe for peinfo")
     args = ap.parse_args()
     try:
