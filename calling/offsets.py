@@ -44,8 +44,8 @@ HYPOTHESIS_STRUCT = {
     "GS_CHARACTER_MANAGER": 0x6A8,  # CCharacterManager* (live RTTI)
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
     "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
-    "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year — not full date
-    # Country (CCountry) — verified in-game via -hands_off (Haiti 1936), two samples
+    "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year 鈥?not full date
+    # Country (CCountry) 鈥?verified in-game via -hands_off (Haiti 1936), two samples
     "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50; Windows CArmy == division-level
     "CO_DIV_TEMPLATES": 0x1B8,  # CPdxArray<CReferencedDivisionTemplate*> (live)
     "CO_FLEETS": 0x278,  # CPdxArray<CFleet*> (live Haiti)
@@ -54,7 +54,7 @@ HYPOTHESIS_STRUCT = {
     "CO_CONTROLLER_AREAS": 0x548,  # CPdxArray<CControllerArea*> (live HAI=9)
     "CO_OWNER_AREAS": 0x560,  # CPdxArray<COwnerArea*> (live HAI=9)
     "CO_MODIFIERS": 0x5D0,  # CPdxArray<CModifier*> (live HAI=36)
-    # CArmy fields (division-like on Windows 1.19.4 — all 17/17 paused HAI)
+    # CArmy fields (division-like on Windows 1.19.4 鈥?all 17/17 paused HAI)
     "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
     "CA_PROVINCE": 0x1F0,  # CProvince*
     "CA_DIV_TEMPLATE": 0x3B8,  # CReferencedDivisionTemplate*
@@ -87,11 +87,11 @@ PROVEN_STATIC = {
     "CArmyGroup_vtable": 0x29CEE28,
     "CArmyGroup_vtable_mi": [0x29CEEA0],
     "CUnit_vtable": 0x29CFAC0,
-    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90/+0x78/+0x80/+0x88 load [this+0x530]; LIVE=CGameApplication — NOT queue (2m vt scan confirms)
+    "CInGameIdler_queue_field_hyp": 0x530,  # idler vt+0x90/+0x78/+0x80/+0x88 load [this+0x530]; LIVE=CGameApplication 鈥?NOT queue (2m vt scan confirms)
     "CInGameIdler_vt_post_wrapper": 0xE34E90,
     "CFrontEndIdler_vt_forward": 0xB8DCA0,  # same [this+0x530]->jmp[rax+0x90] shape
     "CGameApplication_vt90_setter": 0x1B14F0,  # NOT Post -- swaps this+0x380 (CSession*)
-    "CGameApplication_vt88_session_getter": 0x17F880,  # mov rax,[rcx+0x380]; ret — CSession*
+    "CGameApplication_vt88_session_getter": 0x17F880,  # mov rax,[rcx+0x380]; ret 鈥?CSession*
     "CGameApplication_SESSION": 0x380,  # CSession* (live RTTI)
     "CSession_SERVER": 0x40,  # CServer* (live CDummyServer in SP)
     "CInGameIdler_vt88_session_forward": 0xB8E390,  # [this+0x530]->App.vt+0x88
@@ -105,7 +105,7 @@ PROVEN_STATIC = {
     "G_COMMAND_QUEUE": 0x34FFBE8,  # alias of G_SESSION
     "G_POST_LISTENERS": 0x3667BE8,  # ptr to CServer* array fan-out
     "G_POST_LISTENER_COUNT": 0x3667BF4,
-    # Phase 2r — Execute tick (READ-ONLY; posting still DISABLED)
+    # Phase 2r 鈥?Execute tick (READ-ONLY; posting still DISABLED)
     "FN_SESSION_UPDATE": 0x22C6410,  # CSession tick; state==2 drains+stages+Execute
     "FN_EXECUTE_LOOP": 0x22C4710,  # second list Execute loop (server.vt+0x78 -> +0x40)
     "FN_CMD_ISVALID_WRAP": 0x22D8EA0,  # calls cmd.vt+0x48 IsValid
@@ -114,11 +114,11 @@ PROVEN_STATIC = {
     "CCommand_VT_POSTEXEC": 0x58,  # post-Execute hook
     "CDummyServer_EXECLIST": 0x40,  # list head via vt+0x78 getter 0x247620
     "FN_CMD_QUEUE_POST_SINK_NETWORK": 0x23FA830,  # CNetworkServer vt+0x28 (MP; not live SP)
-    "FN_CMD_QUEUE_DRAIN_NETWORK": 0x23FB470,  # CNetworkServer vt+0x30 — also fills +0x58 only
+    "FN_CMD_QUEUE_DRAIN_NETWORK": 0x23FB470,  # CNetworkServer vt+0x30 鈥?also fills +0x58 only
     "CSession_EXECUTING_FLAG": 0x6CC,  # set around Execute; Post-during-exec DROPS
     "CSession_EXEC_COUNTER": 0x6C8,
     "CSession_DRAIN_COUNTER": 0x60,
-    # Phase 2t — move command / session staging / post-exec list
+    # Phase 2t 鈥?move command / session staging / post-exec list
     "CMoveCommand_VT": 0x2A2C790,
     "CMoveCommand_SIZE": 0x88,  # factory 0x13fb000 (2w corrects 2t 0x58 mislabel)
     "CMoveCommand_FACTORY": 0x13FB000,
@@ -132,9 +132,9 @@ PROVEN_STATIC = {
     "CStartGameCommand_VT": 0x2A5F448,
     "CStartGameCommand_SIZE": 0x28,
     "CStartGameCommand_EXECUTE": 0x16DE180,
-    "CCommand_STUB_TRUE": 0x188D90,  # mov al,1;ret — StartGame early/post-exec
-    "CCommand_STUB_FALSE": 0x11D530,  # xor al,al;ret — Move early-drop
-    # Phase 2aa — speed cmds documented RO only; NEVER Post (5x ban)
+    "CCommand_STUB_TRUE": 0x188D90,  # mov al,1;ret 鈥?StartGame early/post-exec
+    "CCommand_STUB_FALSE": 0x11D530,  # xor al,al;ret 鈥?Move early-drop
+    # Phase 2aa 鈥?speed cmds documented RO only; NEVER Post (5x ban)
     "CIncreaseGameSpeedCommand_VT": 0x29F37C8,
     "CDecreaseGameSpeedCommand_VT": 0x29F3880,
     "CSetGameSpeedCommand_VT": 0x29F3938,
@@ -182,7 +182,7 @@ PROVEN_STATIC = {
     "FN_TOKEN_NAME_GET": 0x1F8360,  # (writer, token) -> std::string*
     "G_TOKEN_ARRAY": 0x368F5A0,  # ptr; entry size 32 (MSVC SSO string)
     "G_TOKEN_MAX": 0x368F574,  # i32
-    # Phase 2an — CUnitMoveAction field offs (serialize-proven)
+    # Phase 2an 鈥?CUnitMoveAction field offs (serialize-proven)
     "CUnitMoveAction_UNIT_HANDLE": 0x10,
     "CUnitMoveAction_PROVINCE_ARR": 0x18,
     "CUnitMoveAction_PROVINCE_SIZE": 0x24,
@@ -220,7 +220,7 @@ PROVEN_STATIC = {
     "CCancelMovementCommand_FACTORY": 0x13FACE0,
     "CChatCommand_FACTORY": 0x13CA430,
     "CStartGameCommand_FACTORY": 0x16DD5A0,
-    "CStartGameCommand_CLONE": 0x16DD0D0,  # vt+0x68 — sticky postexec
+    "CStartGameCommand_CLONE": 0x16DD0D0,  # vt+0x68 鈥?sticky postexec
     "CMoveCommand_CLONE": 0x13F9350,
     "SESSION_UPDATE_DRAIN_CALLS": "0x22c6521/0x22c6543/0x22c664b vt+0x30",
     "CSession_STAGE_ARRAY": 0x48,
@@ -228,13 +228,13 @@ PROVEN_STATIC = {
     "CSession_POSTEXEC_HEAD": 0xF8,
     "CSession_POSTEXEC_TAIL": 0x100,
     "CSession_POSTEXEC_COUNT": 0x108,
-    # Phase 2u — +0x40 execlist filler
-    "CCommand_FLAG_EXECLIST": 0x1A,  # nonzero → NetworkServer posts to +0x40 not +0x58
+    # Phase 2u 鈥?+0x40 execlist filler
+    "CCommand_FLAG_EXECLIST": 0x1A,  # nonzero 鈫?NetworkServer posts to +0x40 not +0x58
     "NETWORK_POST_EXECLIST_INSERT": 0x23FA510,  # branch site; +0x40 path at 0x23fa578
     "CDummyServer_EXECLIST_HEAD": 0x40,
     "CDummyServer_EXECLIST_TAIL": 0x48,
     "CDummyServer_EXECLIST_COUNT": 0x50,
-    # Phase 2v — Post gates / CancelMovement
+    # Phase 2v 鈥?Post gates / CancelMovement
     "CCancelMovement_VT": 0x2A2C9B8,
     "CCancelMovement_EXECUTE": 0x13FBBD0,
     "CCancelMovement_ISVALID": 0x13FED40,

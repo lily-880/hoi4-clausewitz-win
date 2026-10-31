@@ -912,3 +912,26 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Next cheapest (RO)**: map UI-accurate date/hour from `G_GAMESTATE`; keep watcher armed. Do not open Post yet.
 - Report: `reports/phase2ek_issue_path_audit.json`. Never 5x. `allow_post` False.
 
+## Phase 2el — G_GAMESTATE UI datetime (RO) — 2026-10-31
+
+**Goal:** Map UI-accurate date/year/month/day/hour from G_GAMESTATE so top-bar time is readable vs bookmark 1936-01-01 12:00. No Post / ALLOW_POST / inject / HourlyTick / speed hacks.
+
+**Proven:**
+- G_GAMESTATE+0x478 = i32 calendar year (1936)
+- G_GAMESTATE+0x484 = i32 **hours since 1936-01-01 00:00** → decode to Y-M-D H
+- Live confirmation: hours advanced (e.g. 68→71 while status re-ran); UI e.g. **1936-01-03 20:00** / later; past bookmark 12:00 by tens of hours at 1x
+- Year@+0x478 matches decoded year from +0x484
+- Minute: **not available** (hourly resolution only) — stubbed as :00
+
+**Unproven / stubbed:**
+- +0x47c aux (28/31) — not day-of-year
+- +0x480 hour-like wraps oddly — not required for UI
+- +0x488 ≠ day/month
+
+**Wiring:** calling/offsets.py GS_DATE_HOURS; calling/gamestate.py date_full + verified; status surfaces UI string.
+
+**Safety:** llow_post() remained False. Watcher RO stayed armed. No Post / move issue.
+
+**Scripts:** scripts/phase2el_map_gs_date.py, phase2el_date_roll.py, phase2el_confirm_hours.py; report 
+eports/phase2el_gs_datetime.json.
+

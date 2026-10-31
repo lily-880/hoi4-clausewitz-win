@@ -83,7 +83,7 @@
     {
       "id": "move_early_gate_docs",
       "status": "closed",
-      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES \u2014 not a Post enable."
+      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES — not a Post enable."
     },
     {
       "id": "cmd_catalog_live",
@@ -98,7 +98,7 @@
     {
       "id": "isvalid_paths",
       "status": "closed",
-      "note": "2bs: 49 paths \u2014 EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
+      "note": "2bs: 49 paths — EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
     },
     {
       "id": "remaining_army_orders",
@@ -112,8 +112,8 @@
     }
   ],
   "enable_when": [
-    "Independent non-destructive Post proof \u2014 DONE 2bc/2bm",
-    "Mid-flight CMoveCommand (+ action embed) captured \u2014 STUBBED; watcher ready",
+    "Independent non-destructive Post proof — DONE 2bc/2bm",
+    "Mid-flight CMoveCommand (+ action embed) captured — STUBBED; watcher ready",
     "Explicit CLAUSEWITZ_ALLOW_POST=1",
     "Never auto-enable inside per-tick loops",
     "Never Post speed/HourlyTick commands"
@@ -364,11 +364,11 @@
       "division_subunit_type_check"
     ],
     "post_implications": [
-      "ThreadIsMainThread (0x23c3a0) must hold at any future Post \u2014 observe only; never patch",
-      "gamestate_instance_guard* family gates many IsValid paths \u2014 Post candidates must pass live IsValid first",
-      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes \u2014 subject must be live order id",
-      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges \u2014 land Post recipes must carry valid subunit/type",
-      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds \u2014 treat as shared plumbing not command-specific fields",
+      "ThreadIsMainThread (0x23c3a0) must hold at any future Post — observe only; never patch",
+      "gamestate_instance_guard* family gates many IsValid paths — Post candidates must pass live IsValid first",
+      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes — subject must be live order id",
+      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges — land Post recipes must carry valid subunit/type",
+      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds — treat as shared plumbing not command-specific fields",
       "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
     ],
     "allow_post": false,
@@ -995,7 +995,7 @@
     "tool_gate": "CLOSED_NOT_OPENED",
     "land_cmds": "121/121 unchanged",
     "helpers_total": 237,
-    "helpers_inflation": "none (shared\u22652 miss=0; singletons docs-only)",
+    "helpers_inflation": "none (shared≥2 miss=0; singletons docs-only)",
     "named_helpers": 96,
     "preferred_cores": 34,
     "coverage": "121/121",
@@ -1389,7 +1389,7 @@
       "patch helpers",
       "Post inject",
       "HourlyTick / GameSpeed",
-      "promote 0x520/0x6ec as CArmy org (REJECTED \u2014 CTaskForce)",
+      "promote 0x520/0x6ec as CArmy org (REJECTED — CTaskForce)",
       "invent movement_dest while paused",
       "wake user / inject input"
     ]
@@ -1500,8 +1500,8 @@
     "watcher": 36128,
     "proven": [
       "CFront slot-array k=0..7 theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90 (slot0 1199/1199; pairs >=1143/1199)",
-      "CControllerArea+0x28\u2192CProvince 296/296",
-      "CControllerArea+0x148\u2192CProvince 288/296",
+      "CControllerArea+0x28→CProvince 296/296",
+      "CControllerArea+0x148→CProvince 288/296",
       "HAI theatre in 30 fronts (any slot); slot0-only was 6"
     ]
   },
@@ -1534,7 +1534,7 @@
     "rejected_or_unresolved": [
       "CProvince+0x58 controller-country tag (REJECTED 2cz)",
       "org/str @0x520/0x6ec (REJECTED)",
-      "theatre\u2192army direct CArmy*/handle/req ptr in theatre blob (0 hits; army\u2192theatre @+0x2a0 remains one-way)",
+      "theatre→army direct CArmy*/handle/req ptr in theatre blob (0 hits; army→theatre @+0x2a0 remains one-way)",
       "FS controller* stable embed (weak/noisy vs 2cz; not same-k with theatre this session)",
       "CFront slot-count field near header (no reliable hyp)"
     ],
@@ -1550,7 +1550,7 @@
   "notes_2db": {
     "phase": "2db",
     "parent": "54a9d87",
-    "focus": "REJECT CFront multi-slot array (=packed 0x90); peer alias triple; theatre\u2192army still 0",
+    "focus": "REJECT CFront multi-slot array (=packed 0x90); peer alias triple; theatre→army still 0",
     "proven": [
       "CFront multi-slot-array model (2cy-2da k=0..N) REJECTED: 1171/1199 neighbors at +0x90 are themselves CFront; slot-k theatre == (F+k*0x90)+0x18",
       "CFront object stride 0x90 in packed runs (max run 454; 28 runs); per-object theatre@+0x18 and controller@+0x70 only (1199/1199)",
@@ -1560,7 +1560,7 @@
     ],
     "rejected_or_unresolved": [
       "CFront multi-slot array @+0x18+k*0x90 (REJECTED_AS_PACKED_ADJACENT_CFRONT_2db)",
-      "theatre\u2192army direct CArmy*/handle/req/CPdxArray/CCountry path (still 0)",
+      "theatre→army direct CArmy*/handle/req/CPdxArray/CCountry path (still 0)",
       "CProvince+0x58 controller-country tag (REJECTED 2cz)",
       "org/str @0x520/0x6ec (REJECTED)",
       "req peer bidirectional / owner_match (0; chain not a simple doubly-linked list)"
@@ -1588,7 +1588,7 @@
     "phase": "2ei",
     "when": "2026-10-31 09:39 Asia/Shanghai",
     "focus": "midflight_CMove_capture_recipe_and_watcher_RO_harden",
-    "land_cmds": "121/121 CLOSED \u2014 not re-churned",
+    "land_cmds": "121/121 CLOSED — not re-churned",
     "confidence": 1.0,
     "doc": "docs/MIDFLIGHT_CMOVE_CAPTURE.md",
     "watcher_improvements": [
@@ -1641,8 +1641,18 @@
     "ts": "2026-10-31",
     "allow_post": false,
     "hard_deny": "allow_post() always False",
-    "move_without_post": "impossible with current catalog \u2014 console null, UI inject dead, recipes docs-only",
+    "move_without_post": "impossible with current catalog — console null, UI inject dead, recipes docs-only",
     "clock": "HourlyTick+exec/seq prove sim; UI H:M pack unproven",
     "next": "RO map G_GAMESTATE time fields; do not open Post"
+  },
+  "notes_2el": {
+    "when": "2026-10-31T10:16:49",
+    "gs_date_hours_off": "0x484",
+    "gs_date_year_off": "0x478",
+    "epoch": "1936-01-01 00:00",
+    "minute": "N/A hourly",
+    "allow_post": false,
+    "post_touched": false,
+    "live_ui_example": "1936-01-03 20:00+"
   }
 }
