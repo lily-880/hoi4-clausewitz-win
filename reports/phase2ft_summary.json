@@ -1,0 +1,60 @@
+{
+  "phase": "2ft",
+  "result": "order_index_is_type35_index",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-14 05:00",
+  "hours": 317,
+  "ui_date_start": "1936-01-14 00:00",
+  "scenario": "ITA@1x order_index\u2192type-0x35/OG tie (no Post)",
+  "speed_policy": "pause-or-1x only (never change speed)",
+  "live_ois": [
+    1,
+    10,
+    33
+  ],
+  "tie_ok_ois": [
+    1,
+    6,
+    9,
+    10,
+    12,
+    25,
+    33
+  ],
+  "live_tie_ok_ois": [
+    1,
+    10,
+    33
+  ],
+  "instance_pool_len": 0,
+  "nf_midflight_ran": false,
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "stage sight {'COrderAssignCommand': 4} live_ois=[1, 10, 33]",
+    "resolve(0x35,oi) probe_ois=[1, 6, 9, 10, 12, 25, 33] resolve_ok=7 OG_rtti=7 plus0c_eq_oi=7",
+    "live_oi ties=[1, 10, 33] hist_oi ties=[1, 6, 9, 12, 25]",
+    "heap Instance=0 OG=0 Member=0 pool_len=0",
+    "Assign u32@+0x40 samples=['0x35', '0x35', '0x35', '0x35']"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "order_index\u2192COrderInstance pool-slot proven",
+    "stable G_GAMESTATE\u2192pool root pointer path",
+    "full G_GAMESTATE\u2192type-0x35-reg owner path",
+    "COrdersGroup internal order-slot field names (arrays observed only)"
+  ],
+  "next_shortest_blocker": "NON-Post: map COrdersGroup internals (members/arrays) for path/units OR re-probe COrderInstance when live OR bounded NF/RF subject; still NO ALLOW_POST",
+  "parent_sha_base": "967a7ed"
+}
