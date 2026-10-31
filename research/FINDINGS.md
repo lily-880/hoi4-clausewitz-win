@@ -801,3 +801,12 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **CProvince+0x58**: **REJECTED** as controller-country tag (does not track occupying `CArmy.country_tag`; often 15 on controller-linked provinces).
 - **Org/str REJECTED**; **movement_dest** empty; recipes `*_2cz`; allow_post False; watcher 36128 RO.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
+
+## Phase 2da (overnight RO) — CFront slots≥64 + FS theatre embeds + req peer
+
+- **HEAD parent**: `a2c5246` (2cz). Focus: extend CFront slot bound; stabilize FrontSection theatre embeds; theatre↔army crosslink; CArmyRequests peer.
+- **CFront (new)**: slot array proven for **k=0..63** (at least) — `CTheatre*` @ `+0x18+k×0x90`, `CControllerArea*` @ `+0x70+k×0x90`; slot0 1199/1199; slot63 947/1199. HAI theatre in **92** fronts any-slot (was 44@16). May extend further; no reliable slot-count header field.
+- **CFrontSection (new)**: stable parent-slot **theatre*** embeds at `+0x28/+0x40/+0x58` (122/1570), repeating every `+0x70`. Controller* embeds weak/noisy this session (not same-k).
+- **CArmyRequests (new)**: peer `CArmy*` hyp @ `+0x108/+0x130/+0x190` — 10/17 other HAI (not self).
+- **Theatre→army direct**: unresolved (0 hits for CArmy*/req/handle in theatre blob); army→theatre @`+0x2a0` remains one-way.
+- **Not revived**: org/str; CProvince+0x58. **movement_dest** empty (paused). Recipes `*_2da`; allow_post False; watcher 36128 RO.

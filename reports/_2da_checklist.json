@@ -1,0 +1,82 @@
+{
+  "phase": "2da",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "1. Confirm watcher 36128 alive RO.",
+    "2. Haiti pause|1x; NEVER 5x; no input.",
+    "3. Read session drain/exec/stage RO.",
+    "4. CMove/strategic/cancel post-path conf=1.0.",
+    "5. CArmy-only movement_dest empty while paused — do not invent.",
+    "6. Do not revive rejected org offs 0x520/0x6ec.",
+    "7. CFront >=16-slot array + FS slot-embed + prov+0x58 reject observe-only.",
+    "8. Ring/Post stubbed; tool-gate CLOSED.",
+    "9. STOP — never inject / never Post / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2cx",
+    "role_post_path_matrix_2cx",
+    "role_observe_2cx",
+    "confidence_report_2cx",
+    "checklist_2cx",
+    "offensive_line_post_path_2cx",
+    "midflight_move_watcher_readiness_2cx",
+    "live_army_subject_observe_2cx"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / posting",
+    "guess writes / HourlyTick / speed hacks",
+    "helper patch / Post inject",
+    "revive org/str @0x520/0x6ec",
+    "treat CProvince+0x58 as controller country tag",
+    "invent movement_dest while paused",
+    "wake user / send input",
+    "5x game speed"
+  ],
+  "ticks": {
+    "A_land_index": "PASS 121/121",
+    "B_helpers_named": "PASS 308/658 unchanged",
+    "C_confidence": "PASS avg=1.000",
+    "D_carmy_observe": "PASS theatre/reinf/upgrades",
+    "E_front_controller": "PASS slots>=16 + FS embeds + prov+0x58 reject",
+    "F_midflight_watcher": "PASS armed RO pid 36128",
+    "G_org_str": "REJECTED — do not revive",
+    "H_post_gate": "CLOSED_NOT_OPENED allow_post=False"
+  },
+  "notes_2da": {
+    "phase": "2da",
+    "parent": "a2c5246",
+    "focus": "CFront slots>=64 + FS theatre stable embeds + CArmyRequests peer hyp",
+    "proven": [
+      "CFront slot-array k=0..63 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot63 947/1199",
+      "HAI theatre in 92 fronts any-slot (was 44@16 / 60@32 / 6@slot0)",
+      "CFrontSection stable theatre* embeds @+0x28/+0x40/+0x58 (and +0x70 stride repeats @+0x98/+0xb0/+0xc8); 122/1570",
+      "CArmyRequests peer CArmy* hyp @+0x108/+0x130/+0x190 (10/17 other HAI; not self)"
+    ],
+    "rejected_or_unresolved": [
+      "CProvince+0x58 controller-country tag (REJECTED 2cz)",
+      "org/str @0x520/0x6ec (REJECTED)",
+      "theatre→army direct CArmy*/handle/req ptr in theatre blob (0 hits; army→theatre @+0x2a0 remains one-way)",
+      "FS controller* stable embed (weak/noisy vs 2cz; not same-k with theatre this session)",
+      "CFront slot-count field near header (no reliable hyp)"
+    ],
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "ALLOW_POST",
+      "command_queue_tool_gate"
+    ],
+    "watcher_36128": "RO alive",
+    "hoi4_pid": 2880
+  }
+}
