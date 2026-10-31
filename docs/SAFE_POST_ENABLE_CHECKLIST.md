@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2hy — checklist polish (CLOSED)
+## Phase 2gj … 2hz — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -289,6 +289,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2hw | path∉Inst70 covering-oi + cover_only reverse widen | **PATH_OUTLIER_COVER_WIDEN_HIT** (Post still CLOSED) |
 | 2hx | hi-band OG962/976 dig Inst70+OG50+PATH | **HIBAND_OG962_976_DIG_HIT** (Post still CLOSED) |
 | 2hy | PATH200 denser @2hx focus {1176,3938,3816,915} × hiband OG50 | **PATH200_HXFOCUS_DENSE_HIT** (Post still CLOSED) |
+| 2hz | non-hiband 2hy path armies → OG+0x50 reverse oi1..1200 | **NONHIBAND_PATH_OG50_REVERSE_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -306,5 +307,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hy — PATH200 hxfocus denser. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2hz — non-hiband path→OG50 reverse. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
