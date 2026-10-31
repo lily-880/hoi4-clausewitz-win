@@ -494,7 +494,7 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     """Read-only campaign fields from a live CGameState/CCurrentGameState object.
 
     Only fields that pass local sanity checks are marked verified=True.
-    Date: year@+0x478; Y-M-D H via hours@+0x484 since 1936-01-01 00:00 (Phase 2el). Minute N/A.
+    Date: year@+0x478 plus days-after-1-January @+0x484 (1942 + 229 = 1942-08-18).
     Divisions count filled via probe_player_armies when CArmy markers match.
     """
     out: Dict[str, Any] = {"gs_ptr": hex(gs_ptr), "fields": {}, "verified": {}}
@@ -523,45 +523,31 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     if 0 <= tag < 2000:
         out["verified"]["player_tag"] = tag
 
-    # Date (Phase 2el): year@+0x478; hours-since-1936-01-01-00:00 @+0x484 → Y-M-D H
-    from datetime import datetime as _dt, timedelta as _td
+    # Date: year@+0x478; days after 1 January of that year @+0x484.
+    from clock import ui_date
     year = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_YEAR", 0x478))[0]
     aux = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_AUX", 0x47C))[0]
-    hours = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOURS", 0x484))[0]
+    day_index = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOURS", 0x484))[0]
     hour_like = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOUR_LIKE", 0x480))[0]
     out["fields"]["date_year_hypothesis"] = year
     out["fields"]["date_aux_0x47c"] = aux
-    out["fields"]["date_aux_note"] = "unproven (not DOY); kept for research"
-    out["fields"]["date_hours_since_1936_01_01"] = hours
+    out["fields"]["date_day_index"] = day_index
     out["fields"]["date_hour_like_0x480"] = hour_like
     out["fields"]["date_full"] = None
+    shown = ui_date(year, day_index)
     if 1936 <= year <= 1950:
         out["verified"]["date_year"] = year
-    if isinstance(hours, int) and 0 <= hours <= 200000:
-        try:
-            _decoded = _dt(1936, 1, 1, 0, 0) + _td(hours=hours)
-            if _decoded.year == year or (1936 <= _decoded.year <= 1950):
-                out["fields"]["date_full"] = {
-                    "year": _decoded.year,
-                    "month": _decoded.month,
-                    "day": _decoded.day,
-                    "hour": _decoded.hour,
-                    "minute": 0,
-                    "ui": _decoded.strftime("%Y-%m-%d %H:00"),
-                    "source": "G_GAMESTATE+0x484 hours since 1936-01-01 00:00",
-                    "hours_value": hours,
-                }
-                out["verified"]["date_full"] = out["fields"]["date_full"]
-                out["verified"]["date_note"] = (
-                    "year@+0x478; Y-M-D H via hours@+0x484 since 1936-01-01 00:00 (Phase 2el); minute N/A"
-                )
-            else:
-                out["verified"]["date_note"] = "year@+0x478; hours@+0x484 year mismatch"
-        except Exception as _e:
-            out["fields"]["date_full_error"] = str(_e)
-            out["verified"]["date_note"] = "year@+0x478; hours decode failed"
+    if shown:
+        out["fields"]["date_full"] = {
+            "year": year,
+            "ui": shown,
+            "day_index": day_index,
+            "source": "G_GAMESTATE+0x478 year + +0x484 days after 1 January",
+        }
+        out["verified"]["date_full"] = out["fields"]["date_full"]
+        out["verified"]["date_note"] = "year@+0x478; day index@+0x484 (1942+229 = 1942-08-18)"
     elif 1936 <= year <= 1950:
-        out["verified"]["date_note"] = "year@+0x478; hours@+0x484 out of range"
+        out["verified"]["date_note"] = "year@+0x478; day index@+0x484 out of range"
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (

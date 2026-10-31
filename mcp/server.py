@@ -25,8 +25,21 @@ def _tool_list():
         },
         {
             "name": "hoi4_win_status",
-            "description": "Attach read-only and report proven live facts (pid, image base, string hits). No game-state until offsets exist.",
+            "description": "Attach and report proven live facts, including the campaign date.",
             "inputSchema": {"type": "object", "properties": {}},
+        },
+        {
+            "name": "hoi4_win_redeploy",
+            "description": "Strategic-redeploy one army to a province. Set dry_run to only check IsValid.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "army": {"type": "integer"},
+                    "province": {"type": "integer"},
+                    "dry_run": {"type": "boolean"},
+                },
+                "required": ["army", "province"],
+            },
         },
     ]
 
@@ -56,9 +69,19 @@ def _run_status():
     return {"exit_code": code, "output": buf.getvalue()}
 
 
+def _run_redeploy(args):
+    import strategic_order
+    return strategic_order.strategic_redeploy(
+        int(args["army"]),
+        int(args["province"]),
+        dry_run=bool(args.get("dry_run")),
+    )
+
+
 HANDLERS = {
     "hoi4_win_doctor": lambda args: _run_doctor(),
     "hoi4_win_status": lambda args: _run_status(),
+    "hoi4_win_redeploy": lambda args: _run_redeploy(args),
 }
 
 

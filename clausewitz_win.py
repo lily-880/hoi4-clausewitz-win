@@ -9,6 +9,7 @@ Commands:
   probe    alias for status
   live-gs  live scan for G_GAMESTATE using RTTI vtable candidates (read-only)
   serve    minimal MCP stdio stub
+  redeploy strategic-redeploy one army (the one proven post)
   say      natural language -> the console command from the 1.19 docs
 
 Read-only by default. Command-queue posting stays disabled until offsets verified.
@@ -116,7 +117,7 @@ def cmd_status(args):
         "mz_ok": p.try_read(p.base, 2) == b"MZ",
         "target": O.TARGET,
         "globals": {k: (hex(v) if isinstance(v, int) else v) for k, v in O.WINDOWS_GLOBALS.items()},
-        "command_queue": "DISABLED (FN_CMD_QUEUE_POST=0x22c41e0 known; writes gated — see safe_enable_checklist)",
+        "command_queue": "strategic redeploy only (redeploy); other posts still disabled",
     }
     strings = []
     for s in (b"CGameState", b"CCommandQueue", b"CLandCombat", b"Hearts of Iron", b".?AVCGameState@@"):
@@ -319,6 +320,21 @@ def cmd_serve(args):
     os.execv(sys.executable, [sys.executable, os.path.join(ROOT, "mcp", "server.py")])
 
 
+def cmd_redeploy(args):
+    """Strategic-redeploy one army. `redeploy 1042 758` or `redeploy 1042 758 --dry-run`."""
+    import json as _json
+    import strategic_order
+    words = [w for w in (getattr(args, "words", []) or []) if not w.startswith("-")]
+    if len(words) < 2:
+        print("usage: redeploy <army index> <province id> [--dry-run]")
+        return 2
+    army = int(words[0], 10)
+    province = int(words[1], 10)
+    result = strategic_order.strategic_redeploy(army, province, dry_run=bool(getattr(args, "dry_run", False)))
+    print(_json.dumps(result, indent=2))
+    return 0 if result.get("ok") else 1
+
+
 def cmd_say(args):
     import nl_console
     text = " ".join(getattr(args, "words", []) or []).strip()
@@ -340,6 +356,7 @@ COMMANDS = {
     "probe": cmd_probe,
     "serve": cmd_serve,
     "say": cmd_say,
+    "redeploy": cmd_redeploy,
 }
 
 
@@ -348,6 +365,7 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", nargs="?", default="doctor", choices=sorted(COMMANDS))
     ap.add_argument("words", nargs=argparse.REMAINDER, help="text for say")
+    ap.add_argument("--dry-run", action="store_true", help="redeploy: check IsValid only")
     ap.add_argument("--exe", help="path to hoi4.exe for peinfo")
     args = ap.parse_args()
     try:

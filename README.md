@@ -3,9 +3,10 @@
 **Windows-oriented live bridge for Hearts of Iron IV**, inspired by
 [smerss/Clausewitz-MCP](https://github.com/smerss/Clausewitz-MCP).
 
-涓婃父 Clausewitz-MCP 浠婂ぉ鏄?**Linux-only**锛坄process_vm_readv` + `CCommandQueue`锛夈€?
-鏈粨搴撳仛鐨勬槸锛?*Windows `ReadProcessMemory` 鍚庣 + 1.19.4 鍋忕Щ鍐嶇敓宸ヤ綔鍙?*锛?
-鍏堝仛鍒般€岃兘鎸備笂杩涚▼骞跺畨鍏ㄨ鍒拌兘璇佹槑鐨勪笢瑗裤€嶏紝鍐嶈皥鍛戒护闃熷垪涓庡寘楗哄瓙瑙勫垝鍣ㄣ€?
+Upstream Clausewitz-MCP is Linux-only (`process_vm_readv` + `CCommandQueue`).
+This repo is the Windows `ReadProcessMemory` backend and the 1.19.4 offset workbench.
+It attaches to a running game, reads proven campaign fields, and can post one
+strategic redeploy. It is not a 107-tool clone.
 
 > Not a day-one 107-tool clone. Phase 1 is honest and read-only.
 
@@ -28,6 +29,7 @@ python clausewitz_win.py doctor
 python clausewitz_win.py peinfo
 # with the game running:
 python clausewitz_win.py status
+python clausewitz_win.py redeploy 1042 758 --dry-run
 ```
 
 ## What works
@@ -40,7 +42,12 @@ python clausewitz_win.py status
 - Phase 2ar: Order* sizes + serialize field layouts (Assign/Execute/NewFront/…); writes DISABLED
 - Phase 2aq: StrategicRedeploy serialize (army/province/clear/priority); posting DISABLED now (Phase 2ap)
 
-- **FN_CMD_QUEUE_POST** RVA `0x22c41e0` mapped (CSession post/drop gate) — **writes still DISABLED**
+- **Strategic redeploy** (`redeploy <army> <province>`) is the one enabled post.
+  IsValid is action `0x12c2c20` with `rcx = cmd+0x28`. Command vt+`0x48` jumps
+  into Execute and must not be called.
+- **FN_CMD_QUEUE_POST** RVA `0x22c41e0` is used by that one post. Other posts stay off.
+- Live `status` date: year at `+0x478`, days after 1 January at `+0x484`
+  (`1942` + `229` = `1942-08-18`).
 - Full Post→serialize→drain→Execute graph documented (see WINDOWS_OFFSETS)
 - Army command catalog: Move/Cancel/StrategicRedeploy/Order* type ids
 - Live campaign `status`: countries/armies/fleets/theatres/...
@@ -65,15 +72,14 @@ python clausewitz_win.py status
 
 ## What is stubbed
 
-- **`G_GAMESTATE` in `offsets_verified.json`** 鈥?heuristic only until re-verified on fresh load
-- **`FN_CMD_QUEUE_POST` / command posting** 鈥?**DISABLED**; no `CCommandQueue` RTTI; do not invent Post
-- `G_IDLER`, console execute, combat planner / 107 tools 鈥?later
+- Ordinary move, console execute, and the upstream 107-tool planner
+- Every post except strategic redeploy
+- `allow_post()` still hard-returns false for the generic post helper
 
 ## Safety
 
-- Read-only by default
-- No remote-thread calls in Phase 1
-- Never inject inside a per-tick loop until offsets are version-pinned and tested
+- Read-only unless you run `redeploy`
+- `redeploy` makes one remote call, then stops. It does not post from a tick loop
 - Does not touch Vision Channel / Auto Kessel mods
 
 ## Layout

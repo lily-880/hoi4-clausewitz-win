@@ -43,8 +43,9 @@ HYPOTHESIS_STRUCT = {
     "GS_STRATEGIC_AIR_MANAGER": 0x690,  # CStrategicAirManager* (live RTTI)
     "GS_CHARACTER_MANAGER": 0x6A8,  # CCharacterManager* (live RTTI)
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
-    "GS_DATE_YEAR": 0x478,  # hypothesis: i32 year (seen 1936)
-    "GS_DATE_AUX": 0x47C,  # hypothesis: i32 (seen 31); maybe day-of-year 鈥?not full date
+    "GS_DATE_YEAR": 0x478,  # i32 year
+    "GS_DATE_AUX": 0x47C,  # i32, not the day index
+    "GS_DATE_HOURS": 0x484,  # i32 days after 1 January of GS_DATE_YEAR, not hours since 1936
     # Country (CCountry) 鈥?verified in-game via -hands_off (Haiti 1936), two samples
     "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50; Windows CArmy == division-level
     "CO_DIV_TEMPLATES": 0x1B8,  # CPdxArray<CReferencedDivisionTemplate*> (live)
