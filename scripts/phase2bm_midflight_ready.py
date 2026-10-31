@@ -1,4 +1,4 @@
-﻿"""Phase 2bm midflight-ready watcher (RO).
+"""Phase 2bm midflight-ready watcher (RO).
 
 Polls DummyServer pending / stage / small writable heap windows for known army-cmd VTs.
 Does NOT inject input, does NOT Post, does NOT change speed.
@@ -6,6 +6,9 @@ Intended to run while a real user right-clicks a move; safe to leave armed overn
 
 Usage:
   python scripts/phase2bm_midflight_ready.py [--seconds 120] [--interval 0.05]
+  Long arm (preferred): --seconds 86400 --interval 0.05 --heap-every 0
+  Heartbeat: reports/midflight_watcher_heartbeat.json
+  Instant capture: reports/midflight_cmove_capture.json
 """
 from __future__ import annotations
 import argparse, json, struct, sys, time
@@ -18,6 +21,8 @@ from process import Backend, find_pid
 import post_abi, cmd_layout
 
 OUT = ROOT / "reports" / "phase2bm_midflight_ready.json"
+HEARTBEAT = ROOT / "reports" / "midflight_watcher_heartbeat.json"
+CAPTURE = ROOT / "reports" / "midflight_cmove_capture.json"
 WATCH = {
     cmd_layout.MOVE["vt"]: "CMoveCommand",
     cmd_layout.MOVE["action"]["vt"]: "CUnitMoveAction",
@@ -138,12 +143,24 @@ def scan_heap_needles(b, base, limit_mb=512):
     return found, scanned
 
 
+def write_json(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, indent=2), encoding="utf-8")
+
+
+def army_move_filter(captures):
+    return [c for c in captures if c.get("name") in (
+        "CMoveCommand", "CUnitMoveAction", "CStrategicRedeploymentCommand",
+        "CUnitStrategicMoveAction", "CCancelMovementCommand")]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seconds", type=float, default=30.0)
     ap.add_argument("--interval", type=float, default=0.05)
-    ap.add_argument("--heap-every", type=int, default=40, help="heap scan every N polls (0=never)")
+    ap.add_argument("--heap-every", type=int, default=0, help="heap scan every N polls (0=never; default off to save CPU)")
     ap.add_argument("--heap-mb", type=int, default=256)
+    ap.add_argument("--heartbeat-every", type=int, default=40, help="write heartbeat every N polls (0=off)")
     args = ap.parse_args()
 
     b = Backend(find_pid("hoi4.exe"))
@@ -240,31 +257,69 @@ def main():
                 pass
 
         if captures:
+            army_move_hits = army_move_filter(captures)
+            snap = {
+                "phase": "2ei_midflight_capture",
+                "posting": "DISABLED",
+                "allow_post": False,
+                "speed_rule": "pause or 1x only; never 5x; no input injection",
+                "caught_army_move": bool(army_move_hits),
+                "polls": polls,
+                "last_counters": last_counters,
+                "captures": captures,
+                "captured_at_asia_shanghai": datetime.now().strftime("%Y-%m-%d %H:%M:%S %z"),
+                "note": "Instant RO capture dump. Do NOT Post. Pause game after capture.",
+            }
+            write_json(CAPTURE, snap)
+            write_json(OUT, {**snap, "phase": "2bm_midflight_ready", "seconds": args.seconds, "interval": args.interval})
             break
+
+        if args.heartbeat_every and polls % args.heartbeat_every == 0:
+            write_json(HEARTBEAT, {
+                "phase": "2ei_midflight_heartbeat",
+                "posting": "DISABLED",
+                "allow_post": False,
+                "polls": polls,
+                "elapsed_s": round(time.time() - t0, 1),
+                "last_counters": last_counters,
+                "captures": 0,
+                "caught_army_move": False,
+                "heap_every": args.heap_every,
+                "interval": args.interval,
+                "ts_asia_shanghai": datetime.now().strftime("%Y-%m-%d %H:%M:%S %z"),
+                "note": "RO heartbeat only; empty while paused with no user right-click.",
+            })
         time.sleep(args.interval)
 
-    army_move_hits = [c for c in captures if c.get("name") in (
-        "CMoveCommand", "CUnitMoveAction", "CStrategicRedeploymentCommand",
-        "CUnitStrategicMoveAction", "CCancelMovementCommand")]
+    army_move_hits = army_move_filter(captures)
     out = {
         "phase": "2bm_midflight_ready",
         "posting": "DISABLED",
+        "allow_post": False,
         "speed_rule": "pause or 1x only; never 5x; no input injection",
         "seconds": args.seconds,
         "interval": args.interval,
+        "heap_every": args.heap_every,
         "polls": polls,
         "last_counters": last_counters,
         "captures": captures,
         "caught_army_move": bool(army_move_hits),
+        "heartbeat": str(HEARTBEAT),
+        "capture_path": str(CAPTURE),
         "note": "Armed RO watcher. Empty captures expected while paused with no user right-click.",
     }
-    OUT.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    write_json(OUT, out)
+    if army_move_hits and not CAPTURE.exists():
+        write_json(CAPTURE, {**out, "phase": "2ei_midflight_capture"})
     print(json.dumps({
         "polls": polls,
         "caught_army_move": out["caught_army_move"],
         "captures": len(captures),
         "last_counters": last_counters,
         "wrote": str(OUT),
+        "heartbeat": str(HEARTBEAT),
+        "capture_path": str(CAPTURE),
+        "posting": "DISABLED",
     }, indent=2))
 
 

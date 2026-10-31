@@ -879,3 +879,18 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Unchanged**: TH_ARMIES/TH_FRONTS (2dd); CA/OA provinces (2de/2df); CFront>0x90 REJECT; org/str REJECT; prov+0x58 REJECT; movement_dest=0; orders 0.
 - Recipes `*_2dg`; allow_post False; watcher 36128 RO.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
+
+## Phase 2ei (efficient low-burn) — Midflight CMove capture recipe + watcher RO harden
+
+- **HEAD parent**: `eeb8043` (2dg). **ONE slice only** — no Capstone/helper/confidence churn (LAND 121/121 + conf 1.0 CLOSED).
+- **Focus**: close shortest blocker docs toward land command readiness — midflight `CMoveCommand` sample path.
+- **Docs**: `docs/MIDFLIGHT_CMOVE_CAPTURE.md` — exact capture recipe, VT table, human right-click steps, stub inventory.
+- **Watcher RO harden** (`scripts/phase2bm_midflight_ready.py`):
+  - Heartbeat → `reports/midflight_watcher_heartbeat.json`
+  - Instant capture dump → `reports/midflight_cmove_capture.json`
+  - Default `--heap-every 0` (no periodic heap scan on long arm; saves CPU)
+  - Still **no** input inject / **no** Post / **no** speed change
+- **Live**: watcher was pid **36128** RO armed; hoi4 **2880** Haiti. `movement_dest` empty while paused (not retested at 1x this slice — not cheap without user right-click).
+- **Stubbed unchanged**: midflight sample itself; in-process Move ring embed; `command_queue_tool_gate` **CLOSED_NOT_OPENED**; `ALLOW_POST` / `CLAUSEWITZ_ALLOW_POST`.
+- **Not revived**: org/str @0x520/0x6ec; prov+0x58; CFront multi-slot/>0x90 bleed; army↔front via ctrl/FS while paused.
+- **Posting DISABLED**. Naval/production out of scope.

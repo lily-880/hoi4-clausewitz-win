@@ -1,0 +1,36 @@
+{
+  "phase": "2ei",
+  "when_asia_shanghai": "2026-10-31 09:39 Asia/Shanghai",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_121_121": "CLOSED_not_rechurned",
+  "confidence": 1.0,
+  "doc": "docs/MIDFLIGHT_CMOVE_CAPTURE.md",
+  "watcher": {
+    "script": "scripts/phase2bm_midflight_ready.py",
+    "pid_before_rearm": 36128,
+    "improvements": [
+      "heartbeat",
+      "instant_capture_dump",
+      "heap_every_default_0"
+    ],
+    "heartbeat_path": "reports/midflight_watcher_heartbeat.json",
+    "capture_path": "reports/midflight_cmove_capture.json"
+  },
+  "hoi4_pid": 2880,
+  "movement_dest": "empty while paused; not retested at 1x this slice",
+  "stubbed": {
+    "midflight_CMoveCommand": "stubbed \u2014 recipe ready, needs user right-click",
+    "ring_embed": "stubbed",
+    "ALLOW_POST": "DISABLED",
+    "command_queue_tool_gate": "CLOSED_NOT_OPENED"
+  },
+  "rejected_not_revived": [
+    "org/str @0x520/0x6ec",
+    "CProvince+0x58 controller tag",
+    "CFront multi-slot/>0x90 bleed",
+    "army\u2194front via ctrl/FS while paused"
+  ],
+  "speed_rule": "pause or 1x only; never 5x; no input injection"
+}
