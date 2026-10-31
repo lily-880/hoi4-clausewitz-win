@@ -1026,3 +1026,11 @@ eports/phase2el_gs_datetime.json.
 - **Stubbed**: leaf `CMoveCommand` / `CUnitMoveAction` / `CSupportAttack` still 0; ITA had no Cancel in this 240s window; ring_embed / SAFE_POST / self-MOVE.
 - **Contrast**: ETH defender produced Cancel; ITA attacker in short window produced Assign/Unassign only — still no retained leaf Move on DummyServer stage.
 - **Next**: tighten MOVE-VT edge-burst / Cancel-edge heap RO, or treat order-pipeline as interim; **no** ALLOW_POST.
+
+## Phase 2ew (2026-10-31 Asia/Shanghai) — MOVE-VT tight burst / Cancel-edge heap RO
+
+- Live ITA pid 30680 `@1x`; **30s** busy-poll: **634711** polls, **2110** edges, **33760** burst samples.
+- Sightline: HourlyTick + rare Assign only; **no Cancel** → Cancel-edge heap did not fire.
+- **No leaf** `CMoveCommand` / `CUnitMoveAction` on stage/pending despite denser-than-watcher sampling.
+- VT candidates + recipe: `docs/PHASE2EW_MOVE_VT_BURST.md`; script `scripts/phase2ew_move_burst.py`.
+- `allow_post` remains **False**. Next: optional Assign-edge heap or accept stage-miss hypothesis; still no Post.

@@ -1,0 +1,84 @@
+{
+  "phase": "2ew",
+  "ts": "2026-10-31T03:26:21.615469+00:00",
+  "allow_post": false,
+  "never_5x": true,
+  "scenario": "ITA@1x (keep live process)",
+  "pid": 30680,
+  "date": {
+    "hours": 39,
+    "ui_date": "1936-01-02 15:00",
+    "gs": "0x175a38198c0"
+  },
+  "observe_seconds": 30.0,
+  "polls": 634711,
+  "edge_events": 2110,
+  "burst_samples": 33760,
+  "heap_scans_on_cancel": 0,
+  "sight_counts": {
+    "CHourlyTickCommand": 9502,
+    "COrderAssignCommand": 1
+  },
+  "sight_first": {
+    "CHourlyTickCommand": {
+      "source": "stage[0]",
+      "addr": "0x176ef61c340",
+      "vt_rva": "0x29f3710",
+      "poll": 4304,
+      "counters": {
+        "drain": 31426,
+        "exec": 12868,
+        "seq": 12886,
+        "stage_count": 1
+      },
+      "ts": "2026-10-31 11:25:51"
+    },
+    "COrderAssignCommand": {
+      "source": "stage[7]",
+      "addr": "0x176eeeb2df0",
+      "vt_rva": "0x2a84498",
+      "poll": 4762,
+      "counters": {
+        "drain": 31427,
+        "exec": 12890,
+        "seq": 12906,
+        "stage_count": 0
+      },
+      "ts": "2026-10-31 11:25:51"
+    }
+  },
+  "cancel_hits_n": 0,
+  "leaf_hits": [],
+  "heap_results_tail": [],
+  "recipe": {
+    "poll": "pending+stage every ~0ms busy loop with counter edge detect",
+    "burst_on_edge": 16,
+    "cancel_edge_heap": "on Cancel sight: scan up to 16MB writable heap for MOVE needles",
+    "vt_candidates": {
+      "CCancelMovementCommand": "0x2a2c9b8",
+      "CMassCancelMovementCommand": "0x2a0fc40",
+      "CMassMoveCommand": "0x2a2c848",
+      "CMoveCommand": "0x2a2c790",
+      "CStrategicRedeploymentCommand": "0x2a2d818",
+      "CSupportAttackCommand": "0x2a2cb28",
+      "CUnitMoveAction": "0x2a1f648",
+      "CUnitStrategicMoveAction": "0x2a1f7e8"
+    },
+    "leaf_names": [
+      "CMassMoveCommand",
+      "CMoveCommand",
+      "CStrategicRedeploymentCommand",
+      "CSupportAttackCommand",
+      "CUnitMoveAction",
+      "CUnitStrategicMoveAction"
+    ],
+    "note": "RO only; allow_post False; never 5x"
+  },
+  "last_counters": {
+    "drain": 33449,
+    "exec": 13268,
+    "seq": 13284,
+    "stage_count": 0
+  },
+  "result": "NO_LEAF_MOVE_AFTER_TIGHT_BURST"
+}

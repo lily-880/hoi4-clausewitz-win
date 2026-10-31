@@ -1,0 +1,69 @@
+{
+  "phase": "2ew",
+  "result": "NO_LEAF_MOVE_AFTER_TIGHT_BURST",
+  "scenario": "ITA @1x AI-on",
+  "pid": 30680,
+  "ui_date": "1936-01-02 15:00",
+  "hours": 39,
+  "observe_seconds": 30.0,
+  "polls": 634711,
+  "edge_events": 2110,
+  "burst_samples": 33760,
+  "heap_scans_on_cancel": 0,
+  "sight_counts": {
+    "CHourlyTickCommand": 9502,
+    "COrderAssignCommand": 1
+  },
+  "leaf_names_hit": [],
+  "vt_candidates": {
+    "CCancelMovementCommand": "0x2a2c9b8",
+    "CMassCancelMovementCommand": "0x2a0fc40",
+    "CMassMoveCommand": "0x2a2c848",
+    "CMoveCommand": "0x2a2c790",
+    "CStrategicRedeploymentCommand": "0x2a2d818",
+    "CSupportAttackCommand": "0x2a2cb28",
+    "CUnitMoveAction": "0x2a1f648",
+    "CUnitStrategicMoveAction": "0x2a1f7e8"
+  },
+  "scan_recipe": {
+    "poll": "pending+stage every ~0ms busy loop with counter edge detect",
+    "burst_on_edge": 16,
+    "cancel_edge_heap": "on Cancel sight: scan up to 16MB writable heap for MOVE needles",
+    "vt_candidates": {
+      "CCancelMovementCommand": "0x2a2c9b8",
+      "CMassCancelMovementCommand": "0x2a0fc40",
+      "CMassMoveCommand": "0x2a2c848",
+      "CMoveCommand": "0x2a2c790",
+      "CStrategicRedeploymentCommand": "0x2a2d818",
+      "CSupportAttackCommand": "0x2a2cb28",
+      "CUnitMoveAction": "0x2a1f648",
+      "CUnitStrategicMoveAction": "0x2a1f7e8"
+    },
+    "leaf_names": [
+      "CMassMoveCommand",
+      "CMoveCommand",
+      "CStrategicRedeploymentCommand",
+      "CSupportAttackCommand",
+      "CUnitMoveAction",
+      "CUnitStrategicMoveAction"
+    ],
+    "note": "RO only; allow_post False; never 5x"
+  },
+  "allow_post": false,
+  "works": [
+    "tight MOVE-VT edge-burst on live ITA@1x",
+    "burst=16 busy-poll; edge_events=2110",
+    "Cancel-edge heap scan recipe armed",
+    "VT candidates documented",
+    "allow_post stays False"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST",
+    "self-issue MOVE"
+  ],
+  "next_shortest_blocker": "Tight burst+Cancel-edge heap still no leaf Move on ITA@1x \u2014 Move may never sit in DummyServer stage (direct Execute?) or AI quiet; next: optional deeper heap on Assign edge OR accept order-pipeline interim; still NO ALLOW_POST"
+}
