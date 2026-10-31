@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gu catalog: non-interactive ceiling reached); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gv `MIDFLIGHT_HONEST_EMPTY`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -148,6 +148,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 - Any Post / tool-gate / recipe execute
 
 **2gt midflight sample:** result=`MIDFLIGHT_HONEST_EMPTY` · move_hex=0 · cancel_hex=0 · assign_oi≠0=0 · live hours=246 UI=1936-01-11 06:00 · allow_post=False.
+**2gv midflight sample:** result=`MIDFLIGHT_HONEST_EMPTY` · move_hex=0 · cancel_hex=0 · assign_oi≠0=0 · live hours=276 UI=1936-01-12 12:00 · allow_post=False.
 
 ## 6d. Agent feed ceiling — can feed today / HARD_DENY (2gu)
 
@@ -211,6 +212,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gs** | `PERCEPTION_READINESS_CATALOG_POLISH` | §6b perception map; ≤60s path snapshot; OG50 walkback reaffirm; SAFE_POST 2gp–2gr deltas | Post/ring HARD_DENY; oi≠0 still open |
 | **2gt** | `MIDFLIGHT_HONEST_EMPTY` | ≤90s non-interactive midflight RO (CMove/SA/Cancel/Assign); §6c agent-facing summary | midflight hex / oi≠0 still open; Post HARD_DENY |
 | **2gu** | `AGENT_FEED_CEILING_CATALOG_POLISH` | §6d can-feed / HARD_DENY consolidate (2gs+2gt+2gp–2gr); minimal live_meta | midflight hex / oi≠0 / Post HARD_DENY |
+| **2gv** | `MIDFLIGHT_HONEST_EMPTY` | ≤90s non-interactive midflight RO reaffirm (CMove/SA/Cancel/Assign) | midflight hex / oi≠0 still open; Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -218,4 +220,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gu · agent feed ceiling catalog polish · 2026-10-31 Asia/Shanghai*
+*Phase 2gv · midflight RO reaffirm · 2026-10-31 Asia/Shanghai*

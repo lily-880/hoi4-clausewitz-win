@@ -1,0 +1,143 @@
+{
+  "phase": "2gv",
+  "ts_utc": "2026-10-31T08:02:54.942602+00:00",
+  "captured_at_shanghai": "2026-10-31 16:02",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "asked_user_right_click": false,
+  "result": "MIDFLIGHT_HONEST_EMPTY",
+  "live_start": {
+    "pid": 30352,
+    "hours": 269,
+    "ui_date": "1936-01-12 05:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x non-interactive midflight RO \u226490s reaffirm (no Post, no right-click)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 230283,
+    "exec": 62468,
+    "allow_post": false
+  },
+  "live_end": {
+    "pid": 30352,
+    "hours": 276,
+    "ui_date": "1936-01-12 12:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x non-interactive midflight RO \u226490s reaffirm (no Post, no right-click)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 236332,
+    "exec": 63733,
+    "allow_post": false
+  },
+  "observe_s": 90.02,
+  "polls": 2156,
+  "sight_counts": {},
+  "captures_n": 0,
+  "captures_sample": [],
+  "classified": {
+    "by_name": {},
+    "move_hex_n": 0,
+    "cancel_hex_n": 0,
+    "assign_oi_nonzero_n": 0,
+    "assign_oi_zero_n": 0,
+    "move_hex_sample": [],
+    "cancel_hex_sample": [],
+    "assign_nz_sample": []
+  },
+  "heap_scans": 4,
+  "heap_meta": [
+    {
+      "poll": 1,
+      "t": 0.0,
+      "ok": true,
+      "scanned_mb": 24.39,
+      "n_found": 0,
+      "error": null
+    },
+    {
+      "poll": 2,
+      "t": 0.67,
+      "ok": true,
+      "scanned_mb": 24.39,
+      "n_found": 0,
+      "error": null
+    },
+    {
+      "poll": 3,
+      "t": 1.32,
+      "ok": true,
+      "scanned_mb": 24.39,
+      "n_found": 0,
+      "error": null
+    },
+    {
+      "poll": 4,
+      "t": 1.99,
+      "ok": true,
+      "scanned_mb": 24.39,
+      "n_found": 0,
+      "error": null
+    }
+  ],
+  "last_counters": {
+    "drain": 236329,
+    "exec": 63733,
+    "stage_count": 0,
+    "pending_nonzero": 0
+  },
+  "agent_facing": {
+    "can_feed_today": [
+      "CArmy locate via handle type=51 + country_tag",
+      "CArmy+0x200 multi-prov path *candidates* (tag-FP filtered; not demangled dest)",
+      "Instance+0x70/+0x88 order/front province maps (\u2260 midflight dest)",
+      "OG+0x50 \u2261 CArmy+0xB8 membership proxy (VT 0x29d6fb8)",
+      "Assign units type=51 \u2192 CArmy resolve (when Assign sighted; oi often 0)",
+      "Live hours/UI date, pending/stage/drain/exec counters (RO)"
+    ],
+    "cannot_feed_today": [
+      "Ordinary CMove midflight hex (bit_identical rebuild) \u2014 still empty without human/AI leave",
+      "Named movement_dest demangle",
+      "Assign units\u2194OI when order_index\u22600 (quiet through 2gq/2gr/2gt)",
+      "ring_embed / Dummy recreate in-process (needs SAFE Post)",
+      "Any Post / tool-gate / recipe execute"
+    ],
+    "this_window": {
+      "by_name": {},
+      "move_hex_n": 0,
+      "cancel_hex_n": 0,
+      "assign_oi_nonzero_n": 0,
+      "assign_oi_zero_n": 0,
+      "move_hex_sample": [],
+      "cancel_hex_sample": [],
+      "assign_nz_sample": []
+    },
+    "path_note": "(see 2gs \u00a76b)"
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk; no ask right-click",
+    "\u226490.02s pending/stage+heap midflight polls=2156 heap_scans=4",
+    "captures=0 by={}",
+    "move_hex=0 cancel_hex=0 assign_oi\u22600=0",
+    "LAND_POST/SAFE_POST 2gv midflight row"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed execute",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "Post inject",
+    "ask-user right-click",
+    "Capstone/121 re-churn",
+    "ordinary CMove midflight hex this window",
+    "Assign oi\u22600 units\u2194OI this window"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed (2gv non-interactive) OR later plan-dense Assign oi\u22600; push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "f398d0e"
+}
