@@ -1,0 +1,141 @@
+{
+  "phase": "2gq",
+  "ts_utc": "2026-10-31T07:44:24.815774+00:00",
+  "captured_at_shanghai": "2026-10-31 15:44",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "ASSIGN_QUIET_OG50_CATALOG_POLISH",
+  "live_start": {
+    "pid": 30352,
+    "hours": 182,
+    "ui_date": "1936-01-08 14:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x Assign order_index\u22600 \u2194 OG+0x50 MI confirm (no Post)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 155588,
+    "exec": 45492,
+    "allow_post": false
+  },
+  "live_end": {
+    "pid": 30352,
+    "hours": 189,
+    "ui_date": "1936-01-08 21:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x Assign order_index\u22600 \u2194 OG+0x50 MI confirm (no Post)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 161644,
+    "exec": 46863,
+    "allow_post": false
+  },
+  "observe_s": 90.01,
+  "polls": 1781,
+  "sight_counts": {},
+  "assign_captures": 0,
+  "unassign_captures": 0,
+  "assigns_sample": [],
+  "unassigns_sample": [],
+  "nonzero_oi_hits": [],
+  "oi0_only": [],
+  "catalog_polish_b": {
+    "proxy": "OG+0x50[i] == CArmy+0xB8 (VT 0x29d6fb8)",
+    "walkback_ok": 294,
+    "walkback_fail": 0,
+    "ita_tag_members_in_sample_ogs": 20,
+    "samples": [
+      {
+        "oi": 1,
+        "elem": "0x1eac9417238",
+        "primary": "0x1eac9417180",
+        "elem_vt": "0x29d6fb8",
+        "tag": 11
+      },
+      {
+        "oi": 1,
+        "elem": "0x1eac9415e88",
+        "primary": "0x1eac9415dd0",
+        "elem_vt": "0x29d6fb8",
+        "tag": 11
+      },
+      {
+        "oi": 2,
+        "elem": "0x1eac8c3be48",
+        "primary": "0x1eac8c3bd90",
+        "elem_vt": "0x29d6fb8",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "elem": "0x1eac8c39d78",
+        "primary": "0x1eac8c39cc0",
+        "elem_vt": "0x29d6fb8",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "elem": "0x1eac8c3f2c8",
+        "primary": "0x1eac8c3f210",
+        "elem_vt": "0x29d6fb8",
+        "tag": 4
+      },
+      {
+        "oi": 3,
+        "elem": "0x1eac8c22158",
+        "primary": "0x1eac8c220a0",
+        "elem_vt": "0x29d6fb8",
+        "tag": 8
+      },
+      {
+        "oi": 3,
+        "elem": "0x1eac8c20da8",
+        "primary": "0x1eac8c20cf0",
+        "elem_vt": "0x29d6fb8",
+        "tag": 8
+      },
+      {
+        "oi": 3,
+        "elem": "0x1eac8c27d38",
+        "primary": "0x1eac8c27c80",
+        "elem_vt": "0x29d6fb8",
+        "tag": 8
+      }
+    ],
+    "deltas_vs_2gp": [
+      "order_index\u22600 Assign confirm is this slice's A goal",
+      "B reaffirms 2gp MI identity only \u2014 no new field name"
+    ],
+    "demangled_name": "STUBBED"
+  },
+  "last_counters": {
+    "drain": 161641,
+    "exec": 46848,
+    "stage_count": 0,
+    "pending_nonzero": 0
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk",
+    "Assign observe 90.01s polls=1781 Assign=0 Unassign=0",
+    "nonzero_oi_hits=0 confirmed_og=0 in_og50=0",
+    "B polish walkback 294/294 ita_members\u224820"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "CMove midflight hex",
+    "Post inject",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "Assign units\u2194OI with order_index\u22600 proven in OG+0x50 this window"
+  ],
+  "next_shortest_blocker": "NON-Post: Assign order_index\u22600 not confirmed this window \u2014 denser plan churn OR human midflight CMove hex / SAFE Post for ring_embed; push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "a73f035"
+}

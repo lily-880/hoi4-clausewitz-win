@@ -111,9 +111,9 @@ What does **not** unlock Post: Capstone/121 re-churn; HourlyTick sightings alone
 
 ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe empty (2gj). Dummy ring pending/execlist empty (2gk). Catalog + offline layouts are the Post-side ceiling without human midflight or SAFE Post.
 
-**2gm–2gp perception:** `CArmy+0x200` multi (tag-FP). **2gn:** `+0x200` ⊀ Instance`+0x70` (overlap=0). **2go:** named `movement_dest` **HONEST_EMPTY**. **2gp:** Assign/Unassign sight + **OG+0x50 ≡ CArmy+0xB8** MI (VT `0x29d6fb8`) membership proxy — walkback 292/292; demangled field name still stubbed.
+**2gm–2gq perception:** `CArmy+0x200` multi (tag-FP). **2gn:** no +0x200↔+0x70 overlap. **2go:** named `movement_dest` **HONEST_EMPTY**. **2gp/2gq:** **OG+0x50 ≡ CArmy+0xB8** MI membership (walkback 294/294). **2gq A:** Assign oi≠0 confirm **quiet** this window.
 
-**Next shortest NON-Post:** confirm Assign units↔OI when `order_index` nonzero; else human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** denser Assign oi≠0 plan-churn sight; else human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
@@ -143,6 +143,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gn** | `CROSS_200_VS_70_NO_OVERLAP` | CArmy+0x200 ↔ Instance+0x70/+0x88: 3 multi × 57 shaped, **overlap=0**; membership handle scans empty; oi_u32 noise untrusted | +0x200 ≠ order path; Post/ring HARD_DENY |
 | **2go** | `MOVEMENT_DEST_NAMED_HONEST_EMPTY` | PE strict named `movement_dest` family **0** hits; soft `+0x2B4` empty; no scalar≡`+0x200[-1]`; multi path still live (3) | Named dest STUBBED; Post/ring HARD_DENY |
 | **2gp** | `ASSIGN_SIGHT_PLUS_OG50_MI_HIT` | ≤90s Assign/Unassign sight; units 410/445 = ITA CArmy; **OG+0x50 ≡ CArmy+0xB8** (VT `0x29d6fb8`) walkback 292/292 | Demangled +0x50 name stubbed; Assign oi=0 unset; Post/ring HARD_DENY |
+| **2gq** | `ASSIGN_QUIET_OG50_CATALOG_POLISH` | ≤90s Assign oi≠0 hunt **quiet**; B walkback **294/294** reaffirm | oi≠0 units↔OI unconfirmed; Post/ring HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -150,4 +151,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gp · Assign sight + OG+0x50↔CArmy+0xB8 MI · 2026-10-31 Asia/Shanghai*
+*Phase 2gq · Assign oi≠0 quiet + OG50 catalog polish · 2026-10-31 Asia/Shanghai*
