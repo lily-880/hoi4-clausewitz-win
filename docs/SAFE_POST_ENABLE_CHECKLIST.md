@@ -202,7 +202,7 @@ Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_
 
 ---
 
-## Phase 2gj … 2gx — checklist polish (CLOSED)
+## Phase 2gj … 2gy — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -225,6 +225,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2gv | ≤90s non-interactive midflight RO reaffirm | **MIDFLIGHT_HONEST_EMPTY** (Post still CLOSED) |
 | 2gw | §6e agent checklist + ≤60s path/walkback; no midflight re-poll | **AGENT_CHECKLIST_CATALOG_POLISH** (Post still CLOSED) |
 | 2gx | ≤30s Assign oi≠0 edge + factory1402/execlist corner | **ASSIGN_QUIET_FACTORY1402_MATCH** (Post still CLOSED) |
+| 2gy | SA3620/Cancel1415 factory MATCH + OG50 walkback | **SA_CANCEL_FACTORY_MATCH_OG50_WALKBACK** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -242,5 +243,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2gx — Assign oi≠0 edge + factory corner. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2gy — SA/Cancel factory MATCH + OG50. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 

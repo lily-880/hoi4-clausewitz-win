@@ -1,0 +1,166 @@
+{
+  "phase": "2gy",
+  "ts_utc": "2026-10-31T08:10:40.400154+00:00",
+  "captured_at_shanghai": "2026-10-31 16:10",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "midflight_leaf_hunt": false,
+  "result": "SA_CANCEL_FACTORY_MATCH_OG50_WALKBACK",
+  "live": {
+    "pid": 30352,
+    "hours": 312,
+    "ui_date": "1936-01-14 00:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x SA3620/Cancel1415 factory MATCH + OG50 walkback (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 267663,
+    "exec": 70771,
+    "allow_post": false
+  },
+  "factory_corner": {
+    "expected_idx": {
+      "MOVE": 1402,
+      "CANCEL": 1415,
+      "SUPPORT_ATTACK": 3620,
+      "STRATEGIC": 4753
+    },
+    "match": {
+      "MOVE": true,
+      "CANCEL": true,
+      "SUPPORT_ATTACK": true,
+      "STRATEGIC": true
+    },
+    "all_focus_match": true,
+    "sa_3620_match": true,
+    "cancel_1415_match": true,
+    "move_1402_match": true,
+    "strategic_4753_match": true,
+    "rows": {
+      "MOVE": {
+        "name": "MOVE",
+        "type_id": "0x28a2",
+        "factory_idx_catalog": 1402,
+        "factory_idx_formula": 1402,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb000",
+        "slot_rva": "0x13fb000",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x14002f0"
+      },
+      "CANCEL": {
+        "name": "CANCEL",
+        "type_id": "0x28af",
+        "factory_idx_catalog": 1415,
+        "factory_idx_formula": 1415,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13face0",
+        "slot_rva": "0x13face0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fbbd0",
+        "isvalid_rva": "0x13fed40"
+      },
+      "SUPPORT_ATTACK": {
+        "name": "SUPPORT_ATTACK",
+        "type_id": "0x314c",
+        "factory_idx_catalog": 3620,
+        "factory_idx_formula": 3620,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb5e0",
+        "slot_rva": "0x13fb5e0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fdd00",
+        "isvalid_rva": "0x1402270"
+      },
+      "STRATEGIC": {
+        "name": "STRATEGIC",
+        "type_id": "0x35b9",
+        "factory_idx_catalog": 4753,
+        "factory_idx_formula": 4753,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb580",
+        "slot_rva": "0x13fb580",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x1402260"
+      },
+      "ASSIGN": {
+        "name": "ASSIGN",
+        "type_id": "0x303e",
+        "factory_idx_catalog": 3350,
+        "factory_idx_formula": 3350,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18cfca0",
+        "slot_rva": "0x18cfca0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x18d41b0",
+        "isvalid_rva": "0x18de900"
+      }
+    }
+  },
+  "og50_walkback": {
+    "proxy": "OG+0x50[i] == CArmy+0xB8 (VT 0x29d6fb8)",
+    "walkback_ok": 380,
+    "walkback_fail": 0,
+    "ita_members": 21,
+    "samples": [
+      {
+        "oi": 1,
+        "primary": "0x1eac9417180",
+        "tag": 11
+      },
+      {
+        "oi": 1,
+        "primary": "0x1eac9415dd0",
+        "tag": 11
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3bd90",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c39cc0",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3f210",
+        "tag": 4
+      },
+      {
+        "oi": 3,
+        "primary": "0x1eac8c220a0",
+        "tag": 8
+      }
+    ],
+    "handle_type_army": 51
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk; no midflight leaf hunt",
+    "SA3620=True Cancel1415=True MOVE1402=True Strat4753=True",
+    "OG+0x50 MI walkback 380/380",
+    "LAND_POST/SAFE_POST 2gy row"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed execute",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "CMove midflight hex",
+    "Post inject",
+    "Assign oi\u22600 units\u2194OI confirm",
+    "ask-user right-click",
+    "Capstone/121 re-churn",
+    "long midflight empty poll"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2gy factory+OG50 reaffirm); push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "f1fb883"
+}
