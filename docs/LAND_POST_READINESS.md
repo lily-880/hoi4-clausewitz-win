@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hg `CLOCK_RELOAD_RING_SEQ_POLISH`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hh `POST_RELOAD_PERCEPTION_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -245,9 +245,9 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | ID | Signal | How / status |
 | --- | --- | --- |
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
-| `PATH200` | multi-prov candidates | CArmy`+0x200` tag-FP (not demangled dest) — LIVE |
+| `PATH200` | multi-prov candidates | CArmy`+0x200` tag-FP — LIVE 2hh nonempty=2 multi=1 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` (⊀ `+0x200`) — HIT 2gm/2gn |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` (MI VT `0x29d6fb8`) — walkback LIVE |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — walkback 387/387 (2hh post-reload) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -283,6 +283,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2he factory+execlist corner:** result=`FACTORY_EXECLIST_RING_CORNER` · all_factory=True · dummy_vt=True · execlist_empty=True · pending_empty=True · ring_present=True · hours=1 UI=1936-01-01 01:00 · allow_post=False.
 **2hf ring layout polish:** result=`RING_INLINE_LAYOUT_POLISH` · kind=INLINE_BLOB · cap_like=0x10 · seq=84065 · hours=15 UI=1936-01-01 15:00 drain=325194 · allow_post=False · 2he ptr misread corrected.
 **2hg clock+seq polish:** result=`CLOCK_RELOAD_RING_SEQ_POLISH` · class=RELOAD_OR_NEW_CAMPAIGN_LIKELY · hours=27 year=1937 (year_match=False; hours=UI) · seq=86628 Δseq=2563 · drain=336223 · allow_post=False.
+**2hh post-reload perception:** result=`POST_RELOAD_PERCEPTION_HIT` · carmy=6 nonempty=2 multi=1 · walkback 387/387 · clock=RELOAD_OR_NEW_CAMPAIGN_LIKELY hours=41 UI=1936-01-02 17:00 · allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -328,6 +329,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2he** | `FACTORY_EXECLIST_RING_CORNER` | Full land factory MATCH + Dummy execlist/ring/pending corner | oi≠0 / midflight / Post HARD_DENY |
 | **2hf** | `RING_INLINE_LAYOUT_POLISH` | ring@+0xa0 INLINE layout polish (correct 2he ptr misread) + clock note | oi≠0 / midflight / Post HARD_DENY |
 | **2hg** | `CLOCK_RELOAD_RING_SEQ_POLISH` | CLOCK reload≠wrap + ring seq delta vs 2hf | oi≠0 / midflight / Post HARD_DENY |
+| **2hh** | `POST_RELOAD_PERCEPTION_HIT` | Post-reload ≤45s PATH200+OG50; 2hg CLOCK fold | oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -335,4 +337,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hg · CLOCK + ring seq polish · 2026-10-31 Asia/Shanghai*
+*Phase 2hh · post-reload PATH200+OG50 · 2026-10-31 Asia/Shanghai*

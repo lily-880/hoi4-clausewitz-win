@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2hg — checklist polish (CLOSED)
+## Phase 2gj … 2hh — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -271,6 +271,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2he | Full land factory MATCH + Dummy execlist/ring corner | **FACTORY_EXECLIST_RING_CORNER** (Post still CLOSED) |
 | 2hf | ring@+0xa0 INLINE layout polish (2he ptr misread corrected) | **RING_INLINE_LAYOUT_POLISH** (Post still CLOSED) |
 | 2hg | CLOCK reload≠wrap + ring seq delta vs 2hf | **CLOCK_RELOAD_RING_SEQ_POLISH** (Post still CLOSED) |
+| 2hh | Post-reload ≤45s PATH200+OG50 perception | **POST_RELOAD_PERCEPTION_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -288,5 +289,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hg — CLOCK + ring seq polish. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2hh — post-reload PATH200+OG50. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
