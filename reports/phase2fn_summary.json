@@ -1,0 +1,63 @@
+{
+  "phase": "2fn",
+  "result": "ASSIGN_UNASSIGN_EDGE_DEEPENED",
+  "scenario": "ITA@1x Assign/Unassign edge deepen (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 34188,
+  "ui_date": "1936-01-06 15:00",
+  "hours": 135,
+  "assign_fields": {
+    "units_data": 40,
+    "units_capacity": 48,
+    "units_count": 52,
+    "units_alloc": 56,
+    "order_index": 72,
+    "assign_to_minimum_order": 76
+  },
+  "unassign_fields": {
+    "units_data": 40,
+    "units_capacity": 48,
+    "units_count": 52,
+    "units_alloc": 56,
+    "unassign_group": 72,
+    "unassign_army_group_instances": 73
+  },
+  "sight": {
+    "elapsed": 75.0,
+    "assign_seen": true,
+    "unassign_seen": true,
+    "fallback_seen": false,
+    "sight_counts": {
+      "CHourlyTickCommand": 48069,
+      "CCancelMovementCommand": 1,
+      "COrderAssignCommand": 2,
+      "COrderUnassignCommand": 2
+    },
+    "captures_n": 4
+  },
+  "works": [
+    "Assign/Unassign units@+0x28 = CPdxArray (data/cap/size/alloc) sibling MassCancel/NewFallback",
+    "Assign fields {'units_data': 40, 'units_capacity': 48, 'units_count': 52, 'units_alloc': 56, 'order_index': 72, 'assign_to_minimum_order': 76}",
+    "Unassign fields {'units_data': 40, 'units_capacity': 48, 'units_count': 52, 'units_alloc': 56, 'unassign_group': 72, 'unassign_army_group_instances': 73}",
+    "Stage neighbors catalogued from 2ex ITA + 2fa ETH (HourlyTick/Cancel/Strategic co-sight)",
+    "order_assign_recipe corrected (was wrong subject_or_vec sketch)",
+    "HANDLE_TYPE_ARMY=0x33 cheap type-id polish; NewFallback subject type still open",
+    "bounded sight 75.0s polls=3150719 assign_seen=True unassign_seen=True",
+    "allow_post stays False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: on-stage Assign/Unassign hex with nonzero units_count OR NewFallback subject type-id from midflight; still NO ALLOW_POST",
+  "parent_sha_base": "87bd306"
+}

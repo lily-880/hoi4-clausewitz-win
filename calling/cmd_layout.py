@@ -215,7 +215,8 @@ ORDERS = {
         "clone": 0x18CD5B0, "serialize": 0x18E80F0, "deserialize": 0x18E1A70, "execute": 0x18D41B0,
         "isvalid": 0x18de900,
         "isvalid_kind": "FN",
-        "fields": {"units_data": 0x28, "units_count": 0x34, "order_index": 0x48, "assign_to_minimum_order": 0x4C},
+        "fields": {"units_data": 40, "units_capacity": 48, "units_count": 52, "units_alloc": 56, "order_index": 72, "assign_to_minimum_order": 76},
+        "fields_note": "2fn: units=CPdxArray@+0x28 (size@+0x34); order_index@+0x48; posting DISABLED",
     },
     "COrderUnassignCommand": {
         "factory": 0x18d09b0,
@@ -223,7 +224,8 @@ ORDERS = {
         "clone": 0x18CEBB0, "serialize": 0x18E91B0, "deserialize": 0x18E2EE0, "execute": 0x18DB050,
         "isvalid": 0x18e01d0,
         "isvalid_kind": "FN",
-        "fields": {"units_data": 0x28, "units_count": 0x34, "unassign_group": 0x48, "unassign_army_group_instances": 0x49},
+        "fields": {"units_data": 40, "units_capacity": 48, "units_count": 52, "units_alloc": 56, "unassign_group": 72, "unassign_army_group_instances": 73},
+        "fields_note": "2fn: units=CPdxArray@+0x28 (size@+0x34); unassign_group@+0x48; posting DISABLED",
     },
     "COrderDeleteCommand": {
         "factory": 0x18cffa0,

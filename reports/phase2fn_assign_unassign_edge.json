@@ -1,0 +1,406 @@
+{
+  "phase": "2fn",
+  "ts": "2026-10-31T04:51:22.920320+00:00",
+  "result": "ASSIGN_UNASSIGN_EDGE_DEEPENED",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "executed_2fb_recipe": false,
+  "live": {
+    "pid": 34188,
+    "hours": 135,
+    "ui_date": "1936-01-06 15:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign/Unassign edge deepen (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1"
+  },
+  "live_at_start": {
+    "pid": 34188,
+    "hours": 129,
+    "ui_date": "1936-01-06 09:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign/Unassign edge deepen (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1"
+  },
+  "parent_sha_base": "87bd306",
+  "assign_fields": {
+    "units_data": 40,
+    "units_capacity": 48,
+    "units_count": 52,
+    "units_alloc": 56,
+    "order_index": 72,
+    "assign_to_minimum_order": 76
+  },
+  "unassign_fields": {
+    "units_data": 40,
+    "units_capacity": 48,
+    "units_count": 52,
+    "units_alloc": 56,
+    "unassign_group": 72,
+    "unassign_army_group_instances": 73
+  },
+  "cpdxarray": {
+    "data": 0,
+    "capacity": 8,
+    "size": 12,
+    "alloc": 16,
+    "stride": 24
+  },
+  "handle_type_table_polish": {
+    "HANDLE_TYPE_ARMY": {
+      "value": 51,
+      "dec": 51,
+      "source": "reports/phase2ff_eth_army_path_ro.json + live peeks lo=0x33"
+    },
+    "note": "NewFallback subject_handle type field still open (order-domain gate 0xbbb1e0); not proven equal to ARMY"
+  },
+  "prior_peek_decode": {
+    "assign": {
+      "label": "COrderAssignCommand",
+      "rows": [
+        {
+          "off": "0x0",
+          "u64": "0x500000efe",
+          "lo": "0xefe",
+          "hi": "0x5"
+        },
+        {
+          "off": "0x8",
+          "u64": "0x2a600000033",
+          "lo": "0x33",
+          "hi": "0x2a6",
+          "lo_note": "HANDLE_TYPE_ARMY"
+        },
+        {
+          "off": "0x10",
+          "u64": "0x176c7220500",
+          "lo": "0xc7220500",
+          "hi": "0x176"
+        },
+        {
+          "off": "0x18",
+          "u64": "0x3a98",
+          "lo": "0x3a98",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x20",
+          "u64": "0x3a98",
+          "lo": "0x3a98",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x28",
+          "u64": "0x500000efe",
+          "lo": "0xefe",
+          "hi": "0x5"
+        },
+        {
+          "off": "0x30",
+          "u64": "0x29800000033",
+          "lo": "0x33",
+          "hi": "0x298",
+          "lo_note": "HANDLE_TYPE_ARMY"
+        },
+        {
+          "off": "0x38",
+          "u64": "0x176c7219570",
+          "lo": "0xc7219570",
+          "hi": "0x176"
+        },
+        {
+          "off": "0x40",
+          "u64": "0x3a98",
+          "lo": "0x3a98",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x48",
+          "u64": "0x3a98",
+          "lo": "0x3a98",
+          "hi": "0x0"
+        }
+      ],
+      "army_type_0x33_at_offs": [
+        "0x8",
+        "0x30"
+      ],
+      "overlay_attempt": {
+        "if_units_at_0x28": {
+          "units_data": "0x500000efe",
+          "units_capacity_lo": 51,
+          "note": "post-stage peek unreliable; prefer on-stage hex"
+        }
+      },
+      "credibility": "LOW_post_stage_reuse \u2014 stage hex preferred (2ev note)"
+    },
+    "unassign": {
+      "label": "COrderUnassignCommand",
+      "rows": [
+        {
+          "off": "0x0",
+          "u64": "0x900000d9c",
+          "lo": "0xd9c",
+          "hi": "0x9"
+        },
+        {
+          "off": "0x8",
+          "u64": "0x40e00001269",
+          "lo": "0x1269",
+          "hi": "0x40e"
+        },
+        {
+          "off": "0x10",
+          "u64": "0x176c66ec070",
+          "lo": "0xc66ec070",
+          "hi": "0x176"
+        },
+        {
+          "off": "0x18",
+          "u64": "0x2648",
+          "lo": "0x2648",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x20",
+          "u64": "0x2648",
+          "lo": "0x2648",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x28",
+          "u64": "0x9000025dc",
+          "lo": "0x25dc",
+          "hi": "0x9"
+        },
+        {
+          "off": "0x30",
+          "u64": "0x3ab00000033",
+          "lo": "0x33",
+          "hi": "0x3ab",
+          "lo_note": "HANDLE_TYPE_ARMY"
+        },
+        {
+          "off": "0x38",
+          "u64": "0x176c7301040",
+          "lo": "0xc7301040",
+          "hi": "0x176"
+        },
+        {
+          "off": "0x40",
+          "u64": "0xd8b8",
+          "lo": "0xd8b8",
+          "hi": "0x0"
+        },
+        {
+          "off": "0x48",
+          "u64": "0xd8b8",
+          "lo": "0xd8b8",
+          "hi": "0x0"
+        }
+      ],
+      "army_type_0x33_at_offs": [
+        "0x30"
+      ],
+      "overlay_attempt": {
+        "if_units_at_0x28": {
+          "units_data": "0x9000025dc",
+          "units_capacity_lo": 51,
+          "note": "post-stage peek unreliable; prefer on-stage hex"
+        }
+      },
+      "credibility": "LOW_post_stage_reuse \u2014 stage hex preferred (2ev note)"
+    }
+  },
+  "stage_neighbors": {
+    "from_2ex_ita": {
+      "sight_counts": {
+        "CHourlyTickCommand": 24049,
+        "COrderAssignCommand": 17,
+        "CCancelMovementCommand": 3,
+        "COrderUnassignCommand": 12
+      },
+      "sight_first": {
+        "CHourlyTickCommand": {
+          "source": "stage[0]",
+          "addr": "0x176ef6a8270",
+          "vt_rva": "0x29f3710",
+          "poll": 3688,
+          "ts": "2026-10-31 11:30:16"
+        },
+        "COrderAssignCommand": {
+          "source": "stage[9]",
+          "addr": "0x176eeeaf790",
+          "vt_rva": "0x2a84498",
+          "poll": 47401,
+          "ts": "2026-10-31 11:30:17"
+        },
+        "CCancelMovementCommand": {
+          "source": "stage[1]",
+          "addr": "0x176ac90ee80",
+          "vt_rva": "0x2a2c9b8",
+          "poll": 247472,
+          "ts": "2026-10-31 11:30:35"
+        },
+        "COrderUnassignCommand": {
+          "source": "stage[13]",
+          "addr": "0x176eeeb3630",
+          "vt_rva": "0x2a84550",
+          "poll": 1012147,
+          "ts": "2026-10-31 11:31:21"
+        }
+      },
+      "neighbors_note": "HourlyTick dominant; Assign stage[9]; Unassign stage[13]; Cancel co-sighted",
+      "assign_hits_n": 29,
+      "vt": {
+        "Assign": "0x2a84498",
+        "Unassign": "0x2a84550"
+      }
+    },
+    "from_2fa_eth": {
+      "sight_counts": {
+        "stage[0]:CHourlyTickCommand": 18122,
+        "stage[1]:COrderAssignCommand": 1,
+        "stage[45]:COrderAssignCommand": 2,
+        "stage[46]:COrderAssignCommand": 2,
+        "stage[47]:COrderAssignCommand": 2,
+        "stage[48]:CStrategicRedeploymentCommand": 2
+      },
+      "assign_family_sightings": 7,
+      "neighbors_note": "Assign on stage[1]/[45..47]; StrategicRedeploy stage[48]; HourlyTick stage[0]"
+    }
+  },
+  "bounded_sight": {
+    "observe_seconds": 75.0,
+    "elapsed": 75.0,
+    "polls": 3150719,
+    "sight_counts": {
+      "CHourlyTickCommand": 48069,
+      "CCancelMovementCommand": 1,
+      "COrderAssignCommand": 2,
+      "COrderUnassignCommand": 2
+    },
+    "captures": [
+      {
+        "source": "stage[17]",
+        "name": "COrderAssignCommand",
+        "addr": "0x1b9f11f7a50",
+        "vt_rva": "0x2a84498",
+        "t": 5.364,
+        "decode": {
+          "layout": "COrderAssignCommand",
+          "units_cpdxarray": {
+            "data": "0x1b9f27dbd60",
+            "capacity": 4,
+            "size": 4,
+            "alloc": "0x7ff74775d000"
+          },
+          "hex50": "98440e47f77f000000000000010000000000000000000000ff7f0000f8760000f8760000b801000060bd7df2b9010000040000000400000000d07547f77f000035000000ed0000000600000000000000",
+          "order_index": 6,
+          "assign_to_minimum_order": 0
+        }
+      },
+      {
+        "source": "stage[7]",
+        "name": "COrderUnassignCommand",
+        "addr": "0x1b9f11e58d0",
+        "vt_rva": "0x2a84550",
+        "t": 32.455,
+        "decode": {
+          "layout": "COrderUnassignCommand",
+          "units_cpdxarray": {
+            "data": "0x1b9f16cc760",
+            "capacity": 1,
+            "size": 1,
+            "alloc": "0x7ff74775d000"
+          },
+          "hex50": "50450e47f77f000000000000010000000000000000000000ff7f00006278000062780000b801000060c76cf1b9010000010000000100000000d07547f77f000035000000c90000000100000000000000",
+          "unassign_group": 1,
+          "unassign_army_group_instances": 0
+        }
+      },
+      {
+        "source": "stage[8]",
+        "name": "COrderUnassignCommand",
+        "addr": "0x1b9f11e5f90",
+        "vt_rva": "0x2a84550",
+        "t": 32.455,
+        "decode": {
+          "layout": "COrderUnassignCommand",
+          "units_cpdxarray": {
+            "data": "0x1b9f16cc790",
+            "capacity": 1,
+            "size": 1,
+            "alloc": "0x7ff74775d000"
+          },
+          "hex50": "50450e47f77f000000000000010000000000000000000000ff7f00006378000063780000b801000090c76cf1b9010000010000000100000000d07547f77f000035000000ce0100000100000000000000",
+          "unassign_group": 1,
+          "unassign_army_group_instances": 0
+        }
+      },
+      {
+        "source": "stage[11]",
+        "name": "COrderAssignCommand",
+        "addr": "0x1b9f11e4a90",
+        "vt_rva": "0x2a84498",
+        "t": 32.455,
+        "decode": {
+          "layout": "COrderAssignCommand",
+          "units_cpdxarray": {
+            "data": "0x0",
+            "capacity": 0,
+            "size": 0,
+            "alloc": "0x7ff74775d000"
+          },
+          "hex50": "a0f4df46f77f000000000000010000000000000000000000ff7f00006678000066780000b80100000000000000000000000000000000000000d07547f77f000035000000cc0000000100000000000000",
+          "order_index": 1,
+          "assign_to_minimum_order": 0
+        }
+      }
+    ],
+    "neighbor_windows": [
+      {
+        "t": 5.365,
+        "hits": [
+          "COrderAssignCommand"
+        ],
+        "stage_count": 28
+      },
+      {
+        "t": 32.455,
+        "hits": [
+          "COrderUnassignCommand",
+          "COrderUnassignCommand",
+          "COrderAssignCommand"
+        ],
+        "stage_count": 21
+      }
+    ],
+    "assign_seen": true,
+    "unassign_seen": true,
+    "fallback_seen": false
+  },
+  "works": [
+    "Assign/Unassign units@+0x28 = CPdxArray (data/cap/size/alloc) sibling MassCancel/NewFallback",
+    "Assign fields {'units_data': 40, 'units_capacity': 48, 'units_count': 52, 'units_alloc': 56, 'order_index': 72, 'assign_to_minimum_order': 76}",
+    "Unassign fields {'units_data': 40, 'units_capacity': 48, 'units_count': 52, 'units_alloc': 56, 'unassign_group': 72, 'unassign_army_group_instances': 73}",
+    "Stage neighbors catalogued from 2ex ITA + 2fa ETH (HourlyTick/Cancel/Strategic co-sight)",
+    "order_assign_recipe corrected (was wrong subject_or_vec sketch)",
+    "HANDLE_TYPE_ARMY=0x33 cheap type-id polish; NewFallback subject type still open",
+    "bounded sight 75.0s polls=3150719 assign_seen=True unassign_seen=True",
+    "allow_post stays False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: on-stage Assign/Unassign hex with nonzero units_count OR NewFallback subject type-id from midflight; still NO ALLOW_POST"
+}

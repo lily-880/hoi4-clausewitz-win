@@ -341,16 +341,26 @@ def assign_to_army_group_recipe(army_handle: list[int] | tuple[int, int],
     }
 
 
-def order_assign_recipe(order_subject: list[int] | tuple[int, int] | None = None) -> dict[str, Any]:
-    """COrderAssignCommand sketch — RO only."""
+def order_assign_recipe(unit_handles: list[list[int]] | None = None,
+                         order_index: int = 0,
+                         assign_to_minimum_order: int = 0) -> dict[str, Any]:
+    """COrderAssignCommand — RO only. units=CPdxArray@+0x28 (2fn)."""
+    units = unit_handles or []
     return {
-        "subject_or_vec_off": 0x28,
-        "subject": list(order_subject) if order_subject else [],
-        "units_or_path_off": 0x34,
-        "note": "Assign units to order; vector/path game-allocated; posting DISABLED",
+        "units_data_off": 0x28,
+        "units_capacity_off": 0x30,
+        "units_count_off": 0x34,
+        "units_alloc_off": 0x38,
+        "unit_handles": [list(h) for h in units],
+        "units_count": len(units),
+        "order_index_off": 0x48,
+        "order_index": order_index,
+        "assign_to_minimum_order_off": 0x4C,
+        "assign_to_minimum_order": assign_to_minimum_order,
+        "cpdxarray": "data@0 cap@8 size@0xC alloc@0x10",
+        "note": "2fn: Assign edge; vectors game-alloc; posting DISABLED",
         "posting": "DISABLED",
     }
-
 
 def collapse_conveyor_recipe(subject_handle: list[int] | tuple[int, int]) -> dict[str, Any]:
     """CCollapseConveyorCommand — RO only."""
@@ -660,19 +670,25 @@ def set_order_group_proximity_recipe(order_group_handle: list[int] | tuple[int, 
 
 
 def order_unassign_recipe(units: list[list[int]] | None = None,
-                          unassign_group: int = 0) -> dict[str, Any]:
-    """COrderUnassignCommand — RO only."""
+                          unassign_group: int = 0,
+                          unassign_army_group_instances: int = 0) -> dict[str, Any]:
+    """COrderUnassignCommand — RO only. units=CPdxArray@+0x28 (2fn)."""
     units = units or []
     return {
         "units_data_off": 0x28,
-        "units": units,
+        "units_capacity_off": 0x30,
         "units_count_off": 0x34,
+        "units_alloc_off": 0x38,
+        "unit_handles": [list(h) for h in units],
         "units_count": len(units),
         "unassign_group_off": 0x48,
         "unassign_group": unassign_group,
+        "unassign_army_group_instances_off": 0x49,
+        "unassign_army_group_instances": unassign_army_group_instances,
+        "cpdxarray": "data@0 cap@8 size@0xC alloc@0x10",
+        "note": "2fn: Unassign edge; posting DISABLED",
         "posting": "DISABLED",
     }
-
 
 def order_set_paradrop_recipe(subject_handle: list[int] | tuple[int, int],
                               province_or_id: int = 0, which: str = "target") -> dict[str, Any]:
