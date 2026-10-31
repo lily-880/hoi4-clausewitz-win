@@ -810,3 +810,12 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **CArmyRequests (new)**: peer `CArmy*` hyp @ `+0x108/+0x130/+0x190` — 10/17 other HAI (not self).
 - **Theatre→army direct**: unresolved (0 hits for CArmy*/req/handle in theatre blob); army→theatre @`+0x2a0` remains one-way.
 - **Not revived**: org/str; CProvince+0x58. **movement_dest** empty (paused). Recipes `*_2da`; allow_post False; watcher 36128 RO.
+
+## Phase 2db (overnight RO) — REJECT CFront multi-slot array (packed 0x90) + req peer alias
+
+- **HEAD parent**: `54a9d87` (2da). Focus: bound-check CFront slots; strengthen req peer; theatre→army alt paths; FS stride.
+- **CFront (correction)**: multi-slot array model from 2cy–2da **REJECTED**. 1171/1199 objects have another `CFront` at `+0x90`; `theatre` at former "slot k" equals `(F+k×0x90)+0x18`. Objects pack at stride **0x90** (max run 454). Per-object fields remain `CTheatre*` @ `+0x18` and `CControllerArea*` @ `+0x70` (1199/1199). HAI fronts via theatre@+0x18 = **6** (any-slot counts were neighbor-walk inflation).
+- **CFrontSection**: theatre* embeds @ `+0x28/+0x40/+0x58` (+0x70 repeats) reinterpreted as packed-run neighbor theatres; not parent multi-slots.
+- **CArmyRequests**: peer `CArmy*` at `+0x108/+0x130/+0x190` are an **aliased triple** (identical 16/17); chain not bidirectional.
+- **Theatre→army direct**: still unresolved (0). Army→theatre @`+0x2a0` one-way.
+- **Not revived**: org/str; CProvince+0x58. Recipes `*_2db`; allow_post False; watcher 36128 RO.

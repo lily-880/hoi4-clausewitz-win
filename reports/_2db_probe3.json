@@ -1,0 +1,62 @@
+{
+  "phase": "2db",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "fronts": 1199,
+  "neighbor_plus90_in_front_set": 1171,
+  "neighbor_plus90_has_cfront_vt": 1171,
+  "checked": 1199,
+  "frac_neighbor_is_front": 0.9766,
+  "slot_eq_neighbor_theatre": {
+    "1": 1195,
+    "2": 1194,
+    "3": 1192,
+    "7": 1180,
+    "15": 1154,
+    "31": 1110,
+    "63": 1014
+  },
+  "slot_neighbor_is_front": {
+    "1": 1171,
+    "2": 1166,
+    "3": 1161,
+    "7": 1143,
+    "15": 1114,
+    "31": 1060,
+    "63": 947
+  },
+  "run_len_hist_top": {
+    "1": 9,
+    "2": 7,
+    "3": 5,
+    "226": 1,
+    "12": 1,
+    "9": 1,
+    "70": 1,
+    "454": 1,
+    "384": 1,
+    "6": 1
+  },
+  "max_run_len": 454,
+  "n_runs": 28,
+  "slot0_theatre_ok": "1199/1199",
+  "slot0_controller_ok": "1199/1199",
+  "unique_theatres_via_slot0": 89,
+  "hai_fronts_slot0_only": 6,
+  "fs_checked": 1570,
+  "fs_parent_th_at_28": 0,
+  "fs_neighbor_th_at_28": 33,
+  "interpretation": "If ~all F+0x90 are themselves CFront objects and slot-k theatre == (F+k*0x90)+0x18, then prior multi-slot-array model (2cy-2da) was a misread of packed adjacent CFronts of stride 0x90; per-object fields remain theatre@+0x18 and controller@+0x70 only.",
+  "multi_slot_array_status": "REJECTED_AS_PACKED_ADJACENT_CFRONT_2db",
+  "cfront_object_stride": "0x90",
+  "proven_fields": {
+    "theatre_ptr": {
+      "off": 24,
+      "ok": "1199/1199"
+    },
+    "controller_area_ptr": {
+      "off": 112,
+      "ok": "1199/1199"
+    }
+  }
+}
