@@ -66,8 +66,8 @@ HYPOTHESIS_STRUCT = {
     "CM_CHARACTERS": 0x10,  # CPdxArray<CCharacter*> (live world=9661)
     "CM_CHARACTERS_ACTIVE": 0x28,  # CPdxArray<CCharacter*> (live=2361; role TBD)
     # CTheatre fields (primary theatre from CO_THEATRES)
-    "TH_FRONTS": 0x50,  # CPdxArray<CFront*> (live HAI=6, major0=10)
-    "TH_ARMIES": 0x68,  # CPdxArray<CArmy*> (live HAI=17 matches CO_ARMIES)
+    "TH_FRONTS": 0x50,  # CPdxArray<CFront*> proven_live_2dd (HAI=6 ids 173..178)
+    "TH_ARMIES": 0x68,  # CPdxArray<CArmy*> proven_live_2dd (HAI=17 matches CO_ARMIES)
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.

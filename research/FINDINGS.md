@@ -833,3 +833,17 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **SPerCountrySection**: `u32@+0x8` HAI tag proven (8); province-id-range hyp @+0x20..+0x34 remains **weak** (0 overlap with army provs).
 - **Orders heap**: still 0. Org/str + prov+0x58 stay REJECTED. Recipes `*_2dc`; allow_post False; watcher 36128 RO.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
+
+## Phase 2dd (overnight RO) — TH_ARMIES@+0x68 + TH_FRONTS@+0x50 CPdxArray proven
+
+- **HEAD parent**: `b46f6be` (2dc). Focus: theatre↔army crosslink via documented CO_*/TH_* CPdxArray offsets (missed earlier due to wrong array layout assumption).
+- **CPdxArray layout (Windows)**: `{T* data; i32 capacity; i32 size; void* alloc}` — not begin/end pair.
+- **Proven live**:
+  - `CCountry+0x290` **CO_ARMIES** → 17 CArmy* (HAI tag ok 17/17)
+  - `CCountry+0x168` **CO_THEATRES** → 1 CTheatre*
+  - `CTheatre+0x50` **TH_FRONTS** → 6 CFront* with ids **[173, 174, 175, 176, 177, 178]**; each front `+0x18` theatre embeds match owning theatre; kind `0x42`
+  - `CTheatre+0x68` **TH_ARMIES** → 17 CArmy* — **identical set** to CO_ARMIES (distinct data buffers)
+- **Theatre↔army**: now **bidirectional via arrays** (TH_ARMIES + army `+0x2a0`). Prior "theatre→army 0" was a false miss from begin/end scans.
+- **CFront↔army**: still no direct CArmy* embed in front blob; link is theatre-mediated (resolved_indirect_2dd).
+- **Unchanged**: peer `hypothesis_peer_chain_oneway_2dc`; packed 0x90 REJECT; org/str REJECT; prov+0x58 REJECT; movement_dest=0 (paused); orders heap 0; LAND **121/121**; confidence **1.000**; helpers 308 / named 658.
+- **Not revived**: org/str; CProvince+0x58. Recipes `*_2dd`; allow_post False; watcher 36128 RO.

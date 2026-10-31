@@ -1,0 +1,37 @@
+{
+  "phase": "2dd",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "focus": "TH_ARMIES@+0x68 + TH_FRONTS@+0x50 + CO_* CPdxArray",
+  "works": [
+    "CO_ARMIES@CCountry+0x290 17/17",
+    "CO_THEATRES@CCountry+0x168 1/1",
+    "TH_FRONTS@CTheatre+0x50 6/6 ids 173..178",
+    "TH_ARMIES@CTheatre+0x68 17/17 == CO_ARMIES set",
+    "CPdxArray layout {data,i32 cap,i32 size,alloc}",
+    "theatre<->army bidirectional via arrays",
+    "watcher 36128 RO alive"
+  ],
+  "stubbed": [
+    "midflight_CMoveCommand",
+    "ring_embed",
+    "ALLOW_POST",
+    "command_queue_tool_gate"
+  ],
+  "unresolved": [
+    "CFront direct CArmy* embed (theatre-mediated OK)",
+    "movement_dest (paused)",
+    "orders heap (0)",
+    "req peer still hypothesis_peer_chain_oneway_2dc"
+  ],
+  "rejected_unchanged": [
+    "CFront multi-slot array",
+    "org/str @0x520/0x6ec",
+    "CProvince+0x58 controller tag"
+  ],
+  "land_cmds": "121/121",
+  "confidence": 1.0,
+  "helpers": 308,
+  "named": 658,
+  "parent": "b46f6be"
+}

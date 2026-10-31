@@ -1,0 +1,144 @@
+{
+  "phase": "2dd_probe2",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "pid": 2880,
+  "probe_summary": {
+    "ok": true,
+    "player_tag": 15,
+    "country_ptr": "0x1ef801a0880",
+    "armies_count": 17,
+    "theatres_count": 1,
+    "fronts_count": 6,
+    "fronts_via": "CTheatre+0x50",
+    "fronts_rtti": ".?AVCFront@@",
+    "controller_areas_count": 9,
+    "owner_areas_count": 9,
+    "first_rtti": ".?AVCArmy@@",
+    "note": "CO_ARMIES@0x290 CArmy* \u2014 Windows CArmy is division-level (SubUnitDef@0x138 + Province@0x1f0 + RefDivTemplate@0x3b8 on all sampled); divisions_count := armies_count. Nested CUnit arrays empty."
+  },
+  "CO_ARMIES": {
+    "data": 2131636769120,
+    "capacity": 19,
+    "size": 17,
+    "alloc": 140700032552960
+  },
+  "CO_THEATRES": {
+    "data": 2131635541152,
+    "capacity": 1,
+    "size": 1,
+    "alloc": 140700032552960
+  },
+  "army_hai_ok": 17,
+  "theatre_ptrs": [
+    "0x1f04ef91290"
+  ],
+  "fronts_via_th": [
+    {
+      "theatre": "0x1f04ef91290",
+      "in_army_set": true,
+      "th_fronts_hdr": {
+        "data": 2131636305680,
+        "capacity": 6,
+        "size": 6,
+        "alloc": 140700032552960
+      },
+      "front_ids": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "fronts": [
+        {
+          "front": "0x1eec23b3a00",
+          "id": 173,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1ef8eeed4b0"
+        },
+        {
+          "front": "0x1eec23b3850",
+          "id": 174,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1f034bb1dc0"
+        },
+        {
+          "front": "0x1eec23b3580",
+          "id": 175,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1f0348b0840"
+        },
+        {
+          "front": "0x1eec23b3970",
+          "id": 176,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1f034bb2120"
+        },
+        {
+          "front": "0x1eec23b5e00",
+          "id": 177,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1f034bb2900"
+        },
+        {
+          "front": "0x1eec23b6160",
+          "id": 178,
+          "kind": 66,
+          "theatre_emb": "0x1f04ef91290",
+          "theatre_match": true,
+          "ctrl": "0x1f034bb2a20"
+        }
+      ],
+      "th_embedded_army_pdx": [
+        {
+          "off": "0x68",
+          "size": 17,
+          "cap": 19,
+          "hits": 17
+        }
+      ],
+      "tag0c": 15,
+      "tag48": 15
+    }
+  ],
+  "controller_areas": {
+    "data": 2129827897984,
+    "capacity": 9,
+    "size": 9,
+    "alloc": 140700032552960
+  },
+  "owner_areas": {
+    "data": 2128407451024,
+    "capacity": 9,
+    "size": 9,
+    "alloc": 140700032552960
+  },
+  "watcher_36128_alive": true,
+  "crosslink_status": {
+    "country_to_armies": "proven_live_2dd",
+    "country_to_theatres": "proven_live_2dd",
+    "theatre_to_fronts": "proven_live_2dd",
+    "theatre_to_armies_direct": "found",
+    "hai_front_ids": [
+      173,
+      174,
+      175,
+      176,
+      177,
+      178
+    ],
+    "note": "Army list = CCountry+0x290 CPdxArray{data,i32 cap,i32 size,alloc}. Fronts = CTheatre+0x50 same. Theatre->army remains one-way via army+0x2a0; no army CPdxArray on theatre."
+  }
+}

@@ -1,0 +1,3575 @@
+{
+  "phase": "2dd",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "country_tag_filter": 15,
+  "subjects_found_total": 22,
+  "carmy_count": 17,
+  "ctaskforce_count": 5,
+  "carmy_theatre_rtti_ok": 17,
+  "carmy_namegroup_rtti_ok": 17,
+  "carmy_requests_owner_ok": 17,
+  "carmy_self_ref_418_ok": 17,
+  "carmy_reinf_country_ok": 17,
+  "carmy_upgrades_country_ok": 17,
+  "unique_theatre_ptrs": 1,
+  "rtti_vt": {
+    "CArmy": "0x29d6d68",
+    "CTaskForce": "0x29df8a0",
+    "CTheatre": "0x29f2188",
+    "CNameGroupMember": "0x29b3c68",
+    "CSubUnitDefinition": "0x28076f0",
+    "CArmyRequests": "proven",
+    "CReinforcementStatus": "0x2a4b158",
+    "CArmyUpgradesStatus": "0x2a4b308",
+    "CStrategicAirManager": "0x29d51e8",
+    "CFront": "0x29f2280",
+    "CFrontSection": "0x29f2230",
+    "COrdersGroup": "0x29ced90",
+    "COrdersGroupMember": "0x29ced48",
+    "CArmyGroup": "0x29cee28",
+    "COrderInstance": "0x2a02558",
+    "SPerCountrySection@CFrontSection": "0x29f21e0",
+    "CControllerArea": "0x29db138",
+    "CLoopHistory": "proven",
+    "CCountry": "0x2864710"
+  },
+  "field_map_carmy": {
+    "handle": {
+      "off": 24,
+      "status": "proven"
+    },
+    "province_id": {
+      "off": 40,
+      "status": "proven"
+    },
+    "subunit_def_ptr": {
+      "off": 312,
+      "status": "proven",
+      "rtti": "CSubUnitDefinition",
+      "vt_rva": "0x28076f0"
+    },
+    "country_tag": {
+      "off": 480,
+      "status": "proven"
+    },
+    "province_ptr": {
+      "off": 496,
+      "status": "proven"
+    },
+    "theatre_ptr": {
+      "off": 672,
+      "status": "proven_live_2cv",
+      "rtti": "CTheatre",
+      "vt_rva": "0x29f2188",
+      "note": "All 17 HAI CArmy share one CTheatre ptr"
+    },
+    "namegroup_ptr": {
+      "off": 832,
+      "status": "proven_live_2cv",
+      "rtti": "CNameGroupMember",
+      "vt_rva": "0x29b3c68"
+    },
+    "div_template_ptr": {
+      "off": 952,
+      "status": "proven",
+      "note": "null on CTaskForce"
+    },
+    "army_requests_ptr": {
+      "off": 1144,
+      "status": "proven_live_2cw",
+      "rtti": "CArmyRequests",
+      "note": "owner/reinf/upgrades field-map proven in 2cw"
+    },
+    "vt": {
+      "off": 0,
+      "status": "proven",
+      "carmy_rva": "0x29d6d68",
+      "ctaskforce_rva": "0x29df8a0"
+    },
+    "self_ref_ptr": {
+      "off": 1048,
+      "status": "proven_live_2cw",
+      "rtti": "CArmy",
+      "note": "17/17 self-pointer (identity); not a peer chain"
+    }
+  },
+  "field_map_ctheatre": {
+    "country_tag_0c": {
+      "off": 12,
+      "status": "proven_live_2cv",
+      "note": "matches HAI tag=15"
+    },
+    "country_tag_48": {
+      "off": 72,
+      "status": "proven_live_2cv",
+      "note": "matches HAI tag=15"
+    },
+    "province_ptr": {
+      "off": 232,
+      "status": "proven_live_2cv",
+      "rtti": "CProvince"
+    },
+    "strategic_air_manager_ptr": {
+      "off": 616,
+      "status": "proven_live_2cw",
+      "rtti": "CStrategicAirManager",
+      "vt_rva": "0x29d51e8",
+      "note": "Also repeats at +0x448/+0x628/+0x808/+0x9e8/+0xbc8 (stride 0x1e0)"
+    },
+    "army_crosslink_direct": {
+      "status": "proven_live_2dd_via_TH_ARMIES_0x68",
+      "off": 104,
+      "ok": "17/17",
+      "intersection_CO_ARMIES": "17/17",
+      "prior_miss_reason": "scanned begin/end; real layout is CPdxArray data/cap/size/alloc",
+      "note": "Theatre->army DIRECT via CPdxArray at +0x68 (HYPOTHESIS_STRUCT TH_ARMIES). Army->theatre @CArmy+0x2a0 remains; now bidirectional through arrays.",
+      "th_array_hit_count": 17,
+      "direct_ptr_hits": 17,
+      "handle_hits": 0
+    },
+    "fronts_array": {
+      "off": 80,
+      "status": "proven_live_2dd",
+      "layout": "CPdxArray{data:u64, capacity:i32, size:i32, alloc:u64}",
+      "size": 6,
+      "capacity": 6,
+      "ok": "6/6",
+      "front_ids": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "front_ids_consecutive": true,
+      "theatre_emb_match": "6/6 front+0x18 == owning theatre",
+      "kind_all_0x42": true,
+      "via": "CTheatre+0x50 (offsets.HYPOTHESIS_STRUCT TH_FRONTS)",
+      "note": "HAI front ids 173..178 via TH_FRONTS; matches mine heap HAI fronts."
+    },
+    "armies_array": {
+      "off": 104,
+      "status": "proven_live_2dd",
+      "layout": "CPdxArray{data:u64, capacity:i32, size:i32, alloc:u64}",
+      "size": 17,
+      "capacity": 19,
+      "ok": "17/17",
+      "intersection_with_CO_ARMIES": "17/17 identical CArmy* set",
+      "data_ptr_distinct_from_CO_ARMIES": true,
+      "note": "CTheatre+0x68 CPdxArray<CArmy*> — same 17 HAI army ptrs as CCountry+0x290. Earlier phases missed this because they scanned begin/end pair layout; Windows CPdxArray is {T* data; i32 capacity; i32 size; void* alloc}."
+    }
+  },
+  "field_map_carmyrequests": {
+    "owner_carmy_ptr": {
+      "offs": [
+        8,
+        48,
+        144
+      ],
+      "status": "proven_live_2cw",
+      "match": "17/17"
+    },
+    "reinforcement_status_ptr": {
+      "off": 80,
+      "status": "proven_live_2cw",
+      "rtti": "CReinforcementStatus",
+      "vt_rva": "0x2a4b158",
+      "country_ptr_off": 56,
+      "country_status": "proven_live_2cx",
+      "note": "shared singleton; +0x38→CCountry HAI (tag@country+0x8)"
+    },
+    "army_upgrades_status_ptr": {
+      "off": 152,
+      "status": "proven_live_2cw",
+      "rtti": "CArmyUpgradesStatus",
+      "vt_rva": "0x2a4b308",
+      "country_ptr_off": 56,
+      "country_status": "proven_live_2cx",
+      "loop_history_off": 376,
+      "loop_history_rtti": "CLoopHistory",
+      "note": "shared singleton; +0x38→same HAI CCountry as reinf"
+    },
+    "peer_carmy_ptr_hyp": {
+      "offs_aliased": [
+        264,
+        304,
+        400
+      ],
+      "status": "hypothesis_peer_chain_oneway_2dc",
+      "rtti": "CArmy",
+      "evidence": {
+        "alias_same_16_of_17": 16,
+        "peer_tags_from_hai": {
+          "15": 10,
+          "16": 5,
+          "None": 1
+        },
+        "hai_peer_edges": 10,
+        "dom_tag16_peer_edges": 5,
+        "null_or_garbage": 2,
+        "bidir": 0,
+        "in_deg_max": 1,
+        "n_chains": 7,
+        "same_theatre_frac": 0.5882352941176471,
+        "chains_sample": [
+          [
+            "0x1f04ffd5c40",
+            "0x1f04ffdcbd0",
+            "0x1f04ffe0d70",
+            "0x1f04ffe1400",
+            "0x1f04ffe27b0"
+          ],
+          [
+            "0x1f04ffd83a0",
+            "0x1f04ffd5c40",
+            "0x1f04ffdcbd0",
+            "0x1f04ffe0d70",
+            "0x1f04ffe1400",
+            "0x1f04ffe27b0"
+          ],
+          [
+            "0x1f04ffd8a30",
+            "0x1f04ffdeca0"
+          ],
+          [
+            "0x1f04ffdab00",
+            "0x1f04ffe06e0"
+          ]
+        ]
+      },
+      "note": "Aliased triple (+0x108/+0x130/+0x190) forms one-way peer chains among HAI armies, often terminating at country_tag=16 (DOM neighbor) or null. Not bidirectional; not owner_match; not a theatre army list. Observe-only."
+    }
+  },
+  "field_map_creinforcementstatus": {
+    "country_ptr": {
+      "off": 56,
+      "rtti": "CCountry",
+      "status": "proven_live_2cx",
+      "country_tag_off": 8,
+      "country_tag": 15
+    }
+  },
+  "field_map_carmyupgradesstatus": {
+    "country_ptr": {
+      "off": 56,
+      "rtti": "CCountry",
+      "status": "proven_live_2cx",
+      "country_tag_off": 8,
+      "country_tag": 15
+    },
+    "loop_history_ptr": {
+      "off": 376,
+      "rtti": "CLoopHistory",
+      "status": "proven_live_2cx"
+    }
+  },
+  "field_map_cfront": {
+    "theatre_ptr": {
+      "off": 24,
+      "rtti": "CTheatre",
+      "vt_rva": "0x29f2188",
+      "status": "proven_live_2cx",
+      "ok": "1199/1199",
+      "note": "Per-object field; not a multi-slot base."
+    },
+    "controller_area_ptr": {
+      "off": 112,
+      "rtti": "CControllerArea",
+      "vt_rva": "0x29db138",
+      "status": "proven_live_2cx",
+      "ok": "1199/1199",
+      "note": "Per-object field; not a multi-slot base."
+    },
+    "object_stride_packed": {
+      "status": "proven_live_2db",
+      "stride": 144,
+      "neighbor_plus90_is_cfront": "1171/1199",
+      "frac": 0.9766,
+      "max_run_len": 454,
+      "n_runs": 28,
+      "run_len_hist_top": {
+        "1": 9,
+        "2": 7,
+        "3": 5,
+        "226": 1,
+        "12": 1,
+        "9": 1,
+        "70": 1,
+        "454": 1,
+        "384": 1,
+        "6": 1
+      },
+      "note": "Heap often packs CFront objects contiguously at stride 0x90."
+    },
+    "slot_array": {
+      "status": "REJECTED_AS_PACKED_ADJACENT_CFRONT_2db",
+      "prev_claimed_slots_2da": 64,
+      "prev_claimed_slots_2cz": 16,
+      "prev_claimed_slots_2cy": 8,
+      "evidence": {
+        "neighbor_plus90_in_front_set": 1171,
+        "slot_eq_neighbor_theatre": {
+          "1": 1195,
+          "2": 1194,
+          "3": 1192,
+          "7": 1180,
+          "15": 1154,
+          "31": 1110,
+          "63": 1014
+        },
+        "slot_neighbor_is_front": {
+          "1": 1171,
+          "2": 1166,
+          "3": 1161,
+          "7": 1143,
+          "15": 1114,
+          "31": 1060,
+          "63": 947
+        },
+        "front_delta_0x90_cnt": 1171
+      },
+      "note": "2cy-2da 'slot k' reads were the theatre/controller of the packed neighbor CFront at F+k*0x90, not fields of a single object. Do not use multi-slot formula."
+    },
+    "hai_theatre_fronts_slot0": 6,
+    "hai_theatre_fronts_any_slot_note": "Prior any-slot counts (30/44/60/92) inflated by walking packed neighbors; correct HAI front count via theatre@+0x18 is 6.",
+    "unique_theatres_via_slot0": 89,
+    "kind_u32_8": {
+      "off": 8,
+      "value": 66,
+      "status": "proven_live_2dd",
+      "ok": "1199/1199",
+      "note": "Constant 0x42 on every CFront — type/kind/header discriminator."
+    },
+    "front_id_u32_c": {
+      "off": 12,
+      "status": "proven_live_2dd",
+      "unique": "1199/1199",
+      "note": "u32@+0xc unique across all fronts — front serial/id. In packed 0x90 runs, successive ids often differ by small positives (not strictly +1). Not a multi-slot index.",
+      "longest_run_id_diff_top": {
+        "1": 34,
+        "2": 30,
+        "6": 17,
+        "3": 14,
+        "5": 12,
+        "10": 11,
+        "12": 11,
+        "13": 11
+      }
+    },
+    "intra_object_rtti_ptrs": {
+      "status": "proven_live_2dd",
+      "sampled": 400,
+      "only_offs": [
+        "0x18",
+        "0x70"
+      ],
+      "note": "Within object span [0..0x90): only CTheatre*@+0x18 and CControllerArea*@+0x70 classify as known RTTI ptrs. Confirms packed stride model — no hidden multi-slot theatre/controller fields."
+    },
+    "hai_front_army_link": {
+      "status": "resolved_indirect_2dd",
+      "path": "CFront+0x18 -> CTheatre+0x68 -> CArmy*[]  AND  CArmy+0x2a0 -> CTheatre",
+      "army_prov_match": "not_required",
+      "note": "No CArmy* embed inside CFront blob; link is theatre-mediated. TH_FRONTS lists the 6 HAI fronts; TH_ARMIES lists all 17 HAI armies on that theatre."
+    },
+    "packed_run_theatre_mix": {
+      "status": "proven_live_2dd",
+      "top": [
+        {
+          "len": 454,
+          "unique_theatres": 41,
+          "has_hai": false
+        },
+        {
+          "len": 384,
+          "unique_theatres": 13,
+          "has_hai": false
+        },
+        {
+          "len": 226,
+          "unique_theatres": 32,
+          "has_hai": true
+        },
+        {
+          "len": 70,
+          "unique_theatres": 4,
+          "has_hai": false
+        },
+        {
+          "len": 12,
+          "unique_theatres": 2,
+          "has_hai": false
+        },
+        {
+          "len": 9,
+          "unique_theatres": 2,
+          "has_hai": false
+        },
+        {
+          "len": 6,
+          "unique_theatres": 2,
+          "has_hai": false
+        },
+        {
+          "len": 3,
+          "unique_theatres": 1,
+          "has_hai": false
+        },
+        {
+          "len": 3,
+          "unique_theatres": 1,
+          "has_hai": false
+        },
+        {
+          "len": 3,
+          "unique_theatres": 2,
+          "has_hai": false
+        },
+        {
+          "len": 3,
+          "unique_theatres": 1,
+          "has_hai": false
+        },
+        {
+          "len": 3,
+          "unique_theatres": 1,
+          "has_hai": false
+        }
+      ],
+      "note": "Packed 0x90 runs mix many theatres (e.g. run454 has 41 unique) — allocator adjacency, not ownership grouping."
+    },
+    "hai_front_ids_via_th_fronts": {
+      "status": "proven_live_2dd",
+      "ids": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "count": 6,
+      "via": "CTheatre+0x50 TH_FRONTS"
+    }
+  },
+  "field_map_frontsection_observe": {
+    "parent_front_ptr": {
+      "off": 16,
+      "rtti": "CFront",
+      "vt_rva": "0x29f2280",
+      "status": "proven_live_2cw"
+    },
+    "per_country_section_ptr": {
+      "off": 24,
+      "rtti": "SPerCountrySection@CFrontSection",
+      "vt_rva": "0x29f21e0",
+      "status": "proven_live_2cw"
+    },
+    "embedded_parent_slot_ptrs": {
+      "status": "superseded_by_2da_theatre_stable",
+      "note": "See embedded_parent_slot_theatre_ptrs (stable) and embedded_parent_slot_controller_ptrs (weak).",
+      "match_counts": {
+        "theatre_fixed_triple": 122,
+        "controller_weak": 16
+      }
+    },
+    "heap_count": 1570,
+    "unique_fronts": 1199,
+    "embedded_parent_slot_theatre_ptrs": {
+      "status": "superseded_by_2db_reinterpret",
+      "note": "See embedded_theatre_ptrs; multi-slot parent indexing withdrawn."
+    },
+    "embedded_parent_slot_controller_ptrs": {
+      "status": "observe_weak_unchanged",
+      "note": "Controller embeds remain weak/noisy."
+    },
+    "embedded_theatre_ptrs": {
+      "status": "proven_live_2db_reinterpret",
+      "stable_offs": [
+        40,
+        64,
+        88
+      ],
+      "repeat_stride": 112,
+      "repeat_offs": [
+        152,
+        176,
+        200,
+        264,
+        288,
+        312
+      ],
+      "fixed_ok": {
+        "0x28": 209,
+        "0x40": 209,
+        "0x58": 209,
+        "0x98": 148,
+        "0xb0": 148,
+        "0xc8": 148,
+        "0x108": 133,
+        "0x120": 133,
+        "0x138": 133
+      },
+      "same_k_4trips_under_old_index": 97,
+      "parent_plus18_match_at_28": 0,
+      "neighbor_th_match_at_28": 33,
+      "note": "Stable CTheatre* embeds remain @+0x28/+0x40/+0x58 (+0x70 repeats). With multi-slot REJECTED: these match theatres of packed-run CFront neighbors relative to parent, not slots of one parent object. parent+0x18 match at +0x28 was 0 this session.",
+      "sample": [
+        {
+          "fs": "0x1ef8f9347c0",
+          "ks": [
+            102,
+            102,
+            102,
+            102
+          ],
+          "same": true
+        },
+        {
+          "fs": "0x1ef8f934830",
+          "ks": [
+            95,
+            95,
+            95,
+            95
+          ],
+          "same": true
+        },
+        {
+          "fs": "0x1ef8f9348a0",
+          "ks": [
+            125,
+            125,
+            125,
+            125
+          ],
+          "same": true
+        },
+        {
+          "fs": "0x1ef8f934910",
+          "ks": [
+            125,
+            125,
+            125,
+            125
+          ],
+          "same": true
+        },
+        {
+          "fs": "0x1ef8f9350f0",
+          "ks": [
+            96,
+            96,
+            96,
+            96
+          ],
+          "same": true
+        }
+      ]
+    },
+    "army_embed_scan_2dd": {
+      "status": "none_in_hai_front_fs",
+      "fs_with_hai_army": 0,
+      "sper_with_hai_army": 0,
+      "note": "HAI-front FS and their SPerCountrySection embed 0 HAI CArmy* in first 0x200."
+    }
+  },
+  "field_map_spercountrysection_hyp": {
+    "country_tag": {
+      "off": 8,
+      "status": "hypothesis_strong_2cy",
+      "note": "u32@+0x8; HAI tag=15 on 8 sampled sections"
+    },
+    "frontsection_backrefs": {
+      "offs": [
+        "0x60",
+        "0x68"
+      ],
+      "rtti": "CFrontSection",
+      "status": "proven_live_2cx_sample"
+    },
+    "inline_carmy_ptrs": {
+      "status": "hypothesis_observe_2cy",
+      "note": "CArmy* appear at variable offs inside HAI sections (no stable single field / no begin-end vector proven); treat as observe-only.",
+      "hai_sections_with_inline_army": 8
+    },
+    "country_tag_u32_8": {
+      "off": 8,
+      "status": "proven_live_2dd_hai",
+      "hai_count_via_fs": 8,
+      "hai_count_heap_tag": 8,
+      "note": "u32@+0x8 == 15 on 8 SPer linked from HAI fronts (and 8 heap-wide with tag 15)."
+    },
+    "province_id_range_hyp_20_34": {
+      "offs": [
+        "0x20",
+        "0x24",
+        "0x28",
+        "0x2c",
+        "0x30",
+        "0x34"
+      ],
+      "status": "hypothesis_weak_2dd",
+      "all_small_frac": 0.5,
+      "overlap_hai_army_prov": 0,
+      "note": "u32 cells often look like province ids (<30k) but 0 overlap with current HAI army province_ids this session — weak, do not promote."
+    }
+  },
+  "field_map_cnamegroup": {
+    "display_name_ptr": {
+      "off": 96,
+      "status": "proven_live_2cv",
+      "note": "UTF-8 unit display name e.g. '1a División de Infantería'"
+    }
+  },
+  "field_map_cprovince": {
+    "id": {
+      "off": 164,
+      "status": "proven"
+    },
+    "controller_tag_0x58_hyp": {
+      "status": "REJECTED_AS_CONTROLLER_COUNTRY_TAG_2cz",
+      "note": "Not revived in 2db."
+    },
+    "country_tag_offs_weak": {
+      "status": "hypothesis_weak_2cz",
+      "note": "No strong single u32 off equals army country_tag across 1068 armies; top coincidental offs ~73/1068.",
+      "offs_eq_army_tag_top": {
+        "0x68": 73,
+        "0x6c": 73,
+        "0x88": 73,
+        "0x8c": 73,
+        "0xec": 50,
+        "0x38": 48,
+        "0xe8": 47,
+        "0x98": 17,
+        "0x58": 17,
+        "0x10": 12
+      }
+    }
+  },
+  "org_str_status": {
+    "status": "REJECTED_AS_CARMY_ORG",
+    "note": "Do not revive 0x520/0x6ec."
+  },
+  "movement_dest_nonempty_count": 0,
+  "subjects": [
+    {
+      "index": 1039,
+      "handle": [
+        51,
+        1039
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 6906,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04e90",
+      "army_requests": {
+        "ptr": "0x1f04ff04e90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd5c40",
+      "unit_display_name": "3a División de Infantería",
+      "province_ptr": "0x1efa27093f0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd9750",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59e80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1040,
+      "handle": [
+        51,
+        1040
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9764,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff07990",
+      "army_requests": {
+        "ptr": "0x1f04ff07990",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd62d0",
+      "unit_display_name": "4a División de Infantería",
+      "province_ptr": "0x1efa288cf10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdd260",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff58800",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1037,
+      "handle": [
+        51,
+        1037
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 3938,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04d90",
+      "army_requests": {
+        "ptr": "0x1f04ff04d90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd83a0",
+      "unit_display_name": "1a División de Infantería",
+      "province_ptr": "0x1efa24eea40",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd6960",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59b80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1038,
+      "handle": [
+        51,
+        1038
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 7183,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05c90",
+      "army_requests": {
+        "ptr": "0x1f04ff05c90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd8a30",
+      "unit_display_name": "2a División de Infantería",
+      "province_ptr": "0x1efa272aa20",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd90c0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59dc0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1042,
+      "handle": [
+        51,
+        1042
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 885,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06890",
+      "army_requests": {
+        "ptr": "0x1f04ff06890",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdab00",
+      "unit_display_name": "6a División de Infantería",
+      "province_ptr": "0x1efa22edd10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdd8f0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff58980",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1043,
+      "handle": [
+        51,
+        1043
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 11825,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06390",
+      "army_requests": {
+        "ptr": "0x1f04ff06390",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdb820",
+      "unit_display_name": "7a División de Infantería",
+      "province_ptr": "0x1efa2a5d510",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdb190",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019d00",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1044,
+      "handle": [
+        51,
+        1044
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 758,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04c90",
+      "army_requests": {
+        "ptr": "0x1f04ff04c90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdbeb0",
+      "unit_display_name": "8a División de Infantería",
+      "province_ptr": "0x1efa22de590",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffda470",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018d40",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1041,
+      "handle": [
+        51,
+        1041
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 3816,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04f90",
+      "army_requests": {
+        "ptr": "0x1f04ff04f90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdcbd0",
+      "unit_display_name": "5a División de Infantería",
+      "province_ptr": "0x1efa24e2e90",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd9de0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff588c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1045,
+      "handle": [
+        51,
+        1045
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9764,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06290",
+      "army_requests": {
+        "ptr": "0x1f04ff06290",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffddf80",
+      "unit_display_name": "1a División de Caballería",
+      "province_ptr": "0x1efa288cf10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdf330",
+      "div_template_ptr": "0x1f04fe63da0",
+      "div_template_name": "División de Caballería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019940",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1046,
+      "handle": [
+        51,
+        1046
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 13071,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06490",
+      "army_requests": {
+        "ptr": "0x1f04ff06490",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffde610",
+      "unit_display_name": "1a Brigada Montaña",
+      "province_ptr": "0x1efa2b419c0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdf9c0",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f0500185c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1047,
+      "handle": [
+        51,
+        1047
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 740,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05d90",
+      "army_requests": {
+        "ptr": "0x1f04ff05d90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdeca0",
+      "unit_display_name": "2a Brigada Montaña",
+      "province_ptr": "0x1efa22de170",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdc540",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019ac0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1052,
+      "handle": [
+        51,
+        1052
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9945,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06990",
+      "army_requests": {
+        "ptr": "0x1f04ff06990",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe06e0",
+      "unit_display_name": "Circunscripción Occidental",
+      "province_ptr": "0x1efa29116d0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe1a90",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019400",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1048,
+      "handle": [
+        51,
+        1048
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 11707,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05090",
+      "army_requests": {
+        "ptr": "0x1f04ff05090",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe0d70",
+      "unit_display_name": "Brigada Mixta Montaña",
+      "province_ptr": "0x1efa2a170f0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe0050",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018680",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1050,
+      "handle": [
+        51,
+        1050
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9793,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05190",
+      "army_requests": {
+        "ptr": "0x1f04ff05190",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe1400",
+      "unit_display_name": "Comandancia de Baleares",
+      "province_ptr": "0x1efa28ff610",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe34d0",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018200",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1051,
+      "handle": [
+        51,
+        1051
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 13071,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05290",
+      "army_requests": {
+        "ptr": "0x1f04ff05290",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe27b0",
+      "unit_display_name": "Comandancia de Canarias",
+      "province_ptr": "0x1efa2b419c0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe3b60",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019b80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1049,
+      "handle": [
+        51,
+        1049
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 1048,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05590",
+      "army_requests": {
+        "ptr": "0x1f04ff05590",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe2e40",
+      "unit_display_name": "Brigada de Arma de Infantería",
+      "province_ptr": "0x1efa2303580",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe2120",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f0500194c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1053,
+      "handle": [
+        51,
+        1053
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 12100,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff07e90",
+      "army_requests": {
+        "ptr": "0x1f04ff07e90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe41f0",
+      "unit_display_name": "Circunscripción Oriental",
+      "province_ptr": "0x1efa2a83160",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe62c0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018e00",
+      "namegroup_rtti_ok": true
+    }
+  ],
+  "carmy_only": [
+    {
+      "index": 1039,
+      "handle": [
+        51,
+        1039
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 6906,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04e90",
+      "army_requests": {
+        "ptr": "0x1f04ff04e90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd5c40",
+      "unit_display_name": "3a División de Infantería",
+      "province_ptr": "0x1efa27093f0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd9750",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59e80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1040,
+      "handle": [
+        51,
+        1040
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9764,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff07990",
+      "army_requests": {
+        "ptr": "0x1f04ff07990",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd62d0",
+      "unit_display_name": "4a División de Infantería",
+      "province_ptr": "0x1efa288cf10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdd260",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff58800",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1037,
+      "handle": [
+        51,
+        1037
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 3938,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04d90",
+      "army_requests": {
+        "ptr": "0x1f04ff04d90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd83a0",
+      "unit_display_name": "1a División de Infantería",
+      "province_ptr": "0x1efa24eea40",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd6960",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59b80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1038,
+      "handle": [
+        51,
+        1038
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 7183,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05c90",
+      "army_requests": {
+        "ptr": "0x1f04ff05c90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffd8a30",
+      "unit_display_name": "2a División de Infantería",
+      "province_ptr": "0x1efa272aa20",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd90c0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff59dc0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1042,
+      "handle": [
+        51,
+        1042
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 885,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06890",
+      "army_requests": {
+        "ptr": "0x1f04ff06890",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdab00",
+      "unit_display_name": "6a División de Infantería",
+      "province_ptr": "0x1efa22edd10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdd8f0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff58980",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1043,
+      "handle": [
+        51,
+        1043
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 11825,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06390",
+      "army_requests": {
+        "ptr": "0x1f04ff06390",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdb820",
+      "unit_display_name": "7a División de Infantería",
+      "province_ptr": "0x1efa2a5d510",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdb190",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019d00",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1044,
+      "handle": [
+        51,
+        1044
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 758,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04c90",
+      "army_requests": {
+        "ptr": "0x1f04ff04c90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdbeb0",
+      "unit_display_name": "8a División de Infantería",
+      "province_ptr": "0x1efa22de590",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffda470",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018d40",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1041,
+      "handle": [
+        51,
+        1041
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 3816,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff04f90",
+      "army_requests": {
+        "ptr": "0x1f04ff04f90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdcbd0",
+      "unit_display_name": "5a División de Infantería",
+      "province_ptr": "0x1efa24e2e90",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffd9de0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f04ff588c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1045,
+      "handle": [
+        51,
+        1045
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9764,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06290",
+      "army_requests": {
+        "ptr": "0x1f04ff06290",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffddf80",
+      "unit_display_name": "1a División de Caballería",
+      "province_ptr": "0x1efa288cf10",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdf330",
+      "div_template_ptr": "0x1f04fe63da0",
+      "div_template_name": "División de Caballería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019940",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1046,
+      "handle": [
+        51,
+        1046
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 13071,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06490",
+      "army_requests": {
+        "ptr": "0x1f04ff06490",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffde610",
+      "unit_display_name": "1a Brigada Montaña",
+      "province_ptr": "0x1efa2b419c0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdf9c0",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f0500185c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1047,
+      "handle": [
+        51,
+        1047
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 740,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05d90",
+      "army_requests": {
+        "ptr": "0x1f04ff05d90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffdeca0",
+      "unit_display_name": "2a Brigada Montaña",
+      "province_ptr": "0x1efa22de170",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffdc540",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019ac0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1052,
+      "handle": [
+        51,
+        1052
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9945,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff06990",
+      "army_requests": {
+        "ptr": "0x1f04ff06990",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe06e0",
+      "unit_display_name": "Circunscripción Occidental",
+      "province_ptr": "0x1efa29116d0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe1a90",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019400",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1048,
+      "handle": [
+        51,
+        1048
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 11707,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05090",
+      "army_requests": {
+        "ptr": "0x1f04ff05090",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe0d70",
+      "unit_display_name": "Brigada Mixta Montaña",
+      "province_ptr": "0x1efa2a170f0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe0050",
+      "div_template_ptr": "0x1f04fe64c40",
+      "div_template_name": "Brigada Montaña",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018680",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1050,
+      "handle": [
+        51,
+        1050
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 9793,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05190",
+      "army_requests": {
+        "ptr": "0x1f04ff05190",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe1400",
+      "unit_display_name": "Comandancia de Baleares",
+      "province_ptr": "0x1efa28ff610",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe34d0",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018200",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1051,
+      "handle": [
+        51,
+        1051
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 13071,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05290",
+      "army_requests": {
+        "ptr": "0x1f04ff05290",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe27b0",
+      "unit_display_name": "Comandancia de Canarias",
+      "province_ptr": "0x1efa2b419c0",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe3b60",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050019b80",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1049,
+      "handle": [
+        51,
+        1049
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 1048,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff05590",
+      "army_requests": {
+        "ptr": "0x1f04ff05590",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe2e40",
+      "unit_display_name": "Brigada de Arma de Infantería",
+      "province_ptr": "0x1efa2303580",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe2120",
+      "div_template_ptr": "0x1f04fe67d00",
+      "div_template_name": "Brigada de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f0500194c0",
+      "namegroup_rtti_ok": true
+    },
+    {
+      "index": 1053,
+      "handle": [
+        51,
+        1053
+      ],
+      "handle_ok": true,
+      "rtti_class": "CArmy",
+      "vt_rva": "0x29d6d68",
+      "province_id": 12100,
+      "province_id_ok": true,
+      "country_tag": 15,
+      "theatre_ptr": "0x1f04ef91290",
+      "theatre_rtti_ok": true,
+      "army_requests_ptr": "0x1f04ff07e90",
+      "army_requests": {
+        "ptr": "0x1f04ff07e90",
+        "rtti": "CArmyRequests",
+        "owner_match": true,
+        "reinforcement_status": {
+          "off": "0x50",
+          "ptr": "0x1efa3b8ad20",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "rtti": "CReinforcementStatus",
+          "vt_rva": "0x2a4b158"
+        },
+        "army_upgrades_status": {
+          "off": "0x98",
+          "ptr": "0x1efa3b8a730",
+          "country_ptr_off": "0x38",
+          "country_tag_proven_hai": true,
+          "loop_history_off": "0x178",
+          "rtti": "CArmyUpgradesStatus",
+          "vt_rva": "0x2a4b308"
+        },
+        "peer_carmy_hyp_off": "0x108",
+        "note": "reinf/upg country@+0x38=HAI shared; peer@+0x108 partial chains only."
+      },
+      "self_ref_418_is_self": true,
+      "rejected_hyp_float_520": 0.0,
+      "rejected_hyp_float_6ec": 0.0,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04ffe41f0",
+      "unit_display_name": "Circunscripción Oriental",
+      "province_ptr": "0x1efa2a83160",
+      "province_controller_tag_hyp": 15,
+      "subunit_def_ptr": "0x1f04ffe62c0",
+      "div_template_ptr": "0x1f04fe65ae0",
+      "div_template_name": "División de Infantería",
+      "theatre": {
+        "ptr": "0x1f04ef91290",
+        "rtti_ok": true,
+        "country_tag_0c": 15,
+        "country_tag_48": 15,
+        "province_ptr": "0x1efa24eea40",
+        "province_id": 3938,
+        "province_controller_tag_hyp": 15,
+        "strategic_air_manager_ptr": "0x1f04ac4e830",
+        "strategic_air_manager_rtti": "CStrategicAirManager",
+        "strategic_air_manager_off": "0x268"
+      },
+      "namegroup_ptr": "0x1f050018e00",
+      "namegroup_rtti_ok": true
+    }
+  ],
+  "ctaskforce_only": [
+    {
+      "index": 1062,
+      "handle": [
+        51,
+        1062
+      ],
+      "handle_ok": true,
+      "rtti_class": "CTaskForce",
+      "vt_rva": "0x29df8a0",
+      "province_id": 758,
+      "province_id_ok": true,
+      "province_ptr": "0x1efa22de590",
+      "province_controller_tag_hyp": 15,
+      "country_tag": 15,
+      "subunit_def_ptr": "0x1f04ffe55a0",
+      "div_template_ptr": null,
+      "div_template_name": null,
+      "theatre_ptr": null,
+      "theatre_rtti_ok": false,
+      "theatre": null,
+      "namegroup_ptr": "0x1f003ba1680",
+      "namegroup_rtti_ok": false,
+      "unit_display_name": null,
+      "army_requests_ptr": null,
+      "rejected_hyp_float_520": 0.86,
+      "rejected_hyp_float_6ec": 0.9,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04fe986d0"
+    },
+    {
+      "index": 1065,
+      "handle": [
+        51,
+        1065
+      ],
+      "handle_ok": true,
+      "rtti_class": "CTaskForce",
+      "vt_rva": "0x29df8a0",
+      "province_id": 1048,
+      "province_id_ok": true,
+      "province_ptr": "0x1efa2303580",
+      "province_controller_tag_hyp": 15,
+      "country_tag": 15,
+      "subunit_def_ptr": "0x1f04ffe4880",
+      "div_template_ptr": null,
+      "div_template_name": null,
+      "theatre_ptr": null,
+      "theatre_rtti_ok": false,
+      "theatre": null,
+      "namegroup_ptr": "0x1f003b9f9c0",
+      "namegroup_rtti_ok": false,
+      "unit_display_name": null,
+      "army_requests_ptr": null,
+      "rejected_hyp_float_520": 0.86,
+      "rejected_hyp_float_6ec": 0.9,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04fe97020"
+    },
+    {
+      "index": 1070,
+      "handle": [
+        51,
+        1070
+      ],
+      "handle_ok": true,
+      "rtti_class": "CTaskForce",
+      "vt_rva": "0x29df8a0",
+      "province_id": 1048,
+      "province_id_ok": true,
+      "province_ptr": "0x1efa2303580",
+      "province_controller_tag_hyp": 15,
+      "country_tag": 15,
+      "subunit_def_ptr": "0x1f04ffe6950",
+      "div_template_ptr": null,
+      "div_template_name": null,
+      "theatre_ptr": null,
+      "theatre_rtti_ok": false,
+      "theatre": null,
+      "namegroup_ptr": "0x1f003b9f9c0",
+      "namegroup_rtti_ok": false,
+      "unit_display_name": null,
+      "army_requests_ptr": null,
+      "rejected_hyp_float_520": 0.86,
+      "rejected_hyp_float_6ec": 0.9,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04fe977b0"
+    },
+    {
+      "index": 1080,
+      "handle": [
+        51,
+        1080
+      ],
+      "handle_ok": true,
+      "rtti_class": "CTaskForce",
+      "vt_rva": "0x29df8a0",
+      "province_id": 10024,
+      "province_id_ok": true,
+      "province_ptr": "0x1efa291af70",
+      "province_controller_tag_hyp": 15,
+      "country_tag": 15,
+      "subunit_def_ptr": "0x1f04ffe6fe0",
+      "div_template_ptr": null,
+      "div_template_name": null,
+      "theatre_ptr": null,
+      "theatre_rtti_ok": false,
+      "theatre": null,
+      "namegroup_ptr": "0x1f003b9f100",
+      "namegroup_rtti_ok": false,
+      "unit_display_name": null,
+      "army_requests_ptr": null,
+      "rejected_hyp_float_520": 0.86,
+      "rejected_hyp_float_6ec": 0.9,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04fe951e0"
+    },
+    {
+      "index": 1089,
+      "handle": [
+        51,
+        1089
+      ],
+      "handle_ok": true,
+      "rtti_class": "CTaskForce",
+      "vt_rva": "0x29df8a0",
+      "province_id": 10024,
+      "province_id_ok": true,
+      "province_ptr": "0x1efa291af70",
+      "province_controller_tag_hyp": 15,
+      "country_tag": 15,
+      "subunit_def_ptr": "0x1f04ffe7670",
+      "div_template_ptr": null,
+      "div_template_name": null,
+      "theatre_ptr": null,
+      "theatre_rtti_ok": false,
+      "theatre": null,
+      "namegroup_ptr": "0x1f003b9f100",
+      "namegroup_rtti_ok": false,
+      "unit_display_name": null,
+      "army_requests_ptr": null,
+      "rejected_hyp_float_520": 0.86,
+      "rejected_hyp_float_6ec": 0.9,
+      "movement_dest": {
+        "status": "empty_or_absent",
+        "path_province_ids": [],
+        "note": "Haiti paused; midflight captures=0; do not invent dest."
+      },
+      "army_ptr": "0x1f04fe9aca0"
+    }
+  ],
+  "heap_order_front_counts": {
+    "CFrontSection": 1570,
+    "unique_CFront": 1199,
+    "CTheatre": 90,
+    "CControllerArea": 296,
+    "SPerCountrySection": 1666,
+    "COrdersGroup": 0,
+    "COrdersGroupMember": 0,
+    "COrderInstance": 0,
+    "CArmyGroup": 0,
+    "CArmy": 4272,
+    "CArmy_primary_vt_only": 1068
+  },
+  "field_recipes_docs_only_carmy": {
+    "1037": {
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1037
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 3938,
+        "posting": "DISABLED"
+      },
+      "move_command": {
+        "unit_handle_off": 40,
+        "unit_handle": [
+          51,
+          1037
+        ],
+        "subject_lo_off": 40,
+        "dest_or_arg0_off": 48,
+        "dest_province": 3938,
+        "arg1_or_count_off": 52,
+        "clear": 0,
+        "move_priority": 0,
+        "source_province_id": 3938,
+        "post_gate_candidates": [
+          "0x2284800",
+          "0x254aa00",
+          "0x2607890",
+          "0x1e1510",
+          "0xc07b80",
+          "0x11f240",
+          "0x25c3770"
+        ],
+        "named_helpers": [
+          "gamestate_instance_guard_b"
+        ],
+        "note": "Shares Execute plumbing with CStrategicRedeploymentCommand; IsValid must pass live",
+        "posting": "DISABLED"
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1037
+        ],
+        "target_province_off": 48,
+        "target_province": 3938,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 3938,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1037
+        ],
+        "province_off": 24,
+        "province": 3938,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "cancel_movement": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1037
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    },
+    "1038": {
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1038
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 7183,
+        "posting": "DISABLED"
+      },
+      "move_command": {
+        "unit_handle_off": 40,
+        "unit_handle": [
+          51,
+          1038
+        ],
+        "subject_lo_off": 40,
+        "dest_or_arg0_off": 48,
+        "dest_province": 7183,
+        "arg1_or_count_off": 52,
+        "clear": 0,
+        "move_priority": 0,
+        "source_province_id": 7183,
+        "post_gate_candidates": [
+          "0x2284800",
+          "0x254aa00",
+          "0x2607890",
+          "0x1e1510",
+          "0xc07b80",
+          "0x11f240",
+          "0x25c3770"
+        ],
+        "named_helpers": [
+          "gamestate_instance_guard_b"
+        ],
+        "note": "Shares Execute plumbing with CStrategicRedeploymentCommand; IsValid must pass live",
+        "posting": "DISABLED"
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1038
+        ],
+        "target_province_off": 48,
+        "target_province": 7183,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 7183,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1038
+        ],
+        "province_off": 24,
+        "province": 7183,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "cancel_movement": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1038
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    },
+    "1039": {
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          1039
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 6906,
+        "posting": "DISABLED"
+      },
+      "move_command": {
+        "unit_handle_off": 40,
+        "unit_handle": [
+          51,
+          1039
+        ],
+        "subject_lo_off": 40,
+        "dest_or_arg0_off": 48,
+        "dest_province": 6906,
+        "arg1_or_count_off": 52,
+        "clear": 0,
+        "move_priority": 0,
+        "source_province_id": 6906,
+        "post_gate_candidates": [
+          "0x2284800",
+          "0x254aa00",
+          "0x2607890",
+          "0x1e1510",
+          "0xc07b80",
+          "0x11f240",
+          "0x25c3770"
+        ],
+        "named_helpers": [
+          "gamestate_instance_guard_b"
+        ],
+        "note": "Shares Execute plumbing with CStrategicRedeploymentCommand; IsValid must pass live",
+        "posting": "DISABLED"
+      },
+      "support_attack": {
+        "unit_or_attacker_handle_off": 40,
+        "unit_or_attacker_handle": [
+          51,
+          1039
+        ],
+        "target_province_off": 48,
+        "target_province": 6906,
+        "serialize_tokens": {
+          "handle": 10403,
+          "province": 10349
+        },
+        "source_province_id": 6906,
+        "note": "IsValid validates handle@+0x28; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      },
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          1039
+        ],
+        "province_off": 24,
+        "province": 6906,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "cancel_movement": {
+        "units_data_off": 40,
+        "units_count_off": 52,
+        "sticky_off": 64,
+        "unit_handles": [
+          [
+            51,
+            1039
+          ]
+        ],
+        "count": 1,
+        "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+        "posting": "DISABLED"
+      }
+    }
+  },
+  "note": "2dd: TH_ARMIES@CTheatre+0x68 + TH_FRONTS@+0x50 + CO_ARMIES/CO_THEATRES proven via CPdxArray; bidirectional theatre<->army via arrays (army+0x2a0 still present). Never Post.",
+  "field_map_ccontrollerarea": {
+    "province_ptr_primary": {
+      "off": 40,
+      "rtti": "CProvince",
+      "vt_rva": "0x29ee248",
+      "status": "proven_live_2cy",
+      "ok": "296/296"
+    },
+    "province_ptr_secondary": {
+      "off": 328,
+      "rtti": "CProvince",
+      "vt_rva": "0x29ee248",
+      "status": "proven_live_2cy",
+      "ok": "288/296",
+      "note": "Present on 288/296; may be alt/edge province."
+    },
+    "heap_count": 296,
+    "linked_from_cfront_slot_ctrl": true,
+    "province_owner_tag_via_prov_u32_58": {
+      "status": "REJECTED_AS_CONTROLLER_COUNTRY_TAG",
+      "note": "CProvince+0x58 is often 15 even when army on province has other country_tag; not controller/owner tag.",
+      "evidence": {
+        "armies_checked": 1068,
+        "eq38": {
+          "miss": 2071,
+          "match": 65
+        },
+        "eq58": {
+          "miss": 2071,
+          "match": 65
+        },
+        "offs_eq_army_tag": {
+          "0x68": 73,
+          "0x6c": 73,
+          "0x88": 73,
+          "0x8c": 73,
+          "0xec": 50,
+          "0x38": 48,
+          "0xe8": 47,
+          "0x98": 17,
+          "0x58": 17,
+          "0x10": 12
+        },
+        "note": "CProvince+0x58 rejected as controller/owner tag; +0x38 hyp if strong match"
+      }
+    },
+    "extra_province_ptrs_2da": {
+      "status": "noise_only",
+      "note": "Occasional CProvince* near +0x198..+0x1f8 on 1 object; not stable across 296.",
+      "top": {
+        "CProvince@0x198": 1,
+        "CProvince@0x1a0": 1,
+        "CProvince@0x1b0": 1,
+        "CProvince@0x1b8": 1,
+        "CProvince@0x1c0": 1,
+        "CProvince@0x1c8": 1,
+        "CProvince@0x1d0": 1,
+        "CProvince@0x1d8": 1,
+        "CProvince@0x1e0": 1,
+        "CProvince@0x1e8": 1,
+        "CProvince@0x1f0": 1,
+        "CProvince@0x1f8": 1
+      }
+    },
+    "extra_rtti_2dd": {
+      "status": "no_new_stable",
+      "stable_fields": {
+        "0x28": {
+          "type": "CProvince",
+          "ok": "296/296"
+        },
+        "0x148": {
+          "type": "CProvince",
+          "ok": "288/296"
+        }
+      },
+      "theatre_back_top": {},
+      "front_back_top": {},
+      "note": "Only province@+0x28/+0x148 remain stable; no theatre/front backref proven."
+    }
+  },
+  "field_map_ccountry_arrays": {
+    "CO_ARMIES": {
+      "off": 656,
+      "status": "proven_live_2dd",
+      "size": 17,
+      "capacity": 19,
+      "hai_tag_ok": 17,
+      "via": "CCountry+0x290 (CO_ARMIES)"
+    },
+    "CO_THEATRES": {
+      "off": 360,
+      "status": "proven_live_2dd",
+      "size": 1,
+      "capacity": 1,
+      "theatre_ptrs": [
+        "0x1f04ef91290"
+      ],
+      "via": "CCountry+0x168 (CO_THEATRES)"
+    },
+    "CO_CONTROLLER_AREAS": {
+      "off": 1352,
+      "status": "proven_live_2dd",
+      "size": 9
+    },
+    "CO_OWNER_AREAS": {
+      "off": 1376,
+      "status": "proven_live_2dd",
+      "size": 9
+    },
+    "note": "CPdxArray layout confirmed live; probe_player_armies already used these."
+  },
+  "theatre_army_crosslink": "proven_live_2dd_TH_ARMIES_0x68",
+  "hai_front_ids": [
+    173,
+    174,
+    175,
+    176,
+    177,
+    178
+  ]
+}

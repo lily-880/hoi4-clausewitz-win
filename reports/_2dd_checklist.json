@@ -1,0 +1,121 @@
+{
+  "phase": "2dd",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "1. Confirm watcher 36128 alive RO.",
+    "2. Haiti pause|1x; NEVER 5x; no input.",
+    "3. Read session drain/exec/stage RO.",
+    "4. CMove/strategic/cancel post-path conf=1.0.",
+    "5. CArmy-only movement_dest empty while paused — do not invent.",
+    "6. Do not revive rejected org offs 0x520/0x6ec.",
+    "7. CFront kind@+0x8=0x42 + id@+0xc; packed 0x90; multi-slot REJECTED; peer one-way observe-only.",
+    "8. Ring/Post stubbed; tool-gate CLOSED.",
+    "9. STOP — never inject / never Post / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2dd",
+    "role_post_path_matrix_2dd",
+    "role_observe_2dd",
+    "confidence_report_2dd",
+    "post_readiness_checklist_2dd",
+    "offensive_line_post_path_2dd",
+    "midflight_move_watcher_readiness_2dd",
+    "live_army_subject_observe_2dd"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / posting",
+    "guess writes / HourlyTick / speed hacks",
+    "helper patch / Post inject",
+    "revive org/str @0x520/0x6ec",
+    "treat CProvince+0x58 as controller country tag",
+    "revive CFront multi-slot array model",
+    "invent movement_dest while paused",
+    "wake user / send input",
+    "5x game speed"
+  ],
+  "ticks": {
+    "A_land_index": "PASS 121/121",
+    "B_helpers_named": "PASS 308/658 unchanged",
+    "C_confidence": "PASS avg=1.000",
+    "D_carmy_observe": "PASS theatre/reinf/upgrades",
+    "E_front_controller": "PASS kind/id + packed 0x90; TH_FRONTS/TH_ARMIES proven",
+    "F_midflight_watcher": "PASS armed RO pid 36128",
+    "G_org_str": "REJECTED — do not revive",
+    "H_post_gate": "CLOSED_NOT_OPENED allow_post=False",
+    "I_theatre_army": "PASS TH_ARMIES@+0x68 17/17"
+  },
+  "notes_2da": {
+    "phase": "2da",
+    "parent": "a2c5246",
+    "focus": "CFront slots>=64 + FS theatre stable embeds + CArmyRequests peer hyp",
+    "proven": [
+      "CFront slot-array k=0..63 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot63 947/1199",
+      "HAI theatre in 92 fronts any-slot (was 44@16 / 60@32 / 6@slot0)",
+      "CFrontSection stable theatre* embeds @+0x28/+0x40/+0x58 (and +0x70 stride repeats @+0x98/+0xb0/+0xc8); 122/1570",
+      "CArmyRequests peer CArmy* hyp @+0x108/+0x130/+0x190 (10/17 other HAI; not self)"
+    ],
+    "rejected_or_unresolved": [
+      "CProvince+0x58 controller-country tag (REJECTED 2cz)",
+      "org/str @0x520/0x6ec (REJECTED)",
+      "theatre→army direct CArmy*/handle/req ptr in theatre blob (0 hits; army→theatre @+0x2a0 remains one-way)",
+      "FS controller* stable embed (weak/noisy vs 2cz; not same-k with theatre this session)",
+      "CFront slot-count field near header (no reliable hyp)"
+    ],
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "ALLOW_POST",
+      "command_queue_tool_gate"
+    ],
+    "watcher_36128": "RO alive",
+    "hoi4_pid": 2880
+  },
+  "notes_2db": {
+    "phase": "2db",
+    "parent": "54a9d87",
+    "focus": "REJECT CFront multi-slot array (=packed 0x90); peer alias triple; theatre→army still 0",
+    "proven": [
+      "CFront multi-slot-array model (2cy-2da k=0..N) REJECTED: 1171/1199 neighbors at +0x90 are themselves CFront; slot-k theatre == (F+k*0x90)+0x18",
+      "CFront object stride 0x90 in packed runs (max run 454; 28 runs); per-object theatre@+0x18 and controller@+0x70 only (1199/1199)",
+      "HAI fronts with theatre@+0x18 = 6 (slot0-only; any-slot inflation was neighbor walk)",
+      "CArmyRequests peer ptr aliased at +0x108/+0x130/+0x190 identical 16/17; 16 unique peers; often same theatre",
+      "FS theatre* embeds @+0x28/+0x40/+0x58 still present but match packed-run neighbor theatres (not parent multi-slots); 97 FS with 4 same-k triples under old indexing"
+    ],
+    "rejected_or_unresolved": [
+      "CFront multi-slot array @+0x18+k*0x90 (REJECTED_AS_PACKED_ADJACENT_CFRONT_2db)",
+      "theatre→army direct CArmy*/handle/req/CPdxArray/CCountry path (still 0)",
+      "CProvince+0x58 controller-country tag (REJECTED 2cz)",
+      "org/str @0x520/0x6ec (REJECTED)",
+      "req peer bidirectional / owner_match (0; chain not a simple doubly-linked list)"
+    ],
+    "stubbed": [
+      "midflight_CMoveCommand",
+      "ring_embed",
+      "ALLOW_POST",
+      "command_queue_tool_gate"
+    ],
+    "watcher_36128": "RO alive",
+    "hoi4_pid": 2880
+  },
+  "notes_2dd": {
+    "phase": "2dd",
+    "parent": "b46f6be",
+    "focus": "TH_ARMIES@CTheatre+0x68 + TH_FRONTS@+0x50 + CO_* CPdxArray live",
+    "th_armies": "17/17 identical to CO_ARMIES",
+    "th_fronts": "6/6 ids=[173, 174, 175, 176, 177, 178]",
+    "cpdxarray_layout": "{data:u64, capacity:i32, size:i32, alloc:u64}",
+    "peer": "unchanged hypothesis_peer_chain_oneway_2dc",
+    "orders_heap": 0
+  }
+}

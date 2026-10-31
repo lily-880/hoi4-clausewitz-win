@@ -3844,3 +3844,110 @@ def land_live_army_subject_observe_2dc_recipe(limit: int = 8, carmy_only: bool =
         "carmy_only_filter": carmy_only, "subjects": subjects,
         "note": obs.get("note") or "CFront kind/id; peer one-way; never Post.",
     }
+
+
+def land_cmd_post_path_index_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dd", "allow_post": False, "posting": "DISABLED",
+            "index": pr.get("cmd_post_path_index_2dd") or {}}
+
+
+def land_role_post_path_matrix_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dd", "allow_post": False, "posting": "DISABLED",
+            "matrix": pr.get("role_post_path_matrix_2dd") or {}}
+
+
+def land_role_observe_2dd_recipe(role: str | None = None) -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ro = dict(pr.get("role_observe_2dd") or {})
+    if role:
+        return {"phase": "2dd", "allow_post": False, "posting": "DISABLED",
+                "role": role, "observe": ro.get(role)}
+    return {"phase": "2dd", "allow_post": False, "posting": "DISABLED", "roles": ro}
+
+
+def land_confidence_report_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2dd") or {})
+    rep.update({"allow_post": False, "posting": "DISABLED"})
+    return rep
+
+
+def land_post_readiness_checklist_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("post_readiness_checklist_2dd") or {"phase":"2dd","allow_post":False})
+
+
+def land_offensive_line_post_path_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dd", "allow_post": False, "posting": "DISABLED",
+            "offensive_line": pr.get("offensive_line_post_path_2dd") or {}}
+
+
+def land_midflight_move_watcher_readiness_2dd_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("midflight_move_watcher_readiness_2dd") or {"phase":"2dd","allow_post":False})
+
+
+def land_live_army_subject_observe_2dd_recipe(limit: int = 8, carmy_only: bool = True) -> dict:
+    """Live Haiti observe 2dd — TH_ARMIES/TH_FRONTS proven. Never Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2dd") or {})
+    subjects = list((obs.get("carmy_only") if carmy_only else obs.get("subjects")) or [])[:max(0,int(limit))]
+    return {
+        "phase": "2dd", "allow_post": False, "posting": "DISABLED",
+        "country_tag_filter": obs.get("country_tag_filter"),
+        "carmy_count": obs.get("carmy_count"),
+        "carmy_theatre_rtti_ok": obs.get("carmy_theatre_rtti_ok"),
+        "carmy_reinf_country_ok": obs.get("carmy_reinf_country_ok"),
+        "unique_theatre_ptrs": obs.get("unique_theatre_ptrs"),
+        "rtti_vt": obs.get("rtti_vt"),
+        "field_map_cfront": obs.get("field_map_cfront"),
+        "field_map_ccontrollerarea": obs.get("field_map_ccontrollerarea"),
+        "field_map_cprovince": obs.get("field_map_cprovince"),
+        "field_map_ctheatre": obs.get("field_map_ctheatre"),
+        "field_map_carmyrequests": obs.get("field_map_carmyrequests"),
+        "field_map_frontsection_observe": obs.get("field_map_frontsection_observe"),
+        "field_map_spercountrysection_hyp": obs.get("field_map_spercountrysection_hyp"),
+        "field_map_ccountry_arrays": obs.get("field_map_ccountry_arrays"),
+        "theatre_army_crosslink": obs.get("theatre_army_crosslink"),
+        "hai_front_ids": obs.get("hai_front_ids"),
+        "org_str_status": obs.get("org_str_status"),
+        "movement_dest_nonempty_count": obs.get("movement_dest_nonempty_count"),
+        "heap_order_front_counts": obs.get("heap_order_front_counts"),
+        "carmy_only_filter": carmy_only, "subjects": subjects,
+        "note": obs.get("note") or "TH_ARMIES/TH_FRONTS proven; never Post.",
+    }
