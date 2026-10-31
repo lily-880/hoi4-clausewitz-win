@@ -1,0 +1,3232 @@
+{
+  "phase": "2ga",
+  "allow_post": false,
+  "result": "inst_e100_packed_twin_of_e0__no_named_elem_class",
+  "result_note": "+0x100 size-twins +0xe0 (8/8); first dword echoes e0[0] (8/8); ruled out homogeneous u32-province / float[] / CProvince* / CArmy* elem arrays; buffer is packed/heterogeneous within cap; recurring soft module VT RVA 0x2794550 (34x) catalog-miss unnamed \u2014 no single Clausewitz elem class named.",
+  "live": {
+    "pid": 34188,
+    "hours": 265,
+    "ui_date": "1936-01-12 01:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Instance+0x100 elem type vs +0xe0 (no Post)",
+    "gs": "0x1b8e2e76740"
+  },
+  "sight": {
+    "elapsed_s": 8.0,
+    "sight_counts": {},
+    "ois": []
+  },
+  "aggregate": {
+    "ois": 19,
+    "nonempty_e100": 8,
+    "verdicts": {
+      "CPdxArray_opaque_ptr": 7,
+      "CPdxArray_mostly_null_qwords": 1
+    },
+    "first_u32_echoes_e0": 8,
+    "size_twin_e0": 8
+  },
+  "rows": [
+    {
+      "oi": 4,
+      "ok": true,
+      "inst": "0x1b9e2349340",
+      "n70": 0,
+      "n_e0": 4,
+      "n_100": 4,
+      "e0_u32_sample": [
+        6,
+        34,
+        977,
+        980
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 4,
+        "cap": 4,
+        "data": "0x1b8f120b4a0",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 4,
+        "e0_data": "0x1b9c039e710",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            6,
+            34,
+            977,
+            980
+          ],
+          "e100_u32_sample": [
+            6,
+            441,
+            4052503808,
+            441
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": false,
+          "float_sample": [
+            0.0,
+            0.0,
+            -1.3894716372191564e+30,
+            0.0
+          ],
+          "ptr_kinds": {
+            "opaque_ptr": 3,
+            "unreadable": 1
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b900000006",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 1630535680,
+            "u32_4": 2146911967,
+            "f32_0": 2.0291418481080507e+20
+          },
+          {
+            "i": 1,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b9f18c4d00",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 874,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 2,
+            "kind": "unreadable",
+            "ptr": "0x200000002"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 6,
+            "e100_u32": 6,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b900000006",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b900000006",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 1630535680,
+              "u32_4": 2146911967,
+              "f32_0": 2.0291418481080507e+20
+            }
+          },
+          {
+            "i": 1,
+            "e0": 34,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b9f18c4d00",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9f18c4d00",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 874,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 2,
+            "e0": 977,
+            "e100_u32": 4052503808,
+            "e100_f32": -1.3894716372191564e+30,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": false,
+            "e100_qword": "0x200000002",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x200000002"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 980,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x1b900000006",
+            "q1": "0x1b9f18c4d00",
+            "u": [
+              6,
+              441,
+              4052503808,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b900000006",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 1630535680,
+              "u32_4": 2146911967,
+              "f32_0": 2.0291418481080507e+20
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9f18c4d00",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 874,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x200000002",
+            "q1": "0x7ff74775d000",
+            "u": [
+              2,
+              2,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x200000002"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x1b900000022",
+            "q1": "0x1b9697d5b30",
+            "u": [
+              34,
+              441,
+              1769823024,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b900000022",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 0,
+              "u32_4": 3489660928,
+              "f32_0": 0.0
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9697d5b30",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 878,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'opaque_ptr': 3, 'unreadable': 1}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "06000000b9010000004d8cf1b9010000020000000200000000d07547f77f0000"
+      }
+    },
+    {
+      "oi": 5,
+      "ok": true,
+      "inst": "0x1b9e2350670",
+      "n70": 0,
+      "n_e0": 5,
+      "n_100": 5,
+      "e0_u32_sample": [
+        11,
+        188,
+        189,
+        814,
+        815
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 5,
+        "cap": 5,
+        "data": "0x1b971205d80",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 5,
+        "e0_data": "0x1b98fbd1830",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            11,
+            188,
+            189,
+            814,
+            815
+          ],
+          "e100_u32_sample": [
+            11,
+            81,
+            1033042016,
+            441,
+            1
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": true,
+          "float_sample": [
+            0.0,
+            0.0,
+            0.07176,
+            0.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "unreadable": 2,
+            "opaque_ptr": 2,
+            "nullish": 1
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "unreadable",
+            "ptr": "0x510000000b"
+          },
+          {
+            "i": 1,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b93d92f860",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 1012,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 2,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "nullish",
+            "raw": "0xbc"
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 11,
+            "e100_u32": 11,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x510000000b",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x510000000b"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 188,
+            "e100_u32": 81,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b93d92f860",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b93d92f860",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1012,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 2,
+            "e0": 189,
+            "e100_u32": 1033042016,
+            "e100_f32": 0.07176,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 814,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 815,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0xbc",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0xbc"
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x510000000b",
+            "q1": "0x1b93d92f860",
+            "u": [
+              11,
+              81,
+              1033042016,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x510000000b"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b93d92f860",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1012,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0xbc",
+            "q1": "0x1b93d92f8a0",
+            "u": [
+              188,
+              0,
+              1033042080,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0xbc"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b93d92f8a0",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1013,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0xbd",
+            "q1": "0x0",
+            "u": [
+              189,
+              0,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0xbd"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'unreadable': 2, 'opaque_ptr': 2, 'nullish': 1}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "0b0000005100000060f8923db9010000010000000100000000d07547f77f0000bc00000000000000"
+      }
+    },
+    {
+      "oi": 6,
+      "ok": true,
+      "inst": "0x1b9e1dc40b0",
+      "n70": 26,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 7,
+      "ok": true,
+      "inst": "0x1b9cbda8d50",
+      "n70": 3,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 8,
+      "ok": true,
+      "inst": "0x1b9e234d970",
+      "n70": 0,
+      "n_e0": 8,
+      "n_100": 8,
+      "e0_u32_sample": [
+        295,
+        538,
+        718,
+        768,
+        769,
+        888,
+        889,
+        890
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 8,
+        "cap": 8,
+        "data": "0x1b919115b60",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 8,
+        "e0_data": "0x1b9a1c51980",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            295,
+            538,
+            718,
+            768,
+            769,
+            888,
+            889,
+            890
+          ],
+          "e100_u32_sample": [
+            295,
+            0,
+            1769823232,
+            441,
+            1,
+            1,
+            1198903296,
+            32759
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": false,
+          "float_sample": [
+            0.0,
+            0.0,
+            1.9143293129932824e+25,
+            0.0,
+            0.0,
+            0.0,
+            62928.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "nullish": 3,
+            "opaque_ptr": 4,
+            "unreadable": 1
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "nullish",
+            "raw": "0x127"
+          },
+          {
+            "i": 1,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b9697d5c00",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 880,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 2,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b90000021a",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 0,
+            "u32_4": 0,
+            "f32_0": 0.0
+          },
+          {
+            "i": 5,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 6,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 7,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 295,
+            "e100_u32": 295,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x127",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x127"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 538,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b9697d5c00",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9697d5c00",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 880,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 2,
+            "e0": 718,
+            "e100_u32": 1769823232,
+            "e100_f32": 1.9143293129932824e+25,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": false,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 768,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 769,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b90000021a",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b90000021a",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 0,
+              "u32_4": 0,
+              "f32_0": 0.0
+            }
+          },
+          {
+            "i": 5,
+            "e0": 888,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 6,
+            "e0": 889,
+            "e100_u32": 1198903296,
+            "e100_f32": 62928.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 7,
+            "e0": 890,
+            "e100_u32": 32759,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x127",
+            "q1": "0x1b9697d5c00",
+            "u": [
+              295,
+              0,
+              1769823232,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x127"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9697d5c00",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 880,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x1b90000021a",
+            "q1": "0x0",
+            "u": [
+              538,
+              441,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b90000021a",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 0,
+              "u32_4": 0,
+              "f32_0": 0.0
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x1b9000002ce",
+            "q1": "0x0",
+            "u": [
+              718,
+              441,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9000002ce",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 894500864,
+              "u32_4": 0,
+              "f32_0": 7.7858567237854e-07
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 5,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 6,
+            "q0": "0x1b900000300",
+            "q1": "0x0",
+            "u": [
+              768,
+              441,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b900000300",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 15,
+              "u32_4": 0,
+              "f32_0": 2.1019476964872256e-44
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 7,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'nullish': 3, 'opaque_ptr': 4, 'unreadable': 1}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "2701000000000000005c7d69b9010000010000000100000000d07547f77f00001a020000b90100000000000000000000000000000000000000d07547f77f0000"
+      }
+    },
+    {
+      "oi": 9,
+      "ok": true,
+      "inst": "0x1b9a1957c10",
+      "n70": 6,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 13,
+      "ok": true,
+      "inst": "0x1b9a19570a0",
+      "n70": 4,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 17,
+      "ok": true,
+      "inst": "0x1b9cd6ca510",
+      "n70": 5,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 20,
+      "ok": true,
+      "inst": "0x1b9e2134b10",
+      "n70": 18,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 22,
+      "ok": true,
+      "inst": "0x1b9e234f730",
+      "n70": 0,
+      "n_e0": 8,
+      "n_100": 8,
+      "e0_u32_sample": [
+        102,
+        103,
+        105,
+        106,
+        802,
+        803,
+        853,
+        970
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 8,
+        "cap": 8,
+        "data": "0x1b93db65fd0",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 8,
+        "e0_data": "0x1b9a1c528b0",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            102,
+            103,
+            105,
+            106,
+            802,
+            803,
+            853,
+            970
+          ],
+          "e100_u32_sample": [
+            102,
+            6029375,
+            0,
+            0,
+            0,
+            0,
+            1198903296,
+            32759
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": true,
+          "float_sample": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            62928.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "unreadable": 3,
+            "nullish": 2,
+            "opaque_ptr": 3
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "unreadable",
+            "ptr": "0x5c003f00000066"
+          },
+          {
+            "i": 1,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 2,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "unreadable",
+            "ptr": "0x73005c00000067"
+          },
+          {
+            "i": 5,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b96ad57c10",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 1344,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 6,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 7,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 102,
+            "e100_u32": 102,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x5c003f00000066",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x5c003f00000066"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 103,
+            "e100_u32": 6029375,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 2,
+            "e0": 105,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 106,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 802,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x73005c00000067",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x73005c00000067"
+            }
+          },
+          {
+            "i": 5,
+            "e0": 803,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b96ad57c10",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b96ad57c10",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1344,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 6,
+            "e0": 853,
+            "e100_u32": 1198903296,
+            "e100_f32": 62928.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 7,
+            "e0": 970,
+            "e100_u32": 32759,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x5c003f00000066",
+            "q1": "0x0",
+            "u": [
+              102,
+              6029375,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x5c003f00000066"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x73005c00000067",
+            "q1": "0x1b96ad57c10",
+            "u": [
+              103,
+              7536732,
+              1792375824,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x73005c00000067"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b96ad57c10",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1344,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x5c006e00000069",
+            "q1": "0x1b96ad57950",
+            "u": [
+              105,
+              6029422,
+              1792375120,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x5c006e00000069"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b96ad57950",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1342,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 5,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 6,
+            "q0": "0x4900200000006a",
+            "q1": "0x0",
+            "u": [
+              106,
+              4784160,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x4900200000006a"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 7,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'unreadable': 3, 'nullish': 2, 'opaque_ptr': 3}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "660000003f005c000000000000000000000000000000000000d07547f77f0000670000005c007300107cd56ab9010000010000000100000000d07547f77f0000"
+      }
+    },
+    {
+      "oi": 25,
+      "ok": true,
+      "inst": "0x1b9e23555c0",
+      "n70": 0,
+      "n_e0": 5,
+      "n_100": 5,
+      "e0_u32_sample": [
+        12,
+        190,
+        808,
+        809,
+        810
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 5,
+        "cap": 5,
+        "data": "0x1b9cbb86940",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 5,
+        "e0_data": "0x1b98fbd1910",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            12,
+            190,
+            808,
+            809,
+            810
+          ],
+          "e100_u32_sample": [
+            12,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": true,
+          "float_sample": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "nullish": 4,
+            "opaque_ptr": 1
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "nullish",
+            "raw": "0xc"
+          },
+          {
+            "i": 1,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 2,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "nullish",
+            "raw": "0xbe"
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 12,
+            "e100_u32": 12,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0xc",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0xc"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 190,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 2,
+            "e0": 808,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 809,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 810,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0xbe",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0xbe"
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0xc",
+            "q1": "0x0",
+            "u": [
+              12,
+              0,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0xc"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0xbe",
+            "q1": "0x0",
+            "u": [
+              190,
+              0,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0xbe"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x328",
+            "q1": "0x1b94c6f3480",
+            "u": [
+              808,
+              0,
+              1282356352,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x328"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b94c6f3480",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1032,
+              "f32_0": 7.146622168056567e-44
+            }
+          }
+        ],
+        "verdict": "CPdxArray_mostly_null_qwords",
+        "verdict_detail": [
+          "ptr kinds {'nullish': 4, 'opaque_ptr': 1}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "0c000000000000000000000000000000000000000000000000d07547f77f0000be00000000000000"
+      }
+    },
+    {
+      "oi": 27,
+      "ok": true,
+      "inst": "0x1b9e1dc4480",
+      "n70": 3,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 38,
+      "ok": true,
+      "inst": "0x1b9e2376cf0",
+      "n70": 0,
+      "n_e0": 6,
+      "n_100": 6,
+      "e0_u32_sample": [
+        76,
+        78,
+        80,
+        82,
+        83,
+        766
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 6,
+        "cap": 6,
+        "data": "0x1b9ccf35e60",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 6,
+        "e0_data": "0x1b98fbd5c30",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            76,
+            78,
+            80,
+            82,
+            83,
+            766
+          ],
+          "e100_u32_sample": [
+            76,
+            0,
+            1282356672,
+            441,
+            1,
+            1
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": false,
+          "float_sample": [
+            0.0,
+            0.0,
+            62707456.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "nullish": 3,
+            "opaque_ptr": 2,
+            "unreadable": 1
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "nullish",
+            "raw": "0x4c"
+          },
+          {
+            "i": 1,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b94c6f35c0",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 1336,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 2,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "nullish",
+            "raw": "0x4e"
+          },
+          {
+            "i": 5,
+            "kind": "nullish",
+            "raw": "0x0"
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 76,
+            "e100_u32": 76,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x4c",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x4c"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 78,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b94c6f35c0",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b94c6f35c0",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1336,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 2,
+            "e0": 80,
+            "e100_u32": 1282356672,
+            "e100_f32": 62707456.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": false,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 82,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 83,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x4e",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x4e"
+            }
+          },
+          {
+            "i": 5,
+            "e0": 766,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x4c",
+            "q1": "0x1b94c6f35c0",
+            "u": [
+              76,
+              0,
+              1282356672,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x4c"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b94c6f35c0",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 1336,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x4e",
+            "q1": "0x0",
+            "u": [
+              78,
+              0,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x4e"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x50",
+            "q1": "0x0",
+            "u": [
+              80,
+              0,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x50"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 5,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'nullish': 3, 'opaque_ptr': 2, 'unreadable': 1}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "4c00000000000000c0356f4cb9010000010000000100000000d07547f77f00004e000000000000000000000000000000"
+      }
+    },
+    {
+      "oi": 40,
+      "ok": true,
+      "inst": "0x1b9e2346f60",
+      "n70": 0,
+      "n_e0": 5,
+      "n_100": 5,
+      "e0_u32_sample": [
+        70,
+        71,
+        72,
+        73,
+        664
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 5,
+        "cap": 5,
+        "data": "0x1b9cbc4b580",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 5,
+        "e0_data": "0x1b9c03a99f0",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            70,
+            71,
+            72,
+            73,
+            664
+          ],
+          "e100_u32_sample": [
+            70,
+            9411,
+            3446399552,
+            441,
+            1
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": false,
+          "float_sample": [
+            0.0,
+            0.0,
+            -247342080.0,
+            0.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "unreadable": 3,
+            "opaque_ptr": 2
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "unreadable",
+            "ptr": "0x24c300000046"
+          },
+          {
+            "i": 1,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b9cd6be240",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 939,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 2,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "unreadable",
+            "ptr": "0x11b00000047"
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 70,
+            "e100_u32": 70,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x24c300000046",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x24c300000046"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 71,
+            "e100_u32": 9411,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b9cd6be240",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9cd6be240",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 939,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 2,
+            "e0": 72,
+            "e100_u32": 3446399552,
+            "e100_f32": -247342080.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": false,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 73,
+            "e100_u32": 441,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 664,
+            "e100_u32": 1,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x11b00000047",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x11b00000047"
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x24c300000046",
+            "q1": "0x1b9cd6be240",
+            "u": [
+              70,
+              9411,
+              3446399552,
+              441
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x24c300000046"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9cd6be240",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 939,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x11b00000047",
+            "q1": "0x0",
+            "u": [
+              71,
+              283,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x11b00000047"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x2c0b00000048",
+            "q1": "0x0",
+            "u": [
+              72,
+              11275,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x2c0b00000048"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'unreadable': 3, 'opaque_ptr': 2}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "46000000c324000040e26bcdb9010000010000000100000000d07547f77f0000470000001b010000"
+      }
+    },
+    {
+      "oi": 44,
+      "ok": true,
+      "inst": "0x1b9e2350a40",
+      "n70": 0,
+      "n_e0": 8,
+      "n_100": 8,
+      "e0_u32_sample": [
+        42,
+        50,
+        51,
+        52,
+        53,
+        54,
+        57,
+        978
+      ],
+      "e0_all_prov": true,
+      "e100": {
+        "empty": false,
+        "size": 8,
+        "cap": 8,
+        "data": "0x1b9d280b660",
+        "alloc": "0x7ff74775d000",
+        "e0_size": 8,
+        "e0_data": "0x1b9a1c52850",
+        "parallel": {
+          "same_size": true,
+          "same_data_ptr": false,
+          "e0_first_eq_e100_u32_0": true,
+          "e0_sample": [
+            42,
+            50,
+            51,
+            52,
+            53,
+            54,
+            57,
+            978
+          ],
+          "e100_u32_sample": [
+            42,
+            1065353216,
+            0,
+            0,
+            0,
+            0,
+            1198903296,
+            32759
+          ]
+        },
+        "hypotheses": {
+          "u32_all_province": false,
+          "float_array": true,
+          "float_sample": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            62928.0,
+            0.0
+          ],
+          "ptr_kinds": {
+            "unreadable": 3,
+            "nullish": 2,
+            "opaque_ptr": 3
+          },
+          "ptr_array_named": false
+        },
+        "ptr_elems_sample": [
+          {
+            "i": 0,
+            "kind": "unreadable",
+            "ptr": "0x3f8000000000002a"
+          },
+          {
+            "i": 1,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 2,
+            "kind": "nullish",
+            "raw": "0x0"
+          },
+          {
+            "i": 3,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          },
+          {
+            "i": 4,
+            "kind": "unreadable",
+            "ptr": "0x3f80000000000032"
+          },
+          {
+            "i": 5,
+            "kind": "opaque_ptr",
+            "ptr": "0x1b9f04dfb60",
+            "vt_rva": null,
+            "vt_name": null,
+            "u32_0": 51,
+            "u32_4": 27,
+            "f32_0": 7.146622168056567e-44
+          },
+          {
+            "i": 6,
+            "kind": "unreadable",
+            "ptr": "0x100000001"
+          },
+          {
+            "i": 7,
+            "kind": "opaque_ptr",
+            "ptr": "0x7ff74775d000",
+            "vt_rva": "0x2794550",
+            "vt_name": null,
+            "u32_0": 1189037392,
+            "u32_4": 32759,
+            "f32_0": 28578.65625
+          }
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "e0": 42,
+            "e100_u32": 42,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": true,
+            "e100_f32_ok": true,
+            "e100_qword": "0x3f8000000000002a",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x3f8000000000002a"
+            }
+          },
+          {
+            "i": 1,
+            "e0": 50,
+            "e100_u32": 1065353216,
+            "e100_f32": 1.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 2,
+            "e0": 51,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x0",
+            "e100_ptr_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 3,
+            "e0": 52,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "e0": 53,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x3f80000000000032",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x3f80000000000032"
+            }
+          },
+          {
+            "i": 5,
+            "e0": 54,
+            "e100_u32": 0,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x1b9f04dfb60",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9f04dfb60",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 27,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 6,
+            "e0": 57,
+            "e100_u32": 1198903296,
+            "e100_f32": 62928.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x100000001",
+            "e100_ptr_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            }
+          },
+          {
+            "i": 7,
+            "e0": 978,
+            "e100_u32": 32759,
+            "e100_f32": 0.0,
+            "e100_u32_is_prov": false,
+            "e100_f32_ok": true,
+            "e100_qword": "0x7ff74775d000",
+            "e100_ptr_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "stride16_sample": [
+          {
+            "i": 0,
+            "q0": "0x3f8000000000002a",
+            "q1": "0x0",
+            "u": [
+              42,
+              1065353216,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              1.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x3f8000000000002a"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 1,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 2,
+            "q0": "0x3f80000000000032",
+            "q1": "0x1b9f04dfb60",
+            "u": [
+              50,
+              1065353216,
+              4031642464,
+              441
+            ],
+            "f": [
+              0.0,
+              1.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x3f80000000000032"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x1b9f04dfb60",
+              "vt_rva": null,
+              "vt_name": null,
+              "u32_0": 51,
+              "u32_4": 27,
+              "f32_0": 7.146622168056567e-44
+            }
+          },
+          {
+            "i": 3,
+            "q0": "0x100000001",
+            "q1": "0x7ff74775d000",
+            "u": [
+              1,
+              1,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x100000001"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 4,
+            "q0": "0x600000033",
+            "q1": "0x0",
+            "u": [
+              51,
+              6,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x600000033"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 5,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          },
+          {
+            "i": 6,
+            "q0": "0x1400000034",
+            "q1": "0x0",
+            "u": [
+              52,
+              20,
+              0,
+              0
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "unreadable",
+              "ptr": "0x1400000034"
+            },
+            "q1_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            }
+          },
+          {
+            "i": 7,
+            "q0": "0x0",
+            "q1": "0x7ff74775d000",
+            "u": [
+              0,
+              0,
+              1198903296,
+              32759
+            ],
+            "f": [
+              0.0,
+              0.0
+            ],
+            "q0_class": {
+              "kind": "nullish",
+              "raw": "0x0"
+            },
+            "q1_class": {
+              "kind": "opaque_ptr",
+              "ptr": "0x7ff74775d000",
+              "vt_rva": "0x2794550",
+              "vt_name": null,
+              "u32_0": 1189037392,
+              "u32_4": 32759,
+              "f32_0": 28578.65625
+            }
+          }
+        ],
+        "verdict": "CPdxArray_opaque_ptr",
+        "verdict_detail": [
+          "ptr kinds {'unreadable': 3, 'nullish': 2, 'opaque_ptr': 3}"
+        ],
+        "first_u32_echoes_e0": true,
+        "raw8_hex_head": "2a0000000000803f0000000000000000000000000000000000d07547f77f0000320000000000803f60fb4df0b9010000010000000100000000d07547f77f0000"
+      }
+    },
+    {
+      "oi": 52,
+      "ok": true,
+      "inst": "0x1b9cbda98c0",
+      "n70": 8,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 68,
+      "ok": true,
+      "inst": "0x1b9e181cfc0",
+      "n70": 25,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 70,
+      "ok": true,
+      "inst": "0x1b9e234aa20",
+      "n70": 6,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    },
+    {
+      "oi": 124,
+      "ok": true,
+      "inst": "0x1b9cccad570",
+      "n70": 7,
+      "n_e0": 0,
+      "n_100": 0,
+      "e0_u32_sample": [],
+      "e0_all_prov": false,
+      "e100": {
+        "empty": true,
+        "size": 0
+      }
+    }
+  ],
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "result=inst_e100_packed_twin_of_e0__no_named_elem_class",
+    "size_twin 8/8; first_u32_echoes_e0 8/8",
+    "ruled out u32/float/CProvince*/CArmy* homogeneous elems",
+    "soft VT RVA 0x2794550 recurring unnamed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "named +0x100 Clausewitz class / demangled RTTI (if still partial)",
+    "named +0xe0 role beyond u32 province stream",
+    "named CArmy path-field offsets",
+    "war-dense relaunch (not this slice if B progressed)",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "demangled RTTI string dump for VT 0x29d6fb8 beyond catalog"
+  ],
+  "next_shortest_blocker": "NON-Post: bounded NF/RF midflight OR war-dense named CArmy path OR demangle 0x2794550; still NO ALLOW_POST"
+}
