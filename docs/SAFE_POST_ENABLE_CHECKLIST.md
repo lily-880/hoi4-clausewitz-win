@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2hw — checklist polish (CLOSED)
+## Phase 2gj … 2hx — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -287,6 +287,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2hu | PATH×OG+0x50×Inst70 triangle | **PATH_OG50_INST70_TRIANGLE_HIT** (Post still CLOSED) |
 | 2hv | OG481 member rollup + cover_only reverse | **OG481_MEMBER_ROLLUP_COVER_REVERSE_HIT** (Post still CLOSED) |
 | 2hw | path∉Inst70 covering-oi + cover_only reverse widen | **PATH_OUTLIER_COVER_WIDEN_HIT** (Post still CLOSED) |
+| 2hx | hi-band OG962/976 dig Inst70+OG50+PATH | **HIBAND_OG962_976_DIG_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -304,5 +305,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hw — path∉Inst70 + cover widen. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2hx — hi-band OG962/976 dig. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
