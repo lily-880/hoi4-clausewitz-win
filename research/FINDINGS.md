@@ -894,3 +894,12 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Stubbed unchanged**: midflight sample itself; in-process Move ring embed; `command_queue_tool_gate` **CLOSED_NOT_OPENED**; `ALLOW_POST` / `CLAUSEWITZ_ALLOW_POST`.
 - **Not revived**: org/str @0x520/0x6ec; prov+0x58; CFront multi-slot/>0x90 bleed; army↔front via ctrl/FS while paused.
 - **Posting DISABLED**. Naval/production out of scope.
+
+## Phase 2ej (2026-10-31 Asia/Shanghai) — 1x clock + MOVE attempt (Post still DISABLED)
+
+- **1x works** via `scripts/launch_into_map.py --speed 1` (`-start_tag=HAI -start_speed=1 -noai`). Space/SendInput/mouse_event still ignored by DX11 (same as 2bf/2bg); drain-only is a false unpause signal (exec/seq can stay 13/15).
+- **Clock proof**: after relaunch, DummyServer `exec`/`seq`/`drain` leave paused sticky values and keep increasing at 1x (e.g. exec 323→370 / seq 325→373 in ~12s). Status `date_year=1936`; full H:M still unproven; `date_aux_0x47c` hyp unchanged in probe.
+- **Land MOVE stubbed**: synthetic LMB+RMB produced no `CMoveCommand`. Catalogued issue path is DummyServer Post / `move_command_recipe` — requires `ALLOW_POST` (still False). `G_CONSOLE_MANAGER` null. `-noai` ⇒ no autonomous army moves. No `reports/midflight_cmove_capture.json`.
+- Watcher re-armed RO (`phase2bm_midflight_ready.py`, heap-every 0). Posting stays DISABLED. Never 5x.
+- Report: `reports/phase2ej_1x_move.json`.
+
