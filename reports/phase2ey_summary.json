@@ -1,0 +1,55 @@
+{
+  "phase": "2ey",
+  "result": "CANCEL_EDGE_HEAP_NO_MOVE",
+  "scenario": "ITA @1x AI-on",
+  "pid": 30680,
+  "ui_date": "1936-01-04 13:00",
+  "hours": 85,
+  "observe_seconds": 90.0,
+  "polls": 1571410,
+  "edge_events": 5584,
+  "heap_scans": 4,
+  "cancel_seen_at_s": 35.003706216812134,
+  "cancel_hits_n": 2,
+  "option_b_ran": true,
+  "sight_counts": {
+    "CHourlyTickCommand": 24062,
+    "COrderAssignCommand": 18,
+    "CCancelMovementCommand": 2,
+    "COrderUnassignCommand": 1
+  },
+  "heap_name_counts": {},
+  "leaf_names_hit": [],
+  "allow_post": false,
+  "works": [
+    "Cancel-correlated concurrent heap armed",
+    "heap_scans=4 mb=64",
+    "allow_post stays False",
+    "Cancel sighted at t=35.0s x2",
+    "option B RO catalog: stack/direct-Execute Move unproven"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST",
+    "self-issue MOVE"
+  ],
+  "next_shortest_blocker": "Factory-site / execlist RO peek (observation) \u2014 still NO ALLOW_POST",
+  "direct_execute_conclusion": "Cancel-correlated heap still finds no leaf Move. Stack/direct-Execute-only Move remains unproven; more consistent with AI rarely constructing CMoveCommand objects that survive into DummyServer/heap windows. Sample gap persists. Still NO ALLOW_POST.",
+  "next_cheapest_recipe": {
+    "name": "Factory-site / execlist RO peek (observation)",
+    "steps": [
+      "RO-read Session execlist (+0x40 per FINDINGS) during Cancel/Assign edges for MOVE VT",
+      "OR one ETH@1x relaunch window where Cancel was denser historically",
+      "Do NOT enable Post; do NOT endless-poll ITA peacetime-ish traffic"
+    ],
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  }
+}

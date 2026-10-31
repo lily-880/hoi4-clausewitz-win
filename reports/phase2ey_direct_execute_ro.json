@@ -1,0 +1,44 @@
+{
+  "phase": "2ey_option_B_catalog",
+  "allow_post": false,
+  "observation_only": true,
+  "live_2ey": {
+    "cancel_sights": 2,
+    "heap_scans_on_cancel": 4,
+    "leaf_move_hits": 0
+  },
+  "pipeline": {
+    "FN_CMD_QUEUE_POST": "0x22c41e0",
+    "SINK_DUMMY": "0x23f5cd0",
+    "path": "UI/AI -> Post -> DummyServer ring+0xa0 -> drain pending+0x58 -> SessionUpdate Execute"
+  },
+  "move_layout": {
+    "CMoveCommand_vt": "0x2a2c790",
+    "CUnitMoveAction_vt": "0x2a1f648",
+    "size": "0x88",
+    "action_embed": "0x28",
+    "execute": "0x13fc990",
+    "factory": "0x13fb000"
+  },
+  "evidence": [
+    "Cancel reaches DummyServer stage (2eu/2ex/2ey) with vt 0x2a2c9b8.",
+    "Assign/Unassign likewise on stage; leaf CMoveCommand never retained on stage/pending under dense poll.",
+    "Cancel-edge 64MB heaps found 0 MOVE needles \u2192 Move object not lingering in writable heap at Cancel time (freed, never allocated, or non-heap/stack ephemeral).",
+    "Catalog SP path is DummyServer-centric; no separate proven stack-only Execute entry for land Move."
+  ],
+  "conclusion": "Cancel-correlated heap still finds no leaf Move. Stack/direct-Execute-only Move remains unproven; more consistent with AI rarely constructing CMoveCommand objects that survive into DummyServer/heap windows. Sample gap persists. Still NO ALLOW_POST.",
+  "next_cheapest_recipe": {
+    "name": "Factory-site / execlist RO peek (observation)",
+    "steps": [
+      "RO-read Session execlist (+0x40 per FINDINGS) during Cancel/Assign edges for MOVE VT",
+      "OR one ETH@1x relaunch window where Cancel was denser historically",
+      "Do NOT enable Post; do NOT endless-poll ITA peacetime-ish traffic"
+    ],
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  }
+}

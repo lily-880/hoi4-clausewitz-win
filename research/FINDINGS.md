@@ -1041,3 +1041,9 @@ eports/phase2el_gs_datetime.json.
 - Cancel vt live `0x2a2c9b8` matches `cmd_layout.CANCEL` (clean vs 2eu obfuscated peek).
 - Option B catalog: DummyServer-bypass for Move **not** proven; Assign/Cancel reach stage while Move does not.
 - Next cheapest recipe: Cancel-correlated concurrent heap (documented, not burned). `allow_post` False.
+
+## Phase 2ey (2026-10-31 Asia/Shanghai) — Cancel-correlated concurrent heap RO
+
+- ITA pid 30680 @1x; **90s**: Cancel×2 (first t≈35s) + Assign×18; **4×64MB** Cancel-edge heaps → **0** MOVE needles (heap finds empty).
+- Option B: stack/direct-Execute-only Move **unproven**; sample gap persists.
+- Next cheapest: Factory-site / execlist RO peek (observation) or denser ETH Cancel window. `allow_post` False.
