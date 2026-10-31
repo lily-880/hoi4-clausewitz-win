@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2im `PATH200_FOCUS4527_DENSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2iv `COHORT_REHOME_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2iu PATH200 focus740/OG50 dig=[489, 490, 740, 1656, 3579] path_armies=5 hit=5 cls={'path_only': 5} by_dig={'489': [461], '490': [1042, 2649], '740': [461, 1042, 2647, 2649, 2671], '3579': [2671]} dests=[489, 490, 740, 3579] cross70=[] cross88=[] clock=CONTINUOUS; 2ii drift honesty path_only vs Inst70 (name STUBBED) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2iv cohort rehome alive=[461, 1042] homed={461: [], 1042: [1454], 2647: [], 2649: [], 2671: []} stale_alive=[] bands={'1-499': 151, '500-999': 16, '1000-1499': 18, '1500-2000': 33} primary_oi=1454 clock=CONTINUOUS (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -323,6 +323,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2is PATH200 focus1053/1869:** result=`PATH200_FOCUS1053_1869_HIT` · dig=[885, 1053, 1869, 6867, 9840] path_armies=3 hit=3 cls={'tri70': 1, 'path_only': 2} by_dig={'885': [2655, 2682], '1053': [2682], '1869': [2655], '6867': [2648], '9840': [2648]} dests=[885, 1053, 1869, 6867, 9840] cross70=[9840] cross88=[] clock=CONTINUOUS · hours=198 UI=1936-01-09 06:00 · allow_post=False
 **2it PATH200 ARR88×9840:** result=`PATH200_ARR88_9840_HIT` · dig=[489, 490, 740, 1656, 3579, 6901, 9840, 9857, 11838] path_armies=4 hit=2 cls={'tri70_88': 4} by_dig={'489': [461], '490': [2680], '740': [461, 2671, 2678, 2680], '1656': [2678], '3579': [2671]} dests=[489, 490, 740, 1656, 3579] cross70=[740] cross88=[740] clock=CONTINUOUS · hours=210 UI=1936-01-09 18:00 · allow_post=False
 **2iu PATH200 focus740/OG50:** result=`PATH200_FOCUS740_OG50_HIT` · dig=[489, 490, 740, 1656, 3579] path_armies=5 hit=5 cls={'path_only': 5} by_dig={'489': [461], '490': [1042, 2649], '740': [461, 1042, 2647, 2649, 2671], '3579': [2671]} dests=[489, 490, 740, 3579] cross70=[] cross88=[] clock=CONTINUOUS · hours=222 UI=1936-01-10 06:00 · allow_post=False
+**2iv cohort rehome:** result=`COHORT_REHOME_HIT` · alive=[461, 1042] homed={461: [], 1042: [1454], 2647: [], 2649: [], 2671: []} stale_alive=[] bands={'1-499': 151, '500-999': 16, '1000-1499': 18, '1500-2000': 33} primary_oi=1454 clock=CONTINUOUS · hours=229 UI=1936-01-10 13:00 · allow_post=False
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -408,6 +409,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2is** | `PATH200_FOCUS1053_1869_HIT` | CONTINUOUS PATH200 focus1053+1869-reintersect → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2it** | `PATH200_ARR88_9840_HIT` | CONTINUOUS PATH200 arr88xpath-9840class → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2iu** | `PATH200_FOCUS740_OG50_HIT` | CONTINUOUS PATH200 focus740-og50-refresh → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2iv** | `COHORT_REHOME_HIT` | 2iu focus-740 cohort rehome after oi recycle | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -415,4 +417,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2iu · PATH200 focus740/OG50 · 2026-10-31 Asia/Shanghai*
+*Phase 2iv · cohort rehome · 2026-11-01 Asia/Shanghai*
