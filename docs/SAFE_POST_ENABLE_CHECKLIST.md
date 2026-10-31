@@ -1,0 +1,113 @@
+# Safe gated Post-enable checklist (CLOSED)
+
+**Status: CLOSED — do not enable Post / tool-gate / ALLOW_POST.**  
+Phase **2en** documentation only. Haiti Path C land readiness.
+
+This is the single source of “what is still missing before any Post is allowed.”  
+It does **not** open gates. It does **not** authorize writes.
+
+---
+
+## Hard invariants (never violate)
+
+| Rule | State |
+| --- | --- |
+| `allow_post()` | **hard-returns False** even if env set |
+| `CLAUSEWITZ_ALLOW_POST` | **must stay unset / ignored** |
+| `command_queue` / tool-gate | **DISABLED** / **CLOSED_NOT_OPENED** |
+| Speed | pause or **1x** only — **NEVER 5x** |
+| NEVER_POST set | never Post Inc/Dec/SetGameSpeed, HourlyTick, Ping, Pause |
+| Guess writes | no `WriteProcessMemory` / Post on unproven layouts |
+| Input inject | DX11 ignores SendInput; do not ask user to right-click from agent slices |
+
+Runtime check: `from calling.config import allow_post; assert allow_post() is False`.
+
+---
+
+## Exact proofs still MISSING (block enable)
+
+Ordered shortest-path. All must be green before any gated enable discussion.
+
+### 1. Live midflight `CMoveCommand` (+ `CUnitMoveAction` embed) — **STUBBED**
+
+| Item | Detail |
+| --- | --- |
+| Why | Without a real buffer we cannot prove province path / unit_handle / move_priority against live memory, nor close sample→recreate |
+| Watcher | Armed RO: `scripts/phase2bm_midflight_ready.py` (`--interval 0.02 --burst-on-edge 12`); heartbeat `reports/midflight_watcher_heartbeat.json`; instant dump `reports/midflight_cmove_capture.json` |
+| Sightline | **OK** at 1x: `CHourlyTickCommand` seen via stage (Phase 2em) — pipeline works; Move class not yet observed |
+| How obtained | Real gameplay land right-click (human); agent must **not** inject / ask in automated slices |
+| Done looks like | `caught_army_move=true` + hex dump with action embed fields populated |
+
+### 2. Serialize / recreate round-trip into Dummy ring — **STUBBED** (structural sticky OK)
+
+| Item | Detail |
+| --- | --- |
+| Why | Hand-built or captured Move must survive Dummy recreate (`0x22d8ad0` path) into ring without corruption |
+| Have | Sticky StartGame structural serdes/factory RO (2bq/2br) |
+| Need | Same proof on **Move** (or Strategic) using captured buffer — needs (1) |
+
+### 3. Explicit `CLAUSEWITZ_ALLOW_POST=1` — **hard-deny until human**
+
+| Item | Detail |
+| --- | --- |
+| Why | Policy + `allow_post()` hard-deny; never auto-enable in per-tick loops |
+| Need | Conscious human env set **after** (1)+(2); tooling still must refuse NEVER_POST set |
+
+### 4. Tool-gate open predicates — **CLOSED_NOT_OPENED**
+
+| Item | Detail |
+| --- | --- |
+| Why | `command_queue_tool_gate` stays DISABLED until (1)–(3) and a written enable review |
+| Need | Explicit gate flip in a dedicated slice — **not this doc** |
+
+---
+
+## Already DONE (do not re-churn)
+
+| Piece | Status |
+| --- | --- |
+| LAND Execute catalog 121/121 | CLOSED |
+| Post-path confidence 1.0 | CLOSED |
+| Post ABI / cmd_layout RO | CLOSED (2bc/2bm) |
+| Order Execute layouts / factories | CLOSED (2ar/2bm/2bn) |
+| Army handle / province wiring | CLOSED (2as/2bn/2bo) |
+| Drain/execute edges / Dummy ring structure | CLOSED (2bn/2br) |
+| NEVER_POST speed/HourlyTick inventory | CLOSED (2bo) |
+| GS UI datetime Y-M-D H via `+0x484` hours | CLOSED (2el); minute N/A |
+| Midflight watcher edge-burst + HourlyTick sightline | CLOSED (2em) |
+| Non-Post MOVE issue path | **NONE** (2ek audit) |
+
+---
+
+## What does **not** count as enable progress
+
+- Capstone / 121 / confidence re-scans
+- HourlyTick sightings alone (sightline only)
+- `movement_dest` under `-noai` while empty
+- DX11 / console / Space “move” attempts
+- Docs that open the gate, set env, or Post “just once”
+
+---
+
+## Enable sequence (future; still CLOSED now)
+
+```
+[ ] 1 midflight CMove (+ action embed) capture JSON
+[ ] 2 recreate/ring embed proof on that sample (or equivalent Move build)
+[ ] 3 human sets CLAUSEWITZ_ALLOW_POST=1 for a single controlled experiment
+[ ] 4 dedicated slice opens tool-gate with NEVER_POST filters enforced
+[ ] 5 one land MOVE Post at 1x; verify exec/seq + army path; pause; unset env
+```
+
+Until every box is checked, **Post remains disabled.**
+
+---
+
+## Related paths
+
+- Recipe: `docs/MIDFLIGHT_CMOVE_CAPTURE.md`
+- Machine checklist JSON: `research/safe_enable_checklist.json` (`enable_when`, `blocks_enabling_post`)
+- Issue-path audit: `reports/phase2ek_issue_path_audit.json`
+- Watcher sightline: `reports/midflight_watcher_sightline.json`
+
+*Phase 2en — documentation only. Gate stays CLOSED.*

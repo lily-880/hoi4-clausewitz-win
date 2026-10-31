@@ -950,3 +950,15 @@ eports/phase2el_gs_datetime.json.
 
 **Next shortest blocker:** live midflight CMoveCommand (+ action embed) sample — then serialize/recreate + explicit ALLOW_POST before any tool-gate open.
 
+## Phase 2en — safe Post-enable checklist doc (CLOSED) — 2026-10-31
+
+**Choice:** A — document exact missing proofs; do **not** open gate / ALLOW_POST / Post.
+
+**Works:** docs/SAFE_POST_ENABLE_CHECKLIST.md — ordered blockers (midflight CMove+embed, recreate/ring, explicit env, tool-gate), hard invariants, done-do-not-re-churn, future enable sequence still unchecked.
+
+**Stubbed:** same as before — live Move sample; recreate on Move; ALLOW_POST; tool-gate.
+
+**Safety:** allow_post False; watcher left armed RO; no Post/inject/5x.
+
+**Next shortest blocker:** live midflight CMoveCommand (+ CUnitMoveAction embed) capture.
+

@@ -62,8 +62,8 @@
     },
     {
       "id": "command_queue_tool_gate",
-      "status": "open",
-      "note": "DISABLED; CLOSED_NOT_OPENED. 2ei did not open gate; midflight+ALLOW_POST+recreate still block."
+      "status": "CLOSED_NOT_OPENED",
+      "note": "DISABLED; CLOSED_NOT_OPENED. See docs/SAFE_POST_ENABLE_CHECKLIST.md (Phase 2en). Midflight+ALLOW_POST+recreate still block."
     },
     {
       "id": "network_execlist_path",
@@ -1665,5 +1665,19 @@
     "allow_post": false,
     "post_touched": false,
     "next_blocker": "midflight_CMoveCommand live sample"
+  },
+  "notes_2en": {
+    "when": "2026-10-31T10:32:34",
+    "choice": "A_safe_post_enable_checklist_doc",
+    "doc": "docs/SAFE_POST_ENABLE_CHECKLIST.md",
+    "gate_opened": false,
+    "allow_post": false,
+    "post_touched": false,
+    "missing": [
+      "midflight_CMoveCommand_plus_action_embed",
+      "serialize_recreate_ring_on_Move",
+      "explicit_CLAUSEWITZ_ALLOW_POST",
+      "tool_gate_open_predicates"
+    ]
   }
 }
