@@ -111,10 +111,23 @@ What does **not** unlock Post: Capstone/121 re-churn; HourlyTick sightings alone
 
 ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe empty (2gj). Dummy ring pending/execlist empty (2gk). Catalog + offline layouts are the Post-side ceiling without human midflight or SAFE Post.
 
-**2gm–2gr perception:** `CArmy+0x200` multi (tag-FP). **2gn:** no +0x200↔+0x70 overlap. **2go:** named `movement_dest` **HONEST_EMPTY**. **2gp–2gr:** **OG+0x50 ≡ CArmy+0xB8** MI membership (walkback **375/375**). **2gq/2gr A:** Assign oi≠0 confirm **quiet** (dense clock+heap still empty).
+**2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi≠0 window; retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi≠0; retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
+
+
+## 6b. Perception map (2gm–2gs consolidate — RO only)
+
+| Layer | Proven | Semantics / ceiling |
+| --- | --- | --- |
+| `CArmy+0x200` | 2gm multi after tag-FP; 2gn **NO_OVERLAP** vs Instance`+0x70`/`+0x88` | Multi-prov **candidate** only — **not** demangled `movement_dest`; **not** order path |
+| Instance`+0x70` / `+0x88` | ordered u32 provinces / `CProvince*` hub (2gm seed) | Order/front path — **≠** army midflight dest |
+| **OG+0x50 ≡ CArmy+0xB8** | MI VT `0x29d6fb8`; walkback **376/376** (2gs live; was 375 @2gr) | Membership **proxy** — demangled +0x50 name **STUBBED** |
+| Assign units type=`51` | 2gp: ix 410/445 → ITA CArmy tag=15; oi@`+0x48` | oi=0 unset; **oi≠0 units↔OI** quiet through 2gq/2gr dense |
+| Named `movement_dest` | 2go PE **HONEST_EMPTY** | Do not invent |
+
+**2gs live path snapshot (≤60s @1x):** carmy_rows=8 nonempty=6 multi=3 ticks=1 hours=227 UI=1936-01-10 11:00 allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -145,6 +158,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gp** | `ASSIGN_SIGHT_PLUS_OG50_MI_HIT` | ≤90s Assign/Unassign sight; units 410/445 = ITA CArmy; **OG+0x50 ≡ CArmy+0xB8** (VT `0x29d6fb8`) walkback 292/292 | Demangled +0x50 name stubbed; Assign oi=0 unset; Post/ring HARD_DENY |
 | **2gq** | `ASSIGN_QUIET_OG50_CATALOG_POLISH` | ≤90s Assign oi≠0 hunt **quiet**; B walkback **294/294** reaffirm | oi≠0 units↔OI unconfirmed; Post/ring HARD_DENY |
 | **2gr** | `ASSIGN_QUIET_DENSE_OG50_CATALOG_POLISH` | Clock nudge 205→206 + ≤90s pending/heap Assign oi≠0 **quiet**; B walkback **375/375** (oi 1..127) | oi≠0 units↔OI unconfirmed; Post/ring HARD_DENY |
+| **2gs** | `PERCEPTION_READINESS_CATALOG_POLISH` | §6b perception map; ≤60s path snapshot; OG50 walkback reaffirm; SAFE_POST 2gp–2gr deltas | Post/ring HARD_DENY; oi≠0 still open |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -152,4 +166,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gr · denser Assign oi≠0 quiet + OG50 catalog 375/375 · 2026-10-31 Asia/Shanghai*
+*Phase 2gs · perception+readiness catalog polish · 2026-10-31 Asia/Shanghai*
