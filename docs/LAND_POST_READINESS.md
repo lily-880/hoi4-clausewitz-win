@@ -111,9 +111,9 @@ What does **not** unlock Post: Capstone/121 re-churn; HourlyTick sightings alone
 
 ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe empty (2gj). Dummy ring pending/execlist empty (2gk). Catalog + offline layouts are the Post-side ceiling without human midflight or SAFE Post.
 
-**2gm/2gn perception:** `CArmy+0x200` multi-province hits (tag-FP filtered). **2gn cross:** `+0x200` ⊀ Instance`+0x70`/`+0x88` (3 multi × 57 shaped OIs, overlap=0) — extends 2fy no-overlap. Named `movement_dest` **NOT_DEMANGLED**; army↔OI membership field **STUBBED**.
+**2gm/2gn/2go perception:** `CArmy+0x200` multi-province hits (tag-FP filtered). **2gn cross:** `+0x200` ⊀ Instance`+0x70`/`+0x88` (overlap=0). **2go:** named `movement_dest` PE hunt → **HONEST_EMPTY** (strict 0; soft `+0x2B4` empty this window; no scalar≡path_last). Army↔OI membership field **STUBBED**.
 
-**Next shortest NON-Post:** optional Assign-stage membership sight or named movement_dest hunt; else human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** Assign-stage membership sight (≤90s); else human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
@@ -141,6 +141,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gk** | `STRATEGIC_RING_EMBED_DESIGN_V2_STARTGAME_CONCORDANCE` | Recipe **v2** DESIGN: steps 1–4 proof-tagged (2fd/2bq/2gj); step 5 ring push **STUBBED**; StartGame sticky = best live recreate sightline; Strategic = best offline rebuild | In-process ring_embed needs Post/sink |
 | **2gm** | `CARMY_PATH_INSTANCE_RO_PLUS200_MULTI_HIT` | Perception: `CArmy+0x200` multi (2) after tag-FP filter; Instance+0x70/+0x88 hit 8/14; +0xe0/+0x100 empty; named movement_dest NOT_DEMANGLED | No demangled movement_dest; Post/ring still HARD_DENY |
 | **2gn** | `CROSS_200_VS_70_NO_OVERLAP` | CArmy+0x200 ↔ Instance+0x70/+0x88: 3 multi × 57 shaped, **overlap=0**; membership handle scans empty; oi_u32 noise untrusted | +0x200 ≠ order path; Post/ring HARD_DENY |
+| **2go** | `MOVEMENT_DEST_NAMED_HONEST_EMPTY` | PE strict named `movement_dest` family **0** hits; soft `+0x2B4` empty; no scalar≡`+0x200[-1]`; multi path still live (3) | Named dest STUBBED; Post/ring HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -148,4 +149,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gn · +0x200↔+0x70 cross NO_OVERLAP · 2026-10-31 Asia/Shanghai*
+*Phase 2go · named movement_dest HONEST_EMPTY · 2026-10-31 Asia/Shanghai*
