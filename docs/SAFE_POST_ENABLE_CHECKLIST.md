@@ -3,6 +3,8 @@
 **Status: CLOSED — do not enable Post / tool-gate / ALLOW_POST.**  
 Phase **2en** documentation only. Haiti Path C land readiness.
 
+Catalog consolidate: `docs/LAND_POST_READINESS.md` (Phase 2gi).
+
 This is the single source of “what is still missing before any Post is allowed.”  
 It does **not** open gates. It does **not** authorize writes.
 

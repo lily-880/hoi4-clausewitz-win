@@ -1,0 +1,49 @@
+{
+  "phase": "2gi",
+  "result": "land_post_readiness_checklist",
+  "allow_post": false,
+  "doc": "docs/LAND_POST_READINESS.md",
+  "speed_policy": "pause-or-1x only (never 5x)",
+  "forbidden": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post",
+    "tool-gate",
+    "2fb_recipe_execute",
+    "ask_user_right_click",
+    "Capstone/121 re-churn"
+  ],
+  "checklist": {
+    "cmove_leaf": "STUBBED",
+    "ring_embed": "STUBBED",
+    "nf_rf_midflight": "STUBBED_EMPTY",
+    "allow_post": "HARD_DENY",
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "strategic_layout_2fb": "MATCH",
+    "orders_factory_idx_2fg": "FILLED_MATCH",
+    "move_cancel_factory_idx_2fe": "FILLED"
+  },
+  "next_human_gated": [
+    "midflight CMove leaf OR Dummy recreate proof on Strategic sample",
+    "ring-embed recreate without corruption",
+    "human CLAUSEWITZ_ALLOW_POST=1 for ONE experiment",
+    "dedicated tool-gate open with NEVER_POST",
+    "one land MOVE|Strategic Post at 1x then unset"
+  ],
+  "next_shortest_blocker": "NON-Post: gate stays CLOSED; human midflight CMove or recreate proof; retry GitHub push when reachable \u2014 still NO ALLOW_POST",
+  "live": {
+    "pid": 30352,
+    "hours_start": 40,
+    "hours_end": 41,
+    "ui_start": "1936-01-02 16:00",
+    "ui_end": "1936-01-02 17:00",
+    "stage": 0,
+    "pending": 0,
+    "drain": 35113,
+    "exec": 13535,
+    "samples": 48,
+    "observe_wall_s": 12.06,
+    "scenario": "ITA@1x current process (no relaunch; RO snapshot only)",
+    "captured_at": "2026-10-31 15:13 Asia/Shanghai"
+  }
+}
