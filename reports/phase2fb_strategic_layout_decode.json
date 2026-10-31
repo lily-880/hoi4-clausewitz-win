@@ -1,0 +1,159 @@
+{
+  "phase": "2fb",
+  "ts": "2026-10-31T03:48:49.995030+00:00",
+  "allow_post": false,
+  "never_5x": true,
+  "source_capture": {
+    "phase": "2fa",
+    "addr": "0x26bf0828b90",
+    "list": "stage[48]",
+    "seq": 6260,
+    "captured_at_asia_shanghai": "2026-10-31 11:44:39",
+    "note": "Offline decode of saved hex \u2014 no live re-grab required (addr may be freed)"
+  },
+  "decoded": {
+    "header": {
+      "vt_abs": "0x7ff74708d818",
+      "vt_rva": "0x2a2d818",
+      "image_base_recovered": "0x7ff744660000",
+      "pad_08": "0x0",
+      "tick_0c": 1,
+      "pad_10": "0x0",
+      "pad_14": "0x0",
+      "field_18": "0x1206",
+      "field_18_u32": 4614,
+      "seq_1c": 6260,
+      "field_20": "0x1874",
+      "field_20_u32": 6260,
+      "pad_24": "0x0",
+      "note_0x18_0x20": "0x1C=seq; 0x20 echoed seq in this sample (0x1874=6260); 0x18=0x1206 unknown hdr neighbor"
+    },
+    "embed": {
+      "layout": "CUnitStrategicMoveAction",
+      "as_embed": true,
+      "cmd_embed_off": "0x28",
+      "vt_abs": "0x7ff74707f7e8",
+      "vt_rva": "0x2a1f7e8",
+      "type_id_at_plus8": 13898,
+      "type_id_at_plus8_hex": "0x364a",
+      "unk_0c": 97,
+      "unk_0c_hex": "0x61",
+      "army_handle": [
+        51,
+        1092
+      ],
+      "army_handle_off": "0x10",
+      "province": 11874,
+      "province_off": "0x18",
+      "clear": 1,
+      "clear_off": "0x1c",
+      "move_priority": 2,
+      "move_priority_off": "0x20",
+      "move_priority_name": "PLAYER_ORDER",
+      "hex": "e8f70747f77f00004a360000610000003300000044040000622e0000010000000200000000000000",
+      "trailing_pad_24": "00000000"
+    },
+    "catalog_match": {
+      "cmd_vt": true,
+      "embed_vt": true,
+      "action_type_id_at_8": true,
+      "army_handle_vs_2fa": true,
+      "province_vs_2fa": true,
+      "clear_vs_2fa": true,
+      "move_priority_vs_2fa": true,
+      "blob_covers_cmd_size": true,
+      "embed_end_eq_cmd_size": true
+    },
+    "all_catalog_fields_match": true,
+    "neighbors": {
+      "shared_with_MOVE": {
+        "execute_thunk": "0x13fc990",
+        "same_as_MOVE_execute": true,
+        "serialize_thunk": "0x1404590",
+        "same_as_MOVE_serialize": true,
+        "deserialize_thunk": "0x1403570",
+        "action_embed_off": "0x28",
+        "same_embed_off_as_MOVE": true
+      },
+      "diff_vs_MOVE": {
+        "cmd_size": {
+          "STRATEGIC": "0x50",
+          "MOVE": "0x88"
+        },
+        "cmd_vt": {
+          "STRATEGIC": "0x2a2d818",
+          "MOVE": "0x2a2c790"
+        },
+        "type_id": {
+          "STRATEGIC": "0x35b9",
+          "MOVE": "0x28a2"
+        },
+        "factory": {
+          "STRATEGIC": "0x13fb580",
+          "MOVE": "0x13fb000"
+        },
+        "action_vt": {
+          "STRATEGIC": "0x2a1f7e8",
+          "MOVE": "0x2a1f648"
+        },
+        "action_size": {
+          "STRATEGIC": "0x28",
+          "MOVE": "CUnitMoveAction ~0x60+ fields"
+        },
+        "destination_model": {
+          "STRATEGIC": "scalar province u32 @ embed+0x18",
+          "MOVE": "province_arr @+0x18 + path_arr @+0x30 (game alloc vectors)"
+        },
+        "why_strategic_cheaper_for_ring_embed": "No province/path vector alloc \u2014 only army_handle(8) + province(4) + clear(1) + move_priority(4)"
+      },
+      "vs_CANCEL": {
+        "CANCEL_vt": "0x2a2c9b8",
+        "CANCEL_size": "0x48",
+        "CANCEL_note": "units vector @+0x28; adjacent traffic historically denser than ordinary Move"
+      },
+      "serialize_tokens_action": {
+        "16": 10397,
+        "24": 10304,
+        "28": 10737,
+        "32": 14268
+      },
+      "factory_lookup_note": {
+        "STRATEGIC_factory_rva": "0x13fb580",
+        "STRATEGIC_factory_idx_catalog": 4505,
+        "MOVE_idx_formula_tid_minus_0x2328": 1402,
+        "STRATEGIC_tid_minus_0x2328": 4753,
+        "note": "2ez proved MOVE idx=tid-0x2328; Strategic catalog factory_idx=4505 \u2260 tid-0x2328 (4753) \u2014 do NOT Capstone/121 re-churn; trust factory RVA 0x13fb580"
+      },
+      "action_execute_isvalid": {
+        "action_execute": "0x12c3190",
+        "action_isvalid": "0x12c2c20",
+        "cmd_isvalid": "0x1402260",
+        "birth_path": "factory 0x13fb580 \u2192 size 0x50 \u2192 execute thunk 0x13fc990 \u2192 embed+0x28 \u2192 action.execute 0x12c3190"
+      }
+    },
+    "trailing": {
+      "beyond_cmd_size_0x50": "0000000000000000e5623b0600a50388a0bee9a06b02000001000000e69fa5e720f873df6b020000a0bee9a06b02000080dac2e06b020000",
+      "note": "dump_cmd reads 0x88/0xA0; bytes past catalog size 0x50 are NOT part of the command object"
+    },
+    "cmd_layout_STRATEGIC": {
+      "vt": "0x2a2d818",
+      "type_id": "0x35b9",
+      "size": "0x50",
+      "factory": "0x13fb580",
+      "action_embed": "0x28",
+      "action": {
+        "vt": "0x2a1f7e8",
+        "type_id": "0x364a",
+        "size": "0x28",
+        "fields": {
+          "army_handle": "0x10",
+          "province": "0x18",
+          "clear": "0x1c",
+          "move_priority": "0x20"
+        }
+      }
+    }
+  },
+  "ring_embed_recipe_path": "reports/phase2fb_ring_embed_recipe.json",
+  "result": "STRATEGIC_LAYOUT_DECODE_MATCH"
+}

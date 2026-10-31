@@ -1,0 +1,81 @@
+{
+  "phase": "2fb",
+  "kind": "observation_design_only",
+  "allow_post": false,
+  "CLAUSEWITZ_ALLOW_POST": false,
+  "posting": "DISABLED",
+  "writes": "FORBIDDEN",
+  "title": "ring_embed rebuild recipe from live StrategicRedeploy (design only)",
+  "why_strategic_first": "No province/path vector alloc \u2014 only army_handle(8) + province(4) + clear(1) + move_priority(4)",
+  "inputs_from_live_sample": {
+    "army_handle": [
+      51,
+      1092
+    ],
+    "province": 11874,
+    "clear": 1,
+    "move_priority": 2,
+    "move_priority_name": "PLAYER_ORDER",
+    "seq_observed": 6260,
+    "tick_observed": 1
+  },
+  "structural_steps_NOT_EXECUTED": [
+    {
+      "step": 1,
+      "name": "factory_alloc",
+      "detail": "Call/observe factory RVA 0x13fb580 \u2192 ecx/size=0x50 (0x50)",
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "step": 2,
+      "name": "fill_header",
+      "detail": "vt=0x2a2d818; tick/seq filled by game Post path \u2014 do NOT invent seq writes; observe only",
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "step": 3,
+      "name": "fill_embed_at_plus_0x28",
+      "fields": {
+        "vt": "0x2a1f7e8",
+        "type_id_at_plus8": "0x364a",
+        "army_handle@+0x10": [
+          51,
+          1092
+        ],
+        "province@+0x18": 11874,
+        "clear@+0x1C": 1,
+        "move_priority@+0x20": 2
+      },
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "step": 4,
+      "name": "queue_placement",
+      "detail": "Game path: Post \u2192 CDummyServer sink \u2192 ring@+0xa0 \u2192 pending@+0x58 \u2192 execlist@+0x40 \u2192 execute thunk 0x13fc990 \u2192 action.execute 0x12c3190",
+      "status": "DESIGN_ONLY \u2014 NEVER inject"
+    }
+  ],
+  "dummy_server_offsets_known": {
+    "RING": "0xa0",
+    "PENDING": "0x58",
+    "EXECLIST": "0x40",
+    "note": "Structural only; live Move/Strategic buffer embed into ring NOT proven; 2fa saw stage not execlist"
+  },
+  "vs_ordinary_MOVE_blocker": "Ordinary CMove still needs live province_arr/path_arr game allocs \u2014 Strategic scalar province is the cheaper ring_embed design target",
+  "gate": {
+    "allow_post": false,
+    "SAFE_POST": "CLOSED",
+    "tool_gate": "CLOSED",
+    "forbid": [
+      "ALLOW_POST",
+      "CLAUSEWITZ_ALLOW_POST",
+      "Post inject",
+      "helper patch",
+      "guess writes",
+      "HourlyTick abuse",
+      "5x",
+      "ask right-click"
+    ]
+  },
+  "next_after_this_design": "IsValid-path RO check / compare Cancel traffic \u2014 still NO ALLOW_POST; ordinary CMove sample remains optional stub"
+}

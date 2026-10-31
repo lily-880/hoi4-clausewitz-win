@@ -1,0 +1,45 @@
+{
+  "phase": "2fb",
+  "result": "STRATEGIC_LAYOUT_DECODE_MATCH",
+  "scenario": "ETH capture offline decode (live may still be ETH@1x)",
+  "allow_post": false,
+  "catalog_match": {
+    "cmd_vt": true,
+    "embed_vt": true,
+    "action_type_id_at_8": true,
+    "army_handle_vs_2fa": true,
+    "province_vs_2fa": true,
+    "clear_vs_2fa": true,
+    "move_priority_vs_2fa": true,
+    "blob_covers_cmd_size": true,
+    "embed_end_eq_cmd_size": true
+  },
+  "embed_fields": {
+    "army_handle": [
+      51,
+      1092
+    ],
+    "province": 11874,
+    "clear": 1,
+    "move_priority": 2,
+    "move_priority_name": "PLAYER_ORDER",
+    "type_id_at_plus8": "0x364a"
+  },
+  "shared_execute_thunk_with_MOVE": "0x13fc990",
+  "works": [
+    "offline layout decode of 2fa StrategicRedeploy hex",
+    "catalog STRATEGIC vt/embed/fields MATCH live sample",
+    "documented army_handle/province/clear/move_priority offsets",
+    "drafted ring_embed observation recipe (writes FORBIDDEN)",
+    "allow_post stays False"
+  ],
+  "stubbed": [
+    "ordinary CMoveCommand / CUnitMoveAction / CSupportAttack live sample",
+    "ring_embed execution",
+    "SAFE_POST",
+    "self-issue MOVE",
+    "Post inject"
+  ],
+  "next_shortest_blocker": "IsValid-path / SAFE checklist RO for Strategic ring_embed design \u2014 still NO ALLOW_POST (do NOT execute recipe; ordinary CMove optional)",
+  "parent_sha_base": "0ae3930"
+}
