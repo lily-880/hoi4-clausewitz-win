@@ -1,0 +1,875 @@
+{
+  "phase": "2fo",
+  "ts": "2026-10-31T04:56:07.973079+00:00",
+  "result": "ASSIGN_UNITS_HANDLES_DECODED",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "executed_2fb_recipe": false,
+  "parent_sha_base": "0a1105a",
+  "handle_element": {
+    "layout": "{u32 type, u32 index}",
+    "stride": 8,
+    "HANDLE_TYPE_ARMY": 51,
+    "source": "army_subjects unit_handle [ty,ix] + handle.resolve; live confirm below"
+  },
+  "live_at_start": {
+    "pid": 34188,
+    "hours": 156,
+    "ui_date": "1936-01-07 12:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign units.data handle decode (no Post)"
+  },
+  "live": {
+    "pid": 34188,
+    "hours": 157,
+    "ui_date": "1936-01-07 13:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x Assign units.data handle decode (no Post)"
+  },
+  "prior_reread": {
+    "from": "phase2fn captures",
+    "rows": [
+      {
+        "name": "COrderAssignCommand",
+        "source": "stage[17]",
+        "cmd_addr": "0x1b9f11f7a50",
+        "data": "0x1b9f27dbd60",
+        "size": 4,
+        "stale": false,
+        "hex": "8b030000120000003300000042050000a05decc7b9010000690e010000000000",
+        "decoded": {
+          "element_layout": "{u32 type, u32 index}",
+          "stride": 8,
+          "size_claimed": 4,
+          "bytes_have": 32,
+          "elements": [
+            {
+              "i": 0,
+              "type": 907,
+              "type_hex": "0x38b",
+              "index": 18,
+              "index_hex": "0x12",
+              "as_list": [
+                907,
+                18
+              ],
+              "note": null,
+              "raw8": "8b03000012000000"
+            },
+            {
+              "i": 1,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1346,
+              "index_hex": "0x542",
+              "as_list": [
+                51,
+                1346
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "3300000042050000"
+            },
+            {
+              "i": 2,
+              "type": 3354156448,
+              "type_hex": "0xc7ec5da0",
+              "index": 441,
+              "index_hex": "0x1b9",
+              "as_list": [
+                3354156448,
+                441
+              ],
+              "note": null,
+              "raw8": "a05decc7b9010000"
+            },
+            {
+              "i": 3,
+              "type": 69225,
+              "type_hex": "0x10e69",
+              "index": 0,
+              "index_hex": "0x0",
+              "as_list": [
+                69225,
+                0
+              ],
+              "note": null,
+              "raw8": "690e010000000000"
+            }
+          ],
+          "type_histogram": {
+            "0x38b": 1,
+            "0x33": 1,
+            "0xc7ec5da0": 1,
+            "0x10e69": 1
+          }
+        },
+        "resolved": [
+          {
+            "as_list": [
+              907,
+              18
+            ],
+            "resolved": null,
+            "ok": false
+          },
+          {
+            "as_list": [
+              51,
+              1346
+            ],
+            "resolved": "0x1b9c7ec5d90",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1346
+            ],
+            "echo_matches": true
+          },
+          {
+            "as_list": [
+              3354156448,
+              441
+            ],
+            "resolved": null,
+            "ok": false
+          },
+          {
+            "as_list": [
+              69225,
+              0
+            ],
+            "resolved": null,
+            "ok": false
+          }
+        ]
+      },
+      {
+        "name": "COrderUnassignCommand",
+        "source": "stage[7]",
+        "cmd_addr": "0x1b9f11e58d0",
+        "data": "0x1b9f16cc760",
+        "size": 1,
+        "stale": false,
+        "hex": "f0ecaea1b9010000",
+        "decoded": {
+          "element_layout": "{u32 type, u32 index}",
+          "stride": 8,
+          "size_claimed": 1,
+          "bytes_have": 8,
+          "elements": [
+            {
+              "i": 0,
+              "type": 2712595696,
+              "type_hex": "0xa1aeecf0",
+              "index": 441,
+              "index_hex": "0x1b9",
+              "as_list": [
+                2712595696,
+                441
+              ],
+              "note": null,
+              "raw8": "f0ecaea1b9010000"
+            }
+          ],
+          "type_histogram": {
+            "0xa1aeecf0": 1
+          }
+        },
+        "resolved": [
+          {
+            "as_list": [
+              2712595696,
+              441
+            ],
+            "resolved": null,
+            "ok": false
+          }
+        ]
+      },
+      {
+        "name": "COrderUnassignCommand",
+        "source": "stage[8]",
+        "cmd_addr": "0x1b9f11e5f90",
+        "data": "0x1b9f16cc790",
+        "size": 1,
+        "stale": false,
+        "hex": "0800000007000000",
+        "decoded": {
+          "element_layout": "{u32 type, u32 index}",
+          "stride": 8,
+          "size_claimed": 1,
+          "bytes_have": 8,
+          "elements": [
+            {
+              "i": 0,
+              "type": 8,
+              "type_hex": "0x8",
+              "index": 7,
+              "index_hex": "0x7",
+              "as_list": [
+                8,
+                7
+              ],
+              "note": null,
+              "raw8": "0800000007000000"
+            }
+          ],
+          "type_histogram": {
+            "0x8": 1
+          }
+        },
+        "resolved": [
+          {
+            "as_list": [
+              8,
+              7
+            ],
+            "resolved": null,
+            "ok": false
+          }
+        ]
+      },
+      {
+        "name": "COrderAssignCommand",
+        "source": "stage[11]",
+        "skipped": "empty_or_zero_data"
+      }
+    ]
+  },
+  "bounded_sight": {
+    "observe_seconds": 20.0,
+    "elapsed": 20.0,
+    "polls": 1440463,
+    "sight_counts": {
+      "CHourlyTickCommand": 17068,
+      "COrderAssignCommand": 2
+    },
+    "captures": [
+      {
+        "source": "stage[1]",
+        "name": "COrderAssignCommand",
+        "addr": "0x1b9dd942f90",
+        "t": 6.377,
+        "units": {
+          "data": "0x1b9f2c0e040",
+          "capacity": 2,
+          "size": 2,
+          "alloc": "0x7ff74775d000"
+        },
+        "trail": {
+          "order_index": 1
+        },
+        "units_data_hex": "330000000b07000069120000420f0000",
+        "decoded": {
+          "element_layout": "{u32 type, u32 index}",
+          "stride": 8,
+          "size_claimed": 2,
+          "bytes_have": 16,
+          "elements": [
+            {
+              "i": 0,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1803,
+              "index_hex": "0x70b",
+              "as_list": [
+                51,
+                1803
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "330000000b070000"
+            },
+            {
+              "i": 1,
+              "type": 4713,
+              "type_hex": "0x1269",
+              "index": 3906,
+              "index_hex": "0xf42",
+              "as_list": [
+                4713,
+                3906
+              ],
+              "note": null,
+              "raw8": "69120000420f0000"
+            }
+          ],
+          "type_histogram": {
+            "0x33": 1,
+            "0x1269": 1
+          }
+        },
+        "resolved": [
+          {
+            "as_list": [
+              51,
+              1803
+            ],
+            "resolved": "0x1b9c815d3b0",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1803
+            ],
+            "echo_matches": true
+          },
+          {
+            "as_list": [
+              4713,
+              3906
+            ],
+            "resolved": null,
+            "ok": false
+          }
+        ],
+        "subject_handle": null
+      },
+      {
+        "source": "stage[11]",
+        "name": "COrderAssignCommand",
+        "addr": "0x1b9f11ed6d0",
+        "t": 9.013,
+        "units": {
+          "data": "0x1b9f27d26d0",
+          "capacity": 4,
+          "size": 4,
+          "alloc": "0x7ff74775d000"
+        },
+        "trail": {
+          "order_index": 6
+        },
+        "units_data_hex": "3300000012070000330000001307000033000000180700003300000017070000",
+        "decoded": {
+          "element_layout": "{u32 type, u32 index}",
+          "stride": 8,
+          "size_claimed": 4,
+          "bytes_have": 32,
+          "elements": [
+            {
+              "i": 0,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1810,
+              "index_hex": "0x712",
+              "as_list": [
+                51,
+                1810
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "3300000012070000"
+            },
+            {
+              "i": 1,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1811,
+              "index_hex": "0x713",
+              "as_list": [
+                51,
+                1811
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "3300000013070000"
+            },
+            {
+              "i": 2,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1816,
+              "index_hex": "0x718",
+              "as_list": [
+                51,
+                1816
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "3300000018070000"
+            },
+            {
+              "i": 3,
+              "type": 51,
+              "type_hex": "0x33",
+              "index": 1815,
+              "index_hex": "0x717",
+              "as_list": [
+                51,
+                1815
+              ],
+              "note": "HANDLE_TYPE_ARMY",
+              "raw8": "3300000017070000"
+            }
+          ],
+          "type_histogram": {
+            "0x33": 4
+          }
+        },
+        "resolved": [
+          {
+            "as_list": [
+              51,
+              1810
+            ],
+            "resolved": "0x1b9c81f0f80",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1810
+            ],
+            "echo_matches": true
+          },
+          {
+            "as_list": [
+              51,
+              1811
+            ],
+            "resolved": "0x1b9c81edb00",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1811
+            ],
+            "echo_matches": true
+          },
+          {
+            "as_list": [
+              51,
+              1816
+            ],
+            "resolved": "0x1b9c81f5120",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1816
+            ],
+            "echo_matches": true
+          },
+          {
+            "as_list": [
+              51,
+              1815
+            ],
+            "resolved": "0x1b9c81f3d70",
+            "ok": true,
+            "army_plus18_echo": [
+              51,
+              1815
+            ],
+            "echo_matches": true
+          }
+        ],
+        "subject_handle": null
+      }
+    ],
+    "assign_with_handles": 2,
+    "unassign_with_handles": 0,
+    "fallback_seen": false
+  },
+  "live_handle_samples": [
+    {
+      "origin": "2fn_reread",
+      "name": "COrderAssignCommand",
+      "elements": [
+        {
+          "i": 0,
+          "type": 907,
+          "type_hex": "0x38b",
+          "index": 18,
+          "index_hex": "0x12",
+          "as_list": [
+            907,
+            18
+          ],
+          "note": null,
+          "raw8": "8b03000012000000"
+        },
+        {
+          "i": 1,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1346,
+          "index_hex": "0x542",
+          "as_list": [
+            51,
+            1346
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "3300000042050000"
+        },
+        {
+          "i": 2,
+          "type": 3354156448,
+          "type_hex": "0xc7ec5da0",
+          "index": 441,
+          "index_hex": "0x1b9",
+          "as_list": [
+            3354156448,
+            441
+          ],
+          "note": null,
+          "raw8": "a05decc7b9010000"
+        },
+        {
+          "i": 3,
+          "type": 69225,
+          "type_hex": "0x10e69",
+          "index": 0,
+          "index_hex": "0x0",
+          "as_list": [
+            69225,
+            0
+          ],
+          "note": null,
+          "raw8": "690e010000000000"
+        }
+      ],
+      "resolved": [
+        {
+          "as_list": [
+            907,
+            18
+          ],
+          "resolved": null,
+          "ok": false
+        },
+        {
+          "as_list": [
+            51,
+            1346
+          ],
+          "resolved": "0x1b9c7ec5d90",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1346
+          ],
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            3354156448,
+            441
+          ],
+          "resolved": null,
+          "ok": false
+        },
+        {
+          "as_list": [
+            69225,
+            0
+          ],
+          "resolved": null,
+          "ok": false
+        }
+      ],
+      "type_histogram": {
+        "0x38b": 1,
+        "0x33": 1,
+        "0xc7ec5da0": 1,
+        "0x10e69": 1
+      }
+    },
+    {
+      "origin": "2fn_reread",
+      "name": "COrderUnassignCommand",
+      "elements": [
+        {
+          "i": 0,
+          "type": 2712595696,
+          "type_hex": "0xa1aeecf0",
+          "index": 441,
+          "index_hex": "0x1b9",
+          "as_list": [
+            2712595696,
+            441
+          ],
+          "note": null,
+          "raw8": "f0ecaea1b9010000"
+        }
+      ],
+      "resolved": [
+        {
+          "as_list": [
+            2712595696,
+            441
+          ],
+          "resolved": null,
+          "ok": false
+        }
+      ],
+      "type_histogram": {
+        "0xa1aeecf0": 1
+      }
+    },
+    {
+      "origin": "2fn_reread",
+      "name": "COrderUnassignCommand",
+      "elements": [
+        {
+          "i": 0,
+          "type": 8,
+          "type_hex": "0x8",
+          "index": 7,
+          "index_hex": "0x7",
+          "as_list": [
+            8,
+            7
+          ],
+          "note": null,
+          "raw8": "0800000007000000"
+        }
+      ],
+      "resolved": [
+        {
+          "as_list": [
+            8,
+            7
+          ],
+          "resolved": null,
+          "ok": false
+        }
+      ],
+      "type_histogram": {
+        "0x8": 1
+      }
+    },
+    {
+      "origin": "2fo_sight",
+      "name": "COrderAssignCommand",
+      "source": "stage[1]",
+      "units": {
+        "data": "0x1b9f2c0e040",
+        "capacity": 2,
+        "size": 2,
+        "alloc": "0x7ff74775d000"
+      },
+      "trail": {
+        "order_index": 1
+      },
+      "elements": [
+        {
+          "i": 0,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1803,
+          "index_hex": "0x70b",
+          "as_list": [
+            51,
+            1803
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "330000000b070000"
+        },
+        {
+          "i": 1,
+          "type": 4713,
+          "type_hex": "0x1269",
+          "index": 3906,
+          "index_hex": "0xf42",
+          "as_list": [
+            4713,
+            3906
+          ],
+          "note": null,
+          "raw8": "69120000420f0000"
+        }
+      ],
+      "resolved": [
+        {
+          "as_list": [
+            51,
+            1803
+          ],
+          "resolved": "0x1b9c815d3b0",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1803
+          ],
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            4713,
+            3906
+          ],
+          "resolved": null,
+          "ok": false
+        }
+      ],
+      "type_histogram": {
+        "0x33": 1,
+        "0x1269": 1
+      }
+    },
+    {
+      "origin": "2fo_sight",
+      "name": "COrderAssignCommand",
+      "source": "stage[11]",
+      "units": {
+        "data": "0x1b9f27d26d0",
+        "capacity": 4,
+        "size": 4,
+        "alloc": "0x7ff74775d000"
+      },
+      "trail": {
+        "order_index": 6
+      },
+      "elements": [
+        {
+          "i": 0,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1810,
+          "index_hex": "0x712",
+          "as_list": [
+            51,
+            1810
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "3300000012070000"
+        },
+        {
+          "i": 1,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1811,
+          "index_hex": "0x713",
+          "as_list": [
+            51,
+            1811
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "3300000013070000"
+        },
+        {
+          "i": 2,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1816,
+          "index_hex": "0x718",
+          "as_list": [
+            51,
+            1816
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "3300000018070000"
+        },
+        {
+          "i": 3,
+          "type": 51,
+          "type_hex": "0x33",
+          "index": 1815,
+          "index_hex": "0x717",
+          "as_list": [
+            51,
+            1815
+          ],
+          "note": "HANDLE_TYPE_ARMY",
+          "raw8": "3300000017070000"
+        }
+      ],
+      "resolved": [
+        {
+          "as_list": [
+            51,
+            1810
+          ],
+          "resolved": "0x1b9c81f0f80",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1810
+          ],
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1811
+          ],
+          "resolved": "0x1b9c81edb00",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1811
+          ],
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1816
+          ],
+          "resolved": "0x1b9c81f5120",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1816
+          ],
+          "echo_matches": true
+        },
+        {
+          "as_list": [
+            51,
+            1815
+          ],
+          "resolved": "0x1b9c81f3d70",
+          "ok": true,
+          "army_plus18_echo": [
+            51,
+            1815
+          ],
+          "echo_matches": true
+        }
+      ],
+      "type_histogram": {
+        "0x33": 4
+      }
+    }
+  ],
+  "army_typed_lists": [
+    [
+      51,
+      1346
+    ],
+    [
+      51,
+      1803
+    ],
+    [
+      51,
+      1810
+    ],
+    [
+      51,
+      1811
+    ],
+    [
+      51,
+      1816
+    ],
+    [
+      51,
+      1815
+    ]
+  ],
+  "works": [
+    "units.data element layout = {u32 type, u32 index} stride 8 (matches unit_handle [ty,ix])",
+    "HANDLE_TYPE_ARMY=0x33 samples: [[51, 1346], [51, 1803], [51, 1810], [51, 1811], [51, 1816], [51, 1815]]",
+    "prior_reread_ok=3 sight_assign_handles=2 sight_unassign_handles=0",
+    "resolve_handle RO on typed elements; CArmy+0x18 echo check when ARMY",
+    "allow_post stays False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: NewFallback/ReplaceFallback midflight subject type-id OR Assign units.data\u2192order subject cross-link; still NO ALLOW_POST"
+}

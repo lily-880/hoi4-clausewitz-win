@@ -216,7 +216,7 @@ ORDERS = {
         "isvalid": 0x18de900,
         "isvalid_kind": "FN",
         "fields": {"units_data": 40, "units_capacity": 48, "units_count": 52, "units_alloc": 56, "order_index": 72, "assign_to_minimum_order": 76},
-        "fields_note": "2fn: units=CPdxArray@+0x28 (size@+0x34); order_index@+0x48; posting DISABLED",
+        "fields_note": "2fn/2fo: units=CPdxArray@+0x28 (size@+0x34); elem={u32 type,u32 index}@data stride8; order_index@+0x48; posting DISABLED",
     },
     "COrderUnassignCommand": {
         "factory": 0x18d09b0,
@@ -225,7 +225,7 @@ ORDERS = {
         "isvalid": 0x18e01d0,
         "isvalid_kind": "FN",
         "fields": {"units_data": 40, "units_capacity": 48, "units_count": 52, "units_alloc": 56, "unassign_group": 72, "unassign_army_group_instances": 73},
-        "fields_note": "2fn: units=CPdxArray@+0x28 (size@+0x34); unassign_group@+0x48; posting DISABLED",
+        "fields_note": "2fn/2fo: units=CPdxArray@+0x28 (size@+0x34); elem={u32 type,u32 index}@data stride8; unassign_group@+0x48; posting DISABLED",
     },
     "COrderDeleteCommand": {
         "factory": 0x18cffa0,

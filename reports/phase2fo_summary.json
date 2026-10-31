@@ -1,0 +1,91 @@
+{
+  "phase": "2fo",
+  "result": "ASSIGN_UNITS_HANDLES_DECODED",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-07 13:00",
+  "hours": 157,
+  "scenario": "ITA@1x Assign units.data handle decode (no Post)",
+  "samples_n": 5,
+  "army_typed_lists": [
+    [
+      51,
+      1346
+    ],
+    [
+      51,
+      1803
+    ],
+    [
+      51,
+      1810
+    ],
+    [
+      51,
+      1811
+    ],
+    [
+      51,
+      1816
+    ],
+    [
+      51,
+      1815
+    ]
+  ],
+  "prior_reread_ok": 3,
+  "sight": {
+    "elapsed": 20.0,
+    "assign_with_handles": 2,
+    "unassign_with_handles": 0,
+    "fallback_seen": false,
+    "sight_counts": {
+      "CHourlyTickCommand": 17068,
+      "COrderAssignCommand": 2
+    }
+  },
+  "works": [
+    "units.data elem = {u32 type, u32 index} stride 8",
+    "on-stage Assign size=4: all HANDLE_TYPE_ARMY; resolve+CArmy+0x18 echo match",
+    "on-stage Assign size=2: [51,1803] ARMY + [4713,3906] non-ARMY unresolved (no invent)",
+    "2fn units.data reread LOW credibility (heap reuse) \u2014 prefer on-stage",
+    "cmd_layout fields_note: elem stride8",
+    "allow_post False; never 5x; 2fb not executed; tool-gate CLOSED"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex"
+  ],
+  "next_shortest_blocker": "NON-Post: NewFallback/ReplaceFallback midflight subject type-id OR Assign units.data\u2192order subject cross-link; still NO ALLOW_POST",
+  "parent_sha_base": "0a1105a",
+  "army_typed_authoritative": [
+    [
+      51,
+      1810
+    ],
+    [
+      51,
+      1811
+    ],
+    [
+      51,
+      1816
+    ],
+    [
+      51,
+      1815
+    ],
+    [
+      51,
+      1803
+    ]
+  ]
+}
