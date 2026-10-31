@@ -1,0 +1,875 @@
+{
+  "phase": "2gm",
+  "ts_utc": "2026-10-31T07:24:19.350010+00:00",
+  "captured_at_shanghai": "2026-10-31 15:25",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "CARMY_PATH_INSTANCE_RO_PLUS200_MULTI_HIT",
+  "error": null,
+  "live": {
+    "pid": 30352,
+    "hours": 94,
+    "ui_date": "1936-01-04 22:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x perception path+Instance RO (no Post)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 80668,
+    "exec": 25787,
+    "allow_post": false
+  },
+  "offline_catalog": {
+    "instance_fields": [
+      {
+        "off": "0x70",
+        "kind": "CPdxArray<u32>",
+        "status": "PROVEN",
+        "role": "ordered province ids for order/front path (NOT army midflight movement_dest)",
+        "source": "2fx/2fy"
+      },
+      {
+        "off": "0x88",
+        "kind": "CPdxArray<CProvince*>",
+        "status": "PROVEN",
+        "role": "hub/neighbor province ptr pairs over +0x70 prefix",
+        "source": "2fx"
+      },
+      {
+        "off": "0xe0",
+        "kind": "CPdxArray<u32> soft/candidates",
+        "status": "PROVEN_SOFT",
+        "role": "u32 stream; often empty or soft-shaped",
+        "source": "2fy"
+      },
+      {
+        "off": "0x100",
+        "kind": "packed twin / soft VT 0x2794550",
+        "status": "PROVEN_SOFT",
+        "role": "twin array / soft object; not demangled named movement_dest",
+        "source": "2fy/LAND_POST"
+      }
+    ],
+    "carmy_path_fields": [
+      {
+        "field": "stdvec_u32 / CPdxArray u32 scan @ CArmy+0x40..0x780",
+        "status": "CANDIDATE_SCAN",
+        "role": "province-id shaped vectors; often current-only or empty at peacetime",
+        "source": "2ff/2fh/2fy"
+      },
+      {
+        "field": "actionish province_arr@+0x18 / path_arr@+0x30 layout pockets",
+        "status": "CANDIDATE_LAYOUT",
+        "role": "MoveAction-like embeds; live filled midflight STUBBED",
+        "source": "2ff/2gj"
+      },
+      {
+        "field": "named movement_dest",
+        "status": "NOT_DEMANGLED",
+        "role": "no demangled named field; do not invent destinations",
+        "source": "2ff note"
+      }
+    ]
+  },
+  "path_poll": {
+    "carmy_rows": 9,
+    "movement_dest_nonempty_count": 9,
+    "multi_province_cand_count": 2,
+    "poll_ticks": 1,
+    "poll_window_s": 60.0,
+    "elapsed_s": 0.03,
+    "armies_sample": [
+      {
+        "index": 1039,
+        "handle": [
+          51,
+          1039
+        ],
+        "province_id": 11793,
+        "army": "0x1eac93f3690",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x200",
+            "n": 12,
+            "province_ids": [
+              9813,
+              6901,
+              9857,
+              932,
+              3735,
+              11852,
+              11854,
+              9700,
+              11684,
+              6746,
+              726,
+              3729
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1040,
+        "handle": [
+          51,
+          1040
+        ],
+        "province_id": 12857,
+        "army": "0x1eac93f0210",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x6f0",
+            "n": 1,
+            "province_ids": [
+              3816
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1042,
+        "handle": [
+          51,
+          1042
+        ],
+        "province_id": 6993,
+        "army": "0x1eac93f5df0",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x60",
+            "n": 1,
+            "province_ids": [
+              3945
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x200",
+            "n": 8,
+            "province_ids": [
+              6841,
+              13227,
+              9827,
+              11825,
+              4024,
+              3920,
+              726,
+              3729
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1043,
+        "handle": [
+          51,
+          1043
+        ],
+        "province_id": 10024,
+        "army": "0x1eac93f4a40",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1044,
+        "handle": [
+          51,
+          1044
+        ],
+        "province_id": 9703,
+        "army": "0x1eac9429500",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1045,
+        "handle": [
+          51,
+          1045
+        ],
+        "province_id": 2825,
+        "army": "0x1eac9426080",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1046,
+        "handle": [
+          51,
+          1046
+        ],
+        "province_id": 5388,
+        "army": "0x1eac9428150",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1048,
+        "handle": [
+          51,
+          1048
+        ],
+        "province_id": 7153,
+        "army": "0x1eac942a220",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      },
+      {
+        "index": 1049,
+        "handle": [
+          51,
+          1049
+        ],
+        "province_id": 858,
+        "army": "0x1eac942a8b0",
+        "movement_dest_status": "nonempty_candidate",
+        "vector_cands": [
+          {
+            "kind": "cpdx_u32",
+            "off": "0x200",
+            "n": 1,
+            "province_ids": [
+              3986
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x3e0",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          },
+          {
+            "kind": "cpdx_u32",
+            "off": "0x400",
+            "n": 1,
+            "province_ids": [
+              15
+            ],
+            "matches_current_only": false
+          }
+        ]
+      }
+    ],
+    "note": "Candidates only; empty means do NOT invent destinations."
+  },
+  "instance_sample": {
+    "seed_ois": [
+      5,
+      6,
+      7,
+      9,
+      13,
+      17,
+      20,
+      22,
+      25,
+      38,
+      40,
+      44,
+      68,
+      70
+    ],
+    "ok_count": 14,
+    "with_70_province_shaped": 8,
+    "with_88_cprovince": 8,
+    "rows": [
+      {
+        "oi": 5,
+        "ok": true,
+        "inst": "0x1eae51c0530",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 3,
+        "arr_100_size": 3,
+        "arr_e0_sample": [
+          44,
+          805,
+          934
+        ],
+        "arr_100_sample": [
+          44,
+          0,
+          1861323424
+        ]
+      },
+      {
+        "oi": 6,
+        "ok": true,
+        "inst": "0x1eaf007b240",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 7,
+        "arr_100_size": 7,
+        "arr_e0_sample": [
+          47,
+          182,
+          184,
+          185,
+          186,
+          187,
+          731
+        ],
+        "arr_100_sample": [
+          47,
+          489,
+          734913184,
+          490,
+          1,
+          1,
+          1198903296
+        ]
+      },
+      {
+        "oi": 7,
+        "ok": true,
+        "inst": "0x1eae52a5e10",
+        "arr70_n": 3,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          592,
+          13127,
+          4640
+        ],
+        "arr88_size": 8,
+        "arr88_ptr_kinds": {
+          "CProvince": 8
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 9,
+        "ok": true,
+        "inst": "0x1eaf004a410",
+        "arr70_n": 4,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          658,
+          9600,
+          3641,
+          636
+        ],
+        "arr88_size": 7,
+        "arr88_ptr_kinds": {
+          "CProvince": 7
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 13,
+        "ok": true,
+        "inst": "0x1eaf004b350",
+        "arr70_n": 26,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          6208,
+          11060,
+          9083,
+          6055,
+          9178,
+          6155,
+          58,
+          11058,
+          9175,
+          6152,
+          9095,
+          9171
+        ],
+        "arr88_size": 50,
+        "arr88_ptr_kinds": {
+          "CProvince": 32
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 17,
+        "ok": true,
+        "inst": "0x1eaf0070a60",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 1,
+        "arr_100_size": 1,
+        "arr_e0_sample": [
+          914
+        ],
+        "arr_100_sample": [
+          914
+        ]
+      },
+      {
+        "oi": 20,
+        "ok": true,
+        "inst": "0x1eaccfcaf90",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 3,
+        "arr_100_size": 3,
+        "arr_e0_sample": [
+          7,
+          35,
+          36
+        ],
+        "arr_100_sample": [
+          7,
+          0,
+          1576160096
+        ]
+      },
+      {
+        "oi": 22,
+        "ok": true,
+        "inst": "0x1eae52a4730",
+        "arr70_n": 10,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          3058,
+          3082,
+          6107,
+          9191,
+          11169,
+          9128,
+          11104,
+          9064,
+          6092,
+          9116
+        ],
+        "arr88_size": 18,
+        "arr88_ptr_kinds": {
+          "CProvince": 18
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 25,
+        "ok": true,
+        "inst": "0x1eaf00918a0",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 6,
+        "arr_100_size": 6,
+        "arr_e0_sample": [
+          76,
+          78,
+          80,
+          82,
+          83,
+          766
+        ],
+        "arr_100_sample": [
+          76,
+          0,
+          1576185328,
+          490,
+          1,
+          1
+        ]
+      },
+      {
+        "oi": 38,
+        "ok": true,
+        "inst": "0x1eaf0075220",
+        "arr70_n": 8,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          6727,
+          6743,
+          9683,
+          11686,
+          11705,
+          6600,
+          414,
+          3407
+        ],
+        "arr88_size": 14,
+        "arr88_ptr_kinds": {
+          "CProvince": 14
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 40,
+        "ok": true,
+        "inst": "0x1eaf006ea50",
+        "arr70_n": null,
+        "arr70_province_shaped": null,
+        "arr70_sample": [],
+        "arr88_size": null,
+        "arr88_ptr_kinds": null,
+        "arr_e0_size": 4,
+        "arr_100_size": 4,
+        "arr_e0_sample": [
+          6,
+          34,
+          977,
+          980
+        ],
+        "arr_100_sample": [
+          6,
+          489,
+          4063217184,
+          490
+        ]
+      },
+      {
+        "oi": 44,
+        "ok": true,
+        "inst": "0x1eaf004af80",
+        "arr70_n": 4,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          11901,
+          984,
+          3974,
+          3924
+        ],
+        "arr88_size": 4,
+        "arr88_ptr_kinds": {
+          "CProvince": 4
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 68,
+        "ok": true,
+        "inst": "0x1eaf007eab0",
+        "arr70_n": 8,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          3548,
+          11691,
+          3565,
+          6573,
+          9537,
+          6561,
+          11679,
+          3716
+        ],
+        "arr88_size": 16,
+        "arr88_ptr_kinds": {
+          "CProvince": 16
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      },
+      {
+        "oi": 70,
+        "ok": true,
+        "inst": "0x1eaf006e120",
+        "arr70_n": 2,
+        "arr70_province_shaped": true,
+        "arr70_sample": [
+          11366,
+          317
+        ],
+        "arr88_size": 3,
+        "arr88_ptr_kinds": {
+          "CProvince": 3
+        },
+        "arr_e0_size": null,
+        "arr_100_size": null,
+        "arr_e0_sample": [],
+        "arr_100_sample": []
+      }
+    ]
+  },
+  "works": [
+    "offline Instance+CArmy perception field catalog",
+    "bounded <=60s CArmy path-vector RO deepen",
+    "seed-OI Instance +0x70/+0x88/+0xe0/+0x100 sample"
+  ],
+  "stubbed": [
+    "named demangled movement_dest",
+    "in-process ring_embed",
+    "2fb/2gk execute",
+    "ALLOW_POST",
+    "tool-gate",
+    "CMove midflight hex",
+    "Post inject"
+  ],
+  "next_shortest_blocker": "NON-Post: deepen CArmy+0x200 semantics vs Instance+0x70 (cross) OR human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when auth reachable \u2014 still NO ALLOW_POST",
+  "path_classification": {
+    "country_tag": 15,
+    "note": "CArmy+0x3e0/+0x400 often hold singleton [country_tag] \u2014 NOT movement path; filter before treating as movement_dest.",
+    "tag_singleton_false_positives": 18,
+    "true_multi_province_armies": 2,
+    "true_multi_sample": [
+      {
+        "index": 1039,
+        "province_id": 11793,
+        "cands": [
+          {
+            "off": "0x200",
+            "kind": "cpdx_u32",
+            "n": 12,
+            "province_ids": [
+              9813,
+              6901,
+              9857,
+              932,
+              3735,
+              11852,
+              11854,
+              9700,
+              11684,
+              6746,
+              726,
+              3729
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1042,
+        "province_id": 6993,
+        "cands": [
+          {
+            "off": "0x200",
+            "kind": "cpdx_u32",
+            "n": 8,
+            "province_ids": [
+              6841,
+              13227,
+              9827,
+              11825,
+              4024,
+              3920,
+              726,
+              3729
+            ]
+          }
+        ]
+      }
+    ],
+    "other_non_tag_nonempty_sample": [
+      {
+        "index": 1040,
+        "province_id": 12857,
+        "cands": [
+          {
+            "off": "0x6f0",
+            "kind": "cpdx_u32",
+            "n": 1,
+            "province_ids": [
+              3816
+            ]
+          }
+        ]
+      },
+      {
+        "index": 1049,
+        "province_id": 858,
+        "cands": [
+          {
+            "off": "0x200",
+            "kind": "cpdx_u32",
+            "n": 1,
+            "province_ids": [
+              3986
+            ]
+          }
+        ]
+      }
+    ],
+    "best_candidate_off": "0x200",
+    "best_candidate_role": "CPdxArray<u32> multi-province stream @ CArmy+0x200 (path-like / order-linked candidate; NOT demangled movement_dest)"
+  }
+}

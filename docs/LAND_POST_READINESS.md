@@ -109,9 +109,11 @@ What does **not** unlock Post: Capstone/121 re-churn; HourlyTick sightings alone
 
 ## 6. RO ceiling + next cheapest NON-Post
 
-ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe empty (2gj). Dummy ring pending/execlist empty (2gk). Catalog + offline layouts are the NON-Post ceiling without human midflight or SAFE Post.
+ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe empty (2gj). Dummy ring pending/execlist empty (2gk). Catalog + offline layouts are the Post-side ceiling without human midflight or SAFE Post.
 
-**Next shortest NON-Post:** gate CLOSED; human midflight CMove hex **or** human SAFE enable for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**2gm perception:** `CArmy+0x200` multi-province CPdxArray hits (2 armies) after filtering `+0x3e0`/`+0x400` country-tag singletons; Instance`+0x70`/`+0x88` filled on 8/14 seed OIs. Named `movement_dest` still **NOT_DEMANGLED**.
+
+**Next shortest NON-Post:** deepen `CArmy+0x200` ↔ Instance`+0x70` cross **or** human midflight CMove hex / SAFE Post for ring_embed; retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
@@ -137,6 +139,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | --- | --- | --- | --- |
 | **2gj** | `MOVE_OFFLINE_SKELETON_PASS_FACTORY1402_MATCH_OBSERVE_EMPTY` | CMove `0x88` offline skeleton; shared header w/ Strategic/Cancel; live factory_idx **1402** → `0x13FB000` **MATCH**; ≤45s CMove observe **HONEST_EMPTY** | No live CMove hex → not bit_identical; province_arr/path_arr need game allocs |
 | **2gk** | `STRATEGIC_RING_EMBED_DESIGN_V2_STARTGAME_CONCORDANCE` | Recipe **v2** DESIGN: steps 1–4 proof-tagged (2fd/2bq/2gj); step 5 ring push **STUBBED**; StartGame sticky = best live recreate sightline; Strategic = best offline rebuild | In-process ring_embed needs Post/sink |
+| **2gm** | `CARMY_PATH_INSTANCE_RO_PLUS200_MULTI_HIT` | Perception: `CArmy+0x200` multi (2) after tag-FP filter; Instance+0x70/+0x88 hit 8/14; +0xe0/+0x100 empty; named movement_dest NOT_DEMANGLED | No demangled movement_dest; Post/ring still HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -144,4 +147,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gl · catalog polish 2gj/2gk · 2026-10-31 15:21 Asia/Shanghai*
+*Phase 2gm · perception CArmy+0x200 + Instance map · 2026-10-31 Asia/Shanghai*
