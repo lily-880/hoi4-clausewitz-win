@@ -1,0 +1,100 @@
+{
+  "phase": "2gz",
+  "result": "ASSIGN_UNASSIGN_EXECUTE_FACTORY_MATCH",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 321,
+    "ui_date": "1936-01-14 09:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x Assign3350/Unassign3365/Execute3352 factory MATCH (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 274894,
+    "exec": 72392,
+    "allow_post": false
+  },
+  "factory": {
+    "expected_idx": {
+      "ASSIGN": 3350,
+      "UNASSIGN": 3365,
+      "EXECUTE": 3352,
+      "MOVE": 1402
+    },
+    "match": {
+      "ASSIGN": true,
+      "UNASSIGN": true,
+      "EXECUTE": true,
+      "MOVE": true
+    },
+    "all_focus_match": true,
+    "assign_3350_match": true,
+    "unassign_3365_match": true,
+    "execute_3352_match": true,
+    "move_1402_match": true,
+    "rows": {
+      "ASSIGN": {
+        "name": "ASSIGN",
+        "type_id": "0x303e",
+        "factory_idx_catalog": 3350,
+        "factory_idx_formula": 3350,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18cfca0",
+        "slot_rva": "0x18cfca0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x18d41b0",
+        "isvalid_rva": "0x18de900"
+      },
+      "UNASSIGN": {
+        "name": "UNASSIGN",
+        "type_id": "0x304d",
+        "factory_idx_catalog": 3365,
+        "factory_idx_formula": 3365,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18d09b0",
+        "slot_rva": "0x18d09b0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x18db050",
+        "isvalid_rva": "0x18e01d0"
+      },
+      "EXECUTE": {
+        "name": "EXECUTE",
+        "type_id": "0x3040",
+        "factory_idx_catalog": 3352,
+        "factory_idx_formula": 3352,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18d0070",
+        "slot_rva": "0x18d0070",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x18d6430",
+        "isvalid_rva": "0x18def40"
+      },
+      "MOVE": {
+        "name": "MOVE",
+        "type_id": "0x28a2",
+        "factory_idx_catalog": 1402,
+        "factory_idx_formula": 1402,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb000",
+        "slot_rva": "0x13fb000",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x14002f0"
+      }
+    }
+  },
+  "semantics": "Assign3350/Unassign3365/Execute3352 MATCH; no midflight; no Post",
+  "sha_base": "a19a549",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 this window (catalog only)"
+  ]
+}
