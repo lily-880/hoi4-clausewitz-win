@@ -1,0 +1,178 @@
+{
+  "phase": "2ge",
+  "allow_post": false,
+  "live_start": {
+    "pid": 14248,
+    "hours": 19,
+    "ui_date": "1936-01-01 19:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH longer war-day observe @1x AI-on (current process; no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1",
+    "gs": "0x11fe2ac42a0"
+  },
+  "live_end": {
+    "pid": 14248,
+    "hours": 26,
+    "ui_date": "1936-01-02 02:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH longer war-day observe @1x AI-on (current process; no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1",
+    "gs": "0x11fe2ac42a0"
+  },
+  "observe": {
+    "elapsed_s": 90.08,
+    "polls": 789,
+    "last_counters": {
+      "drain": 22113,
+      "exec": 11153,
+      "seq": 11168,
+      "stage_count": 0
+    },
+    "sight_counts": {},
+    "nf_rf_captures": [],
+    "path_best_sample": [],
+    "catalog_soft_path_samples": [],
+    "useful_path_army_count": 0
+  },
+  "catalog_polish": {
+    "source": "cmd_layout ORDERS (2fl/2fm already baked; no Capstone re-run)",
+    "COrderNewFallbackCommand": {
+      "vt": "0x2a84c80",
+      "type_id": "0x33d7",
+      "factory_idx": 4271,
+      "size": null,
+      "fields": {
+        "subject_handle": 40,
+        "units_data": 48,
+        "units_capacity": 56,
+        "units_count": 60,
+        "units_alloc": 64,
+        "provinces_data": 72,
+        "provinces_capacity": 80,
+        "provinces_size": 84,
+        "provinces_alloc": 88
+      },
+      "fields_note": "2fm: CPdxArray packing (2de layout); +0x54=provinces.size not AG fallback_flag; subject_handle=order-domain via gate 0xbbb1e0; posting DISABLED",
+      "isvalid_entry": {
+        "isvalid": 26080432,
+        "execute": 26054592,
+        "vt": 44584064,
+        "type_id": 13271,
+        "execute_calls": [
+          "0x2284800",
+          "0xc40230",
+          "0x25a0448",
+          "0x25a0310",
+          "0x25a03dc",
+          "0x10b85b0",
+          "0x10af090",
+          "0x254aa00",
+          "0xc415b0",
+          "0xc41b40",
+          "0x10b0d20",
+          "0xc416b0",
+          "0x10b4e50",
+          "0x10bb530",
+          "0x10b2bf0",
+          "0x2607890",
+          "0x10b5f10",
+          "0x10c3e80",
+          "0x121c500",
+          "0x10ce790",
+          "0x10cdb80",
+          "0x10b4fa0",
+          "0x18e47a0",
+          "0xc4c100"
+        ],
+        "isvalid_calls": [
+          "0xbbb1e0"
+        ],
+        "post_gate_candidates": [
+          "0x2284800",
+          "0xbbb1e0",
+          "0xc40230"
+        ],
+        "execute_body_helpers": [
+          "0xc40230",
+          "0xc416b0",
+          "0xc415b0",
+          "0x10b5f10",
+          "0x10b4e50"
+        ],
+        "named_helpers": [],
+        "second_order_calls": [],
+        "execute_n_calls_2ce": 23,
+        "execute_unknown_2cf": [
+          "0x25a0448",
+          "0x25a0310",
+          "0x25a03dc",
+          "0x10b85b0",
+          "0x10af090",
+          "0xc41b40",
+          "0x10b0d20",
+          "0x10bb530",
+          "0x10b2bf0",
+          "0x10c3e80",
+          "0x121c500",
+          "0x10ce790",
+          "0x10cdb80",
+          "0x10b4fa0",
+          "0x18e47a0"
+        ],
+        "execute_hot_unknown": [
+          "0x25a0448",
+          "0x25a0310",
+          "0x25a03dc",
+          "0x10af090",
+          "0x10b0d20",
+          "0x10c3e80",
+          "0x10ce790",
+          "0x10b4fa0"
+        ],
+        "isvalid_calls_2cf": [
+          "0xbbb1e0"
+        ],
+        "isvalid_calls_2cg": [
+          "0xbbb1e0"
+        ],
+        "execute_unknown_2cg": [
+          "0x10b85b0",
+          "0xc41b40",
+          "0x10bb530",
+          "0x10b2bf0",
+          "0x121c500",
+          "0x10cdb80"
+        ],
+        "execute_hot_unknown_2cg": [],
+        "fresh_execute_2cg": [
+          "0x10b4e50",
+          "0x2607890",
+          "0x10b5f10"
+        ],
+        "isvalid_calls_2ch": [
+          "0xbbb1e0"
+        ],
+        "execute_unknown_2ch": [
+          "0x10b85b0",
+          "0xc41b40",
+          "0x10bb530",
+          "0x10b2bf0",
+          "0x121c500",
+          "0x10cdb80",
+          "0x18e47a0",
+          "0xc4c100"
+        ],
+        "fresh_execute_2ch": [
+          "0x18e47a0",
+          "0xc4c100"
+        ],
+        "isvalid_calls_2ci": [
+          "0xbbb1e0"
+        ],
+        "execute_unknown_2ci": []
+      }
+    },
+    "RF_vt_soft": "0x2a84d38",
+    "delta_vs_prior": "no new Capstone; catalog already carries 2fm packing (+0x54=provinces_size, subject_handle@+0x28, units@+0x30, provinces@+0x48); factory_idx=4271 from 2fg tid-0x2328"
+  }
+}
