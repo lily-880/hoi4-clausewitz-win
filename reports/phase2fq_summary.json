@@ -1,0 +1,63 @@
+{
+  "phase": "2fq",
+  "result": "heap_live_walk_inconclusive",
+  "allow_post": false,
+  "pid": 34188,
+  "ui_date": "1936-01-10 11:00",
+  "hours": 227,
+  "ui_date_start": "1936-01-09 18:00",
+  "hours_start": 210,
+  "scenario": "ITA@1x order_index\u2192object walk (no Post)",
+  "speed_policy": "pause-or-1x only (never 5x)",
+  "heap_counts": {
+    "COrdersGroup": 77,
+    "COrdersGroupMember": 47,
+    "COrderInstance": 4
+  },
+  "heap_scanned_mb": 6501,
+  "live_order_indices": [
+    6,
+    9,
+    12
+  ],
+  "matched_n": 0,
+  "table_candidates_n": 0,
+  "backref_owners_total": 0,
+  "nf_midflight_ran": true,
+  "nf_hits": 0,
+  "rf_hits": 0,
+  "assign_sight_70s": {
+    "Assign": 17,
+    "ois": [
+      6,
+      9,
+      12
+    ]
+  },
+  "pool_stride_COrderInstance": "0x3d0",
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "order RTTI heap LIVE (first non-zero since 2cw peacetime 0): COrderInstance=4 COrdersGroup=77 COrdersGroupMember=47 (scan 6501MB)",
+    "COrderInstance samples contiguous stride 0x3D0 pool: 0x\u202670a0/7470/7840/7c10",
+    "stage Assign (70s window) ois={6,9,12} sight_counts Assign\u00d717; NF=0 RF=0",
+    "object peeks: u32\u2208{1,6} appear at inconsistent offs inside COrderInstance (no field named \u2014 no invent)",
+    "pointer-backref of 8 samples \u2192 0 owners in 55s/1927MB \u2014 catalog likely index-into-pool not raw COrder* table"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "NewFallback subject type-id table",
+    "live midflight NewFallback hex",
+    "order_index\u2192COrder* proven catalog root (pointer-backref empty)"
+  ],
+  "next_shortest_blocker": "NON-Post: resolve COrderInstance pool root (stride 0x3D0) / owner-of-base as index catalog OR map COrdersGroup +0x8/+0xc handle-like pair; NF/RF midflight still open; still NO ALLOW_POST",
+  "parent_sha_base": "7168db5"
+}

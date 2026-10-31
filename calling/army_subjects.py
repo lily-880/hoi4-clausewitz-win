@@ -358,7 +358,7 @@ def order_assign_recipe(unit_handles: list[list[int]] | None = None,
         "assign_to_minimum_order_off": 0x4C,
         "assign_to_minimum_order": assign_to_minimum_order,
         "cpdxarray": "data@0 cap@8 size@0xC alloc@0x10",
-        "note": "2fn/2fp: units[]→order_index@+0x48 battle-plan slot; Execute/Delete share index space@+0x30; posting DISABLED",
+        "note": "2fn/2fp/2fq: units[]→order_index@+0x48; Execute/Delete @+0x30; order RTTI heap live (COrderInstance pool stride 0x3D0) but pointer-table walk empty; posting DISABLED",
         "posting": "DISABLED",
     }
 
