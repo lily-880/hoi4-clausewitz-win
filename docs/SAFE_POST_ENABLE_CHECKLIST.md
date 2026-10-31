@@ -202,7 +202,7 @@ Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_
 
 ---
 
-## Phase 2gj … 2gt — checklist polish (CLOSED)
+## Phase 2gj … 2gu — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -221,6 +221,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2gr | denser Assign oi≠0 (clock nudge + heap edge); B catalog polish | **QUIET** on A; walkback 375/375 (Post still CLOSED) |
 | 2gs | perception §6b + readiness catalog; ≤60s path snapshot | **DOCS/RO polish** (Post still CLOSED) |
 | 2gt | ≤90s non-interactive midflight RO + §6c agent summary | **MIDFLIGHT_HONEST_EMPTY** (Post still CLOSED) |
+| 2gu | §6d agent feed ceiling (can-feed / HARD_DENY); catalog-only | **AGENT_FEED_CEILING_CATALOG_POLISH** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -238,5 +239,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2gt — midflight RO sample + agent summary. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2gu — agent feed ceiling catalog polish. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 

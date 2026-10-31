@@ -1,0 +1,124 @@
+{
+  "phase": "2gu",
+  "ts_utc": "2026-10-31T07:58:55.985021+00:00",
+  "captured_at_shanghai": "2026-10-31 15:58",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "AGENT_FEED_CEILING_CATALOG_POLISH",
+  "live": {
+    "pid": 30352,
+    "hours": 257,
+    "ui_date": "1936-01-11 17:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x agent feed ceiling catalog polish (no Post)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 220247,
+    "exec": 60239,
+    "allow_post": false
+  },
+  "prior_summaries_keys": [
+    "2gp",
+    "2gq",
+    "2gr",
+    "2gs",
+    "2gt"
+  ],
+  "feed_ceiling": {
+    "can_feed_today": [
+      {
+        "signal": "CArmy locate",
+        "how": "handle type=51 + country_tag",
+        "source": "2gp",
+        "status": "HIT"
+      },
+      {
+        "signal": "CArmy+0x200 multi-prov path candidates",
+        "how": "tag-FP filtered; not demangled dest",
+        "source": "2gm/2gs",
+        "status": "LIVE path nonempty=6 multi=3"
+      },
+      {
+        "signal": "Instance+0x70/+0x88 order/front maps",
+        "how": "\u2260 army midflight dest; \u2280 +0x200 (2gn)",
+        "source": "2gm/2gn",
+        "status": "HIT"
+      },
+      {
+        "signal": "OG+0x50 \u2261 CArmy+0xB8 membership proxy",
+        "how": "MI VT 0x29d6fb8",
+        "source": "2gp\u20132gs",
+        "status": "walkback 376/376"
+      },
+      {
+        "signal": "Assign units type=51 \u2192 CArmy",
+        "how": "when Assign sighted; oi@+0x48 often 0",
+        "source": "2gp",
+        "status": "HIT (oi=0 unset typical)"
+      },
+      {
+        "signal": "Live clock/counters",
+        "how": "hours/UI/pending/stage/drain/exec RO",
+        "source": "live_meta",
+        "status": "HIT"
+      }
+    ],
+    "hard_deny_or_honest_empty": [
+      {
+        "signal": "CMove/SA/Cancel midflight hex (bit_identical)",
+        "source": "2gj/2gt",
+        "status": "HONEST_EMPTY (2gt move=0 cancel=0)"
+      },
+      {
+        "signal": "Named movement_dest demangle",
+        "source": "2go",
+        "status": "HONEST_EMPTY"
+      },
+      {
+        "signal": "Assign units\u2194OI when order_index\u22600",
+        "source": "2gq/2gr/2gt",
+        "status": "QUIET (2gt assign_oi\u22600=0)"
+      },
+      {
+        "signal": "ring_embed / Dummy recreate in-process",
+        "source": "2gk",
+        "status": "STUBBED \u2014 needs SAFE Post"
+      },
+      {
+        "signal": "Any Post / tool-gate / 2fb|2gk recipe execute",
+        "source": "standing",
+        "status": "HARD_DENY allow_post=False"
+      },
+      {
+        "signal": "Demangled OG+0x50 / MI field name",
+        "source": "2gp+",
+        "status": "STUBBED"
+      }
+    ],
+    "ceiling_note": "Non-interactive RO cannot raise midflight/oi\u22600 ceiling further without human leave midflight or SAFE Post for ring_embed. Catalog consolidates what agent may already consume RO."
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk",
+    "LAND_POST \u00a76d can-feed / HARD_DENY consolidate (2gs+2gt+2gp\u20132gr)",
+    "SAFE_POST 2gu row",
+    "minimal live_meta only (no midflight re-poll)"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed execute",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "CMove midflight hex",
+    "Post inject",
+    "Assign oi\u22600 units\u2194OI confirm",
+    "Capstone/121 re-churn",
+    "ask user right-click"
+  ],
+  "next_shortest_blocker": "NON-Post: agent feed ceiling cataloged \u2014 human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600; push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "ca1aaa5"
+}
