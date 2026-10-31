@@ -1,0 +1,100 @@
+{
+  "phase": "2ia",
+  "result": "MIDBAND_OG575_DIG_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 320,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-14 08:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA mid-band OG575 dig Inst70+OG50+PATH (INST_VT corrected; no Post; OG50 name STUBBED; no 463 Inst70 re-poll)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 586507,
+    "exec": 150472,
+    "allow_post": false
+  },
+  "ref481": {
+    "ok": true,
+    "inst_ok": true,
+    "arr70_n": 30
+  },
+  "dig": {
+    "oi": 575,
+    "ok": true,
+    "inst_ok": true,
+    "inst_vt_rva": "0x2a02558",
+    "arr98_size": 1,
+    "arr70_n": 0,
+    "u32s_head": [],
+    "og50_size": 3,
+    "walk_ok": 3,
+    "expect_idx": 2640,
+    "expect_in_og50": true,
+    "expect_path_hit": true,
+    "members": [
+      {
+        "index": 2640,
+        "tag": 15,
+        "ita": true,
+        "walkback_ok": true,
+        "path_ids": [
+          3938
+        ],
+        "path_n": 1,
+        "dest_in_70": [],
+        "triangle": false
+      },
+      {
+        "index": 1043,
+        "tag": 15,
+        "ita": true,
+        "walkback_ok": true,
+        "path_ids": [],
+        "path_n": 0,
+        "dest_in_70": [],
+        "triangle": false
+      },
+      {
+        "index": 1039,
+        "tag": 15,
+        "ita": true,
+        "walkback_ok": true,
+        "path_ids": [],
+        "path_n": 0,
+        "dest_in_70": [],
+        "triangle": false
+      }
+    ],
+    "triangle_n": 0,
+    "ita_n": 3,
+    "path_mem_n": 1
+  },
+  "cross": {
+    "shared_n": 0,
+    "shared_head": [],
+    "only_575_n": 0,
+    "only_481_n": 30
+  },
+  "sha_base": "8862357",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "Instant map re-poll",
+    "hi-band Instant-empty re-poll",
+    "463 Inst70 oi1..511 re-poll",
+    "invent OG+0x50 field name"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2ia mid-band OG575 dig); push when GitHub reachable; still NO ALLOW_POST",
+  "semantics": "mid-band OG575 Inst70+OG50+PATH; cross\u2229OG481 Inst70; field name STUBBED; no Post"
+}
