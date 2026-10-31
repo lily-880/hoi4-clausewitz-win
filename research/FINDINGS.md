@@ -847,3 +847,13 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **CFront↔army**: still no direct CArmy* embed in front blob; link is theatre-mediated (resolved_indirect_2dd).
 - **Unchanged**: peer `hypothesis_peer_chain_oneway_2dc`; packed 0x90 REJECT; org/str REJECT; prov+0x58 REJECT; movement_dest=0 (paused); orders heap 0; LAND **121/121**; confidence **1.000**; helpers 308 / named 658.
 - **Not revived**: org/str; CProvince+0x58. Recipes `*_2dd`; allow_post False; watcher 36128 RO.
+
+## Phase 2de (overnight RO) — CControllerArea provinces + REJECT CFront>0x90 bleed
+
+- **HEAD parent**: `6e4460c` (2dd). Focus: army↔front via controller; peer locality; FrontSection/CFront extend check.
+- **CControllerArea (new)**: `CPdxArray<CProvince*>` @ `+0x30` / `+0x60` / `+0xb0` (**6/6** HAI front controllers); `CPdxArray<CStrategicRegion*>` @ `+0xf8` (**6/6**).
+- **CFront extended >0x90**: candidate arrays @ `+0xb0` (prov) / `+0xe8` (FS) / `+0x140` / `+0x178` **REJECTED_PACKED_NEIGHBOR_BLEED_2de** — valid-looking only when `+0x90` neighbor CFront exists; last-in-run garbage. Same failure mode as multi-slot (2db).
+- **Army↔front via ctrl provinces**: **0/17** matches while paused (army province not in controller province sets).
+- **Peer locality**: 10/17 HAI peers share theatre + sit in TH_ARMIES; still **0 bidir**; status remains `hypothesis_peer_chain_oneway_2dc`.
+- **Unchanged**: TH_ARMIES/TH_FRONTS (2dd); packed 0x90 REJECT; org/str REJECT; movement_dest=0; orders 0; LAND **121/121**; confidence **1.000**.
+- Recipes `*_2de`; allow_post False; watcher 36128 RO.
