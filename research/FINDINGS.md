@@ -791,3 +791,13 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Heap**: FrontSection **1570** / fronts **1199** / theatres **90**; order-groups still 0.
 - **Org/str REJECTED**; **movement_dest** empty; recipes `*_2cy`; allow_post False; watcher 36128 RO.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
+
+## Phase 2cz (overnight RO) — CFront slots≥16 + FS slot-embed + prov+0x58 reject
+
+- **HEAD parent**: `6b6c386` (2cy). Focus: extend CFront slot array; FrontSection↔slot; province tag hyp cleanup. **LAND 121/121 unchanged**.
+- **CFront (new)**: slot array proven for **k=0..15** (at least) — `CTheatre*` @ `+0x18+k*0x90`, `CControllerArea*` @ `+0x70+k*0x90`. Slot0 **1199/1199**; slot15 **≥1114/1199**. 2cy's 8-slot bound raised.
+- **HAI theatre fronts**: **44** any-slot (was 30 @8 / 6 @slot0).
+- **CFrontSection (new)**: blob often embeds parent front slot `theatre*` / `controller*` (866 / 305 matches); no single stable slot-index field.
+- **CProvince+0x58**: **REJECTED** as controller-country tag (does not track occupying `CArmy.country_tag`; often 15 on controller-linked provinces).
+- **Org/str REJECTED**; **movement_dest** empty; recipes `*_2cz`; allow_post False; watcher 36128 RO.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.

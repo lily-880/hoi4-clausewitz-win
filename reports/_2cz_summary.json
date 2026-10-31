@@ -1,0 +1,36 @@
+{
+  "phase": "2cz",
+  "parent": "6b6c386",
+  "allow_post": false,
+  "land": "121/121",
+  "helpers": 308,
+  "named": 658,
+  "confidence": 1.0,
+  "focus": "CFront slots>=16 + FS slot-embed + prov+0x58 reject",
+  "proven": [
+    "CFront slot-array k=0..15 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot15 >=1114/1199",
+    "HAI theatre in 44 fronts any-slot (was 30@8 / 6@slot0)",
+    "CFrontSection embeds parent slot theatre*/controller* (866 theatre / 305 controller matches)",
+    "CProvince+0x58 REJECTED as controller-country tag"
+  ],
+  "hyp": [
+    "SPerCountrySection tag@+0x8 (unchanged)",
+    "CProvince country-tag field still unresolved (weak offs)"
+  ],
+  "stubbed": [
+    "midflight_CMoveCommand",
+    "ring_embed",
+    "ALLOW_POST",
+    "command_queue_tool_gate"
+  ],
+  "heap": {
+    "CFrontSection": 1570,
+    "unique_CFront": 1199,
+    "CControllerArea": 296,
+    "CTheatre": 90,
+    "SPerCountrySection": 1666,
+    "COrdersGroup": 0,
+    "CArmyGroup": 0,
+    "COrderInstance": 0
+  }
+}

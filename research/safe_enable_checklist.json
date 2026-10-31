@@ -1503,5 +1503,21 @@
       "CControllerArea+0x148→CProvince 288/296",
       "HAI theatre in 30 fronts (any slot); slot0-only was 6"
     ]
+  },
+  "notes_2cz": {
+    "phase": "2cz",
+    "allow_post": false,
+    "tool_gate": "CLOSED_NOT_OPENED",
+    "land": "121/121",
+    "confidence": 1.0,
+    "focus": "CFront slots>=16 + FS slot-embed + prov+0x58 reject",
+    "org_str": "REJECTED_AS_CARMY_ORG",
+    "watcher": 36128,
+    "proven": [
+      "CFront slot-array k=0..15 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot15 >=1114/1199",
+      "HAI theatre in 44 fronts any-slot (was 30@8 / 6@slot0)",
+      "CFrontSection embeds parent slot theatre*/controller* (866 theatre / 305 controller matches)",
+      "CProvince+0x58 REJECTED as controller-country tag"
+    ]
   }
 }

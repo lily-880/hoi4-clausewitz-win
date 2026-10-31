@@ -1,0 +1,56 @@
+{
+  "phase": "2cz",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "1. Confirm watcher 36128 alive RO.",
+    "2. Haiti pause|1x; NEVER 5x; no input.",
+    "3. Read session drain/exec/stage RO.",
+    "4. CMove/strategic/cancel post-path conf=1.0.",
+    "5. CArmy-only movement_dest empty while paused — do not invent.",
+    "6. Do not revive rejected org offs 0x520/0x6ec.",
+    "7. CFront >=16-slot array + FS slot-embed + prov+0x58 reject observe-only.",
+    "8. Ring/Post stubbed; tool-gate CLOSED.",
+    "9. STOP — never inject / never Post / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2cx",
+    "role_post_path_matrix_2cx",
+    "role_observe_2cx",
+    "confidence_report_2cx",
+    "checklist_2cx",
+    "offensive_line_post_path_2cx",
+    "midflight_move_watcher_readiness_2cx",
+    "live_army_subject_observe_2cx"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / posting",
+    "guess writes / HourlyTick / speed hacks",
+    "helper patch / Post inject",
+    "revive org/str @0x520/0x6ec",
+    "treat CProvince+0x58 as controller country tag",
+    "invent movement_dest while paused",
+    "wake user / send input",
+    "5x game speed"
+  ],
+  "ticks": {
+    "A_land_index": "PASS 121/121",
+    "B_helpers_named": "PASS 308/658 unchanged",
+    "C_confidence": "PASS avg=1.000",
+    "D_carmy_observe": "PASS theatre/reinf/upgrades",
+    "E_front_controller": "PASS slots>=16 + FS embeds + prov+0x58 reject",
+    "F_midflight_watcher": "PASS armed RO pid 36128",
+    "G_org_str": "REJECTED — do not revive",
+    "H_post_gate": "CLOSED_NOT_OPENED allow_post=False"
+  }
+}

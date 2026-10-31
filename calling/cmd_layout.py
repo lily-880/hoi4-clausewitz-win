@@ -155251,3 +155251,9 @@ from pathlib import Path as _P2cy
 _fp2cy = _P2cy(__file__).with_name('_land_post_2cy_fragment.py')
 if _fp2cy.exists():
     exec(_fp2cy.read_text(encoding='utf-8'))
+
+# Phase 2cz sidecar
+from pathlib import Path as _P2cz
+_fp2cz = _P2cz(__file__).with_name('_land_post_2cz_fragment.py')
+if _fp2cz.exists():
+    exec(_fp2cz.read_text(encoding='utf-8'))
