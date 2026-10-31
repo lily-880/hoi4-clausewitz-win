@@ -184,31 +184,35 @@ def withdraw_army_hq_recipe(hq_handle: list[int] | tuple[int, int]) -> dict[str,
     }
 
 
-def fallback_order_recipe(fallback_flag_or_id: int = 1,
-                          subject_handle: list[int] | tuple[int, int] | None = None,
+def fallback_order_recipe(subject_handle: list[int] | tuple[int, int] | None = None,
                           unit_handles: list[list[int]] | None = None,
                           province_ids: list[int] | None = None) -> dict[str, Any]:
     """COrderNewFallbackCommand / COrderReplaceFallbackCommands — RO docs only.
 
-    Phase 2fl field map from shared serialize@0x18e8a60 (not NewFront@0x18e8af0).
+    Phase 2fm: subject_handle=order-domain @+0x28; units/provinces are CPdxArrays.
+    +0x54 is provinces_size (not ARMY_GROUP_FALLBACK.fallback_flag).
     """
     return {
         "subject_handle_off": 0x28,
         "subject_handle": list(subject_handle) if subject_handle is not None else None,
+        "subject_semantic": "order-domain handle (gate 0xbbb1e0); not raw CArmy*",
         "units_data_off": 0x30,
+        "units_capacity_off": 0x38,
         "units_count_off": 0x3c,
+        "units_alloc_off": 0x40,
         "unit_handles": [list(h) for h in (unit_handles or [])],
         "units_count": len(unit_handles or []),
         "provinces_data_off": 0x48,
+        "provinces_capacity_off": 0x50,
+        "provinces_size_off": 0x54,
+        "provinces_alloc_off": 0x58,
         "province_ids": list(province_ids or []),
-        "fallback_flag_or_id_off": 0x54,
-        "fallback_flag_or_id": fallback_flag_or_id,
+        "provinces_size": len(province_ids or []),
         "serialize_tokens": {"unit_handle": 0x28A3, "province_array": 0x174, "header": 0x3F},
-        "note": "2fl: IsValid=gate(this+0x28)+flag@+0x54; vectors must be game-alloc; posting DISABLED",
+        "cpdxarray": "data@0 cap@8 size@0xC alloc@0x10",
+        "note": "2fm: IsValid=gate(this+0x28)+provinces.size@+0x54!=0; posting DISABLED",
         "posting": "DISABLED",
     }
-
-
 
 def mass_cancel_movement_recipe(army_rows: list[dict[str, Any]]) -> dict[str, Any]:
     """CMassCancelMovementCommand — units vec@+0x28 count@+0x34. RO docs only."""
@@ -1180,21 +1184,17 @@ def order_reconnect_recipe(order_a: int = 0, order_b: int = 0, order_c: int = 0)
 
 def replace_fallback_recipe(subject_handle: list[int] | tuple[int, int] | None = None,
                             unit_handles: list[list[int]] | None = None,
-                            province_ids: list[int] | None = None,
-                            fallback_flag_or_id: int = 1) -> dict[str, Any]:
+                            province_ids: list[int] | None = None) -> dict[str, Any]:
     """COrderReplaceFallbackCommands — RO docs only; shares ser/deser/isvalid w/ NewFallback."""
     out = fallback_order_recipe(
-        fallback_flag_or_id=fallback_flag_or_id,
         subject_handle=subject_handle,
         unit_handles=unit_handles,
         province_ids=province_ids,
     )
     out["post_gate_candidates"] = ["0x2284800", "0xbbb1e0", "0xc40230"]
-    out["note"] = "2fl: same field map as NewFallback; Execute@0x18da3b0; posting DISABLED"
+    out["note"] = "2fm: same CPdxArray map as NewFallback; Execute@0x18da3b0; posting DISABLED"
     out["posting"] = "DISABLED"
     return out
-
-
 
 def land_role_post_path_recipe(role: str | None = None) -> dict[str, Any]:
     """RO: role → min IsValid gate intersection from LAND_POST_READINESS.role_post_paths."""

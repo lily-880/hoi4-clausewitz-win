@@ -1,0 +1,546 @@
+{
+  "phase": "2fm",
+  "ts": "2026-10-31T04:43:36.476427+00:00",
+  "result": "NEWFALLBACK_SUBJECT_PACKING_DEEPENED",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "executed_2fb_recipe": false,
+  "live": {
+    "pid": 34188,
+    "hours": 98,
+    "ui_date": "1936-01-05 02:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x NewFallback subject semantic + CPdxArray packing (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1"
+  },
+  "parent_sha_base": "34e5858",
+  "cpdxarray": {
+    "layout": "CPdxArray{data:u64, capacity:i32, size:i32, alloc:u64}",
+    "size": 24,
+    "fields": {
+      "data": 0,
+      "capacity": 8,
+      "size": 12,
+      "alloc": 16
+    }
+  },
+  "units_packing": {
+    "base": 48,
+    "hypothesis": "CPdxArray of unit handles (token 0x28a3, stride 8)",
+    "fields": {
+      "data": 48,
+      "capacity": 56,
+      "size": 60,
+      "alloc": 64
+    },
+    "fits_ser_count_at_0x3c": true,
+    "sibling_mass_cancel": {
+      "units_data": 40,
+      "units_count": 52,
+      "note": "0x28+0xC=0x34 \u2014 same CPdxArray size-slot relative offset"
+    },
+    "sibling_unassign": {
+      "units_data": 40,
+      "units_count": 52,
+      "note": "order_unassign_recipe same relative packing"
+    }
+  },
+  "provinces_packing": {
+    "base": 72,
+    "hypothesis": "CPdxArray of provinces (token 0x174)",
+    "fields": {
+      "data": 72,
+      "capacity": 80,
+      "size": 84,
+      "alloc": 88
+    },
+    "end_of_struct": 96,
+    "fits_command_size_0x60": true
+  },
+  "plus54_reinterpret": {
+    "prior_2fi_name": "fallback_flag_or_id",
+    "corrected_candidate": "provinces_size (CPdxArray.size @ provinces_data+0xC)",
+    "confidence": "HIGH_RO_FIT",
+    "evidence": [
+      "2fl serialize: lea r8,[this+0x48] token 0x174 only \u2014 no discrete flag writer at +0x54",
+      "CPdxArray size slot = base+0xC \u2192 0x48+0xC=0x54",
+      "IsValid cmp dword [this+0x54],0 matches nonempty provinces.size gate",
+      "command size 0x60 == provinces_base+0x18 (full CPdxArray fits exactly)",
+      "ARMY_GROUP_FALLBACK fallback_flag@+0x30 is sibling command; do not import name here"
+    ],
+    "still_open": "Execute helper may also treat +0x54 as mode id \u2014 not observed as separate ser field"
+  },
+  "subject_semantic": {
+    "off": 40,
+    "ser_writer": "0x2285670",
+    "isvalid_gate": "0xbbb1e0",
+    "gate_catalog_name": "isvalid_order_fallback_gate",
+    "proven": [
+      "IsValid: lea/add rcx,this+0x28 \u2192 call gate 0xbbb1e0 (must succeed)",
+      "Serialize: lea rdx,[this+0x28] \u2192 handle writer 0x2285670",
+      "Execute: resolve handle@+0x28 before units/provinces helpers",
+      "gate 0xbbb1e0 reads handle as {u32 type @0, u32 index @4}"
+    ],
+    "not_army_group_flag_slot": "ARMY_GROUP_FALLBACK puts army_group handle@+0x28; NewFallback uses same slot for ORDER subject handle gated by 0xbbb1e0",
+    "semantic_candidate": "battle-plan / order-subject handle (type+index pair), NOT a raw CArmy* and NOT the army-group fallback_flag",
+    "confidence": "HIGH_RO",
+    "evidence_for_candidate": [
+      "gate catalog name isvalid_order_fallback_gate (order-domain, not unit-domain)",
+      "unit handles live in separate CPdxArray@+0x30 with token 0x28a3",
+      "SupportAttack/WithdrawHQ put unit/hq handles@+0x28 with different IsValid paths; NewFallback shares gate with ReplaceFallback only",
+      "collapse_conveyor / assign_theater_group recipes also label +0x28 as subject_handle (order/theatre subject family)"
+    ],
+    "live_army_examples_note": "ITA army handles listed for contrast \u2014 they are unit/army typed; subject_handle is a distinct order-domain handle",
+    "live_army_examples": [
+      {
+        "note": "gamestate helpers: []"
+      }
+    ],
+    "not_proven": "exact handle type id byte / table for order-subject (no midflight NewFallback hex this slice)",
+    "handle_pair_layout": {
+      "type_u32_at": "+0x28",
+      "index_u32_at": "+0x2c",
+      "gate_reads": [
+        "mov ecx,[handle+0] type",
+        "cmp [handle+4],ecx on zero-type path"
+      ],
+      "confidence": "HIGH_RO"
+    }
+  },
+  "field_map_corrected": {
+    "subject_handle": 40,
+    "units_data": 48,
+    "units_capacity": 56,
+    "units_count": 60,
+    "units_alloc": 64,
+    "provinces_data": 72,
+    "provinces_capacity": 80,
+    "provinces_size": 84,
+    "provinces_alloc": 88
+  },
+  "fields_note": "2fm: CPdxArray packing (2de layout); +0x54=provinces.size not AG fallback_flag; subject_handle=order-domain via gate 0xbbb1e0; posting DISABLED",
+  "disasm": {
+    "isvalid_head": [
+      {
+        "addr": "0x7ff745f3f4b0",
+        "mnemonic": "push",
+        "op_str": "rbx"
+      },
+      {
+        "addr": "0x7ff745f3f4b2",
+        "mnemonic": "sub",
+        "op_str": "rsp, 0x20"
+      },
+      {
+        "addr": "0x7ff745f3f4b6",
+        "mnemonic": "mov",
+        "op_str": "rbx, rcx"
+      },
+      {
+        "addr": "0x7ff745f3f4b9",
+        "mnemonic": "add",
+        "op_str": "rcx, 0x28"
+      },
+      {
+        "addr": "0x7ff745f3f4bd",
+        "mnemonic": "call",
+        "op_str": "0x7ff74521b1e0"
+      },
+      {
+        "addr": "0x7ff745f3f4c2",
+        "mnemonic": "test",
+        "op_str": "al, al"
+      },
+      {
+        "addr": "0x7ff745f3f4c4",
+        "mnemonic": "je",
+        "op_str": "0x7ff745f3f4d4"
+      },
+      {
+        "addr": "0x7ff745f3f4c6",
+        "mnemonic": "cmp",
+        "op_str": "dword ptr [rbx + 0x54], 0"
+      },
+      {
+        "addr": "0x7ff745f3f4ca",
+        "mnemonic": "je",
+        "op_str": "0x7ff745f3f4d4"
+      },
+      {
+        "addr": "0x7ff745f3f4cc",
+        "mnemonic": "mov",
+        "op_str": "al, 1"
+      },
+      {
+        "addr": "0x7ff745f3f4ce",
+        "mnemonic": "add",
+        "op_str": "rsp, 0x20"
+      },
+      {
+        "addr": "0x7ff745f3f4d2",
+        "mnemonic": "pop",
+        "op_str": "rbx"
+      },
+      {
+        "addr": "0x7ff745f3f4d3",
+        "mnemonic": "ret",
+        "op_str": ""
+      }
+    ],
+    "isvalid_mem_disp": [
+      "0x7ff745f3f4c6: cmp dword ptr [rbx + 0x54], 0"
+    ],
+    "clone_head": [
+      {
+        "addr": "0x7ff745f2dff0",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rsp + 0x18], rsi"
+      },
+      {
+        "addr": "0x7ff745f2dff5",
+        "mnemonic": "push",
+        "op_str": "rdi"
+      },
+      {
+        "addr": "0x7ff745f2dff6",
+        "mnemonic": "sub",
+        "op_str": "rsp, 0x20"
+      },
+      {
+        "addr": "0x7ff745f2dffa",
+        "mnemonic": "mov",
+        "op_str": "rsi, rcx"
+      },
+      {
+        "addr": "0x7ff745f2dffd",
+        "mnemonic": "mov",
+        "op_str": "ecx, 0x60"
+      },
+      {
+        "addr": "0x7ff745f2e002",
+        "mnemonic": "call",
+        "op_str": "0x7ff746c0009c"
+      },
+      {
+        "addr": "0x7ff745f2e007",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rsp + 0x30], rax"
+      },
+      {
+        "addr": "0x7ff745f2e00c",
+        "mnemonic": "mov",
+        "op_str": "rdi, rax"
+      },
+      {
+        "addr": "0x7ff745f2e00f",
+        "mnemonic": "test",
+        "op_str": "rax, rax"
+      },
+      {
+        "addr": "0x7ff745f2e012",
+        "mnemonic": "je",
+        "op_str": "0x7ff745f2e0d4"
+      },
+      {
+        "addr": "0x7ff745f2e018",
+        "mnemonic": "mov",
+        "op_str": "byte ptr [rdi + 8], 0"
+      },
+      {
+        "addr": "0x7ff745f2e01c",
+        "mnemonic": "lea",
+        "op_str": "rax, [rip + 0xed147d]"
+      },
+      {
+        "addr": "0x7ff745f2e023",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rdi], rax"
+      },
+      {
+        "addr": "0x7ff745f2e026",
+        "mnemonic": "lea",
+        "op_str": "rcx, [rdi + 0x30]"
+      },
+      {
+        "addr": "0x7ff745f2e02a",
+        "mnemonic": "mov",
+        "op_str": "eax, dword ptr [rsi + 0xc]"
+      },
+      {
+        "addr": "0x7ff745f2e02d",
+        "mnemonic": "xorps",
+        "op_str": "xmm0, xmm0"
+      },
+      {
+        "addr": "0x7ff745f2e030",
+        "mnemonic": "mov",
+        "op_str": "dword ptr [rdi + 0xc], eax"
+      },
+      {
+        "addr": "0x7ff745f2e033",
+        "mnemonic": "mov",
+        "op_str": "rax, qword ptr [rsi + 0x10]"
+      },
+      {
+        "addr": "0x7ff745f2e037",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rdi + 0x10], rax"
+      },
+      {
+        "addr": "0x7ff745f2e03b",
+        "mnemonic": "movzx",
+        "op_str": "eax, word ptr [rsi + 0x18]"
+      },
+      {
+        "addr": "0x7ff745f2e03f",
+        "mnemonic": "mov",
+        "op_str": "word ptr [rdi + 0x18], ax"
+      },
+      {
+        "addr": "0x7ff745f2e043",
+        "mnemonic": "movzx",
+        "op_str": "eax, byte ptr [rsi + 0x1a]"
+      },
+      {
+        "addr": "0x7ff745f2e047",
+        "mnemonic": "mov",
+        "op_str": "byte ptr [rdi + 0x1a], al"
+      },
+      {
+        "addr": "0x7ff745f2e04a",
+        "mnemonic": "movzx",
+        "op_str": "eax, byte ptr [rsi + 0x1b]"
+      },
+      {
+        "addr": "0x7ff745f2e04e",
+        "mnemonic": "mov",
+        "op_str": "byte ptr [rdi + 0x1b], al"
+      }
+    ],
+    "execute_mem_disp": [
+      "0x7ff745f38fe1: lea r8, [rbx + 0x48]",
+      "0x7ff745f38fe8: lea rdx, [rbx + 0x30]",
+      "0x7ff745f3904a: mov qword ptr [rbp + 0x108], r12",
+      "0x7ff745f39060: mov qword ptr [rbp + 8], rax",
+      "0x7ff745f39084: mov ecx, dword ptr [rbx + rax]"
+    ],
+    "gate_head": [
+      {
+        "addr": "0x7ff74521b1e0",
+        "mnemonic": "push",
+        "op_str": "rbx"
+      },
+      {
+        "addr": "0x7ff74521b1e2",
+        "mnemonic": "sub",
+        "op_str": "rsp, 0x30"
+      },
+      {
+        "addr": "0x7ff74521b1e6",
+        "mnemonic": "mov",
+        "op_str": "rbx, rcx"
+      },
+      {
+        "addr": "0x7ff74521b1e9",
+        "mnemonic": "call",
+        "op_str": "0x7ff7469a8bf0"
+      },
+      {
+        "addr": "0x7ff74521b1ee",
+        "mnemonic": "mov",
+        "op_str": "ecx, dword ptr [rbx]"
+      },
+      {
+        "addr": "0x7ff74521b1f0",
+        "mnemonic": "test",
+        "op_str": "al, al"
+      },
+      {
+        "addr": "0x7ff74521b1f2",
+        "mnemonic": "je",
+        "op_str": "0x7ff74521b21f"
+      },
+      {
+        "addr": "0x7ff74521b1f4",
+        "mnemonic": "test",
+        "op_str": "ecx, ecx"
+      },
+      {
+        "addr": "0x7ff74521b1f6",
+        "mnemonic": "jne",
+        "op_str": "0x7ff74521b20b"
+      },
+      {
+        "addr": "0x7ff74521b1f8",
+        "mnemonic": "cmp",
+        "op_str": "dword ptr [rbx + 4], ecx"
+      },
+      {
+        "addr": "0x7ff74521b1fb",
+        "mnemonic": "jne",
+        "op_str": "0x7ff74521b20b"
+      },
+      {
+        "addr": "0x7ff74521b1fd",
+        "mnemonic": "xor",
+        "op_str": "eax, eax"
+      },
+      {
+        "addr": "0x7ff74521b1ff",
+        "mnemonic": "test",
+        "op_str": "rax, rax"
+      },
+      {
+        "addr": "0x7ff74521b202",
+        "mnemonic": "setne",
+        "op_str": "al"
+      },
+      {
+        "addr": "0x7ff74521b205",
+        "mnemonic": "add",
+        "op_str": "rsp, 0x30"
+      },
+      {
+        "addr": "0x7ff74521b209",
+        "mnemonic": "pop",
+        "op_str": "rbx"
+      },
+      {
+        "addr": "0x7ff74521b20a",
+        "mnemonic": "ret",
+        "op_str": ""
+      }
+    ],
+    "gate_immediates": [
+      "0x7ff74521b1e2: sub rsp, 0x30"
+    ],
+    "handle_writer_head": [
+      {
+        "addr": "0x7ff7468e5670",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rsp + 8], rbx"
+      },
+      {
+        "addr": "0x7ff7468e5675",
+        "mnemonic": "mov",
+        "op_str": "qword ptr [rsp + 0x10], rsi"
+      },
+      {
+        "addr": "0x7ff7468e567a",
+        "mnemonic": "push",
+        "op_str": "rdi"
+      },
+      {
+        "addr": "0x7ff7468e567b",
+        "mnemonic": "sub",
+        "op_str": "rsp, 0x70"
+      },
+      {
+        "addr": "0x7ff7468e567f",
+        "mnemonic": "mov",
+        "op_str": "rdi, rdx"
+      },
+      {
+        "addr": "0x7ff7468e5682",
+        "mnemonic": "mov",
+        "op_str": "rbx, rcx"
+      },
+      {
+        "addr": "0x7ff7468e5685",
+        "mnemonic": "call",
+        "op_str": "0x7ff746ba6e00"
+      },
+      {
+        "addr": "0x7ff7468e568a",
+        "mnemonic": "mov",
+        "op_str": "edx, 0xb"
+      },
+      {
+        "addr": "0x7ff7468e568f",
+        "mnemonic": "mov",
+        "op_str": "rcx, rbx"
+      },
+      {
+        "addr": "0x7ff7468e5692",
+        "mnemonic": "call",
+        "op_str": "0x7ff746ba6c10"
+      },
+      {
+        "addr": "0x7ff7468e5697",
+        "mnemonic": "mov",
+        "op_str": "edx, dword ptr [rdi + 4]"
+      },
+      {
+        "addr": "0x7ff7468e569a",
+        "mnemonic": "lea",
+        "op_str": "rcx, [rsp + 0x20]"
+      },
+      {
+        "addr": "0x7ff7468e569f",
+        "mnemonic": "call",
+        "op_str": "0x7ff746ba73b0"
+      },
+      {
+        "addr": "0x7ff7468e56a4",
+        "mnemonic": "nop",
+        "op_str": ""
+      },
+      {
+        "addr": "0x7ff7468e56a5",
+        "mnemonic": "mov",
+        "op_str": "rdx, rax"
+      },
+      {
+        "addr": "0x7ff7468e56a8",
+        "mnemonic": "mov",
+        "op_str": "rcx, rbx"
+      },
+      {
+        "addr": "0x7ff7468e56ab",
+        "mnemonic": "call",
+        "op_str": "0x7ff746ba5350"
+      },
+      {
+        "addr": "0x7ff7468e56b0",
+        "mnemonic": "nop",
+        "op_str": ""
+      },
+      {
+        "addr": "0x7ff7468e56b1",
+        "mnemonic": "mov",
+        "op_str": "rdx, qword ptr [rsp + 0x28]"
+      },
+      {
+        "addr": "0x7ff7468e56b6",
+        "mnemonic": "xor",
+        "op_str": "esi, esi"
+      }
+    ]
+  },
+  "works": [
+    "units@+0x30 fits CPdxArray: data@+0x30 cap@+0x38 size@+0x3c alloc@+0x40 (ser count@+0x3c)",
+    "provinces@+0x48 fits CPdxArray: data@+0x48 cap@+0x50 size@+0x54 alloc@+0x58 (ends @0x60)",
+    "reclassify +0x54 as provinces.size under CPdxArray (was fallback_flag_or_id name)",
+    "subject_handle@+0x28 = order-domain handle (gate 0xbbb1e0); units are separate array",
+    "MassCancel/Unassign sibling packing confirms size = data+0xC",
+    "allow_post stays False; no Post; never 5x; 2fb not executed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "live midflight NewFallback hex capture",
+    "exact order-subject handle type-id table",
+    "Execute helper micro-semantics for provinces.size vs mode id"
+  ],
+  "next_shortest_blocker": "NON-Post: live midflight NewFallback/ReplaceFallback hex to confirm handle type-id OR Assign/Unassign edge deepen; still NO ALLOW_POST",
+  "pid": 34188,
+  "ui_date": "1936-01-05 02:00",
+  "hours": 98
+}

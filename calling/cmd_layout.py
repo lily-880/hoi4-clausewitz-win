@@ -257,9 +257,9 @@ ORDERS = {
         "clone": 0x18CDFF0, "serialize": 0x18E8A60, "deserialize": 0x18E2500, "execute": 0x18D8FC0,
         "isvalid": 0x18df4b0,
         "isvalid_kind": "FN",
-        # Phase 2fl: deepen beyond +0x54 from NewFallback ser/deser/isvalid/exec (no NewFront bleed)
-        "fields": {"subject_handle": 0x28, "units_data": 0x30, "units_count": 0x3c, "provinces_data": 0x48, "fallback_flag_or_id": 0x54},
-        "fields_note": "2fl: Capstone shared ser@0x18e8a60 (not NewFront@0x18e8af0); IsValid gate(this+0x28)+flag@+0x54; posting DISABLED",
+        # Phase 2fm: CPdxArray packing + subject_handle semantic; +0x54=provinces_size
+        "fields": {"subject_handle": 40, "units_data": 48, "units_capacity": 56, "units_count": 60, "units_alloc": 64, "provinces_data": 72, "provinces_capacity": 80, "provinces_size": 84, "provinces_alloc": 88},
+        "fields_note": "2fm: CPdxArray packing (2de layout); +0x54=provinces.size not AG fallback_flag; subject_handle=order-domain via gate 0xbbb1e0; posting DISABLED",
     },
     "COrderGroupCommand": {
         "factory": 0x18d00d0,
@@ -132747,8 +132747,8 @@ ORDER_REPLACE_FALLBACK = {
     "gettypeid": 0x18DCBC0,
     "isvalid_kind": "FN",
     "execute_kind": "FN",
-    "fields": {"subject_handle": 0x28, "units_data": 0x30, "units_count": 0x3c, "provinces_data": 0x48, "fallback_flag_or_id": 0x54},
-    "fields_note": "2fl: same map as NewFallback; Capstone ser@0x18e8a60 shared; posting DISABLED",
+    "fields": {"subject_handle": 40, "units_data": 48, "units_capacity": 56, "units_count": 60, "units_alloc": 64, "provinces_data": 72, "provinces_capacity": 80, "provinces_size": 84, "provinces_alloc": 88},
+    "fields_note": "2fm: CPdxArray packing (2de layout); +0x54=provinces.size not AG fallback_flag; subject_handle=order-domain via gate 0xbbb1e0; posting DISABLED",
     "subject_recipe": "army_subjects.fallback_order_recipe",
 }
 

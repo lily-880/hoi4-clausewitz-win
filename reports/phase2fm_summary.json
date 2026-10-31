@@ -1,0 +1,55 @@
+{
+  "phase": "2fm",
+  "result": "NEWFALLBACK_SUBJECT_PACKING_DEEPENED",
+  "scenario": "ITA@1x NewFallback subject semantic + CPdxArray packing (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 34188,
+  "ui_date": "1936-01-05 02:00",
+  "hours": 98,
+  "field_map_corrected": {
+    "subject_handle": 40,
+    "units_data": 48,
+    "units_capacity": 56,
+    "units_count": 60,
+    "units_alloc": 64,
+    "provinces_data": 72,
+    "provinces_capacity": 80,
+    "provinces_size": 84,
+    "provinces_alloc": 88
+  },
+  "subject_semantic_candidate": "battle-plan / order-subject handle (type+index pair), NOT a raw CArmy* and NOT the army-group fallback_flag",
+  "plus54": "provinces_size (CPdxArray.size @ provinces_data+0xC)",
+  "works": [
+    "units@+0x30 fits CPdxArray: data@+0x30 cap@+0x38 size@+0x3c alloc@+0x40 (ser count@+0x3c)",
+    "provinces@+0x48 fits CPdxArray: data@+0x48 cap@+0x50 size@+0x54 alloc@+0x58 (ends @0x60)",
+    "reclassify +0x54 as provinces.size under CPdxArray (was fallback_flag_or_id name)",
+    "subject_handle@+0x28 = order-domain handle (gate 0xbbb1e0); units are separate array",
+    "MassCancel/Unassign sibling packing confirms size = data+0xC",
+    "allow_post stays False; no Post; never 5x; 2fb not executed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty",
+    "live midflight NewFallback hex capture",
+    "exact order-subject handle type-id table",
+    "Execute helper micro-semantics for provinces.size vs mode id"
+  ],
+  "next_shortest_blocker": "NON-Post: live midflight NewFallback/ReplaceFallback hex to confirm handle type-id OR Assign/Unassign edge deepen; still NO ALLOW_POST",
+  "parent_sha_base": "34e5858",
+  "live": {
+    "pid": 34188,
+    "hours": 98,
+    "ui_date": "1936-01-05 02:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA@1x NewFallback subject semantic + CPdxArray packing (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1"
+  },
+  "ts": "2026-10-31T04:43:36.488108+00:00"
+}
