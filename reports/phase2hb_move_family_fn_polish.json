@@ -1,0 +1,154 @@
+{
+  "phase": "2hb",
+  "result": "MOVE_FAMILY_FN_FACTORY_MATCH",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 338,
+    "ui_date": "1936-01-15 02:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x MOVE/SA/Cancel/Strategic VT FN polish (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 289210,
+    "exec": 75569,
+    "allow_post": false
+  },
+  "polish": {
+    "expected_idx": {
+      "MOVE": 1402,
+      "CANCEL": 1415,
+      "SUPPORT_ATTACK": 3620,
+      "STRATEGIC": 4753
+    },
+    "factory_match": {
+      "MOVE": true,
+      "CANCEL": true,
+      "SUPPORT_ATTACK": true,
+      "STRATEGIC": true
+    },
+    "fn_match": {
+      "MOVE": true,
+      "CANCEL": true,
+      "SUPPORT_ATTACK": true,
+      "STRATEGIC": true
+    },
+    "all_factory_match": true,
+    "all_fn_match": true,
+    "move_1402_match": true,
+    "cancel_1415_match": true,
+    "sa_3620_match": true,
+    "strategic_4753_match": true,
+    "slots": {
+      "MOVE": {
+        "name": "MOVE",
+        "type_id": "0x28a2",
+        "factory_idx_catalog": 1402,
+        "factory_idx_formula": 1402,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb000",
+        "slot_rva": "0x13fb000",
+        "slot_matches_catalog": true
+      },
+      "CANCEL": {
+        "name": "CANCEL",
+        "type_id": "0x28af",
+        "factory_idx_catalog": 1415,
+        "factory_idx_formula": 1415,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13face0",
+        "slot_rva": "0x13face0",
+        "slot_matches_catalog": true
+      },
+      "SUPPORT_ATTACK": {
+        "name": "SUPPORT_ATTACK",
+        "type_id": "0x314c",
+        "factory_idx_catalog": 3620,
+        "factory_idx_formula": 3620,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb5e0",
+        "slot_rva": "0x13fb5e0",
+        "slot_matches_catalog": true
+      },
+      "STRATEGIC": {
+        "name": "STRATEGIC",
+        "type_id": "0x35b9",
+        "factory_idx_catalog": 4753,
+        "factory_idx_formula": 4753,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb580",
+        "slot_rva": "0x13fb580",
+        "slot_matches_catalog": true
+      }
+    },
+    "fns": {
+      "MOVE": {
+        "name": "MOVE",
+        "vt_rva": "0x2a2c790",
+        "catalog_isvalid_rva": "0x14002f0",
+        "live_vt48_isvalid_rva": "0x14002f0",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x13fc990",
+        "live_vt50_execute_rva": "0x13fc990",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 1402
+      },
+      "CANCEL": {
+        "name": "CANCEL",
+        "vt_rva": "0x2a2c9b8",
+        "catalog_isvalid_rva": "0x13fed40",
+        "live_vt48_isvalid_rva": "0x13fed40",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x13fbbd0",
+        "live_vt50_execute_rva": "0x13fbbd0",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 1415
+      },
+      "SUPPORT_ATTACK": {
+        "name": "SUPPORT_ATTACK",
+        "vt_rva": "0x2a2cb28",
+        "catalog_isvalid_rva": "0x1402270",
+        "live_vt48_isvalid_rva": "0x1402270",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x13fdd00",
+        "live_vt50_execute_rva": "0x13fdd00",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 3620
+      },
+      "STRATEGIC": {
+        "name": "STRATEGIC",
+        "vt_rva": "0x2a2d818",
+        "catalog_isvalid_rva": "0x1402260",
+        "live_vt48_isvalid_rva": "0x1402260",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x13fc990",
+        "live_vt50_execute_rva": "0x13fc990",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 4753
+      }
+    },
+    "vt_slots": {
+      "isvalid_off": "0x48",
+      "execute_off": "0x50"
+    },
+    "note": "MOVE and STRATEGIC share catalog execute RVA (documented)"
+  },
+  "semantics": "MOVE/SA/Cancel/Strategic VT+0x48/0x50 FN MATCH + factory; no midflight; no Post",
+  "sha_base": "7488820",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 this window (FN polish only)"
+  ]
+}
