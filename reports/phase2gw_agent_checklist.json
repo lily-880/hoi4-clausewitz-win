@@ -1,0 +1,194 @@
+{
+  "phase": "2gw",
+  "ts_utc": "2026-10-31T08:05:59.772475+00:00",
+  "captured_at_shanghai": "2026-10-31 16:05",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "midflight_leaf_hunt": false,
+  "result": "AGENT_CHECKLIST_CATALOG_POLISH",
+  "live_start": {
+    "pid": 30352,
+    "hours": 286,
+    "ui_date": "1936-01-12 22:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x agent checklist polish + \u226460s path/walkback (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 244652,
+    "exec": 65715,
+    "allow_post": false
+  },
+  "live_end": {
+    "pid": 30352,
+    "hours": 290,
+    "ui_date": "1936-01-13 02:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x agent checklist polish + \u226460s path/walkback (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 248778,
+    "exec": 66654,
+    "allow_post": false
+  },
+  "path_snapshot": {
+    "window_s": 60.0,
+    "carmy_rows": 6,
+    "movement_dest_nonempty_count": 4,
+    "multi_province_cand_count": 0,
+    "poll_ticks": 20,
+    "elapsed_s": 0.03
+  },
+  "og50_walkback": {
+    "proxy": "OG+0x50[i] == CArmy+0xB8 (VT 0x29d6fb8)",
+    "walkback_ok": 379,
+    "walkback_fail": 0,
+    "ita_members": 21,
+    "samples": [
+      {
+        "oi": 1,
+        "primary": "0x1eac9417180",
+        "tag": 11
+      },
+      {
+        "oi": 1,
+        "primary": "0x1eac9415dd0",
+        "tag": 11
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3bd90",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c39cc0",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3f210",
+        "tag": 4
+      },
+      {
+        "oi": 3,
+        "primary": "0x1eac8c220a0",
+        "tag": 8
+      }
+    ]
+  },
+  "checklist": {
+    "use_ro_today": [
+      {
+        "id": "LOCATE",
+        "item": "Locate CArmy via handle type=51 + country_tag",
+        "gate": "HIT 2gp"
+      },
+      {
+        "id": "PATH200",
+        "item": "Read CArmy+0x200 multi-prov candidates (tag-FP; not demangled dest)",
+        "gate": "LIVE nonempty=4 multi=0"
+      },
+      {
+        "id": "INST7088",
+        "item": "Read Instance+0x70/+0x88 order/front maps (\u2260 midflight; \u2280 +0x200)",
+        "gate": "HIT 2gm/2gn"
+      },
+      {
+        "id": "OG50MI",
+        "item": "Membership via OG+0x50 \u2261 CArmy+0xB8 (VT 0x29d6fb8)",
+        "gate": "walkback 379/379"
+      },
+      {
+        "id": "ASSIGN51",
+        "item": "Resolve Assign units type=51 \u2192 CArmy when sighted (oi often 0)",
+        "gate": "HIT 2gp"
+      },
+      {
+        "id": "CLOCK",
+        "item": "Read hours/UI/pending/stage/drain/exec",
+        "gate": "hours=290 UI=1936-01-13 02:00"
+      }
+    ],
+    "do_not_invent": [
+      {
+        "id": "MIDFLIGHT",
+        "item": "CMove/SA/Cancel midflight hex for bit_identical rebuild",
+        "gate": "HONEST_EMPTY 2gt+2gv (move=0)"
+      },
+      {
+        "id": "NAMED_DEST",
+        "item": "Named movement_dest demangle",
+        "gate": "HONEST_EMPTY 2go"
+      },
+      {
+        "id": "ASSIGN_OI",
+        "item": "Assign units\u2194OI when order_index\u22600",
+        "gate": "QUIET 2gq/2gr/2gt/2gv (oi\u22600=0)"
+      },
+      {
+        "id": "RING",
+        "item": "ring_embed / Dummy recreate in-process",
+        "gate": "STUBBED \u2014 needs SAFE Post"
+      },
+      {
+        "id": "POST",
+        "item": "Any Post / tool-gate / 2fb|2gk recipe execute",
+        "gate": "HARD_DENY allow_post=False"
+      },
+      {
+        "id": "OG50NAME",
+        "item": "Demangled OG+0x50 / MI field name",
+        "gate": "STUBBED"
+      }
+    ],
+    "midflight_ceiling": {
+      "2gt": {
+        "result": "MIDFLIGHT_HONEST_EMPTY",
+        "hours": 246
+      },
+      "2gv": {
+        "result": "MIDFLIGHT_HONEST_EMPTY",
+        "hours": 276
+      },
+      "note": "Non-interactive midflight empty twice \u2014 do not re-poll this slice family without human leave or denser war."
+    },
+    "feed_ceiling_ref": "LAND_POST \u00a76d (2gu)",
+    "can_feed_n_prior": 6,
+    "hard_deny_n_prior": 6
+  },
+  "prior_keys": [
+    "2gp",
+    "2gq",
+    "2gr",
+    "2gs",
+    "2gt",
+    "2gu",
+    "2gv"
+  ],
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk; no midflight leaf hunt",
+    "\u226460s path snapshot carmy=6 nonempty=4 multi=0",
+    "OG+0x50 MI walkback 379/379",
+    "LAND_POST \u00a76e agent checklist + SAFE_POST 2gw row"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed execute",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "CMove midflight hex",
+    "Post inject",
+    "Assign oi\u22600 units\u2194OI confirm",
+    "ask-user right-click",
+    "Capstone/121 re-churn",
+    "another long midflight empty poll"
+  ],
+  "next_shortest_blocker": "NON-Post: agent checklist ready \u2014 human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600; push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "be13d55"
+}

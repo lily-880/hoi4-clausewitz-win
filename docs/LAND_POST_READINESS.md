@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gv `MIDFLIGHT_HONEST_EMPTY`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gw checklist: midflight ceiling closed for non-interactive); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -180,6 +180,37 @@ Catalog consolidate of §6b perception + §6c midflight empty + 2gp–2gr Assign
 **2gu live:** pid=30352 · hours=257 · UI=1936-01-11 17:00 · allow_post=False.
 **Ceiling:** non-interactive RO cannot raise midflight/oi≠0 further without human midflight or SAFE Post.
 
+## 6e. Agent checklist — use RO today / do not invent (2gw)
+
+Folds §6b perception + §6c/2gv midflight empty + §6d feed ceiling + 2gp–2gr Assign/OG50.
+**Catalog + brief ≤60s path/walkback only. No midflight leaf hunt. No Post.**
+
+### Use RO today
+
+| ID | Item | Gate |
+| --- | --- | --- |
+| `LOCATE` | Locate CArmy via handle type=51 + country_tag | HIT 2gp |
+| `PATH200` | Read CArmy+0x200 multi-prov candidates (tag-FP; not demangled dest) | LIVE nonempty=4 multi=0 |
+| `INST7088` | Read Instance+0x70/+0x88 order/front maps (≠ midflight; ⊀ +0x200) | HIT 2gm/2gn |
+| `OG50MI` | Membership via OG+0x50 ≡ CArmy+0xB8 (VT 0x29d6fb8) | walkback 379/379 |
+| `ASSIGN51` | Resolve Assign units type=51 → CArmy when sighted (oi often 0) | HIT 2gp |
+| `CLOCK` | Read hours/UI/pending/stage/drain/exec | hours=290 UI=1936-01-13 02:00 |
+
+### Do not invent / HARD_DENY
+
+| ID | Item | Gate |
+| --- | --- | --- |
+| `MIDFLIGHT` | CMove/SA/Cancel midflight hex for bit_identical rebuild | HONEST_EMPTY 2gt+2gv (move=0) |
+| `NAMED_DEST` | Named movement_dest demangle | HONEST_EMPTY 2go |
+| `ASSIGN_OI` | Assign units↔OI when order_index≠0 | QUIET 2gq/2gr/2gt/2gv (oi≠0=0) |
+| `RING` | ring_embed / Dummy recreate in-process | STUBBED — needs SAFE Post |
+| `POST` | Any Post / tool-gate / 2fb|2gk recipe execute | HARD_DENY allow_post=False |
+| `OG50NAME` | Demangled OG+0x50 / MI field name | STUBBED |
+
+**2gw live path (≤60s @1x):** carmy=6 nonempty=4 multi=0 ticks=20 · walkback 379/379 · pid=30352 hours=290 UI=1936-01-13 02:00 allow_post=False.
+
+**Midflight ceiling:** 2gt+2gv both `MIDFLIGHT_HONEST_EMPTY` — stop non-interactive midflight re-polls until human leave or plan-dense Assign window.
+
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
 | Field | Value |
@@ -213,6 +244,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gt** | `MIDFLIGHT_HONEST_EMPTY` | ≤90s non-interactive midflight RO (CMove/SA/Cancel/Assign); §6c agent-facing summary | midflight hex / oi≠0 still open; Post HARD_DENY |
 | **2gu** | `AGENT_FEED_CEILING_CATALOG_POLISH` | §6d can-feed / HARD_DENY consolidate (2gs+2gt+2gp–2gr); minimal live_meta | midflight hex / oi≠0 / Post HARD_DENY |
 | **2gv** | `MIDFLIGHT_HONEST_EMPTY` | ≤90s non-interactive midflight RO reaffirm (CMove/SA/Cancel/Assign) | midflight hex / oi≠0 still open; Post HARD_DENY |
+| **2gw** | `AGENT_CHECKLIST_CATALOG_POLISH` | §6e agent checklist (use RO / do not invent); ≤60s path+walkback; no midflight re-poll | midflight hex / oi≠0 / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -220,4 +252,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gv · midflight RO reaffirm · 2026-10-31 Asia/Shanghai*
+*Phase 2gw · agent checklist catalog polish · 2026-10-31 Asia/Shanghai*
