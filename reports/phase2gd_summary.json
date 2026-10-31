@@ -1,0 +1,46 @@
+{
+  "phase": "2gd",
+  "allow_post": false,
+  "result": "war_dense_nf_rf_and_path_empty",
+  "result_note": "ETH@1x AI-on bounded 75.08s: NF/RF=0 path_vectors=0; honest empty (same class as 2fj/2fk). polls=651",
+  "live": {
+    "pid": 14248,
+    "hours": 6,
+    "ui_date": "1936-01-01 06:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH war-dense relaunch @1x AI-on bounded NF/RF+path (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ETH -start_speed=1",
+    "gs": "0x11fe2ac42a0"
+  },
+  "relaunch_ok": true,
+  "map_wait_s": 40.5,
+  "observe_s": 75.08,
+  "polls": 651,
+  "nf_rf_capture_count": 0,
+  "path_nonempty_armies": 0,
+  "catalog_soft_path_n": 0,
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
+    "result=war_dense_nf_rf_and_path_empty",
+    "relaunch ETH -start_tag=ETH -start_speed=1 --allow-ai",
+    "bounded observe 75.08s polls=651"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "HourlyTick abuse",
+    "Capstone/121 re-churn",
+    "named +0x100 elem class beyond allocator soft-VT",
+    "named +0xe0 role beyond u32 province stream",
+    "demangled RTTI string dump for VT 0x29d6fb8 beyond catalog",
+    "demangled CArmy path field names (scan offs remain candidates)",
+    "live midflight NewFallback hex (empty this war-dense window)",
+    "named CArmy path-field offsets (no nonempty demangled path this window)"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling on war-dense NF/path in bounded window \u2014 longer war-day observe OR catalog-only leaf field polish; still NO ALLOW_POST"
+}
