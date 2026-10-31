@@ -111,3 +111,38 @@ Until every box is checked, **Post remains disabled.**
 - Watcher sightline: `reports/midflight_watcher_sightline.json`
 
 *Phase 2en — documentation only. Gate stays CLOSED.*
+
+---
+
+## Phase 2fc — Strategic alternate path (CHECKLIST ONLY)
+
+**Gate remains CLOSED. allow_post stays False. Do not execute ring_embed.**
+
+### Progress vs original enable sequence
+
+| Step | Original | 2fc state |
+| --- | --- | --- |
+| 1 midflight leaf | CMove (+ embed) | **Strategic leaf CAPTURED (2fa)** + layout MATCH (2fb); ordinary CMove still STUBBED |
+| 2 recreate/ring embed | Move or equivalent | **DESIGN drafted (2fb recipe)** — execution STUBBED; needs Dummy recreate proof |
+| 3 human ALLOW_POST env | required | **HARD_DENY** — unset / ignored |
+| 4 tool-gate | CLOSED | **CLOSED_NOT_OPENED** |
+| 5 one land Post | forbidden | **FORBIDDEN** |
+
+### Strategic IsValid path (observation)
+
+- Wrap: `0x22d8ea0`
+- Cmd IsValid: `0x1402260` (type_id `0x35b9`)
+- Action IsValid: `0x12c2c20` (embed type_id `0x364a`)
+- Shared execute thunk w/ MOVE: `0x13fc990` → action.execute `0x12c3190`
+- Catalog IsValid callees: `0x57f7b0, 0x1e1510, 0x2607890` (strategic-only `0x57f7b0)`
+
+### Still blocking any Post (Strategic path)
+
+1. Dummy ring recreate proof on Strategic sample — STUBBED  
+2. Human `CLAUSEWITZ_ALLOW_POST=1` — HARD_DENY  
+3. Tool-gate dedicated open — CLOSED  
+4. NEVER invent writes / helper patches / recipe execution from agents  
+
+Docs: `docs/PHASE2FC_STRATEGIC_ISVALID_SAFE.md`, `reports/phase2fc_strategic_isvalid_path.json`, `reports/phase2fb_ring_embed_recipe.json`.
+
+*Phase 2fc — documentation only. Gate stays CLOSED.*

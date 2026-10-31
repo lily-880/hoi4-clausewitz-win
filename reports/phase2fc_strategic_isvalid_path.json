@@ -1,0 +1,133 @@
+{
+  "phase": "2fc",
+  "allow_post": false,
+  "wrap_isvalid": "0x22d8ea0",
+  "wrap_note": "Global IsValid wrap (catalog); used by queue validation plumbing",
+  "command": {
+    "name": "CStrategicRedeploymentCommand",
+    "vt": "0x2a2d818",
+    "type_id": "0x35b9",
+    "type_id_dec": 13753,
+    "size": "0x50",
+    "cmd_isvalid_fn": "0x1402260",
+    "cmd_isvalid_matches_ISVALID_PATHS": true,
+    "shared_execute_thunk": "0x13fc990",
+    "same_execute_thunk_as_MOVE": true,
+    "factory": "0x13fb580"
+  },
+  "action_embed": {
+    "name": "CUnitStrategicMoveAction",
+    "vt": "0x2a1f7e8",
+    "type_id": "0x364a",
+    "type_id_note": "live 2fa/2fb embed +0x08 == 0x364a",
+    "size": "0x28",
+    "embed_off": "0x28",
+    "action_isvalid_fn": "0x12c2c20",
+    "action_execute_fn": "0x12c3190",
+    "isvalid_kind": "FN",
+    "execute_kind": "FN",
+    "fields": {
+      "army_handle": "0x10",
+      "province": "0x18",
+      "clear": "0x1c",
+      "move_priority": "0x20"
+    }
+  },
+  "call_path_observation": {
+    "order": [
+      "Queue/Dummy validation may hit wrap IsValid 0x22d8ea0",
+      "CStrategicRedeploymentCommand.IsValid FN 0x1402260 (vt slot \u2192 thunk/body)",
+      "Embed CUnitStrategicMoveAction.IsValid FN 0x12c2c20 (catalog kind FN)",
+      "On execute: shared thunk 0x13fc990 \u2192 embed+0x28 \u2192 action.execute 0x12c3190"
+    ],
+    "isvalid_callees_catalog": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "post_gate_candidates_catalog": [
+      "0x2607890",
+      "0x1e1510",
+      "0x57f7b0"
+    ],
+    "vs_MOVE_isvalid_callees": {
+      "shared": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "strategic_only": [
+        "0x57f7b0"
+      ],
+      "move_callee_count": 11,
+      "note": "Strategic IsValid callee set is SMALLER than MOVE (3 vs 11 catalog entries) \u2014 cheaper gate surface; do NOT Capstone re-churn callees"
+    }
+  },
+  "must_be_true_before_any_future_Post": [
+    {
+      "id": "layout_match",
+      "status": "DONE_2fb",
+      "must": "cmd vt/size/embed offsets + action fields match live sample"
+    },
+    {
+      "id": "live_leaf_sample",
+      "status": "DONE_2fa_strategic",
+      "must": "At least one live Strategic (or Move) leaf with populated embed",
+      "have": "CStrategicRedeploymentCommand stage capture seq=6260"
+    },
+    {
+      "id": "isvalid_path_documented",
+      "status": "DONE_2fc",
+      "must": "IsValid FN + action IsValid + wrap documented (this slice)"
+    },
+    {
+      "id": "ring_recreate_proof",
+      "status": "STUBBED",
+      "must": "Captured/hand-built Strategic buffer survives Dummy recreate (0x22d8ad0) into ring@+0xa0 without corruption \u2014 OBSERVATION/design only until SAFE opens"
+    },
+    {
+      "id": "isvalid_live_pass_observation",
+      "status": "STUBBED",
+      "must": "Optional RO: observe game-issued Strategic passing IsValid on stage (already implied by 2fa live leaf) \u2014 do NOT call IsValid from agent"
+    },
+    {
+      "id": "human_allow_post_env",
+      "status": "HARD_DENY",
+      "must": "Human sets CLAUSEWITZ_ALLOW_POST=1 only after prior greens; allow_post() still hard-False until then"
+    },
+    {
+      "id": "tool_gate_dedicated_slice",
+      "status": "CLOSED_NOT_OPENED",
+      "must": "Dedicated future slice opens tool-gate; NEVER this docs slice"
+    },
+    {
+      "id": "never_post_filters",
+      "status": "DONE_inventory",
+      "must": "NEVER_POST speed/HourlyTick/Ping/Pause enforced"
+    }
+  ],
+  "ordinary_CMove_layout_note": {
+    "status": "catalog_complete_live_sample_stubbed",
+    "vt": "0x2a2c790",
+    "type_id": "0x28a2",
+    "size": "0x88",
+    "action_vt": "0x2a1f648",
+    "action_embed": "0x28",
+    "fields": {
+      "unit_handle": "0x10",
+      "province_arr": "0x18",
+      "province_size": "0x24",
+      "path_arr": "0x30",
+      "path_size": "0x3c",
+      "clear": "0x50",
+      "safe": "0x51",
+      "safe_until_end": "0x52",
+      "safe_nonsafe_fb": "0x53",
+      "avoid": "0x55",
+      "move_priority": "0x58",
+      "sticky": "0x5c"
+    },
+    "why_strategic_preferred_now": "MOVE needs province_arr/path_arr game allocs; Strategic is scalar province \u2014 cheaper ring_embed design target per 2fb",
+    "do_not": "endless-hunt ordinary Move samples this slice"
+  },
+  "execute_recipe": false
+}
