@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hl `OG50NAME_CLASS_HIT_LIVE_MISS`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hm `OG50_REVERSE_EMPTY_COHORT_ONLY`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -205,7 +205,7 @@ Folds §6b perception + §6c/2gv midflight empty + §6d feed ceiling + 2gp–2gr
 | `ASSIGN_OI` | Assign units↔OI when order_index≠0 | QUIET 2gq/2gr/2gt/2gv (oi≠0=0) |
 | `RING` | ring_embed / Dummy recreate in-process | STUBBED — needs SAFE Post |
 | `POST` | Any Post / tool-gate / 2fb|2gk recipe execute | HARD_DENY allow_post=False |
-| `OG50NAME` | demangled OG`+0x50` / MI field name | OG50NAME_CLASS_HIT_FIELD_STUBBED MI_class=CArmy (2hl; field name still STUBBED unless HIT) |
+| `OG50NAME` | demangled OG`+0x50` / MI field name | OG50NAME_CLASS_HIT_FIELD_STUBBED MI_class=CArmy (2hl; 2hm reverse maps path armies; field STUBBED) |
 
 **2gw live path (≤60s @1x):** carmy=6 nonempty=4 multi=0 ticks=20 · walkback 379/379 · pid=30352 hours=290 UI=1936-01-13 02:00 allow_post=False.
 **2gx cheap edge:** result=`ASSIGN_QUIET_FACTORY1402_MATCH` · assign_sight=0 · oi≠0=0 · factory1402_match=True · hours=304 UI=1936-01-13 16:00 · allow_post=False.
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hj/2hk matrix multi=1042→[915,490] nonempty=1048→[3938] empty=1039/1043/1046/1049 @+0x60 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` (⊀ `+0x200`) — HIT 2gm/2gn |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — walkback 387/387 ita=21 (2hk polish) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2hm reverse 1042→ois[] 1048→ois[] (field name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -288,6 +288,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hj PATH200 multi-army matrix:** result=`PATH200_MULTI_ARMY_MATRIX_HIT` · carmy=6 empty=4 nonempty=2 multi=1 · off60=[idx=1042→[915, 490]; idx=1048→[3938]] · hours=66 UI=1936-01-03 18:00 · allow_post=False.
 **2hk OG50 membership polish:** result=`OG50_MEMBERSHIP_POLISH_HIT` · walkback 387/387 · ita_members=21 · 2hj matrix fold multi=1042 nonempty=1048 empty=1039/1043/1046/1049 · hours=76 UI=1936-01-04 04:00 · allow_post=False.
 **2hl OG50NAME demangle:** result=`OG50NAME_CLASS_HIT_LIVE_MISS` · MI_class=CArmy · raw=.?AVCArmy@@ · live_mi_match=False · hours=88 UI=1936-01-04 16:00 · allow_post=False.
+**2hm OG↔path-army reverse:** result=`OG50_REVERSE_EMPTY_COHORT_ONLY` · 1042→[] · 1048→[] · og_hits=1 · hours=111 UI=1936-01-05 15:00 · allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -338,6 +339,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hj** | `PATH200_MULTI_ARMY_MATRIX_HIT` | PATH200 multi-army matrix (empty+nonempty+multi @+0x60) | oi≠0 / midflight / Post HARD_DENY |
 | **2hk** | `OG50_MEMBERSHIP_POLISH_HIT` | OG50 walkback polish + 2hj matrix fold into §6f | oi≠0 / midflight / Post HARD_DENY |
 | **2hl** | `OG50NAME_CLASS_HIT_LIVE_MISS` | OG50NAME demangle attempt (MI VT RTTI + PE needles) | field name / oi≠0 / midflight / Post HARD_DENY |
+| **2hm** | `OG50_REVERSE_EMPTY_COHORT_ONLY` | OG+0x50↔path-army reverse (1042/1048 vs empty) | field name / oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -345,4 +347,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hl · OG50NAME demangle attempt · 2026-10-31 Asia/Shanghai*
+*Phase 2hm · OG↔path-army reverse membership · 2026-10-31 Asia/Shanghai*

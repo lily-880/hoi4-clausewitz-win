@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2hl — checklist polish (CLOSED)
+## Phase 2gj … 2hm — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -276,6 +276,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2hj | PATH200 multi-army matrix (empty+nonempty+multi) | **PATH200_MULTI_ARMY_MATRIX_HIT** (Post still CLOSED) |
 | 2hk | OG50 walkback polish + 2hj PATH200 matrix fold | **OG50_MEMBERSHIP_POLISH_HIT** (Post still CLOSED) |
 | 2hl | OG50NAME demangle attempt (MI VT RTTI + PE needles) | **OG50NAME_CLASS_HIT_LIVE_MISS** (Post still CLOSED) |
+| 2hm | OG+0x50↔path-army reverse membership (1042/1048) | **OG50_REVERSE_EMPTY_COHORT_ONLY** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -293,5 +294,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hl — OG50NAME demangle attempt. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2hm — OG↔path-army reverse. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
