@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2ia `MIDBAND_OG575_DIG_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2ib `PATH200_ALL_REVERSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2ia mid-band oi575 size=3 walk=3 arr70=0 expect_in=True path_hit=True tri=0 (name STUBBED) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2ib PATH200 denser path_armies=20 hit=20 new_ois=[] oi_scanned=1200 oi_with_arr50=373 (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -303,6 +303,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hy PATH200 hxfocus denser:** result=`PATH200_HXFOCUS_DENSE_HIT` · focus_hit_n=25 by_prov=[1176:9,3816:3,3938:13] · new1176=9 focus_hiband=21 · ita_ok=50 nonempty=25 · hours=295 UI=1936-01-13 07:00 · allow_post=False. hits=[idx=455→[1176] hb=[]; idx=461→[3816] hb=[]; idx=463→[3938] hb=[]; idx=1042→[1176] hb=[962]; idx=1046→[3816] hb=[976]; idx=2640→[3938] hb=[]; idx=2641→[1176] hb=[962]; idx=2643→[1176] hb=[976]]
 **2hz non-hiband path→OG50 reverse:** result=`NONHIBAND_PATH_OG50_REVERSE_HIT` · hit=4 · idx=455→ois=[481] path=[]; idx=461→ois=[481] path=[3816]; idx=463→ois=[481] path=[3938]; idx=2640→ois=[575] path=[3938] · oi_band=[1, 1200] oi_with_arr50=371 · hours=308 UI=1936-01-13 20:00 · allow_post=False
 **2ia mid-band OG575 dig:** result=`MIDBAND_OG575_DIG_HIT` · oi575 size=3 walk=3 arr70=0 expect_in=True path_hit=True tri=0 · cross70_n=0 shared=[] · ref481_arr70=30 · hours=320 UI=1936-01-14 08:00 · allow_post=False
+**2ib PATH200 denser→OG50 reverse:** result=`PATH200_ALL_REVERSE_HIT` · path_armies=20 hit=20 new_ois=[] oi_scanned=1200 oi_with_arr50=373 · hours=335 UI=1936-01-14 23:00 · allow_post=False
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -368,6 +369,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hy** | `PATH200_HXFOCUS_DENSE_HIT` | PATH200 denser @2hx focus {1176,3938,3816,915} × hiband OG50 | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2hz** | `NONHIBAND_PATH_OG50_REVERSE_HIT` | non-hiband 2hy path armies → OG+0x50 reverse oi1..1200 | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2ia** | `MIDBAND_OG575_DIG_HIT` | mid-band OG575 dig Inst70+OG50+PATH (2hz 2640 home) | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2ib** | `PATH200_ALL_REVERSE_HIT` | PATH200 denser all-nonempty → OG50 reverse | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -375,4 +377,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2ia · mid-band OG575 dig · 2026-10-31 Asia/Shanghai*
+*Phase 2ib · PATH200 denser all→OG50 reverse · 2026-10-31 Asia/Shanghai*
