@@ -55,7 +55,7 @@ Action embeds:
 
 Instance maps (RO): Instance`+0x70` ordered u32 provinces; `+0x88` `CPdxArray<CProvince*>`; `+0xe0` u32 stream; `+0x100` packed twin / soft VT `0x2794550`. NF VT `0x2A84C80` / RF `0x2A84D38`. Units `CPdxArray@+0x28` size@`+0x34` stride8 `{type,index}`; Execute oi@`+0x30`.
 
-Factory table live MATCH: ORDERS 26/26 (2fg); STRATEGIC idx 4753 (2fd/2fe); MOVE/CANCEL filled (2fe).
+Factory table live MATCH: ORDERS 26/26 (2fg); STRATEGIC idx 4753 (2fd/2fe); MOVE/CANCEL filled (2fe). **2ha/2hb live VT+0x48/0x50 FN MATCH** for Assign/Unassign/Execute + MOVE/SA/Cancel/Strategic; factory 3350/3365/3352 + 1402/3620/1415/4753 reaffirm (2gz–2hb).
 
 ---
 
@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hb `MOVE_FAMILY_FN_FACTORY_MATCH`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hc `AGENT_READINESS_ONE_SUMMARY`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -213,8 +213,71 @@ Folds §6b perception + §6c/2gv midflight empty + §6d feed ceiling + 2gp–2gr
 **2gz factory Assign/Unassign/Execute:** result=`ASSIGN_UNASSIGN_EXECUTE_FACTORY_MATCH` · Assign3350=True · Unassign3365=True · Execute3352=True · MOVE1402=True · hours=321 UI=1936-01-14 09:00 · allow_post=False.
 **2ha FN+OG50:** result=`ASSIGN_FN_MATCH_OG50_WALKBACK` · all_fn=True · all_factory=True · walkback 380/380 · hours=330 UI=1936-01-14 18:00 · allow_post=False.
 **2hb move-family FN:** result=`MOVE_FAMILY_FN_FACTORY_MATCH` · all_fn=True · all_factory=True · MOVE1402=True · SA3620=True · Cancel1415=True · Strat4753=True · hours=338 UI=1936-01-15 02:00 · allow_post=False.
+**2hc readiness consolidate:** result=`AGENT_READINESS_ONE_SUMMARY` · move_family=True · assign_family=True · walkback 380/380 · hours=347 UI=1936-01-15 11:00 · allow_post=False.
 
 **Midflight ceiling:** 2gt+2gv both `MIDFLIGHT_HONEST_EMPTY` — stop non-interactive midflight re-polls until human leave or plan-dense Assign window.
+
+## 6f. ONE agent-facing readiness summary (2hc)
+
+**Status: CLOSED — allow_post False · tool-gate CLOSED · recipes NOT executed · never 5x.**
+Folds §6b–§6e + **2ha** Assign FN/factory + **2hb** MOVE-family FN/factory + OG50 into one land-agent card.
+
+### Proven RO constants (session)
+
+| Symbol | Value |
+| --- | --- |
+| `G_GAMESTATE` / hours UI | `0x33dd6b0` / GS`+0x484` |
+| `G_SESSION` | `0x34ffbe8` |
+| pending / stage / drain / exec | server`+0x58` / sess`+0x54` / `+0x60` / `+0x6c8` |
+| cmd IsValid / Execute slots | VT`+0x48` / VT`+0x50` |
+
+### Land catalogs — factory + live VT FN MATCH
+
+| Family | factory_idx | factory MATCH | VT+0x48/0x50 FN MATCH | Slice |
+| --- | --- | --- | --- | --- |
+| MOVE / SA / Cancel / Strategic | 1402 / 3620 / 1415 / 4753 | True | True | 2hb (+2gy) |
+| Assign / Unassign / Execute | 3350 / 3365 / 3352 | True | True | 2ha (+2gz) |
+
+Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; Assign units `CPdxArray@+0x28` stride8 `{type,index}`; oi@`+0x48`.
+
+### What land agent can feed today (RO)
+
+| ID | Signal | How / status |
+| --- | --- | --- |
+| `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
+| `PATH200` | multi-prov candidates | CArmy`+0x200` tag-FP (not demangled dest) — LIVE |
+| `INST7088` | order/front maps | Instance`+0x70`/`+0x88` (⊀ `+0x200`) — HIT 2gm/2gn |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` (MI VT `0x29d6fb8`) — walkback LIVE |
+| `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
+| `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
+| `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
+| `CLOCK` | hours/UI/counters | pending/stage/drain/exec — HIT |
+
+### HARD_DENY / do not invent
+
+| ID | Item | Gate |
+| --- | --- | --- |
+| `MIDFLIGHT` | CMove/SA/Cancel midflight hex | HONEST_EMPTY 2gt+2gv — stop re-poll |
+| `NAMED_DEST` | named movement_dest | HONEST_EMPTY 2go |
+| `ASSIGN_OI` | Assign units↔OI when oi≠0 | QUIET 2gq–2gx |
+| `RING` | ring_embed / Dummy recreate | STUBBED — needs SAFE Post |
+| `POST` | Post / tool-gate / 2fb\|2gk execute | HARD_DENY allow_post=False |
+| `OG50NAME` | demangled OG`+0x50` name | STUBBED |
+| `SPEED5X` | game speed 5x | NEVER |
+
+### Human-gated next (still CLOSED — do not ask user to right-click / enable Post)
+
+```
+[ ] A  Ordinary CMove (+ embed) live midflight hex  — OR Strategic-only + human SAFE Post for ring_embed
+[ ] B  Ring-embed recreate proof on captured buffer
+[ ] C  Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
+[ ] D  Dedicated tool-gate open + NEVER_POST
+[ ] E  ONE land MOVE|Strategic Post @1x; verify; pause; unset
+```
+
+Until A–B green and human does C: **gate stays CLOSED**.
+
+**2hc live:** result=`AGENT_READINESS_ONE_SUMMARY` · move_family=True · assign_family=True · walkback 380/380 · hours=347 UI=1936-01-15 11:00 · allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -255,6 +318,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gz** | `ASSIGN_UNASSIGN_EXECUTE_FACTORY_MATCH` | Assign3350/Unassign3365/Execute3352(+MOVE1402) factory MATCH | oi≠0 / midflight / Post HARD_DENY |
 | **2ha** | `ASSIGN_FN_MATCH_OG50_WALKBACK` | Assign/Unassign/Execute VT+0x48/0x50 FN MATCH + factory3350/3365/3352 + OG50 380/380 | oi≠0 / midflight / Post HARD_DENY |
 | **2hb** | `MOVE_FAMILY_FN_FACTORY_MATCH` | MOVE/SA/Cancel/Strategic VT+0x48/0x50 FN MATCH + factory1402/3620/1415/4753 | oi≠0 / midflight / Post HARD_DENY |
+| **2hc** | `AGENT_READINESS_ONE_SUMMARY` | §6f ONE agent-facing readiness (2ha+2hb FN/factory + OG50 + can-feed/HARD_DENY); live walkback 380/380 | oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -262,4 +326,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hb · MOVE/SA/Cancel/Strategic FN polish · 2026-10-31 Asia/Shanghai*
+*Phase 2hc · ONE agent-facing readiness consolidate · 2026-10-31 Asia/Shanghai*
