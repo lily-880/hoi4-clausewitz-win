@@ -1,0 +1,74 @@
+{
+  "phase": "2fk",
+  "result": "PATH_EMPTY_LEAF_SIGHT_EMPTY",
+  "scenario": "ITA war-dense relaunch @1x AI-on + all-carmy retag path/leaf (no Post)",
+  "allow_post": false,
+  "tool_gate": "CLOSED",
+  "pid": 34188,
+  "ui_date": "1936-01-02 09:00",
+  "hours": 33,
+  "gs_player_tag": 15,
+  "path_nonempty_tag15": 0,
+  "path_nonempty_all": 0,
+  "path_polls_all": 32,
+  "path_elapsed_s_all": 76.39,
+  "leaf_focus_seen": [],
+  "carmy_all": 873,
+  "top_tags": [
+    [
+      5,
+      74
+    ],
+    [
+      48,
+      60
+    ],
+    [
+      38,
+      57
+    ],
+    [
+      16,
+      46
+    ],
+    [
+      10,
+      40
+    ],
+    [
+      68,
+      36
+    ],
+    [
+      17,
+      31
+    ],
+    [
+      21,
+      31
+    ]
+  ],
+  "map_wait_s": 29.0,
+  "works": [
+    "relaunch ITA -start_tag=ITA -start_speed=1 --allow-ai (no -noai)",
+    "map_wait ok=True elapsed=29.0s carmy=17 player_tag=15",
+    "bounded path poll 75.32s nonempty=0",
+    "allow_post stays False; recipe not executed; never 5x",
+    "fallback leaf sight 30.0s focus=[]",
+    "retag ALL-carmy path poll 76.39s nonempty=0 carmy~873",
+    "retag leaf focus=[]"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "NewFallback subject beyond +0x54",
+    "path-vector nonempty (ITA war-dense window)"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling on ETH+ITA war-dense path/leaf (incl. all-carmy) \u2014 next cheapest: catalog NewFallback subject beyond +0x54 OR Assign/Unassign edge deepen; still NO ALLOW_POST",
+  "parent_sha_base": "a879908"
+}

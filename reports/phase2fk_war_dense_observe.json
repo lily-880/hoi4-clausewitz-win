@@ -1,0 +1,249 @@
+{
+  "phase": "2fk",
+  "ts": "2026-10-31T04:24:30.584588+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "tool_gate": "CLOSED",
+  "never_5x": true,
+  "result": "PATH_EMPTY_LEAF_SIGHT_EMPTY",
+  "relaunch": {
+    "cmd": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\scripts\\launch_into_map.py",
+      "--start-tag",
+      "ITA",
+      "--speed",
+      "1",
+      "--allow-ai"
+    ],
+    "rc": 0,
+    "stdout": "Launching: D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe -gdpr-compliant -start_tag=ITA -start_speed=1\nStarted. Wait for map, then: python clausewitz_win.py status\nExpect G_IDLER -> CInGameIdler. Posting stays DISABLED. Prefer paused (speed 0).\n",
+    "stderr": ""
+  },
+  "map_wait": {
+    "ok": true,
+    "elapsed_s": 29.0,
+    "pid": 34188,
+    "hours": 0,
+    "ui_date": "1936-01-01 00:00",
+    "carmy": 17,
+    "player_tag": 15,
+    "index_window": [
+      500,
+      4500
+    ]
+  },
+  "live": {
+    "pid": 34188,
+    "hours": 33,
+    "ui_date": "1936-01-02 09:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA war-dense relaunch @1x AI-on bounded path/leaf (no Post)",
+    "country_tag_filter": 15,
+    "player_tag_live": 15,
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1",
+    "retag_carmy_all": 873,
+    "retag_top_tags": [
+      [
+        5,
+        74
+      ],
+      [
+        48,
+        60
+      ],
+      [
+        38,
+        57
+      ],
+      [
+        16,
+        46
+      ],
+      [
+        10,
+        40
+      ],
+      [
+        68,
+        36
+      ],
+      [
+        17,
+        31
+      ],
+      [
+        21,
+        31
+      ]
+    ]
+  },
+  "path_poll": {
+    "window_s": 75.0,
+    "interval_s": 2.0,
+    "polls": 32,
+    "elapsed_s": 75.32,
+    "first_hit_at_s": null,
+    "best_nonempty_count": 0,
+    "best_hits": [],
+    "timeline_tail": [
+      {
+        "poll": 25,
+        "t": 56.47,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 26,
+        "t": 58.84,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 27,
+        "t": 61.23,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 28,
+        "t": 63.61,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 29,
+        "t": 65.92,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 30,
+        "t": 68.28,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 31,
+        "t": 70.64,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 32,
+        "t": 72.97,
+        "nonempty": 0,
+        "carmy": 17
+      }
+    ],
+    "note": "BOUNDED; stop early on useful hit or window end. No invent."
+  },
+  "leaf_sight": {
+    "window_s": 30.0,
+    "interval_s": 0.05,
+    "polls": 595,
+    "sight_counts": {
+      "CHourlyTickCommand": 20
+    },
+    "focus_samples": [],
+    "focus_names_seen": [],
+    "note": "BOUNDED leaf sight after empty paths. No Post."
+  },
+  "works": [
+    "relaunch ITA -start_tag=ITA -start_speed=1 --allow-ai (no -noai)",
+    "map_wait ok=True elapsed=29.0s carmy=17 player_tag=15",
+    "bounded path poll 75.32s nonempty=0",
+    "allow_post stays False; recipe not executed; never 5x",
+    "fallback leaf sight 30.0s focus=[]",
+    "retag ALL-carmy path poll 76.39s nonempty=0 carmy~873",
+    "retag leaf focus=[]"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "NewFallback subject beyond +0x54",
+    "path-vector nonempty (ITA war-dense window)"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling on ETH+ITA war-dense path/leaf (incl. all-carmy) \u2014 next cheapest: catalog NewFallback subject beyond +0x54 OR Assign/Unassign edge deepen; still NO ALLOW_POST",
+  "parent_sha_base": "a879908",
+  "haiti_return": {
+    "recipe": "python scripts/launch_into_map.py --speed 1 --allow-ai",
+    "equiv_cli": "-gdpr-compliant -start_tag=HAI -start_speed=1",
+    "paused_cool": "python scripts/launch_into_map.py  # HAI speed 0 -noai"
+  },
+  "retag_note": "First path window filtered GS_PLAYER_TAG=15 (file-order ITA=15) but only 17 carmy; CA_COUNTRY_TAG mapping not confirmed vs country_tags index. Second bounded window: ALL CArmy no tag filter.",
+  "path_poll_retag": {
+    "window_s": 75.0,
+    "polls": 32,
+    "elapsed_s": 76.39,
+    "first_hit_at_s": null,
+    "best_nonempty_count": 0,
+    "best_hits": [],
+    "timeline_tail": [
+      {
+        "poll": 25,
+        "t": 57.53,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 26,
+        "t": 59.91,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 27,
+        "t": 62.28,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 28,
+        "t": 64.68,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 29,
+        "t": 67.11,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 30,
+        "t": 69.5,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 31,
+        "t": 71.92,
+        "nonempty": 0,
+        "carmy": 873
+      },
+      {
+        "poll": 32,
+        "t": 74.39,
+        "nonempty": 0,
+        "carmy": 873
+      }
+    ],
+    "filter": "ALL_CARMY_NO_TAG",
+    "carmy_start": 873
+  },
+  "leaf_sight_retag": {
+    "window_s": 30.0,
+    "polls": 594,
+    "sight_counts": {
+      "CHourlyTickCommand": 23
+    },
+    "focus_names_seen": [],
+    "focus_samples": []
+  }
+}
