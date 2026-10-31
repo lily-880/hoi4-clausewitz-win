@@ -24,6 +24,8 @@ from handle import resolve_handle, HANDLE_TYPE_ARMY
 assert allow_post() is False, "allow_post must stay False"
 
 ASSIGN_VT = cmd_layout.ORDERS["COrderAssignCommand"]["vt"]
+NF_VT = cmd_layout.ORDERS["COrderNewFallbackCommand"]["vt"]
+RF_VT = int(cmd_layout.ISVALID_PATHS["COrderReplaceFallbackCommands"]["vt"])
 RTTI_VT = {
     "COrdersGroup": 0x29CED90,
     "COrdersGroupMember": 0x29CED48,
@@ -157,12 +159,16 @@ def dump_array_elems(b, base, arr, max_n=12, stride=8):
     return out
 
 
-def stage_sight(b, base, seconds=12.0):
-    """Collect Assign order_index via CSession stage (RO). Never changes speed."""
+def stage_watch(b, base, seconds: float = 12.0):
     sess = u64(b, base + post_abi.G_SESSION)
+    watch = {
+        ASSIGN_VT: "COrderAssignCommand",
+        NF_VT: "COrderNewFallbackCommand",
+        RF_VT: "COrderReplaceFallbackCommands",
+    }
     t0 = time.time()
     counts = {}
-    assigns = []
+    assigns, nfs, rfs = [], [], []
     seen = set()
     while time.time() - t0 < seconds:
         try:
@@ -179,39 +185,58 @@ def stage_sight(b, base, seconds=12.0):
             except Exception:
                 continue
             rva = vt - base
-            if rva != ASSIGN_VT:
+            name = watch.get(rva)
+            if not name:
                 continue
-            counts["COrderAssignCommand"] = counts.get("COrderAssignCommand", 0) + 1
-            if ptr in seen:
+            counts[name] = counts.get(name, 0) + 1
+            key = (name, ptr)
+            if key in seen:
                 continue
-            seen.add(ptr)
-            if len(assigns) >= 10:
-                continue
-            oi = u32(b, ptr + 0x48)
-            size = struct.unpack("<i", b.read(ptr + 0x34, 4))[0]
-            data = u64(b, ptr + 0x28)
-            armies = []
-            if data and 0 < size <= 64:
-                blob = try_read(b, data, size * 8)
-                if blob:
-                    for j in range(size):
-                        typ, ix = struct.unpack_from("<II", blob, j * 8)
-                        if typ == HANDLE_TYPE_ARMY:
-                            armies.append(ix)
-            assigns.append(
-                {
-                    "addr": hex(ptr),
-                    "t": round(time.time() - t0, 3),
-                    "order_index": oi,
-                    "u32_plus40": hex(u32(b, ptr + 0x40)),
-                    "units_size": size,
-                    "army_indices": armies,
-                }
-            )
+            seen.add(key)
+            t = round(time.time() - t0, 3)
+            if name == "COrderAssignCommand" and len(assigns) < 10:
+                oi = u32(b, ptr + 0x48)
+                size = struct.unpack("<i", b.read(ptr + 0x34, 4))[0]
+                data = u64(b, ptr + 0x28)
+                armies = []
+                if data and 0 < size <= 64:
+                    blob = try_read(b, data, size * 8)
+                    if blob:
+                        for j in range(size):
+                            typ, ix = struct.unpack_from("<II", blob, j * 8)
+                            if typ == HANDLE_TYPE_ARMY:
+                                armies.append(ix)
+                assigns.append(
+                    {
+                        "addr": hex(ptr),
+                        "t": t,
+                        "order_index": oi,
+                        "u32_plus40": hex(u32(b, ptr + 0x40)),
+                        "units_size": size,
+                        "army_indices": armies,
+                    }
+                )
+            elif name == "COrderNewFallbackCommand" and len(nfs) < 4:
+                raw = try_read(b, ptr, 0x60)
+                sub = [u32(b, ptr + 0x28), u32(b, ptr + 0x2C)]
+                nfs.append(
+                    {
+                        "addr": hex(ptr),
+                        "t": t,
+                        "subject_handle": sub,
+                        "subject_type_hex": hex(sub[0]),
+                        "hex": raw.hex() if raw else None,
+                    }
+                )
+            elif name == "COrderReplaceFallbackCommands" and len(rfs) < 4:
+                raw = try_read(b, ptr, 0x60)
+                rfs.append({"addr": hex(ptr), "t": t, "hex": raw.hex() if raw else None})
     return {
         "elapsed_s": round(time.time() - t0, 1),
         "sight_counts": counts,
         "assigns": assigns,
+        "fallbacks": nfs,
+        "replace_fallbacks": rfs,
     }
 
 
@@ -391,7 +416,7 @@ def main():
     live = live_meta(b, base)
     print("LIVE", json.dumps(live))
 
-    sight = stage_sight(b, base, seconds=12.0)
+    sight = stage_watch(b, base, seconds=12.0)
     live_ois = sorted({a["order_index"] for a in sight.get("assigns", []) if "order_index" in a})
     print("SIGHT ois", live_ois, "n_assign", len(sight.get("assigns", [])))
 

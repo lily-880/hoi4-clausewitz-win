@@ -3,23 +3,20 @@
   "allow_post": false,
   "live": {
     "pid": 34188,
-    "hours": 114,
-    "ui_date": "1936-01-05 18:00",
+    "hours": 132,
+    "ui_date": "1936-01-06 12:00",
     "speed_policy": "pause-or-1x only (never change speed)",
     "scenario": "ITA@1x COrderInstance field map via OG+0x98 (no Post)",
     "gs": "0x1b8e2e76740"
   },
   "works": [
     "allow_post False; never 5x; no Post/inject/tool-gate/2fb; Capstone not re-run",
-    "stage sight assigns=5 live_ois=[0, 4, 6, 8, 17]",
-    "Instance via OG+0x98 mapped vt_ok=10/11",
-    "nonempty Instance array offs (count across maps): {'0xe0': 3, '0x100': 3, '0x70': 7, '0x88': 7}",
-    "order_index u32 echo offs tally: {'0xe8': 2, '0xec': 2, '0x108': 2, '0x10c': 2, '0x190': 1, '0x78': 1, '0x7c': 1}",
-    "handle-shaped Instance hits tally: {'t70@0xf8': 2}",
-    "+0x50 elem kinds: {'opaque_still': 18}",
-    "Instance+0x38 \u2192 COrdersGroup* backref (10/10)",
-    "Instance+0x70/+0x88 CPdxArrays nonempty (7/10); +0x70 u32 province-id-range candidate",
-    "OG+0x50 elems VT RVA 0x29d6fb8 (name unresolved) with OG@+0x08 Instance@+0x20"
+    "stage sight {'COrderAssignCommand': 5} live_ois=[5, 6, 25, 40, 44]",
+    "Instance via OG+0x98 mapped vt_ok=12/12",
+    "COrderInstance+0x38 \u2192 COrdersGroup* back-pointer (all vt_ok samples)",
+    "Instance+0x70 CPdxArray nonempty often; elems4 u32 in province-id range 1..20000 (candidate path/province list \u2014 unnamed)",
+    "Instance+0x88 CPdxArray nonempty often; elems opaque ptr (unnamed)",
+    "OG+0x50 elems: VT RVA 0x29d6fb8 matches WINDOWS_OFFSETS CArmy MI; +0x08\u2192OG* +0x20\u2192Instance*"
   ],
   "stubbed": [
     "in-process ring embed",
@@ -29,7 +26,7 @@
     "self-MOVE",
     "tool-gate open",
     "Post inject",
-    "path-vector nonempty",
+    "path-vector nonempty confirm (province-id-range candidate at Instance+0x70 only)",
     "HourlyTick abuse",
     "Capstone/121 re-churn",
     "NewFallback subject type-id table",
@@ -37,41 +34,42 @@
     "order_index\u2192COrderInstance pool-slot arithmetic (object path via OG+0x98 works)",
     "stable G_GAMESTATE\u2192pool root pointer path",
     "full G_GAMESTATE\u2192type-0x35-reg owner path",
-    "RTTI name for OG+0x50 elem VT 0x29d6fb8 (layout VT+OG+Instance known)",
-    "named Instance +0x70/+0x88/+0xe0/+0x100 field roles (arrays observed)"
+    "named Instance +0x70/+0x88/+0xe0/+0x100 field names",
+    "demangled RTTI string confirm for VT 0x29d6fb8 beyond WINDOWS_OFFSETS CArmy MI catalog"
   ],
-  "next_shortest_blocker": "NON-Post: resolve RTTI name for VT 0x29d6fb8 (+0x50 elems) OR confirm Instance+0x70 as province/path (cross-check live army provinces) OR deepen +0x88 ptr targets OR bounded NF/RF subject; still NO ALLOW_POST",
+  "next_shortest_blocker": "NON-Post: confirm Instance+0x70 u32s vs live army provinces/path OR deepen +0x88 ptr targets OR demangle VT 0x29d6fb8 / army-handle cross-check on +0x50 OR bounded NF/RF; still NO ALLOW_POST",
   "consistency": {
     "nonempty_arr_offs": {
-      "0xe0": 3,
-      "0x100": 3,
+      "0xe0": 5,
+      "0x100": 5,
       "0x70": 7,
       "0x88": 7
     },
     "oi_echo_offs": {
-      "0xe8": 2,
-      "0xec": 2,
-      "0x108": 2,
-      "0x10c": 2,
+      "0x30": 1,
+      "0xe8": 1,
+      "0xec": 1,
+      "0x108": 1,
+      "0x10c": 1,
       "0x190": 1,
       "0x78": 1,
       "0x7c": 1
     },
     "handle_hits": {
-      "t70@0xf8": 2
+      "t70@0xf8": 3
     },
     "kind50": {
-      "opaque_still": 18
+      "opaque_still": 15
     },
-    "vt_ok_n": 10
+    "vt_ok_n": 12
   },
   "live_ois": [
-    0,
-    4,
+    5,
     6,
-    8,
-    17
+    25,
+    40,
+    44
   ],
-  "vt_ok_n": 10,
-  "n_mapped": 11
+  "vt_ok_n": 12,
+  "n_mapped": 12
 }
