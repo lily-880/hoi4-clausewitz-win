@@ -985,3 +985,18 @@ eports/phase2el_gs_datetime.json.
 - **Still stubbed**: live midflight `CMoveCommand` sample; ring_embed; SAFE_POST enable.
 - Reports: `reports/phase2es_ro_slice.json`, `reports/phase2es_summary.json`.
 
+## Phase 2et — ETH war-start RO midflight (2026-10-31)
+
+- **Goal**: cheapest live land midflight without ALLOW_POST / Post / user right-click.
+- **Scenario**: relaunch `-start_tag=ETH -start_speed=1` (**no** `-noai`). ETH is at war with Italy on 1936-01-01.
+- **Haiti return**: `python scripts/launch_into_map.py --speed 1 --allow-ai` (= `-start_tag=HAI -start_speed=1`); cool pause: default `launch_into_map.py`.
+- **Works**:
+  - Map OK (`CInGameIdler`), clock from fresh start (~hours 22 → UI `1936-01-01 22:00` @1x).
+  - Midflight watcher armed; `allow_post` False.
+  - **First non-`CHourlyTickCommand` land-related midflight**: `COrderUnassignCommand` ×2 on DummyServer stage (vt_rva `0x2a84550`, first at Asia/Shanghai ~10:58:20).
+- **Stubbed**:
+  - Live `CMoveCommand` / `CUnitMoveAction` still missing (`captures=0`).
+  - Post-drain RO peek at sighted addr no longer holds clear VT (heap reuse / obfuscation) — do not treat later qwords as layout proof.
+  - `path_vector` nonempty still 0; ring_embed / SAFE_POST / self-MOVE still closed.
+- **Contrast vs 2es**: peacetime Haiti AI-on → HourlyTick only; ETH war AI-on → HourlyTick + land **order** Unassign.
+- **Next**: longer ETH/ITA@1x for Move/Attack samples, or RO-follow Unassign→order pipeline; still **no** ALLOW_POST.

@@ -130,3 +130,17 @@ Smoke @ 1x: HourlyTick sightline still OK; Move sample still absent (expected un
 - Current preferred launch for clock proof: `-start_tag=HAI -start_speed=1` (**no** `-noai`). AI-on alone does **not** produce peacetime Haiti land `CMoveCommand`.
 - Watcher WATCH expanded for substitute land VTs (attack/retreat/order/frontline family). Sightline may count them; Move-break still only on Move-class names.
 - Do **not** enable Post to force a move sample.
+
+## Phase 2et war-start path (ETH)
+
+Preferred RO path when peacetime Haiti yields only `CHourlyTickCommand`:
+
+```text
+python scripts/phase2et_war_midflight.py --tag ETH --speed 1 --observe-seconds 180
+```
+
+Equiv CLI: `-gdpr-compliant -start_tag=ETH -start_speed=1` (AI on). Never 5x.
+
+**Observed (2et):** `COrderUnassignCommand` ×2 midflight; `CMoveCommand` still absent.
+
+Return to Haiti: `python scripts/launch_into_map.py --speed 1 --allow-ai`.

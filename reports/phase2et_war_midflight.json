@@ -1,0 +1,123 @@
+{
+  "phase": "2et",
+  "ts": "2026-10-31T02:56:17.015649+00:00",
+  "allow_post": false,
+  "never_5x": true,
+  "haiti_return": {
+    "recipe": "python scripts/launch_into_map.py --speed 1 --allow-ai",
+    "equiv_cli": "-gdpr-compliant -start_tag=HAI -start_speed=1",
+    "paused_cool": "python scripts/launch_into_map.py  # HAI speed 0 -noai",
+    "note": "Reversible: kill hoi4 then relaunch with HAI; no save required for RO RE."
+  },
+  "scenario": {
+    "tag": "ETH",
+    "why": "1936 ETH already at war with Italy on day 1 \u2014 cheapest land-combat traffic without Post",
+    "speed": 1,
+    "ai": "on (--allow-ai, no -noai)"
+  },
+  "relaunch": {
+    "cmd": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\scripts\\launch_into_map.py",
+      "--start-tag",
+      "ETH",
+      "--speed",
+      "1",
+      "--allow-ai"
+    ],
+    "rc": 0,
+    "stdout": "Launching: D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe -gdpr-compliant -start_tag=ETH -start_speed=1\nStarted. Wait for map, then: python clausewitz_win.py status\nExpect G_IDLER -> CInGameIdler. Posting stays DISABLED. Prefer paused (speed 0).\n",
+    "stderr": ""
+  },
+  "map_wait": {
+    "ok": true,
+    "elapsed_s": 52.1,
+    "date_full": null,
+    "pid": 24808,
+    "armies": 17,
+    "player_tag": 15,
+    "raw_has_hours": true
+  },
+  "live_before_observe": {
+    "pid": 24808,
+    "hours": null,
+    "ui_date": null,
+    "armies_count": 17,
+    "theatres": 1,
+    "fronts": 6,
+    "allow_post": false
+  },
+  "watcher": {
+    "pid": 21096,
+    "seconds": 600
+  },
+  "observe_elapsed_s": 180.0,
+  "live_after_observe": {
+    "pid": 24808,
+    "hours": null,
+    "ui_date": null,
+    "armies_count": 17,
+    "theatres": 1,
+    "fronts": 6,
+    "allow_post": false
+  },
+  "sightline": {
+    "present": true,
+    "sight_counts": {
+      "CHourlyTickCommand": 5560,
+      "COrderUnassignCommand": 2
+    },
+    "land_counts": {
+      "COrderUnassignCommand": 2
+    },
+    "land_any": true,
+    "parser_note": "fixed: phase2bm uses sight_counts not hits"
+  },
+  "capture_present": false,
+  "capture_summary": null,
+  "heartbeat_tail": {},
+  "path_vector_scan": {
+    "ok": true,
+    "sampled": 0,
+    "path_nonempty": 0,
+    "samples": [],
+    "snap_err": null,
+    "note": "RO only; empty means unobserved under this scenario, not a fabricated dest"
+  },
+  "works": [
+    "ETH war relaunch @1x AI-on (no -noai)",
+    "map CInGameIdler",
+    "watcher armed",
+    "first non-HourlyTick land-related midflight: COrderUnassignCommand x2",
+    "RO layout peek on sighted addr",
+    "Haiti return recipe documented"
+  ],
+  "stubbed": [
+    "live CMoveCommand / CUnitMoveAction sample",
+    "ring_embed rebuild",
+    "SAFE_POST enable",
+    "self-issue MOVE",
+    "path_vector nonempty"
+  ],
+  "result": "LAND_ORDER_MIDFLIGHT_SIGHTED",
+  "next_shortest_blocker": "Have land ORDER midflight (Unassign) but still no CMoveCommand \u2014 longer ETH/ITA@1x observe for Move/Attack, or RO-decode Unassign\u2192related move pipeline; still NO ALLOW_POST",
+  "live_ui_corrected": "1936-01-01 22:00",
+  "hours_corrected": 22,
+  "unassign_ro_deepen": {
+    "attempted": true,
+    "vt_rva_expect": "0x2a84550",
+    "addr": "0x1d977877200",
+    "vt_abs": "0xbb87e5b982e74711",
+    "first_qwords": [
+      "0xbb87e5b982e74711",
+      "0xe7a59fe659112111",
+      "0xba8ce5b09ce58b9c",
+      "0x72744347110a2111",
+      "0x82e72b746c412b6c",
+      "0x90e52111bb87e5b9",
+      "0xe58b8fe59f9be791",
+      "0xa1bfe48180e9918f"
+    ],
+    "readable": true
+  }
+}
