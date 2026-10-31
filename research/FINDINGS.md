@@ -857,3 +857,12 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Peer locality**: 10/17 HAI peers share theatre + sit in TH_ARMIES; still **0 bidir**; status remains `hypothesis_peer_chain_oneway_2dc`.
 - **Unchanged**: TH_ARMIES/TH_FRONTS (2dd); packed 0x90 REJECT; org/str REJECT; movement_dest=0; orders 0; LAND **121/121**; confidence **1.000**.
 - Recipes `*_2de`; allow_post False; watcher 36128 RO.
+
+## Phase 2df (overnight RO) — COwnerArea mirrors ControllerArea
+
+- **HEAD parent**: `9167685` (2de). Focus: owner-area structure; FrontSection local reverse (0 near HAI fronts this pass).
+- **COwnerArea (new)**: `CPdxArray<CProvince*>` @ `+0x30` (**9/9**) / `+0xb0` (**9/9**); `+0x60` partial (**5/9**); `CPdxArray<CStrategicRegion*>` @ `+0xf8` (**9/9**).
+- **CA∥OA**: `CO_OWNER_AREAS[i]+0x30` province set **identical** to `CO_CONTROLLER_AREAS[i]+0x30` for all **9** HAI pairs.
+- **FrontSection**: local ±0x8000 scan around HAI fronts found **0** FS with `+0x10==front` (allocator not local); unresolved this pass.
+- **Unchanged**: TH_ARMIES/TH_FRONTS; ctrl provinces (2de); CFront>0x90 REJECT; peer hyp; org/str REJECT; LAND **121/121**; confidence **1.000**.
+- Recipes `*_2df`; allow_post False; watcher 36128 RO.

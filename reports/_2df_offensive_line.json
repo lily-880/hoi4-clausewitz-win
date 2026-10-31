@@ -1,0 +1,1772 @@
+{
+  "COrderNewFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x2607890",
+      "0x10b5f10"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x10b5f10": "execute_via_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "sub_group": 48,
+      "units_data": 56,
+      "units_count": 68,
+      "path": 80,
+      "attach": 104,
+      "split_from": 108,
+      "blitz": 109,
+      "withdraw": 110,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "ctx_or_flag": 32,
+      "arg8": 88,
+      "arg7": 80,
+      "subject_lo": 40,
+      "flags_or_ctx2": 32
+    },
+    "field_map_n": 24,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderNewFrontCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0x254aa00', '0xc415b0', '0xc416b0'].",
+      "3. Field map (24 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderInsertFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x10b5f10",
+      "0x25c3770",
+      "0x2607f30",
+      "0x254aa00",
+      "0x25a0390",
+      "0x18e580",
+      "0x25694b0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607f30": "isvalid_cross_role_field_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25694b0": "execute_via_strategic_region_dispatcher_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 44,
+      "id_or_c": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg6_or_plan": 72,
+      "flags_or_ctx2": 32,
+      "arg0_or_type": 48,
+      "arg3_or_cap": 60,
+      "owner_or_ctx": 24,
+      "arg8": 88,
+      "vptr_or_hdr": 16,
+      "arg2_or_vec_end": 56
+    },
+    "field_map_n": 19,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderInsertFrontCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0x10b4e50'].",
+      "3. Field map (19 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetPathCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "order_id_a": 40,
+      "order_id_b": 44,
+      "order_id_c": 48,
+      "path_payload": 56,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg3": 64,
+      "ctx_or_flag": 32,
+      "arg0_or_type": 48,
+      "arg7": 80,
+      "arg2_or_vec_end": 56,
+      "flags_or_ctx2": 32,
+      "arg4_or_child": 64,
+      "subject_lo": 40
+    },
+    "field_map_n": 18,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetPathCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230'].",
+      "3. Field map (18 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReshapeCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x2607890"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 44,
+      "id_or_c": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "flags_or_ctx2": 32,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg4_or_child": 64
+    },
+    "field_map_n": 19,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReshapeCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0x2607890'].",
+      "3. Field map (19 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderConnectCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0x10b4e50",
+      "0x2607890",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 44,
+      "id_or_c": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg3_or_cap": 60
+    },
+    "field_map_n": 24,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderConnectCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0x10b4e50'].",
+      "3. Field map (24 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReconnectCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0x18e580",
+      "0x10b5f10",
+      "0x10b4e50",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x10b5f10": "execute_via_strategic_region_gate_a",
+      "0x10b4e50": "execute_frontline_wide_object_walk",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 44,
+      "id_or_c": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "subject_lo": 40
+    },
+    "field_map_n": 22,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReconnectCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0x254aa00', '0x18e580', '0x10b5f10'].",
+      "3. Field map (22 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetCollapseCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x10f12f0",
+      "0x2284800"
+    ],
+    "named_gates": {
+      "0x10f12f0": "isvalid_thin_alt_gate",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc07620",
+      "0x254aa00",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0x2284800"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "post_gate_candidates": [
+      "0x2284800"
+    ],
+    "field_map": {
+      "order_handle_lo": 40,
+      "order_handle_hi": 44,
+      "collapse_flag_or_id": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg0_or_type": 48,
+      "subject_lo": 40,
+      "subject_hi": 44,
+      "owner_or_ctx": 24,
+      "arg2_or_vec_end": 56,
+      "flags_or_ctx2": 32,
+      "arg4_or_child": 64
+    },
+    "field_map_n": 13,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetCollapseCommand; conf=1.0.",
+      "2. IsValid ['0x2284800']; Execute ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc07620'].",
+      "3. Field map (13 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderAddNewCompletePlanCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x57f7b0",
+      "0x2284800",
+      "0x1b8180"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x1b8180": "isvalid_dispatcher_via_subject_misc"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240",
+      "0x57f7b0",
+      "0x2284800",
+      "0x1b8180"
+    ],
+    "field_map": {
+      "plan_subject": 40,
+      "units_or_path": 72,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "owner_or_ctx": 24,
+      "subject_lo": 40,
+      "subject_hi": 44,
+      "arg2_or_vec_end": 56,
+      "arg0_or_type": 48,
+      "flags_or_ctx2": 32,
+      "arg6_or_plan": 72,
+      "arg7": 80
+    },
+    "field_map_n": 20,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderAddNewCompletePlanCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x1e1510', '0x2607890', '0x11f240']; Execute ['0x2284800'].",
+      "3. Field map (20 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderExecuteCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "order_index": 48,
+      "execute_order": 52,
+      "all": 53,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg4_or_child": 64,
+      "subject_lo": 40
+    },
+    "field_map_n": 17,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderExecuteCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230'].",
+      "3. Field map (17 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderBlockSectionsCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 48,
+      "count_or_id": 52,
+      "extra_38": 56,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg0_or_type": 48,
+      "arg7": 80,
+      "arg2_or_vec_end": 56,
+      "subject_lo": 40,
+      "subject_hi": 44,
+      "owner_or_ctx": 24,
+      "arg4_or_child": 64
+    },
+    "field_map_n": 15,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderBlockSectionsCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230'].",
+      "3. Field map (15 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderChildFrontRatioCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "ratio": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg4_or_child": 64,
+      "subject_lo": 40,
+      "subject_hi": 44
+    },
+    "field_map_n": 15,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderChildFrontRatioCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230'].",
+      "3. Field map (15 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderReorderChildFrontCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x18e580",
+      "0x25c3770",
+      "0x2607890",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x18e580": "isvalid_via_army_subject_gate_b_alt",
+      "0x25c3770": "isvalid_cancel_pair_gate_b",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "vptr_or_hdr": 16,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg3_or_cap": 60,
+      "subject_lo": 40,
+      "subject_hi": 44,
+      "arg6_or_plan": 72,
+      "flags_or_ctx2": 32,
+      "arg4_or_child": 64
+    },
+    "field_map_n": 14,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderReorderChildFrontCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0x18e580', '0x25c3770', '0x2607890'].",
+      "3. Field map (14 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetInvasionSourceCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc07620",
+      "0x254aa00",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc07b80",
+      "0xc40230",
+      "0x22aea40",
+      "0x25a00d8",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc07620": "gamestate_instance_guard",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x22aea40": "execute_via_strategic_region_dispatcher",
+      "0x25a00d8": "isvalid_misc_field_gate_30_8",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc07b80",
+      "0xc40230",
+      "0x22aea40",
+      "0x25a00d8",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "id_or_b": 44,
+      "extra_38": 56,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg2_or_vec_end": 56,
+      "arg8": 88,
+      "arg3_or_cap": 60
+    },
+    "field_map_n": 22,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetInvasionSourceCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc07b80', '0xc40230']; Execute ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc07620'].",
+      "3. Field map (22 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetParadropSourceCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc415b0",
+      "0xc416b0",
+      "0xc40490",
+      "0x57f7b0",
+      "0xbbb1e0",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc415b0": "execute_frontline_dispatcher_b",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance",
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "source": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg5": 68,
+      "arg2_or_vec_end": 56,
+      "arg8": 88,
+      "subject_lo": 40
+    },
+    "field_map_n": 18,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetParadropSourceCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0x254aa00', '0x25a0390']; Execute ['0x2284800', '0xc40230', '0xc415b0', '0xc416b0', '0xc40490'].",
+      "3. Field map (18 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "COrderSetParadropTargetCommand": {
+    "role": "frontline",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_vec": 40,
+      "target": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg0_or_type": 48,
+      "arg7": 80,
+      "arg2_or_vec_end": 56,
+      "flags_or_ctx2": 32,
+      "arg4_or_child": 64,
+      "subject_lo": 40
+    },
+    "field_map_n": 20,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd COrderSetParadropTargetCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0x254aa00', '0x25a0390']; Execute ['0x2284800', '0xc40230'].",
+      "3. Field map (20 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CCreateAreaDefenseCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc416b0",
+      "0xc40490"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc47980": "isvalid_order_inline_gate_88_68"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc47980"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "arg0": 48,
+      "arg2": 56,
+      "vptr_or_hdr": 16,
+      "arg3_or_cap": 60,
+      "arg0_or_type": 48,
+      "arg6_or_plan": 72,
+      "arg2_or_vec_end": 56,
+      "subject_lo": 40
+    },
+    "field_map_n": 9,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CCreateAreaDefenseCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc47980']; Execute ['0x2284800', '0xc416b0', '0xc40490'].",
+      "3. Field map (9 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CEditAreaDefenseStateCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0x254aa00",
+      "0xbbb1e0",
+      "0xc416b0",
+      "0xc40490"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0xc416b0": "execute_frontline_dispatcher_a",
+      "0xc40490": "get_order_instance"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg2": 56,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "arg0_or_type": 48,
+      "arg7": 80,
+      "arg2_or_vec_end": 56,
+      "arg5": 68,
+      "arg3_or_cap": 60,
+      "arg4_or_child": 64,
+      "arg6_or_plan": 72
+    },
+    "field_map_n": 20,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CEditAreaDefenseStateCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0x254aa00', '0xbbb1e0', '0xc416b0'].",
+      "3. Field map (20 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CSetAreaDefenseSettingCommand": {
+    "role": "garrison",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0xbbb1e0"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xbbb1e0": "isvalid_order_fallback_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0xc40230",
+      "0xc47980",
+      "0xc07620"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate",
+      "0xc47980": "isvalid_order_inline_gate_88_68",
+      "0xc07620": "gamestate_instance_guard"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0xc40230": "isvalid_order_object_walk_gate"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0xc40230"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg2": 56,
+      "ctx_or_flag": 32,
+      "arg0_or_type": 48,
+      "flags_or_ctx2": 32,
+      "subject_lo": 40,
+      "arg2_or_vec_end": 56,
+      "arg3_or_cap": 60,
+      "subject_hi": 44
+    },
+    "field_map_n": 12,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CSetAreaDefenseSettingCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0xc40230']; Execute ['0x2284800', '0xc40230', '0xc47980', '0xc07620'].",
+      "3. Field map (12 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CSupportAttackCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_isvalid_helpers": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x57f7b0": "isvalid_army_subject_gate_c",
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x57f7b0",
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "field_map": {
+      "handle": 40,
+      "province": 48,
+      "subject_or_handle": 40,
+      "subject_hi_or_id": 44,
+      "arg0": 48,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "vptr_or_hdr": 16,
+      "owner_or_ctx": 24,
+      "flags_or_ctx2": 32,
+      "subject_lo": 40,
+      "subject_hi": 44,
+      "arg4_or_child": 64,
+      "arg8": 88,
+      "arg0_or_type": 48
+    },
+    "field_map_n": 18,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CSupportAttackCommand; conf=1.0.",
+      "2. IsValid ['0x57f7b0', '0x1e1510', '0x2607890']; Execute ['0x2284800', '0x254aa00', '0x25a0390'].",
+      "3. Field map (18 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CRailwayGunManualOrderCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x2284800",
+      "0x2348bf0",
+      "0x254aa00",
+      "0x25a0390",
+      "0x25c3770"
+    ],
+    "named_gates": {
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "ol_named_execute": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x254aa00",
+      "0x25a0390",
+      "0x2348bf0",
+      "0x2284800",
+      "0x25c3770"
+    ],
+    "field_map": {
+      "subject": 40,
+      "extra_30": 48,
+      "order_or_prov": 64,
+      "subject_or_handle": 40,
+      "arg1_or_count": 52,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "flags_or_ctx2": 32,
+      "arg7": 80,
+      "subject_lo": 40,
+      "arg8": 88,
+      "arg4_or_child": 64,
+      "owner_or_ctx": 24,
+      "arg6_or_plan": 72,
+      "arg5": 68
+    },
+    "field_map_n": 16,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CRailwayGunManualOrderCommand; conf=1.0.",
+      "2. IsValid ['0x254aa00', '0x25a0390', '0x2348bf0', '0x2284800']; Execute ['0x254aa00', '0x25a0390', '0x2284800'].",
+      "3. Field map (16 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CRailwayGunSetNameCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0xf01db0"
+    ],
+    "named_gates": {
+      "0xf01db0": "isvalid_railwaygun_name_gate"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0x2284800"
+    ],
+    "ol_isvalid_helpers": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "ol_named_execute": {
+      "0x2284800": "isvalid_field_gate_primary"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0xbbb1e0": "isvalid_order_fallback_gate",
+      "0x2284800": "isvalid_field_gate_primary",
+      "0x2348bf0": "isvalid_cancel_pair_gate_a",
+      "0x25c3770": "isvalid_cancel_pair_gate_b"
+    },
+    "post_gate_candidates": [
+      "0xbbb1e0",
+      "0x2284800",
+      "0x2348bf0",
+      "0x25c3770"
+    ],
+    "field_map": {
+      "subject": 40,
+      "name_sso": 48,
+      "subject_or_handle": 40,
+      "arg0": 48,
+      "arg1_or_count": 52,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg0_or_type": 48,
+      "subject_lo": 40,
+      "arg8": 88,
+      "arg4_or_child": 64,
+      "flags_or_ctx2": 32,
+      "arg7": 80,
+      "owner_or_ctx": 24,
+      "arg6_or_plan": 72
+    },
+    "field_map_n": 16,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CRailwayGunSetNameCommand; conf=1.0.",
+      "2. IsValid ['0xbbb1e0', '0x2284800', '0x2348bf0', '0x25c3770']; Execute ['0x2284800'].",
+      "3. Field map (16 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiDiscardForceConcentrationTargetCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg4_or_child": 64,
+      "subject_lo": 40,
+      "flags_or_ctx2": 32,
+      "owner_or_ctx": 24,
+      "vptr_or_hdr": 16
+    },
+    "field_map_n": 9,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiDiscardForceConcentrationTargetCommand; conf=1.0.",
+      "2. IsValid ['0x1e1510', '0x2607890', '0x11f240']; Execute ['0xc07b80', '0x254aa00'].",
+      "3. Field map (9 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiOnFailedInvasionCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a",
+      "0x25a0390": "isvalid_strategic_region_gate_b"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x254aa00",
+      "0x25a0390"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "subject_lo": 40,
+      "flags_or_ctx2": 32,
+      "owner_or_ctx": 24,
+      "vptr_or_hdr": 16,
+      "arg7": 80,
+      "arg4_or_child": 64,
+      "arg6_or_plan": 72,
+      "subject_hi": 44
+    },
+    "field_map_n": 11,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiOnFailedInvasionCommand; conf=1.0.",
+      "2. IsValid ['0x1e1510', '0x2607890', '0x254aa00', '0x25a0390']; Execute ['0xc07b80', '0x254aa00'].",
+      "3. Field map (11 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiStoreForceConcentrationTargetCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg4_or_child": 64,
+      "subject_lo": 40,
+      "flags_or_ctx2": 32,
+      "owner_or_ctx": 24,
+      "vptr_or_hdr": 16
+    },
+    "field_map_n": 9,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiStoreForceConcentrationTargetCommand; conf=1.0.",
+      "2. IsValid ['0x1e1510', '0x2607890', '0x11f240']; Execute ['0xc07b80', '0x254aa00'].",
+      "3. Field map (9 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  },
+  "CAiStoreTotalWantedNrDivisionsCommand": {
+    "role": "attack",
+    "allow_post": false,
+    "post_path_confidence": 1.0,
+    "required_gates": [
+      "0x1e1510",
+      "0x2607890"
+    ],
+    "named_gates": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b"
+    },
+    "named_execute_fraction": 1.0,
+    "unnamed_execute_remaining": [],
+    "ol_execute_helpers": [
+      "0xc07b80",
+      "0x254aa00"
+    ],
+    "ol_isvalid_helpers": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "ol_named_execute": {
+      "0xc07b80": "gamestate_instance_guard_b",
+      "0x254aa00": "isvalid_strategic_region_gate_a"
+    },
+    "ol_unnamed_execute_helpers": [],
+    "ol_named_isvalid": {
+      "0x1e1510": "isvalid_army_subject_gate_a",
+      "0x2607890": "isvalid_army_subject_gate_b",
+      "0x11f240": "isvalid_dispatcher_gate_a"
+    },
+    "post_gate_candidates": [
+      "0x1e1510",
+      "0x2607890",
+      "0x11f240"
+    ],
+    "field_map": {
+      "subject_or_handle": 40,
+      "arg3": 64,
+      "base_or_vobj": 24,
+      "ctx_or_flag": 32,
+      "arg4_or_child": 64,
+      "subject_lo": 40,
+      "flags_or_ctx2": 32,
+      "owner_or_ctx": 24,
+      "vptr_or_hdr": 16
+    },
+    "field_map_n": 9,
+    "cross_link_army_observe": "land_live_army_subject_observe_2cx_recipe",
+    "cross_link_role_observe": "land_role_observe_2cx_recipe",
+    "observe_playbook": [
+      "1. OL cmd CAiStoreTotalWantedNrDivisionsCommand; conf=1.0.",
+      "2. IsValid ['0x1e1510', '0x2607890', '0x11f240']; Execute ['0xc07b80', '0x254aa00'].",
+      "3. Field map (9 keys) docs-only.",
+      "4. Cross-check role observe + CArmy theatre/namegroup live subject.",
+      "5. STOP \u2014 allow_post False."
+    ]
+  }
+}

@@ -4052,3 +4052,63 @@ def land_live_army_subject_observe_2de_recipe(limit: int = 8, carmy_only: bool =
         "carmy_only_filter": carmy_only, "subjects": subjects,
         "note": obs.get("note") or "controller provinces; never Post.",
     }
+
+def land_cmd_post_path_index_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2df", "allow_post": False, "posting": "DISABLED", "index": pr.get("cmd_post_path_index_2df") or {}}
+
+def land_role_post_path_matrix_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2df", "allow_post": False, "posting": "DISABLED", "matrix": pr.get("role_post_path_matrix_2df") or {}}
+
+def land_role_observe_2df_recipe(role: str | None = None) -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ro = dict(pr.get("role_observe_2df") or {})
+    if role: return {"phase": "2df", "allow_post": False, "posting": "DISABLED", "role": role, "observe": ro.get(role)}
+    return {"phase": "2df", "allow_post": False, "posting": "DISABLED", "roles": ro}
+
+def land_confidence_report_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2df") or {}); rep.update({"allow_post": False, "posting": "DISABLED"}); return rep
+
+def land_post_readiness_checklist_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("post_readiness_checklist_2df") or {"phase":"2df","allow_post":False})
+
+def land_offensive_line_post_path_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2df", "allow_post": False, "posting": "DISABLED", "offensive_line": pr.get("offensive_line_post_path_2df") or {}}
+
+def land_midflight_move_watcher_readiness_2df_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("midflight_move_watcher_readiness_2df") or {"phase":"2df","allow_post":False})
+
+def land_live_army_subject_observe_2df_recipe(limit: int = 8, carmy_only: bool = True) -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2df") or {})
+    subjects = list((obs.get("carmy_only") if carmy_only else obs.get("subjects")) or [])[:max(0,int(limit))]
+    return {"phase": "2df", "allow_post": False, "posting": "DISABLED",
+            "field_map_cownerarea": obs.get("field_map_cownerarea"),
+            "field_map_ccontrollerarea": obs.get("field_map_ccontrollerarea"),
+            "field_map_cfront": obs.get("field_map_cfront"),
+            "field_map_ctheatre": obs.get("field_map_ctheatre"),
+            "theatre_army_crosslink": obs.get("theatre_army_crosslink"),
+            "hai_front_ids": obs.get("hai_front_ids"),
+            "carmy_count": obs.get("carmy_count"), "carmy_only_filter": carmy_only, "subjects": subjects,
+            "note": obs.get("note") or "OwnerArea; never Post."}
