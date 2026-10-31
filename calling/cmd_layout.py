@@ -155232,3 +155232,16 @@ try:
         _spec2cw.loader.exec_module(_mod2cw)
 except Exception:
     pass
+
+# --- phase 2cx embed ---
+try:
+    from pathlib import Path as _P2cx
+    import importlib.util as _ilu2cx
+    _fp2cx = _P2cx(__file__).with_name('_land_post_2cx_fragment.py')
+    if _fp2cx.exists():
+        _spec2cx = _ilu2cx.spec_from_file_location('land_post_2cx_fragment', _fp2cx)
+        _mod2cx = _ilu2cx.module_from_spec(_spec2cx)
+        _mod2cx.LAND_POST_READINESS = LAND_POST_READINESS
+        _spec2cx.loader.exec_module(_mod2cx)
+except Exception:
+    pass

@@ -1,0 +1,150 @@
+{
+  "phase": "2cx",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "watcher_proc": "{\n    \"Id\":  36128,\n    \"ProcessName\":  \"python\"\n}",
+  "speed_rule": "pause or 1x only; never 5x; no input injection",
+  "stubbed": {
+    "midflight_CMoveCommand": "stubbed — capture path armed RO, no inject",
+    "ring_embed": "stubbed",
+    "ALLOW_POST": "DISABLED",
+    "command_queue_tool_gate": "CLOSED_NOT_OPENED"
+  },
+  "live_session_counters": {
+    "G_SESSION": "0x1ef8f7b2b70",
+    "server": "0x1efeb828970",
+    "drain": 831740,
+    "exec": 13,
+    "stage_count": 0,
+    "executing_flag": 0,
+    "pending": 0,
+    "note": "RO counters only; never Post / never inject."
+  },
+  "prior_ready_snapshot": {
+    "caught_army_move": false,
+    "captures": [],
+    "polls": 60,
+    "last_counters": {
+      "drain": 269233,
+      "exec": 13,
+      "seq": 15,
+      "stage_count": 0
+    }
+  },
+  "movement_dest_live": {
+    "nonempty_path_vectors": 0,
+    "midflight_captures": 0,
+    "note": "Expected 0 while Haiti paused; need real move capture to prove dest fields."
+  },
+  "observe_steps": [
+    "1. Confirm watcher 36128 alive RO.",
+    "2. Haiti pause|1x; NEVER 5x; no input.",
+    "3. Read session drain/exec/stage RO.",
+    "4. CMove/strategic/cancel post-path conf=1.0.",
+    "5. CArmy-only movement_dest empty while paused — do not invent.",
+    "6. Do not revive rejected org offs 0x520/0x6ec.",
+    "7. CFront+0x18 theatre / FrontSection / reinf+upgrades observe-only.",
+    "8. Ring/Post stubbed; tool-gate CLOSED.",
+    "9. STOP — never inject / never Post / never wake user."
+  ],
+  "move_cmd_post_path": {
+    "CMoveCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      }
+    },
+    "CMassMoveCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      }
+    },
+    "CStrategicRedeploymentCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x2607890": "isvalid_army_subject_gate_b"
+      }
+    },
+    "CCancelMovementCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x2284800",
+        "0x2348bf0",
+        "0x25c3770"
+      ],
+      "named_gates": {
+        "0x2284800": "isvalid_field_gate_primary",
+        "0x2348bf0": "isvalid_cancel_pair_gate_a",
+        "0x25c3770": "isvalid_cancel_pair_gate_b"
+      }
+    },
+    "CSupportAttackCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b"
+      }
+    },
+    "COrderNewFallbackCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0xbbb1e0"
+      ],
+      "named_gates": {
+        "0xbbb1e0": "isvalid_order_fallback_gate"
+      }
+    },
+    "CAssignToTheaterGroupCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x18dde70"
+      ],
+      "named_gates": {
+        "0x18dde70": "isvalid_theater_assign_gate"
+      }
+    },
+    "CSetTheatreCommand": {
+      "confidence": 1.0,
+      "required_gates": [
+        "0x1e1510",
+        "0x2607890",
+        "0x57f7b0"
+      ],
+      "named_gates": {
+        "0x1e1510": "isvalid_army_subject_gate_a",
+        "0x2607890": "isvalid_army_subject_gate_b",
+        "0x57f7b0": "isvalid_army_subject_gate_c"
+      }
+    }
+  },
+  "frontline_order_heap": {
+    "CFrontSection": 1570,
+    "unique_CFront": 1199,
+    "CFront_to_CTheatre_plus18_ok_sample": 300,
+    "CFront_to_HAI_theatre": 6,
+    "COrdersGroup": 0,
+    "CArmyGroup": 0,
+    "COrderInstance": 0,
+    "note": "CFront+0x18→CTheatre 300/300 sampled; 6 fronts reference HAI theatre; no order-groups."
+  }
+}

@@ -767,3 +767,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Artifacts**: `cmd_post_path_index_2cw`, `role_post_path_matrix_2cw`, `role_observe_2cw`, `confidence_report_2cw`, `checklist_2cw`, `offensive_line_post_path_2cw`, `midflight_move_watcher_readiness_2cw`, `live_army_subject_observe_2cw`.
 - **Recipes**: index/matrix/role_observe/confidence/checklist/OL/midflight/live_army_2cw.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / command_queue_tool_gate CLOSED_NOT_OPENED. Never Post / speed / input / wake user.
+
+
+## Phase 2cx (overnight RO) — CFront theatre/controller + reinf/upgrades country
+
+- **HEAD parent**: `641f1b3` (2cw). Focus: FrontSection/CFront + army requests status deepen; org stays rejected; movement_dest not invented. **LAND 121/121 unchanged**.
+- **CFront (new)**: `+0x18` → **CTheatre** (300/300 sampled); `+0x70` → **CControllerArea** (300/300). **6** sampled fronts reference HAI theatre.
+- **CFrontSection**: still `+0x10`→CFront / `+0x18`→SPerCountrySection; heap **1570**; unique fronts ~**1199**.
+- **SPerCountrySection**: `u32@+0x8` often country tag (hyp); backrefs to CFrontSection at `+0x60/+0x68` (sample).
+- **CReinforcementStatus+0x38** → **CCountry** HAI (tag@country+0x8=15); shared with **CArmyUpgradesStatus+0x38**. Upgrades `+0x178` → **CLoopHistory**.
+- **Peer@CArmyRequests+0x108**: remains partial multi-component hyp (not full 17-cycle).
+- **Org/str REJECTED**; **movement_dest** empty; order-group heap still 0.
+- **Artifacts/recipes**: `*_2cx`; checklist A–H; allow_post False; watcher 36128 RO.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.

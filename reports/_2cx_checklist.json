@@ -1,0 +1,45 @@
+{
+  "phase": "2cx",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "tool_gate": "CLOSED_NOT_OPENED",
+  "land_cmds": "121/121",
+  "helpers_total": 308,
+  "named_helpers": 658,
+  "avg_post_path_confidence": 1.0,
+  "preferred_cores": 34,
+  "watcher_pid": 36128,
+  "watcher_alive": true,
+  "hoi4_pid": 2880,
+  "image_base": "0x7ff744660000",
+  "operator_sequence": [
+    "A. land_cmd_post_path_index_2cx_recipe — command observe_steps.",
+    "B. land_role_observe_2cx_recipe(role) — retreat/frontline/theater/move + field_map.",
+    "C. land_role_post_path_matrix_2cx_recipe — role playbooks.",
+    "D. land_offensive_line_post_path_2cx_recipe — OL playbooks.",
+    "E. land_live_army_subject_observe_2cx_recipe — CArmy-only; Front/reinf; org REJECTED.",
+    "F. land_midflight_move_watcher_readiness_2cx_recipe — watcher + counters.",
+    "G. Confirm tool-gate CLOSED / allow_post False / pause|1x.",
+    "H. STOP — never ALLOW_POST / never inject / never wake user."
+  ],
+  "artifacts": [
+    "cmd_post_path_index_2cx",
+    "role_post_path_matrix_2cx",
+    "role_observe_2cx",
+    "confidence_report_2cx",
+    "checklist_2cx",
+    "offensive_line_post_path_2cx",
+    "midflight_move_watcher_readiness_2cx",
+    "live_army_subject_observe_2cx"
+  ],
+  "do_not": [
+    "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "patch/hook helpers",
+    "Post inject / midflight write",
+    "HourlyTick / GameSpeed writes",
+    "guess writes",
+    "revive rejected org/str @0x520/0x6ec",
+    "invent movement_dest while paused / midflight captures=0",
+    "wake user / inject input"
+  ]
+}

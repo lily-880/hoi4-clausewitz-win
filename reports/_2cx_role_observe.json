@@ -1,0 +1,85 @@
+{
+  "move": {
+    "crosslink": null
+  },
+  "attack": {
+    "crosslink": null
+  },
+  "strategic": {
+    "crosslink": null
+  },
+  "retreat": {
+    "crosslink": null
+  },
+  "frontline": {
+    "crosslink": {
+      "CFrontSection_heap": 1570,
+      "unique_CFront": 1199,
+      "CFront_fields": {
+        "theatre_ptr": {
+          "off": "0x18",
+          "rtti": "CTheatre",
+          "status": "proven_live_2cx",
+          "ok_sample": "300/300"
+        },
+        "controller_area_ptr": {
+          "off": "0x70",
+          "rtti": "CControllerArea",
+          "status": "proven_live_2cx",
+          "ok_sample": "300/300"
+        }
+      },
+      "CFrontSection_fields": {
+        "parent_front_ptr": {
+          "off": "0x10",
+          "rtti": "CFront",
+          "vt_rva": "0x29f2280"
+        },
+        "per_country_section_ptr": {
+          "off": "0x18",
+          "rtti": "SPerCountrySection@CFrontSection",
+          "vt_rva": "0x29f21e0"
+        }
+      },
+      "SPerCountrySection_hyp": {
+        "country_tag_off": "0x8",
+        "status": "hypothesis_strong_2cx",
+        "note": "u32@+0x8 often country tag (15 on HAI-linked samples)"
+      },
+      "hai_theatre_fronts": 6,
+      "posting": "DISABLED"
+    }
+  },
+  "theater": {
+    "crosslink": {
+      "carmy_theatre_ptr_off": "0x2a0",
+      "hai_unique_theatres": 1,
+      "CFront_backlink": {
+        "off_on_CFront": "0x18",
+        "hai_fronts_pointing_here": 6
+      },
+      "ctheatre_fields": {
+        "country_tag_0c": "0x0c",
+        "country_tag_48": "0x48",
+        "province_ptr": "0xe8",
+        "strategic_air_manager_ptr": "0x268"
+      },
+      "posting": "DISABLED"
+    }
+  },
+  "order_group": {
+    "crosslink": {
+      "COrdersGroup_heap": 0,
+      "CArmyGroup_heap": 0,
+      "COrderInstance_heap": 0,
+      "note": "Still empty — no player orders; Front/FrontSection are map geometry not order-groups.",
+      "posting": "DISABLED"
+    }
+  },
+  "garrison": {
+    "crosslink": null
+  },
+  "cancel_abort": {
+    "crosslink": null
+  }
+}
