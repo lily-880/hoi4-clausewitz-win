@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hn `OG50_PATH_CROSSTAB_ALL_OUT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2ho `OG50_WIDE_ITA_HIT_HI`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hj/2hk matrix multi=1042→[915,490] nonempty=1048→[3938] empty=1039/1043/1046/1049 @+0x60 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` (⊀ `+0x200`) — HIT 2gm/2gn |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2hn crosstab path_in=0 path_out=2 empty_in=0 hyp=PATH_BEARING_ABSENT_EMPTY_ALSO_OUT |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2ho wide oi1..511 ita_lo=0 ita_hi=6 walk=1066/1066 |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -290,6 +290,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hl OG50NAME demangle:** result=`OG50NAME_CLASS_HIT_LIVE_MISS` · MI_class=CArmy · raw=.?AVCArmy@@ · live_mi_match=False · hours=88 UI=1936-01-04 16:00 · allow_post=False.
 **2hm OG↔path-army reverse:** result=`OG50_REVERSE_EMPTY_COHORT_ONLY` · 1042→[] · 1048→[] · og_hits=1 · hours=111 UI=1936-01-05 15:00 · allow_post=False.
 **2hn OG×PATH crosstab:** result=`OG50_PATH_CROSSTAB_ALL_OUT` · hyp=PATH_BEARING_ABSENT_EMPTY_ALSO_OUT · ita=5 multi=0 nonempty=2 empty=3 · path_in=0 path_out=2 empty_in=0 · og_hits=0 · hours=130 UI=1936-01-06 10:00 · allow_post=False.
+**2ho OG50 wide ITA scan:** result=`OG50_WIDE_ITA_HIT_HI` · ita=11 · ita_lo=0 ita_hi=6 · walk=1066/1066 · og_members=343 · player_tag_in_hist=6 · hours=145 UI=1936-01-07 01:00 · allow_post=False.
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -342,6 +343,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hl** | `OG50NAME_CLASS_HIT_LIVE_MISS` | OG50NAME demangle attempt (MI VT RTTI + PE needles) | field name / oi≠0 / midflight / Post HARD_DENY |
 | **2hm** | `OG50_REVERSE_EMPTY_COHORT_ONLY` | OG+0x50↔path-army reverse (1042/1048 vs empty) | field name / oi≠0 / midflight / Post HARD_DENY |
 | **2hn** | `OG50_PATH_CROSSTAB_ALL_OUT` | OG+0x50 × PATH200@+0x60 ITA crosstab | field name / oi≠0 / midflight / Post HARD_DENY |
+| **2ho** | `OG50_WIDE_ITA_HIT_HI` | OG+0x50 widen oi1..511 ITA + tag hist | field name / oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -349,4 +351,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hn · OG+0x50 × PATH200 crosstab · 2026-10-31 Asia/Shanghai*
+*Phase 2ho · OG+0x50 widen oi1..511 · 2026-10-31 Asia/Shanghai*
