@@ -1,0 +1,93 @@
+{
+  "phase": "2hf",
+  "result": "RING_INLINE_LAYOUT_POLISH",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 15,
+    "ui_date": "1936-01-01 15:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA ring@+0xa0 INLINE layout polish (no Post, no speed write)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 325194,
+    "exec": 83889,
+    "allow_post": false,
+    "clock_note": "hours@GS+0x484 may disagree with high drain/exec vs prior 2hd hours=357 same pid \u2014 treat as possible clock wrap / reload; do not write speed"
+  },
+  "ring_layout": {
+    "session": "0x1ea07d8afd0",
+    "server": "0x1eaad0318a0",
+    "server_vt_rva": "0x2bcb040",
+    "server_vt_match": true,
+    "ring_kind": "INLINE_BLOB",
+    "ring_off": "0xa0",
+    "ring_addr": "0x1eaad031940",
+    "ring_blob_hex": "000000001000000080f613a8ea010000207003e5ea01000000080000000000000000000000000000010000000000000061480100000000005f100aa200330190",
+    "ring_u32": [
+      "0x0",
+      "0x10",
+      "0xa813f680",
+      "0x1ea",
+      "0xe5037020",
+      "0x1ea",
+      "0x800",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x1",
+      "0x0",
+      "0x14861",
+      "0x0",
+      "0xa20a105f",
+      "0x90013300"
+    ],
+    "fields_ro": {
+      "u32_0_index_or_flags": "0x0",
+      "u32_1_capacity_like": "0x10",
+      "capacity_like_equals_0x10": true,
+      "qword_at_0x08": "0x1eaa813f680",
+      "qword_at_0x10": "0x1eae5037020",
+      "qword_at_0x18": "0x800",
+      "seq_at_server_plus_0xd0": 84065
+    },
+    "correction_vs_2he": {
+      "2he_read_first_u64_as_ptr": "0x1000000000",
+      "2he_claimed_present": true,
+      "actual": "RING@+0xa0 is INLINE struct on CDummyServer, not a heap pointer; u64@+0xa0 == pack(u32_0=0, u32_1=0x10) == 0x1000000000 under LE \u2014 false 'ptr' signal"
+    },
+    "pending": {
+      "head": "0",
+      "count": 0,
+      "empty": true
+    },
+    "execlist": {
+      "head": "0",
+      "count": 0,
+      "empty": true
+    },
+    "prior_2gk_compare": {
+      "server": "0x1eaad0318a0",
+      "ring_addr": "0x1eaad031940",
+      "u32_0": "0x0",
+      "u32_1": "0x10",
+      "same_server": true
+    },
+    "semantics": "RO layout polish only \u2014 ring_embed / push still STUBBED (needs SAFE Post)"
+  },
+  "sha_base": "2a6cdc6",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "ring_embed push",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll"
+  ]
+}
