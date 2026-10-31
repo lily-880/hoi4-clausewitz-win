@@ -1,0 +1,94 @@
+{
+  "phase": "2fd",
+  "ts": "2026-10-31T03:53:42.246552+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "never_5x": true,
+  "pid": 9928,
+  "date": {
+    "hours": 48,
+    "ui_date": "1936-01-03 00:00"
+  },
+  "source_capture": {
+    "addr": "0x26bf0828b90",
+    "seq": 6260,
+    "list": "stage[48]",
+    "captured_at_asia_shanghai": "2026-10-31 11:44:39"
+  },
+  "offline_rebuild": {
+    "status": "PASS",
+    "size": "0x50",
+    "bit_identical": true,
+    "diff_count": 0,
+    "diffs_head": [],
+    "fields_used": {
+      "vt_cmd_abs_from_capture": "0x7ff74708d818",
+      "vt_act_abs_from_capture": "0x7ff74707f7e8",
+      "tick": 1,
+      "field_18": "0x1206",
+      "seq": 6260,
+      "seq_echo_at_0x20": true,
+      "embed_type_id": "0x364a",
+      "embed_unk_0c": "0x61",
+      "army_handle": [
+        51,
+        1092
+      ],
+      "province": 11874,
+      "clear": 1,
+      "move_priority": 2
+    },
+    "live_hex": "18d80847f77f00000000000001000000000000000000000006120000741800007418000000000000e8f70747f77f00004a360000610000003300000044040000622e0000010000000200000000000000",
+    "rebuilt_hex": "18d80847f77f00000000000001000000000000000000000006120000741800007418000000000000e8f70747f77f00004a360000610000003300000044040000622e0000010000000200000000000000",
+    "note": "Offline harness rebuilds cmd object bytes from catalog offsets + 2fa field values; absolute VTs taken from capture (ASLR). Proves layout\u2194hex round-trip WITHOUT live writes."
+  },
+  "live_factory_recreate": {
+    "type_id": "0x35b9",
+    "factory_idx_formula": 4753,
+    "factory_idx_catalog_stale": 4505,
+    "factory_idx_note": "formula tid-0x2328 when tid>=0x2710 \u2192 4753; catalog factory_idx=4505 is STALE vs live formula (do not Capstone churn)",
+    "factory_table_slot_rva": "0x13fb580",
+    "catalog_factory_rva": "0x13fb580",
+    "factory_slot_matches_catalog": true,
+    "stale_idx_slot_rva": "0x0",
+    "recreate_rva": "0x22d8ad0",
+    "recreate_readable": true,
+    "recreate_prologue_hex": "48895c240848896c2410488974242057",
+    "lookup_rva": "0x22d8d20",
+    "lookup_readable": true,
+    "factory_body_readable": true,
+    "factory_prologue_hex": "40534883ec20b950000000e80c4b1a01",
+    "gettypeid_imm": "0x35b9",
+    "gettypeid_matches_type_id": true,
+    "action_serialize_token_hits": {
+      "0x289d": true,
+      "0x2840": true,
+      "0x29f1": true,
+      "0x37bc": true
+    },
+    "all_action_tokens_present": true,
+    "birth_path_observe": "GetTypeId(0x35b9) \u2192 ser \u2192 recreate(0x22d8ad0) \u2192 factory_lookup idx=4753 \u2192 factory 0x13fb580 \u2192 vt+0x18 des \u2192 ring@+0xa0"
+  },
+  "live_dummy_ring": {
+    "session": "0x26b6403b8c0",
+    "server": "0x26b901900e0",
+    "server_vt_rva": "0x2bcb040",
+    "server_vt_match": true,
+    "ring_addr": "0x26b90190180",
+    "ring_blob_hex": "00000000100000003096e1a56b020000609f1fed6b0200000008000000000000000000000000000000000000000000002a3b00000000000040dac73b004a0390",
+    "pending_head": "0x0",
+    "pending_count": 0,
+    "execlist_head": "0x0",
+    "execlist_count": 0,
+    "seq": 15146,
+    "note": "RO snapshot only \u2014 no ring push / no Post"
+  },
+  "harness_gap": {
+    "in_process_serialize_recreate_ring_embed": {
+      "status": "STUBBED",
+      "why": "Pushing rebuilt buffer into CDummyServer ring requires Post/sink write path; 2fb recipe execution FORBIDDEN; allow_post False",
+      "next_cheapest_RO": "Keep offline rebuild PASS + live factory/recreate RO as proof ceiling until SAFE opens; optional: compare sticky StartGame 2bq structural RT pattern \u2014 no Capstone/121"
+    }
+  },
+  "result": "STRATEGIC_OFFLINE_REBUILD_PASS_LIVE_FACTORY_RO_RING_EMBED_STILL_STUBBED"
+}

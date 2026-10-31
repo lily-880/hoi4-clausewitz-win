@@ -1,0 +1,34 @@
+{
+  "phase": "2fd",
+  "result": "STRATEGIC_OFFLINE_REBUILD_PASS_LIVE_FACTORY_RO_RING_EMBED_STILL_STUBBED",
+  "scenario": "ETH@1x offline+live RO (no Post)",
+  "pid": 9928,
+  "ui_date": "1936-01-03 00:00",
+  "hours": 48,
+  "allow_post": false,
+  "offline_rebuild": "PASS",
+  "factory_slot_match": true,
+  "gettypeid_match": true,
+  "action_tokens_ok": true,
+  "factory_idx_formula": 4753,
+  "works": [
+    "offline Strategic 0x50 rebuild PASS (bit_identical=True)",
+    "did NOT execute 2fb recipe / Post / writes",
+    "allow_post stays False",
+    "live factory slot idx=4753 \u2192 0x13fb580 MATCH",
+    "recreate FN 0x22d8ad0 readable RO",
+    "gettypeid imm matches type_id 0x35b9",
+    "action serialize tokens present RO"
+  ],
+  "stubbed": [
+    "in-process serialize\u2192recreate\u2192ring embed (needs Post)",
+    "2fb recipe execution",
+    "ordinary CMove live",
+    "SAFE_POST",
+    "self-MOVE",
+    "tool-gate open"
+  ],
+  "harness_gap": "Pushing rebuilt buffer into CDummyServer ring requires Post/sink write path; 2fb recipe execution FORBIDDEN; allow_post False",
+  "next_shortest_blocker": "In-process Dummy ring embed still needs Post \u2014 STUBBED; next cheapest RO: treat offline PASS+factory wiring as ceiling OR SAFE human review only \u2014 still NO ALLOW_POST",
+  "parent_sha_base": "958b284"
+}

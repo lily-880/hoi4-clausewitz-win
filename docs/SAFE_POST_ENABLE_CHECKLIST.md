@@ -146,3 +146,21 @@ Until every box is checked, **Post remains disabled.**
 Docs: `docs/PHASE2FC_STRATEGIC_ISVALID_SAFE.md`, `reports/phase2fc_strategic_isvalid_path.json`, `reports/phase2fb_ring_embed_recipe.json`.
 
 *Phase 2fc — documentation only. Gate stays CLOSED.*
+
+---
+
+## Phase 2fd — Strategic offline recreate RO
+
+**Gate remains CLOSED. allow_post False. 2fb recipe NOT executed.**
+
+| proof | state |
+| --- | --- |
+| Offline Strategic 0x50 bit-identical rebuild | **PASS** |
+| Live factory idx=4753 → `0x13fb580` | **MATCH** |
+| recreate `0x22d8ad0` readable | **OK** |
+| gettypeid / action ser tokens | **OK** |
+| In-process ring embed push | **STUBBED** (needs Post) |
+
+Docs: `docs/PHASE2FD_STRATEGIC_RING_RECREATE_RO.md`.
+
+*Phase 2fd — RO only. Gate stays CLOSED.*
