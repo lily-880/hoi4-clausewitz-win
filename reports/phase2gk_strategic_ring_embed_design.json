@@ -1,0 +1,131 @@
+{
+  "phase": "2gk",
+  "result": "STRATEGIC_RING_EMBED_DESIGN_V2_STARTGAME_CONCORDANCE",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "never_5x": true,
+  "speed_policy": "pause-or-1x only (never change speed)",
+  "scenario": "ITA@1x \u2014 Strategic ring_embed DESIGN v2 + StartGame sticky concordance (no Post)",
+  "compare": {
+    "startgame_sticky_2bq": {
+      "status": "STRUCTURAL_LIVE_OK",
+      "mode": "sticky_CStartGameCommand_no_Post",
+      "size": "0x28",
+      "type_id": "0x359e",
+      "factory_match": true,
+      "ser_des_inverse": "bin_ser packs +0xc/+0x18/+0x1a/+0x1c/+0x20; bin_des unpacks same offsets (token 0x1F3 path)",
+      "header_token": "0x1f3",
+      "recreate_calls_factory_lookup": true,
+      "live_inprocess_ring_embed": "STUBBED",
+      "tok_ser_nop": true,
+      "note": "Sticky post-exec StartGame is RO-observable without Post; proves recreate\u2192factory_lookup structural path."
+    },
+    "strategic_offline_2fd": {
+      "status": "PASS",
+      "bit_identical": true,
+      "size": "0x50",
+      "type_id": "0x35b9",
+      "factory_idx": 4753,
+      "fields": {
+        "vt_cmd_abs_from_capture": "0x7ff74708d818",
+        "vt_act_abs_from_capture": "0x7ff74707f7e8",
+        "tick": 1,
+        "field_18": "0x1206",
+        "seq": 6260,
+        "seq_echo_at_0x20": true,
+        "embed_type_id": "0x364a",
+        "embed_unk_0c": "0x61",
+        "army_handle": [
+          51,
+          1092
+        ],
+        "province": 11874,
+        "clear": 1,
+        "move_priority": 2
+      },
+      "live_inprocess_ring_embed": "STUBBED"
+    },
+    "shared_proven_RO": [
+      "Dummy recreate FN 0x22d8ad0 readable + calls factory_lookup",
+      "Factory table slot MATCH for Strategic idx 4753",
+      "seq@+0x1C echoed @+0x20 on live land samples (Strategic/Cancel)",
+      "action embed @+0x28 (Strategic/Move)",
+      "Dummy RING@+0xa0 PENDING@+0x58 EXECLIST@+0x40",
+      "FN_CMD_QUEUE_POST_SINK_DUMMY 0x23f5cd0 / DRAIN 0x23f64e0 (observe only)"
+    ],
+    "divergences": [
+      {
+        "item": "object lifetime without Post",
+        "startgame": "sticky session@+0xf8 survives \u2014 RO sampleable",
+        "strategic": "ephemeral stage/pending \u2014 needs midflight catch or Post to re-enter ring"
+      },
+      {
+        "item": "serdes complexity",
+        "startgame": "header token 0x1F3; tok_ser often NOP; size 0x28",
+        "strategic": "action embed ser tokens + factory 0x50; action VT CUnitStrategicMoveAction"
+      },
+      {
+        "item": "offline bit_identical",
+        "startgame": "structural live OK (2bq) \u2014 not full hex rebuild harness",
+        "strategic": "PASS bit_identical offline (2fd) from 2fa hex"
+      }
+    ],
+    "design_implication": "Strategic is the better offline rebuild target (bit_identical DONE). StartGame is the better live sticky RT sightline (no Post). Closing ring_embed still requires in-process Post/sink \u2014 HARD_DENY until human SAFE.",
+    "prior_recipe_ref": "reports/phase2fb_ring_embed_recipe.json",
+    "prior_recipe_inputs": {
+      "army_handle": [
+        51,
+        1092
+      ],
+      "province": 11874,
+      "clear": 1,
+      "move_priority": 2,
+      "move_priority_name": "PLAYER_ORDER",
+      "seq_observed": 6260,
+      "tick_observed": 1
+    }
+  },
+  "live": {
+    "meta": {
+      "hours": 72,
+      "ui_date": "1936-01-04 00:00",
+      "gs": "0x1e99c130f80",
+      "pid": 30352
+    },
+    "ring": {
+      "session": "0x1ea07d8afd0",
+      "server": "0x1eaad0318a0",
+      "server_vt_rva": "0x2bcb040",
+      "server_vt_match": true,
+      "ring_addr": "0x1eaad031940",
+      "ring_blob_hex": "000000001000000080f613a8ea010000207003e5ea0100000008000000000000000000000000000000000000000000002b500000000000005f100aa200330190",
+      "ring_u32_head": [
+        "0x0",
+        "0x10",
+        "0xa813f680",
+        "0x1ea"
+      ],
+      "pending_count": 0,
+      "execlist_count": 0,
+      "drain": 61564,
+      "exec": 20479,
+      "note": "RO snapshot only \u2014 no ring push / no Post / recipe NOT executed"
+    }
+  },
+  "recipe_path": "reports\\phase2gk_ring_embed_recipe_v2.json",
+  "stubbed": [
+    "in-process ring_embed push",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST",
+    "tool-gate",
+    "ordinary CMove midflight hex"
+  ],
+  "works": [
+    "Strategic offline bit_identical (prior 2fd) cited",
+    "StartGame sticky structural RT (prior 2bq) cited",
+    "recipe v2 steps 1-4 DESIGN with proof tags; step 5 STUBBED",
+    "live Dummy ring RO snapshot"
+  ],
+  "next_shortest_blocker": "NON-Post ceiling: ring_embed in-process needs human SAFE Post OR midflight CMove hex; retry push when GitHub reachable \u2014 still NO ALLOW_POST",
+  "captured_at": "2026-10-31 15:19 Asia/Shanghai"
+}

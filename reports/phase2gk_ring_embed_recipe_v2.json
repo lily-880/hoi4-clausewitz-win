@@ -1,0 +1,132 @@
+{
+  "phase": "2gk",
+  "kind": "observation_design_only_v2",
+  "allow_post": false,
+  "CLAUSEWITZ_ALLOW_POST": false,
+  "posting": "DISABLED",
+  "writes": "FORBIDDEN",
+  "executed_2fb_recipe": false,
+  "title": "ring_embed rebuild recipe v2 \u2014 Strategic + StartGame sticky concordance",
+  "why_strategic_first": "Offline bit_identical DONE (2fd); scalar province (no path vector); shared execute thunk with MOVE; StartGame sticky supplies recreate structural sightline",
+  "inputs_from_live_sample": {
+    "army_handle": [
+      51,
+      1092
+    ],
+    "province": 11874,
+    "clear": 1,
+    "move_priority": 2,
+    "move_priority_name": "PLAYER_ORDER",
+    "seq_observed": 6260,
+    "tick_observed": 1
+  },
+  "structural_steps_NOT_EXECUTED": [
+    {
+      "step": 1,
+      "name": "factory_alloc",
+      "detail": "factory RVA 0x13fb580 size 0x50 via table idx 4753",
+      "proof": "LIVE_RO_MATCH_2fd",
+      "status": "DESIGN_ONLY \u2014 do not call from tooling"
+    },
+    {
+      "step": 2,
+      "name": "fill_header",
+      "detail": "vt Strategic; tick@+0xC; f18@+0x18; seq@+0x1C echoed @+0x20 (game Post fills seq)",
+      "proof": "OFFLINE_BIT_IDENTICAL_2fd + shared header 2gj",
+      "status": "DESIGN_ONLY \u2014 do NOT invent seq writes"
+    },
+    {
+      "step": 3,
+      "name": "fill_embed_at_plus_0x28",
+      "fields": {
+        "vt": "0x2a1f7e8",
+        "type_id_at_plus8": "0x364a",
+        "army_handle@+0x10": [
+          51,
+          1092
+        ],
+        "province@+0x18": 11874,
+        "clear@+0x1C": 1,
+        "move_priority@+0x20": 2
+      },
+      "serialize_tokens": {
+        "16": 10397,
+        "24": 10304,
+        "28": 10737,
+        "32": 14268
+      },
+      "proof": "OFFLINE_BIT_IDENTICAL_2fd",
+      "status": "DESIGN_ONLY"
+    },
+    {
+      "step": 4,
+      "name": "serialize_recreate_path",
+      "detail": "GetTypeId \u2192 ser \u2192 recreate(0x22d8ad0) \u2192 factory_lookup idx=4753 \u2192 des \u2192 object",
+      "proof": "STRUCTURAL_STARTGAME_2bq + factory/recreate RO_2fd",
+      "status": "DESIGN_ONLY \u2014 StartGame sticky proves recreate\u2194lookup without Post"
+    },
+    {
+      "step": 5,
+      "name": "queue_placement_ring_embed",
+      "detail": "Post \u2192 FN_CMD_QUEUE_POST_SINK_DUMMY 0x23f5cd0 \u2192 ring@+0xa0 \u2192 pending@+0x58 \u2192 drain \u2192 execlist@+0x40 \u2192 execute thunk 0x13fc990 \u2192 action.execute",
+      "proof": "OFFSETS_KNOWN_2bq_2br \u2014 live buffer push NOT proven",
+      "status": "STUBBED \u2014 NEVER inject / NEVER Post this slice"
+    }
+  ],
+  "dummy_server_offsets_known": {
+    "VT": "0x2bcb040",
+    "RING": "0xa0",
+    "PENDING": "0x58",
+    "EXECLIST": "0x40",
+    "POST_SINK": "0x23f5cd0",
+    "DRAIN": "0x23f64e0",
+    "RECREATE": "0x22d8ad0"
+  },
+  "startgame_vs_strategic": {
+    "implication": "Strategic is the better offline rebuild target (bit_identical DONE). StartGame is the better live sticky RT sightline (no Post). Closing ring_embed still requires in-process Post/sink \u2014 HARD_DENY until human SAFE.",
+    "shared_proven_RO": [
+      "Dummy recreate FN 0x22d8ad0 readable + calls factory_lookup",
+      "Factory table slot MATCH for Strategic idx 4753",
+      "seq@+0x1C echoed @+0x20 on live land samples (Strategic/Cancel)",
+      "action embed @+0x28 (Strategic/Move)",
+      "Dummy RING@+0xa0 PENDING@+0x58 EXECLIST@+0x40",
+      "FN_CMD_QUEUE_POST_SINK_DUMMY 0x23f5cd0 / DRAIN 0x23f64e0 (observe only)"
+    ]
+  },
+  "live_ring_snapshot": {
+    "session": "0x1ea07d8afd0",
+    "server": "0x1eaad0318a0",
+    "server_vt_rva": "0x2bcb040",
+    "server_vt_match": true,
+    "ring_addr": "0x1eaad031940",
+    "ring_blob_hex": "000000001000000080f613a8ea010000207003e5ea0100000008000000000000000000000000000000000000000000002b500000000000005f100aa200330190",
+    "ring_u32_head": [
+      "0x0",
+      "0x10",
+      "0xa813f680",
+      "0x1ea"
+    ],
+    "pending_count": 0,
+    "execlist_count": 0,
+    "drain": 61564,
+    "exec": 20479,
+    "note": "RO snapshot only \u2014 no ring push / no Post / recipe NOT executed"
+  },
+  "gate": {
+    "allow_post": false,
+    "SAFE_POST": "CLOSED",
+    "tool_gate": "CLOSED",
+    "forbid": [
+      "ALLOW_POST",
+      "CLAUSEWITZ_ALLOW_POST",
+      "Post inject",
+      "helper patch",
+      "guess writes",
+      "2fb recipe execute",
+      "HourlyTick abuse",
+      "5x",
+      "ask right-click"
+    ]
+  },
+  "next_after_this_design": "Human SAFE enable OR midflight CMove hex \u2014 ring_embed in-process remains STUBBED; still NO ALLOW_POST"
+}

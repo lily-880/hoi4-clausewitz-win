@@ -78,7 +78,7 @@ Factory table live MATCH: ORDERS 26/26 (2fg); STRATEGIC idx 4753 (2fd/2fe); MOVE
 | `allow_post` / `CLAUSEWITZ_ALLOW_POST` | **HARD_DENY** (config hard-returns False) |
 | `command_queue` tool-gate | **CLOSED_NOT_OPENED** |
 | Ordinary `CMoveCommand` leaf (+ action embed) | **STUBBED** — never caught midflight; **2gj** offline skeleton + factory_idx **1402** live MATCH (no bit_identical without hex) |
-| Ring embed / Dummy recreate on Move|Strategic sample | **STUBBED** (recipe drafted 2fb only) |
+| Ring embed / Dummy recreate on Move|Strategic sample | **STUBBED** in-process; recipe **v2 DESIGN** (2gk) + offline bit_identical (2fd) + StartGame sticky RT (2bq) — **NOT executed** |
 | 2fb recipe live execute | **FORBIDDEN** |
 | SAFE_POST / Post inject / helper patch | **FORBIDDEN** |
 | Self-MOVE / NF midflight / CMove leaf | **STUBBED** |
