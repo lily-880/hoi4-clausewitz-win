@@ -1,0 +1,170 @@
+{
+  "phase": "2ha",
+  "result": "ASSIGN_FN_MATCH_OG50_WALKBACK",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 330,
+    "ui_date": "1936-01-14 18:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x Assign/Unassign/Execute VT FN + OG50 polish (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 282528,
+    "exec": 74145,
+    "allow_post": false
+  },
+  "polish": {
+    "expected_idx": {
+      "ASSIGN": 3350,
+      "UNASSIGN": 3365,
+      "EXECUTE": 3352
+    },
+    "factory_match": {
+      "ASSIGN": true,
+      "UNASSIGN": true,
+      "EXECUTE": true
+    },
+    "fn_match": {
+      "ASSIGN": true,
+      "UNASSIGN": true,
+      "EXECUTE": true
+    },
+    "all_factory_match": true,
+    "all_fn_match": true,
+    "assign_3350_match": true,
+    "unassign_3365_match": true,
+    "execute_3352_match": true,
+    "slots": {
+      "ASSIGN": {
+        "name": "ASSIGN",
+        "type_id": "0x303e",
+        "factory_idx_catalog": 3350,
+        "factory_idx_formula": 3350,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18cfca0",
+        "slot_rva": "0x18cfca0",
+        "slot_matches_catalog": true
+      },
+      "UNASSIGN": {
+        "name": "UNASSIGN",
+        "type_id": "0x304d",
+        "factory_idx_catalog": 3365,
+        "factory_idx_formula": 3365,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18d09b0",
+        "slot_rva": "0x18d09b0",
+        "slot_matches_catalog": true
+      },
+      "EXECUTE": {
+        "name": "EXECUTE",
+        "type_id": "0x3040",
+        "factory_idx_catalog": 3352,
+        "factory_idx_formula": 3352,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18d0070",
+        "slot_rva": "0x18d0070",
+        "slot_matches_catalog": true
+      }
+    },
+    "fns": {
+      "ASSIGN": {
+        "name": "ASSIGN",
+        "vt_rva": "0x2a84498",
+        "isvalid_kind": "FN",
+        "catalog_isvalid_rva": "0x18de900",
+        "live_vt48_isvalid_rva": "0x18de900",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x18d41b0",
+        "live_vt50_execute_rva": "0x18d41b0",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 3350
+      },
+      "UNASSIGN": {
+        "name": "UNASSIGN",
+        "vt_rva": "0x2a84550",
+        "isvalid_kind": "FN",
+        "catalog_isvalid_rva": "0x18e01d0",
+        "live_vt48_isvalid_rva": "0x18e01d0",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x18db050",
+        "live_vt50_execute_rva": "0x18db050",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 3365
+      },
+      "EXECUTE": {
+        "name": "EXECUTE",
+        "vt_rva": "0x2a85468",
+        "isvalid_kind": "FN",
+        "catalog_isvalid_rva": "0x18def40",
+        "live_vt48_isvalid_rva": "0x18def40",
+        "isvalid_match": true,
+        "catalog_execute_rva": "0x18d6430",
+        "live_vt50_execute_rva": "0x18d6430",
+        "execute_match": true,
+        "fn_both_match": true,
+        "factory_idx": 3352
+      }
+    },
+    "vt_slots": {
+      "isvalid_off": "0x48",
+      "execute_off": "0x50"
+    }
+  },
+  "og50": {
+    "proxy": "OG+0x50[i] == CArmy+0xB8 (VT 0x29d6fb8)",
+    "walkback_ok": 380,
+    "walkback_fail": 0,
+    "ita_members": 21,
+    "samples": [
+      {
+        "oi": 1,
+        "primary": "0x1eac9417180",
+        "tag": 11
+      },
+      {
+        "oi": 1,
+        "primary": "0x1eac9415dd0",
+        "tag": 11
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3bd90",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c39cc0",
+        "tag": 4
+      },
+      {
+        "oi": 2,
+        "primary": "0x1eac8c3f210",
+        "tag": 4
+      },
+      {
+        "oi": 3,
+        "primary": "0x1eac8c220a0",
+        "tag": 8
+      }
+    ],
+    "handle_type_army": 51,
+    "ca_mi_b8_rva": "0x29d6fb8"
+  },
+  "semantics": "VT+0x48/0x50 FN MATCH + factory3350/3365/3352 + OG50; no midflight; no Post",
+  "sha_base": "b740baf",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 this window (FN polish only)"
+  ]
+}
