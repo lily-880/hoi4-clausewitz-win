@@ -1,0 +1,127 @@
+{
+  "phase": "2hw",
+  "result": "PATH_OUTLIER_COVER_WIDEN_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 260,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-11 20:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA path\u2209Inst70 covering-oi + cover_only reverse widen oi512..1023 (INST_VT corrected; no Post; OG50 name STUBBED)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 535395,
+    "exec": 137352,
+    "allow_post": false
+  },
+  "focus": {
+    "inst_ok": true,
+    "arr70_n": 28,
+    "og50_size": 6,
+    "member_n": 6
+  },
+  "targets": [
+    3938
+  ],
+  "path_n": 5,
+  "outliers": [
+    {
+      "index": 463,
+      "army": "0x1eac8d31520",
+      "mi": "0x1eac8d315d8",
+      "path_ids": [
+        3938
+      ],
+      "dest_in_70": [],
+      "dest_out_70": [
+        3938
+      ],
+      "in_og481": true,
+      "out_cover_ois": {
+        "3938": []
+      }
+    }
+  ],
+  "outlier_map": {
+    "oi_lo": 1,
+    "oi_hi": 511,
+    "oi_inst_ok": 327,
+    "prov_to_ois": {},
+    "oi_hit_rows": []
+  },
+  "cover_only": [
+    {
+      "index": 1042,
+      "path_ids": [
+        1176
+      ],
+      "dest_in_70": [
+        1176
+      ]
+    },
+    {
+      "index": 1046,
+      "path_ids": [
+        3816
+      ],
+      "dest_in_70": [
+        3816
+      ]
+    }
+  ],
+  "widen_reverse": {
+    "cover_only_n": 2,
+    "reverse_hit_n": 2,
+    "rows": [
+      {
+        "index": 1042,
+        "path_ids": [
+          1176
+        ],
+        "dest_in_70": [
+          1176
+        ],
+        "member_ois_widen": [
+          962
+        ],
+        "reverse_hit": true
+      },
+      {
+        "index": 1046,
+        "path_ids": [
+          3816
+        ],
+        "dest_in_70": [
+          3816
+        ],
+        "member_ois_widen": [
+          976
+        ],
+        "reverse_hit": true
+      }
+    ],
+    "oi_band": [
+      512,
+      1023
+    ]
+  },
+  "sha_base": "aef0b09",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "endless Instant map re-poll",
+    "invent OG+0x50 field name"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2hw path\u2209Inst70 + cover widen); push when GitHub reachable; still NO ALLOW_POST",
+  "semantics": "outlier dest covering Instant+0x70 oi + cover_only OG50 reverse oi512..1023; OG50 name STUBBED; no Post"
+}
