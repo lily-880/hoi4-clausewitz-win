@@ -1,0 +1,63 @@
+{
+  "phase": "2fa",
+  "result": "LEAF_MOVE_CAPTURED_ETH",
+  "scenario": "ETH @1x AI-on",
+  "pid": 9928,
+  "ui_date": "1936-01-01 05:00",
+  "hours": 5,
+  "observe_seconds": 65.5,
+  "polls": 1191497,
+  "edge_events": 4607,
+  "execlist_nonzero_polls": 0,
+  "sight_counts": {
+    "stage[0]:CHourlyTickCommand": 18122,
+    "stage[1]:COrderAssignCommand": 1,
+    "stage[45]:COrderAssignCommand": 2,
+    "stage[46]:COrderAssignCommand": 2,
+    "stage[47]:COrderAssignCommand": 2,
+    "stage[48]:CStrategicRedeploymentCommand": 2
+  },
+  "cancel_sightings": 0,
+  "assign_family_sightings": 7,
+  "leaf_names_hit": [
+    "CStrategicRedeploymentCommand"
+  ],
+  "map_player_tag": 15,
+  "allow_post": false,
+  "works": [
+    "relaunch ETH@1x AI-on",
+    "execlist-only denser observe 65.5s polls=1191497 edges=4607",
+    "no heap / no Post / never 5x",
+    "allow_post stays False",
+    "LEAF: CStrategicRedeploymentCommand on stage[48] with CUnitStrategicMoveAction embed"
+  ],
+  "stubbed": [
+    "live CMoveCommand (ordinary Move)",
+    "CUnitMoveAction (ordinary)",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST",
+    "self-issue MOVE"
+  ],
+  "next_shortest_blocker": "Layout-only decode StrategicRedeploy embed \u2192 ring_embed design (still NO ALLOW_POST)",
+  "next_cheapest_recipe": {
+    "name": "Layout-only decode of live CStrategicRedeploymentCommand embed \u2192 ring_embed design (still NO ALLOW_POST)",
+    "steps": [
+      "Use capture: stage[48] CStrategicRedeploymentCommand vt_rva=0x2a2d818 seq=6260",
+      "Embed CUnitStrategicMoveAction vt=0x2a1f7e8 army_handle=[51,1092] province=11874 clear=1 move_priority=2",
+      "Compare to factory MOVE (0x28a2) / Cancel path; no Capstone/121 re-churn",
+      "Still allow_post False \u2014 no Post inject"
+    ],
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  },
+  "haiti_return": {
+    "recipe": "python scripts/launch_into_map.py --speed 1 --allow-ai",
+    "equiv_cli": "-gdpr-compliant -start_tag=HAI -start_speed=1"
+  },
+  "parent_sha_base": "68de19d"
+}
