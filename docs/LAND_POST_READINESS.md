@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gw checklist: midflight ceiling closed for non-interactive); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2gx `ASSIGN_QUIET_FACTORY1402_MATCH`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -208,6 +208,7 @@ Folds §6b perception + §6c/2gv midflight empty + §6d feed ceiling + 2gp–2gr
 | `OG50NAME` | Demangled OG+0x50 / MI field name | STUBBED |
 
 **2gw live path (≤60s @1x):** carmy=6 nonempty=4 multi=0 ticks=20 · walkback 379/379 · pid=30352 hours=290 UI=1936-01-13 02:00 allow_post=False.
+**2gx cheap edge:** result=`ASSIGN_QUIET_FACTORY1402_MATCH` · assign_sight=0 · oi≠0=0 · factory1402_match=True · hours=304 UI=1936-01-13 16:00 · allow_post=False.
 
 **Midflight ceiling:** 2gt+2gv both `MIDFLIGHT_HONEST_EMPTY` — stop non-interactive midflight re-polls until human leave or plan-dense Assign window.
 
@@ -245,6 +246,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2gu** | `AGENT_FEED_CEILING_CATALOG_POLISH` | §6d can-feed / HARD_DENY consolidate (2gs+2gt+2gp–2gr); minimal live_meta | midflight hex / oi≠0 / Post HARD_DENY |
 | **2gv** | `MIDFLIGHT_HONEST_EMPTY` | ≤90s non-interactive midflight RO reaffirm (CMove/SA/Cancel/Assign) | midflight hex / oi≠0 still open; Post HARD_DENY |
 | **2gw** | `AGENT_CHECKLIST_CATALOG_POLISH` | §6e agent checklist (use RO / do not invent); ≤60s path+walkback; no midflight re-poll | midflight hex / oi≠0 / Post HARD_DENY |
+| **2gx** | `ASSIGN_QUIET_FACTORY1402_MATCH` | ≤30s Assign oi≠0 edge + MOVE factory1402/execlist corner | oi≠0 / midflight / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -252,4 +254,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2gw · agent checklist catalog polish · 2026-10-31 Asia/Shanghai*
+*Phase 2gx · Assign oi≠0 edge + factory corner · 2026-10-31 Asia/Shanghai*

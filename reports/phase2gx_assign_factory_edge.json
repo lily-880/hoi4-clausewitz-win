@@ -1,0 +1,119 @@
+{
+  "phase": "2gx",
+  "ts_utc": "2026-10-31T08:08:47.411731+00:00",
+  "captured_at_shanghai": "2026-10-31 16:08",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "executed_2gk_recipe": false,
+  "tool_gate": "CLOSED",
+  "midflight_leaf_hunt": false,
+  "result": "ASSIGN_QUIET_FACTORY1402_MATCH",
+  "live_start": {
+    "pid": 30352,
+    "hours": 301,
+    "ui_date": "1936-01-13 13:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x \u226430s Assign oi\u22600 edge + factory/execlist corner (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 258038,
+    "exec": 68671,
+    "allow_post": false
+  },
+  "live_end": {
+    "pid": 30352,
+    "hours": 304,
+    "ui_date": "1936-01-13 16:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x \u226430s Assign oi\u22600 edge + factory/execlist corner (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 260054,
+    "exec": 69172,
+    "allow_post": false
+  },
+  "observe_s": 30.04,
+  "polls": 741,
+  "assign_stats": {
+    "sight_n": 0,
+    "oi_nonzero_n": 0,
+    "oi_zero_n": 0,
+    "by_name": {}
+  },
+  "assigns_sample": [],
+  "oi_nonzero_sample": [],
+  "factory_corner": {
+    "move_factory_1402_match": true,
+    "commands": {
+      "MOVE": {
+        "type_id": "0x28a2",
+        "factory_idx_catalog": 1402,
+        "factory_idx_formula": 1402,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb000",
+        "slot_rva": "0x13fb000",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x14002f0"
+      },
+      "ASSIGN": {
+        "type_id": "0x303e",
+        "factory_idx_catalog": 3350,
+        "factory_idx_formula": 3350,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x18cfca0",
+        "slot_rva": "0x18cfca0",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x18d41b0",
+        "isvalid_rva": "0x18de900"
+      },
+      "STRATEGIC": {
+        "type_id": "0x35b9",
+        "factory_idx_catalog": 4753,
+        "factory_idx_formula": 4753,
+        "idx_formula_matches_catalog": true,
+        "catalog_factory_rva": "0x13fb580",
+        "slot_rva": "0x13fb580",
+        "slot_matches_catalog": true,
+        "execute_rva": "0x13fc990",
+        "isvalid_rva": "0x1402260"
+      }
+    },
+    "execlist_counters": {
+      "drain": 258038,
+      "exec": 68671,
+      "stage_count": 0,
+      "note": "counters only \u2014 no Post / no inject"
+    }
+  },
+  "last_counters": {
+    "drain": 260051,
+    "exec": 69172,
+    "stage_count": 0,
+    "pending_nonzero": 0
+  },
+  "works": [
+    "allow_post False; never 5x; no Post/inject/tool-gate/2fb/2gk; no long midflight poll",
+    "\u226430.04s Assign pending/stage polls=741 sight=0 oi\u22600=0",
+    "MOVE factory_idx 1402 match=True",
+    "LAND_POST/SAFE_POST 2gx row"
+  ],
+  "stubbed": [
+    "demangled OG+0x50 / MI field name",
+    "named movement_dest",
+    "ring_embed execute",
+    "2fb/2gk recipe execute",
+    "ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+    "tool-gate open",
+    "CMove midflight hex",
+    "Post inject",
+    "ask-user right-click",
+    "Capstone/121 re-churn",
+    "long midflight empty poll",
+    "Assign oi\u22600 units\u2194OI this window"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2gx cheap edge quiet); push when GitHub reachable; still NO ALLOW_POST",
+  "sha_base": "845bd88"
+}
