@@ -82,3 +82,31 @@ Army path / movement destination vectors are **empty under pause** (observed 0 n
 ## Naval / production
 
 Out of scope for this capture path.
+
+## Phase 2em strengthen (edge-burst + sightline) ¡ª 2026-10-31
+
+**Still CLOSED for Post.** `allow_post` hard-False. No inject / right-click asked.
+
+### What changed
+- `--burst-on-edge N` (default 12): on drain/exec/seq advance, immediately re-sample pending+stage N times (no sleep) to catch short-lived cmds at 1x.
+- `--interval 0.02` preferred for long arm (was 0.05).
+- Sightline JSON: `reports/midflight_watcher_sightline.json` counts **any** watched VT (HourlyTick/Orders/Move¡­); Move still the only break/capture class.
+- Heartbeat phase `2em_midflight_heartbeat` includes `sight_counts`, `edge_events`, `burst_samples`, `sightline_ok`.
+
+### Live smoke (25s @ 1x Haiti, -noai)
+| Metric | Value |
+| --- | --- |
+| polls | 1185 |
+| edge_events | 1182 |
+| burst_samples | 14184 |
+| sight_counts | **CHourlyTickCommand: 289** (stage[0]) |
+| caught_army_move | false (expected; no right-click / -noai) |
+| allow_post | False |
+
+**Proof:** RO queue sightline works at 1x ¡ª HourlyTick is visible midflight via stage under edge-burst. Move sample remains the blocker; when a real right-click happens, capture path is tighter.
+
+### Re-arm
+```
+python scripts/phase2bm_midflight_ready.py --seconds 86400 --interval 0.02 --heap-every 0 --burst-on-edge 12
+```
+

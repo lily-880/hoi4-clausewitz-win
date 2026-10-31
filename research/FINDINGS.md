@@ -935,3 +935,18 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 **Scripts:** scripts/phase2el_map_gs_date.py, phase2el_date_roll.py, phase2el_confirm_hours.py; report 
 eports/phase2el_gs_datetime.json.
 
+## Phase 2em — midflight edge-burst + sightline (RO) — 2026-10-31
+
+**Choice:** A — strengthen midflight watcher (no Post).
+
+**Works:**
+- Edge-burst on drain/exec/seq delta (--burst-on-edge 12) + tighter --interval 0.02
+- Sightline proved live at 1x: **CHourlyTickCommand ×289** in 25s smoke via stage[0]
+- Heartbeat/sightline JSON updated; Move capture path unchanged (instant dump on army-move VT)
+
+**Stubbed:** midflight CMoveCommand sample (still needs real gameplay right-click; agent does not ask / inject)
+
+**Safety:** allow_post False; watcher RO re-armed; no ALLOW_POST / inject / HourlyTick abuse / 5x
+
+**Next shortest blocker:** live midflight CMoveCommand (+ action embed) sample — then serialize/recreate + explicit ALLOW_POST before any tool-gate open.
+
