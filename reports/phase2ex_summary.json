@@ -1,0 +1,57 @@
+{
+  "phase": "2ex",
+  "result": "ASSIGN_EDGE_HEAP_NO_MOVE",
+  "scenario": "ITA @1x AI-on",
+  "pid": 30680,
+  "ui_date": "1936-01-03 16:00",
+  "hours": 64,
+  "observe_seconds": 90.0,
+  "polls": 1410895,
+  "edge_events": 5292,
+  "heap_scans": 6,
+  "assign_seen_at_s": 1.1900651454925537,
+  "option_b_ran": false,
+  "sight_counts": {
+    "CHourlyTickCommand": 24049,
+    "COrderAssignCommand": 17,
+    "CCancelMovementCommand": 3,
+    "COrderUnassignCommand": 12
+  },
+  "leaf_names_hit": [],
+  "allow_post": false,
+  "works": [
+    "Assign-edge heap scan armed (Assign/Unassign \u2192 MOVE-VT heap)",
+    "heap_scans=6 mb=64",
+    "allow_post stays False",
+    "Assign sighted at t=1.2s",
+    "option B RO catalog appended (no DummyServer-bypass proven)",
+    "Cancel\u00d73 on stage with correct vt 0x2a2c9b8"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST",
+    "self-issue MOVE"
+  ],
+  "next_shortest_blocker": "Assign-edge heap ran but no leaf Move on heap \u2014 Move may free before scan or never allocated; next: ETH Cancel-correlated heap or accept sample gap; still NO ALLOW_POST",
+  "direct_execute_conclusion": "RO catalogs do not establish a Move bypass of DummyServer. Assign/Unassign/Cancel reach stage on the same ITA session while leaf Move does not \u2014 stronger evidence that AI rarely Posts CMoveCommand (or lifetime \u226a even Assign-edge heap), not that Move uses a separate direct-Execute-only path. Still NO ALLOW_POST.",
+  "option_b_supporting": true,
+  "next_cheapest_recipe": {
+    "name": "Cancel-correlated concurrent heap",
+    "steps": [
+      "Busy-poll stage for CCancelMovementCommand (vt 0x2a2c9b8)",
+      "On Cancel sight: immediate \u226464MB writable heap for CMoveCommand 0x2a2c790 + CUnitMoveAction 0x2a1f648 BEFORE Cancel drains",
+      "Also sample pending list in same burst",
+      "One bounded window (\u226490s); stop regardless"
+    ],
+    "why": "2ex saw Cancel\u00d73 on stage during Assign traffic but heap was Assign-triggered; Cancel-edge may catch Move being aborted",
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  }
+}

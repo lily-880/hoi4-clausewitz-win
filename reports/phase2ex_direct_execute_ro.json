@@ -1,0 +1,36 @@
+{
+  "phase": "2ex_option_B_catalog",
+  "allow_post": false,
+  "note": "Emitted after Assign-edge heap found no leaf Move (A ran; B as supporting RO conclusion).",
+  "pipeline_catalog": {
+    "FN_CMD_QUEUE_POST": "0x22c41e0",
+    "FN_CMD_QUEUE_POST_SINK_DUMMY": "0x23f5cd0",
+    "path": "UI/AI -> FN_CMD_QUEUE_POST -> DummyServer sink(+0xa0 ring) -> drain pending(+0x58) -> SessionUpdate Execute"
+  },
+  "live_2ex_evidence": {
+    "Assign": "stage sighted (vt 0x2a84498)",
+    "Unassign": "stage sighted (vt 0x2a84550)",
+    "Cancel": "stage sighted (vt 0x2a2c9b8 matches cmd_layout.CANCEL)",
+    "leaf_Move_on_stage": false,
+    "leaf_Move_on_assign_edge_heap": false,
+    "heap_scans": 6,
+    "heap_mb_each": 64
+  },
+  "conclusion": "RO catalogs do not establish a Move bypass of DummyServer. Assign/Unassign/Cancel reach stage on the same ITA session while leaf Move does not \u2014 stronger evidence that AI rarely Posts CMoveCommand (or lifetime \u226a even Assign-edge heap), not that Move uses a separate direct-Execute-only path. Still NO ALLOW_POST.",
+  "next_cheapest_recipe": {
+    "name": "Cancel-correlated concurrent heap",
+    "steps": [
+      "Busy-poll stage for CCancelMovementCommand (vt 0x2a2c9b8)",
+      "On Cancel sight: immediate \u226464MB writable heap for CMoveCommand 0x2a2c790 + CUnitMoveAction 0x2a1f648 BEFORE Cancel drains",
+      "Also sample pending list in same burst",
+      "One bounded window (\u226490s); stop regardless"
+    ],
+    "why": "2ex saw Cancel\u00d73 on stage during Assign traffic but heap was Assign-triggered; Cancel-edge may catch Move being aborted",
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  }
+}

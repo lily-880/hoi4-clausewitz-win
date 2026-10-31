@@ -1034,3 +1034,10 @@ eports/phase2el_gs_datetime.json.
 - **No leaf** `CMoveCommand` / `CUnitMoveAction` on stage/pending despite denser-than-watcher sampling.
 - VT candidates + recipe: `docs/PHASE2EW_MOVE_VT_BURST.md`; script `scripts/phase2ew_move_burst.py`.
 - `allow_post` remains **False**. Next: optional Assign-edge heap or accept stage-miss hypothesis; still no Post.
+
+## Phase 2ex (2026-10-31 Asia/Shanghai) — Assign-edge heap RO
+
+- ITA pid 30680 @1x; **90s**: Assign×17 Unassign×12 Cancel×3 on stage; **6×64MB** Assign-edge heaps → **0** leaf Move needles.
+- Cancel vt live `0x2a2c9b8` matches `cmd_layout.CANCEL` (clean vs 2eu obfuscated peek).
+- Option B catalog: DummyServer-bypass for Move **not** proven; Assign/Cancel reach stage while Move does not.
+- Next cheapest recipe: Cancel-correlated concurrent heap (documented, not burned). `allow_post` False.
