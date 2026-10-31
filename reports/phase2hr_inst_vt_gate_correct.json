@@ -1,0 +1,135 @@
+{
+  "phase": "2hr",
+  "result": "INST_VT_GATE_CORRECT_CROSS_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 190,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-08 22:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA oi=481 INST_VT gate correct 0x2A02558 + Instant\u00d7PATH one-shot (no Post, no midflight, no oi\u22600, no endless Instant poll)",
+    "pending": 0,
+    "stage_count": 1,
+    "drain": 475851,
+    "exec": 120791,
+    "allow_post": false
+  },
+  "pe_demangle": {
+    "image_path": "D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe",
+    "correct": {
+      "vtable_rva": "0x2a02558",
+      "col_rva": "0x2d679d0",
+      "col_sig": 1,
+      "td_rva": "0x32f5418",
+      "name_raw": ".?AVCOrderInstance@@",
+      "demangled": "COrderInstance",
+      "ok": true
+    },
+    "false_gate": {
+      "vtable_rva": "0x2a84a38",
+      "col_rva": "0x13fecd0",
+      "col_sig": 610044232,
+      "td_rva": "0x4820ec83",
+      "error": "COL signature 610044232 not MSVC RTTI"
+    },
+    "ok": true
+  },
+  "dig": {
+    "ok": true,
+    "oi": 481,
+    "hdr": "0x1eac9a6b7d0",
+    "og": "0x1eac9a6b7e0",
+    "arr50_size": 6,
+    "member_n": 6,
+    "ita_members": 6,
+    "path_union_ita": [
+      3816,
+      3938
+    ],
+    "inst": "0x1eaf0074a80",
+    "live_vt_rva": "0x2a02558",
+    "matches_false_gate_0x2A84A38": false,
+    "matches_correct_0x2A02558": true,
+    "arr70": {
+      "size": 25,
+      "shaped": true,
+      "u32s": [
+        10063,
+        1176,
+        1090,
+        10111,
+        3871,
+        3810,
+        6832,
+        9881,
+        858,
+        896,
+        939,
+        3794,
+        9767,
+        6841,
+        11806,
+        3859,
+        857,
+        3887,
+        11766,
+        813,
+        3816,
+        9813,
+        11793,
+        11819,
+        915
+      ]
+    },
+    "arr88_province_ids": [],
+    "arr88_kinds": {
+      "CProvince": 0,
+      "CArmy": 0,
+      "COrderInstance": 0,
+      "other": 32,
+      "nullish": 0
+    },
+    "cross70": [
+      3816
+    ],
+    "cross88": [],
+    "cross70_n": 1,
+    "cross88_n": 0,
+    "focus_in_70": [
+      915,
+      3816
+    ],
+    "focus_in_88": [],
+    "false_scripts_noted": [
+      "phase2hp_og481_instance_path_cross.py",
+      "phase2hq_path200_focus_prov_matrix.py",
+      "phase2gm_carmy_path_instance_ro.py"
+    ],
+    "correct_scripts_noted": [
+      "phase2fv_instance_fields.py / docs",
+      "phase2fu_og_internals.md",
+      "phase2fx_70_88_structure.py",
+      "phase2fy_army_path_vs_70.py",
+      "phase2fz / phase2ga"
+    ]
+  },
+  "sha_base": "31ace87",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "endless Instant map re-poll",
+    "invent OG+0x50 field name"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2hr INST_VT gate corrected); push when GitHub reachable; still NO ALLOW_POST",
+  "semantics": "INST_VT false-gate 0x2A84A38\u21920x2A02558; oi=481 Instant\u00d7PATH one-shot; field name STUBBED; no Post"
+}
