@@ -202,7 +202,7 @@ Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_
 
 ---
 
-## Phase 2gj / 2gk / 2gl / 2gm — checklist polish (CLOSED)
+## Phase 2gj / 2gk / 2gl / 2gm / 2gn — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -214,6 +214,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2gk | ring_embed recipe **v2** DESIGN; StartGame sticky ↔ Strategic offline concordance; live ring VT MATCH | Steps 1–4 proof-tagged; step 5 ring push **STUBBED** |
 | 2gl | This checklist + LAND_POST polish with 2gj/2gk deltas | **Docs only** |
 | 2gm | Perception: `CArmy+0x200` multi-prov hit (2) after tag-FP filter; Instance+0x70/+0x88 8/14 | **HIT** (not demangled movement_dest; Post still CLOSED) |
+| 2gn | `+0x200` ↔ Instance`+0x70`/`+0x88` cross (3×57) | **NO_OVERLAP** (extends 2fy; Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -231,5 +232,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2gm — perception RO + docs. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2gn — +0x200↔+0x70 cross. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
