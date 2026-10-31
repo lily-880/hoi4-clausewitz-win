@@ -64,6 +64,7 @@ Factory table live MATCH: ORDERS 26/26 (2fg); STRATEGIC idx 4753 (2fd/2fe); MOVE
 | Capture | Result | Notes |
 | --- | --- | --- |
 | StrategicRedeploy leaf | **2fa capture + 2fb layout MATCH** | size `0x50`; recipe design in `reports/phase2fb_ring_embed_recipe.json` — **NOT executed** |
+| MOVE offline skeleton (catalog) | **2gj SKELETON_PASS** + factory 1402 MATCH | No live CMove hex → not bit_identical (vs Strategic 2fd) |
 | CancelMovement | Live midflight adjacent | ≠ ordinary CMove |
 | Assign / Unassign / OG / Instance | Catalog + maps proven | Live pending+heap plan leaves repeatedly empty (2gc–2gh) |
 | NewFallback / RF | VT known; midflight leaves empty | NF/RF midflight still empty |
@@ -76,7 +77,7 @@ Factory table live MATCH: ORDERS 26/26 (2fg); STRATEGIC idx 4753 (2fd/2fe); MOVE
 | --- | --- |
 | `allow_post` / `CLAUSEWITZ_ALLOW_POST` | **HARD_DENY** (config hard-returns False) |
 | `command_queue` tool-gate | **CLOSED_NOT_OPENED** |
-| Ordinary `CMoveCommand` leaf (+ action embed) | **STUBBED** — never caught midflight |
+| Ordinary `CMoveCommand` leaf (+ action embed) | **STUBBED** — never caught midflight; **2gj** offline skeleton + factory_idx **1402** live MATCH (no bit_identical without hex) |
 | Ring embed / Dummy recreate on Move|Strategic sample | **STUBBED** (recipe drafted 2fb only) |
 | 2fb recipe live execute | **FORBIDDEN** |
 | SAFE_POST / Post inject / helper patch | **FORBIDDEN** |

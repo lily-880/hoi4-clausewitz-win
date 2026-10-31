@@ -1,0 +1,116 @@
+{
+  "phase": "2gj",
+  "result": "MOVE_OFFLINE_SKELETON_PASS_FACTORY1402_MATCH_OBSERVE_EMPTY",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "never_5x": true,
+  "speed_policy": "pause-or-1x only (never change speed)",
+  "scenario": "ITA@1x current process \u2014 MOVE offline polish + \u226445s CMove RO (no Post)",
+  "offline_move": {
+    "status": "SKELETON_PASS_NO_LIVE_HEX",
+    "bit_identical": false,
+    "bit_identical_blocker": "No ordinary CMoveCommand midflight hex capture; cannot close sample\u2192rebuild like Strategic 2fd. province_arr/path_arr need game allocs (Strategic scalar is cheaper).",
+    "size": "0x88",
+    "factory_idx": 1402,
+    "factory_rva": "0x13fb000",
+    "type_id": "0x28a2",
+    "vt_rva": "0x2a2c790",
+    "action_vt_rva": "0x2a1f648",
+    "action_type_id_at_plus8": "0x3648",
+    "action_embed_off": "0x28",
+    "action_fields": {
+      "unit_handle": 16,
+      "province_arr": 24,
+      "province_size": 36,
+      "path_arr": 48,
+      "path_size": 60,
+      "clear": 80,
+      "safe": 81,
+      "safe_until_end": 82,
+      "safe_nonsafe_fb": 83,
+      "avoid": 85,
+      "move_priority": 88,
+      "sticky": 92
+    },
+    "shared_header_with_strategic_cancel": {
+      "strategic": {
+        "tick_0c": 1,
+        "f18": "0x1206",
+        "seq_1c": 6260,
+        "seq_20": 6260,
+        "seq_echo": true,
+        "embed_starts_0x28": true
+      },
+      "cancel": {
+        "tick_0c": 1,
+        "f18": "0x7fff",
+        "seq_1c": 17744,
+        "seq_20": 17744,
+        "seq_echo": true,
+        "embed_starts_0x28": true
+      },
+      "proven_pattern": "tick@+0xC; seq@+0x1C echoed @+0x20; action embed @+0x28"
+    },
+    "skeleton_hex_relative_vt": "90c7a20200000000000000000100000000000000000000000000000000000000000000000000000048f6a1020000000048360000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000200000000000000",
+    "note": "Offline catalog layout polish only. Relative VTs in skeleton_hex are RVAs not ASLR abs. IsValid 0x14002F0 / Execute 0x13FC990 (shared thunk w/ Strategic)."
+  },
+  "live": {
+    "pid": 30352,
+    "factory_ro": {
+      "type_id": "0x28a2",
+      "factory_idx_formula": 1402,
+      "factory_idx_catalog": 1402,
+      "idx_formula_matches_catalog": true,
+      "factory_table_slot_rva": "0x13fb000",
+      "catalog_factory_rva": "0x13fb000",
+      "slot_matches_catalog": true,
+      "catalog_idx_slot_rva": "0x13fb000",
+      "recreate_rva": "0x22d8ad0",
+      "recreate_prologue_hex": "48895c240848896c2410488974242057",
+      "factory_prologue_hex": "40534883ec20b988000000e88c501a01",
+      "gettypeid_imm": "0x28a2",
+      "gettypeid_matches_type_id": true,
+      "shared_execute_thunk_with_strategic": true,
+      "execute_rva": "0x13fc990",
+      "isvalid_rva": "0x14002f0",
+      "birth_path_observe": "GetTypeId(0x28a2) \u2192 ser \u2192 recreate(0x22d8ad0) \u2192 factory_lookup idx=1402 \u2192 factory 0x13fb000 \u2192 vt+0x18 des \u2192 ring@+0xa0 (NOT executed)"
+    },
+    "observe": {
+      "observe_s": 45.0,
+      "wall_s": 45.03,
+      "polls": 559,
+      "cmove_sightings": 0,
+      "cmove_hits": [],
+      "last_stage": 0,
+      "last_pending": 0,
+      "drain": 51397,
+      "exec": 17430,
+      "result": "HONEST_EMPTY"
+    },
+    "meta_start": {
+      "hours": 56,
+      "ui_date": "1936-01-03 08:00",
+      "gs": "0x1e99c130f80"
+    },
+    "meta_end": {
+      "hours": 60,
+      "ui_date": "1936-01-03 12:00",
+      "gs": "0x1e99c130f80"
+    }
+  },
+  "vs_strategic_2fd": {
+    "strategic_offline": "PASS bit_identical (2fd)",
+    "move_offline": "SKELETON only \u2014 needs midflight hex for bit_identical",
+    "shared": "execute thunk 0x13FC990; embed@+0x28; seq echo pattern",
+    "move_harder_because": "province_arr + path_arr game allocs vs Strategic scalar province"
+  },
+  "stubbed": [
+    "ordinary CMove midflight leaf hex",
+    "ring_embed in-process",
+    "2fb recipe execute",
+    "ALLOW_POST",
+    "tool-gate"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex (or SAFE Dummy recreate on Strategic only) \u2014 still NO ALLOW_POST; retry push when GitHub reachable",
+  "captured_at": "2026-10-31 15:17 Asia/Shanghai"
+}
