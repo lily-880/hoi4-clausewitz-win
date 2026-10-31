@@ -1,0 +1,133 @@
+{
+  "phase": "2eu",
+  "ts": "2026-10-31T03:08:58.926710+00:00",
+  "allow_post": false,
+  "never_5x": true,
+  "scenario": "ETH @1x AI-on (no relaunch)",
+  "cmdline": "\"D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe\" -gdpr-compliant -start_tag=ETH -start_speed=1",
+  "baseline_sight_counts": {
+    "CHourlyTickCommand": 9575,
+    "COrderUnassignCommand": 2,
+    "COrderAssignCommand": 5,
+    "CCancelMovementCommand": 2
+  },
+  "live_before": {
+    "pid": 24808,
+    "hours": null,
+    "ui_date": null,
+    "armies_count": 17,
+    "allow_post": false
+  },
+  "ita_next_if_quiet": {
+    "recipe": "python scripts/phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240",
+    "equiv_cli": "-gdpr-compliant -start_tag=ITA -start_speed=1",
+    "why": "ITA is the attacker in the 1936 Ethiopia war \u2014 more offensive Move/Attack traffic than ETH defender",
+    "haiti_return": "python scripts/launch_into_map.py --speed 1 --allow-ai"
+  },
+  "watcher": {
+    "pid": 19960,
+    "seconds": 600
+  },
+  "observe_elapsed_s": 360.0,
+  "live_after": {
+    "pid": 24808,
+    "hours": null,
+    "ui_date": null,
+    "armies_count": 17,
+    "allow_post": false
+  },
+  "sight_counts_after": {
+    "CHourlyTickCommand": 1333,
+    "CCancelMovementCommand": 1
+  },
+  "sight_delta_vs_baseline": {
+    "CHourlyTickCommand": 1333,
+    "CCancelMovementCommand": 1
+  },
+  "pipeline": {
+    "land_sight_counts": {
+      "CCancelMovementCommand": 1
+    },
+    "pipeline_counters": {
+      "assign": 0,
+      "unassign": 0,
+      "execute": 0,
+      "cancel_movement": 1,
+      "move": 0,
+      "unit_move_action": 0,
+      "support_attack": 0
+    },
+    "sight_first_land": {
+      "CCancelMovementCommand": {
+        "source": "stage[1]",
+        "addr": "0x1d935284120",
+        "vt_rva": "0x279f4a0",
+        "poll": 3324,
+        "counters": {
+          "drain": 52897,
+          "exec": 17734,
+          "seq": 17757,
+          "stage_count": 0
+        },
+        "ts": "2026-10-31 11:10:12 "
+      }
+    },
+    "notes": [
+      "CCancelMovementCommand sighted without CMoveCommand in stage window \u2014 Move may be too short-lived / drained before poll; Cancel proves movement existed"
+    ],
+    "predict_move": "Move most likely when cancel_movement rises or during active front combat; attacker ITA may emit longer-lived CMoveCommand than ETH defender cancels"
+  },
+  "heartbeat": {
+    "polls": 3320,
+    "elapsed_s": 70.0,
+    "captures": 0,
+    "caught_army_move": false,
+    "sight_counts": {
+      "CHourlyTickCommand": 1307
+    },
+    "ts_asia_shanghai": "2026-10-31 11:10:12 "
+  },
+  "capture_present": true,
+  "capture_summary": {
+    "name": null,
+    "caught_army_move": true,
+    "keys": [
+      "phase",
+      "posting",
+      "allow_post",
+      "speed_rule",
+      "caught_army_move",
+      "polls",
+      "last_counters",
+      "captures",
+      "sight_counts",
+      "captured_at_asia_shanghai",
+      "note"
+    ]
+  },
+  "result": "CANCEL_MOVEMENT_CAPTURED_NO_CMOVE",
+  "works": [
+    "ETH@1x kept longer observe (360s), never 5x",
+    "watcher re-armed; Instant RO capture of CCancelMovementCommand with cancel_fields decode",
+    "prior window cumulative: Assign/Unassign + Cancel",
+    "RO pipeline note: Cancel without retained CMove in stage",
+    "ITA next recipe documented",
+    "allow_post stays False"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST enable",
+    "self-issue MOVE",
+    "path_vector nonempty"
+  ],
+  "next_shortest_blocker": "Cancel captures prove movement traffic but leaf CMoveCommand not retained on stage \u2014 next cheapest: ITA@1x attacker observe; still NO ALLOW_POST",
+  "corrected_move_hit": false,
+  "true_cmove_or_support_attack": false,
+  "ui_date_corrected": "1936-01-04 14:00",
+  "hours_corrected": 86,
+  "cancel_capture_ref": "reports/phase2eu_cancel_capture.json",
+  "false_positive_note": "Initial move_hit True only because watcher sets caught_army_move for Cancel; corrected to CANCEL_MOVEMENT_CAPTURED_NO_CMOVE"
+}

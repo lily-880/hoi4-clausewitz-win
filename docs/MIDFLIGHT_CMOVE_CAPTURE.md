@@ -144,3 +144,12 @@ Equiv CLI: `-gdpr-compliant -start_tag=ETH -start_speed=1` (AI on). Never 5x.
 **Observed (2et):** `COrderUnassignCommand` ×2 midflight; `CMoveCommand` still absent.
 
 Return to Haiti: `python scripts/launch_into_map.py --speed 1 --allow-ai`.
+
+## Phase 2eu — Cancel ≠ Move
+
+Longer ETH@1x observe captured **`CCancelMovementCommand`** into `midflight_cmove_capture.json` because Cancel is in `ARMY_MOVE_NAMES`. Treat as Move-adjacent proof only; leaf `CMoveCommand` still missing.
+
+If ETH stays Cancel-only: switch to ITA attacker:
+```text
+python scripts/phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240
+```

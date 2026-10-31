@@ -1000,3 +1000,16 @@ eports/phase2el_gs_datetime.json.
   - `path_vector` nonempty still 0; ring_embed / SAFE_POST / self-MOVE still closed.
 - **Contrast vs 2es**: peacetime Haiti AI-on → HourlyTick only; ETH war AI-on → HourlyTick + land **order** Unassign.
 - **Next**: longer ETH/ITA@1x for Move/Attack samples, or RO-follow Unassign→order pipeline; still **no** ALLOW_POST.
+
+## Phase 2eu — ETH longer RO observe (2026-10-31)
+
+- **Goal**: catch live `CMoveCommand` / `CSupportAttack` without ALLOW_POST.
+- **Scenario**: keep ETH `-start_speed=1` AI-on; re-arm watcher; observe 360s @1x (never 5x).
+- **Works**:
+  - Instant RO capture of **`CCancelMovementCommand`** (vt `0x279f4a0`, stage[1], Asia/Shanghai 11:10:12) with `cancel_fields` decode (`units_count=0` on that sample).
+  - Cumulative land-related (baseline+window): Unassign×2, Assign×5, Cancel×3; still **0** `CMoveCommand` / `CSupportAttack`.
+  - Watcher `caught_army_move=true` for Cancel is **not** a leaf Move — documented false-positive pitfall.
+  - ITA next recipe recorded (attacker traffic).
+- **Stubbed**: live `CMoveCommand` / `CUnitMoveAction` / `CSupportAttack`; ring_embed; SAFE_POST; self-MOVE.
+- **Live**: pid 24808; UI ~`1936-01-04 14:00` (hours 86); `allow_post` False.
+- **Next**: `phase2et_war_midflight.py --tag ITA --speed 1` — still NO ALLOW_POST.

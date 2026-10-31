@@ -1,0 +1,60 @@
+{
+  "phase": "2eu",
+  "result": "CANCEL_MOVEMENT_CAPTURED_NO_CMOVE",
+  "scenario": "ETH @1x AI-on (no relaunch)",
+  "pid": 24808,
+  "ui_date": "1936-01-04 14:00",
+  "hours": 86,
+  "observe_seconds": 360,
+  "window_sight_counts": {
+    "CHourlyTickCommand": 1333,
+    "CCancelMovementCommand": 1
+  },
+  "cumulative_land_related": {
+    "COrderUnassignCommand": 2,
+    "COrderAssignCommand": 5,
+    "CCancelMovementCommand": 3,
+    "CMoveCommand": 0,
+    "CSupportAttackCommand": 0
+  },
+  "cancel_capture": {
+    "caught_army_move_flag_from_watcher": true,
+    "note": "watcher ARMY_MOVE_NAMES includes Cancel \u2014 NOT a CMoveCommand leaf",
+    "name": "CCancelMovementCommand",
+    "vt_rva": "0x279f4a0",
+    "addr": "0x1d935284120",
+    "cancel_fields": {
+      "layout": "CCancelMovementCommand",
+      "units_data": "0x0",
+      "units_count": 0,
+      "sticky": 0
+    },
+    "ts_asia_shanghai": "2026-10-31 11:10:12 "
+  },
+  "true_cmove_or_support_attack": false,
+  "allow_post": false,
+  "ita_next": {
+    "recipe": "python scripts/phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240",
+    "equiv_cli": "-gdpr-compliant -start_tag=ITA -start_speed=1",
+    "why": "ITA attacker in 1936 Ethiopia war \u2014 more offensive Move/Attack than ETH defender Cancel",
+    "haiti_return": "python scripts/launch_into_map.py --speed 1 --allow-ai"
+  },
+  "works": [
+    "ETH@1x kept longer observe (360s), never 5x",
+    "watcher re-armed; Instant RO capture of CCancelMovementCommand with cancel_fields decode",
+    "prior window cumulative: Assign/Unassign + Cancel",
+    "RO pipeline note: Cancel without retained CMove in stage",
+    "ITA next recipe documented",
+    "allow_post stays False"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST enable",
+    "self-issue MOVE",
+    "path_vector nonempty"
+  ],
+  "next_shortest_blocker": "Cancel captures prove movement traffic but leaf CMoveCommand not retained on stage \u2014 next cheapest: ITA@1x attacker observe; still NO ALLOW_POST"
+}
