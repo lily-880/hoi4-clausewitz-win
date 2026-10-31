@@ -819,3 +819,17 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **CArmyRequests**: peer `CArmy*` at `+0x108/+0x130/+0x190` are an **aliased triple** (identical 16/17); chain not bidirectional.
 - **Theatre→army direct**: still unresolved (0). Army→theatre @`+0x2a0` one-way.
 - **Not revived**: org/str; CProvince+0x58. Recipes `*_2db`; allow_post False; watcher 36128 RO.
+
+
+## Phase 2dc (overnight RO) — CFront kind/id + peer one-way chains
+
+- **HEAD parent**: `5c51ac9` (2db). Focus: CFront intra-object under packed 0x90; peer graph; theatre→army alt; FS/SPer army embeds.
+- **LAND 121/121 unchanged**. Helpers/named **308/658**. Confidence **1.000**.
+- **CFront (new)**: `u32@+0x8 = 0x42` constant (**1199/1199**); `u32@+0xc` unique front id (**1199/1199**). Intra-object RTTI ptrs in `[0..0x90)` only theatre@+0x18 + controller@+0x70 (400/400 sample) — reinforces packed model / multi-slot REJECTED.
+- **Packed runs**: mix many theatres (run454 → 41 unique) — allocator adjacency, not ownership.
+- **HAI fronts**: still **6**; no army province match; no army ptr in front / FS / SPer; army→front reverse **0**.
+- **CArmyRequests peer**: aliased triple forms **one-way chains** (in_deg max 1); 10 HAI + 5 DOM(`tag=16`) + null/garbage; not bidir / not owner list. Status `hypothesis_peer_chain_oneway_2dc`.
+- **Theatre→army**: still **UNRESOLVED** (0 direct / 0 arrays / 0 handles).
+- **SPerCountrySection**: `u32@+0x8` HAI tag proven (8); province-id-range hyp @+0x20..+0x34 remains **weak** (0 overlap with army provs).
+- **Orders heap**: still 0. Org/str + prov+0x58 stay REJECTED. Recipes `*_2dc`; allow_post False; watcher 36128 RO.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
