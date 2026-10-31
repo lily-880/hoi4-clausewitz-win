@@ -4112,3 +4112,65 @@ def land_live_army_subject_observe_2df_recipe(limit: int = 8, carmy_only: bool =
             "hai_front_ids": obs.get("hai_front_ids"),
             "carmy_count": obs.get("carmy_count"), "carmy_only_filter": carmy_only, "subjects": subjects,
             "note": obs.get("note") or "OwnerArea; never Post."}
+
+
+def land_cmd_post_path_index_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dg", "allow_post": False, "posting": "DISABLED", "index": pr.get("cmd_post_path_index_2dg") or {}}
+
+def land_role_post_path_matrix_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dg", "allow_post": False, "posting": "DISABLED", "matrix": pr.get("role_post_path_matrix_2dg") or {}}
+
+def land_role_observe_2dg_recipe(role: str | None = None) -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ro = dict(pr.get("role_observe_2dg") or {})
+    if role: return {"phase": "2dg", "allow_post": False, "posting": "DISABLED", "role": role, "observe": ro.get(role)}
+    return {"phase": "2dg", "allow_post": False, "posting": "DISABLED", "roles": ro}
+
+def land_confidence_report_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2dg") or {}); rep.update({"allow_post": False, "posting": "DISABLED"}); return rep
+
+def land_post_readiness_checklist_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("post_readiness_checklist_2dg") or {"phase":"2dg","allow_post":False})
+
+def land_offensive_line_post_path_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2dg", "allow_post": False, "posting": "DISABLED", "offensive_line": pr.get("offensive_line_post_path_2dg") or {}}
+
+def land_midflight_move_watcher_readiness_2dg_recipe() -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("midflight_move_watcher_readiness_2dg") or {"phase":"2dg","allow_post":False})
+
+def land_live_army_subject_observe_2dg_recipe(limit: int = 8, carmy_only: bool = True) -> dict:
+    try: import cmd_layout as _cl
+    except Exception as e: return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2dg") or {})
+    subjects = list((obs.get("carmy_only") if carmy_only else obs.get("subjects")) or [])[:max(0,int(limit))]
+    return {"phase": "2dg", "allow_post": False, "posting": "DISABLED",
+            "field_map_cownerarea": obs.get("field_map_cownerarea"),
+            "field_map_ccontrollerarea": obs.get("field_map_ccontrollerarea"),
+            "field_map_cfront": obs.get("field_map_cfront"),
+            "field_map_ctheatre": obs.get("field_map_ctheatre"),
+            "field_map_frontsection_observe": obs.get("field_map_frontsection_observe"),
+            "theatre_army_crosslink": obs.get("theatre_army_crosslink"),
+            "hai_front_ids": obs.get("hai_front_ids"),
+            "carmy_count": obs.get("carmy_count"), "carmy_only_filter": carmy_only, "subjects": subjects,
+            "note": obs.get("note") or "TH_CONTROLLER_AREAS+FS reverse; never Post."}

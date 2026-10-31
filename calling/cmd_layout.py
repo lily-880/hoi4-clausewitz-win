@@ -155293,3 +155293,9 @@ from pathlib import Path as _P2df
 _fp2df = _P2df(__file__).with_name('_land_post_2df_fragment.py')
 if _fp2df.exists():
     exec(_fp2df.read_text(encoding='utf-8'))
+
+# Phase 2dg fragment loader
+from pathlib import Path as _P2dg
+_fp2dg = _P2dg(__file__).with_name('_land_post_2dg_fragment.py')
+if _fp2dg.exists():
+    exec(_fp2dg.read_text(encoding='utf-8'))

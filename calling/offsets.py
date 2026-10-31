@@ -68,6 +68,7 @@ HYPOTHESIS_STRUCT = {
     # CTheatre fields (primary theatre from CO_THEATRES)
     "TH_FRONTS": 0x50,  # CPdxArray<CFront*> proven_live_2dd (HAI=6 ids 173..178)
     "TH_ARMIES": 0x68,  # CPdxArray<CArmy*> proven_live_2dd (HAI=17 matches CO_ARMIES)
+    "TH_CONTROLLER_AREAS": 0x18,  # CPdxArray<CControllerArea*> proven_live_2dg (HAI=9 == CO_CONTROLLER_AREAS ordered; distinct buffer)
 }
 
 # Safely static-proven (RTTI + live COL verification). NOT globals / NOT Post.

@@ -1,0 +1,88 @@
+{
+  "phase": "2dg_mine",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "pid": 2880,
+  "watcher_36128_alive": true,
+  "TH_CONTROLLER_AREAS": {
+    "off": 24,
+    "status": "proven_live_2dg",
+    "layout": "CPdxArray{data:u64, capacity:i32, size:i32, alloc:u64}",
+    "size": 9,
+    "capacity": 9,
+    "ok": "9/9",
+    "identical_ordered_CO_CONTROLLER_AREAS": true,
+    "same_data_buffer": false,
+    "front_ctrls_in_set": 0,
+    "front_ctrls_n": 6,
+    "via": "CTheatre+0x18 (offsets.HYPOTHESIS_STRUCT TH_CONTROLLER_AREAS)",
+    "note": "CTheatre+0x18 CPdxArray<CControllerArea*> identical ordered set to CCountry+0x548 CO_CONTROLLER_AREAS (9). Distinct data buffers (not aliased). The 6 HAI front-linked CControllerArea* (front+0x70) are a DISJOINT population from this country/theatre CA list."
+  },
+  "front_vs_country_controller_disjoint": true,
+  "fs_heap_reverse": {
+    "status": "proven_live_2dg",
+    "method": "full_heap_scan_parent_at_plus_0x10",
+    "found": 8,
+    "front_ids_covered": [
+      173,
+      174,
+      175,
+      176,
+      177,
+      178
+    ],
+    "coverage": "at_least_one_FS_per_HAI_front_id",
+    "parent_front_ptr_off": 16,
+    "per_country_section_off": 24,
+    "prior_local_pm8000": "0 hits (2df) — FS not allocator-local to fronts",
+    "sample": [
+      {
+        "fs": "0x1ef8080cbd0",
+        "id": 173
+      },
+      {
+        "fs": "0x1ef8080c000",
+        "id": 174
+      },
+      {
+        "fs": "0x1ef8080c700",
+        "id": 175
+      },
+      {
+        "fs": "0x1ef8080c380",
+        "id": 176
+      },
+      {
+        "fs": "0x1ef8080c4d0",
+        "id": 177
+      },
+      {
+        "fs": "0x1ef8080c850",
+        "id": 178
+      }
+    ],
+    "note": "Full-heap reverse finds CFrontSection with +0x10==HAI front; local ±0x8000 was false miss."
+  },
+  "peer_oa_shared": {
+    "pairs": 6,
+    "either": 16,
+    "n": 16
+  },
+  "th_owner_areas_on_theatre": [],
+  "fs_provinces": {
+    "status": "proven_live_2dg",
+    "provinces_array_30": {
+      "off": 48,
+      "layout": "CPdxArray<CProvince*>",
+      "ok": "8/8 sample"
+    },
+    "provinces_array_48": {
+      "off": 72,
+      "layout": "CPdxArray<CProvince*>",
+      "ok": "8/8 sample"
+    },
+    "army_embeds_in_fs_or_sper": 0,
+    "note": "FS exposes province arrays @+0x30/+0x48; still 0 HAI CArmy* embeds in FS/SPer (army↔front remains theatre-mediated)."
+  },
+  "applied": true
+}

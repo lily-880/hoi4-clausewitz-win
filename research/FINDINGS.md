@@ -866,3 +866,16 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **FrontSection**: local ±0x8000 scan around HAI fronts found **0** FS with `+0x10==front` (allocator not local); unresolved this pass.
 - **Unchanged**: TH_ARMIES/TH_FRONTS; ctrl provinces (2de); CFront>0x90 REJECT; peer hyp; org/str REJECT; LAND **121/121**; confidence **1.000**.
 - Recipes `*_2df`; allow_post False; watcher 36128 RO.
+
+
+## Phase 2dg (overnight RO) — TH_CONTROLLER_AREAS + FS heap reverse
+
+- **HEAD parent**: `4aa0ab6` (2df). Focus: deepen CO/TH array graph; FS reverse; CA population split; peer only with stronger proof.
+- **LAND 121/121 unchanged**. Helpers/named **308/658**. Confidence **1.000**.
+- **CTheatre (new)**: `+0x18` **TH_CONTROLLER_AREAS** — `CPdxArray<CControllerArea*>` size **9**, **identical ordered** to `CO_CONTROLLER_AREAS@CCountry+0x548`; **distinct data buffers** (not aliased).
+- **CA population split**: 6 HAI front-linked controllers (`CFront+0x70`) are **DISJOINT** from the CO/TH CA set of 9 — frontline-local vs country/theatre area lists.
+- **CFrontSection (new)**: full-heap reverse finds FS with `parent@+0x10` → HAI fronts **173–178** (8 FS; ≥1 per id). Prior local ±0x8000 miss was allocator non-locality. FS `CPdxArray<CProvince*>` @ `+0x30` / `+0x48`. Still **0** HAI `CArmy*` embeds in FS/SPer.
+- **Peer**: OA `+0x30` co-membership **6/16** pairs; still **0 bidir** — status remains `hypothesis_peer_chain_oneway_2dc`.
+- **Unchanged**: TH_ARMIES/TH_FRONTS (2dd); CA/OA provinces (2de/2df); CFront>0x90 REJECT; org/str REJECT; prov+0x58 REJECT; movement_dest=0; orders 0.
+- Recipes `*_2dg`; allow_post False; watcher 36128 RO.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
