@@ -1,0 +1,87 @@
+{
+  "phase": "2gg",
+  "allow_post": false,
+  "relaunch": {
+    "cmd": [
+      "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\scripts\\launch_into_map.py",
+      "--start-tag",
+      "ITA",
+      "--speed",
+      "1",
+      "--allow-ai"
+    ],
+    "rc": 0,
+    "stdout": "Launching: D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe -gdpr-compliant -start_tag=ITA -start_speed=1\nStarted. Wait for map, then: python clausewitz_win.py status\nExpect G_IDLER -> CInGameIdler. Posting stays DISABLED. Prefer paused (speed 0).\n",
+    "stderr": ""
+  },
+  "map_wait": {
+    "ok": true,
+    "elapsed_s": 35.0,
+    "pid": 30352,
+    "hours": 0,
+    "ui_date": "1936-01-01 00:00",
+    "carmy": 17,
+    "player_tag": 15,
+    "index_window": [
+      500,
+      4500
+    ]
+  },
+  "live_start": {
+    "pid": 30352,
+    "hours": 0,
+    "ui_date": "1936-01-01 00:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA relaunch @1x AI-on multi-leaf observe (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1",
+    "gs": "0x1e99c130f80"
+  },
+  "live_end": {
+    "pid": 30352,
+    "hours": 7,
+    "ui_date": "1936-01-01 07:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ITA relaunch @1x AI-on multi-leaf observe (no Post)",
+    "cmdline_expect": "-gdpr-compliant -start_tag=ITA -start_speed=1",
+    "gs": "0x1e99c130f80"
+  },
+  "observe": {
+    "elapsed_s": 90.02,
+    "polls": 1276,
+    "last_counters": {
+      "drain": 5921,
+      "exec": 6484,
+      "seq": 6493,
+      "stage_count": 0
+    },
+    "sight_counts": {},
+    "captures": {},
+    "units_nonzero_assignish": 0,
+    "oi_type35_resolve_ok": 0
+  },
+  "execute_leaf_polish": {
+    "COrderExecuteCommand": {
+      "vt": "0x2a85468",
+      "type_id": "0x3040",
+      "factory_idx": 3352,
+      "isvalid": "0x18def40",
+      "execute": "0x18d6430",
+      "fields": {
+        "order_index": 48,
+        "execute_order": 52,
+        "all": 53
+      },
+      "fields_note": "order_index@+0x30 (u32); execute_order@+0x34 (u8); all@+0x35 (u8). oi\u2194type-0x35 same class as Assign (2ft/2fp). posting DISABLED"
+    },
+    "COrderDeleteCommand": {
+      "vt": "0x2a843e0",
+      "factory_idx": 3351,
+      "fields": {
+        "order_index": 48
+      },
+      "note": "order_index@+0x30 only"
+    },
+    "delta_note": "no Capstone; Execute leaf packing documented from cmd_layout (2fn/2ft maps); factory_idx=3352 isvalid=0x18def40 execute=0x18d6430"
+  }
+}
