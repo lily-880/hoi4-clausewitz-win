@@ -1,0 +1,91 @@
+{
+  "phase": "2hd",
+  "result": "SAFEPOST_6F_POINTERS_POLISH",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 357,
+    "ui_date": "1936-01-15 21:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x SAFE_POST \u00a76f pointer polish (no Post, no midflight)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 306041,
+    "exec": 79476,
+    "allow_post": false
+  },
+  "families": {
+    "rows": {
+      "MOVE": {
+        "name": "MOVE",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "CANCEL": {
+        "name": "CANCEL",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "SUPPORT_ATTACK": {
+        "name": "SUPPORT_ATTACK",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "STRATEGIC": {
+        "name": "STRATEGIC",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "ASSIGN": {
+        "name": "ASSIGN",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "UNASSIGN": {
+        "name": "UNASSIGN",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      },
+      "EXECUTE": {
+        "name": "EXECUTE",
+        "factory_match": true,
+        "fn_match": true,
+        "both": true
+      }
+    },
+    "move_family_all": true,
+    "assign_family_all": true,
+    "all_families": true
+  },
+  "og50": {
+    "proxy": "OG+0x50[i] == CArmy+0xB8 (VT 0x29d6fb8)",
+    "walkback_ok": 380,
+    "walkback_fail": 0,
+    "ita_members": 21,
+    "handle_type_army": 51
+  },
+  "pointers": {
+    "land_post_section": "6f",
+    "safepost_agent_card": true,
+    "phase2hc_expanded": true
+  },
+  "semantics": "SAFE_POST \u00a76f pointer + PHASE2HC expand; live FN/factory+OG50; no midflight; no Post",
+  "sha_base": "d879da0",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "ask right-click",
+    "long midflight empty poll"
+  ]
+}

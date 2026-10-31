@@ -3,7 +3,7 @@
 **Status: CLOSED — do not enable Post / tool-gate / ALLOW_POST.**  
 Phase **2en** documentation only. Haiti Path C land readiness.
 
-Catalog consolidate: `docs/LAND_POST_READINESS.md` (Phase 2gi).
+Catalog consolidate: `docs/LAND_POST_READINESS.md` (Phase 2gi + **§6f agent card** 2hc/2hd).
 
 This is the single source of “what is still missing before any Post is allowed.”  
 It does **not** open gates. It does **not** authorize writes.
@@ -202,7 +202,44 @@ Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_
 
 ---
 
-## Phase 2gj … 2hc — checklist polish (CLOSED)
+## Agent card pointer — LAND_POST §6f (2hc/2hd)
+
+**Canonical card:** `docs/LAND_POST_READINESS.md` §6f (Phase 2hc).  
+**Gate:** CLOSED. `allow_post` False. No recipe execute. Never 5x. Do not ask user to right-click.
+
+### Can feed today (RO IDs)
+
+| ID | Signal |
+| --- | --- |
+| `LOCATE` / `PATH200` / `INST7088` | CArmy locate · `+0x200` candidates · Instance`+0x70`/`+0x88` |
+| `OG50MI` | OG`+0x50` ≡ CArmy`+0xB8` (MI VT `0x29d6fb8`) walkback |
+| `ASSIGN51` | Assign units type=51 → CArmy (oi often 0) |
+| `FACTORY` / `FN_VT` | factory_idx MATCH + live VT`+0x48`/`+0x50` FN MATCH (2ha/2hb) |
+| `CLOCK` | hours/UI/pending/stage/drain/exec |
+
+### HARD_DENY (do not invent)
+
+| ID | Gate |
+| --- | --- |
+| `MIDFLIGHT` / `NAMED_DEST` | HONEST_EMPTY — stop non-interactive midflight re-poll |
+| `ASSIGN_OI` | QUIET until plan-dense oi≠0 |
+| `RING` / `POST` / `SPEED5X` | STUBBED / HARD_DENY / NEVER |
+
+### Human-gated (unchanged — still CLOSED)
+
+```
+[ ] A  CMove midflight hex OR Strategic-only + human SAFE Post for ring_embed
+[ ] B  Ring-embed recreate proof
+[ ] C  Human CLAUSEWITZ_ALLOW_POST=1 for ONE experiment
+[ ] D  Tool-gate + NEVER_POST
+[ ] E  ONE land Post @1x; verify; pause; unset
+```
+
+Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F_POINTERS.md`.
+
+---
+
+## Phase 2gj … 2hd — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -230,6 +267,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2ha | Assign/Unassign/Execute VT FN + OG50 polish | **ASSIGN_FN_MATCH_OG50_WALKBACK** (Post still CLOSED) |
 | 2hb | MOVE/SA/Cancel/Strategic VT FN polish | **MOVE_FAMILY_FN_FACTORY_MATCH** (Post still CLOSED) |
 | 2hc | §6f ONE agent readiness (2ha+2hb FN/factory + OG50 + HARD_DENY) | **AGENT_READINESS_ONE_SUMMARY** (Post still CLOSED) |
+| 2hd | SAFE_POST §6f agent-card pointer + PHASE2HC expand | **SAFEPOST_6F_POINTERS_POLISH** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -247,5 +285,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hc — ONE agent readiness consolidate. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2hd — SAFE_POST §6f pointers. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 
