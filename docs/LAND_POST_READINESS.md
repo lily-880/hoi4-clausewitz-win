@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2io PATH200 inst70_tri dense dig=[884, 915, 918, 932, 3859, 3887, 3902, 6867, 6878, 6901, 9813, 9827, 9839, 11756, 11806, 11809, 11821, 11825, 13221, 13226, 13232] path_armies=5 hit=5 cls={'tri70_88': 5} by_dig={'6867': [461, 2644, 2675], '11825': [2645, 2649]} dests=[489, 490, 4527, 6867, 11825] cross70=[6867, 11825] cross88=[6867, 11825] clock=CONTINUOUS; 2ii drift honesty path_only vs Inst70 (name STUBBED) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2ip PATH200 pathonly_out70 dense dig=[489, 490, 3816, 3938, 4527] path_armies=5 hit=5 cls={'path_only': 5} by_dig={'490': [2649, 2666], '3816': [382, 2641, 2678], '3938': [2649, 2666]} dests=[490, 3816, 3938] cross70=[] cross88=[] clock=CONTINUOUS; 2ii drift honesty path_only vs Inst70 (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -317,6 +317,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2im PATH200 focus4527 dense:** result=`PATH200_FOCUS4527_DENSE_HIT` · dig=[4527, 256] path_armies=2 hit=2 cls={'path_only': 2} by_dig={'4527': [2644], '256': [2673]} dests=[256, 3938, 4527] cross70=[] cross88=[] clock=CONTINUOUS · hours=106 UI=1936-01-05 10:00 · allow_post=False
 **2in PATH200 focus6867 dense:** result=`PATH200_FOCUS6867_DENSE_HIT` · dig=[6867, 490, 746, 875, 1048, 1656, 1869] path_armies=7 hit=7 cls={'path_only': 6, 'tri70_88': 1} by_dig={'6867': [461], '490': [2641, 2649, 2666], '746': [410], '875': [2641], '1048': [410, 2667], '1656': [], '1869': [2655]} dests=[489, 490, 746, 875, 1048, 1869, 3938, 6867] cross70=[6867] cross88=[6867] clock=CONTINUOUS · hours=125 UI=1936-01-06 05:00 · allow_post=False
 **2io PATH200 inst70_tri dense:** result=`PATH200_INST70_TRI_DENSE_HIT` · dig=[884, 915, 918, 932, 3859, 3887, 3902, 6867, 6878, 6901, 9813, 9827, 9839, 11756, 11806, 11809, 11821, 11825, 13221, 13226, 13232] path_armies=5 hit=5 cls={'tri70_88': 5} by_dig={'6867': [461, 2644, 2675], '11825': [2645, 2649]} dests=[489, 490, 4527, 6867, 11825] cross70=[6867, 11825] cross88=[6867, 11825] clock=CONTINUOUS · hours=138 UI=1936-01-06 18:00 · allow_post=False
+**2ip PATH200 pathonly_out70 dense:** result=`PATH200_PATHONLY_OUTSIDE70_HIT` · dig=[489, 490, 3816, 3938, 4527] path_armies=5 hit=5 cls={'path_only': 5} by_dig={'490': [2649, 2666], '3816': [382, 2641, 2678], '3938': [2649, 2666]} dests=[490, 3816, 3938] cross70=[] cross88=[] clock=CONTINUOUS · hours=151 UI=1936-01-07 07:00 · allow_post=False
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -396,6 +397,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2im** | `PATH200_FOCUS4527_DENSE_HIT` | CONTINUOUS PATH200 focus (4527, 256) denser → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2in** | `PATH200_FOCUS6867_DENSE_HIT` | CONTINUOUS PATH200 focus 6867+2im-multi denser → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2io** | `PATH200_INST70_TRI_DENSE_HIT` | CONTINUOUS PATH200×live-Inst70-tri denser → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2ip** | `PATH200_PATHONLY_OUTSIDE70_HIT` | CONTINUOUS PATH200 path-only-outside-Inst70 → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -403,4 +405,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2io · PATH200 inst70_tri dense · 2026-10-31 Asia/Shanghai*
+*Phase 2ip · PATH200 pathonly_out70 dense · 2026-10-31 Asia/Shanghai*
