@@ -153,3 +153,11 @@ If ETH stays Cancel-only: switch to ITA attacker:
 ```text
 python scripts/phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240
 ```
+
+## Phase 2ev — ITA attacker window
+
+```text
+python scripts/phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240
+```
+
+**Observed:** Assign×2 + Unassign×2; **no** leaf `CMoveCommand` / `CSupportAttack` in 240s @1x. ETH Cancel path remains the strongest Move-adjacent proof so far.

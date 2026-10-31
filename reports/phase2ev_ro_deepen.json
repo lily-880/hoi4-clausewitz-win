@@ -1,0 +1,121 @@
+{
+  "ita_unassign_assign_peek": {
+    "unassign": {
+      "label": "COrderUnassignCommand",
+      "addr": "0x176eeec9a10",
+      "expect_vt_rva": "0x2a84550",
+      "readable": true,
+      "first_qwords": [
+        "0x900000d9c",
+        "0x40e00001269",
+        "0x176c66ec070",
+        "0x2648",
+        "0x2648",
+        "0x9000025dc",
+        "0x3ab00000033",
+        "0x176c7301040",
+        "0xd8b8",
+        "0xd8b8"
+      ],
+      "note": "post-stage peek; VT may be obfuscated/reused \u2014 layout from stage hex preferred"
+    },
+    "assign": {
+      "label": "COrderAssignCommand",
+      "addr": "0x176eeec9ad0",
+      "expect_vt_rva": "0x2a84498",
+      "readable": true,
+      "first_qwords": [
+        "0x500000efe",
+        "0x2a600000033",
+        "0x176c7220500",
+        "0x3a98",
+        "0x3a98",
+        "0x500000efe",
+        "0x29800000033",
+        "0x176c7219570",
+        "0x3a98",
+        "0x3a98"
+      ],
+      "note": "post-stage peek; VT may be obfuscated/reused \u2014 layout from stage hex preferred"
+    }
+  },
+  "cancel_from_2eu": {
+    "source": "phase2eu_cancel_capture",
+    "name": "CCancelMovementCommand",
+    "vt_rva": "0x279f4a0",
+    "addr": "0x1d935284120",
+    "cancel_fields": {
+      "layout": "CCancelMovementCommand",
+      "units_data": "0x0",
+      "units_count": 0,
+      "sticky": 0
+    },
+    "hex_prefix": "a0f4df46f77f000000ffffff010000000000000000000000ff7f00005045000050450000000000000000000000000000",
+    "layout_note": "units_data/units_count/sticky from stage dump; units_count was 0 on that sample",
+    "live_peek": {
+      "label": "CCancelMovementCommand",
+      "addr": "0x1d935284120",
+      "expect_vt_rva": "0x279f4a0",
+      "readable": false,
+      "error": "[Errno 299] ReadProcessMemory 0x1d935284120+80"
+    }
+  },
+  "cmd_layout_docs": {
+    "COrderUnassignCommand": {
+      "factory": 26020272,
+      "vt": "0x2a84550",
+      "type_id": 12365,
+      "size": 80,
+      "clone": 26012592,
+      "serialize": 26120624,
+      "deserialize": 26095328,
+      "execute": 26062928,
+      "isvalid": 26083792,
+      "isvalid_kind": "FN",
+      "fields": {
+        "units_data": 40,
+        "units_count": 52,
+        "unassign_group": 72,
+        "unassign_army_group_instances": 73
+      }
+    },
+    "COrderAssignCommand": {
+      "factory": 26016928,
+      "vt": "0x2a84498",
+      "type_id": 12350,
+      "size": 80,
+      "clone": 26006960,
+      "serialize": 26116336,
+      "deserialize": 26090096,
+      "execute": 26034608,
+      "isvalid": 26077440,
+      "isvalid_kind": "FN",
+      "fields": {
+        "units_data": 40,
+        "units_count": 52,
+        "order_index": 72,
+        "assign_to_minimum_order": 76
+      }
+    },
+    "CCancelMovementCommand": {
+      "name": "CCancelMovementCommand",
+      "vt": "0x2a2c9b8",
+      "type_id": 10415,
+      "size": 72,
+      "factory": 20950240,
+      "clone": 20942256,
+      "isvalid": 20966720,
+      "gettypeid": 20964048,
+      "serialize": 20988208,
+      "deserialize": 20983120,
+      "execute": 20954064,
+      "gate_0x60": false,
+      "gate_0x80": false,
+      "fields": {
+        "units_data": 40,
+        "units_count": 52,
+        "sticky": 64
+      }
+    }
+  }
+}

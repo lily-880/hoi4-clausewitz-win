@@ -1013,3 +1013,16 @@ eports/phase2el_gs_datetime.json.
 - **Stubbed**: live `CMoveCommand` / `CUnitMoveAction` / `CSupportAttack`; ring_embed; SAFE_POST; self-MOVE.
 - **Live**: pid 24808; UI ~`1936-01-04 14:00` (hours 86); `allow_post` False.
 - **Next**: `phase2et_war_midflight.py --tag ITA --speed 1` — still NO ALLOW_POST.
+
+## Phase 2ev — ITA war-start RO midflight (2026-10-31)
+
+- **Goal**: leaf `CMoveCommand` / `CSupportAttack` without ALLOW_POST via ITA attacker.
+- **Scenario**: `phase2et_war_midflight.py --tag ITA --speed 1 --observe-seconds 240` (AI on, never 5x).
+- **Works**:
+  - ITA map OK (`CInGameIdler`), pid ~30680; UI ~`1936-01-02 00:00` (hours 24) @1x.
+  - Midflight: `COrderAssignCommand` ×2 + `COrderUnassignCommand` ×2 (same order class as ETH).
+  - RO deepen: Unassign/Assign stage peeks + Cancel layout from 2eu capture documented in `reports/phase2ev_ro_deepen.json`.
+  - `allow_post` False.
+- **Stubbed**: leaf `CMoveCommand` / `CUnitMoveAction` / `CSupportAttack` still 0; ITA had no Cancel in this 240s window; ring_embed / SAFE_POST / self-MOVE.
+- **Contrast**: ETH defender produced Cancel; ITA attacker in short window produced Assign/Unassign only — still no retained leaf Move on DummyServer stage.
+- **Next**: tighten MOVE-VT edge-burst / Cancel-edge heap RO, or treat order-pipeline as interim; **no** ALLOW_POST.
