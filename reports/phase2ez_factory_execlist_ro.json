@@ -1,0 +1,579 @@
+{
+  "phase": "2ez",
+  "ts": "2026-10-31T03:39:35.609266+00:00",
+  "allow_post": false,
+  "never_5x": true,
+  "pid": 30680,
+  "image_base": "0x7ff744660000",
+  "date": {
+    "hours": 101,
+    "ui_date": "1936-01-05 05:00"
+  },
+  "factory_graph": {
+    "move_vt": "0x2a2c790",
+    "move_action_vt": "0x2a1f648",
+    "move_factory_rva": "0x13fb000",
+    "move_execute_thunk_rva": "0x13fc990",
+    "action_execute_rva": "0x12c2670",
+    "post_rva": "0x22c41e0",
+    "sink_dummy_rva": "0x23f5cd0",
+    "drain_rva": "0x23f64e0",
+    "session_update_rva": "0x22c6410",
+    "execute_site_a_rva": "0x22c6c9d",
+    "execute_loop_b_rva": "0x22c4710",
+    "dummy_execlist_off": "0x40",
+    "call_xrefs_to_move_factory": [],
+    "call_xrefs_to_move_execute_thunk": [],
+    "call_xrefs_to_action_execute": [],
+    "hint": "Birth path catalog: UI/AI constructs via factory (or factory_lookup tid) \u2192 FN_CMD_QUEUE_POST \u2192 Dummy sink \u2192 pending/stage \u2192 Execute vt+0x50 (site A) / execlist loop B. Xrefs enumerate who CALL factory/execute in scanned windows."
+  },
+  "sites_summary": {
+    "CMoveCommand_factory": {
+      "fn_rva": "0x13fb000",
+      "insn_n": 23,
+      "call_jmp_n": 2,
+      "first_insns": [
+        {
+          "rva": "0x13fb000",
+          "addr": "0x7ff745a5b000",
+          "mnem": "push",
+          "op": "rbx"
+        },
+        {
+          "rva": "0x13fb002",
+          "addr": "0x7ff745a5b002",
+          "mnem": "sub",
+          "op": "rsp, 0x20"
+        },
+        {
+          "rva": "0x13fb006",
+          "addr": "0x7ff745a5b006",
+          "mnem": "mov",
+          "op": "ecx, 0x88"
+        },
+        {
+          "rva": "0x13fb00b",
+          "addr": "0x7ff745a5b00b",
+          "mnem": "call",
+          "op": "0x7ff746c0009c"
+        },
+        {
+          "rva": "0x13fb010",
+          "addr": "0x7ff745a5b010",
+          "mnem": "mov",
+          "op": "rbx, rax"
+        },
+        {
+          "rva": "0x13fb013",
+          "addr": "0x7ff745a5b013",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 0x30], rax"
+        },
+        {
+          "rva": "0x13fb018",
+          "addr": "0x7ff745a5b018",
+          "mnem": "test",
+          "op": "rax, rax"
+        },
+        {
+          "rva": "0x13fb01b",
+          "addr": "0x7ff745a5b01b",
+          "mnem": "je",
+          "op": "0x7ff745a5b056"
+        }
+      ],
+      "calls": [
+        {
+          "at_rva": "0x13fb00b",
+          "mnem": "call",
+          "target_rva": "0x25a009c"
+        },
+        {
+          "at_rva": "0x13fb047",
+          "mnem": "call",
+          "target_rva": "0x12c1770"
+        }
+      ]
+    },
+    "CMoveCommand_execute_thunk": {
+      "fn_rva": "0x13fc990",
+      "insn_n": 48,
+      "call_jmp_n": 4,
+      "first_insns": [
+        {
+          "rva": "0x13fc990",
+          "addr": "0x7ff745a5c990",
+          "mnem": "mov",
+          "op": "rax, qword ptr [rcx + 0x28]"
+        },
+        {
+          "rva": "0x13fc994",
+          "addr": "0x7ff745a5c994",
+          "mnem": "add",
+          "op": "rcx, 0x28"
+        },
+        {
+          "rva": "0x13fc998",
+          "addr": "0x7ff745a5c998",
+          "mnem": "jmp",
+          "op": "qword ptr [rax + 0x48]"
+        },
+        {
+          "rva": "0x13fc99c",
+          "addr": "0x7ff745a5c99c",
+          "mnem": "int3",
+          "op": ""
+        },
+        {
+          "rva": "0x13fc99d",
+          "addr": "0x7ff745a5c99d",
+          "mnem": "int3",
+          "op": ""
+        },
+        {
+          "rva": "0x13fc99e",
+          "addr": "0x7ff745a5c99e",
+          "mnem": "int3",
+          "op": ""
+        },
+        {
+          "rva": "0x13fc99f",
+          "addr": "0x7ff745a5c99f",
+          "mnem": "int3",
+          "op": ""
+        },
+        {
+          "rva": "0x13fc9a0",
+          "addr": "0x7ff745a5c9a0",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 0x20], rbx"
+        }
+      ],
+      "calls": [
+        {
+          "at_rva": "0x13fc9d8",
+          "mnem": "call",
+          "target_rva": "0x2284800"
+        },
+        {
+          "at_rva": "0x13fc9ee",
+          "mnem": "jmp",
+          "target_rva": "0x13fc9f5"
+        },
+        {
+          "at_rva": "0x13fca05",
+          "mnem": "call",
+          "target_rva": "0x25694b0"
+        },
+        {
+          "at_rva": "0x13fca72",
+          "mnem": "call",
+          "target_rva": "0x254aa00"
+        }
+      ]
+    },
+    "CUnitMoveAction_execute": {
+      "fn_rva": "0x12c2670",
+      "insn_n": 47,
+      "call_jmp_n": 3,
+      "first_insns": [
+        {
+          "rva": "0x12c2670",
+          "addr": "0x7ff745922670",
+          "mnem": "push",
+          "op": "rbx"
+        },
+        {
+          "rva": "0x12c2672",
+          "addr": "0x7ff745922672",
+          "mnem": "push",
+          "op": "rdi"
+        },
+        {
+          "rva": "0x12c2673",
+          "addr": "0x7ff745922673",
+          "mnem": "push",
+          "op": "r12"
+        },
+        {
+          "rva": "0x12c2675",
+          "addr": "0x7ff745922675",
+          "mnem": "push",
+          "op": "r14"
+        },
+        {
+          "rva": "0x12c2677",
+          "addr": "0x7ff745922677",
+          "mnem": "push",
+          "op": "r15"
+        },
+        {
+          "rva": "0x12c2679",
+          "addr": "0x7ff745922679",
+          "mnem": "sub",
+          "op": "rsp, 0x60"
+        },
+        {
+          "rva": "0x12c267d",
+          "addr": "0x7ff74592267d",
+          "mnem": "mov",
+          "op": "rdi, rcx"
+        },
+        {
+          "rva": "0x12c2680",
+          "addr": "0x7ff745922680",
+          "mnem": "xor",
+          "op": "r14d, r14d"
+        }
+      ],
+      "calls": [
+        {
+          "at_rva": "0x12c2692",
+          "mnem": "call",
+          "target_rva": "0x2284800"
+        },
+        {
+          "at_rva": "0x12c26ae",
+          "mnem": "jmp",
+          "target_rva": "0x12c26bf"
+        },
+        {
+          "at_rva": "0x12c26e7",
+          "mnem": "call",
+          "target_rva": "0xc4f450"
+        }
+      ]
+    },
+    "FN_CMD_QUEUE_POST": {
+      "fn_rva": "0x22c41e0",
+      "insn_n": 29,
+      "call_jmp_n": 1,
+      "first_insns": [
+        {
+          "rva": "0x22c41e0",
+          "addr": "0x7ff7469241e0",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 8], rbx"
+        },
+        {
+          "rva": "0x22c41e5",
+          "addr": "0x7ff7469241e5",
+          "mnem": "push",
+          "op": "rbp"
+        },
+        {
+          "rva": "0x22c41e6",
+          "addr": "0x7ff7469241e6",
+          "mnem": "push",
+          "op": "rsi"
+        },
+        {
+          "rva": "0x22c41e7",
+          "addr": "0x7ff7469241e7",
+          "mnem": "push",
+          "op": "rdi"
+        },
+        {
+          "rva": "0x22c41e8",
+          "addr": "0x7ff7469241e8",
+          "mnem": "lea",
+          "op": "rbp, [rsp - 0x90]"
+        },
+        {
+          "rva": "0x22c41f0",
+          "addr": "0x7ff7469241f0",
+          "mnem": "sub",
+          "op": "rsp, 0x190"
+        },
+        {
+          "rva": "0x22c41f7",
+          "addr": "0x7ff7469241f7",
+          "mnem": "mov",
+          "op": "rdi, rdx"
+        },
+        {
+          "rva": "0x22c41fa",
+          "addr": "0x7ff7469241fa",
+          "mnem": "mov",
+          "op": "rbx, rcx"
+        }
+      ],
+      "calls": [
+        {
+          "at_rva": "0x22c4240",
+          "mnem": "call",
+          "target_rva": "0x254bba0"
+        }
+      ]
+    },
+    "FN_EXECUTE_LOOP": {
+      "fn_rva": "0x22c4710",
+      "insn_n": 35,
+      "call_jmp_n": 0,
+      "first_insns": [
+        {
+          "rva": "0x22c4710",
+          "addr": "0x7ff746924710",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 0x18], rbx"
+        },
+        {
+          "rva": "0x22c4715",
+          "addr": "0x7ff746924715",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 0x20], rbp"
+        },
+        {
+          "rva": "0x22c471a",
+          "addr": "0x7ff74692471a",
+          "mnem": "push",
+          "op": "rsi"
+        },
+        {
+          "rva": "0x22c471b",
+          "addr": "0x7ff74692471b",
+          "mnem": "push",
+          "op": "rdi"
+        },
+        {
+          "rva": "0x22c471c",
+          "addr": "0x7ff74692471c",
+          "mnem": "push",
+          "op": "r12"
+        },
+        {
+          "rva": "0x22c471e",
+          "addr": "0x7ff74692471e",
+          "mnem": "push",
+          "op": "r14"
+        },
+        {
+          "rva": "0x22c4720",
+          "addr": "0x7ff746924720",
+          "mnem": "push",
+          "op": "r15"
+        },
+        {
+          "rva": "0x22c4722",
+          "addr": "0x7ff746924722",
+          "mnem": "sub",
+          "op": "rsp, 0x130"
+        }
+      ],
+      "calls": []
+    },
+    "CSupportAttackCommand_factory": {
+      "fn_rva": "0x13fb5e0",
+      "insn_n": 18,
+      "call_jmp_n": 1,
+      "first_insns": [
+        {
+          "rva": "0x13fb5e0",
+          "addr": "0x7ff745a5b5e0",
+          "mnem": "sub",
+          "op": "rsp, 0x28"
+        },
+        {
+          "rva": "0x13fb5e4",
+          "addr": "0x7ff745a5b5e4",
+          "mnem": "mov",
+          "op": "ecx, 0x38"
+        },
+        {
+          "rva": "0x13fb5e9",
+          "addr": "0x7ff745a5b5e9",
+          "mnem": "call",
+          "op": "0x7ff746c0009c"
+        },
+        {
+          "rva": "0x13fb5ee",
+          "addr": "0x7ff745a5b5ee",
+          "mnem": "xor",
+          "op": "ecx, ecx"
+        },
+        {
+          "rva": "0x13fb5f0",
+          "addr": "0x7ff745a5b5f0",
+          "mnem": "mov",
+          "op": "qword ptr [rsp + 0x30], rax"
+        },
+        {
+          "rva": "0x13fb5f5",
+          "addr": "0x7ff745a5b5f5",
+          "mnem": "test",
+          "op": "rax, rax"
+        },
+        {
+          "rva": "0x13fb5f8",
+          "addr": "0x7ff745a5b5f8",
+          "mnem": "je",
+          "op": "0x7ff745a5b62d"
+        },
+        {
+          "rva": "0x13fb5fa",
+          "addr": "0x7ff745a5b5fa",
+          "mnem": "mov",
+          "op": "byte ptr [rax + 8], cl"
+        }
+      ],
+      "calls": [
+        {
+          "at_rva": "0x13fb5e9",
+          "mnem": "call",
+          "target_rva": "0x25a009c"
+        }
+      ]
+    }
+  },
+  "execlist_observe": {
+    "seconds": 45.0,
+    "polls": 718289,
+    "edge_events": 3133,
+    "burst_samples": 50128,
+    "execlist_watched_polls": 0,
+    "sight_counts": {
+      "stage[0]:CHourlyTickCommand": 11441,
+      "stage[8]:COrderAssignCommand": 1,
+      "stage[9]:COrderAssignCommand": 1
+    },
+    "sight_first": {
+      "CHourlyTickCommand": {
+        "list": "stage[0]",
+        "addr": "0x176c6ce76a0",
+        "vt_rva": "0x29f3710",
+        "poll": 6173
+      },
+      "COrderAssignCommand": {
+        "list": "stage[8]",
+        "addr": "0x176ac6933a0",
+        "vt_rva": "0x2a84498",
+        "poll": 67490
+      }
+    },
+    "snapshots_n": 1,
+    "snapshots_tail": [
+      {
+        "t": 4.02,
+        "counters": {
+          "drain": 84199,
+          "exec": 24632,
+          "seq": 24661,
+          "stage_count": 0,
+          "execlist_head": null,
+          "pending_head": null
+        },
+        "hits": [
+          {
+            "list": "stage[8]",
+            "name": "COrderAssignCommand",
+            "addr": "0x176ac6933a0",
+            "vt_rva": "0x2a84498",
+            "tick": 1,
+            "seq": 24647,
+            "hex": "98440e47f77f000000000000010000000000000000000000ff7f0000476000004760000075010000f0bacdc676010000040000000400000000d07547f77f000035000000f2000000060000000000000000000000000000002188adad00080388903b8ac276010000010000000000803fe0e66a3575010000903b8ac27601000000f5183575010000",
+            "captured_at_asia_shanghai": "2026-10-31 11:38:54 ",
+            "phase_decode": "2eo"
+          },
+          {
+            "list": "stage[9]",
+            "name": "COrderAssignCommand",
+            "addr": "0x176ac693580",
+            "vt_rva": "0x279f4a0",
+            "tick": 1,
+            "seq": 24649,
+            "hex": "a0f4df46f77f000000000000010000000000000000000000ff7f00004960000049600000750100000000000000000000000000000000000000d07547f77f000035000000f4000000090000000000000000000000000000004388cfad000d038890638ac27601000001000000f77f0000e0e66a357501000090638ac27601000000f5183575010000",
+            "captured_at_asia_shanghai": "2026-10-31 11:38:54 ",
+            "phase_decode": "2eo"
+          }
+        ]
+      }
+    ],
+    "leaf_hits": [],
+    "last_counters": {
+      "drain": 86964,
+      "exec": 25292,
+      "seq": 25321,
+      "stage_count": 0,
+      "execlist_head": null,
+      "pending_head": null
+    }
+  },
+  "result": "FACTORY_DISASM_DONE_SPARSE_XREFS_NO_LIVE_MOVE",
+  "next_cheapest_recipe": {
+    "name": "UI right-click \u2192 Post call-stack RO (no inject)",
+    "steps": [
+      "From call_xrefs_to_move_factory, pick top callers; RO-map which sit under AI/order planner vs UI",
+      "OR short ETH@1x window with denser Cancel while watching execlist head only (no heap)",
+      "Still never Post / never ask user to right-click / never 5x"
+    ],
+    "why": "Factory birth sites + Post path known; live leaf buffer still missing \u2014 need denser natural Move traffic or accept sample gap for SAFE_POST"
+  },
+  "sites_full_calls": {
+    "CMoveCommand_factory": [
+      {
+        "at_rva": "0x13fb00b",
+        "mnem": "call",
+        "target_rva": "0x25a009c"
+      },
+      {
+        "at_rva": "0x13fb047",
+        "mnem": "call",
+        "target_rva": "0x12c1770"
+      }
+    ],
+    "CMoveCommand_execute_thunk": [
+      {
+        "at_rva": "0x13fc9d8",
+        "mnem": "call",
+        "target_rva": "0x2284800"
+      },
+      {
+        "at_rva": "0x13fc9ee",
+        "mnem": "jmp",
+        "target_rva": "0x13fc9f5"
+      },
+      {
+        "at_rva": "0x13fca05",
+        "mnem": "call",
+        "target_rva": "0x25694b0"
+      },
+      {
+        "at_rva": "0x13fca72",
+        "mnem": "call",
+        "target_rva": "0x254aa00"
+      }
+    ],
+    "CUnitMoveAction_execute": [
+      {
+        "at_rva": "0x12c2692",
+        "mnem": "call",
+        "target_rva": "0x2284800"
+      },
+      {
+        "at_rva": "0x12c26ae",
+        "mnem": "jmp",
+        "target_rva": "0x12c26bf"
+      },
+      {
+        "at_rva": "0x12c26e7",
+        "mnem": "call",
+        "target_rva": "0xc4f450"
+      }
+    ],
+    "FN_CMD_QUEUE_POST": [
+      {
+        "at_rva": "0x22c4240",
+        "mnem": "call",
+        "target_rva": "0x254bba0"
+      }
+    ],
+    "FN_EXECUTE_LOOP": [],
+    "CSupportAttackCommand_factory": [
+      {
+        "at_rva": "0x13fb5e9",
+        "mnem": "call",
+        "target_rva": "0x25a009c"
+      }
+    ]
+  }
+}

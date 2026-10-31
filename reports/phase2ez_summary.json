@@ -1,0 +1,70 @@
+{
+  "phase": "2ez",
+  "result": "FACTORY_LOOKUP_PROOF_EXECLIST_EMPTY_NO_LIVE_MOVE",
+  "scenario": "ITA @1x AI-on",
+  "pid": 30680,
+  "ui_date": "1936-01-05 05:00",
+  "hours": 101,
+  "factory_rva": "0x13fb000",
+  "xref_factory_n": 0,
+  "xref_factory": [],
+  "xref_action_exec_n": 0,
+  "execlist_seconds": 45.0,
+  "sight_counts": {
+    "stage[0]:CHourlyTickCommand": 11441,
+    "stage[8]:COrderAssignCommand": 1,
+    "stage[9]:COrderAssignCommand": 1
+  },
+  "leaf_names_hit": [],
+  "allow_post": false,
+  "works": [
+    "MOVE factory + execute thunk + action execute Capstone RO disasm",
+    "call xrefs to factory: 0; to exec thunk: 0; to action exec: 0",
+    "execlist+pending+stage observe 45.0s",
+    "allow_post stays False",
+    "factory_lookup table slot LIVE-MATCH Move/Cancel/SupportAttack factories",
+    "Execute thunk \u2192 embed+0x28 \u2192 action.vt+0x48 proven by disasm",
+    "execlist_head stayed 0x0 (no Move on execlist)",
+    "E8 xref sparse explained: table-indirect birth"
+  ],
+  "stubbed": [
+    "live CMoveCommand",
+    "CUnitMoveAction",
+    "CSupportAttackCommand",
+    "ring_embed",
+    "SAFE_POST",
+    "self-issue MOVE"
+  ],
+  "next_shortest_blocker": "Accept Move sample gap OR ETH denser Cancel/Move window (execlist-head-only) \u2014 still NO ALLOW_POST",
+  "next_cheapest_recipe": {
+    "name": "Accept Move sample gap OR ETH denser Cancel/Move window (execlist-head-only)",
+    "steps": [
+      "Do NOT re-churn factory/Capstone/121",
+      "Optional: one ETH@1x observe execlist_head + stage only (no heap) \u226460s",
+      "OR document SAFE_POST blocker as 'no live midflight Move buffer' and pivot to ring_embed design from layout alone (still gated)"
+    ],
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  },
+  "birth_path_hint": "Birth path catalog: UI/AI constructs via factory (or factory_lookup tid) \u2192 FN_CMD_QUEUE_POST \u2192 Dummy sink \u2192 pending/stage \u2192 Execute vt+0x50 (site A) / execlist loop B. Xrefs enumerate who CALL factory/execute in scanned windows.",
+  "factory_lookup_proof": {
+    "lookup_fn": "0x22d8d20",
+    "table": "0x35011e0",
+    "formula": "tid>=0x2710 \u2192 idx=tid-0x2328",
+    "MOVE_tid": "0x28a2",
+    "MOVE_idx": 1402,
+    "MOVE_slot_rva": "0x3503db0",
+    "MOVE_slot_matches_factory": true,
+    "SupportAttack_tid": "0x314c",
+    "SupportAttack_match": true,
+    "Cancel_tid": "0x28af",
+    "Cancel_match": true
+  },
+  "execute_thunk_semantics": "rax=[cmd+0x28]; rcx+=0x28; jmp [rax+0x48]  # \u2192 CUnitMoveAction.vt+0x48",
+  "why_zero_E8_xrefs": "Factories are invoked via factory_lookup table indirection, not direct E8 call sites in scanned windows.",
+  "birth_path_conclusion": "Birth path closed RO: tid \u2192 factory_lookup \u2192 CMoveCommand.factory(0x13fb000) alloc 0x88 \u2192 Post \u2192 Dummy; Execute is thunk into embedded CUnitMoveAction.execute(0x12c2670). Live leaf buffer still absent on stage/pending/execlist under natural ITA AI traffic. Still NO ALLOW_POST."
+}

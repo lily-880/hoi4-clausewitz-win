@@ -1,0 +1,49 @@
+{
+  "phase": "2ez_enrichment",
+  "allow_post": false,
+  "factory_birth_path": {
+    "CMoveCommand_factory_rva": "0x13fb000",
+    "alloc_size_imm": "0x88",
+    "factory_calls": [
+      "allocator@0x25a009c",
+      "init_helper@0x12c1770"
+    ],
+    "execute_thunk_rva": "0x13fc990",
+    "execute_thunk_semantics": "rax=[cmd+0x28]; rcx+=0x28; jmp [rax+0x48]  # \u2192 CUnitMoveAction.vt+0x48",
+    "action_execute_rva": "0x12c2670",
+    "factory_lookup": {
+      "lookup_fn": "0x22d8d20",
+      "table": "0x35011e0",
+      "formula": "tid>=0x2710 \u2192 idx=tid-0x2328",
+      "MOVE_tid": "0x28a2",
+      "MOVE_idx": 1402,
+      "MOVE_slot_rva": "0x3503db0",
+      "MOVE_slot_matches_factory": true,
+      "SupportAttack_tid": "0x314c",
+      "SupportAttack_match": true,
+      "Cancel_tid": "0x28af",
+      "Cancel_match": true
+    },
+    "why_zero_E8_xrefs": "Factories are invoked via factory_lookup table indirection, not direct E8 call sites in scanned windows."
+  },
+  "execlist_live": {
+    "CDummyServer_EXECLIST": "0x40",
+    "execlist_head_observed": "0x0",
+    "note": "45s ITA@1x: execlist head stayed null; stage only HourlyTick + rare Assign \u2014 leaf Move never on execlist/pending/stage."
+  },
+  "conclusion": "Birth path closed RO: tid \u2192 factory_lookup \u2192 CMoveCommand.factory(0x13fb000) alloc 0x88 \u2192 Post \u2192 Dummy; Execute is thunk into embedded CUnitMoveAction.execute(0x12c2670). Live leaf buffer still absent on stage/pending/execlist under natural ITA AI traffic. Still NO ALLOW_POST.",
+  "next_cheapest_recipe": {
+    "name": "Accept Move sample gap OR ETH denser Cancel/Move window (execlist-head-only)",
+    "steps": [
+      "Do NOT re-churn factory/Capstone/121",
+      "Optional: one ETH@1x observe execlist_head + stage only (no heap) \u226460s",
+      "OR document SAFE_POST blocker as 'no live midflight Move buffer' and pivot to ring_embed design from layout alone (still gated)"
+    ],
+    "forbid": [
+      "ALLOW_POST",
+      "Post inject",
+      "5x",
+      "ask right-click"
+    ]
+  }
+}

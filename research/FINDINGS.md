@@ -1047,3 +1047,10 @@ eports/phase2el_gs_datetime.json.
 - ITA pid 30680 @1x; **90s**: Cancel×2 (first t≈35s) + Assign×18; **4×64MB** Cancel-edge heaps → **0** MOVE needles (heap finds empty).
 - Option B: stack/direct-Execute-only Move **unproven**; sample gap persists.
 - Next cheapest: Factory-site / execlist RO peek (observation) or denser ETH Cancel window. `allow_post` False.
+
+## Phase 2ez (2026-10-31 Asia/Shanghai) — factory + execlist RO
+
+- Live factory_lookup table: MOVE/Cancel/SupportAttack slots **match** cmd_layout factories.
+- CMoveCommand.execute thunk proven: redirect to embed `+0x28` → `CUnitMoveAction.execute`.
+- E8 xrefs to factory **0** (table-indirect birth). Execlist head **null** 45s; no leaf Move.
+- Birth path closed RO; live sample gap remains. `allow_post` False.
