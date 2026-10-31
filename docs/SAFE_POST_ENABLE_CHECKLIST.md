@@ -164,3 +164,36 @@ Docs: `docs/PHASE2FC_STRATEGIC_ISVALID_SAFE.md`, `reports/phase2fc_strategic_isv
 Docs: `docs/PHASE2FD_STRATEGIC_RING_RECREATE_RO.md`.
 
 *Phase 2fd — RO only. Gate stays CLOSED.*
+
+---
+
+## Phase 2fe — RO ceiling (Post-gated remainder)
+
+**Gate remains CLOSED. allow_post False. tool-gate CLOSED. 2fb recipe NOT executed.**
+
+### Strategic alternate path (RO complete ceiling)
+
+| proof | state | phase |
+| --- | --- | --- |
+| Live Strategic leaf + embed | DONE | 2fa |
+| Layout decode MATCH | DONE | 2fb |
+| IsValid path documented | DONE | 2fc |
+| Offline 0x50 bit-identical rebuild | **PASS** | 2fd |
+| Live factory idx→slot MATCH | **PASS** (idx **4753**) | 2fd/2fe |
+| In-process ring embed / Post | **STUBBED — needs Post** | — |
+| Ordinary CMove live sample | STUBBED (catalog complete) | 2fe note |
+
+### Exact next **human-gated** step (NOT agent-auto)
+
+```
+[ ] Human reviews SAFE + 2fd offline PASS
+[ ] Human sets CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
+[ ] Dedicated slice opens tool-gate with NEVER_POST filters
+[ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset env
+```
+
+Until then: **agents must not Post, inject, patch helpers, or execute 2fb recipe.**
+
+Catalog: `STRATEGIC.factory_idx` corrected 4505→**4753**; MOVE/CANCEL factory_idx filled.
+
+*Phase 2fe — documentation + catalog only. Gate stays CLOSED.*

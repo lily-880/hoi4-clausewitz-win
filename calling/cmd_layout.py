@@ -51,6 +51,7 @@ MOVE = {
     "type_id": 0x28A2,
     "size": 0x88,
     "factory": 0x13FB000,
+    "factory_idx": 1402,  # Phase 2fe: tid-0x2328; live MATCH 2ez
     "clone": 0x13F9350,
     "gettypeid": 0x13FE350,
     "serialize": 0x1404590,  # vt+0xa0 thunk -> action
@@ -102,7 +103,7 @@ STRATEGIC = {
     "type_id": 0x35B9,
     "size": 0x50,
     "factory": 0x13FB580,
-    "factory_idx": 4505,
+    "factory_idx": 4753,  # Phase 2fe: tid-0x2328 (tid>=0x2710); was stale 4505; live table MATCH 2fd
     "execute": 0x13FC990,  # shared thunk
     "clone": 0x13F9C10,
     "serialize": 0x1404590,  # thunk -> action.vt+0xc0 (shared w/ Move)
@@ -143,6 +144,7 @@ CANCEL = {
     "type_id": 0x28AF,
     "size": 0x48,
     "factory": 0x13FACE0,
+    "factory_idx": 1415,  # Phase 2fe: tid-0x2328
     "clone": 0x13F8DB0,
     "isvalid": 0x13FED40,
     "gettypeid": 0x13FE2D0,
