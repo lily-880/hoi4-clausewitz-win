@@ -203,7 +203,7 @@ CHAT = {
 ORDERS = {
     "COrderExecuteCommand": {
         "factory": 0x18d0070,
-        "vt": 0x2A85468, "type_id": 0x3040, "size": 0x38,
+        "vt": 0x2A85468, "type_id": 0x3040, "factory_idx": 3352,  # Phase 2fg: tid-0x2328 formula "size": 0x38,
         "clone": 0x18CDBD0, "serialize": 0x18E87C0, "deserialize": 0x18E2100, "execute": 0x18D6430,
         "isvalid": 0x18def40,
         "isvalid_kind": "FN",
@@ -211,7 +211,7 @@ ORDERS = {
     },
     "COrderAssignCommand": {
         "factory": 0x18cfca0,
-        "vt": 0x2A84498, "type_id": 0x303E, "size": 0x50,
+        "vt": 0x2A84498, "type_id": 0x303E, "factory_idx": 3350,  # Phase 2fg: tid-0x2328 formula "size": 0x50,
         "clone": 0x18CD5B0, "serialize": 0x18E80F0, "deserialize": 0x18E1A70, "execute": 0x18D41B0,
         "isvalid": 0x18de900,
         "isvalid_kind": "FN",
@@ -219,7 +219,7 @@ ORDERS = {
     },
     "COrderUnassignCommand": {
         "factory": 0x18d09b0,
-        "vt": 0x2A84550, "type_id": 0x304D, "size": 0x50,
+        "vt": 0x2A84550, "type_id": 0x304D, "factory_idx": 3365,  # Phase 2fg: tid-0x2328 formula "size": 0x50,
         "clone": 0x18CEBB0, "serialize": 0x18E91B0, "deserialize": 0x18E2EE0, "execute": 0x18DB050,
         "isvalid": 0x18e01d0,
         "isvalid_kind": "FN",
@@ -227,7 +227,7 @@ ORDERS = {
     },
     "COrderDeleteCommand": {
         "factory": 0x18cffa0,
-        "vt": 0x2A843E0, "type_id": 0x303F, "size": 0x38,
+        "vt": 0x2A843E0, "type_id": 0x303F, "factory_idx": 3351,  # Phase 2fg: tid-0x2328 formula "size": 0x38,
         "clone": 0x18CDA90, "serialize": 0x18E86E0, "deserialize": 0x18E1FE0, "execute": 0x18D5FE0,
         "isvalid": 0x18deee0,
         "isvalid_kind": "FN",
@@ -235,7 +235,7 @@ ORDERS = {
     },
     "COrderNewFrontCommand": {
         "factory": 0x18d0340,
-        "vt": 0x2A84B10, "type_id": 0x3327, "size": 0x70,
+        "vt": 0x2A84B10, "type_id": 0x3327, "factory_idx": 4095,  # Phase 2fg: tid-0x2328 formula "size": 0x70,
         "clone": 0x18CE0E0, "serialize": 0x18E8AF0, "deserialize": 0x18E25C0, "execute": 0x18D9000,
         "isvalid": 0x18df4e0,
         "isvalid_kind": "FN",
@@ -246,21 +246,21 @@ ORDERS = {
     },
     "COrderNewRootCommand": {
         "factory": 0x18d03d0,
-        "vt": 0x2A84DF0, "type_id": 0x3328, "size": 0x70,
+        "vt": 0x2A84DF0, "type_id": 0x3328, "factory_idx": 4096,  # Phase 2fg: tid-0x2328 formula "size": 0x70,
         "clone": 0x18CE200, "serialize": 0x18E8BF0, "deserialize": 0x18E26D0, "execute": 0x18D99C0,
         "isvalid": 0x18df570,
         "isvalid_kind": "FN",
     },
     "COrderNewFallbackCommand": {
         "factory": 0x18d02c0,
-        "vt": 0x2A84C80, "type_id": 0x33D7, "size": 0x60,
+        "vt": 0x2A84C80, "type_id": 0x33D7, "factory_idx": 4271,  # Phase 2fg: tid-0x2328 formula "size": 0x60,
         "clone": 0x18CDFF0, "serialize": 0x18E8A60, "deserialize": 0x18E2500, "execute": 0x18D8FC0,
         "isvalid": 0x18df4b0,
         "isvalid_kind": "FN",
     },
     "COrderGroupCommand": {
         "factory": 0x18d00d0,
-        "vt": 0x2A83D68, "type_id": 0x2ECF, "size": 0x60,
+        "vt": 0x2A83D68, "type_id": 0x2ECF, "factory_idx": 2983,  # Phase 2fg: tid-0x2328 formula "size": 0x60,
         "clone": 0x18CDC70, "serialize": 0x18E8830, "deserialize": 0x18E21D0, "execute": 0x18D64F0,
         "isvalid": 0x18defe0,
         "isvalid_kind": "FN",
@@ -268,14 +268,14 @@ ORDERS = {
     },
     "CArmyGroupCommand": {
         "factory": 0x18cf710,
-        "vt": 0x2A83ED8, "type_id": 0x3861, "size": 0x80,
+        "vt": 0x2A83ED8, "type_id": 0x3861, "factory_idx": 5433,  # Phase 2fg: tid-0x2328 formula "size": 0x80,
         "clone": 0x18CCCC0, "serialize": 0x18E7A50, "deserialize": 0x18E0E60, "execute": 0x18D25D0,
         "isvalid": 0x18ddf70,
         "isvalid_kind": "FN",
     },
     "CSetArmyLeaderCommand": {
         "factory": 0x18d0ba0,
-        "vt": 0x2A85520, "type_id": 0x3051, "size": 0x40,
+        "vt": 0x2A85520, "type_id": 0x3051, "factory_idx": 3369,  # Phase 2fg: tid-0x2328 formula "size": 0x40,
         "clone": 0x18CEF00, "serialize": 0x18E9390, "deserialize": 0x18E3210, "execute": 0x18DB2C0,
         "isvalid": 0x18e04d0,
         "isvalid_kind": "FN",
@@ -133306,6 +133306,7 @@ LAND_ARMY_FOCUS = {'phase': '2by',
                                             'vt': 44225848,
                                             'size': 48,
                                             'factory': 20950336,
+                                            'factory_idx': 6284,  # Phase 2fg: tid-0x2328
                                             'notes': "Phase 2cc callgraph; exe_calls=15 isv_calls=3; offs ['0x10', "
                                                      "'0x18', '0x28', '0x40', '0x90', '0x20', '0x30', '0x58', '0x80'] "
                                                      '| Phase 2cd helpers gates=3 body=0 | Phase 2ce exe_calls=2 '

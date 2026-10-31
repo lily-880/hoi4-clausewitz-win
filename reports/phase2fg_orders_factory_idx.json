@@ -1,0 +1,406 @@
+{
+  "phase": "2fg",
+  "ts": "2026-10-31T04:04:31.529461+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "ORDERS_FACTORY_IDX_FILLED_LIVE_MATCH",
+  "error": null,
+  "live": {
+    "pid": 9928,
+    "hours": 99,
+    "ui_date": "1936-01-05 03:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH@1x ORDERS factory_idx catalog RO (no Post)"
+  },
+  "formula": {
+    "if_tid_ge": "0x2710",
+    "idx": "tid - index_bias (0x2328 / 9000)",
+    "else": "idx = tid"
+  },
+  "orders_filled": [
+    {
+      "name": "COrderExecuteCommand",
+      "type_id_hex": "0x3040",
+      "factory_idx": 3352,
+      "factory_hex": "0x18d0070"
+    },
+    {
+      "name": "COrderAssignCommand",
+      "type_id_hex": "0x303e",
+      "factory_idx": 3350,
+      "factory_hex": "0x18cfca0"
+    },
+    {
+      "name": "COrderUnassignCommand",
+      "type_id_hex": "0x304d",
+      "factory_idx": 3365,
+      "factory_hex": "0x18d09b0"
+    },
+    {
+      "name": "COrderDeleteCommand",
+      "type_id_hex": "0x303f",
+      "factory_idx": 3351,
+      "factory_hex": "0x18cffa0"
+    },
+    {
+      "name": "COrderNewFrontCommand",
+      "type_id_hex": "0x3327",
+      "factory_idx": 4095,
+      "factory_hex": "0x18d0340"
+    },
+    {
+      "name": "COrderNewRootCommand",
+      "type_id_hex": "0x3328",
+      "factory_idx": 4096,
+      "factory_hex": "0x18d03d0"
+    },
+    {
+      "name": "COrderNewFallbackCommand",
+      "type_id_hex": "0x33d7",
+      "factory_idx": 4271,
+      "factory_hex": "0x18d02c0"
+    },
+    {
+      "name": "COrderGroupCommand",
+      "type_id_hex": "0x2ecf",
+      "factory_idx": 2983,
+      "factory_hex": "0x18d00d0"
+    },
+    {
+      "name": "CArmyGroupCommand",
+      "type_id_hex": "0x3861",
+      "factory_idx": 5433,
+      "factory_hex": "0x18cf710"
+    },
+    {
+      "name": "CSetArmyLeaderCommand",
+      "type_id_hex": "0x3051",
+      "factory_idx": 3369,
+      "factory_hex": "0x18d0ba0"
+    }
+  ],
+  "core_land": [
+    {
+      "group": "core",
+      "name": "CMoveCommand",
+      "key": "MOVE",
+      "type_id": 10402,
+      "type_id_hex": "0x28a2",
+      "factory": 20951040,
+      "factory_hex": "0x13fb000",
+      "factory_idx": 1402,
+      "factory_idx_formula": 1402,
+      "was_missing": false,
+      "stale": false
+    },
+    {
+      "group": "core",
+      "name": "CStrategicRedeploymentCommand",
+      "key": "STRATEGIC",
+      "type_id": 13753,
+      "type_id_hex": "0x35b9",
+      "factory": 20952448,
+      "factory_hex": "0x13fb580",
+      "factory_idx": 4753,
+      "factory_idx_formula": 4753,
+      "was_missing": false,
+      "stale": false
+    },
+    {
+      "group": "core",
+      "name": "CCancelMovementCommand",
+      "key": "CANCEL",
+      "type_id": 10415,
+      "type_id_hex": "0x28af",
+      "factory": 20950240,
+      "factory_hex": "0x13face0",
+      "factory_idx": 1415,
+      "factory_idx_formula": 1415,
+      "was_missing": false,
+      "stale": false
+    },
+    {
+      "group": "core",
+      "name": "CSupportAttackCommand",
+      "key": "SUPPORT_ATTACK",
+      "type_id": 12620,
+      "type_id_hex": "0x314c",
+      "factory": 20952544,
+      "factory_hex": "0x13fb5e0",
+      "factory_idx": 3620,
+      "factory_idx_formula": 3620,
+      "was_missing": false,
+      "stale": false
+    }
+  ],
+  "land_army_focus_gaps": [],
+  "live_verify": {
+    "match": 26,
+    "mismatch": 0,
+    "skip": 0,
+    "table_rva": "0x35011e0",
+    "rows_head": [
+      {
+        "group": "core",
+        "name": "CMoveCommand",
+        "factory_idx": 1402,
+        "factory_rva": "0x13fb000",
+        "slot": "0x7ff745a5b000",
+        "expect": "0x7ff745a5b000",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "core",
+        "name": "CStrategicRedeploymentCommand",
+        "factory_idx": 4753,
+        "factory_rva": "0x13fb580",
+        "slot": "0x7ff745a5b580",
+        "expect": "0x7ff745a5b580",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "core",
+        "name": "CCancelMovementCommand",
+        "factory_idx": 1415,
+        "factory_rva": "0x13face0",
+        "slot": "0x7ff745a5ace0",
+        "expect": "0x7ff745a5ace0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "core",
+        "name": "CSupportAttackCommand",
+        "factory_idx": 3620,
+        "factory_rva": "0x13fb5e0",
+        "slot": "0x7ff745a5b5e0",
+        "expect": "0x7ff745a5b5e0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderExecuteCommand",
+        "factory_idx": 3352,
+        "factory_rva": "0x18d0070",
+        "slot": "0x7ff745f30070",
+        "expect": "0x7ff745f30070",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderAssignCommand",
+        "factory_idx": 3350,
+        "factory_rva": "0x18cfca0",
+        "slot": "0x7ff745f2fca0",
+        "expect": "0x7ff745f2fca0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderUnassignCommand",
+        "factory_idx": 3365,
+        "factory_rva": "0x18d09b0",
+        "slot": "0x7ff745f309b0",
+        "expect": "0x7ff745f309b0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderDeleteCommand",
+        "factory_idx": 3351,
+        "factory_rva": "0x18cffa0",
+        "slot": "0x7ff745f2ffa0",
+        "expect": "0x7ff745f2ffa0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderNewFrontCommand",
+        "factory_idx": 4095,
+        "factory_rva": "0x18d0340",
+        "slot": "0x7ff745f30340",
+        "expect": "0x7ff745f30340",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderNewRootCommand",
+        "factory_idx": 4096,
+        "factory_rva": "0x18d03d0",
+        "slot": "0x7ff745f303d0",
+        "expect": "0x7ff745f303d0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderNewFallbackCommand",
+        "factory_idx": 4271,
+        "factory_rva": "0x18d02c0",
+        "slot": "0x7ff745f302c0",
+        "expect": "0x7ff745f302c0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "COrderGroupCommand",
+        "factory_idx": 2983,
+        "factory_rva": "0x18d00d0",
+        "slot": "0x7ff745f300d0",
+        "expect": "0x7ff745f300d0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "CArmyGroupCommand",
+        "factory_idx": 5433,
+        "factory_rva": "0x18cf710",
+        "slot": "0x7ff745f2f710",
+        "expect": "0x7ff745f2f710",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "ORDERS",
+        "name": "CSetArmyLeaderCommand",
+        "factory_idx": 3369,
+        "factory_rva": "0x18d0ba0",
+        "slot": "0x7ff745f30ba0",
+        "expect": "0x7ff745f30ba0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CCancelRunningAwayCommand",
+        "factory_idx": 6284,
+        "factory_rva": "0x13fad40",
+        "slot": "0x7ff745a5ad40",
+        "expect": "0x7ff745a5ad40",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CMassCancelMovementCommand",
+        "factory_idx": 4872,
+        "factory_rva": "0x11d8fd0",
+        "slot": "0x7ff745838fd0",
+        "expect": "0x7ff745838fd0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CMassMoveCommand",
+        "factory_idx": 4343,
+        "factory_rva": "0x13faec0",
+        "slot": "0x7ff745a5aec0",
+        "expect": "0x7ff745a5aec0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CMoveArmiesInTheaterCommand",
+        "factory_idx": 5990,
+        "factory_rva": "0x18cfb30",
+        "slot": "0x7ff745f2fb30",
+        "expect": "0x7ff745f2fb30",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "COrderNewFallbackCommand",
+        "factory_idx": 4271,
+        "factory_rva": "0x18d02c0",
+        "slot": "0x7ff745f302c0",
+        "expect": "0x7ff745f302c0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "COrderNewFrontCommand",
+        "factory_idx": 4095,
+        "factory_rva": "0x18d0340",
+        "slot": "0x7ff745f30340",
+        "expect": "0x7ff745f30340",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "COrderReplaceFallbackCommands",
+        "factory_idx": 4580,
+        "factory_rva": "0x18d05a0",
+        "slot": "0x7ff745f305a0",
+        "expect": "0x7ff745f305a0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "COrderSetPathCommand",
+        "factory_idx": 3345,
+        "factory_rva": "0x18d08e0",
+        "slot": "0x7ff745f308e0",
+        "expect": "0x7ff745f308e0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CSetSelectedArmyGroupFallback",
+        "factory_idx": 5987,
+        "factory_rva": "0x18d0fc0",
+        "slot": "0x7ff745f30fc0",
+        "expect": "0x7ff745f30fc0",
+        "match": true,
+        "live": "MATCH"
+      },
+      {
+        "group": "LAND_ARMY_FOCUS",
+        "name": "CSupportAttackCommand",
+        "factory_idx": 3620,
+        "factory_rva": "0x13fb5e0",
+        "slot": "0x7ff745a5b5e0",
+        "expect": "0x7ff745a5b5e0",
+        "match": true,
+        "live": "MATCH"
+      }
+    ],
+    "mismatches": []
+  },
+  "works": [
+    "ORDERS factory_idx filled for 10 land order cmds",
+    "core MOVE/STRATEGIC/CANCEL/SUPPORT_ATTACK indices confirmed vs formula",
+    "live factory table slot verify (when hoi4 attached)",
+    "CCancelRunningAwayCommand factory_idx 6284 filled",
+    "allow_post stays False; recipe not executed"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject",
+    "path-vector nonempty (deferred)"
+  ],
+  "next_shortest_blocker": "NON-Post: short ETH@1x path-vector re-observe for nonempty movement_dest (bounded) OR SupportAttack/Cancel leaf hex sight \u2014 still NO ALLOW_POST",
+  "parent_sha_base": "0e78322"
+}
