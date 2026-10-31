@@ -1,0 +1,93 @@
+{
+  "phase": "2hg",
+  "result": "CLOCK_RELOAD_RING_SEQ_POLISH",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 27,
+    "ui_date": "1936-01-02 03:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA CLOCK cluster + ring seq delta vs 2hf (no Post, no speed write)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 336223,
+    "exec": 86403,
+    "allow_post": false
+  },
+  "clock": {
+    "gs": "0x1e99c130f80",
+    "gs_rva": "0x33dd6b0",
+    "year_at_0x478": 1937,
+    "aux_at_0x47c": 31,
+    "hour_like_at_0x480": 27,
+    "hours_at_0x484": 27,
+    "decoded": {
+      "year": 1936,
+      "month": 1,
+      "day": 2,
+      "hour": 3,
+      "ui": "1936-01-02 03:00"
+    },
+    "year_matches_decoded": false,
+    "player_tag": 15,
+    "classification": "RELOAD_OR_NEW_CAMPAIGN_LIKELY",
+    "note": "hours@+0x484 low while drain/exec high and same pid as 2hd hours=357 \u2014 reload/new campaign, not +0x484 integer wrap; year@+0x478=1937 may disagree with hours-decoded year (treat hours as UI source)",
+    "offsets": {
+      "year": "0x478",
+      "aux": "0x47c",
+      "hour_like": "0x480",
+      "hours": "0x484"
+    }
+  },
+  "ring_seq": {
+    "session": "0x1ea07d8afd0",
+    "server": "0x1eaad0318a0",
+    "server_vt_rva": "0x2bcb040",
+    "server_vt_match": true,
+    "same_server_as_2hf": true,
+    "ring_kind": "INLINE_BLOB",
+    "ring_addr": "0x1eaad031940",
+    "u32_0": "0x0",
+    "u32_1_cap_like": "0x10",
+    "cap_like_0x10": true,
+    "seq": 86628,
+    "seq_delta_vs_2hf": 2563,
+    "seq_minus_exec": 225,
+    "seq_tracks_exec_loosely": true,
+    "pending_count": 0,
+    "execlist_count": 0,
+    "pending_empty": true,
+    "execlist_empty": true,
+    "session_counters": {
+      "stage": 0,
+      "drain": 336223,
+      "exec": 86403
+    },
+    "delta_vs_2hf": {
+      "hours": 12,
+      "drain": 11029,
+      "exec": 2514,
+      "seq": 2563,
+      "2hf_hours": 15,
+      "2hf_seq": 84065,
+      "2hf_drain": 325194,
+      "2hf_exec": 83889
+    },
+    "semantics": "one-shot seq/pending polish; empty queues honest quiet; no push"
+  },
+  "sha_base": "4bb0643",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "ring_embed push",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll"
+  ]
+}
