@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2ic `PATH_OG481_INST70_TRIANGLE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2id `ARR88_PATH_DENSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2ic PATH∩481 Inst70 path=23 tri=14 path_only=9 arr70=33 tri_in_481=2 (name STUBBED) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2id arr88×PATH denser path=13 arr70=33 arr88=64 cls={'tri70': 10, 'path_only': 2, 'tri70_88': 1} 3938_in70=False 3938_in88=False (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -305,6 +305,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2ia mid-band OG575 dig:** result=`MIDBAND_OG575_DIG_HIT` · oi575 size=3 walk=3 arr70=0 expect_in=True path_hit=True tri=0 · cross70_n=0 shared=[] · ref481_arr70=30 · hours=320 UI=1936-01-14 08:00 · allow_post=False
 **2ib PATH200 denser→OG50 reverse:** result=`PATH200_ALL_REVERSE_HIT` · path_armies=20 hit=20 new_ois=[] oi_scanned=1200 oi_with_arr50=373 · hours=335 UI=1936-01-14 23:00 · allow_post=False
 **2ic PATH∩OG481 Inst70 triangle:** result=`PATH_OG481_INST70_TRIANGLE_HIT` · path=23 tri=14 path_only=9 arr70=33 tri_in_481=2 · hours=347 UI=1936-01-15 11:00 · allow_post=False
+**2id OG481 arr88×PATH denser:** result=`ARR88_PATH_DENSE_HIT` · path=13 arr70=33 arr88=64 cls={'tri70': 10, 'path_only': 2, 'tri70_88': 1} 3938_in70=False 3938_in88=False · hours=363 UI=1936-01-16 03:00 · allow_post=False
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -372,6 +373,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2ia** | `MIDBAND_OG575_DIG_HIT` | mid-band OG575 dig Inst70+OG50+PATH (2hz 2640 home) | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2ib** | `PATH200_ALL_REVERSE_HIT` | PATH200 denser all-nonempty → OG50 reverse | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2ic** | `PATH_OG481_INST70_TRIANGLE_HIT` | PATH200 ∩ OG481 Inst70 triangle denser | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2id** | `ARR88_PATH_DENSE_HIT` | OG481 Instant+0x88 CP_VT × denser PATH × Inst70 | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -379,4 +381,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2ic · PATH∩OG481 Inst70 triangle · 2026-10-31 Asia/Shanghai*
+*Phase 2id · OG481 arr88×PATH denser · 2026-10-31 Asia/Shanghai*
