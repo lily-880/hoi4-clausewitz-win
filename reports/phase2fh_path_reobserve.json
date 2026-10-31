@@ -1,0 +1,103 @@
+{
+  "phase": "2fh",
+  "ts": "2026-10-31T04:08:34.016709+00:00",
+  "allow_post": false,
+  "executed_2fb_recipe": false,
+  "tool_gate": "CLOSED",
+  "result": "PATH_EMPTY_LEAF_SIGHT_EMPTY",
+  "error": null,
+  "live": {
+    "pid": 9928,
+    "hours": 115,
+    "ui_date": "1936-01-05 19:00",
+    "speed_policy": "pause-or-1x only (never change speed)",
+    "scenario": "ETH@1x bounded path re-observe (no Post)",
+    "country_tag_filter": 15
+  },
+  "path_poll": {
+    "window_s": 75.0,
+    "interval_s": 2.0,
+    "polls": 37,
+    "elapsed_s": 75.16,
+    "first_hit_at_s": null,
+    "best_nonempty_count": 0,
+    "best_hits": [],
+    "timeline_tail": [
+      {
+        "poll": 30,
+        "t": 58.9,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 31,
+        "t": 60.94,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 32,
+        "t": 62.96,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 33,
+        "t": 64.99,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 34,
+        "t": 67.03,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 35,
+        "t": 69.05,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 36,
+        "t": 71.08,
+        "nonempty": 0,
+        "carmy": 17
+      },
+      {
+        "poll": 37,
+        "t": 73.12,
+        "nonempty": 0,
+        "carmy": 17
+      }
+    ],
+    "note": "BOUNDED; stopped early on useful hit or at window end. No invent."
+  },
+  "leaf_sight": {
+    "window_s": 30.0,
+    "interval_s": 0.05,
+    "polls": 594,
+    "sight_counts": {},
+    "focus_samples": [],
+    "focus_names_seen": [],
+    "note": "BOUNDED leaf sight only if path vectors empty. No Post."
+  },
+  "works": [
+    "bounded path poll 75s @ 2s",
+    "nonempty path armies: 0",
+    "allow_post stays False; recipe not executed",
+    "fallback leaf sight 30s focus=[]"
+  ],
+  "stubbed": [
+    "in-process ring embed",
+    "2fb recipe execution",
+    "ordinary CMove live leaf",
+    "SAFE_POST / ALLOW_POST",
+    "self-MOVE",
+    "tool-gate open",
+    "Post inject"
+  ],
+  "next_shortest_blocker": "NON-Post: RO ceiling on midflight path/leaf this window \u2014 next cheapest: pause+1x war-dense relaunch observe OR catalog-only retreat/attack field polish; still NO ALLOW_POST",
+  "parent_sha_base": "aedb230"
+}
