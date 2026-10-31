@@ -1,0 +1,36 @@
+{
+  "phase": "2cy",
+  "parent": "98a4079",
+  "allow_post": false,
+  "land": "121/121",
+  "helpers": 308,
+  "named": 658,
+  "confidence": 1.0,
+  "focus": "CFront slot-array + CControllerArea province",
+  "proven": [
+    "CFront slot-array k=0..7 theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90 (slot0 1199/1199; pairs >=1143/1199)",
+    "CControllerArea+0x28→CProvince 296/296",
+    "CControllerArea+0x148→CProvince 288/296",
+    "HAI theatre in 30 fronts (any slot); slot0-only was 6"
+  ],
+  "hyp": [
+    "SPerCountrySection u32@+0x8 country tag (HAI=15 on 8 sections)",
+    "SPerCountrySection inline CArmy* at variable offs (no stable field/vector)"
+  ],
+  "stubbed": [
+    "midflight_CMoveCommand",
+    "ring_embed",
+    "ALLOW_POST",
+    "command_queue_tool_gate"
+  ],
+  "heap": {
+    "CFrontSection": 1570,
+    "unique_CFront": 1199,
+    "CControllerArea": 296,
+    "CTheatre": 90,
+    "SPerCountrySection": 1666,
+    "COrdersGroup": 0,
+    "CArmyGroup": 0,
+    "COrderInstance": 0
+  }
+}

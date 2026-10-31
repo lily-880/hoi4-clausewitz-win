@@ -155245,3 +155245,9 @@ try:
         _spec2cx.loader.exec_module(_mod2cx)
 except Exception:
     pass
+
+# Phase 2cy sidecar
+from pathlib import Path as _P2cy
+_fp2cy = _P2cy(__file__).with_name('_land_post_2cy_fragment.py')
+if _fp2cy.exists():
+    exec(_fp2cy.read_text(encoding='utf-8'))

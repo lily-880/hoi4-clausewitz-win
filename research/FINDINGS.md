@@ -780,3 +780,14 @@ pause/1x only; never 5x; no WriteProcessMemory enqueue.
 - **Org/str REJECTED**; **movement_dest** empty; order-group heap still 0.
 - **Artifacts/recipes**: `*_2cx`; checklist A–H; allow_post False; watcher 36128 RO.
 - **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.
+
+## Phase 2cy (overnight RO) — CFront slot-array + CControllerArea province
+
+- **HEAD parent**: `98a4079` (2cx). Focus: CFront/theatre/controller deepen; org stays rejected; movement_dest not invented. **LAND 121/121 unchanged**.
+- **CFront (new)**: embedded **8-slot** array — `CTheatre*` @ `+0x18+k*0x90`, `CControllerArea*` @ `+0x70+k*0x90` for `k=0..7`. Slot0 **1199/1199**; slot pairs remain **≥1143/1199**. Distinct theatres/front mean ~**4.34**.
+- **HAI theatre fronts**: **30** fronts contain HAI theatre in any slot (slot0-only count was 6).
+- **CControllerArea (new)**: `+0x28` → **CProvince** (**296/296**); `+0x148` → **CProvince** (**288/296**). Heap **296**.
+- **SPerCountrySection**: `u32@+0x8` tag hyp (8 HAI); inline `CArmy*` at variable offs — **no** stable field/vector proven.
+- **Heap**: FrontSection **1570** / fronts **1199** / theatres **90**; order-groups still 0.
+- **Org/str REJECTED**; **movement_dest** empty; recipes `*_2cy`; allow_post False; watcher 36128 RO.
+- **Stubbed**: midflight_CMoveCommand / ring_embed / ALLOW_POST / tool-gate CLOSED_NOT_OPENED.

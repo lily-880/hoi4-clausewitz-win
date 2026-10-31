@@ -3320,3 +3320,108 @@ def land_live_army_subject_observe_2cx_recipe(limit: int = 8, carmy_only: bool =
         "carmy_only_filter": carmy_only, "subjects": subjects,
         "note": obs.get("note") or "CFront/reinf deepen; org REJECTED; never Post.",
     }
+
+
+def land_cmd_post_path_index_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    idx = dict(pr.get("cmd_post_path_index_2cy") or {})
+    return {"phase": "2cy", "allow_post": False, "posting": "DISABLED",
+            "tool_gate": pr.get("tool_gate"), "count": len(idx), "commands": idx,
+            "note": "121/121 unchanged; CFront slots + controller province deepen only."}
+
+
+def land_role_post_path_matrix_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2cy", "allow_post": False, "posting": "DISABLED",
+            "matrix": pr.get("role_post_path_matrix_2cy") or {}}
+
+
+def land_role_observe_2cy_recipe(role: str | None = None) -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    ro = dict(pr.get("role_observe_2cy") or {})
+    if role:
+        return {"phase": "2cy", "allow_post": False, "posting": "DISABLED",
+                "role": role, "observe": ro.get(role)}
+    return {"phase": "2cy", "allow_post": False, "posting": "DISABLED", "roles": ro}
+
+
+def land_confidence_report_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    rep = dict(pr.get("confidence_report_2cy") or {})
+    rep.update({"allow_post": False, "posting": "DISABLED"})
+    return rep
+
+
+def land_post_readiness_checklist_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("post_readiness_checklist_2cy") or {"phase":"2cy","allow_post":False})
+
+
+def land_offensive_line_post_path_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return {"phase": "2cy", "allow_post": False, "posting": "DISABLED",
+            "offensive_line": pr.get("offensive_line_post_path_2cy") or {}}
+
+
+def land_midflight_move_watcher_readiness_2cy_recipe() -> dict:
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    return dict(pr.get("midflight_move_watcher_readiness_2cy") or {"phase":"2cy","allow_post":False})
+
+
+def land_live_army_subject_observe_2cy_recipe(limit: int = 8, carmy_only: bool = True) -> dict:
+    """Live Haiti observe 2cy — CFront slots / controller province; org REJECTED. Never Post."""
+    try:
+        import cmd_layout as _cl
+    except Exception as e:
+        return {"error": str(e), "posting": "DISABLED", "allow_post": False}
+    pr = getattr(_cl, "LAND_POST_READINESS", {}) or {}
+    obs = dict(pr.get("live_army_subject_observe_2cy") or {})
+    subjects = list((obs.get("carmy_only") if carmy_only else obs.get("subjects")) or [])[:max(0,int(limit))]
+    return {
+        "phase": "2cy", "allow_post": False, "posting": "DISABLED",
+        "country_tag_filter": obs.get("country_tag_filter"),
+        "carmy_count": obs.get("carmy_count"),
+        "carmy_theatre_rtti_ok": obs.get("carmy_theatre_rtti_ok"),
+        "carmy_reinf_country_ok": obs.get("carmy_reinf_country_ok"),
+        "unique_theatre_ptrs": obs.get("unique_theatre_ptrs"),
+        "rtti_vt": obs.get("rtti_vt"),
+        "field_map_cfront": obs.get("field_map_cfront"),
+        "field_map_ccontrollerarea": obs.get("field_map_ccontrollerarea"),
+        "field_map_creinforcementstatus": obs.get("field_map_creinforcementstatus"),
+        "field_map_carmyupgradesstatus": obs.get("field_map_carmyupgradesstatus"),
+        "field_map_frontsection_observe": obs.get("field_map_frontsection_observe"),
+        "field_map_spercountrysection_hyp": obs.get("field_map_spercountrysection_hyp"),
+        "org_str_status": obs.get("org_str_status"),
+        "movement_dest_nonempty_count": obs.get("movement_dest_nonempty_count"),
+        "heap_order_front_counts": obs.get("heap_order_front_counts"),
+        "carmy_only_filter": carmy_only, "subjects": subjects,
+        "note": obs.get("note") or "CFront slots + controller province; org REJECTED; never Post.",
+    }
