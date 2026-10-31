@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2il `PATH200_MULTI_DENSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2im `PATH200_FOCUS4527_DENSE_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,7 +247,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
 | `PATH200` | multi-prov candidates | 2hy hxfocus hits=25 by_prov=[1176:9,3816:3,3938:13] hiband=21 nonempty=25 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hw outlier prov→oi={} widen_rev=2/2 |
-| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2il PATH200 multi dense multi=2 path_armies=2 hit=2 cls={'path_only': 2} dests=[256, 3938, 4527] cross70=[] cross88=[] clock=CONTINUOUS; 2ii drift honesty path_only vs Inst70 (name STUBBED) |
+| `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2im PATH200 focus4527 dense dig=[4527, 256] path_armies=2 hit=2 cls={'path_only': 2} by_dig={'4527': [2644], '256': [2673]} dests=[256, 3938, 4527] cross70=[] cross88=[] clock=CONTINUOUS; 2ii drift honesty path_only vs Inst70 (name STUBBED) |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
 | `FACTORY` | cmd factory slots | MOVE/SA/Cancel/Strat + Assign/Unassign/Execute — MATCH 2gy–2hb |
 | `FN_VT` | IsValid/Execute | live VT`+0x48`/`+0x50` ≡ catalog — MATCH 2ha/2hb |
@@ -314,6 +314,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2ij PATH200 cont→OG50 reverse:** result=`PATH200_CONT_REVERSE_HIT` · path_armies=13 hit=13 new_ois=[] oi_scanned=1200 oi_with_arr50=364 clock=CONTINUOUS · hours=69 UI=1936-01-03 21:00 · allow_post=False
 **2ik OG481 arr88 cont×PATH:** result=`ARR88_CONT_PATH_PARTIAL` · path=17 arr70=30 arr88=61 cls={'path_only': 17} 3938_in70=False 3938_in88=False clock=CONTINUOUS · hours=81 UI=1936-01-04 09:00 · allow_post=False
 **2il PATH200 multi dense:** result=`PATH200_MULTI_DENSE_HIT` · multi=2 path_armies=2 hit=2 cls={'path_only': 2} dests=[256, 3938, 4527] cross70=[] cross88=[] clock=CONTINUOUS · hours=94 UI=1936-01-04 22:00 · allow_post=False
+**2im PATH200 focus4527 dense:** result=`PATH200_FOCUS4527_DENSE_HIT` · dig=[4527, 256] path_armies=2 hit=2 cls={'path_only': 2} by_dig={'4527': [2644], '256': [2673]} dests=[256, 3938, 4527] cross70=[] cross88=[] clock=CONTINUOUS · hours=106 UI=1936-01-05 10:00 · allow_post=False
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -390,6 +391,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2ij** | `PATH200_CONT_REVERSE_HIT` | CONTINUOUS PATH200 denser → OG50 reverse | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2ik** | `ARR88_CONT_PATH_PARTIAL` | CONTINUOUS OG481 Instant+0x88 × PATH denser | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2il** | `PATH200_MULTI_DENSE_HIT` | CONTINUOUS PATH200 multi denser → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2im** | `PATH200_FOCUS4527_DENSE_HIT` | CONTINUOUS PATH200 focus (4527, 256) denser → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -397,4 +399,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2il · PATH200 multi dense · 2026-10-31 Asia/Shanghai*
+*Phase 2im · PATH200 focus4527 dense · 2026-10-31 Asia/Shanghai*
