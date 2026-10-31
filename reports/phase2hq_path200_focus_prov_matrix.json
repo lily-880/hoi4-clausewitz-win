@@ -1,0 +1,128 @@
+{
+  "phase": "2hq",
+  "result": "PATH200_FOCUS_PROV_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 174,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-08 06:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA PATH200 denser @focus {3816,3938,915} + oi=481 Instant VT dump (no Post, no midflight, no oi\u22600, no Instant map re-poll)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 462175,
+    "exec": 116124,
+    "allow_post": false
+  },
+  "matrix": {
+    "scan_lo": 1,
+    "scan_hi": 2000,
+    "ita_ok": 11,
+    "counts": {
+      "empty": 7,
+      "nonempty": 4,
+      "multi": 0,
+      "nonempty_total": 4
+    },
+    "focus_provs": [
+      3816,
+      3938,
+      915
+    ],
+    "focus_hit_n": 3,
+    "focus_hits": [
+      {
+        "index": 461,
+        "army": "0x1eac8d2ccf0",
+        "bucket": "nonempty",
+        "path_n": 1,
+        "path_ids": [
+          3816
+        ],
+        "focus_hit": [
+          3816
+        ]
+      },
+      {
+        "index": 1039,
+        "army": "0x1eac93f3690",
+        "bucket": "nonempty",
+        "path_n": 1,
+        "path_ids": [
+          915
+        ],
+        "focus_hit": [
+          915
+        ]
+      },
+      {
+        "index": 1042,
+        "army": "0x1eac93f5df0",
+        "bucket": "nonempty",
+        "path_n": 1,
+        "path_ids": [
+          3816
+        ],
+        "focus_hit": [
+          3816
+        ]
+      }
+    ],
+    "by_focus_prov": {
+      "915": [
+        1039
+      ],
+      "3816": [
+        461,
+        1042
+      ]
+    },
+    "other_nonempty_sample": [
+      {
+        "index": 455,
+        "army": "0x1eac8d2ac20",
+        "bucket": "nonempty",
+        "path_n": 1,
+        "path_ids": [
+          1176
+        ],
+        "focus_hit": []
+      }
+    ],
+    "other_nonempty_n": 1
+  },
+  "oi481_inst_vt_dump": {
+    "ok": true,
+    "oi": 481,
+    "arr98_size": 1,
+    "ptr_n": 1,
+    "any_inst_vt": false,
+    "ptrs": [
+      {
+        "ptr": "0x1eaf0074a80",
+        "vt_rva": "0x2a02558",
+        "is_inst_vt": false
+      }
+    ],
+    "note": "one-shot VT catalog; no +0x70/+0x88 Instant map re-poll"
+  },
+  "sha_base": "b1ddfbf",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "Instant +0x70/+0x88 re-poll",
+    "invent OG+0x50 field name"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2hq PATH200 focus denser); push when GitHub reachable; still NO ALLOW_POST",
+  "semantics": "PATH200@+0x60 denser keyed on 2hp focus provinces; oi=481 Instant VT one-shot dump only; field name STUBBED; no Post"
+}

@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hp `OG481_MEMBERS_PATH_ONLY`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2hq `PATH200_FOCUS_PROV_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -245,7 +245,7 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 | ID | Signal | How / status |
 | --- | --- | --- |
 | `LOCATE` | CArmy | handle type=51 + country_tag — HIT 2gp |
-| `PATH200` | multi-prov candidates | 2hj/2hk matrix multi=1042→[915,490] nonempty=1048→[3938] empty=1039/1043/1046/1049 @+0x60 |
+| `PATH200` | multi-prov candidates | 2hq focus hits=3 by_prov=[915:1,3816:2] nonempty=4 |
 | `INST7088` | order/front maps | Instance`+0x70`/`+0x88` — 2hp oi=481 cross70=0 cross88=0 (⊀ named dest) |
 | `OG50MI` | membership | OG`+0x50` ≡ CArmy`+0xB8` — 2hp oi=481 ita=6 cross70=0 cross88=0 |
 | `ASSIGN51` | Assign units→CArmy | type=51 when sighted; oi often 0 — HIT 2gp |
@@ -292,6 +292,7 @@ Until A–B green and human does C: **gate stays CLOSED**.
 **2hn OG×PATH crosstab:** result=`OG50_PATH_CROSSTAB_ALL_OUT` · hyp=PATH_BEARING_ABSENT_EMPTY_ALSO_OUT · ita=5 multi=0 nonempty=2 empty=3 · path_in=0 path_out=2 empty_in=0 · og_hits=0 · hours=130 UI=1936-01-06 10:00 · allow_post=False.
 **2ho OG50 wide ITA scan:** result=`OG50_WIDE_ITA_HIT_HI` · ita=11 · ita_lo=0 ita_hi=6 · walk=1066/1066 · og_members=343 · player_tag_in_hist=6 · hours=145 UI=1936-01-07 01:00 · allow_post=False.
 **2hp oi=481 Inst×PATH cross:** result=`OG481_MEMBERS_PATH_ONLY` · ita_members=6 · cross70=0 cross88=0 · path_union=[3816, 3938] · out_og_path=[(1039, [915]), (1042, [3816])] · hours=156 UI=1936-01-07 12:00 · allow_post=False.
+**2hq PATH200 focus-prov denser:** result=`PATH200_FOCUS_PROV_HIT` · focus_hit_n=3 by_prov=[915:1,3816:2] · ita_ok=11 nonempty=4 · oi481_any_inst_vt=False · hours=174 UI=1936-01-08 06:00 · allow_post=False. hits=[idx=461→[3816]; idx=1039→[915]; idx=1042→[3816]]
 
 ## 7. Live RO snapshot (2gi optional B, ≤15s)
 
@@ -346,6 +347,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2hn** | `OG50_PATH_CROSSTAB_ALL_OUT` | OG+0x50 × PATH200@+0x60 ITA crosstab | field name / oi≠0 / midflight / Post HARD_DENY |
 | **2ho** | `OG50_WIDE_ITA_HIT_HI` | OG+0x50 widen oi1..511 ITA + tag hist | field name / oi≠0 / midflight / Post HARD_DENY |
 | **2hp** | `OG481_MEMBERS_PATH_ONLY` | oi=481 OG50×Inst70/88×PATH200 cross | field name / oi≠0 / midflight / Post HARD_DENY |
+| **2hq** | `PATH200_FOCUS_PROV_HIT` | PATH200 denser focus {3816,3938,915} + oi=481 Instant VT dump | oi≠0 / midflight / Instant-map-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -353,4 +355,4 @@ Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed
 HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject · no ask-user right-click · never 5x.
 
 
-*Phase 2hp · oi=481 OG50×Inst×PATH cross · 2026-10-31 Asia/Shanghai*
+*Phase 2hq · PATH200 focus-prov denser · 2026-10-31 Asia/Shanghai*
