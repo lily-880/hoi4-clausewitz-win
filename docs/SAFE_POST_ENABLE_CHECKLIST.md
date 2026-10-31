@@ -239,7 +239,7 @@ Docs: `docs/PHASE2HC_AGENT_READINESS_CONSOLIDATE.md`, `docs/PHASE2HD_SAFEPOST_6F
 
 ---
 
-## Phase 2gj … 2hs — checklist polish (CLOSED)
+## Phase 2gj … 2ht — checklist polish (CLOSED)
 
 **Gate remains CLOSED. allow_post False. tool-gate CLOSED. Recipes NOT executed.**
 
@@ -283,6 +283,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2hq | PATH200 denser focus {3816,3938,915} + Instant VT dump | **PATH200_FOCUS_PROV_HIT** (Post still CLOSED) |
 | 2hr | INST_VT false-gate fix + oi=481 Instant×PATH | **INST_VT_GATE_CORRECT_CROSS_HIT** (Post still CLOSED) |
 | 2hs | Instant+0x88 CP_VT fix + oi=481 × PATH/70 | **ARR88_CP_VT_CORRECT_HIT** (Post still CLOSED) |
+| 2ht | multi-oi Instant+0x70 × ITA PATH200 | **MULTI_OI_INST70_PATH_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -300,5 +301,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2hs — arr88 CP_VT correct. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
+*Phase 2ht — multi-oi Inst70×PATH. Gate stays CLOSED. 2026-10-31 Asia/Shanghai*
 

@@ -1,0 +1,221 @@
+{
+  "phase": "2ht",
+  "result": "MULTI_OI_INST70_PATH_HIT",
+  "allow_post": false,
+  "live": {
+    "pid": 30352,
+    "hours": 218,
+    "year_at_0x478": 1937,
+    "ui_date": "1936-01-10 02:00",
+    "speed_policy": "pause-or-1x only (never write speed)",
+    "country_tag_filter": 15,
+    "scenario": "ITA multi-oi Instant+0x70 \u00d7 PATH200 (INST_VT/CP_VT corrected; no Post, no midflight, no oi\u22600, no endless Instant poll)",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 499783,
+    "exec": 128241,
+    "allow_post": false
+  },
+  "path_scan": {
+    "nonempty_n": 4,
+    "rows": [
+      {
+        "index": 410,
+        "army": "0x1eac8e7acf0",
+        "path_ids": [
+          1176
+        ],
+        "path_n": 1
+      },
+      {
+        "index": 461,
+        "army": "0x1eac8d2ccf0",
+        "path_ids": [
+          3816
+        ],
+        "path_n": 1
+      },
+      {
+        "index": 1042,
+        "army": "0x1eac93f5df0",
+        "path_ids": [
+          1176
+        ],
+        "path_n": 1
+      },
+      {
+        "index": 1043,
+        "army": "0x1eac93f4a40",
+        "path_ids": [
+          1176
+        ],
+        "path_n": 1
+      }
+    ]
+  },
+  "oi_scan": {
+    "oi_lo": 1,
+    "oi_hi": 511,
+    "oi_inst_ok": 327,
+    "oi_70_shaped": 164,
+    "focus_70_ois": {
+      "915": [
+        481
+      ],
+      "3816": [
+        481
+      ]
+    },
+    "focus_88_ois": {
+      "915": [
+        434,
+        470
+      ],
+      "3816": [
+        434,
+        470
+      ]
+    },
+    "focus_oi_rows": [
+      {
+        "oi": 434,
+        "arr70_n": 28,
+        "focus_in_70": [],
+        "focus_in_88": [
+          915,
+          3816
+        ],
+        "u32s_head": [
+          11838,
+          11821,
+          9840,
+          6901,
+          9857,
+          6903,
+          3902,
+          884
+        ]
+      },
+      {
+        "oi": 470,
+        "arr70_n": 28,
+        "focus_in_70": [],
+        "focus_in_88": [
+          915,
+          3816
+        ],
+        "u32s_head": [
+          11838,
+          11821,
+          9840,
+          6901,
+          9857,
+          6903,
+          3902,
+          884
+        ]
+      },
+      {
+        "oi": 481,
+        "arr70_n": 27,
+        "focus_in_70": [
+          915,
+          3816
+        ],
+        "focus_in_88": [],
+        "u32s_head": [
+          10063,
+          1176,
+          1090,
+          10111,
+          3871,
+          875,
+          3871,
+          3810
+        ]
+      }
+    ],
+    "prov_to_ois_focus_only": true
+  },
+  "cross": {
+    "army_path_n": 4,
+    "army_covered_n": 4,
+    "army_hits": [
+      {
+        "index": 410,
+        "path_ids": [
+          1176
+        ],
+        "dest_in_inst70": {
+          "1176": [
+            481
+          ]
+        },
+        "any_cover": true
+      },
+      {
+        "index": 461,
+        "path_ids": [
+          3816
+        ],
+        "dest_in_inst70": {
+          "3816": [
+            481
+          ]
+        },
+        "any_cover": true
+      },
+      {
+        "index": 1042,
+        "path_ids": [
+          1176
+        ],
+        "dest_in_inst70": {
+          "1176": [
+            481
+          ]
+        },
+        "any_cover": true
+      },
+      {
+        "index": 1043,
+        "path_ids": [
+          1176
+        ],
+        "dest_in_inst70": {
+          "1176": [
+            481
+          ]
+        },
+        "any_cover": true
+      }
+    ],
+    "dest_cover_armies": {
+      "1176": [
+        410,
+        1042,
+        1043
+      ],
+      "3816": [
+        461
+      ]
+    }
+  },
+  "sha_base": "9cce48c",
+  "hard_deny": [
+    "ALLOW_POST",
+    "CLAUSEWITZ_ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "tool-gate",
+    "5x",
+    "speed write",
+    "ask right-click",
+    "long midflight empty poll",
+    "Assign oi\u22600 long poll",
+    "endless Instant map re-poll",
+    "invent OG+0x50 field name"
+  ],
+  "next_shortest_blocker": "NON-Post: human midflight CMove hex / SAFE Post for ring_embed OR later plan-dense Assign oi\u22600 (2ht multi-oi Inst70\u00d7PATH); push when GitHub reachable; still NO ALLOW_POST",
+  "semantics": "multi-oi Instant+0x70 \u00d7 PATH200 with corrected INST_VT/CP_VT; field name STUBBED; no Post"
+}
