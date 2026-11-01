@@ -139,6 +139,13 @@ Still blocks ALLOW_POST: **G2 live** 路 **G4** 路 **G5** 路 **G6**. G3 Instan
 - Docs: `docs/PHASE2IJR_STACK_ENCIRCLE_BIAS_RO.md`.
 - Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. Instant PARKED. Executor cannot flip G4.
 
+
+### 2ijs agent-card + Strategic catalog (catalog)
+
+- Agent card folds 2ijr stack-encircle (58→37, multi=18, max_stack=3, concentration≈0.6724, adjacency HONEST_EMPTY) + live Strategic/Cancel/Move recipe samples (posting DISABLED).
+- Docs: `docs/PHASE2IJS_AGENT_STRATEGIC_CATALOG.md`.
+- Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. Instant PARKED. Executor cannot flip G4.
+
 ### Not progress
 
 PATH/OG50-only densify 路 Instant empty re-polls 路 midflight empty re-polls 路 Capstone/121 路 Assign quiet endless polls.
@@ -483,3 +490,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijq — push-sync + occupancy catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijr — stack-depth / encirclement-bias RO. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijs — agent-card + Strategic catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*

@@ -1,0 +1,379 @@
+{
+  "phase": "2ijs",
+  "result": "AGENT_STRATEGIC_CATALOG_HIT",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "hard_rules": [
+    "no Instant empty / Inst70/ARR88/tri70 poll",
+    "no PATH/OG50-only densify",
+    "no long midflight empty poll",
+    "no Post inject / 2fb/2gk / tool-gate / ring_embed live",
+    "no ask ALLOW_POST / no invent org/str / controller_tag / theater / adjacency"
+  ],
+  "live_s0": {
+    "pid": 31788,
+    "year": 1936,
+    "day_index": 329,
+    "ui_date": "1936-11-25",
+    "clock_class": "CONTINUOUS",
+    "speed_policy": "pause-or-1x only (never write speed beyond pause/1x)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x agent-card + Strategic-only recipe catalog (no Post)",
+    "drain": 281965,
+    "exec": 70990,
+    "pending": 0,
+    "stage_count": 0,
+    "allow_post": false
+  },
+  "live_s1": {
+    "pid": 31788,
+    "year": 1936,
+    "day_index": 329,
+    "ui_date": "1936-11-25",
+    "clock_class": "CONTINUOUS",
+    "speed_policy": "pause-or-1x only (never write speed beyond pause/1x)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x agent-card + Strategic-only recipe catalog (no Post)",
+    "drain": 282032,
+    "exec": 70994,
+    "pending": 0,
+    "stage_count": 0,
+    "allow_post": false
+  },
+  "calendar_ok": true,
+  "drain_delta": 67,
+  "exec_delta": 4,
+  "agent_card": {
+    "phase_fold": "2ijs folds 2ijr stack-encircle + live Strategic catalog",
+    "head": "b6d443b",
+    "origin_main": "b6d443b",
+    "allow_post": false,
+    "posting": "DISABLED",
+    "proven_fields_only": {
+      "CA_HANDLE": "0x18",
+      "CA_PROVINCE_ID": "0x28",
+      "CA_COUNTRY_TAG": "0x1e0",
+      "CA_PROVINCE_PTR": "0x1f0",
+      "CP_ID": "0xa4",
+      "HANDLE_TYPE_ARMY": "0x33"
+    },
+    "stack_encircle_from_2ijr": {
+      "army_count": 58,
+      "unique_provinces": 37,
+      "multi_army": 18,
+      "max_stack": 3,
+      "concentration_ratio": 0.6724,
+      "adjacency": "HONEST_EMPTY",
+      "result": "STACK_ENCIRCLE_BIAS_RO_HIT"
+    },
+    "live_refresh": {
+      "army_count": 58,
+      "handle_ok_count": 58,
+      "province_id_ok_count": 58,
+      "all_subject_ok": true,
+      "country_tag_filter": 15
+    },
+    "strategic_recipe_policy": {
+      "family": "Strategic-only ACCEPTABLE (G1)",
+      "posting": "DISABLED until G4 human + G5 + G6",
+      "samples_in_report": 5,
+      "cancel_batch_sample": true,
+      "move_action_note": "documented; path vectors need game allocs \u2014 do NOT WPM hand-wave"
+    },
+    "hard_denies": [
+      "theater/frontline live handles STUBBED",
+      "CProvince+0x58 controller_tag hypothesis_strong NOT proven",
+      "org/str @0x520/0x6ec HYPOTHESIS_ONLY",
+      "province adjacency HONEST_EMPTY",
+      "Instant peacetime PARKED",
+      "no PATH/OG50 densify unlock",
+      "executor cannot flip G4"
+    ],
+    "gates_g1_g6": {
+      "G1": {
+        "state": "ACCEPTABLE",
+        "via": "Strategic-only (2ijj)",
+        "agent_note": "Only Strategic-family recipes are ACCEPTABLE when Post eventually opens"
+      },
+      "G2": {
+        "state": "RO_PREP_HIT_LIVE_STUBBED",
+        "via": "2ijk INLINE_BLOB",
+        "agent_note": "ring_embed RO prep done; live execute STUBBED until G4+G5"
+      },
+      "G3": {
+        "state": "PARKED",
+        "via": "peacetime Instant",
+        "agent_note": "Do NOT poll Instant / Inst70 / ARR88 / tri70"
+      },
+      "G4": {
+        "state": "HARD_DENY_UNTIL_HUMAN",
+        "via": "CLAUSEWITZ_ALLOW_POST=1",
+        "agent_note": "Executor cannot flip; human must set env; do not ask in-slice"
+      },
+      "G5": {
+        "state": "CLOSED_NOT_OPENED",
+        "via": "tool-gate after G4",
+        "agent_note": "Do not open tool-gate before G4"
+      },
+      "G6": {
+        "state": "FORBIDDEN_NOW",
+        "via": "ONE Strategic Post @1x after G4+G5",
+        "agent_note": "Single Strategic Post only; never 5x; Instant PARKED"
+      }
+    },
+    "next_shortest_blocker": "Human G4 CLAUSEWITZ_ALLOW_POST=1 (executor cannot flip) \u2192 G5 tool-gate \u2192 G2 live ring_embed / G6 one Strategic Post @1x",
+    "path_c_honesty": {
+      "baseline_band": "~60-62%",
+      "this_slice_pp": "0pp catalog (agent card + recipe catalog; no new perception unlock)",
+      "crossed_70": false
+    }
+  },
+  "strategic_recipe_samples": [
+    {
+      "army_index": 381,
+      "handle": [
+        51,
+        381
+      ],
+      "province_id": 3986,
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          381
+        ],
+        "province_off": 24,
+        "province": 3986,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          381
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 3986,
+        "posting": "DISABLED"
+      },
+      "posting": "DISABLED"
+    },
+    {
+      "army_index": 382,
+      "handle": [
+        51,
+        382
+      ],
+      "province_id": 813,
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          382
+        ],
+        "province_off": 24,
+        "province": 813,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          382
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 813,
+        "posting": "DISABLED"
+      },
+      "posting": "DISABLED"
+    },
+    {
+      "army_index": 410,
+      "handle": [
+        51,
+        410
+      ],
+      "province_id": 4095,
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          410
+        ],
+        "province_off": 24,
+        "province": 4095,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          410
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 4095,
+        "posting": "DISABLED"
+      },
+      "posting": "DISABLED"
+    },
+    {
+      "army_index": 450,
+      "handle": [
+        51,
+        450
+      ],
+      "province_id": 3954,
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          450
+        ],
+        "province_off": 24,
+        "province": 3954,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          450
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 3954,
+        "posting": "DISABLED"
+      },
+      "posting": "DISABLED"
+    },
+    {
+      "army_index": 455,
+      "handle": [
+        51,
+        455
+      ],
+      "province_id": 6948,
+      "strategic_redeploy": {
+        "army_handle_off": 16,
+        "army_handle": [
+          51,
+          455
+        ],
+        "province_off": 24,
+        "province": 6948,
+        "clear_off": 28,
+        "move_priority_off": 32,
+        "posting": "DISABLED",
+        "clear": 0,
+        "move_priority": 0
+      },
+      "move_action": {
+        "unit_handle_off": 16,
+        "unit_handle": [
+          51,
+          455
+        ],
+        "province_arr_off": 24,
+        "province_size_off": 36,
+        "path_arr_off": 48,
+        "path_size_off": 60,
+        "note": "path/province vectors must be valid game allocs; do NOT hand-wave WriteProcessMemory",
+        "source_province_id": 6948,
+        "posting": "DISABLED"
+      },
+      "posting": "DISABLED"
+    }
+  ],
+  "cancel_movement_sample": {
+    "units_data_off": 40,
+    "units_count_off": 52,
+    "sticky_off": 64,
+    "unit_handles": [
+      [
+        51,
+        381
+      ],
+      [
+        51,
+        382
+      ],
+      [
+        51,
+        410
+      ]
+    ],
+    "count": 3,
+    "note": "vector must be game-allocated CHandle[count]; do NOT hand-wave WPM",
+    "posting": "DISABLED"
+  },
+  "gates_g1_g6": {
+    "G1": {
+      "state": "ACCEPTABLE",
+      "via": "Strategic-only (2ijj)",
+      "agent_note": "Only Strategic-family recipes are ACCEPTABLE when Post eventually opens"
+    },
+    "G2": {
+      "state": "RO_PREP_HIT_LIVE_STUBBED",
+      "via": "2ijk INLINE_BLOB",
+      "agent_note": "ring_embed RO prep done; live execute STUBBED until G4+G5"
+    },
+    "G3": {
+      "state": "PARKED",
+      "via": "peacetime Instant",
+      "agent_note": "Do NOT poll Instant / Inst70 / ARR88 / tri70"
+    },
+    "G4": {
+      "state": "HARD_DENY_UNTIL_HUMAN",
+      "via": "CLAUSEWITZ_ALLOW_POST=1",
+      "agent_note": "Executor cannot flip; human must set env; do not ask in-slice"
+    },
+    "G5": {
+      "state": "CLOSED_NOT_OPENED",
+      "via": "tool-gate after G4",
+      "agent_note": "Do not open tool-gate before G4"
+    },
+    "G6": {
+      "state": "FORBIDDEN_NOW",
+      "via": "ONE Strategic Post @1x after G4+G5",
+      "agent_note": "Single Strategic Post only; never 5x; Instant PARKED"
+    }
+  },
+  "path_c_honesty": {
+    "baseline_band": "~60-62%",
+    "this_slice_pp": "0pp catalog (agent card + recipe catalog; no new perception unlock)",
+    "crossed_70": false
+  },
+  "next_shortest_blocker": "Human G4 CLAUSEWITZ_ALLOW_POST=1 (executor cannot flip) \u2192 G5 tool-gate \u2192 G2 live ring_embed / G6 one Strategic Post @1x",
+  "timestamp_asia_shanghai": "2026-11-01 21:47:49 Asia/Shanghai"
+}
