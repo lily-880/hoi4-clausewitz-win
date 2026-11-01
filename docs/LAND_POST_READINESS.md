@@ -285,6 +285,11 @@ See docs/PHASE2IJP_ARMY_PROVINCE_MAP_RO.md. ITA 58 armies → 37 provinces; mult
 
 See docs/PHASE2IJQ_PUSH_OCCUPANCY_CATALOG.md. Push SUCCESS 7ca963c..21e20f2; folds 2ijp occupancy + G1–G6. allow_post False. PathC ~60–62% (0pp; ~70% NOT crossed).
 
+
+### 2ijr stack-depth / encirclement-bias RO (perception)
+
+See docs/PHASE2IJR_STACK_ENCIRCLE_BIAS_RO.md. Ranked stacks + concentration; adjacency HONEST_EMPTY; allow_post False. PathC ~60–62% (≤+1pp; ~70% NOT crossed).
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -518,6 +523,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - **2ijo:** push-sync SUCCESS
 - **2ijp:** army→province occupancy map
 - **2ijq:** push-sync SUCCESS 7ca963c..21e20f2 + occupancy agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed) 58→37 (multi=18 max_stack=3); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed) 40d7716..c342a89 + agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp capability; ~70% NOT crossed) + Strategic recipes DISABLED; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed); org/str hyp NOT invented; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
+- **2ijr:** stack-depth/encircle-bias RO (concentration≈0.67, adjacency HONEST_EMPTY); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1pp; ~70% NOT crossed)
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
@@ -532,3 +538,5 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 *Phase 2ijp — army→province map RO — 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijq — push-sync + occupancy catalog — 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijr — stack-depth / encirclement-bias RO — 2026-11-01 Asia/Shanghai*
