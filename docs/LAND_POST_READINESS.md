@@ -432,6 +432,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2ija PATH200 longer advance CONTINUOUS:** result=PATH200_LONGER_ADVANCE_MULTI_N_HIT · day51→74 (+23 @300s 1x) clock=CONTINUOUS · nonempty=15 **multi=2** · new_dests=[415,740,2601,3938,3945,6906,9764,11707] new_ois=[65,448,450,478] · inst_ok=[] · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJA_PATH200_LONGER_ADVANCE.md
 **2ijb Instant×PATH multi hunt:** result=INSTPATH_MULTI_PATH_INST_EMPTY · CONTINUOUS day85→90 (60s nudge) · multi_n=2 stable 2647/2683 · focus OIs 65/450/448/478 inst_ok=false · OG50 fat on 65/448 · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJB_INSTPATH_MULTI_HUNT.md
 **2ijc PATH200/OG50 polish (Instant PARKED):** result=PATH200_OG50_POLISH_MULTI_HIT · CONTINUOUS day≈98 · multi_n=1 (2683 oi=450) · OG50 65/448=23 450=12 473=4 · no Instant VT dig · PATH≠Inst + Instant peacetime PARKED · allow_post=False · see docs/PHASE2IJC_PATH200_OG50_POLISH.md
+**2ijd PATH200/OG50 denser (Instant PARKED):** result=PATH200_OG50_DENSE_HIT · CONTINUOUS day≈106 · multi_n=0 (2683 cleared) · new_ois=[495,503] · OG50 448=24 450=7 · no Instant dig · allow_post=False · see docs/PHASE2IJD_PATH200_OG50_DENSE.md
+
 
 
 

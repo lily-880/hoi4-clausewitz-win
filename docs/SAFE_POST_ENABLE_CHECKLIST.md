@@ -320,6 +320,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 - **2ija:** CONTINUOUS day74; PATH multi_n=2 nonempty=15; new dests/OIs; Inst empty; allow_post False; NO Post.
 - **2ijb:** Instant×PATH hunt; multi_n=2; Instant empty after one nudge; PATH≠Inst honesty; allow_post False; NO Post; stop Instant-empty polls.
 - **2ijc:** PATH200/OG50 polish NO Instant; multi_n=1; Instant peacetime PARKED; PATH≠Inst; allow_post False; NO Post.
+- **2ijd:** PATH200/OG50 denser; multi_n=0; new_ois 495/503; Instant PARKED; allow_post False; NO Post.
 
 ### HARD_DENY unchanged
 
