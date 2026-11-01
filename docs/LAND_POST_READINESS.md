@@ -295,6 +295,11 @@ See docs/PHASE2IJR_STACK_ENCIRCLE_BIAS_RO.md. Ranked stacks + concentration; adj
 
 See docs/PHASE2IJS_AGENT_STRATEGIC_CATALOG.md. Folds 2ijr + live Strategic recipe samples; posting DISABLED; allow_post False. PathC ~60–62% (0pp; ~70% NOT crossed).
 
+
+### 2ijt NON-Post readiness freeze (catalog + refresh)
+
+See docs/PHASE2IJT_NONPOST_READINESS_FREEZE.md. Stack refresh stable; NON-Post ceiling HIT; sole unlock human G4. allow_post False. PathC ~60–62% (0pp; ~70% NOT crossed).
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -530,6 +535,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - **2ijq:** push-sync SUCCESS 7ca963c..21e20f2 + occupancy agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed) 58→37 (multi=18 max_stack=3); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed) 40d7716..c342a89 + agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp capability; ~70% NOT crossed) + Strategic recipes DISABLED; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed); org/str hyp NOT invented; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 - **2ijr:** stack-depth/encircle-bias RO (concentration≈0.67, adjacency HONEST_EMPTY); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1pp; ~70% NOT crossed)
 - **2ijs:** agent-card + Strategic-only recipe catalog (5 samples + cancel-batch; posting DISABLED); NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed)
+- **2ijt:** NON-Post readiness freeze (ceiling HIT; stack refresh stable; sole unlock G4); NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed)
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
@@ -548,3 +554,5 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 *Phase 2ijr — stack-depth / encirclement-bias RO — 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijs — agent-card + Strategic catalog — 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijt — NON-Post readiness freeze — 2026-11-01 Asia/Shanghai*
