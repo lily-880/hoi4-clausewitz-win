@@ -578,3 +578,17 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - 2ijv observe: see `reports/phase2ijv_strategic_observe_fold.json` (arrived=False path_cleared=False peacetime=ITA ui still 1936-39 peacetime window; wartime Strategic/Attack RO still unproven. Do not invent war state. Calendar CONTINUOUS @1x is enough for arrive/path observe.).
 - Move/Attack/Cancel still not proven live Post; Instant PARKED; NEVER 5x.
 
+
+
+
+---
+
+## Section 2ijw — Ordinary Move Post attempt (factory 1402)
+
+- `calling/move_order.py`: CMoveCommand factory **1402** / RVA `0x13FB000` / action VT `0x2A1F648`
+- Province array via remote VirtualAllocEx u32[1] (not freed after live Post — UAF avoid)
+- Gate: env + `safe_land_tool_gate.OPEN` → Post → restore False
+- Dry-run IsValid=1 for army 1042 → dest 3931 **PROVEN**
+- Live Post: WAIT_TIMEOUT(258) on FN_CMD_QUEUE_POST; path empty; province 6906 unchanged → **G6_MOVE_POST_TIMEOUT**
+- Instant PARKED; Attack/Cancel not opened this slice
+

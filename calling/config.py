@@ -117,15 +117,18 @@ def allow_write() -> bool:
 
 
 def allow_post() -> bool:
-    """Separate from allow_write. Requires CLAUSEWITZ_ALLOW_POST=1 AND Strategic-only tool-gate marker.
+    """Requires CLAUSEWITZ_ALLOW_POST=1 AND land tool-gate marker.
 
-    Marker path: research/strategic_only_tool_gate.OPEN (G5). Env alone is never enough.
-    NEVER_POST families (speed/HourlyTick/Ping/Pause) remain forbidden by callers.
+    Markers: research/safe_land_tool_gate.OPEN (Move+Strategic) or
+    research/strategic_only_tool_gate.OPEN (Strategic-only legacy).
+    Env alone never enough. NEVER_POST families forbidden by callers.
     """
     if _os.environ.get('CLAUSEWITZ_ALLOW_POST', '').strip() not in ('1', 'true', 'TRUE', 'yes'):
         return False
-    marker = _os.path.join(ROOT, 'research', 'strategic_only_tool_gate.OPEN')
-    return _os.path.isfile(marker)
+    for name in ('safe_land_tool_gate.OPEN', 'strategic_only_tool_gate.OPEN'):
+        if _os.path.isfile(_os.path.join(ROOT, 'research', name)):
+            return True
+    return False
 
 
 def assert_post_allowed() -> None:

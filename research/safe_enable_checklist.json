@@ -1,5 +1,5 @@
 {
-  "phase": "2ijv",
+  "phase": "2ijw",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -63,11 +63,19 @@
     {
       "id": "command_queue_tool_gate",
       "status": "CLOSED_NOT_OPENED",
-      "note": "2ijv: G5 proven OPEN_STRATEGIC_ONLY once (2iju) then restored CLOSED. Reopen only with human ALLOW_POST + strategic_only_tool_gate.OPEN. G6 evidence=G6_STRATEGIC_POST_HIT.",
+      "note": "Re-closed after 2ijw Move one-shot; reopen only with human ALLOW_POST + marker",
       "proven_once": {
         "phase": "2iju",
         "mode": "OPEN_STRATEGIC_ONLY",
         "restored": true
+      },
+      "proven_once_move": {
+        "phase": "2ijw",
+        "factory_idx": 1402,
+        "result": "G6_MOVE_POST_TIMEOUT",
+        "isvalid_dry": true,
+        "post_wait": 258,
+        "note": "IsValid dry HIT; live Post timed out \u2014 not PATH_CONTAINS_DEST"
       }
     },
     {
@@ -83,7 +91,7 @@
     {
       "id": "ALLOW_POST_gate",
       "status": "closed",
-      "note": "2ijv: G4 proven via CLAUSEWITZ_ALLOW_POST=1 + marker (2iju); restored unset. allow_post requires env+marker again. Do not leave True.",
+      "note": "2ijw restored: allow_post requires env+marker again",
       "proven_once": {
         "phase": "2iju",
         "env": "CLAUSEWITZ_ALLOW_POST=1",

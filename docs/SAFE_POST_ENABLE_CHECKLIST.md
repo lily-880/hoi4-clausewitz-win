@@ -534,3 +534,21 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 
 Observe (2ijv): RO path/province of army 1042 vs dest 3986; peacetime ITA 1937 limits documented; **no additional Post** this fold unless observe demanded (default zero).
 
+
+---
+
+
+---
+
+## Phase 2ijw — Move Post (factory 1402) gated once
+
+**Result:** `G6_MOVE_POST_TIMEOUT` (WAIT_TIMEOUT on FN_CMD_QUEUE_POST; corrected from ACCEPTED_WEAK)
+
+Marker: `research/safe_land_tool_gate.OPEN` (Move+Strategic). Restored CLOSED after one-shot.
+
+| ID | State |
+| --- | --- |
+| G4 | PROVEN_ONCE env CLAUSEWITZ_ALLOW_POST=1 then restored |
+| G5 | OPEN_SAFE_LAND_MOVE_STRATEGIC then CLOSED_NOT_OPENED |
+| G6-Move | TIMEOUT — IsValid dry HIT; live Post wait=258; no PATH_CONTAINS_DEST |
+

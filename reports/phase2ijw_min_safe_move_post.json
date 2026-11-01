@@ -1,0 +1,200 @@
+{
+  "phase": "2ijw",
+  "result": "G6_MOVE_POST_TIMEOUT",
+  "authorization": "user t52u / pt52u \u2014 gated Move Post factory 1402",
+  "speed_policy": "pause-or-1x only; NEVER 5x; no speed write this slice",
+  "live0": {
+    "pid": 28688,
+    "year": 1936,
+    "day_index": 41,
+    "ui_date": "1936-02-11",
+    "clock_class": "RELOAD_OR_NEW_CAMPAIGN",
+    "drain": 34752,
+    "exec": 13544,
+    "pending": 0,
+    "stage": 0,
+    "gate725": 1,
+    "seq": 13558,
+    "allow_post": false
+  },
+  "g4": {
+    "before_allow_post": false,
+    "set": {
+      "how": "os.environ CLAUSEWITZ_ALLOW_POST=1 in this Python process",
+      "value": "1"
+    },
+    "env_only_allow_post": false
+  },
+  "g5": {
+    "before": {
+      "allow_post": false,
+      "tool_gate": "CLOSED"
+    },
+    "after": {
+      "allow_post": true,
+      "tool_gate": "OPEN_SAFE_LAND_MOVE_STRATEGIC",
+      "open": {
+        "marker": "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\research\\safe_land_tool_gate.OPEN",
+        "checklist_before": {
+          "id": "command_queue_tool_gate",
+          "status": "OPEN_SAFE_LAND_MOVE_STRATEGIC",
+          "note": "2ijw G5: safe_land_tool_gate.OPEN (Move 1402 + Strategic 4753)",
+          "proven_once": {
+            "phase": "2iju",
+            "mode": "OPEN_STRATEGIC_ONLY",
+            "restored": true
+          }
+        },
+        "checklist_after": "OPEN_SAFE_LAND_MOVE_STRATEGIC"
+      }
+    }
+  },
+  "g6": {
+    "src_army": 1042,
+    "src_province": 6906,
+    "path_now": [],
+    "dest_pool": [
+      3931,
+      11838,
+      3898,
+      12857,
+      1903,
+      9979,
+      740,
+      9764,
+      3940,
+      874
+    ],
+    "trials": [
+      {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "army": 1042,
+        "province": 3931,
+        "path_before": [],
+        "factory_idx": 1402
+      }
+    ],
+    "chosen": {
+      "ok": true,
+      "result": "DRY_RUN_VALID",
+      "army": 1042,
+      "province": 3931,
+      "path_before": [],
+      "factory_idx": 1402
+    },
+    "post": {
+      "ok": false,
+      "result": "POSTED_DEST_NOT_IN_PATH",
+      "army": 1042,
+      "province": 3931,
+      "post_rax": 0,
+      "post_wait": 258,
+      "path_before": [],
+      "path_after": [],
+      "factory_idx": 1402
+    },
+    "observe": {
+      "pre": {
+        "pid": 28688,
+        "year": 1936,
+        "day_index": 41,
+        "ui_date": "1936-02-11",
+        "clock_class": "RELOAD_OR_NEW_CAMPAIGN",
+        "drain": 34808,
+        "exec": 13546,
+        "pending": 0,
+        "stage": 0,
+        "gate725": 1,
+        "seq": 13560,
+        "allow_post": true
+      },
+      "src_pre": {
+        "index": 1042,
+        "army": "0x252c44f41a0",
+        "province": 6906,
+        "path": []
+      },
+      "immediate": {
+        "pid": 28688,
+        "year": 1936,
+        "day_index": 41,
+        "ui_date": "1936-02-11",
+        "clock_class": "RELOAD_OR_NEW_CAMPAIGN",
+        "drain": 34821,
+        "exec": 13546,
+        "pending": 0,
+        "stage": 2,
+        "gate725": 1,
+        "seq": 13563,
+        "allow_post": true
+      },
+      "src_immediate": {
+        "index": 1042,
+        "army": "0x252c44f41a0",
+        "province": 6906,
+        "path": []
+      },
+      "later": {
+        "pid": 28688,
+        "year": 1936,
+        "day_index": 41,
+        "ui_date": "1936-02-11",
+        "clock_class": "RELOAD_OR_NEW_CAMPAIGN",
+        "drain": 34821,
+        "exec": 13546,
+        "pending": 0,
+        "stage": 2,
+        "gate725": 1,
+        "seq": 13563,
+        "allow_post": true
+      },
+      "src_later": {
+        "index": 1042,
+        "army": "0x252c44f41a0",
+        "province": 6906,
+        "path": []
+      },
+      "drain_delta": 13,
+      "exec_delta": 0,
+      "seq_delta": 3,
+      "province_changed": false,
+      "path_before": [],
+      "path_after": []
+    },
+    "strategic_fallback": null
+  },
+  "post_attempts": {
+    "move": 1,
+    "strategic": 0
+  },
+  "gates_restored": {
+    "env_cleared": true,
+    "marker_exists": false,
+    "allow_post": false
+  },
+  "final_allow_post": false,
+  "factory": {
+    "factory_idx": 1402,
+    "factory_rva": "0x13FB000",
+    "type": "CMoveCommand"
+  },
+  "path_c_honesty": {
+    "baseline_band": "~60%",
+    "after_2iju_2ijv": "~71-73%",
+    "crossed_70": true,
+    "estimate_after": "~71-73%",
+    "this_slice_pp": "+0-1pp plumbing (Move IsValid+G5 safe_land gate); live Move Post NOT HIT"
+  },
+  "next_shortest_blocker": "Move FN_CMD_QUEUE_POST times out (wait=258) after IsValid=1; diagnose queue hang vs pause-during-inject, or compare Strategic post path (HIT in 2iju). Do NOT endless midflight poll. Instant PARKED.",
+  "timestamp_asia_shanghai": "2026-11-01 22:26:43 Asia/Shanghai",
+  "honesty_correction": {
+    "prior_label": "G6_MOVE_POST_ACCEPTED_WEAK",
+    "reason": "FN_CMD_QUEUE_POST WaitForSingleObject returned WAIT_TIMEOUT(258); post_rax=0; path empty before/after; province stayed 6906; seq_delta=3/drain_delta=13 treated as ambient NOT acceptance. Dry-run IsValid=1 for dest 3931 PROVEN. Initial script label ACCEPTED_WEAK OVERCLAIMED; corrected.",
+    "post_wait": 258,
+    "WAIT_TIMEOUT": 258,
+    "path_evidence": false,
+    "province_changed": false,
+    "seq_delta_ambient": 3
+  }
+}
