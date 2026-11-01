@@ -75,3 +75,9 @@
 - Stability ~30s responding_stayed=True alive_final=True heap_exit=False
 - Gates restored allow_post False markers absent
 - Path-C estimate ~96¨C98%; crossed_70=YES
+
+## Phase 2ikj (t52u Asia/Shanghai)
+- Result: G6_ENCIRCLE_OBSERVE_STATIC_HONEST / ATTACK_POSTED_STATIC_HOLD
+- Primary A: bounded RO observe ~40s after 2iki multi-Attack ¡ª 1042@6906 hold; 1037@3931; 1038@11838; paths empty; no co-location at 1886; combat densify HONEST_EMPTY; no pocket evidenced
+- Retreat HARD_DENY_PARKED; Instant PARKED; Posts=0; gates stayed False
+- Stability OK; Path-C ~96¨C98% (honesty fold, no invent bump)
