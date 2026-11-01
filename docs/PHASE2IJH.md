@@ -65,3 +65,7 @@
 **Gates:** allow_post False; markers absent. Instant PARKED. Combat densify HONEST_EMPTY.
 **Path-C:** ~94â€“96% (crossed_70=YES; +~2pp vs 2ikg ~92â€“94%).
 **Script:** scripts/phase2ikh_attack_after_concentrate.py
+
+## Phase 2iki (t52u)
+- G6_MULTI_ATTACK_CONCENTRATE_HIT: armies 1042@6906 + 1037 ¡ú 1886 ATTACK_POSTED_STABLE x2; Retreat HARD_DENY; Instant PARKED; gates restored False.
+
