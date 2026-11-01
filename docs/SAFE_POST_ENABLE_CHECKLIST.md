@@ -312,6 +312,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2it | CONTINUOUS PATH200 arr88xpath-9840class → OG50+481 hub | **PATH200_ARR88_9840_HIT** (Post still CLOSED) |
 | 2iu | CONTINUOUS PATH200 focus740-og50-refresh → OG50+481 hub | **PATH200_FOCUS740_OG50_HIT** (Post still CLOSED) |
 | 2iv | 2iu focus-740 cohort rehome after oi recycle | **COHORT_REHOME_HIT** (Post still CLOSED) |
+| 2iv-relaunch | fresh ITA PATH200 path_only oi=70/57 | **PATH200_RELAUNCH_PATH_ONLY_HIT** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
@@ -329,5 +330,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 [ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
-*Phase 2iv — cohort rehome. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+*Phase 2iv — cohort rehome + relaunch PATH200. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 

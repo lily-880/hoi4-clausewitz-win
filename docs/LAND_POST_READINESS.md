@@ -409,7 +409,7 @@ No Post. Speed policy pause/1x only. Report: `reports/phase2gi_land_post_readine
 | **2is** | `PATH200_FOCUS1053_1869_HIT` | CONTINUOUS PATH200 focus1053+1869-reintersect → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2it** | `PATH200_ARR88_9840_HIT` | CONTINUOUS PATH200 arr88xpath-9840class → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 | **2iu** | `PATH200_FOCUS740_OG50_HIT` | CONTINUOUS PATH200 focus740-og50-refresh → OG50+481 hub | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
-| **2iv** | `COHORT_REHOME_HIT` | 2iu focus-740 cohort rehome after oi recycle | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
+| **2iv** | `COHORT_REHOME_HIT` + `PATH200_RELAUNCH_PATH_ONLY_HIT` | cohort rehome + fresh ITA relaunch PATH200 path_only oi=70/57 | oi≠0 / midflight / Instant-repoll / Post HARD_DENY |
 
 Docs: `docs/PHASE2GJ_MOVE_OFFLINE_LAYOUT.md`, `docs/PHASE2GK_STRATEGIC_RING_EMBED_DESIGN.md`.  
 Recipes: `reports/phase2fb_ring_embed_recipe.json`, `reports/phase2gk_ring_embed_recipe_v2.json` — **DESIGN ONLY, never execute from agent slices.**
@@ -418,3 +418,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 
 *Phase 2iv · cohort rehome · 2026-11-01 Asia/Shanghai*
+
+**2iv relaunch PATH200:** result=`PATH200_RELAUNCH_PATH_ONLY_HIT` · fresh ITA `-start_tag=ITA -start_speed=1` pid=33840 · ita_ok=17 nonempty=2 multi=0 · 1040→[12857] oi=70 · 1053→[9945] oi=57 · focus740 miss · OG50 reverse oi_scanned=2000 oi_with_arr50=360 · clock=RELOAD_OR_NEW_CAMPAIGN year=1936 day_index=13 ui=1936-01-14 · allow_post=False · speed=1x CLI only · prior cohort 461/1042 N/A on new process · still NO ALLOW_POST / NO Post inject (2iw/2iy scripts not re-run).
+
+
