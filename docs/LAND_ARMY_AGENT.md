@@ -127,3 +127,11 @@ Attack-all3 @stack3 HIT×3; Cancel mid-hold×6; durable pocket FAIL (peel at Pos
 - Cancel light×1 + re-Move×1; Strategic fallback=0; Retreat/Instant PARKED; allow_post False; pid 31084 stable
 - Path-C ~98-99%; durable pocket still open (+0pp); AI-limited soft-fail option noted
 - Docs: docs/PHASE2IKQ_MOVE_HOP_ATTACK_ALL.md; script scripts/phase2ikq_move_hop_attack_all.py
+
+## PHASE2IKR (2026-11-02 Asia/Shanghai) — hybrid Strategic + anchor-Cancel + Attack-all
+- Result: G6_HYBRID_DURABLE_HIT HIT=true (durable_stack_ge2 held across Attack Post + observe)
+- Live retarget: 1037 gone; TRACK 1038/1045/1042; concentrate 7213; Attack 1886
+- Proven: Strategic HIT×1 + SKIP×2; Attack HIT×2 @stack2; hold_through_attack=true; durable early_stop=DURABLE_STACK_GE2
+- any_at_1886=false (pocket-at-attack-dest still open); Retreat/Instant PARKED; allow_post False; pid 31084
+- Path-C ~99%; +~0-1pp invent-free durable stack hold
+- Docs: docs/PHASE2IKR_STRATEGIC_ANCHOR_PEEL_ATTACK.md; script scripts/phase2ikr_strategic_anchor_peel_attack.py
