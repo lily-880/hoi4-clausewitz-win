@@ -117,11 +117,15 @@ def allow_write() -> bool:
 
 
 def allow_post() -> bool:
-    """Separate from allow_write. Must stay false until safe_enable_checklist closed."""
+    """Separate from allow_write. Requires CLAUSEWITZ_ALLOW_POST=1 AND Strategic-only tool-gate marker.
+
+    Marker path: research/strategic_only_tool_gate.OPEN (G5). Env alone is never enough.
+    NEVER_POST families (speed/HourlyTick/Ping/Pause) remain forbidden by callers.
+    """
     if _os.environ.get('CLAUSEWITZ_ALLOW_POST', '').strip() not in ('1', 'true', 'TRUE', 'yes'):
         return False
-    # Hard deny until an explicit future checklist file says closed — never auto-enable.
-    return False
+    marker = _os.path.join(ROOT, 'research', 'strategic_only_tool_gate.OPEN')
+    return _os.path.isfile(marker)
 
 
 def assert_post_allowed() -> None:

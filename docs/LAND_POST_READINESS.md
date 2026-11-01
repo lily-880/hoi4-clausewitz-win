@@ -300,6 +300,11 @@ See docs/PHASE2IJS_AGENT_STRATEGIC_CATALOG.md. Folds 2ijr + live Strategic recip
 
 See docs/PHASE2IJT_NONPOST_READINESS_FREEZE.md. Stack refresh stable; NON-Post ceiling HIT; sole unlock human G4. allow_post False. PathC ~60–62% (0pp; ~70% NOT crossed).
 
+
+### 2iju MINIMUM SAFE Strategic Post (G4→G5→G6)
+
+See docs/PHASE2IJU_MIN_SAFE_STRATEGIC_POST.md. User t52u authorized. G6 PATH_CONTAINS_DEST (1042→3986). Gates restored; allow_post False again. PathC estimate ~70–72% (HIT).
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -536,6 +541,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - **2ijr:** stack-depth/encircle-bias RO (concentration≈0.67, adjacency HONEST_EMPTY); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1pp; ~70% NOT crossed)
 - **2ijs:** agent-card + Strategic-only recipe catalog (5 samples + cancel-batch; posting DISABLED); NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed)
 - **2ijt:** NON-Post readiness freeze (ceiling HIT; stack refresh stable; sole unlock G4); NO Post; Instant PARKED; PathC ~60–62% honesty (0pp; ~70% NOT crossed)
+- **2iju:** G4+G5+G6 min safe Strategic Post HIT (PATH_CONTAINS_DEST 1042→3986); gates restored; PathC ~70–72% honesty
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
@@ -556,3 +562,5 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 *Phase 2ijs — agent-card + Strategic catalog — 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijt — NON-Post readiness freeze — 2026-11-01 Asia/Shanghai*
+
+*Phase 2iju — min safe Strategic Post — 2026-11-01 Asia/Shanghai*

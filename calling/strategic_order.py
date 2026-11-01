@@ -12,6 +12,7 @@ import struct
 from ctypes import wintypes as wt
 
 import post_abi
+from config import assert_post_allowed, allow_post
 from handle import HANDLE_TYPE_ARMY, resolve_handle
 from process import Backend, find_pid
 
@@ -180,6 +181,11 @@ def strategic_redeploy(army_index: int, province_id: int, dry_run: bool = False)
             "province": province_id,
             "path_before": before,
         }
+    # G4+G5 gate: live Post only when allow_post True (env + Strategic-only tool-gate)
+    assert_post_allowed()
+    if not allow_post():
+        return {"ok": False, "result": "ALLOW_POST_FALSE"}
+
     sess = _u64(b, base + post_abi.G_SESSION)
     posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1})
     if find_pid() != pid:

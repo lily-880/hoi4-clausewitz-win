@@ -154,6 +154,16 @@ Still blocks ALLOW_POST: **G2 live** 路 **G4** 路 **G5** 路 **G6**. G3 Instan
 - Docs: `docs/PHASE2IJT_NONPOST_READINESS_FREEZE.md`.
 - Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. Instant PARKED. Executor cannot flip G4.
 
+
+### 2iju MINIMUM SAFE Strategic Post (G4→G5→G6) — user t52u
+
+- **G4:** CLAUSEWITZ_ALLOW_POST=1 in Post Python process (env alone insufficient).
+- **G5:** Strategic-only tool-gate via `research/strategic_only_tool_gate.OPEN`; `allow_post()` True only with env+marker.
+- **G6:** ONE Strategic Redeploy HIT — `PATH_CONTAINS_DEST` army 1042 → dest 3986; factory 4753; @1x; NEVER 5x.
+- Gates **restored** after one-shot (env cleared, marker removed, allow_post False).
+- Docs: `docs/PHASE2IJU_MIN_SAFE_STRATEGIC_POST.md`.
+- `config.allow_post` now checks env + marker (not hard-False forever).
+
 ### Not progress
 
 PATH/OG50-only densify 路 Instant empty re-polls 路 midflight empty re-polls 路 Capstone/121 路 Assign quiet endless polls.
@@ -502,3 +512,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijs — agent-card + Strategic catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijt — NON-Post readiness freeze. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2iju — G4/G5/G6 min safe Strategic Post HIT; gates restored. 2026-11-01 Asia/Shanghai*

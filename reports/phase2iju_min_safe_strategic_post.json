@@ -1,0 +1,215 @@
+{
+  "phase": "2iju",
+  "result": "G6_STRATEGIC_POST_HIT",
+  "authorization": "user t52u / pt52u \u2014 CLAUSEWITZ_ALLOW_POST + minimum safe Post verification",
+  "speed_policy": "pause-or-1x only; NEVER 5x; no speed write this slice",
+  "live0": {
+    "pid": 31788,
+    "year": 1937,
+    "day_index": 22,
+    "ui_date": "1937-01-23",
+    "clock_class": "CONTINUOUS",
+    "drain": 331837,
+    "exec": 82402,
+    "pending": 0,
+    "stage": 0,
+    "gate725": 1,
+    "seq": 82535,
+    "allow_post": false
+  },
+  "g4": {
+    "before_allow_post": false,
+    "set": {
+      "how": "os.environ CLAUSEWITZ_ALLOW_POST=1 in this Python process",
+      "value": "1"
+    },
+    "env_only_allow_post": false,
+    "note": "Env alone insufficient; marker required (G5)"
+  },
+  "g5": {
+    "before": {
+      "allow_post": false,
+      "tool_gate": "CLOSED_NOT_OPENED"
+    },
+    "after": {
+      "allow_post": true,
+      "tool_gate": "OPEN_STRATEGIC_ONLY",
+      "open": {
+        "marker": "C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\research\\strategic_only_tool_gate.OPEN",
+        "checklist_before": {
+          "id": "command_queue_tool_gate",
+          "status": "CLOSED_NOT_OPENED",
+          "note": "DISABLED; CLOSED_NOT_OPENED. See docs/SAFE_POST_ENABLE_CHECKLIST.md (Phase 2en). Midflight+ALLOW_POST+recreate still block."
+        },
+        "checklist_after": "OPEN_STRATEGIC_ONLY"
+      }
+    }
+  },
+  "g6": {
+    "src_army": 1042,
+    "src_province": 6841,
+    "dest_pool": [
+      3986,
+      813,
+      4095,
+      3954,
+      3810,
+      10111,
+      11819,
+      4065,
+      3816,
+      9764,
+      11807,
+      11956
+    ],
+    "trials": [
+      {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "army": 1042,
+        "province": 3986,
+        "path_before": [
+          9767,
+          3938,
+          858,
+          9881,
+          6832
+        ]
+      }
+    ],
+    "chosen": {
+      "ok": true,
+      "result": "DRY_RUN_VALID",
+      "army": 1042,
+      "province": 3986,
+      "path_before": [
+        9767,
+        3938,
+        858,
+        9881,
+        6832
+      ]
+    },
+    "post": {
+      "ok": true,
+      "result": "PATH_CONTAINS_DEST",
+      "army": 1042,
+      "province": 3986,
+      "post_rax": 1,
+      "path_before": [
+        9767,
+        3938,
+        896,
+        3986
+      ],
+      "path_after": [
+        9767,
+        3938,
+        896,
+        3986
+      ]
+    },
+    "observe": {
+      "pre": {
+        "pid": 31788,
+        "year": 1937,
+        "day_index": 22,
+        "ui_date": "1937-01-23",
+        "clock_class": "CONTINUOUS",
+        "drain": 331897,
+        "exec": 82404,
+        "pending": 0,
+        "stage": 0,
+        "gate725": 1,
+        "seq": 82537,
+        "allow_post": true
+      },
+      "src_pre": {
+        "index": 1042,
+        "army": "0x19fc683ef50",
+        "province": 6841
+      },
+      "immediate": {
+        "pid": 31788,
+        "year": 1937,
+        "day_index": 22,
+        "ui_date": "1937-01-23",
+        "clock_class": "CONTINUOUS",
+        "drain": 332079,
+        "exec": 82476,
+        "pending": 0,
+        "stage": 0,
+        "gate725": 1,
+        "seq": 82609,
+        "allow_post": true
+      },
+      "src_immediate": {
+        "index": 1042,
+        "army": "0x19fc683ef50",
+        "province": 6841
+      },
+      "later": {
+        "pid": 31788,
+        "year": 1937,
+        "day_index": 23,
+        "ui_date": "1937-01-24",
+        "clock_class": "CONTINUOUS",
+        "drain": 332307,
+        "exec": 82600,
+        "pending": 0,
+        "stage": 0,
+        "gate725": 1,
+        "seq": 82733,
+        "allow_post": true
+      },
+      "src_later": {
+        "index": 1042,
+        "army": "0x19fc683ef50",
+        "province": 6841
+      },
+      "drain_delta": 182,
+      "exec_delta": 72,
+      "seq_delta": 72,
+      "province_changed": false,
+      "path_before": [
+        9767,
+        3938,
+        896,
+        3986
+      ],
+      "path_after": [
+        9767,
+        3938,
+        896,
+        3986
+      ]
+    }
+  },
+  "gates_restored": {
+    "env_cleared": true,
+    "marker_exists": false,
+    "allow_post": false
+  },
+  "final_allow_post": false,
+  "factory": {
+    "factory_idx": 4753,
+    "factory_rva": "0x13FB580",
+    "type": "CStrategicRedeploymentCommand"
+  },
+  "hard_rules": [
+    "ONE Strategic Post only",
+    "never 5x",
+    "no Instant/PATH densify",
+    "no invent org/str/theater/adjacency/controller_tag",
+    "gates restored after one-shot"
+  ],
+  "path_c_honesty": {
+    "baseline_band": "~60-62%",
+    "this_slice_pp": "+8-12pp if G6 HIT (first gated Strategic Post); else 0-2pp gate plumbing only",
+    "crossed_70": true,
+    "note": "Cross ~70% only if G6 shows PATH_CONTAINS_DEST or clear order effect; honest update below",
+    "estimate_after": "~70-72%"
+  },
+  "next_shortest_blocker": "If G6 HIT: harden observe/retry Strategic at war or Move path; if FAIL: fix IsValid dest selection / ring push. Instant still PARKED.",
+  "timestamp_asia_shanghai": "2026-11-01 22:03:12 Asia/Shanghai"
+}
