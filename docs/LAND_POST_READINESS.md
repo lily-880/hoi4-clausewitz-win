@@ -241,6 +241,12 @@ See `docs/PHASE2IJH_AGENT_CARD_READY_PARKED_DENY.md`. Folds 2ijf denser2 MULTI_H
 See `docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md`. Turns 2ijh READY/PARKED/HARD_DENY into enable gates **G1–G6**. Perception READY ≠ allow Post. Missing: midflight CMove (G1), ring_embed live (G2), Instant wartime (G3), human ALLOW_POST (G4), tool-gate (G5), one Post (G6). PathC ~60% honesty.
 
 
+
+### 2ijj G1 Strategic-only acceptance (catalog)
+
+See `docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md`. Live Strat factory **4753 MATCH** + VT FN MATCH; offline 2fd bit_identical + 2gk DESIGN. G1 alternate to midflight CMove for SAFE Post *discussion* — **G2/G4/G5/G6 still block**. allow_post False. PathC ~60% honesty.
+
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -454,6 +460,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2ijg PATH200/OG50 track2 (Instant PARKED):** result=PATH200_OG50_TRACK2_MULTI_STABLE · CONTINUOUS day≈144 · multi_n=1 stable 2643→[3945,2679] oi=448 · new_dest=[] · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJG_PATH200_OG50_TRACK2.md
 **2ijh agent-card consolidate (NO PATH densify):** result=AGENT_CARD_READY_PARKED_DENY_CONSOLIDATE · READY/PARKED/HARD_DENY card · diminishing-returns note on PATH/OG50 · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJH_AGENT_CARD_READY_PARKED_DENY.md
 **2iji SAFE-Post gate checklist (NO Post):** result=SAFE_POST_GATE_CHECKLIST_POLISH · G1–G6 missing matrix · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md
+**2ijj G1 Strategic-only acceptance:** result=G1_STRATEGIC_ONLY_ACCEPTANCE_PATH_HIT · Strat4753+FN MATCH · G1 alternate to CMove · G2/G4+ still block · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md
 
 
 

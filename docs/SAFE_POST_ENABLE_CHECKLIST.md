@@ -43,12 +43,28 @@ Clock/queue · PATH200 multi STABLE 2643→[3945,2679] oi=448 · OG+0x50 proxy (
 
 | ID | Gate | State |
 | --- | --- | --- |
-| G1 | Midflight CMove hex (+ embed) OR Strategic-only human path | STUBBED / MISSING |
+| G1 | Midflight CMove hex (+ embed) OR **Strategic-only acceptance** | **ACCEPTABLE via Strategic-only (2ijj)** — CMove still STUBBED; does not enable Post |
 | G2 | ring_embed live on sample (2fb/2gk) | STUBBED design |
 | G3 | Instant×PATH wartime / human midflight Instant | PARKED peacetime |
 | G4 | Human CLAUSEWITZ_ALLOW_POST=1 once | HARD_DENY until human |
 | G5 | Tool-gate open + NEVER_POST | CLOSED_NOT_OPENED |
 | G6 | ONE Strategic/Move Post @1x; verify; unset | FORBIDDEN now |
+
+
+### G1 update (2ijj) — Strategic-only acceptance alternate
+
+**Catalog-only. Gate still CLOSED. allow_post False.**
+
+Ordinary midflight CMove hex remains STUBBED, but **G1 may be accepted via Strategic-only path** when:
+
+- offline Strategic rebuild **bit_identical PASS** (2fd; factory_idx **4753**, type_id `0x35b9`, size `0x50`)
+- recipe **v2 DESIGN** (2gk) — execution / live ring_embed still **STUBBED**
+- live Strat factory **4753 MATCH** + VT FN MATCH (**2ijj HIT** on pid continuum)
+
+See `docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md`.
+
+Still blocks ALLOW_POST: **G2** ring_embed live · **G4** human env · **G5** tool-gate · **G6** one Strategic Post @1x. Instant (G3) PARKED (Move/Instant path).
+
 
 ### Not progress
 
@@ -357,6 +373,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 - **2ijg:** PATH200/OG50 track2; MULTI_STABLE multi 2643→[3945,2679]; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2ijh:** agent-card READY/PARKED/HARD_DENY consolidate; NO PATH densify; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2iji:** SAFE Post gate checklist G1–G6 from agent card; NO PATH densify; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
+- **2ijj:** G1 Strategic-only acceptance PATH_HIT; Strat4753+FN MATCH live; CMove midflight still STUBBED; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 
 ### HARD_DENY unchanged
 
@@ -368,7 +385,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 ### Exact next human-gated (unchanged order)
 
 ```
-[ ] G1 Midflight CMove hex OR accept Strategic-only path with human SAFE Post for ring_embed
+[~] G1 Strategic-only ACCEPTABLE (2ijj live 4753+FN MATCH + 2fd/2gk) — CMove hex still optional; does NOT enable Post
 [ ] G2 ring_embed live proof on captured sample (still STUBBED)
 [ ] G3 Instant×PATH wartime/midflight if Move path needs Instant (peacetime PARKED)
 [ ] G4 Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
