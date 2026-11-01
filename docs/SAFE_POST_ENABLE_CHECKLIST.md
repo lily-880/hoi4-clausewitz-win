@@ -86,6 +86,16 @@ Single READY/PARKED/HARD_DENY card after G1 Strategic-only ACCEPTABLE (2ijj) + G
 Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. G3 Instant PARKED. Executor cannot flip G4.
 
 
+### 2ijm factory/Post-ABI/clock RO reaffirm (catalog)
+
+**Gate remains CLOSED. allow_post False. No Post.**
+
+- Result=`FACTORY_POSTABI_CLOCK_RO_HIT` · factory/FN=True/True · Strat4753=True · post_abi/ov const_match=True mismatch=0 · ring INLINE server_vt_match=True.
+- Live: pid 31788 day_index=241 ui=1936-08-29 drain=207022 exec=54560.
+- G4–G6 remaining human gates catalogued (executor cannot flip G4). Docs: `docs/PHASE2IJM_FACTORY_POSTABI_CLOCK_RO.md`.
+- PathC ~60–62%; ≤+1–2pp; ~70% NOT crossed.
+
+
 ### Not progress
 
 PATH/OG50-only densify · Instant empty re-polls · midflight empty re-polls · Capstone/121 · Assign quiet endless polls.
@@ -418,3 +428,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijk — G2 ring_embed RO prep. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijl — agent card G1+G2 fold. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijm — factory/Post-ABI/clock RO. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*

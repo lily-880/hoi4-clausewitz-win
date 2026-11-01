@@ -259,6 +259,12 @@ See `docs/PHASE2IJL_AGENT_CARD_G1G2_FOLD.md`. Folds **2ijj G1 ACCEPTABLE** + **2
 - **Path C honesty (t50u):** still ~60–62%; this fold ≤+1–2pp clarity; ~70% NOT crossed (G2 live / G4+).
 
 
+### 2ijm factory/Post-ABI/clock RO (catalog)
+
+See `docs/PHASE2IJM_FACTORY_POSTABI_CLOCK_RO.md`. Live reaffirm factory/FN/Strat4753 + post_abi↔offsets_verified + Dummy INLINE ring; G4–G6 human gates restated. allow_post False. pid 31788 day_index=241 ui=1936-08-29.
+PathC ~60–62%; ~70% NOT crossed.
+
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -487,7 +493,10 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 - **2ijk:** G2 ring_embed RO prep INLINE_BLOB + SAFE needs catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp readiness clarity; ~70% NOT crossed; G2 live/G4+ still block).
 - **2ijl:** agent card fold G1 ACCEPTABLE + G2 RO prep; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
+- **2ijm:** factory/Post-ABI/clock RO reaffirm; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijl · agent card G1+G2 fold · 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijm · factory/Post-ABI/clock RO · 2026-11-01 Asia/Shanghai*
