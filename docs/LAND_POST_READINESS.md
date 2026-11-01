@@ -275,6 +275,11 @@ See docs/PHASE2IJN_ARMY_SUBJECT_STRATEGIC_RO.md. Live ITA CArmy subjects **58/58
 
 See docs/PHASE2IJO_PUSH_SYNC_AGENT_CATALOG.md. Push SUCCESS 40d7716..c342a89; agent card folds 2ijn 58/58 subjects + G1–G6. allow_post False. PathC ~60–62% (0pp capability; ~70% NOT crossed).
 
+
+### 2ijp army→province occupancy map RO (catalog)
+
+See docs/PHASE2IJP_ARMY_PROVINCE_MAP_RO.md. ITA 58 armies → 37 provinces; multi=18 max_stack=3; proven CA/CP fields only. Theater/frontline live STUBBED. allow_post False. PathC ~60–62% (≤+1–2pp; ~70% NOT crossed).
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -505,7 +510,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - **2ijl:** agent card fold G1 ACCEPTABLE + G2 RO prep; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 - **2ijm:** factory/Post-ABI/clock RO reaffirm
 - **2ijn:** ITA army-subject 58/58
-- **2ijo:** push-sync SUCCESS 40d7716..c342a89 + agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp capability; ~70% NOT crossed) + Strategic recipes DISABLED; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed); org/str hyp NOT invented; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
+- **2ijo:** push-sync SUCCESS
+- **2ijp:** army→province occupancy map 58→37 (multi=18 max_stack=3); NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed) 40d7716..c342a89 + agent catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (0pp capability; ~70% NOT crossed) + Strategic recipes DISABLED; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed); org/str hyp NOT invented; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
@@ -516,3 +522,5 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 *Phase 2ijn — army-subject Strategic RO — 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijo — push-sync + agent catalog — 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijp — army→province map RO — 2026-11-01 Asia/Shanghai*
