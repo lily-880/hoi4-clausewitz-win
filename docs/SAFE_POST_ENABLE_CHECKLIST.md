@@ -592,3 +592,7 @@ Move ucrt_malloc one-shot: **G6_MOVE_UCRT_MALLOC_STABLE_HIT**. province_buf_kind
 
 ## 2ika (2026-11-01 22:59:59 Asia/Shanghai)
 Cancel 1415 gated one-shot: **G6_CANCEL_1415_PATH_CLEARED_HIT**. allow_post restored False.
+
+
+## 2ikb (2026-11-01 23:03:37 Asia/Shanghai)
+Attack PARKED peacetime (war={'status': 'PEACETIME_NO_WAR_DETECTED', 'evidence': 'offsets_verified has no war keys; ITA 1936 Feb peacetime; declare console not Post-proven', 'attack': 'PARKED'}). Multi-army Cancel: **G6_CANCEL_MULTI2_PATH_CLEARED_HIT**. Land loop (proven Posts): Move1402(ucrt) → Cancel1415(ucrt units) → Strategic4753(inline); Attack3620 PARKED until war; Instant PARKED. allow_post False.

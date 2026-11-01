@@ -1,9 +1,11 @@
 """One proven Windows post: CCancelMovementCommand (factory idx 1415).
 
 Factory 0x13FACE0 builds CCancelMovementCommand. Units vector at +0x28 (Qii:
-ptr/size/cap) holds CHandle{type=0x33,index}. Live units buffer MUST be
+ptr/size/cap) holds CHandle{type=0x33,index}[]. Live units buffer MUST be
 ucrtbase!malloc (same heap lesson as Move 2ijy/2ijz). IsValid RVA 0x13FED40
 (rcx=cmd). Post: FN_CMD_QUEUE_POST.
+
+Phase 2ikb: multi-army Cancel via army_indices list.
 """
 from __future__ import annotations
 
@@ -20,23 +22,40 @@ FACTORY_IDX = 1415
 ISVALID_RVA = 0x13FED40
 CANCEL_VT = 0x2A2C9B8
 ARMY_VT = 0x29D6D68
-PATH_OFF = 0x200
 HANDLE_TYPE = 0x33
-UNITS_OFF = 0x28  # Qii ptr,size,cap
+UNITS_OFF = 0x28
 STICKY_OFF = 0x40
 
 
-def cancel_movement(army_index: int, dry_run: bool = False) -> dict:
-    """Post CancelMovement for one army, or IsValid-only when dry_run."""
+def _as_indices(army_index=None, army_indices=None) -> list[int]:
+    if army_indices is not None:
+        out = [int(x) for x in army_indices]
+    elif army_index is not None:
+        out = [int(army_index)]
+    else:
+        out = []
+    if not out:
+        raise ValueError("army_index or army_indices required")
+    return out
+
+
+def cancel_movement(army_index: int | None = None, dry_run: bool = False, army_indices=None) -> dict:
+    """Post CancelMovement for one or more armies, or IsValid-only when dry_run."""
+    indices = _as_indices(army_index, army_indices)
     pid = find_pid()
     if not pid:
         return {"ok": False, "result": "NO_PROCESS"}
     b = Backend()
     base = b.image_base
-    army = resolve_handle(b, HANDLE_TYPE_ARMY, army_index, base)
-    if not army or mo._u64(b, army) - base != ARMY_VT:
-        return {"ok": False, "result": "ARMY_NOT_FOUND", "army": army_index}
-    before = mo._path(b, base, army)
+
+    resolved = []
+    path_before = {}
+    for idx in indices:
+        army = resolve_handle(b, HANDLE_TYPE_ARMY, idx, base)
+        if not army or mo._u64(b, army) - base != ARMY_VT:
+            return {"ok": False, "result": "ARMY_NOT_FOUND", "army": idx, "armies": indices}
+        resolved.append((idx, army))
+        path_before[idx] = mo._path(b, base, army)
 
     made = mo._remote(pid, base + FACTORY_RVA, wait_ms=5000)
     cmd = made["rax"]
@@ -50,20 +69,20 @@ def cancel_movement(army_index: int, dry_run: bool = False) -> dict:
             "expect": hex(CANCEL_VT),
         }
 
+    n = len(indices)
     buf = 0
     buf_kind = "none"
     try:
-        # one CHandle = u32 type + u32 index
+        nbytes = max(16, n * 8)
         if dry_run:
-            buf = mo._alloc(pid, 0x1000)
+            buf = mo._alloc(pid, max(0x1000, nbytes))
             buf_kind = "virtualalloc"
         else:
-            buf = mo._game_malloc(pid, 16)
+            buf = mo._game_malloc(pid, nbytes)
             buf_kind = "ucrt_malloc"
-        mo._write(pid, buf, struct.pack("<II", HANDLE_TYPE, int(army_index)))
-        # vector Qii at +0x28
-        mo._write(pid, cmd + UNITS_OFF, struct.pack("<Qii", buf, 1, 1))
-        # leave sticky as factory default (read for report)
+        blob = b"".join(struct.pack("<II", HANDLE_TYPE, int(idx)) for idx in indices)
+        mo._write(pid, buf, blob)
+        mo._write(pid, cmd + UNITS_OFF, struct.pack("<Qii", buf, n, n))
         sticky = b.read(cmd + STICKY_OFF, 1)[0]
 
         valid = mo._remote(pid, base + ISVALID_RVA, {"rcx": cmd}, wait_ms=5000)
@@ -72,11 +91,12 @@ def cancel_movement(army_index: int, dry_run: bool = False) -> dict:
             return {
                 "ok": False,
                 "result": "ISVALID_FALSE",
-                "army": army_index,
+                "armies": indices,
                 "isvalid": isvalid,
-                "path_before": before,
+                "path_before": path_before,
                 "factory_idx": FACTORY_IDX,
                 "units_buf_kind": buf_kind,
+                "units_count": n,
                 "sticky": sticky,
                 "call": valid,
             }
@@ -84,10 +104,11 @@ def cancel_movement(army_index: int, dry_run: bool = False) -> dict:
             return {
                 "ok": True,
                 "result": "DRY_RUN_VALID",
-                "army": army_index,
-                "path_before": before,
+                "armies": indices,
+                "path_before": path_before,
                 "factory_idx": FACTORY_IDX,
                 "units_buf_kind": buf_kind,
+                "units_count": n,
                 "sticky": sticky,
             }
 
@@ -106,31 +127,37 @@ def cancel_movement(army_index: int, dry_run: bool = False) -> dict:
             return {
                 "ok": False,
                 "result": "PROCESS_EXITED",
-                "army": army_index,
-                "path_before": before,
+                "armies": indices,
+                "path_before": path_before,
                 "units_buf_kind": buf_kind,
             }
         b = Backend()
-        army = resolve_handle(b, HANDLE_TYPE_ARMY, army_index, base)
-        after = mo._path(b, base, army) if army else []
-        # Cancel evidence: path cleared (was nonempty) or became empty
-        cleared = bool(before) and not after
-        stopped = (not after) and bool(before)
+        path_after = {}
+        cleared_map = {}
+        for idx, _ in resolved:
+            army = resolve_handle(b, HANDLE_TYPE_ARMY, idx, base)
+            after = mo._path(b, base, army) if army else []
+            path_after[idx] = after
+            cleared_map[idx] = bool(path_before.get(idx)) and not after
+        all_cleared = all(cleared_map.values()) and any(path_before.values())
+        any_cleared = any(cleared_map.values())
         return {
-            "ok": bool(cleared or posted.get("wait") == 0),
+            "ok": bool(all_cleared or (any_cleared and posted.get("wait") == 0)),
             "result": (
-                "PATH_CLEARED"
-                if cleared
-                else ("POSTED_PATH_STILL_SET" if after else "POSTED_PATH_EMPTY_WAS_EMPTY")
+                "PATH_CLEARED_ALL"
+                if all_cleared
+                else ("PATH_CLEARED_PARTIAL" if any_cleared else "POSTED_PATH_STILL_SET")
             ),
-            "army": army_index,
+            "armies": indices,
             "post_rax": posted["rax"] & 0xFF,
             "post_wait": posted["wait"],
-            "path_before": before,
-            "path_after": after,
-            "path_cleared": cleared,
+            "path_before": path_before,
+            "path_after": path_after,
+            "path_cleared_map": cleared_map,
+            "path_cleared": all_cleared,
             "factory_idx": FACTORY_IDX,
             "units_buf_kind": buf_kind,
+            "units_count": n,
             "sticky": sticky,
             "stub_meta": {
                 "wait": posted.get("wait"),

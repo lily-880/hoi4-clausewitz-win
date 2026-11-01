@@ -88,3 +88,10 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 ## 2ika fold (2026-11-01 22:59:59 Asia/Shanghai)
 - Cancel 1415: G6_CANCEL_1415_PATH_CLEARED_HIT.
 - Move ucrt STABLE (2ijz). Strategic prior HIT. Instant/Attack PARKED peacetime.
+
+
+## 2ikb fold (2026-11-01 23:03:37 Asia/Shanghai)
+- War: PEACETIME_NO_WAR_DETECTED — Attack **PARKED**.
+- Multi-Cancel 1415: G6_CANCEL_MULTI2_PATH_CLEARED_HIT.
+- Agent land command loop: Move → Cancel → Strategic (all Post-HIT class); encirclement bias RO prior; Attack when wartime.
+- Instant PARKED. allow_post default False.

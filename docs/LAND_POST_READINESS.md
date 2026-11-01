@@ -625,3 +625,7 @@ G6 Move with ucrt malloc: G6_MOVE_UCRT_MALLOC_STABLE_HIT. Next: Cancel 1415 if H
 
 ## 2ika (2026-11-01 22:59:59 Asia/Shanghai)
 CancelMovement factory 1415: G6_CANCEL_1415_PATH_CLEARED_HIT. Instant PARKED; Attack peacetime PARKED.
+
+
+## 2ikb (2026-11-01 23:03:37 Asia/Shanghai)
+G6_CANCEL_MULTI2_PATH_CLEARED_HIT. War detect: no ov war keys; peacetime ITA. Attack3620 not opened. Multi-Cancel units_count=2.
