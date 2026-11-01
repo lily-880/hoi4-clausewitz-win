@@ -621,3 +621,7 @@ G6 Move PATH_CONTAINS_DEST again; CRT stability open (heap). Next: ucrt_malloc l
 
 ## 2ijz (2026-11-01 22:56:16 Asia/Shanghai)
 G6 Move with ucrt malloc: G6_MOVE_UCRT_MALLOC_STABLE_HIT. Next: Cancel 1415 if HIT else heap/alloc follow-up.
+
+
+## 2ika (2026-11-01 22:59:59 Asia/Shanghai)
+CancelMovement factory 1415: G6_CANCEL_1415_PATH_CLEARED_HIT. Instant PARKED; Attack peacetime PARKED.

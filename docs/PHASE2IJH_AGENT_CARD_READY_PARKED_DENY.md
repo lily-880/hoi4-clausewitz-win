@@ -83,3 +83,8 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 ## 2ijz fold (2026-11-01 22:56:16 Asia/Shanghai)
 - Move Post ucrt_malloc: G6_MOVE_UCRT_MALLOC_STABLE_HIT.
 - Instant PARKED. Attack PARKED peacetime. allow_post default False.
+
+
+## 2ika fold (2026-11-01 22:59:59 Asia/Shanghai)
+- Cancel 1415: G6_CANCEL_1415_PATH_CLEARED_HIT.
+- Move ucrt STABLE (2ijz). Strategic prior HIT. Instant/Attack PARKED peacetime.

@@ -588,3 +588,7 @@ Move PATH HIT reaffirm; exit **0xC0000374**. Stub-leak shipped; ucrt malloc stag
 
 ## 2ijz (2026-11-01 22:56:16 Asia/Shanghai)
 Move ucrt_malloc one-shot: **G6_MOVE_UCRT_MALLOC_STABLE_HIT**. province_buf_kind=ucrt_malloc for live Post. allow_post restored False.
+
+
+## 2ika (2026-11-01 22:59:59 Asia/Shanghai)
+Cancel 1415 gated one-shot: **G6_CANCEL_1415_PATH_CLEARED_HIT**. allow_post restored False.
