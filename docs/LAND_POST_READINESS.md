@@ -435,6 +435,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2ijd PATH200/OG50 denser (Instant PARKED):** result=PATH200_OG50_DENSE_HIT · CONTINUOUS day≈106 · multi_n=0 (2683 cleared) · new_ois=[495,503] · OG50 448=24 450=7 · no Instant dig · allow_post=False · see docs/PHASE2IJD_PATH200_OG50_DENSE.md
 **2ije PATH200/OG50 track (Instant PARKED):** result=PATH200_OG50_TRACK_MULTI_HIT · CONTINUOUS day≈113 · multi_n=1 2649→[832,415] oi=448 · new_dest=832 new_oi=504 · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJE_PATH200_OG50_TRACK.md
 **2ijf PATH200/OG50 denser2 (Instant PARKED):** result=PATH200_OG50_DENSE2_MULTI_HIT · CONTINUOUS day≈127 · multi_n=1 2643→[3945,2679] oi=448 · new_dest=2679 · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJF_PATH200_OG50_DENSE2.md
+**2ijg PATH200/OG50 track2 (Instant PARKED):** result=PATH200_OG50_TRACK2_MULTI_STABLE · CONTINUOUS day≈144 · multi_n=1 stable 2643→[3945,2679] oi=448 · new_dest=[] · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJG_PATH200_OG50_TRACK2.md
 
 
 
