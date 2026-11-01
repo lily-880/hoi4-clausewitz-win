@@ -225,6 +225,16 @@ Instant VT false on peacetime path OIs (65/450/448/…). Do not Instant-empty re
 **Status: CLOSED — allow_post False · tool-gate CLOSED · recipes NOT executed · never 5x.**
 Folds §6b–§6e + **2ha** Assign FN/factory + **2hb** MOVE-family FN/factory + OG50 into one land-agent card.
 
+
+### 2ijh agent card — READY / PARKED / HARD_DENY (catalog)
+
+See `docs/PHASE2IJH_AGENT_CARD_READY_PARKED_DENY.md`. Folds 2ijf denser2 MULTI_HIT + 2ijg TRACK2 **MULTI_STABLE** + Instant peacetime PARK + midflight ceiling + Post CLOSED into one agent-facing card.
+
+- **READY:** clock/queue health; PATH200@+0x60; OG+0x50 membership proxy (name stubbed); multi STABLE 2643→[3945,2679] oi=448; factory/VT FN MATCH catalogs; PATH≠Inst honesty; INST_VT/CP_VT catalog-only.
+- **PARKED:** Instant/Inst70/ARR88/tri70 empty re-polls; peacetime Instant×PATH; non-interactive midflight re-polls; Assign oi≠0 quiet; **further PATH/OG50-only densify (diminishing returns)**.
+- **HARD_DENY:** allow_post / Post inject / ring_embed live / 2fb/2gk execute / tool-gate / 5x / invent field names / Capstone/121.
+- **Path C honesty (t50u):** still ~60%; this consolidate ≠ +10pp; ~70% needs Instant or SAFE Post/midflight — not more PATH polish.
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -436,6 +446,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2ije PATH200/OG50 track (Instant PARKED):** result=PATH200_OG50_TRACK_MULTI_HIT · CONTINUOUS day≈113 · multi_n=1 2649→[832,415] oi=448 · new_dest=832 new_oi=504 · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJE_PATH200_OG50_TRACK.md
 **2ijf PATH200/OG50 denser2 (Instant PARKED):** result=PATH200_OG50_DENSE2_MULTI_HIT · CONTINUOUS day≈127 · multi_n=1 2643→[3945,2679] oi=448 · new_dest=2679 · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJF_PATH200_OG50_DENSE2.md
 **2ijg PATH200/OG50 track2 (Instant PARKED):** result=PATH200_OG50_TRACK2_MULTI_STABLE · CONTINUOUS day≈144 · multi_n=1 stable 2643→[3945,2679] oi=448 · new_dest=[] · PathC progress honesty ~60% (not +10pp) · allow_post=False · see docs/PHASE2IJG_PATH200_OG50_TRACK2.md
+**2ijh agent-card consolidate (NO PATH densify):** result=AGENT_CARD_READY_PARKED_DENY_CONSOLIDATE · READY/PARKED/HARD_DENY card · diminishing-returns note on PATH/OG50 · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJH_AGENT_CARD_READY_PARKED_DENY.md
 
 
 

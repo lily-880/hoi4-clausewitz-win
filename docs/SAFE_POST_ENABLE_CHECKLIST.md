@@ -324,6 +324,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 - **2ije:** PATH200/OG50 track; multi_n=1 new_dest 832 oi=504; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2ijf:** PATH200/OG50 denser2; multi_n=1 new_dest 2679 oi=448; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2ijg:** PATH200/OG50 track2; MULTI_STABLE multi 2643→[3945,2679]; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
+- **2ijh:** agent-card READY/PARKED/HARD_DENY consolidate; NO PATH densify; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 
 ### HARD_DENY unchanged
 
