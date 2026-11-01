@@ -74,7 +74,7 @@ def _k32():
     return k
 
 
-def _remote(pid: int, fn: int, regs: dict | None = None) -> dict:
+def _remote(pid: int, fn: int, regs: dict | None = None, wait_ms: int = 3000) -> dict:
     k = _k32()
     access = (
         PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION
@@ -98,7 +98,7 @@ def _remote(pid: int, fn: int, regs: dict | None = None) -> dict:
         th = k.CreateRemoteThread(hp, None, 0, ctypes.c_void_p(mem), None, 0, ctypes.byref(tid))
         if not th:
             raise OSError(ctypes.get_last_error(), "CreateRemoteThread failed")
-        wait = k.WaitForSingleObject(th, 3000)
+        wait = k.WaitForSingleObject(th, int(wait_ms))
         k.CloseHandle(th)
         out = ctypes.c_uint64(0)
         nread = ctypes.c_size_t(0)
@@ -176,7 +176,7 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
     if not army or _u64(b, army) - base != ARMY_VT:
         return {"ok": False, "result": "ARMY_NOT_FOUND", "army": army_index}
     before = _path(b, base, army)
-    made = _remote(pid, base + FACTORY_RVA)
+    made = _remote(pid, base + FACTORY_RVA, wait_ms=5000)
     cmd = made["rax"]
     if made["wait"] != 0 or cmd < 0x10000:
         return {"ok": False, "result": "FACTORY_FAIL", "call": made}
@@ -220,7 +220,7 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
             return {"ok": False, "result": "ALLOW_POST_FALSE"}
 
         sess = _u64(b, base + post_abi.G_SESSION)
-        posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1})
+        posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1}, wait_ms=20000)
         if find_pid() != pid:
             return {"ok": False, "result": "PROCESS_EXITED"}
         b = Backend()

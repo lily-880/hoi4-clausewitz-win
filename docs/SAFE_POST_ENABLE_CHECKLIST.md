@@ -552,3 +552,18 @@ Marker: `research/safe_land_tool_gate.OPEN` (Move+Strategic). Restored CLOSED af
 | G5 | OPEN_SAFE_LAND_MOVE_STRATEGIC then CLOSED_NOT_OPENED |
 | G6-Move | TIMEOUT — IsValid dry HIT; live Post wait=258; no PATH_CONTAINS_DEST |
 
+
+---
+
+## Phase 2ijx — Move Post timeout diagnosis + one fixed retry
+
+**Result:** `G6_MOVE_POST_HIT`
+
+| ID | State |
+| --- | --- |
+| G4 | PROVEN_ONCE env then restored |
+| G5 | OPEN_SAFE_LAND then CLOSED |
+| G6-Move | G6_MOVE_POST_HIT — Post wait_ms=20000; see reports/phase2ijx_move_post_timeout_diag.json |
+
+Diagnosis vs 2iju Strategic: same FN_CMD_QUEUE_POST(session,cmd,r8=1); Move uses remote province arr; 2ijw timed out at 3s; this slice longer wait + exec_6cc clear.
+

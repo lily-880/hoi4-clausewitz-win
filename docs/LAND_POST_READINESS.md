@@ -592,3 +592,14 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - Live Post: WAIT_TIMEOUT(258) on FN_CMD_QUEUE_POST; path empty; province 6906 unchanged → **G6_MOVE_POST_TIMEOUT**
 - Instant PARKED; Attack/Cancel not opened this slice
 
+
+---
+
+## Section 2ijx — Move FN_CMD_QUEUE_POST timeout diag + retry
+
+- Diff vs Strategic 2iju: Strategic inline province at cmd+0x38; Move VirtualAllocEx province_arr at emb+0x18
+- Both: FN_CMD_QUEUE_POST rcx=session rdx=cmd r8=1; gate725 often 1
+- Fix tried: WaitForSingleObject Post=20000ms; wait exec_6cc clear; no invented pause-mem
+- Evidence: {'ok': True, 'result': 'PATH_CONTAINS_DEST', 'army': 1042, 'province': 3931, 'post_rax': 0, 'post_wait': 258, 'path_before': [], 'path_after': [9896, 13222, 3909, 11737, 3816, 6901, 9842, 3931], 'factory_idx': 1402}
+- Instant PARKED
+

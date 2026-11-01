@@ -1,5 +1,5 @@
 {
-  "phase": "2ijw",
+  "phase": "2ijx",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -63,19 +63,17 @@
     {
       "id": "command_queue_tool_gate",
       "status": "CLOSED_NOT_OPENED",
-      "note": "Re-closed after 2ijw Move one-shot; reopen only with human ALLOW_POST + marker",
+      "note": "Re-closed after 2ijx Move timeout-diag one-shot",
       "proven_once": {
         "phase": "2iju",
         "mode": "OPEN_STRATEGIC_ONLY",
         "restored": true
       },
       "proven_once_move": {
-        "phase": "2ijw",
+        "phase": "2ijx",
         "factory_idx": 1402,
-        "result": "G6_MOVE_POST_TIMEOUT",
-        "isvalid_dry": true,
-        "post_wait": 258,
-        "note": "IsValid dry HIT; live Post timed out \u2014 not PATH_CONTAINS_DEST"
+        "result": "G6_MOVE_POST_HIT",
+        "post_wait_ms_config": 20000
       }
     },
     {
@@ -91,7 +89,7 @@
     {
       "id": "ALLOW_POST_gate",
       "status": "closed",
-      "note": "2ijw restored: allow_post requires env+marker again",
+      "note": "2ijx restored: allow_post requires env+marker again",
       "proven_once": {
         "phase": "2iju",
         "env": "CLAUSEWITZ_ALLOW_POST=1",
