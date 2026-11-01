@@ -75,3 +75,10 @@
 - Primary A: bounded RO observe ~40s after 2iki multi-Attack ¡ª 1042@6906 hold; 1037@3931; 1038@11838; paths empty; no co-location at 1886; combat densify HONEST_EMPTY; no pocket evidenced
 - Retreat HARD_DENY_PARKED; Instant PARKED; Posts=0; gates stayed False
 - Stability OK; Path-C ~96¨C98% (honesty fold, no invent bump)
+
+## Phase 2ikk (t52u Asia/Shanghai)
+- Result: G6_WARTIME_ENCIRCLE_LOOP_HIT
+- Fresh ETH wartime rebuild: Strategic 4753 movers 1037+1038 ¡ú 6906 HIT¡Á2 (enroute); anchor 1042@6906; Multi SupportAttack 3620 1042+1037 ¡ú 1886 ATTACK_POSTED_STABLE¡Á2
+- Arrive: movers_arrived=false movers_enroute=true anchor_at_dest=true; post-obs paths active; combat densify HONEST_EMPTY; no army yet at 1886
+- Retreat HARD_DENY_PARKED; Instant PARKED; Post strategic=2 attack=2; gates restored False
+- Stability OK; Path-C ~97¨C99%
