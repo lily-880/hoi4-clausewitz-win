@@ -629,3 +629,6 @@ CancelMovement factory 1415: G6_CANCEL_1415_PATH_CLEARED_HIT. Instant PARKED; At
 
 ## 2ikb (2026-11-01 23:03:37 Asia/Shanghai)
 G6_CANCEL_MULTI2_PATH_CLEARED_HIT. War detect: no ov war keys; peacetime ITA. Attack3620 not opened. Multi-Cancel units_count=2.
+
+## 2ikc (2026-11-01 23:10:38 Asia/Shanghai)
+ATTACK_DRY_ISVALID_FALSE. ETH day-1 war relaunch. Attack factory 3620 one-shot.

@@ -596,3 +596,6 @@ Cancel 1415 gated one-shot: **G6_CANCEL_1415_PATH_CLEARED_HIT**. allow_post rest
 
 ## 2ikb (2026-11-01 23:03:37 Asia/Shanghai)
 Attack PARKED peacetime (war={'status': 'PEACETIME_NO_WAR_DETECTED', 'evidence': 'offsets_verified has no war keys; ITA 1936 Feb peacetime; declare console not Post-proven', 'attack': 'PARKED'}). Multi-army Cancel: **G6_CANCEL_MULTI2_PATH_CLEARED_HIT**. Land loop (proven Posts): Move1402(ucrt) → Cancel1415(ucrt units) → Strategic4753(inline); Attack3620 PARKED until war; Instant PARKED. allow_post False.
+
+## 2ikc (2026-11-01 23:10:38 Asia/Shanghai)
+War=WARTIME_ETH_DAY1_HISTORICAL. SupportAttack 3620: **ATTACK_DRY_ISVALID_FALSE**. Agent loop Move→Cancel→Strategic→Attack(wartime). Instant PARKED. allow_post False.

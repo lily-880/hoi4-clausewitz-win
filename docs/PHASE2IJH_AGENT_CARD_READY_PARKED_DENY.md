@@ -95,3 +95,9 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 - Multi-Cancel 1415: G6_CANCEL_MULTI2_PATH_CLEARED_HIT.
 - Agent land command loop: Move → Cancel → Strategic (all Post-HIT class); encirclement bias RO prior; Attack when wartime.
 - Instant PARKED. allow_post default False.
+
+## 2ikc fold (2026-11-01 23:10:38 Asia/Shanghai)
+- War: WARTIME_ETH_DAY1_HISTORICAL — Attack **attempted/posted** under gate.
+- Result: ATTACK_DRY_ISVALID_FALSE
+- Agent land loop: Move → Cancel → Strategic → Attack(when wartime); Instant PARKED.
+- allow_post default False.
