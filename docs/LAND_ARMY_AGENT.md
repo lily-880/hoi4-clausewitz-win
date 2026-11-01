@@ -117,3 +117,5 @@
 - attack_moment post-snap stack_depth=1 (1037 peeled to 9896); hold/durable no stack>=2; any_at_1886=false
 - Cancel unused; Retreat/Instant PARKED; allow_post False
 
+### PHASE2IKP
+Attack-all3 @stack3 HIT×3; Cancel mid-hold×6; durable pocket FAIL (peel at Post). See docs/PHASE2IKP_STACK3_ATTACK_CANCEL_HOLD.md.
