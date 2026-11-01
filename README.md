@@ -1,126 +1,125 @@
-﻿# hoi4-clausewitz-win
+# hoi4-clausewitz-win — Path C 阶段验收（Stage Acceptance）
 
-**Windows-oriented live bridge for Hearts of Iron IV**, inspired by
-[smerss/Clausewitz-MCP](https://github.com/smerss/Clausewitz-MCP).
+**Windows 侧 HOI4 1.19.4 陆战陆军代理桥接**（ReadProcessMemory + 已证明 Post ABI）。  
+灵感来自 [smerss/Clausewitz-MCP](https://github.com/smerss/Clausewitz-MCP)（Linux-only）；本仓库是 Windows 后端与偏移工作台，**不是** 107-tool 克隆。
 
-Upstream Clausewitz-MCP is Linux-only (`process_vm_readv` + `CCommandQueue`).
-This repo is the Windows `ReadProcessMemory` backend and the 1.19.4 offset workbench.
-It attaches to a running game, reads proven campaign fields, and can post one
-strategic redeploy. It is not a 107-tool clone.
+> **阶段状态（2026-11-02 Asia/Shanghai）：可演示验收。**  
+> Path-C 诚实进度约 **~99%**（相对 ~60% 基线；**已过 70%**）。  
+> 耐久堆叠 hold-through-Attack（stack≥2）已关闭 HIT；进攻目的地口袋 `any_at_1886` / Retreat 仍开放或 PARKED。
 
-> Not a day-one 107-tool clone. Phase 1 is honest and read-only.
+---
+
+## Path C 是什么
+
+目标：在 **战时 ETH** 续跑图上，用已证明 ABI 驱动陆军 **集结 / 进攻 / 取消 / 移动 / 战略转移**，偏向包围（encirclement bias），且：
+
+- 速度 **仅 pause 或 1x（禁止 5x）**
+- 默认 **`allow_post=False`**；开闸需 env + marker + checklist（G4–G6）
+- 不发明 org/str / 邻接 / theater-frontline / Retreat factory
+- Instant 空轮询与 PATH densify：**PARKED**
+
+---
+
+## 现在已经能做什么（Works NOW）
+
+| 能力 | ABI / 模块 | 证据 |
+|------|------------|------|
+| **Strategic Redeploy** | type **4753** · `calling/strategic_order.py` | 多军集结 HIT；路径含目的地 |
+| **Move** | type **1402** · `calling/move_order.py`（**ucrt_malloc** 远程缓冲） | PATH_CONTAINS_DEST |
+| **Cancel movement** | type **1415** · `calling/cancel_order.py`（ucrt） | PATH_CLEARED / 锚点 peel 再集结 |
+| **SupportAttack** | type **3620** · `calling/attack_order.py`（inline handle@+0x28 province@+0x30） | ATTACK_POSTED_STABLE |
+| **Durable stack≥2 hold-through-Attack** | Phase **2ikr** hybrid | Post 时 stack=2；hold 窗 depths 全 2；`durable_stack_ge2=true`；early_stop=`DURABLE_STACK_GE2` |
+| **RO 附着 / 科目** | `clausewitz_win.py status` · `army_subjects` | 读省份、路径、标签 |
+
+**里程碑 SHA：** `8d6bfad` / HEAD `fedef1d`（phase2ikr DURABLE HIT）。报告：`reports/phase2ikr_strategic_anchor_peel_attack_summary.json`。
+
+### 仍开放 / PARKED（勿在演示中宣称已完成）
+
+| 项 | 状态 |
+|----|------|
+| **Retreat** | **HARD_DENY_PARKED** — 无已证明 Post ABI / `retreat_order.py` |
+| **any_at_1886 / 进攻目的地口袋** | 仍开放（2ikr 耐久堆叠 HIT，但未到 1886） |
+| **Instant** | PARKED（禁止空 poll / Instant×PATH densify） |
+| **战斗 densify / 邻接** | **HONEST_EMPTY** — 不发明 |
+| Capstone / 121 | 未作为本阶段目标 |
+
+---
+
+## 安全闸门（务必遵守）
+
+1. **速度：** 仅 pause / 1x。禁止写 5x。日历卡住可空格点一下解 pause，或 `launch_into_map.py --start-tag ETH --speed 1 --allow-ai` 自重启。
+2. **`CLAUSEWITZ_ALLOW_POST`：** 默认关。演示 Post 前开闸，结束后立刻关；删除 `research/safe_land_tool_gate.OPEN`（及 legacy strategic-only marker）。
+3. **Checklist：** `research/safe_enable_checklist.json`（UTF-8；读写用 `utf-8-sig` 兼容 BOM）。
+4. **VirtualFreeEx：** Post 线程可能仍在跑时不要急着释放远程缓冲。
+5. **find_pid：** 取 **最大工作集** 的 `hoi4.exe`（防僵尸进程）。
+
+---
+
+## 快速开始（Windows）
+
+```powershell
+cd "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\clausewitz_win"
+$env:HOI4_PATH = "D:\STEAM\steam\steamapps\common\Hearts of Iron IV"
+
+# 只读体检（无需开闸）
+python clausewitz_win.py doctor
+python clausewitz_win.py peinfo
+# 游戏已在地图上时：
+python clausewitz_win.py status
+python clausewitz_win.py redeploy 1042 758 --dry-run
+```
+
+### 进图 / 自重启（ETH @1x）
+
+```powershell
+python launch_into_map.py --start-tag ETH --speed 1 --allow-ai
+# 等待地图就绪后再 status；速度保持 1x 或 pause
+```
+
+### 明日现场演示
+
+见 **[DEMO_TOMORROW.md](DEMO_TOMORROW.md)** 与 **[DEMO_READY.md](DEMO_READY.md)**。  
+推荐剧本：战时 ETH → Strategic 集结 → 堆叠后 Attack → 观察 durable stack≥2。  
+**不要演示 / 不要宣称：** Retreat、已抵达 1886 口袋（除非当场证据为真）。
+
+---
+
+## 仓库导航
+
+| 路径 | 说明 |
+|------|------|
+| `calling/strategic_order.py` | Strategic 4753 |
+| `calling/move_order.py` | Move 1402（ucrt_malloc） |
+| `calling/cancel_order.py` | Cancel 1415 |
+| `calling/attack_order.py` | SupportAttack 3620 |
+| `calling/army_subjects.py` | 陆军索引 / 省份 RO |
+| `docs/LAND_ARMY_AGENT.md` | 陆战代理阶段日志 |
+| `docs/SAFE_LAND_POST.md` | 安全 Post 闸门日志 |
+| `docs/LAND_POST_READINESS.md` | Post 就绪长文 |
+| `docs/PHASE2IKR_STRATEGIC_ANCHOR_PEEL_ATTACK.md` | 2ikr 耐久堆叠 HIT |
+| `scripts/phase2ikr_strategic_anchor_peel_attack.py` | 耐久堆叠演示战役脚本 |
+| `research/WINDOWS_OFFSETS.md` | 偏移再生说明 |
+
+---
 
 ## Target pin
 
 | Item | Value |
 |------|--------|
-| OS | Windows 11 (tested on 25H2) |
+| OS | Windows 11（本机测过 25H2） |
 | Game | `hoi4.exe` **1.19.4.0** Operation Postern |
-| Default Steam path (this machine) | `D:\STEAM\steam\steamapps\common\Hearts of Iron IV` |
+| 默认 Steam 路径 | `D:\STEAM\steam\steamapps\common\Hearts of Iron IV` |
 
-Game updates will likely require regenerating RVAs. Windows OS updates usually will not.
+游戏小版本更新通常要重生 RVA；Windows 小更新一般不用。
 
-## Quick start (Windows)
-
-```powershell
-cd "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\clausewitz_win"
-$env:HOI4_PATH = "D:\STEAM\steam\steamapps\common\Hearts of Iron IV"
-python clausewitz_win.py doctor
-python clausewitz_win.py peinfo
-# with the game running:
-python clausewitz_win.py status
-python clausewitz_win.py redeploy 1042 758 --dry-run
-```
-
-## What works
-
-- Phase 2aw: RO handle/province helpers + Post ABI notes; writes DISABLED
-- Phase 2av: FN_HANDLE_RESOLVE proven (0x2284800); writes DISABLED
-- Phase 2au: GS province resolve proven (CArmy+0x28 / CProvince+0xa4); writes DISABLED
-- Phase 2at: DummyServer ring embed + ALLOW_POST stub; handle resolve open; writes DISABLED
-- Phase 2as: CArmy CHandle (+0x18 type 0x33) + CProvince id hyp (+0xa4); writes DISABLED
-- Phase 2ar: Order* sizes + serialize field layouts (Assign/Execute/NewFront/…); writes DISABLED
-- Phase 2aq: StrategicRedeploy serialize (army/province/clear/priority); posting DISABLED now (Phase 2ap)
-
-- **Strategic redeploy** (`redeploy <army> <province>`) is the one enabled post.
-  IsValid is action `0x12c2c20` with `rcx = cmd+0x28`. Command vt+`0x48` jumps
-  into Execute and must not be called.
-- **FN_CMD_QUEUE_POST** RVA `0x22c41e0` is used by that one post. Other posts stay off.
-- Live `status` date: year at `+0x478`, days after 1 January at `+0x484`
-  (`1942` + `229` = `1942-08-18`).
-- Full Post→serialize→drain→Execute graph documented (see WINDOWS_OFFSETS)
-- Army command catalog: Move/Cancel/StrategicRedeploy/Order* type ids
-- Live campaign `status`: countries/armies/fleets/theatres/...
-
-### Earlier Phase 2g notes
-
-- Find `hoi4.exe` install; PE parse; `OpenProcess` + `ReadProcessMemory` (read-only)
-- MSVC RTTI 鈫?COL 鈫?vtable recovery for `CGameState` / `CCurrentGameState` / idlers / `CCommand` (live COL MATCH)
-- `session-probe` / `status` 鈥?**frontend vs in_game via G_IDLER** (CFrontEndIdler vs CInGameIdler); GS alone 鈮?in-game
-- `scripts/phase2g_session_postpath.py` 鈥?one-shot Post-path RO + army scan when map is up; exit 3 + USER ACTION if still frontend
-- `live-gs` 鈥?`.data` slot + heap scan; heuristic **`G_GAMESTATE` RVA `0x33dd6b0`** when campaign object live (鈫?gitignored `offsets_verified.json`)
-- `status` returns real campaign probe fields once runtime/verified offset loaded (countries size, player tag)
-- MCP stdio stub: `hoi4_win_doctor`, `hoi4_win_status`
-
-```powershell
-python clausewitz_win.py session-probe
-python clausewitz_win.py live-gs
-python clausewitz_win.py status
-```
-
-**Must have a live campaign object** (not pure empty menu). See `research/WINDOWS_OFFSETS.md`.
-
-## What is stubbed
-
-- Ordinary move, console execute, and the upstream 107-tool planner
-- Every post except strategic redeploy
-- `allow_post()` still hard-returns false for the generic post helper
-
-## Safety
-
-- Read-only unless you run `redeploy`
-- `redeploy` makes one remote call, then stops. It does not post from a tick loop
-- Does not touch Vision Channel / Auto Kessel mods
-
-## Layout
-
-```
-clausewitz_win.py          CLI entry
-calling/
-  process/windows.py       ReadProcessMemory backend
-  mem.py                   typed reads
-  pe.py                    static PE parser
-  config.py                paths / version pin
-  offsets.py               Windows offset stubs (fail-closed)
-mcp/server.py              Phase 1 MCP stub
-research/WINDOWS_OFFSETS.md  how to regenerate offsets
-```
+---
 
 ## Upstream credit
 
-Architecture and RE methodology inspired by **Clausewitz-MCP** (MIT, smerss).
-See their [research/FINDINGS.md](https://github.com/smerss/Clausewitz-MCP/blob/main/research/FINDINGS.md).
-This repo鈥檚 Windows PE backend and 1.19.4 tables are original work.
+架构与逆向方法受 **Clausewitz-MCP**（MIT, smerss）启发。  
+见其 [research/FINDINGS.md](https://github.com/smerss/Clausewitz-MCP/blob/main/research/FINDINGS.md)。  
+本仓库的 Windows PE 后端与 1.19.4 表是独立工作。
 
 ## License
 
-MIT 鈥?see [LICENSE](LICENSE).
-
-## Phase 2e (Post graph / dead ends)
-
-- Stronger READ-ONLY Post hunt: `scripts/phase2e_post_graph.py`, `scripts/phase2e_live_scan.py`
-- Idler vt+0x90 @ `0xe34e90` wraps `[this+0x530]` then tail-calls vt+0x90 (Linux-analog shape)
-- `FN_CMD_QUEUE_POST` still **null**; divisions still stubbed; date year+aux hypotheses only
-- See `research/WINDOWS_OFFSETS.md`
-
-
-
-## Phase 2g (session gate)
-
-HOI4 was still in **frontend** (`G_IDLER` 鈫?`CFrontEndIdler`) with live GS but no armies.
-**You must load a campaign/save until the map is visible**, then re-run `status` or `phase2g_session_postpath.py` once (no polling).
-Posting stays DISABLED until `FN_CMD_QUEUE_POST` is proven on a live `CInGameIdler`.
-
-### Phase 2ay note
-
-`G_SESSION=0x34FFBE8` live-proven. Post→Execute SP pipeline documented in `calling/post_abi.py`. **Posting still DISABLED.**
+MIT — 见 [LICENSE](LICENSE)。

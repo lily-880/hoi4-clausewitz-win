@@ -1,3 +1,12 @@
+# LAND_POST_READINESS — Path C 阶段验收折页（2026-11-02 Asia/Shanghai）
+
+**Path-C ~99%**（基线 ~60%；crossed_70=YES）。允许 Post 的陆军 ABI：Strategic 4753、Move 1402 ucrt_malloc、Cancel 1415、Attack 3620。
+**已关闭：** durable stack≥2 hold-through-Attack（2ikr）。
+**仍开放：** any_at_1886 / attack-dest pocket；Retreat HARD_DENY_PARKED；Instant PARKED；combat densify HONEST_EMPTY。
+默认 allow_post=False；pause/1x only。详见 README.md、DEMO_TOMORROW.md、STAGE_ACCEPTANCE_2026-11-02.md。
+
+---
+
 # Land Post-readiness (catalog-only) — Phase 2gi
 
 **Status: CLOSED — NO Post / NO ALLOW_POST / NO tool-gate / NO recipe execute.**  
