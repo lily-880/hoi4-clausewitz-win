@@ -214,6 +214,9 @@ Folds §6b perception + §6c/2gv midflight empty + §6d feed ceiling + 2gp–2gr
 **2ha FN+OG50:** result=`ASSIGN_FN_MATCH_OG50_WALKBACK` · all_fn=True · all_factory=True · walkback 380/380 · hours=330 UI=1936-01-14 18:00 · allow_post=False.
 **2hb move-family FN:** result=`MOVE_FAMILY_FN_FACTORY_MATCH` · all_fn=True · all_factory=True · MOVE1402=True · SA3620=True · Cancel1415=True · Strat4753=True · hours=338 UI=1936-01-15 02:00 · allow_post=False.
 **2hc readiness consolidate:** result=`AGENT_READINESS_ONE_SUMMARY` · move_family=True · assign_family=True · walkback 380/380 · hours=347 UI=1936-01-15 11:00 · allow_post=False.
+### Instant×PATH peacetime PARK (2ijb/2ijc)
+Instant VT false on peacetime path OIs (65/450/448/…). Do not Instant-empty re-poll. Resume Instant×PATH on wartime or human midflight CMove. PATH≠Inst honesty: PATH/OG50 ≠ Instant-validated order. Post CLOSED.
+
 
 **Midflight ceiling:** 2gt+2gv both `MIDFLIGHT_HONEST_EMPTY` — stop non-interactive midflight re-polls until human leave or plan-dense Assign window.
 
@@ -428,6 +431,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2iz PATH200 1x advance denser:** result=PATH200_ADVANCE_MULTI_HIT · day24→36 (+12 @150s 1x) · nonempty=3 multi=0 · new_dest=[1903] oi=58@1041 · focus_oi_seed 45/55 still 9945/12857 · inst_ok=[] · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IZ_PATH200_ADVANCE_DENSE.md
 **2ija PATH200 longer advance CONTINUOUS:** result=PATH200_LONGER_ADVANCE_MULTI_N_HIT · day51→74 (+23 @300s 1x) clock=CONTINUOUS · nonempty=15 **multi=2** · new_dests=[415,740,2601,3938,3945,6906,9764,11707] new_ois=[65,448,450,478] · inst_ok=[] · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJA_PATH200_LONGER_ADVANCE.md
 **2ijb Instant×PATH multi hunt:** result=INSTPATH_MULTI_PATH_INST_EMPTY · CONTINUOUS day85→90 (60s nudge) · multi_n=2 stable 2647/2683 · focus OIs 65/450/448/478 inst_ok=false · OG50 fat on 65/448 · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJB_INSTPATH_MULTI_HUNT.md
+**2ijc PATH200/OG50 polish (Instant PARKED):** result=PATH200_OG50_POLISH_MULTI_HIT · CONTINUOUS day≈98 · multi_n=1 (2683 oi=450) · OG50 65/448=23 450=12 473=4 · no Instant VT dig · PATH≠Inst + Instant peacetime PARKED · allow_post=False · see docs/PHASE2IJC_PATH200_OG50_POLISH.md
+
 
 
 
