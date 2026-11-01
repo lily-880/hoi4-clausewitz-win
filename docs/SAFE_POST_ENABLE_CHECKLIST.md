@@ -606,3 +606,4 @@ Multi-army SupportAttack 3620: **G6_ATTACK_MULTI2_POSTED_STABLE_HIT**. Combat-ad
 ## 2ike (2026-11-01 23:20:07 Asia/Shanghai)
 Wartime agent loop Move→Attack→Cancel: **G6_LOOP_MOVE_ATTACK_CANCEL_HIT**. Instant PARKED. allow_post False.
 - [x] **2ike** G6_LOOP_MOVE_ATTACK_CANCEL_HIT army1037 Move1402 PATH_CONTAINS_DEST→Attack3620 ATTACK_POSTED_STABLE→Cancel1415 PATH_CLEARED_ALL; gates restored; Instant PARKED; ~88–90% — 2026-11-01 23:20 Asia/Shanghai
+- [x] **2ikf** G6_STRATEGIC_WARTIME_ENCIRCLE_HIT army1037→11838 Strategic4753 PATH_CONTAINS_DEST; gates restored; Instant PARKED; ~90–92% — 2026-11-01 23:24 Asia/Shanghai
