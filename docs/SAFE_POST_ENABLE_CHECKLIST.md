@@ -44,7 +44,7 @@ Clock/queue · PATH200 multi STABLE 2643→[3945,2679] oi=448 · OG+0x50 proxy (
 | ID | Gate | State |
 | --- | --- | --- |
 | G1 | Midflight CMove hex (+ embed) OR **Strategic-only acceptance** | **ACCEPTABLE via Strategic-only (2ijj)** — CMove still STUBBED; does not enable Post |
-| G2 | ring_embed live on sample (2fb/2gk) | STUBBED design |
+| G2 | ring_embed live on sample (2fb/2gk) | STUBBED live; **RO prep HIT 2ijk** (INLINE_BLOB reaffirm + SAFE needs catalog) |
 | G3 | Instant×PATH wartime / human midflight Instant | PARKED peacetime |
 | G4 | Human CLAUSEWITZ_ALLOW_POST=1 once | HARD_DENY until human |
 | G5 | Tool-gate open + NEVER_POST | CLOSED_NOT_OPENED |
@@ -64,6 +64,17 @@ Ordinary midflight CMove hex remains STUBBED, but **G1 may be accepted via Strat
 See `docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md`.
 
 Still blocks ALLOW_POST: **G2** ring_embed live · **G4** human env · **G5** tool-gate · **G6** one Strategic Post @1x. Instant (G3) PARKED (Move/Instant path).
+
+
+### G2 update (2ijk) — ring_embed RO prep (INLINE_BLOB reaffirm; catalog SAFE needs)
+
+**Catalog-only. Gate still CLOSED. allow_post False. ring_embed live STUBBED.**
+
+- Live reaffirm: `ring_kind=INLINE_BLOB` @ `CDummyServer+0xa0` · `server_vt_match=True` · `capacity_like_equals_0x10=True` · `inline_blob_reaffirm_ok=True` (result=`G2_RING_EMBED_RO_PREP_HIT`).
+- SAFE Post *would* need (not enabled): Strategic factory **4753** / size `0x50` / embed@+0x28 · Dummy RING@+0xa0 PENDING@+0x58 EXECLIST@+0x40 · POST_SINK `0x23f5cd0` / DRAIN `0x23f64e0` / recreate `0x22d8ad0` · recipe v2 steps 1–4 RO proven, step 5 push STUBBED (2gk).
+- Live: pid 31788 day_index=213 ui=1936-08-01 drain=182898 exec=49293 · factory/FN family_ok=True.
+- Docs: `docs/PHASE2IJK_G2_RING_EMBED_RO_PREP.md` · `reports/phase2ijk_g2_ring_embed_ro_prep.json`.
+- Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6** (G1 Strategic-only ACCEPTABLE 2ijj; G3 Instant PARKED).
 
 
 ### Not progress
@@ -386,7 +397,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 
 ```
 [~] G1 Strategic-only ACCEPTABLE (2ijj live 4753+FN MATCH + 2fd/2gk) — CMove hex still optional; does NOT enable Post
-[ ] G2 ring_embed live proof on captured sample (still STUBBED)
+[~] G2 ring_embed RO prep HIT 2ijk (INLINE_BLOB + SAFE needs catalog); **live push still STUBBED**
 [ ] G3 Instant×PATH wartime/midflight if Move path needs Instant (peacetime PARKED)
 [ ] G4 Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
 [ ] G5 Dedicated tool-gate open + NEVER_POST
@@ -395,3 +406,4 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 
 *Phase 2iv — cohort rehome + relaunch PATH200. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
+*Phase 2ijk — G2 ring_embed RO prep. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*

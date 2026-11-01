@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** human midflight CMove hex / SAFE Post for ring_embed OR later Assign oi≠0 (2iv `COHORT_REHOME_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** G2 live ring_embed still needs human SAFE Post (G4); RO prep HIT 2ijk — retry GitHub push when reachable. Still **NO ALLOW_POST**. (2iv `COHORT_REHOME_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -462,6 +462,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2iji SAFE-Post gate checklist (NO Post):** result=SAFE_POST_GATE_CHECKLIST_POLISH · G1–G6 missing matrix · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md
 **2ijj G1 Strategic-only acceptance:** result=G1_STRATEGIC_ONLY_ACCEPTANCE_PATH_HIT · Strat4753+FN MATCH · G1 alternate to CMove · G2/G4+ still block · PathC ~60% honesty (not +10pp) · allow_post=False · see docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md
 
+**2ijk G2 ring_embed RO prep:** result=`G2_RING_EMBED_RO_PREP_HIT` · INLINE_BLOB reaffirm server_vt_match=True · cap_like=0x10 · seq=49386 · day_index=213 UI=1936-08-01 drain=182898 exec=49293 · SAFE Post needs catalogued (offsets/VT/size/factory) · ring_embed live STUBBED · allow_post=False.
 
 
 
@@ -470,3 +471,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 
 
+
+
+- **2ijk:** G2 ring_embed RO prep INLINE_BLOB + SAFE needs catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp readiness clarity; ~70% NOT crossed; G2 live/G4+ still block).
+
+*Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*

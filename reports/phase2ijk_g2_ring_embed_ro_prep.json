@@ -1,0 +1,230 @@
+{
+  "phase": "2ijk",
+  "slice": "g2_ring_embed_ro_prep_NONPOST",
+  "result": "G2_RING_EMBED_RO_PREP_HIT",
+  "allow_post": false,
+  "post_executed": false,
+  "ring_embed_executed": false,
+  "instant_parked": true,
+  "path_og50_densify": false,
+  "midflight_poll": false,
+  "ring_layout": {
+    "session": "0x19f07d4ef60",
+    "server": "0x19f90c8f390",
+    "server_vt_rva": "0x2bcb040",
+    "server_vt_match": true,
+    "ring_kind": "INLINE_BLOB",
+    "ring_off": "0xa0",
+    "ring_addr": "0x19f90c8f430",
+    "ring_blob_hex": "0000000010000000907bb6aa9f01000060b38ce09f010000000800000000000000000000000000000000000000000000eac0000000000000717dc24500840488",
+    "ring_u32": [
+      "0x0",
+      "0x10",
+      "0xaab67b90",
+      "0x19f",
+      "0xe08cb360",
+      "0x19f",
+      "0x800",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0xc0ea",
+      "0x0",
+      "0x45c27d71",
+      "0x88048400"
+    ],
+    "fields_ro_catalog_only": {
+      "u32_0_index_or_flags": "0x0",
+      "u32_1_capacity_like": "0x10",
+      "capacity_like_equals_0x10": true,
+      "qword_at_0x08": "0x19faab67b90",
+      "qword_at_0x10": "0x19fe08cb360",
+      "qword_at_0x18": "0x800",
+      "seq_at_server_plus_0xd0": 49386,
+      "note": "field labels catalogued from 2hf/2gk \u2014 do not invent new names"
+    },
+    "correction_vs_2he_reaffirm": {
+      "first_u64_as_false_ptr": "0x1000000000",
+      "actual": "RING@+0xa0 is INLINE blob on CDummyServer (not a heap pointer); LE pack(u32_0,u32_1=0x10) can look like 0x1000000000 \u2014 false ptr signal (2hf)"
+    },
+    "pending": {
+      "head": "0",
+      "count": 0,
+      "empty": true
+    },
+    "execlist": {
+      "head": "0",
+      "count": 0,
+      "empty": true
+    },
+    "inline_blob_reaffirm_ok": true,
+    "prior_2hf_compare": {
+      "phase": "2hf",
+      "ring_kind": "INLINE_BLOB",
+      "server_vt_match": true,
+      "capacity_like_equals_0x10": true,
+      "prior_server": "0x1eaad0318a0",
+      "prior_ring_addr": "0x1eaad031940",
+      "same_server_as_prior_hf": false
+    },
+    "semantics": "RO structure reaffirm only \u2014 ring_embed / queue push still STUBBED (needs human SAFE Post / G4+); no long midflight poll"
+  },
+  "g2_safe_post_needs": {
+    "status": "CATALOG_ONLY \u2014 does NOT enable Post; G2 live still STUBBED",
+    "command_leaf": {
+      "name": "CStrategicRedeploymentCommand",
+      "factory_idx": 4753,
+      "type_id": "0x35b9",
+      "size": "0x50",
+      "factory_rva": "0x13fb580",
+      "vt": "0x2a2d818",
+      "isvalid": "0x1402260",
+      "execute_thunk_shared_with_MOVE": "0x13fc990",
+      "source": "2fd/2fe/2hb/2ijj \u2014 catalog MATCH only"
+    },
+    "action_embed_at_cmd_plus_0x28": {
+      "vt": "0x2a1f7e8",
+      "type_id_at_plus8": "0x364a",
+      "catalog_fields_from_2gk": [
+        "army_handle@+0x10",
+        "province@+0x18",
+        "clear@+0x1C",
+        "move_priority@+0x20"
+      ],
+      "note": "labels from 2gk recipe v2 DESIGN \u2014 not invented this slice"
+    },
+    "dummy_server_offsets_known": {
+      "VT": "0x2bcb040",
+      "RING": "0xa0",
+      "PENDING": "0x58",
+      "EXECLIST": "0x40",
+      "POST_SINK": "0x23f5cd0",
+      "DRAIN": "0x23f64e0",
+      "RECREATE": "0x22d8ad0",
+      "SEQ_ON_SERVER": "0xd0",
+      "source": "post_abi + 2bq/2br/2gk"
+    },
+    "ring_layout_class": {
+      "kind": "INLINE_BLOB",
+      "off": "+0xa0",
+      "cap_like_observed": "0x10",
+      "not_a_heap_pointer": true,
+      "source": "2hf RING_INLINE_LAYOUT_POLISH; reaffirmed 2ijk"
+    },
+    "recipe_steps_NOT_EXECUTED": [
+      "1 factory_alloc (LIVE_RO_MATCH_2fd)",
+      "2 fill_header (OFFLINE_BIT_IDENTICAL_2fd)",
+      "3 fill_embed@+0x28 (OFFLINE_BIT_IDENTICAL_2fd)",
+      "4 serialize_recreate_path (STRUCTURAL_STARTGAME_2bq)",
+      "5 queue_placement / ring_embed (STUBBED \u2014 NEVER inject this slice)"
+    ],
+    "still_required_before_g2_live": [
+      "G4 human CLAUSEWITZ_ALLOW_POST=1 once",
+      "G5 tool-gate open + NEVER_POST",
+      "G6 ONE Strategic Post @1x verify then unset",
+      "in-process ring_embed push proof on sample (G2 itself)"
+    ],
+    "hard_deny_this_slice": [
+      "ALLOW_POST",
+      "Post inject",
+      "2fb/2gk recipe execute",
+      "ring_embed live push",
+      "tool-gate",
+      "5x",
+      "invent field names"
+    ]
+  },
+  "move_family_polish": {
+    "all_factory_match": true,
+    "all_fn_match": true,
+    "factory_match": {
+      "MOVE": true,
+      "CANCEL": true,
+      "SUPPORT_ATTACK": true,
+      "STRATEGIC": true
+    },
+    "fn_match": {
+      "MOVE": true,
+      "CANCEL": true,
+      "SUPPORT_ATTACK": true,
+      "STRATEGIC": true
+    },
+    "strategic_4753_match": true,
+    "expected_idx": {
+      "MOVE": 1402,
+      "CANCEL": 1415,
+      "SUPPORT_ATTACK": 3620,
+      "STRATEGIC": 4753
+    }
+  },
+  "live": {
+    "pid": 31788,
+    "year": 1936,
+    "day_index": 213,
+    "ui_date": "1936-08-01",
+    "clock_source": "GS+0x478 year + GS+0x484 day_index (continuum; not 2hb hours-timedelta)",
+    "speed_policy": "pause-or-1x only (never write speed beyond pause/1x)",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x G2 ring_embed RO prep INLINE_BLOB (no Post, no Instant, no midflight)",
+    "session": "0x19f07d4ef60",
+    "server": "0x19f90c8f390",
+    "pending": 0,
+    "stage_count": 0,
+    "drain": 182898,
+    "exec": 49293,
+    "allow_post": false
+  },
+  "calendar_sample": {
+    "s0": {
+      "pid": 31788,
+      "year": 1936,
+      "day_index": 213,
+      "ui_date": "1936-08-01",
+      "clock_source": "GS+0x478 year + GS+0x484 day_index (continuum; not 2hb hours-timedelta)",
+      "speed_policy": "pause-or-1x only (never write speed beyond pause/1x)",
+      "country_tag_filter": 15,
+      "scenario": "ITA@1x G2 ring_embed RO prep INLINE_BLOB (no Post, no Instant, no midflight)",
+      "session": "0x19f07d4ef60",
+      "server": "0x19f90c8f390",
+      "pending": 0,
+      "stage_count": 0,
+      "drain": 182764,
+      "exec": 49285,
+      "allow_post": false
+    },
+    "s1": {
+      "pid": 31788,
+      "year": 1936,
+      "day_index": 213,
+      "ui_date": "1936-08-01",
+      "clock_source": "GS+0x478 year + GS+0x484 day_index (continuum; not 2hb hours-timedelta)",
+      "speed_policy": "pause-or-1x only (never write speed beyond pause/1x)",
+      "country_tag_filter": 15,
+      "scenario": "ITA@1x G2 ring_embed RO prep INLINE_BLOB (no Post, no Instant, no midflight)",
+      "session": "0x19f07d4ef60",
+      "server": "0x19f90c8f390",
+      "pending": 0,
+      "stage_count": 0,
+      "drain": 182898,
+      "exec": 49293,
+      "allow_post": false
+    },
+    "calendar_ok": true
+  },
+  "path_c_progress_honesty": "~60%; G2 ring_embed RO prep (INLINE_BLOB + SAFE needs catalog) adds \u2264+1\u20132pp readiness clarity toward G2 \u2014 does NOT unlock Post or cross ~70% while G2 live / G4 / G5 / G6 remain",
+  "doc": "docs/PHASE2IJK_G2_RING_EMBED_RO_PREP.md",
+  "hard_deny": [
+    "ALLOW_POST",
+    "Post inject",
+    "2fb/2gk recipe execute",
+    "ring_embed live",
+    "tool-gate",
+    "Instant empty re-poll",
+    "PATH densify",
+    "long midflight empty poll",
+    "5x",
+    "invent field names"
+  ]
+}
