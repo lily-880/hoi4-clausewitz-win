@@ -564,3 +564,17 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 *Phase 2ijt — NON-Post readiness freeze — 2026-11-01 Asia/Shanghai*
 
 *Phase 2iju — min safe Strategic Post — 2026-11-01 Asia/Shanghai*
+
+
+---
+
+## §2ijv — Strategic Post HIT fold (G4→G6) + observe
+
+**Status default:** gates CLOSED / `allow_post` False. Proven once under user t52u.
+
+- Factory **4753** / RVA `0x13FB580` / VT Strategic `0x2A2D818` — live Post HIT (2iju).
+- Evidence: `PATH_CONTAINS_DEST` army **1042** dest **3986** path `[9767,3938,896,3986]`; drainΔ182 execΔ72 seqΔ72; province may lag arrival.
+- Gate recipe: env `CLAUSEWITZ_ALLOW_POST=1` + marker `research/strategic_only_tool_gate.OPEN` → `allow_post` True Strategic-only → Post → **restore both**.
+- 2ijv observe: see `reports/phase2ijv_strategic_observe_fold.json` (arrived=False path_cleared=False peacetime=ITA ui still 1936-39 peacetime window; wartime Strategic/Attack RO still unproven. Do not invent war state. Calendar CONTINUOUS @1x is enough for arrive/path observe.).
+- Move/Attack/Cancel still not proven live Post; Instant PARKED; NEVER 5x.
+

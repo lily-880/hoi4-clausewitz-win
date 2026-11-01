@@ -1,0 +1,259 @@
+{
+  "phase": "2ijv",
+  "result": "STRATEGIC_OBSERVE_FOLD_HIT",
+  "authorization": "user t52u / pt52u continue Path C; no re-ask",
+  "speed_policy": "pause-or-1x only; NEVER 5x; no speed write this slice",
+  "post_attempts_this_slice": 0,
+  "allow_post_final": false,
+  "marker_exists_final": false,
+  "prior_2iju_result": "G6_STRATEGIC_POST_HIT",
+  "observe": {
+    "src_army": 1042,
+    "expected_dest": 3986,
+    "prior_post": {
+      "ok": true,
+      "result": "PATH_CONTAINS_DEST",
+      "army": 1042,
+      "province": 3986,
+      "post_rax": 1,
+      "path_before": [
+        9767,
+        3938,
+        896,
+        3986
+      ],
+      "path_after": [
+        9767,
+        3938,
+        896,
+        3986
+      ]
+    },
+    "samples": [
+      {
+        "live": {
+          "pid": 31788,
+          "year": 1937,
+          "day_index": 49,
+          "ui_date": "1937-02-19",
+          "clock_class": "CONTINUOUS",
+          "drain": 355181,
+          "exec": 88044,
+          "pending": 0,
+          "stage": 0,
+          "gate725": 1,
+          "seq": 88209,
+          "allow_post": false,
+          "at_war_hint": "PEACETIME_LIKELY_ITA_1937"
+        },
+        "army": {
+          "index": 1042,
+          "ok": true,
+          "army": "0x19fc683ef50",
+          "province": 4095,
+          "path": [
+            7196
+          ],
+          "path_len": 1,
+          "dest_in_path": false,
+          "at_dest": false,
+          "left_src_6841": true
+        }
+      },
+      {
+        "live": {
+          "pid": 31788,
+          "year": 1937,
+          "day_index": 50,
+          "ui_date": "1937-02-20",
+          "clock_class": "CONTINUOUS",
+          "drain": 355366,
+          "exec": 88057,
+          "pending": 0,
+          "stage": 0,
+          "gate725": 1,
+          "seq": 88222,
+          "allow_post": false,
+          "at_war_hint": "PEACETIME_LIKELY_ITA_1937"
+        },
+        "army": {
+          "index": 1042,
+          "ok": true,
+          "army": "0x19fc683ef50",
+          "province": 4095,
+          "path": [
+            7196
+          ],
+          "path_len": 1,
+          "dest_in_path": false,
+          "at_dest": false,
+          "left_src_6841": true
+        }
+      },
+      {
+        "live": {
+          "pid": 31788,
+          "year": 1937,
+          "day_index": 50,
+          "ui_date": "1937-02-20",
+          "clock_class": "CONTINUOUS",
+          "drain": 355588,
+          "exec": 88147,
+          "pending": 0,
+          "stage": 0,
+          "gate725": 1,
+          "seq": 88345,
+          "allow_post": false,
+          "at_war_hint": "PEACETIME_LIKELY_ITA_1937"
+        },
+        "army": {
+          "index": 1042,
+          "ok": true,
+          "army": "0x19fc683ef50",
+          "province": 4095,
+          "path": [
+            7196
+          ],
+          "path_len": 1,
+          "dest_in_path": false,
+          "at_dest": false,
+          "left_src_6841": true
+        }
+      }
+    ],
+    "provinces": [
+      4095,
+      4095,
+      4095
+    ],
+    "paths": [
+      [
+        7196
+      ],
+      [
+        7196
+      ],
+      [
+        7196
+      ]
+    ],
+    "arrived": false,
+    "left_src_6841": true,
+    "dest_still_in_path": false,
+    "path_cleared": false,
+    "province_changed_across_samples": false,
+    "peacetime_note": "ITA ui still 1936-39 peacetime window; wartime Strategic/Attack RO still unproven. Do not invent war state. Calendar CONTINUOUS @1x is enough for arrive/path observe.",
+    "post_attempts_this_slice": 0,
+    "decision": "NO_POST_OBSERVE_ONLY"
+  },
+  "folds": {
+    "checklist": {
+      "before": {
+        "command_queue_tool_gate": {
+          "id": "command_queue_tool_gate",
+          "status": "CLOSED_NOT_OPENED",
+          "note": "Re-closed after 2iju G6 one-shot; reopen only with human ALLOW_POST + marker"
+        },
+        "ALLOW_POST_gate": {
+          "id": "ALLOW_POST_gate",
+          "status": "closed",
+          "note": "2iju restored: allow_post requires env+marker again"
+        }
+      },
+      "after": {
+        "command_queue_tool_gate": {
+          "id": "command_queue_tool_gate",
+          "status": "CLOSED_NOT_OPENED",
+          "note": "2ijv: G5 proven OPEN_STRATEGIC_ONLY once (2iju) then restored CLOSED. Reopen only with human ALLOW_POST + strategic_only_tool_gate.OPEN. G6 evidence=G6_STRATEGIC_POST_HIT.",
+          "proven_once": {
+            "phase": "2iju",
+            "mode": "OPEN_STRATEGIC_ONLY",
+            "restored": true
+          }
+        },
+        "ALLOW_POST_gate": {
+          "id": "ALLOW_POST_gate",
+          "status": "closed",
+          "note": "2ijv: G4 proven via CLAUSEWITZ_ALLOW_POST=1 + marker (2iju); restored unset. allow_post requires env+marker again. Do not leave True.",
+          "proven_once": {
+            "phase": "2iju",
+            "env": "CLAUSEWITZ_ALLOW_POST=1",
+            "restored": true
+          }
+        }
+      },
+      "posting": "DISABLED"
+    },
+    "safe_md": {
+      "appended": true
+    },
+    "land_md": {
+      "appended": true
+    }
+  },
+  "agent_card": {
+    "phase_fold": "2ijv folds 2iju G4/G5/G6 HIT + Strategic observe",
+    "head": "d782253",
+    "origin_main": "d782253",
+    "allow_post": false,
+    "posting": "DISABLED",
+    "gates_g1_g6": {
+      "G1": "ACCEPTABLE_STRATEGIC_ONLY",
+      "G2": "RO_PREP_HIT_LIVE_STUBBED",
+      "G3": "PARKED_INSTANT",
+      "G4": "PROVEN_ONCE_RESTORED",
+      "G5": "PROVEN_ONCE_STRATEGIC_ONLY_RESTORED_CLOSED",
+      "G6": "HIT_G6_STRATEGIC_POST_HIT"
+    },
+    "strategic_post_once": {
+      "factory_idx": 4753,
+      "army": 1042,
+      "dest": 3986,
+      "result": "PATH_CONTAINS_DEST",
+      "post_rax": 1
+    },
+    "observe_2ijv": {
+      "arrived": false,
+      "left_src": true,
+      "dest_in_path": false,
+      "path_cleared": false,
+      "provinces": [
+        4095,
+        4095,
+        4095
+      ]
+    },
+    "hard_denies": [
+      "Instant peacetime PARKED",
+      "Move/Attack live Post not yet proven",
+      "never 5x",
+      "no invent org/str/theater/adjacency/controller_tag"
+    ]
+  },
+  "live_final": {
+    "pid": 31788,
+    "year": 1937,
+    "day_index": 50,
+    "ui_date": "1937-02-20",
+    "clock_class": "CONTINUOUS",
+    "drain": 355588,
+    "exec": 88147,
+    "pending": 0,
+    "stage": 0,
+    "gate725": 1,
+    "seq": 88345,
+    "allow_post": false,
+    "at_war_hint": "PEACETIME_LIKELY_ITA_1937"
+  },
+  "sha_head": "d782253",
+  "sha_origin": "d782253",
+  "path_c_honesty": {
+    "baseline_band": "~60%",
+    "after_2iju": "~70-72%",
+    "this_slice_pp": "+1-2pp observe/fold harden (no new Post family)",
+    "crossed_70": true,
+    "estimate_after": "~71-73%"
+  },
+  "next_shortest_blocker": "Left src province (movement progressed) \u2014 continue RO arrival later; Move prep next.",
+  "timestamp_asia_shanghai": "2026-11-01 22:08:56 Asia/Shanghai"
+}

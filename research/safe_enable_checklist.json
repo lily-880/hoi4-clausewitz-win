@@ -1,5 +1,5 @@
 {
-  "phase": "2ei",
+  "phase": "2ijv",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -63,7 +63,12 @@
     {
       "id": "command_queue_tool_gate",
       "status": "CLOSED_NOT_OPENED",
-      "note": "Re-closed after 2iju G6 one-shot; reopen only with human ALLOW_POST + marker"
+      "note": "2ijv: G5 proven OPEN_STRATEGIC_ONLY once (2iju) then restored CLOSED. Reopen only with human ALLOW_POST + strategic_only_tool_gate.OPEN. G6 evidence=G6_STRATEGIC_POST_HIT.",
+      "proven_once": {
+        "phase": "2iju",
+        "mode": "OPEN_STRATEGIC_ONLY",
+        "restored": true
+      }
     },
     {
       "id": "network_execlist_path",
@@ -78,7 +83,12 @@
     {
       "id": "ALLOW_POST_gate",
       "status": "closed",
-      "note": "2iju restored: allow_post requires env+marker again"
+      "note": "2ijv: G4 proven via CLAUSEWITZ_ALLOW_POST=1 + marker (2iju); restored unset. allow_post requires env+marker again. Do not leave True.",
+      "proven_once": {
+        "phase": "2iju",
+        "env": "CLAUSEWITZ_ALLOW_POST=1",
+        "restored": true
+      }
     },
     {
       "id": "move_early_gate_docs",
@@ -1736,5 +1746,11 @@
     ],
     "allow_post": false,
     "doc": "docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md"
+  },
+  "g4_g5_g6_once": {
+    "G4": "PROVEN_ONCE_THEN_RESTORED",
+    "G5": "PROVEN_ONCE_STRATEGIC_ONLY_THEN_RESTORED",
+    "G6": "G6_STRATEGIC_POST_HIT",
+    "fold_phase": "2ijv"
   }
 }

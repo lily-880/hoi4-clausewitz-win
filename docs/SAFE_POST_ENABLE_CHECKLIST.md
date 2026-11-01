@@ -514,3 +514,23 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijt — NON-Post readiness freeze. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2iju — G4/G5/G6 min safe Strategic Post HIT; gates restored. 2026-11-01 Asia/Shanghai*
+
+
+---
+
+## Phase 2ijv — G4/G5/G6 proven once (gates remain CLOSED by default)
+
+**Result:** fold of `G6_STRATEGIC_POST_HIT` (2iju) + Strategic observe harden (2ijv).  
+`allow_post()` stays **False** unless env+`strategic_only_tool_gate.OPEN`. Marker must not linger.
+
+| ID | Gate | State after 2iju/2ijv |
+| --- | --- | --- |
+| G1 | Strategic-only acceptance | ACCEPTABLE (2ijj) |
+| G2 | ring_embed live | STUBBED live; RO prep HIT |
+| G3 | Instant×PATH wartime | PARKED |
+| G4 | Human CLAUSEWITZ_ALLOW_POST=1 | **PROVEN_ONCE** (2iju env) then restored unset |
+| G5 | Tool-gate Strategic-only | **PROVEN_ONCE** OPEN_STRATEGIC_ONLY then **CLOSED_NOT_OPENED** |
+| G6 | ONE Strategic Post @1x | **HIT** PATH_CONTAINS_DEST army 1042→3986 factory 4753 |
+
+Observe (2ijv): RO path/province of army 1042 vs dest 3986; peacetime ITA 1937 limits documented; **no additional Post** this fold unless observe demanded (default zero).
+
