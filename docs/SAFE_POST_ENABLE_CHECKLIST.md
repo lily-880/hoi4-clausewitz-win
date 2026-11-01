@@ -315,6 +315,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2iv-relaunch | fresh ITA PATH200 path_only oi=70/57 | **PATH200_RELAUNCH_PATH_ONLY_HIT** (Post still CLOSED) |
 | 2iw-NONPOST | denser PATH200 oi=57/70 focus_oi_seed | **PATH200_OI57_70_DENSE_HIT** (Post still CLOSED; Post-2iw script not re-run) |
 | 2ix-NONPOST | longer 1x advance; PATH stable-thin / calendar stall | **PATH200_LONGER_STABLE_THIN** (Post still CLOSED) |
+- **2iy:** calendar softlock (WS collapse) fixed by relaunch ITA@1x; PATH200 still thin path_only; new OG reverse OIs 45/55; Inst empty; allow_post False; NO Post.
 
 ### HARD_DENY unchanged
 
