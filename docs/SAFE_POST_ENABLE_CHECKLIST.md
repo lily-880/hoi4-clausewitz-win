@@ -599,3 +599,6 @@ Attack PARKED peacetime (war={'status': 'PEACETIME_NO_WAR_DETECTED', 'evidence':
 
 ## 2ikc (2026-11-01 23:10:38 Asia/Shanghai)
 War=WARTIME_ETH_DAY1_HISTORICAL. SupportAttack 3620: **ATTACK_DRY_ISVALID_FALSE**. Agent loop Move→Cancel→Strategic→Attack(wartime). Instant PARKED. allow_post False.
+
+## 2ikd (2026-11-01 23:17:25 Asia/Shanghai)
+Multi-army SupportAttack 3620: **G6_ATTACK_MULTI2_POSTED_STABLE_HIT**. Combat-adjacent RO densify (path/province only; org/str NOT invented). Instant PARKED. allow_post False.

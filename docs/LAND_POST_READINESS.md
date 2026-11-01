@@ -632,3 +632,6 @@ G6_CANCEL_MULTI2_PATH_CLEARED_HIT. War detect: no ov war keys; peacetime ITA. At
 
 ## 2ikc (2026-11-01 23:10:38 Asia/Shanghai)
 ATTACK_DRY_ISVALID_FALSE. ETH day-1 war relaunch. Attack factory 3620 one-shot.
+
+## 2ikd (2026-11-01 23:17:25 Asia/Shanghai)
+G6_ATTACK_MULTI2_POSTED_STABLE_HIT. Two-army Attack 3620 + honest path/province densify.

@@ -101,3 +101,9 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 - Result: ATTACK_DRY_ISVALID_FALSE
 - Agent land loop: Move → Cancel → Strategic → Attack(when wartime); Instant PARKED.
 - allow_post default False.
+
+## 2ikd fold (2026-11-01 23:17:25 Asia/Shanghai)
+- Multi-army Attack 3620: G6_ATTACK_MULTI2_POSTED_STABLE_HIT
+- Combat evidence: path/province RO densify (no org/str invent)
+- Agent loop: Move→Cancel→Strategic→Attack(1-/2-army wartime); Instant PARKED
+- allow_post default False.
