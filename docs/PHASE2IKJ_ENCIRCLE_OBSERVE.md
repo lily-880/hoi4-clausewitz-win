@@ -31,3 +31,6 @@
 ~96-98%; crossed_70=YES; +~0-1pp observe honesty fold (no invent)
 
 *2026-11-01 23:39:29 Asia/Shanghai*
+
+## Post-observe self-relaunch (t52u)
+After observe, pid 29648 WS collapsed (~248MB) and calendar stalled (day 120 held) ¡ª SELF-RELAUNCH via launch_into_map.py --start-tag ETH --speed 1 --allow-ai. New pid largest-WS; map ready ui 1936-01-01; gates remain False; zombie 38376 WS0 ignored.
