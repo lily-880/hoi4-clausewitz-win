@@ -580,3 +580,7 @@ Fix: leak stub pages on timeout; chunked WaitForSingleObject.
 Stability: responding_stayed=False alive_final=False
 post_wait=258 stub_leaked=None
 
+
+
+## 2ijy heap (2026-11-01 22:54 Asia/Shanghai)
+Move PATH HIT reaffirm; exit **0xC0000374**. Stub-leak shipped; ucrt malloc staged; allow_post False.

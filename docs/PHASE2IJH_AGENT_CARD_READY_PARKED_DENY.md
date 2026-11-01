@@ -73,3 +73,8 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 - 2ijy: leak stub on WAIT_TIMEOUT; reaffirm result `G6_MOVE_HIT_BUT_PROCESS_EXIT`; allow_post restored False
 - Instant PARKED; Attack peacetime PARKED unless war
 
+
+
+## 2ijy fold (2026-11-01 22:54 Asia/Shanghai)
+- Move: PATH HIT (2ijx+2ijy) then **0xC0000374** on VirtualAllocEx province_arr.
+- Staged: ucrt malloc live buf; stub leak; find_pid largest-WS. Instant/Attack PARKED. Path-C ~74-76%.
