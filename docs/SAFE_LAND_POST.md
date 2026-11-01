@@ -65,3 +65,13 @@
 **Gates:** allow_post False; markers absent. Instant PARKED. Combat densify HONEST_EMPTY.
 **Path-C:** ~94â€“96% (crossed_70=YES; +~2pp vs 2ikg ~92â€“94%).
 **Script:** scripts/phase2ikh_attack_after_concentrate.py
+
+## Phase 2iki (t52u Asia/Shanghai)
+- Result: G6_MULTI_ATTACK_CONCENTRATE_HIT
+- Primary B: bounded arrive-poll (~8s) ¡ª movers 1037/1038 NOT at 6906; anchor 1042 AT 6906 ¡ú gate open
+- Multi SupportAttack 3620: 1042@6906 + 1037 ¡ú prior HIT dest 1886 ¡ú ATTACK_POSTED_STABLE x2 (post_rax=1)
+- Retreat: HARD_DENY_PARKED_NOT_PROVEN_CHEAP (no retreat_order.py)
+- Instant PARKED; combat densify HONEST_EMPTY; adjacency HONEST_EMPTY
+- Stability ~30s responding_stayed=True alive_final=True heap_exit=False
+- Gates restored allow_post False markers absent
+- Path-C estimate ~96¨C98%; crossed_70=YES

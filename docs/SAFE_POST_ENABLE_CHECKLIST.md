@@ -609,3 +609,13 @@ Wartime agent loop Move→Attack→Cancel: **G6_LOOP_MOVE_ATTACK_CANCEL_HIT**. I
 - [x] **2ikf** G6_STRATEGIC_WARTIME_ENCIRCLE_HIT army1037→11838 Strategic4753 PATH_CONTAINS_DEST; gates restored; Instant PARKED; ~90–92% — 2026-11-01 23:24 Asia/Shanghai
 - [x] **2ikg** G6_MULTI_STRATEGIC_CONCENTRATE_HIT 1037+1038→6906 Strategic4753 dual PATH_CONTAINS_DEST; Retreat PARKED; gates restored; ~92–94% — 2026-11-01 23:27 Asia/Shanghai
 - [x] **2ikh** G6_ATTACK_AFTER_CONCENTRATE_HIT army1042@6906→1886 Attack3620 ATTACK_POSTED_STABLE; Retreat HARD_DENY; ~94–96% — 2026-11-01 23:31 Asia/Shanghai
+
+## Phase 2iki (t52u Asia/Shanghai)
+- Result: G6_MULTI_ATTACK_CONCENTRATE_HIT
+- Primary B: bounded arrive-poll (~8s) — movers 1037/1038 NOT at 6906; anchor 1042 AT 6906 → gate open
+- Multi SupportAttack 3620: 1042@6906 + 1037 → prior HIT dest 1886 → ATTACK_POSTED_STABLE x2 (post_rax=1)
+- Retreat: HARD_DENY_PARKED_NOT_PROVEN_CHEAP (no retreat_order.py)
+- Instant PARKED; combat densify HONEST_EMPTY; adjacency HONEST_EMPTY
+- Stability ~30s responding_stayed=True alive_final=True heap_exit=False
+- Gates restored allow_post False markers absent
+- Path-C estimate ~96–98%; crossed_70=YES
