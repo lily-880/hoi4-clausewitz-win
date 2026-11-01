@@ -638,3 +638,9 @@ Wartime agent loop Move→Attack→Cancel: **G6_LOOP_MOVE_ATTACK_CANCEL_HIT**. I
 - Longer arrive ~75s: stack_depth=1 (only 1042@6906); movers 1037@3931 / 1038@11838; paths empty; no early stack; Attack refresh NOT warranted (Posts=0)
 - Pocket: no army at 1886; combat densify HONEST_EMPTY; Retreat PARKED; Instant PARKED; gates False
 - Stability OK; Path-C ~97–99% (honesty fold)
+
+## Phase 2ikm (t52u Asia/Shanghai)
+- Result: G6_REISSUE_CONCENTRATE_ATTACK_HIT
+- Reissue after paths died: Strategic 4753 1037+1038→6906 HIT×2; arrive early-stop stack_depth=2 (enroute+anchor); Multi SupportAttack 3620 from 1038+1042→1886 ATTACK_POSTED_STABLE×2
+- Post-obs honesty: provinces 1037@9857 1038@11838 1042@6906; no army at 1886; paths cleared; combat densify HONEST_EMPTY
+- Retreat PARKED; Instant PARKED; Posts strategic=2 attack=2; gates False; Path-C ~98–99%
