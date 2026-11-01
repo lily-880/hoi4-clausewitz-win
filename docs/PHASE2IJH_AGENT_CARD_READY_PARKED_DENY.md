@@ -63,3 +63,13 @@ Baseline ~60%. This slice is **readiness consolidation** (agent card) + clock re
 ## Next shortest blocker
 
 Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do **not** schedule another PATH/OG50-only densify as the primary unlock path.
+
+
+---
+
+## Update 2ijx/2ijy — Ordinary Move PATH HIT + CRT stabilize
+
+- 2ijx: first ordinary Move PATH_CONTAINS_DEST (army 1042→3931); CRT wait 258 + process exit after free-on-timeout
+- 2ijy: leak stub on WAIT_TIMEOUT; reaffirm result `G6_MOVE_HIT_BUT_PROCESS_EXIT`; allow_post restored False
+- Instant PARKED; Attack peacetime PARKED unless war
+

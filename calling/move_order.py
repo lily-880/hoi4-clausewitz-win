@@ -1,7 +1,8 @@
 """One proven Windows post: ordinary CMoveCommand for one army.
 
 Factory 0x13FB000 (idx 1402) builds CMoveCommand + CUnitMoveAction embed.
-Province destinations use a remote VirtualAllocEx u32 array (size=1).
+Province destinations: dry_run VirtualAllocEx; live Post ucrtbase!malloc u32[1]
+(2ijy: VirtualAllocEx + vector dtor → 0xC0000374 heap corruption).
 IsValid: action RVA 0x12C2CA0 (rcx=cmd+0x28). Post: FN_CMD_QUEUE_POST.
 """
 from __future__ import annotations
@@ -75,6 +76,11 @@ def _k32():
 
 
 def _remote(pid: int, fn: int, regs: dict | None = None, wait_ms: int = 3000) -> dict:
+    """Call fn in-process via CRT stub.
+
+    CRITICAL: on WAIT_TIMEOUT do NOT VirtualFreeEx the stub — the remote thread may
+    still be inside FN_CMD_QUEUE_POST; freeing exec pages crashes hoi4 (2ijx).
+    """
     k = _k32()
     access = (
         PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION
@@ -83,14 +89,19 @@ def _remote(pid: int, fn: int, regs: dict | None = None, wait_ms: int = 3000) ->
     hp = k.OpenProcess(access, False, pid)
     if not hp:
         raise OSError(ctypes.get_last_error(), "OpenProcess failed")
+    mem = 0
+    freed = False
     try:
         mem = k.VirtualAllocEx(hp, None, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE)
         if not mem:
             raise OSError(ctypes.get_last_error(), "VirtualAllocEx failed")
         mem = int(mem)
         slot = mem + 0x800
-        stub = _stub(fn, slot, regs or {})
+        # zero result slot
+        z = (ctypes.c_char * 8)()
         written = ctypes.c_size_t(0)
+        k.WriteProcessMemory(hp, ctypes.c_void_p(slot), z, 8, ctypes.byref(written))
+        stub = _stub(fn, slot, regs or {})
         buf = (ctypes.c_char * len(stub)).from_buffer_copy(stub)
         if not k.WriteProcessMemory(hp, ctypes.c_void_p(mem), buf, len(stub), ctypes.byref(written)):
             raise OSError(ctypes.get_last_error(), "stub write failed")
@@ -98,13 +109,40 @@ def _remote(pid: int, fn: int, regs: dict | None = None, wait_ms: int = 3000) ->
         th = k.CreateRemoteThread(hp, None, 0, ctypes.c_void_p(mem), None, 0, ctypes.byref(tid))
         if not th:
             raise OSError(ctypes.get_last_error(), "CreateRemoteThread failed")
-        wait = k.WaitForSingleObject(th, int(wait_ms))
-        k.CloseHandle(th)
+        # chunked wait: detect early completion; never free stub while thread alive
+        budget = max(1, int(wait_ms))
+        slice_ms = 500
+        elapsed = 0
+        wait = 258  # WAIT_TIMEOUT default
+        while elapsed < budget:
+            step = min(slice_ms, budget - elapsed)
+            wait = k.WaitForSingleObject(th, int(step))
+            elapsed += step
+            if wait == 0:  # WAIT_OBJECT_0
+                break
+        still_alive = wait != 0
         out = ctypes.c_uint64(0)
         nread = ctypes.c_size_t(0)
         k.ReadProcessMemory(hp, ctypes.c_void_p(slot), ctypes.byref(out), 8, ctypes.byref(nread))
-        k.VirtualFreeEx(hp, ctypes.c_void_p(mem), 0, MEM_RELEASE)
-        return {"wait": int(wait), "rax": int(out.value)}
+        k.CloseHandle(th)
+        if still_alive:
+            # LEAK stub pages intentionally — safer than UAF crash (Phase 2ijy)
+            freed = False
+        else:
+            k.VirtualFreeEx(hp, ctypes.c_void_p(mem), 0, MEM_RELEASE)
+            freed = True
+            mem = 0
+        return {
+            "wait": int(wait),
+            "rax": int(out.value),
+            "wait_ms_budget": budget,
+            "elapsed_ms": elapsed,
+            "stub_freed": freed,
+            "stub_leaked_on_timeout": (not freed),
+        }
+    except Exception:
+        # on error, only free if we know thread never started / already joined — best-effort leak
+        raise
     finally:
         k.CloseHandle(hp)
 
@@ -150,6 +188,90 @@ def _free(pid: int, mem: int) -> None:
         k.CloseHandle(hp)
 
 
+
+
+def _remote_module_base(pid: int, want: tuple[str, ...]) -> int:
+    """Return base of first matching module name (case-insensitive substring)."""
+    import ctypes
+    from ctypes import wintypes as wt
+
+    k = ctypes.WinDLL("kernel32", use_last_error=True)
+    TH32CS_SNAPMODULE = 0x00000008
+    TH32CS_SNAPMODULE32 = 0x00000010
+
+    class MODULEENTRY32W(ctypes.Structure):
+        _fields_ = [
+            ("dwSize", wt.DWORD),
+            ("th32ModuleID", wt.DWORD),
+            ("th32ProcessID", wt.DWORD),
+            ("GlblcntUsage", wt.DWORD),
+            ("ProccntUsage", wt.DWORD),
+            ("modBaseAddr", ctypes.POINTER(ctypes.c_byte)),
+            ("modBaseSize", wt.DWORD),
+            ("hModule", wt.HMODULE),
+            ("szModule", ctypes.c_wchar * 256),
+            ("szExePath", ctypes.c_wchar * 260),
+        ]
+
+    k.CreateToolhelp32Snapshot.argtypes = [wt.DWORD, wt.DWORD]
+    k.CreateToolhelp32Snapshot.restype = wt.HANDLE
+    k.Module32FirstW.argtypes = [wt.HANDLE, ctypes.POINTER(MODULEENTRY32W)]
+    k.Module32FirstW.restype = wt.BOOL
+    k.Module32NextW.argtypes = [wt.HANDLE, ctypes.POINTER(MODULEENTRY32W)]
+    k.Module32NextW.restype = wt.BOOL
+    snap = k.CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid)
+    if not snap or int(snap) == -1:
+        raise OSError(ctypes.get_last_error(), "CreateToolhelp32Snapshot modules failed")
+    try:
+        me = MODULEENTRY32W()
+        me.dwSize = ctypes.sizeof(MODULEENTRY32W)
+        if not k.Module32FirstW(snap, ctypes.byref(me)):
+            raise OSError(ctypes.get_last_error(), "Module32FirstW failed")
+        want_l = tuple(w.lower() for w in want)
+        while True:
+            name = (me.szModule or "").lower()
+            if any(w in name for w in want_l):
+                return int(ctypes.cast(me.modBaseAddr, ctypes.c_void_p).value or 0)
+            if not k.Module32NextW(snap, ctypes.byref(me)):
+                break
+    finally:
+        k.CloseHandle(snap)
+    raise OSError(0, f"module not found: {want}")
+
+
+def _local_export_rva(dll_file: str, export: str) -> int:
+    import ctypes
+
+    k = ctypes.WinDLL("kernel32", use_last_error=True)
+    k.LoadLibraryW.argtypes = [ctypes.c_wchar_p]
+    k.LoadLibraryW.restype = ctypes.c_void_p
+    k.GetProcAddress.argtypes = [ctypes.c_void_p, ctypes.c_char_p]
+    k.GetProcAddress.restype = ctypes.c_void_p
+    h = k.LoadLibraryW(dll_file)
+    if not h:
+        raise OSError(ctypes.get_last_error(), f"LoadLibraryW {dll_file}")
+    p = k.GetProcAddress(h, export.encode("ascii"))
+    if not p:
+        raise OSError(ctypes.get_last_error(), f"GetProcAddress {export}")
+    return int(p) - int(h)
+
+
+def _resolve_ucrt_malloc(pid: int) -> int:
+    """ucrtbase!malloc in the remote process (same RVA as local ucrtbase)."""
+    remote = _remote_module_base(pid, ("ucrtbase.dll", "ucrtbase"))
+    rva = _local_export_rva("ucrtbase.dll", "malloc")
+    return int(remote) + int(rva)
+
+
+def _game_malloc(pid: int, n: int = 16) -> int:
+    """Allocate n bytes on the game CRT heap (safe for std::vector free)."""
+    fn = _resolve_ucrt_malloc(pid)
+    got = _remote(pid, fn, {"rcx": int(n)}, wait_ms=3000)
+    if got.get("wait") != 0 or int(got.get("rax") or 0) < 0x10000:
+        raise OSError(0, f"game malloc failed: {got}")
+    return int(got["rax"])
+
+
 def _u64(b, addr: int) -> int:
     return struct.unpack("<Q", b.read(addr, 8))[0]
 
@@ -184,8 +306,16 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
         return {"ok": False, "result": "FACTORY_VT_MISMATCH"}
 
     buf = 0
+    buf_kind = "none"
     try:
-        buf = _alloc(pid, 0x1000)
+        # Live Post: province_arr MUST be CRT-heap (ucrt malloc). VirtualAllocEx causes
+        # STATUS_HEAP_CORRUPTION (0xC0000374) when the command vector dtor frees it (2ijy).
+        if dry_run:
+            buf = _alloc(pid, 0x1000)
+            buf_kind = "virtualalloc"
+        else:
+            buf = _game_malloc(pid, 16)
+            buf_kind = "ucrt_malloc"
         _write(pid, buf, struct.pack("<I", int(province_id)))
         emb = cmd + 0x28
         _write(pid, emb + 0x10, struct.pack("<II", HANDLE_TYPE, int(army_index)))
@@ -220,7 +350,7 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
             return {"ok": False, "result": "ALLOW_POST_FALSE"}
 
         sess = _u64(b, base + post_abi.G_SESSION)
-        posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1}, wait_ms=20000)
+        posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1}, wait_ms=8000)
         if find_pid() != pid:
             return {"ok": False, "result": "PROCESS_EXITED"}
         b = Backend()
@@ -237,6 +367,13 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
             "path_before": before,
             "path_after": after,
             "factory_idx": FACTORY_IDX,
+            "province_buf_kind": buf_kind,
+            "stub_meta": {
+                "wait": posted.get("wait"),
+                "stub_leaked_on_timeout": posted.get("stub_leaked_on_timeout"),
+                "stub_freed": posted.get("stub_freed"),
+                "elapsed_ms": posted.get("elapsed_ms"),
+            },
         }
     finally:
         # dry_run: free; live Post: intentionally leak 4KB so queued cmd cannot UAF province_arr

@@ -107,11 +107,13 @@ def _bind():
 
 
 def find_pid(name: str = "hoi4.exe") -> Optional[int]:
+    """Prefer the alive hoi4 with the largest working set (skip zombies)."""
     _bind()
     name_l = name.lower()
     snap = kernel32.CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)
     if snap is None or int(snap) == -1:
         raise OSError(ctypes.get_last_error(), "CreateToolhelp32Snapshot failed")
+    cands: list[int] = []
     try:
         pe = PROCESSENTRY32W()
         pe.dwSize = ctypes.sizeof(PROCESSENTRY32W)
@@ -119,12 +121,49 @@ def find_pid(name: str = "hoi4.exe") -> Optional[int]:
             return None
         while True:
             if pe.szExeFile.lower() == name_l:
-                return int(pe.th32ProcessID)
+                cands.append(int(pe.th32ProcessID))
             if not kernel32.Process32NextW(snap, ctypes.byref(pe)):
                 break
     finally:
         kernel32.CloseHandle(snap)
-    return None
+    if not cands:
+        return None
+    if len(cands) == 1:
+        return cands[0]
+    best_pid = None
+    best_ws = -1
+    PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+    for pid in cands:
+        h = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | PROCESS_QUERY_INFORMATION, False, pid)
+        if not h:
+            continue
+        try:
+            # GetProcessMemoryInfo via psapi
+            class PROCESS_MEMORY_COUNTERS(ctypes.Structure):
+                _fields_ = [
+                    ("cb", wt.DWORD),
+                    ("PageFaultCount", wt.DWORD),
+                    ("PeakWorkingSetSize", ctypes.c_size_t),
+                    ("WorkingSetSize", ctypes.c_size_t),
+                    ("QuotaPeakPagedPoolUsage", ctypes.c_size_t),
+                    ("QuotaPagedPoolUsage", ctypes.c_size_t),
+                    ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t),
+                    ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
+                    ("PagefileUsage", ctypes.c_size_t),
+                    ("PeakPagefileUsage", ctypes.c_size_t),
+                ]
+            pmc = PROCESS_MEMORY_COUNTERS()
+            pmc.cb = ctypes.sizeof(PROCESS_MEMORY_COUNTERS)
+            psapi.GetProcessMemoryInfo.argtypes = [wt.HANDLE, ctypes.POINTER(PROCESS_MEMORY_COUNTERS), wt.DWORD]
+            psapi.GetProcessMemoryInfo.restype = wt.BOOL
+            if psapi.GetProcessMemoryInfo(h, ctypes.byref(pmc), pmc.cb):
+                ws = int(pmc.WorkingSetSize)
+                if ws > best_ws:
+                    best_ws = ws
+                    best_pid = pid
+        finally:
+            kernel32.CloseHandle(h)
+    return best_pid or cands[-1]
 
 
 class Backend:

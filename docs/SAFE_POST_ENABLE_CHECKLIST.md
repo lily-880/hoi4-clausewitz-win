@@ -567,3 +567,16 @@ Marker: `research/safe_land_tool_gate.OPEN` (Move+Strategic). Restored CLOSED af
 
 Diagnosis vs 2iju Strategic: same FN_CMD_QUEUE_POST(session,cmd,r8=1); Move uses remote province arr; 2ijw timed out at 3s; this slice longer wait + exec_6cc clear.
 
+
+---
+
+## Phase 2ijy — Stabilize Move CRT (no stub free on WAIT_TIMEOUT)
+
+**Result:** `G6_MOVE_HIT_BUT_PROCESS_EXIT`
+
+Root cause hyp: 2ijx VirtualFreeEx of CRT stub while FN_CMD_QUEUE_POST still running → process exit.
+Fix: leak stub pages on timeout; chunked WaitForSingleObject.
+
+Stability: responding_stayed=False alive_final=False
+post_wait=258 stub_leaked=None
+

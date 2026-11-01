@@ -1,5 +1,5 @@
 {
-  "phase": "2ijx",
+  "phase": "2ijy",
   "posting": "DISABLED",
   "command_queue": "DISABLED",
   "speed_rule": "pause or 1x only; never 5x",
@@ -63,7 +63,7 @@
     {
       "id": "command_queue_tool_gate",
       "status": "CLOSED_NOT_OPENED",
-      "note": "Re-closed after 2ijx Move timeout-diag one-shot",
+      "note": "Re-closed after 2ijy CRT-stable Move one-shot",
       "proven_once": {
         "phase": "2iju",
         "mode": "OPEN_STRATEGIC_ONLY",
@@ -74,6 +74,11 @@
         "factory_idx": 1402,
         "result": "G6_MOVE_POST_HIT",
         "post_wait_ms_config": 20000
+      },
+      "proven_once_move_crt": {
+        "phase": "2ijy",
+        "result": "G6_MOVE_HIT_BUT_PROCESS_EXIT",
+        "fix": "no_free_stub_on_timeout"
       }
     },
     {
@@ -89,7 +94,7 @@
     {
       "id": "ALLOW_POST_gate",
       "status": "closed",
-      "note": "2ijx restored: allow_post requires env+marker again",
+      "note": "2ijy restored",
       "proven_once": {
         "phase": "2iju",
         "env": "CLAUSEWITZ_ALLOW_POST=1",
@@ -1758,5 +1763,12 @@
     "G5": "PROVEN_ONCE_STRATEGIC_ONLY_THEN_RESTORED",
     "G6": "G6_STRATEGIC_POST_HIT",
     "fold_phase": "2ijv"
+  },
+  "phase2ijy": {
+    "move_path_hit_reaffirm": true,
+    "crt_stable": false,
+    "exit_code": "0xC0000374",
+    "ucrt_malloc_staged": true,
+    "allow_post_final": false
   }
 }

@@ -1,0 +1,70 @@
+{
+  "phase": "2ijy",
+  "result": "G6_MOVE_HIT_BUT_PROCESS_EXIT__HEAP_CORRUPT_DIAG",
+  "authorization": "t52u",
+  "live_post_attempts_this_slice": {
+    "move": 1,
+    "strategic": 0,
+    "cancel": 0
+  },
+  "first_reaffirm": {
+    "result": "PATH_CONTAINS_DEST",
+    "army": 1042,
+    "dest": 3931,
+    "path_after": [
+      9896,
+      13222,
+      3909,
+      11737,
+      3816,
+      6901,
+      9842,
+      3931
+    ],
+    "post_wait": 258,
+    "post_rax": 0,
+    "pid": 39648,
+    "ui": "1936-01-22",
+    "stability": {
+      "responding_stayed": false,
+      "alive_final": false,
+      "exit_code": 3221226356,
+      "exit_code_hex": "0xC0000374",
+      "exit_meaning": "STATUS_HEAP_CORRUPTION",
+      "died_after_s_approx": 16.58,
+      "stub_leak_applied": true
+    }
+  },
+  "diagnosis": {
+    "stub_VirtualFreeEx_on_timeout": "patched (leak) \u2014 insufficient alone",
+    "root_cause_hyp": "Move province_arr via VirtualAllocEx; game std::vector dtor frees with CRT free \u2192 heap corruption. Strategic inline cmd+0x38 has no external vector \u2192 stable.",
+    "evidence": "PATH_CONTAINS_DEST then exit 0xC0000374; stub already leaked"
+  },
+  "fixes_shipped_untested_live_post": {
+    "ucrt_malloc_province_arr": "live Post uses _game_malloc (ucrtbase!malloc); dry_run still VirtualAllocEx",
+    "find_pid_largest_ws": "skip zombie hoi4 (pid 38376 WS~0)",
+    "stub_leak_on_WAIT_TIMEOUT": true,
+    "malloc_smoke": "pid 37584 malloc\u2192buf ok (no Post)",
+    "dry_run_after_patch": "DRY_RUN_VALID army 1042\u21923931",
+    "second_live_post": "SKIPPED \u2014 max ONE live Post/slice already used"
+  },
+  "gates_restored": {
+    "allow_post": false,
+    "marker_exists": false
+  },
+  "final_allow_post": false,
+  "live_left_running": {
+    "pid": 37584,
+    "ui": "1936-01-19",
+    "note": "SELF-RELAUNCH after first-post exit; peacetime ITA @1x"
+  },
+  "path_c_honesty": {
+    "baseline_band": "~60%",
+    "after_2ijx": "~74-76%",
+    "crossed_70": true,
+    "estimate_after": "~74-76% (PATH HIT reaffirmed; CRT stability NOT closed \u2014 heap fix staged)",
+    "delta_pp": "0 (stabilize incomplete)"
+  },
+  "next_shortest_blocker": "2ijz: ONE Move Post reaffirm with province_buf_kind=ucrt_malloc; require Responding stayed True + no 0xC0000374; then Cancel 1415 or wartime Attack",
+  "timestamp_asia_shanghai": "2026-11-01 22:54:11 Asia/Shanghai"
+}

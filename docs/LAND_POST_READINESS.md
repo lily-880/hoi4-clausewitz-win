@@ -603,3 +603,17 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 - Evidence: {'ok': True, 'result': 'PATH_CONTAINS_DEST', 'army': 1042, 'province': 3931, 'post_rax': 0, 'post_wait': 258, 'path_before': [], 'path_after': [9896, 13222, 3909, 11737, 3816, 6901, 9842, 3931], 'factory_idx': 1402}
 - Instant PARKED
 
+
+---
+
+## Section 2ijy — Move CRT stabilize + reaffirm
+
+- `calling/move_order.py`: never VirtualFreeEx stub on WAIT_TIMEOUT (leak-safe)
+- ONE Move reaffirm factory 1402; gates restored False
+- Evidence: {'ok': True, 'result': 'PATH_CONTAINS_DEST', 'army': 1042, 'province': 3931, 'post_rax': 0, 'post_wait': 258, 'path_before': [], 'path_after': [9896, 13222, 3909, 11737, 3816, 6901, 9842, 3931], 'factory_idx': 1402}
+- Stability: {'health_before': {'alive': True, 'exit_code': 259}, 'responding_samples': [{'t': 9.58, 'alive': True, 'exit_code': 259}, {'t': 10.58, 'alive': True, 'exit_code': 259}, {'t': 11.58, 'alive': True, 'exit_code': 259}, {'t': 12.58, 'alive': True, 'exit_code': 259}, {'t': 13.58, 'alive': True, 'exit_code': 259}, {'t': 14.58, 'alive': True, 'exit_code': 259}, {'t': 15.58, 'alive': True, 'exit_code': 259}, {'t': 16.58, 'alive': False, 'exit_code': 3221226356}], 'alive_final': False, 'responding_stayed': False, 'pid_unchanged': True}
+
+
+
+## 2ijy (2026-11-01 22:54 Asia/Shanghai)
+G6 Move PATH_CONTAINS_DEST again; CRT stability open (heap). Next: ucrt_malloc live reaffirm.
