@@ -26,6 +26,37 @@ Runtime check: `from calling.config import allow_post; assert allow_post() is Fa
 
 ---
 
+
+---
+
+## Phase 2iji — Gate matrix from agent card (CLOSED; catalog only)
+
+**Result:** `SAFE_POST_GATE_CHECKLIST_POLISH` · allow_post **False** · no Post execute · no Instant · no PATH densify.
+
+Maps `docs/PHASE2IJH_AGENT_CARD_READY_PARKED_DENY.md` → concrete enable gates. Full card: `docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md`.
+
+### Proven (READY) — still does **not** enable Post
+
+Clock/queue · PATH200 multi STABLE 2643→[3945,2679] oi=448 · OG+0x50 proxy (name stubbed) · factory/VT FN MATCH · Post ABI RO · PATH≠Inst + Instant VT catalog · Strategic offline bit_identical / recipe v2 DESIGN · NEVER_POST / allow_post hard False.
+
+### Missing gates (blocks ALLOW_POST)
+
+| ID | Gate | State |
+| --- | --- | --- |
+| G1 | Midflight CMove hex (+ embed) OR Strategic-only human path | STUBBED / MISSING |
+| G2 | ring_embed live on sample (2fb/2gk) | STUBBED design |
+| G3 | Instant×PATH wartime / human midflight Instant | PARKED peacetime |
+| G4 | Human CLAUSEWITZ_ALLOW_POST=1 once | HARD_DENY until human |
+| G5 | Tool-gate open + NEVER_POST | CLOSED_NOT_OPENED |
+| G6 | ONE Strategic/Move Post @1x; verify; unset | FORBIDDEN now |
+
+### Not progress
+
+PATH/OG50-only densify · Instant empty re-polls · midflight empty re-polls · Capstone/121 · Assign quiet endless polls.
+
+**Path C honesty:** ~60%; this polish ≠ +10pp; ~70% needs G1+ (not more perception).
+
+
 ## Exact proofs still MISSING (block enable)
 
 Ordered shortest-path. All must be green before any gated enable discussion.
@@ -325,6 +356,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 - **2ijf:** PATH200/OG50 denser2; multi_n=1 new_dest 2679 oi=448; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2ijg:** PATH200/OG50 track2; MULTI_STABLE multi 2643→[3945,2679]; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 - **2ijh:** agent-card READY/PARKED/HARD_DENY consolidate; NO PATH densify; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
+- **2iji:** SAFE Post gate checklist G1–G6 from agent card; NO PATH densify; Instant PARKED; PathC ~60% honesty (not 70%); allow_post False; NO Post.
 
 ### HARD_DENY unchanged
 
@@ -336,10 +368,12 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 ### Exact next human-gated (unchanged order)
 
 ```
-[ ] Midflight CMove hex OR accept Strategic-only path with human SAFE Post for ring_embed
-[ ] Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
-[ ] Dedicated tool-gate open + NEVER_POST
-[ ] ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
+[ ] G1 Midflight CMove hex OR accept Strategic-only path with human SAFE Post for ring_embed
+[ ] G2 ring_embed live proof on captured sample (still STUBBED)
+[ ] G3 Instant×PATH wartime/midflight if Move path needs Instant (peacetime PARKED)
+[ ] G4 Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
+[ ] G5 Dedicated tool-gate open + NEVER_POST
+[ ] G6 ONE Strategic (preferred) or Move Post at 1x; verify; pause; unset
 ```
 
 *Phase 2iv — cohort rehome + relaunch PATH200. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
