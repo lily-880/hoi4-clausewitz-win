@@ -421,4 +421,6 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 **2iv relaunch PATH200:** result=`PATH200_RELAUNCH_PATH_ONLY_HIT` · fresh ITA `-start_tag=ITA -start_speed=1` pid=33840 · ita_ok=17 nonempty=2 multi=0 · 1040→[12857] oi=70 · 1053→[9945] oi=57 · focus740 miss · OG50 reverse oi_scanned=2000 oi_with_arr50=360 · clock=RELOAD_OR_NEW_CAMPAIGN year=1936 day_index=13 ui=1936-01-14 · allow_post=False · speed=1x CLI only · prior cohort 461/1042 N/A on new process · still NO ALLOW_POST / NO Post inject (2iw/2iy scripts not re-run).
 
+**2iw NON-Post PATH200 oi57/70:** result=`PATH200_OI57_70_DENSE_HIT` · 1040→[12857] oi=70 · 1053→[9945] oi=57 · focus_oi_seed=2 · OG50 sizes 70:1 / 57:4 · Inst70 empty (inst_ok=False; Instant≠481) · ARR88×PATH in70_and_88=[] · clock=RELOAD_OR_NEW_CAMPAIGN ui=1936-01-14 · allow_post=False · historical Post 2iw script NOT re-run · still NO ALLOW_POST.
+
 
