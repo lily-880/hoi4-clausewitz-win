@@ -106,6 +106,14 @@ Still blocks ALLOW_POST: **G2 live** 路 **G4** 路 **G5** 路 **G6**. G3 Instan
 - G1–G6 matrix reaffirmed; G4–G6 still human. Docs: `docs/PHASE2IJN_ARMY_SUBJECT_STRATEGIC_RO.md` · `reports/phase2ijn_army_subject_strategic_ro.json`.
 - Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. G3 Instant PARKED. Executor cannot flip G4.
 
+
+### 2ijo push-sync + agent catalog (catalog)
+
+- FIRST retry push **SUCCESS** `40d7716..c342a89`; PC+origin aligned (2ijn lag cleared).
+- Agent card rollup: 2ijn army-subject 58/58 + G1–G6 READY/PARKED/HARD_DENY; org/str hyp NOT invented.
+- Docs: `docs/PHASE2IJO_PUSH_SYNC_AGENT_CATALOG.md` · `reports/phase2ijo_push_sync_agent_catalog.json`.
+- Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. G3 Instant PARKED. Executor cannot flip G4.
+
 ### Not progress
 
 PATH/OG50-only densify 路 Instant empty re-polls 路 midflight empty re-polls 路 Capstone/121 路 Assign quiet endless polls.
@@ -442,3 +450,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijm 鈥?factory/Post-ABI/clock RO. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijn — army-subject Strategic RO. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijo — push-sync + agent catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
