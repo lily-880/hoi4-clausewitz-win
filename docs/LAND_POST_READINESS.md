@@ -427,6 +427,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 **2iy PATH200 calendar unblock:** result=PATH200_CALUNBLOCK_DENSE_HIT · softlock prior pid33840 WS~238MB exec flat8182 day=13 → relaunch ITA@1x pid31788 · calendar_ok day10→11 exec↑ · PATH nonempty=2 multi=0 · new_ois=[45,55] (was 57/70) dests still [9945,12857] · inst_ok=[] · allow_post=False · NON-Post · see docs/PHASE2IY_PATH200_CALENDAR_UNBLOCKED.md
 **2iz PATH200 1x advance denser:** result=PATH200_ADVANCE_MULTI_HIT · day24→36 (+12 @150s 1x) · nonempty=3 multi=0 · new_dest=[1903] oi=58@1041 · focus_oi_seed 45/55 still 9945/12857 · inst_ok=[] · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IZ_PATH200_ADVANCE_DENSE.md
 **2ija PATH200 longer advance CONTINUOUS:** result=PATH200_LONGER_ADVANCE_MULTI_N_HIT · day51→74 (+23 @300s 1x) clock=CONTINUOUS · nonempty=15 **multi=2** · new_dests=[415,740,2601,3938,3945,6906,9764,11707] new_ois=[65,448,450,478] · inst_ok=[] · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJA_PATH200_LONGER_ADVANCE.md
+**2ijb Instant×PATH multi hunt:** result=INSTPATH_MULTI_PATH_INST_EMPTY · CONTINUOUS day85→90 (60s nudge) · multi_n=2 stable 2647/2683 · focus OIs 65/450/448/478 inst_ok=false · OG50 fat on 65/448 · PATH≠Inst honesty · allow_post=False · see docs/PHASE2IJB_INSTPATH_MULTI_HUNT.md
+
 
 
 
