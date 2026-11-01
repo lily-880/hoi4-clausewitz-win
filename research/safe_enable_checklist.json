@@ -1,1878 +1,1897 @@
-{
-  "phase": "2ijy",
-  "posting": "DISABLED",
-  "command_queue": "DISABLED",
-  "speed_rule": "pause or 1x only; never 5x",
-  "FN_CMD_QUEUE_POST": "0x22c41e0",
-  "gaps": [
-    {
-      "id": "no_tooling_post",
-      "status": "closed",
-      "note": "2bc 18/18 RO post_abi+cmd_layout; 2bm reconfirmed"
-    },
-    {
-      "id": "midflight_move_sample",
-      "status": "stubbed",
-      "note": "STUBBED sample. 2ei: capture recipe docs/MIDFLIGHT_CMOVE_CAPTURE.md; watcher heartbeat+instant dump+heap-every 0; still needs real user right-click."
-    },
-    {
-      "id": "action_flag_names",
-      "status": "closed",
-      "note": "2am/2an/2aq token names"
-    },
-    {
-      "id": "strategic_serialize",
-      "status": "closed",
-      "note": "Phase 2aq"
-    },
-    {
-      "id": "order_cmd_layouts",
-      "status": "closed",
-      "note": "2ar+2bm+2bn: 10/10 Order Execute + serialize vt+0xa0 + deserialize vt+0xa8 + clone sizes + factories live"
-    },
-    {
-      "id": "army_handle_province",
-      "status": "closed",
-      "note": "Phase 2as CHandle@CArmy+0x18 type 0x33; CProvince+0xa4 id hyp"
-    },
-    {
-      "id": "army_subject_wiring",
-      "status": "closed",
-      "note": "2bn+2bo: army_subjects Move/Strategic/Cancel recipes; HAI 22 armies live"
-    },
-    {
-      "id": "FN_HANDLE_RESOLVE",
-      "status": "closed",
-      "note": "0x2284800 hash lookup; 17/17 HAI"
-    },
-    {
-      "id": "drain_execute_edges",
-      "status": "closed",
-      "note": "2bn+2br: 6CC/726/725/empty-ring; SessionUpdate set/clear 6cc+inc 6c8+sticky F8; Dummy drain ring a0/b8/c0/c8/pending 60/68"
-    },
-    {
-      "id": "post_gate_analysis",
-      "status": "closed",
-      "note": "2bn+2bo: 725 necessary not sufficient; tool gate stays closed"
-    },
-    {
-      "id": "never_post_speed",
-      "status": "closed",
-      "note": "2bo: Inc/Dec/Set/Hourly/Ping+Pause type_ids+factories; Pause NEVER_POST"
-    },
-    {
-      "id": "command_queue_tool_gate",
-      "status": "CLOSED_NOT_OPENED",
-      "note": "Re-closed after 2ikh",
-      "proven_once": {
-        "phase": "2iju",
-        "mode": "OPEN_STRATEGIC_ONLY",
-        "restored": true
-      },
-      "proven_once_move": {
-        "phase": "2ijx",
-        "factory_idx": 1402,
-        "result": "G6_MOVE_POST_HIT",
-        "post_wait_ms_config": 20000
-      },
-      "proven_once_move_crt": {
-        "phase": "2ijy",
-        "result": "G6_MOVE_HIT_BUT_PROCESS_EXIT",
-        "fix": "no_free_stub_on_timeout"
-      }
-    },
-    {
-      "id": "network_execlist_path",
-      "status": "n/a_sp",
-      "note": "DummyServer SP"
-    },
-    {
-      "id": "ring_embed",
-      "status": "closed",
-      "note": "DummyServer+0xa0 embed; sink add rbx,0xa0"
-    },
-    {
-      "id": "ALLOW_POST_gate",
-      "status": "closed",
-      "note": "2ikf restored",
-      "proven_once": {
-        "phase": "2iju",
-        "env": "CLAUSEWITZ_ALLOW_POST=1",
-        "restored": true
-      }
-    },
-    {
-      "id": "move_early_gate_docs",
-      "status": "closed",
-      "note": "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES \u2014 not a Post enable."
-    },
-    {
-      "id": "cmd_catalog_live",
-      "status": "closed",
-      "note": "2bm: Move/Strategic/Cancel/StartGame/Chat + 10 Orders + CUnitMoveAction slots; sticky StartGame live; army handles OK"
-    },
-    {
-      "id": "factory_table_deepen",
-      "status": "closed",
-      "note": "2bo: bias 0x2328/thresh 0x2710/max 0x2AF7; 456 non-null; catalog 36/36 factory match incl NEVER_POST+REMAINING"
-    },
-    {
-      "id": "isvalid_paths",
-      "status": "closed",
-      "note": "2bs: 49 paths \u2014 EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
-    },
-    {
-      "id": "remaining_army_orders",
-      "status": "closed",
-      "note": "2bp serdes + 2br kinds + 2bs fields/ISVALID_PATHS 15/15 closed"
-    },
-    {
-      "id": "extra_naval_air_subtypes",
-      "status": "closed",
-      "note": "2bs: MissionMove/MassMove/DeployAirWing/NavyCancel + fleet/mission/template curated set in EXTRA 18/18"
-    }
-  ],
-  "enable_when": [
-    "Independent non-destructive Post proof \u2014 DONE 2bc/2bm",
-    "Mid-flight leaf: Strategic CAPTURED+layout MATCH (2fa/2fb); ordinary CMove still STUBBED \u2014 ring recreate still required",
-    "Explicit CLAUSEWITZ_ALLOW_POST=1",
-    "Never auto-enable inside per-tick loops",
-    "Never Post speed/HourlyTick commands"
-  ],
-  "notes_2ay": "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open",
-  "notes_2bl": "2bc Post ABI tooling proof CLOSED. midflight Move STUBBED (DX11 input). Sticky StartGame equivalent RO sample captured. Posting remains DISABLED.",
-  "blocks_enabling_post": [
-    {
-      "id": "midflight_CMoveCommand",
-      "status": "PARTIAL_strategic_ok_ordinary_move_stubbed",
-      "must": "Live mid-flight leaf: Strategic DONE (2fa/2fb); ordinary CMove optional; IsValid path documented (2fc); ring recreate still required",
-      "note": "2fc: Strategic IsValid cmd 0x1402260 / action 0x12c2c20 / type_id 0x364a; gate CLOSED; allow_post False"
-    },
-    {
-      "id": "serialize_recreate_roundtrip",
-      "status": "offline_strategic_rebuild_PASS_live_factory_RO_inprocess_ring_embed_STUBBED",
-      "must": "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring",
-      "note": "2fd: offline Strategic 0x50 bit-identical rebuild PASS; live factory/recreate wiring RO; in-process ring embed still needs Post \u2014 NOT executed; allow_post False"
-    },
-    {
-      "id": "CLAUSEWITZ_ALLOW_POST",
-      "status": "hard-deny",
-      "must": "Explicit CLAUSEWITZ_ALLOW_POST=1; allow_post always False now"
-    },
-    {
-      "id": "no_guess_writes",
-      "status": "policy",
-      "must": "No WriteProcessMemory/Post on guessed layouts"
-    },
-    {
-      "id": "never_speed_cmds",
-      "status": "policy",
-      "must": "Never Post NEVER_POST set (speed/HourlyTick/Ping/Pause)"
-    },
-    {
-      "id": "tool_gate",
-      "status": "CLOSED_NOT_OPENED",
-      "must": "command_queue_tool_gate stays DISABLED; TOOL_GATE_PREDICATES CLOSED_NOT_OPENED"
-    }
-  ],
-  "notes_2bm": "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
-  "notes_2bn": "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED.",
-  "notes_2bo": "Factory deepen + IsValid paths + Strategic/Cancel recipes + Pause NEVER_POST + 15 remaining army-order stubs. Midflight stubbed; watcher armed. Posting DISABLED. Tool gate NOT opened.",
-  "notes_2bp": {
-    "ts": "2026-10-31T05:42:01",
-    "gettypeid": "36/36",
-    "factory": "36/36",
-    "shared_bin_serdes": "36/36 vt+8/10/18/20",
-    "move_strategic_cancel_serdes_clone": "full proof",
-    "remaining_army_orders_15": "serialize+deserialize+clone+gettypeid full",
-    "dummy_roundtrip": "wiring_closed_live_buffer_stubbed",
-    "tool_gate": "CLOSED_NOT_OPENED analysis only",
-    "allow_post": false,
-    "midflight_watcher_pid": 29656,
-    "speed_rule": "pause or 1x only; never 5x"
-  },
-  "notes_2bq": {
-    "ts": "2026-10-31T05:48:07",
-    "live_buffer_dummy_rt": "STRUCTURAL_LIVE_OK sticky StartGame token 0x1F3; in-process ring embed STUBBED",
-    "extra_land": "6/6",
-    "extra_naval_air": "6/6",
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "midflight_watcher_pid": 29656,
-    "ring_empty": true
-  },
-  "notes_2br": {
-    "ts": "2026-10-31T05:53:53",
-    "extra_fields_isvalid": "8/8",
-    "orders_isvalid": "10/10",
-    "remaining_kinds": "15/15",
-    "session_drain_execute_edges": "live-matched",
-    "sticky_startgame": "live via wrapper+0",
-    "isvalid_paths": 24,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "midflight_watcher_pid": 29656,
-    "ring_embed": "STUBBED"
-  },
-  "notes_2bs": {
-    "ts": "2026-10-31T05:57:28",
-    "extra": "18/18",
-    "remaining_fields": "15/15",
-    "isvalid_paths": 49,
-    "tool_gate": "CLOSED_NOT_OPENED analysis only",
-    "allow_post": false,
-    "midflight_watcher_pid": 29656,
-    "sticky_startgame": "live"
-  },
-  "notes_2bt": {
-    "ts": "2026-10-31T06:03:53",
-    "land_army_focus": "10/10",
-    "support_attack": "layout+tokens+recipe",
-    "strategic_action_tokens": "0x289D/0x2840/0x29F1/0x37BC",
-    "isvalid_paths": 52,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2bu": {
-    "ts": "2026-10-31T06:09:32",
-    "land_army_focus": "25/25",
-    "exe_proofs": "11/11",
-    "isvalid_paths": 59,
-    "groups": {
-      "cancel_abort": 3,
-      "frontline": 9,
-      "theater": 7,
-      "retreat": 5,
-      "move": 4,
-      "strategic": 2,
-      "attack": 1
-    },
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2bv": {
-    "ts": "2026-10-31T06:12:10",
-    "land_army_focus": "37/37",
-    "exe_proofs": "37/37",
-    "isvalid_paths": 64,
-    "order_group_group": 12,
-    "key_offensive": "CSetOrderGroupExecutionTypeCommand",
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2bw": {
-    "ts": "2026-10-31T06:17:08",
-    "land_army_focus": "54/54",
-    "exe_proofs": "54/54",
-    "isvalid_paths": 67,
-    "order_group_group": 20,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2bx": {
-    "ts": "2026-10-31T06:20:53",
-    "land_army_focus": "86/86",
-    "exe_proofs": "86/86",
-    "isvalid_paths": 99,
-    "new_rtti_land": 32,
-    "thin_capstone": 19,
-    "order_group_group": 41,
-    "frontline_group": 15,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2by": {
-    "ts": "2026-10-31T06:23:09",
-    "land_army_focus": "93/93",
-    "exe_proofs": "93/93",
-    "isvalid_paths": 106,
-    "new_land": 7,
-    "thin_capstone": 37,
-    "order_group_group": 44,
-    "move_group": 11,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 29656,
-    "posting": "DISABLED"
-  },
-  "notes_2bz": {
-    "ts": "2026-10-31T06:28:46",
-    "land_army_focus": "115/115",
-    "exe_proofs": "115/115",
-    "isvalid_paths": 128,
-    "new_land": 22,
-    "thin_capstone": 88,
-    "order_group_group": 52,
-    "move_group": 15,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 36128,
-    "posting": "DISABLED"
-  },
-  "notes_2ca": {
-    "ts": "2026-10-31T06:29:32",
-    "land_army_focus": "115/115",
-    "exe_proofs": "115/115",
-    "isvalid_paths": 128,
-    "offensive_capstone_targets": 50,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 36128,
-    "posting": "DISABLED"
-  },
-  "notes_2cb": {
-    "ts": "2026-10-31T06:32:19",
-    "land_army_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "new_land_adjacent": 6,
-    "thin_capstone": 57,
-    "order_group_group": 56,
-    "move_group": 17,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 36128,
-    "posting": "DISABLED"
-  },
-  "notes_2cc": {
-    "ts": "2026-10-31T06:33:11",
-    "land_army_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "callgraph_targets": 121,
-    "shared_helpers_ge3": 40,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "allow_post": false,
-    "watcher": 36128,
-    "posting": "DISABLED"
-  },
-  "notes_2cd": {
-    "phase": "2cd",
-    "when": "2026-10-31 06:36 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "shared_helpers": 40,
-    "helper_by_class": {
-      "field_predicate": 14,
-      "flag_gate": 1,
-      "inline_predicate": 4,
-      "wide_object_walk": 3,
-      "dispatcher_or_composite": 16,
-      "string_annotated": 2
-    },
-    "isvalid_gate_helpers": 39,
-    "execute_body_helpers": 22,
-    "named_helpers": [
-      "gamestate_instance_guard",
-      "gamestate_instance_guard_b",
-      "gamestate_instance_guard_c",
-      "gamestate_instance_guard_d",
-      "gamestate_instance_guard_e",
-      "thread_is_main_thread",
-      "get_order_instance",
-      "deployment_train_gate",
-      "division_subunit_type_check"
-    ],
-    "post_implications": [
-      "ThreadIsMainThread (0x23c3a0) must hold at any future Post \u2014 observe only; never patch",
-      "gamestate_instance_guard* family gates many IsValid paths \u2014 Post candidates must pass live IsValid first",
-      "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes \u2014 subject must be live order id",
-      "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges \u2014 land Post recipes must carry valid subunit/type",
-      "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds \u2014 treat as shared plumbing not command-specific fields",
-      "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "tick": 1,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2ce": {
-    "phase": "2ce",
-    "when": "2026-10-31 06:39 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "shared_helpers_primary": 40,
-    "second_order_hot": 14,
-    "helpers_total": 54,
-    "isvalid_gate_helpers": 47,
-    "execute_body_helpers": 34,
-    "role_post_paths": [
-      "attack",
-      "move",
-      "strategic",
-      "frontline",
-      "retreat",
-      "cancel_abort"
-    ],
-    "role_min_gate_count": 7,
-    "recipes_added": [
-      "move_command_recipe",
-      "order_reconnect_recipe",
-      "replace_fallback_recipe",
-      "land_role_post_path_recipe"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "tick": 1,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2cf": {
-    "phase": "2cf",
-    "when": "2026-10-31 06:42 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "helpers_total": 101,
-    "by_tier": {
-      "primary_shared": 40,
-      "second_order": 14,
-      "execute_shared_unknown": 47
-    },
-    "isvalid_gate_helpers": 75,
-    "execute_body_helpers": 81,
-    "role_post_paths": [
-      "attack",
-      "retreat",
-      "move",
-      "strategic",
-      "cancel_abort",
-      "frontline",
-      "theater",
-      "order_group",
-      "garrison"
-    ],
-    "expanded_roles_2cf": [
-      "theater",
-      "order_group",
-      "garrison"
-    ],
-    "soft_gates_by_role": {
-      "attack": [
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "retreat": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0x11f240",
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "move": [
-        "0x2607890",
-        "0x1e1510",
-        "0x11f240",
-        "0x2284800"
-      ],
-      "strategic": [
-        "0x254aa00",
-        "0x25a0390",
-        "0x2607890"
-      ],
-      "cancel_abort": [
-        "0x2284800",
-        "0x2348bf0",
-        "0x25c3770",
-        "0x11f240",
-        "0x1b8180",
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "frontline": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ],
-      "theater": [
-        "0x2607890"
-      ],
-      "order_group": [
-        "0x2284800"
-      ],
-      "garrison": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ]
-    },
-    "recipes_added": [
-      "land_execute_shared_unknown_recipe",
-      "theater_role_post_path_recipe",
-      "order_group_role_post_path_recipe",
-      "garrison_role_post_path_recipe"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "tick": 1,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2cg": {
-    "phase": "2cg",
-    "when": "2026-10-31 06:47 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "helpers_total": 107,
-    "by_tier": {
-      "primary_shared": 40,
-      "second_order": 14,
-      "execute_shared_unknown": 47,
-      "unknown_second_order": 6
-    },
-    "isvalid_gate_helpers": 76,
-    "execute_body_helpers": 86,
-    "preferred_cores": {
-      "attack_core": [
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "retreat_fallback_core": [
-        "0x2284800",
-        "0xbbb1e0"
-      ],
-      "frontline_core": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ],
-      "garrison_core": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ],
-      "move_army_core": [
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "strategic_redeploy_core": [
-        "0x254aa00",
-        "0x25a0390"
-      ],
-      "strategic_pin_core": [
-        "0x2607890"
-      ],
-      "order_group_core": [
-        "0x2284800"
-      ],
-      "theater_core": [
-        "0x18dde70"
-      ]
-    },
-    "soft_to_hard_closures": [
-      {
-        "role": "attack",
-        "closed_soft_into_core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "core_coverage": "5/7",
-        "full_role_hard": []
-      },
-      {
-        "role": "frontline",
-        "closed_soft_into_core_hard": [
-          "0x2284800",
-          "0xbbb1e0",
-          "0xc40230"
-        ],
-        "core_coverage": "11/15",
-        "full_role_hard": []
-      },
-      {
-        "role": "garrison",
-        "closed_soft_into_core_hard": [
-          "0xc40230"
-        ],
-        "core_coverage": "2/3",
-        "full_role_hard": [
-          "0x2284800",
-          "0xbbb1e0"
-        ]
-      },
-      {
-        "role": "move",
-        "closed_soft_into_core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "core_coverage": "10/17",
-        "full_role_hard": []
-      },
-      {
-        "role": "order_group",
-        "closed_soft_into_core_hard": [
-          "0x2284800"
-        ],
-        "core_coverage": "42/56",
-        "full_role_hard": []
-      },
-      {
-        "role": "retreat",
-        "closed_soft_into_core_hard": [
-          "0xbbb1e0"
-        ],
-        "core_coverage": "5/6",
-        "full_role_hard": []
-      },
-      {
-        "role": "strategic",
-        "closed_soft_into_core_hard": [
-          "0x2607890"
-        ],
-        "core_coverage": "2/4",
-        "full_role_hard": []
-      },
-      {
-        "preferred_core": "attack_core",
-        "closed_soft_into_core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "coverage": "5/7",
-        "basis": "exclude RailwayGun* outliers"
-      },
-      {
-        "preferred_core": "retreat_fallback_core",
-        "closed_soft_into_core_hard": [
-          "0x2284800",
-          "0xbbb1e0"
-        ],
-        "core_hard": [
-          "0x2284800",
-          "0xbbb1e0"
-        ],
-        "coverage": "3/6",
-        "basis": "share 0x2284800+0xbbb1e0"
-      },
-      {
-        "preferred_core": "frontline_core",
-        "closed_soft_into_core_hard": [
-          "0x2284800",
-          "0xbbb1e0",
-          "0xc40230"
-        ],
-        "core_hard": [
-          "0x2284800",
-          "0xbbb1e0",
-          "0xc40230"
-        ],
-        "coverage": "11/15",
-        "basis": "share 0x2284800+0xbbb1e0+0xc40230 (close soft->hard)"
-      },
-      {
-        "preferred_core": "garrison_core",
-        "closed_soft_into_core_hard": [
-          "0xc40230"
-        ],
-        "core_hard": [
-          "0x2284800",
-          "0xbbb1e0",
-          "0xc40230"
-        ],
-        "coverage": "2/3",
-        "basis": "share triple incl 0xc40230"
-      },
-      {
-        "preferred_core": "move_army_core",
-        "closed_soft_into_core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "core_hard": [
-          "0x1e1510",
-          "0x2607890"
-        ],
-        "coverage": "10/17",
-        "basis": "share 0x2607890+0x1e1510"
-      },
-      {
-        "preferred_core": "strategic_redeploy_core",
-        "closed_soft_into_core_hard": [
-          "0x254aa00",
-          "0x25a0390"
-        ],
-        "core_hard": [
-          "0x254aa00",
-          "0x25a0390"
-        ],
-        "coverage": "2/4",
-        "basis": "share 0x254aa00+0x25a0390"
-      },
-      {
-        "preferred_core": "strategic_pin_core",
-        "closed_soft_into_core_hard": [
-          "0x2607890"
-        ],
-        "core_hard": [
-          "0x2607890"
-        ],
-        "coverage": "2/4",
-        "basis": "0x2607890 cluster excluding redeploy"
-      },
-      {
-        "preferred_core": "order_group_core",
-        "closed_soft_into_core_hard": [
-          "0x2284800"
-        ],
-        "core_hard": [
-          "0x2284800"
-        ],
-        "coverage": "42/56",
-        "basis": "share 0x2284800 (soft majority closed for core)"
-      },
-      {
-        "preferred_core": "theater_core",
-        "closed_soft_into_core_hard": [],
-        "core_hard": [
-          "0x18dde70"
-        ],
-        "coverage": "3/11",
-        "basis": "share seed 0x18dde70"
-      }
-    ],
-    "recipes_added": [
-      "land_preferred_core_recipe",
-      "land_unknown_second_order_recipe",
-      "attack_core_post_path_recipe",
-      "move_army_core_post_path_recipe",
-      "frontline_core_post_path_recipe",
-      "retreat_fallback_core_post_path_recipe"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2ch": {
-    "phase": "2ch",
-    "when": "2026-10-31 06:50 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "helpers_total": 137,
-    "by_tier": {
-      "primary_shared": 40,
-      "second_order": 14,
-      "execute_shared_unknown": 47,
-      "unknown_second_order": 6,
-      "cross_land_fresh": 30
-    },
-    "isvalid_gate_helpers": 90,
-    "execute_body_helpers": 103,
-    "preferred_core_count": 21,
-    "new_cores": [
-      "retreat_bbb_only_core",
-      "frontline_bbb_core",
-      "garrison_bbb_core",
-      "move_theater_core",
-      "move_c07b80_core",
-      "strategic_unit_redeploy_core",
-      "order_group_bbb_core",
-      "order_group_leader_core",
-      "order_group_conveyor_core",
-      "theater_garrison_prio_core",
-      "theater_reorder_core",
-      "cancel_abort_core"
-    ],
-    "preferred_cores": {
-      "attack_core": [
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "retreat_fallback_core": [
-        "0x2284800",
-        "0xbbb1e0"
-      ],
-      "retreat_bbb_only_core": [
-        "0xbbb1e0"
-      ],
-      "frontline_core": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ],
-      "frontline_bbb_core": [
-        "0xbbb1e0"
-      ],
-      "garrison_core": [
-        "0x2284800",
-        "0xbbb1e0",
-        "0xc40230"
-      ],
-      "garrison_bbb_core": [
-        "0x2284800",
-        "0xbbb1e0"
-      ],
-      "move_army_core": [
-        "0x1e1510",
-        "0x2607890"
-      ],
-      "move_theater_core": [
-        "0x2284800",
-        "0xbbb1e0"
-      ],
-      "move_c07b80_core": [
-        "0xc07b80"
-      ],
-      "strategic_redeploy_core": [
-        "0x254aa00",
-        "0x25a0390"
-      ],
-      "strategic_pin_core": [
-        "0x2607890"
-      ],
-      "strategic_unit_redeploy_core": [
-        "0x1e1510",
-        "0x2607890",
-        "0x57f7b0"
-      ],
-      "order_group_core": [
-        "0x2284800"
-      ],
-      "order_group_bbb_core": [
-        "0xbbb1e0"
-      ],
-      "order_group_leader_core": [
-        "0x11ecb20"
-      ],
-      "order_group_conveyor_core": [
-        "0x1c31490"
-      ],
-      "theater_core": [
-        "0x18dde70"
-      ],
-      "theater_garrison_prio_core": [
-        "0x3b65a0",
-        "0xac1e20"
-      ],
-      "theater_reorder_core": [
-        "0xd73540"
-      ],
-      "cancel_abort_core": [
-        "0x2284800",
-        "0x2348bf0",
-        "0x25c3770"
-      ]
-    },
-    "recipes_added": [
-      "land_cross_fresh_helper_recipe",
-      "garrison_bbb_core_post_path_recipe",
-      "frontline_bbb_core_post_path_recipe",
-      "move_theater_core_post_path_recipe",
-      "theater_garrison_prio_core_post_path_recipe",
-      "strategic_unit_redeploy_core_post_path_recipe",
-      "cancel_abort_core_post_path_recipe"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "tick": 1,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2ci": {
-    "phase": "2ci",
-    "when": "2026-10-31 06:53 Asia/Shanghai",
-    "land_focus": "121/121",
-    "exe_proofs": "121/121",
-    "isvalid_paths": 134,
-    "helpers_total": 195,
-    "by_tier": {
-      "primary_shared": 40,
-      "second_order": 14,
-      "execute_shared_unknown": 47,
-      "unknown_second_order": 6,
-      "cross_land_fresh": 30,
-      "land_execute_unknown_shared": 58
-    },
-    "isvalid_gate_helpers": 105,
-    "execute_body_helpers": 144,
-    "named_helpers_count": 28,
-    "preferred_core_count": 34,
-    "coverage": {
-      "covered": 121,
-      "total": 121,
-      "uncovered": []
-    },
-    "genuine_divergences_count": 17,
-    "recipes_added": [
-      "land_named_gate_recipe",
-      "land_genuine_divergence_recipe",
-      "land_execute_unknown_shared_recipe",
-      "railwaygun_divergence_recipe"
-    ],
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "watcher_pid": 36128,
-    "tick": 1,
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST",
-      "helper_patch",
-      "Post_inject"
-    ]
-  },
-  "notes_2cj": {
-    "phase": "2cj",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 237,
-    "named_helpers": 75,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "genuine_divergences_refined": 17,
-    "offensive_line_execute_fully_cataloged": "25/25",
-    "isvalid_gate_helpers": 107,
-    "execute_body_helpers": 183,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_named_helper_expansion_recipe",
-      "offensive_line_execute_recipe",
-      "land_post_path_checklist_recipe",
-      "land_divergence_gate_delta_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cj RO deepen only. Post remains disabled."
-  },
-  "allow_post": false,
-  "notes_2ck": {
-    "phase": "2ck",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 237,
-    "helpers_inflation": "none (shared\u22652 miss=0; singletons docs-only)",
-    "named_helpers": 96,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "role_post_path_matrix": true,
-    "singleton_execute_edges_documented": 87,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_role_post_path_matrix_recipe",
-      "land_singleton_execute_edge_recipe",
-      "land_post_readiness_checklist_2ck_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2ck RO matrix/checklist focus. Post remains disabled."
-  },
-  "notes_2cl": {
-    "phase": "2cl",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 237,
-    "helpers_inflation": "none (gate_label_only=15)",
-    "named_helpers": 116,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 116,
-    "cmds_required_gates_fully_named": 116,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_recipe",
-      "land_role_post_path_matrix_2cl_recipe",
-      "land_post_readiness_checklist_2cl_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cl RO cmd-index focus. Post remains disabled."
-  },
-  "notes_2cm": {
-    "phase": "2cm",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 252,
-    "gate_label_only_closed": true,
-    "gate_label_promoted": 15,
-    "named_helpers": 145,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "cmds_required_gates_fully_named": 121,
-    "avg_post_path_confidence": 0.911,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cm_recipe",
-      "land_gate_label_promoted_recipe",
-      "land_post_readiness_checklist_2cm_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cm RO: gate_label_only closed; cmd index 121/121. Post remains disabled."
-  },
-  "notes_2cn": {
-    "phase": "2cn",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 252,
-    "helpers_inflation": "none",
-    "named_helpers": 223,
-    "avg_post_path_confidence": 0.957,
-    "prev_avg_2cm": 0.911,
-    "cmds_below_0_9": 24,
-    "soft_unnamed_all_closed": true,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cn_recipe",
-      "land_confidence_report_2cn_recipe",
-      "land_post_readiness_checklist_2cn_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cn RO confidence raise via naming. Post remains disabled."
-  },
-  "notes_2co": {
-    "phase": "2co",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_prev_2cn": 252,
-    "helpers_added": "56 second_order hits>=2 only",
-    "deep_thin_named_outside_shared": 60,
-    "named_helpers": 370,
-    "avg_post_path_confidence": 0.977,
-    "prev_avg_2cn": 0.957,
-    "cmds_below_0_9": 6,
-    "soft_unnamed_all_closed": true,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2co_recipe",
-      "land_confidence_report_2co_recipe",
-      "land_post_readiness_checklist_2co_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2co RO Capstone confidence raise. Post remains disabled."
-  },
-  "notes_2cp": {
-    "phase": "2cp",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 476,
-    "avg_post_path_confidence": 0.99,
-    "prev_avg_2co": 0.977,
-    "cmds_below_0_9": 0,
-    "soft6_closed": true,
-    "soft_unnamed_all_closed": true,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cp_recipe",
-      "land_confidence_report_2cp_recipe",
-      "land_post_readiness_checklist_2cp_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cp RO Capstone structural close of below-0.9. Post remains disabled."
-  },
-  "notes_2cq": {
-    "phase": "2cq",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 637,
-    "avg_post_path_confidence": 0.997,
-    "prev_avg_2cp": 0.99,
-    "cmds_below_0_9": 0,
-    "cmds_below_0_95": 0,
-    "merge_armies": 1.0,
-    "soft_unnamed_all_closed": true,
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cq_recipe",
-      "land_confidence_report_2cq_recipe",
-      "land_post_readiness_checklist_2cq_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cq RO Capstone below-0.95 + MergeArmies close. Post remains disabled."
-  },
-  "notes_2cr": {
-    "phase": "2cr",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 658,
-    "avg_post_path_confidence": 1.0,
-    "prev_avg_2cq": 0.997,
-    "cmds_below_0_9": 0,
-    "cmds_below_0_95": 0,
-    "cmds_below_1_0": 0,
-    "merge_armies": 1.0,
-    "singleton_unnamed_closed": true,
-    "ol_second_named": 7,
-    "genuine_remaining_unnamed_execute": [],
-    "preferred_cores": 34,
-    "coverage": "121/121",
-    "cmd_post_path_index": 121,
-    "watcher_pid": 36128,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cr_recipe",
-      "land_confidence_report_2cr_recipe",
-      "land_post_readiness_checklist_2cr_recipe",
-      "land_remaining_unnamed_execute_edges_2cr_recipe",
-      "land_offensive_line_post_path_2cr_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes"
-    ],
-    "note": "2cr RO Capstone singleton unnamed execute + OL second-order close. Post remains disabled."
-  },
-  "notes_2cs": {
-    "phase": "2cs",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 658,
-    "named_new": 0,
-    "avg_post_path_confidence": 1.0,
-    "cmds_below_1_0": 0,
-    "focus": "usability",
-    "live_armies_hai": 22,
-    "watcher_pid": 36128,
-    "watcher_alive": true,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cs_recipe",
-      "land_role_post_path_matrix_2cs_recipe",
-      "land_confidence_report_2cs_recipe",
-      "land_post_readiness_checklist_2cs_recipe",
-      "land_offensive_line_post_path_2cs_recipe",
-      "land_midflight_move_watcher_readiness_2cs_recipe",
-      "land_live_army_subject_observe_2cs_recipe",
-      "land_live_focus_fn_verify_2cs_recipe"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch/hook helpers",
-      "Post inject / midflight write",
-      "HourlyTick / GameSpeed writes",
-      "guess writes",
-      "wake user / inject input"
-    ],
-    "note": "2cs RO usability package after confidence saturation. Post remains disabled."
-  },
-  "notes_2ct": {
-    "phase": "2ct",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 658,
-    "named_new": 0,
-    "avg_post_path_confidence": 1.0,
-    "cmds_below_1_0": 0,
-    "focus": "deep_observe",
-    "live_armies_hai": 22,
-    "org_hyp_nonzero": 5,
-    "movement_dest_nonempty": 0,
-    "template_name_proven": true,
-    "province_controller_tag_hyp": "+0x58",
-    "role_observe_roles": [
-      "move",
-      "attack",
-      "strategic",
-      "retreat",
-      "frontline",
-      "theater",
-      "order_group",
-      "garrison",
-      "cancel_abort"
-    ],
-    "watcher_pid": 36128,
-    "watcher_alive": true,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2ct_recipe",
-      "land_role_post_path_matrix_2ct_recipe",
-      "land_role_observe_2ct_recipe",
-      "land_confidence_report_2ct_recipe",
-      "land_post_readiness_checklist_2ct_recipe",
-      "land_offensive_line_post_path_2ct_recipe",
-      "land_midflight_move_watcher_readiness_2ct_recipe",
-      "land_live_army_subject_observe_2ct_recipe"
-    ],
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "ALLOW_POST",
-      "command_queue_tool_gate"
-    ],
-    "do_not": [
-      "enable ALLOW_POST",
-      "patch helpers",
-      "Post inject",
-      "HourlyTick / GameSpeed",
-      "promote hyp org/str offsets",
-      "wake user / inject input"
-    ]
-  },
-  "notes_2cu": {
-    "phase": "2cu",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 658,
-    "named_new": 0,
-    "avg_post_path_confidence": 1.0,
-    "cmds_below_1_0": 0,
-    "focus": "classify_reject_org",
-    "carmy_count": 17,
-    "ctaskforce_count": 5,
-    "org_str_status": "REJECTED_AS_CARMY_ORG",
-    "movement_dest_nonempty": 0,
-    "rtti_vt": {
-      "CArmy": "0x29d6d68",
-      "CTaskForce": "0x29df8a0"
-    },
-    "role_observe_roles": [
-      "move",
-      "attack",
-      "strategic",
-      "retreat",
-      "frontline",
-      "theater",
-      "order_group",
-      "garrison",
-      "cancel_abort"
-    ],
-    "watcher_pid": 36128,
-    "watcher_alive": true,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cu_recipe",
-      "land_role_post_path_matrix_2cu_recipe",
-      "land_role_observe_2cu_recipe",
-      "land_confidence_report_2cu_recipe",
-      "land_post_readiness_checklist_2cu_recipe",
-      "land_offensive_line_post_path_2cu_recipe",
-      "land_midflight_move_watcher_readiness_2cu_recipe",
-      "land_live_army_subject_observe_2cu_recipe"
-    ],
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "ALLOW_POST",
-      "command_queue_tool_gate"
-    ],
-    "do_not": [
-      "enable ALLOW_POST",
-      "patch helpers",
-      "Post inject",
-      "HourlyTick / GameSpeed",
-      "promote 0x520/0x6ec as CArmy org (REJECTED \u2014 CTaskForce)",
-      "invent movement_dest while paused",
-      "wake user / inject input"
-    ]
-  },
-  "notes_2cv": {
-    "phase": "2cv",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land_cmds": "121/121 unchanged",
-    "helpers_total": 308,
-    "helpers_inflation": "none",
-    "named_helpers": 658,
-    "named_new": 0,
-    "avg_post_path_confidence": 1.0,
-    "cmds_below_1_0": 0,
-    "focus": "theatre_namegroup_deepen",
-    "carmy_count": 17,
-    "ctaskforce_count": 5,
-    "carmy_theatre_ok": 17,
-    "carmy_namegroup_ok": 17,
-    "unique_theatres": 1,
-    "org_str_status": "REJECTED_AS_CARMY_ORG",
-    "movement_dest_nonempty": 0,
-    "rtti_vt": {
-      "CArmy": "0x29d6d68",
-      "CTaskForce": "0x29df8a0",
-      "CTheatre": "0x29f2188",
-      "CNameGroupMember": "0x29b3c68",
-      "CSubUnitDefinition": "0x28076f0"
-    },
-    "new_proven_fields": {
-      "CArmy+0x2a0": "CTheatre",
-      "CArmy+0x340": "CNameGroupMember",
-      "CNameGroupMember+0x60": "display_name_ptr",
-      "CTheatre+0x0c/0x48": "country_tag",
-      "CTheatre+0xe8": "CProvince",
-      "CArmy+0x478": "CArmyRequests"
-    },
-    "role_observe_roles": [
-      "move",
-      "attack",
-      "strategic",
-      "retreat",
-      "frontline",
-      "theater",
-      "order_group",
-      "garrison",
-      "cancel_abort"
-    ],
-    "watcher_pid": 36128,
-    "watcher_alive": true,
-    "hoi4_pid": 2880,
-    "recipes": [
-      "land_cmd_post_path_index_2cv_recipe",
-      "land_role_post_path_matrix_2cv_recipe",
-      "land_role_observe_2cv_recipe",
-      "land_confidence_report_2cv_recipe",
-      "land_post_readiness_checklist_2cv_recipe",
-      "land_offensive_line_post_path_2cv_recipe",
-      "land_midflight_move_watcher_readiness_2cv_recipe",
-      "land_live_army_subject_observe_2cv_recipe"
-    ],
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "ALLOW_POST",
-      "command_queue_tool_gate"
-    ],
-    "do_not": [
-      "enable ALLOW_POST",
-      "patch helpers",
-      "Post inject",
-      "HourlyTick / GameSpeed",
-      "revive rejected org/str @0x520/0x6ec",
-      "invent movement_dest while paused",
-      "wake user / inject input"
-    ]
-  },
-  "notes_2cw": {
-    "phase": "2cw",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land": "121/121",
-    "confidence": 1.0,
-    "focus": "CArmyRequests field-map + theatre air-mgr + FrontSection observe",
-    "org_str": "REJECTED_AS_CARMY_ORG",
-    "movement_dest": "empty_paused",
-    "watcher": 36128
-  },
-  "notes_2cx": {
-    "phase": "2cx",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land": "121/121",
-    "confidence": 1.0,
-    "focus": "CFront theatre/controller + reinf/upgrades country",
-    "org_str": "REJECTED_AS_CARMY_ORG",
-    "watcher": 36128
-  },
-  "notes_2cy": {
-    "phase": "2cy",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land": "121/121",
-    "confidence": 1.0,
-    "focus": "CFront slot-array + CControllerArea province",
-    "org_str": "REJECTED_AS_CARMY_ORG",
-    "watcher": 36128,
-    "proven": [
-      "CFront slot-array k=0..7 theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90 (slot0 1199/1199; pairs >=1143/1199)",
-      "CControllerArea+0x28\u2192CProvince 296/296",
-      "CControllerArea+0x148\u2192CProvince 288/296",
-      "HAI theatre in 30 fronts (any slot); slot0-only was 6"
-    ]
-  },
-  "notes_2cz": {
-    "phase": "2cz",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "land": "121/121",
-    "confidence": 1.0,
-    "focus": "CFront slots>=16 + FS slot-embed + prov+0x58 reject",
-    "org_str": "REJECTED_AS_CARMY_ORG",
-    "watcher": 36128,
-    "proven": [
-      "CFront slot-array k=0..15 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot15 >=1114/1199",
-      "HAI theatre in 44 fronts any-slot (was 30@8 / 6@slot0)",
-      "CFrontSection embeds parent slot theatre*/controller* (866 theatre / 305 controller matches)",
-      "CProvince+0x58 REJECTED as controller-country tag"
-    ]
-  },
-  "notes_2da": {
-    "phase": "2da",
-    "parent": "a2c5246",
-    "focus": "CFront slots>=64 + FS theatre stable embeds + CArmyRequests peer hyp",
-    "proven": [
-      "CFront slot-array k=0..63 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot63 947/1199",
-      "HAI theatre in 92 fronts any-slot (was 44@16 / 60@32 / 6@slot0)",
-      "CFrontSection stable theatre* embeds @+0x28/+0x40/+0x58 (and +0x70 stride repeats @+0x98/+0xb0/+0xc8); 122/1570",
-      "CArmyRequests peer CArmy* hyp @+0x108/+0x130/+0x190 (10/17 other HAI; not self)"
-    ],
-    "rejected_or_unresolved": [
-      "CProvince+0x58 controller-country tag (REJECTED 2cz)",
-      "org/str @0x520/0x6ec (REJECTED)",
-      "theatre\u2192army direct CArmy*/handle/req ptr in theatre blob (0 hits; army\u2192theatre @+0x2a0 remains one-way)",
-      "FS controller* stable embed (weak/noisy vs 2cz; not same-k with theatre this session)",
-      "CFront slot-count field near header (no reliable hyp)"
-    ],
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "ALLOW_POST",
-      "command_queue_tool_gate"
-    ],
-    "watcher_36128": "RO alive",
-    "hoi4_pid": 2880
-  },
-  "notes_2db": {
-    "phase": "2db",
-    "parent": "54a9d87",
-    "focus": "REJECT CFront multi-slot array (=packed 0x90); peer alias triple; theatre\u2192army still 0",
-    "proven": [
-      "CFront multi-slot-array model (2cy-2da k=0..N) REJECTED: 1171/1199 neighbors at +0x90 are themselves CFront; slot-k theatre == (F+k*0x90)+0x18",
-      "CFront object stride 0x90 in packed runs (max run 454; 28 runs); per-object theatre@+0x18 and controller@+0x70 only (1199/1199)",
-      "HAI fronts with theatre@+0x18 = 6 (slot0-only; any-slot inflation was neighbor walk)",
-      "CArmyRequests peer ptr aliased at +0x108/+0x130/+0x190 identical 16/17; 16 unique peers; often same theatre",
-      "FS theatre* embeds @+0x28/+0x40/+0x58 still present but match packed-run neighbor theatres (not parent multi-slots); 97 FS with 4 same-k triples under old indexing"
-    ],
-    "rejected_or_unresolved": [
-      "CFront multi-slot array @+0x18+k*0x90 (REJECTED_AS_PACKED_ADJACENT_CFRONT_2db)",
-      "theatre\u2192army direct CArmy*/handle/req/CPdxArray/CCountry path (still 0)",
-      "CProvince+0x58 controller-country tag (REJECTED 2cz)",
-      "org/str @0x520/0x6ec (REJECTED)",
-      "req peer bidirectional / owner_match (0; chain not a simple doubly-linked list)"
-    ],
-    "stubbed": [
-      "midflight_CMoveCommand",
-      "ring_embed",
-      "ALLOW_POST",
-      "command_queue_tool_gate"
-    ],
-    "watcher_36128": "RO alive",
-    "hoi4_pid": 2880
-  },
-  "notes_2dc": {
-    "phase": "2dc",
-    "parent": "5c51ac9",
-    "focus": "CFront kind@+0x8 / id@+0xc + peer one-way chains + theatre->army still 0",
-    "cfront_kind": "0x42 constant 1199/1199",
-    "cfront_id": "u32@+0xc unique 1199/1199",
-    "peer": "one-way chains; 10 HAI + 5 DOM(tag16)",
-    "theatre_army": "UNRESOLVED",
-    "orders_heap": 0
-  },
-  "notes_2ei": {
-    "phase": "2ei",
-    "when": "2026-10-31 09:39 Asia/Shanghai",
-    "focus": "midflight_CMove_capture_recipe_and_watcher_RO_harden",
-    "land_cmds": "121/121 CLOSED \u2014 not re-churned",
-    "confidence": 1.0,
-    "doc": "docs/MIDFLIGHT_CMOVE_CAPTURE.md",
-    "watcher_improvements": [
-      "heartbeat reports/midflight_watcher_heartbeat.json",
-      "instant capture reports/midflight_cmove_capture.json",
-      "default --heap-every 0"
-    ],
-    "watcher_pid_before": 36128,
-    "hoi4_pid": 2880,
-    "movement_dest": "empty_paused_not_retested_1x",
-    "allow_post": false,
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "posting": "DISABLED",
-    "stubbed": [
-      "midflight_CMoveCommand sample",
-      "ring_embed Move buffer",
-      "command_queue_tool_gate enable",
-      "ALLOW_POST",
-      "CLAUSEWITZ_ALLOW_POST"
-    ],
-    "do_not": [
-      "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
-      "patch helpers",
-      "Post inject",
-      "HourlyTick / GameSpeed",
-      "revive rejected org/str / prov+0x58 / CFront multi-slot",
-      "wake user / inject input",
-      "Capstone/helper confidence inflation"
-    ],
-    "note": "2ei efficient single slice. Post remains disabled.",
-    "watcher_pid": 15020,
-    "watcher_alive": true,
-    "live_counters": {
-      "drain": 1338085,
-      "exec": 13,
-      "seq": 15,
-      "stage_count": 0
-    },
-    "sha": "f506d08"
-  },
-  "notes_2ej": {
-    "ts": "2026-10-31",
-    "allow_post": false,
-    "set_1x": "CLI -start_speed=1 relaunch works; UI Space does not",
-    "clock": "exec/seq advance at 1x proves unpaused",
-    "move": "blocked without Post; DX11 ignores synthetic input",
-    "midflight_sample": null
-  },
-  "notes_2ek": {
-    "ts": "2026-10-31",
-    "allow_post": false,
-    "hard_deny": "allow_post() always False",
-    "move_without_post": "impossible with current catalog \u2014 console null, UI inject dead, recipes docs-only",
-    "clock": "HourlyTick+exec/seq prove sim; UI H:M pack unproven",
-    "next": "RO map G_GAMESTATE time fields; do not open Post"
-  },
-  "notes_2el": {
-    "when": "2026-10-31T10:16:49",
-    "gs_date_hours_off": "0x484",
-    "gs_date_year_off": "0x478",
-    "epoch": "1936-01-01 00:00",
-    "minute": "N/A hourly",
-    "allow_post": false,
-    "post_touched": false,
-    "live_ui_example": "1936-01-03 20:00+"
-  },
-  "notes_2em": {
-    "when": "2026-10-31T10:30:41",
-    "choice": "A_strengthen_midflight_watcher",
-    "burst_on_edge": 12,
-    "interval": 0.02,
-    "sightline_hourlytick_25s": 289,
-    "caught_army_move": false,
-    "allow_post": false,
-    "post_touched": false,
-    "next_blocker": "midflight_CMoveCommand live sample"
-  },
-  "notes_2en": {
-    "when": "2026-10-31T10:32:34",
-    "choice": "A_safe_post_enable_checklist_doc",
-    "doc": "docs/SAFE_POST_ENABLE_CHECKLIST.md",
-    "gate_opened": false,
-    "allow_post": false,
-    "post_touched": false,
-    "missing": [
-      "midflight_CMoveCommand_plus_action_embed",
-      "serialize_recreate_ring_on_Move",
-      "explicit_CLAUSEWITZ_ALLOW_POST",
-      "tool_gate_open_predicates"
-    ]
-  },
-  "notes_2eo": {
-    "when": "2026-10-31T10:36:23",
-    "choice": "A_full_action_embed_decode",
-    "allow_post": false,
-    "post_touched": false,
-    "live_move_sample": false,
-    "decode_ready": true
-  },
-  "notes_2fc": {
-    "ts": "2026-10-31T03:51:13.356359+00:00",
-    "allow_post": false,
-    "strategic_leaf": "CAPTURED_2fa",
-    "strategic_layout": "MATCH_2fb",
-    "strategic_isvalid_path": "DOCUMENTED_2fc",
-    "cmd_isvalid": "0x1402260",
-    "action_isvalid": "0x12c2c20",
-    "action_type_id": "0x364a",
-    "wrap": "0x22d8ea0",
-    "ring_embed_recipe": "DESIGN_ONLY_2fb",
-    "ring_recreate_proof": "STUBBED",
-    "ordinary_CMove_live": "STUBBED",
-    "tool_gate": "CLOSED_NOT_OPENED",
-    "gate": "CLOSED"
-  },
-  "notes_2fd": {
-    "ts": "2026-10-31T03:53:42.262959+00:00",
-    "allow_post": false,
-    "offline_rebuild": "PASS",
-    "live_factory_wiring": "see report",
-    "in_process_ring_embed": "STUBBED_needs_Post",
-    "executed_2fb_recipe": false,
-    "gate": "CLOSED"
-  },
-  "notes_2fe": {
-    "ts": "2026-10-31T03:56:21.664310+00:00",
-    "allow_post": false,
-    "ro_ceiling": "Strategic offline rebuild PASS + live factory wiring; in-process ring embed needs Post",
-    "factory_idx_strategic": 4753,
-    "ordinary_cmove_catalog": "COMPLETE",
-    "ordinary_cmove_live": "STUBBED",
-    "human_gated_next": "CLAUSEWITZ_ALLOW_POST=1 after review \u2192 tool-gate \u2192 one Strategic Post @1x",
-    "gate": "CLOSED",
-    "executed_2fb_recipe": false
-  },
-  "phase_2iji": {
-    "result": "SAFE_POST_GATE_CHECKLIST_POLISH",
-    "gates_missing": [
-      "G1",
-      "G2",
-      "G3",
-      "G4",
-      "G5",
-      "G6"
-    ],
-    "allow_post": false,
-    "doc": "docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md"
-  },
-  "g4_g5_g6_once": {
-    "G4": "PROVEN_ONCE_THEN_RESTORED",
-    "G5": "PROVEN_ONCE_STRATEGIC_ONLY_THEN_RESTORED",
-    "G6": "G6_STRATEGIC_POST_HIT",
-    "fold_phase": "2ijv"
-  },
-  "phase2ijy": {
-    "move_path_hit_reaffirm": true,
-    "crt_stable": false,
-    "exit_code": "0xC0000374",
-    "ucrt_malloc_staged": true,
-    "allow_post_final": false
-  },
-  "phase2ijz": {
-    "result": "G6_MOVE_UCRT_MALLOC_STABLE_HIT",
-    "province_buf_kind": "ucrt_malloc",
-    "allow_post_final": false,
-    "ts": "2026-11-01 22:56:16 Asia/Shanghai"
-  },
-  "phase2ika": {
-    "result": "G6_CANCEL_1415_PATH_CLEARED_HIT",
-    "factory_idx": 1415,
-    "allow_post_final": false,
-    "ts": "2026-11-01 22:59:59 Asia/Shanghai"
-  },
-  "phase2ikb": {
-    "result": "G6_CANCEL_MULTI2_PATH_CLEARED_HIT",
-    "attack": "PARKED_PEACETIME",
-    "war": {
-      "status": "PEACETIME_NO_WAR_DETECTED",
-      "evidence": "offsets_verified has no war keys; ITA 1936 Feb peacetime; declare console not Post-proven",
-      "attack": "PARKED"
-    },
-    "allow_post_final": false,
-    "ts": "2026-11-01 23:03:37 Asia/Shanghai"
-  },
-  "phase2ikc": {
-    "result": "G6_ATTACK_3620_POSTED_STABLE_HIT",
-    "war": {
-      "status": "WARTIME_ETH_DAY1_HISTORICAL",
-      "basis": "start_tag=ETH @1x AI-on; 1936 ETH at war with ITA on day 1 (2et/2fa proven)",
-      "player_tag": 15,
-      "ui_date": null,
-      "declare": "NOT_USED"
-    },
-    "attack": {
-      "factory_idx": 3620,
-      "ok": true,
-      "result": "ATTACK_POSTED_STABLE",
-      "army": 1037,
-      "province": 6906,
-      "post_wait": 0,
-      "post_rax": 1,
-      "buf_kind": "inline_none"
-    },
-    "allow_post_final": false,
-    "estimate": "~84-86%",
-    "ts": "2026-11-01 23:14:27 Asia/Shanghai"
-  },
-  "phase2ikd": {
-    "result": "G6_ATTACK_MULTI2_POSTED_STABLE_HIT",
-    "war": {
-      "status": "WARTIME_ETH_CONTINUATION",
-      "basis": "live ETH session from 2ikc; day-1 historical war vs ITA",
-      "declare": "NOT_USED"
-    },
-    "posts_n": 2,
-    "densify": "HONEST_EMPTY_PATH_PROVINCE",
-    "allow_post_final": false,
-    "estimate": "~86-88%",
-    "ts": "2026-11-01 23:17:25 Asia/Shanghai"
-  },
-  "phase2ike": {
-    "result": "G6_LOOP_MOVE_ATTACK_CANCEL_HIT",
-    "HIT": true,
-    "army": 1037,
-    "move": "PATH_CONTAINS_DEST",
-    "attack": "ATTACK_POSTED_STABLE",
-    "cancel": "PATH_CLEARED_ALL",
-    "allow_post_final": false,
-    "estimate": "~88-90%",
-    "when": "2026-11-01 23:20 Asia/Shanghai"
-  },
-  "last_phase": "2ikh",
-  "phase2ikf": {
-    "result": "G6_STRATEGIC_WARTIME_ENCIRCLE_HIT",
-    "HIT": true,
-    "army": 1037,
-    "dest": 11838,
-    "post_result": "PATH_CONTAINS_DEST",
-    "allow_post_final": false,
-    "estimate": "~90-92%",
-    "when": "2026-11-01 23:24 Asia/Shanghai"
-  },
-  "phase2ikg": {
-    "result": "G6_MULTI_STRATEGIC_CONCENTRATE_HIT",
-    "HIT": true,
-    "dest": 6906,
-    "movers": [
-      1037,
-      1038
-    ],
-    "retreat": "PARKED_NOT_PROVEN_CHEAP",
-    "allow_post_final": false,
-    "estimate": "~92-94%",
-    "when": "2026-11-01 23:27 Asia/Shanghai"
-  },
-  "phase2ikh": {
-    "result": "G6_ATTACK_AFTER_CONCENTRATE_HIT",
-    "HIT": true,
-    "army": 1042,
-    "target": 1886,
-    "retreat": "HARD_DENY_PARKED_NOT_PROVEN_CHEAP",
-    "allow_post_final": false,
-    "estimate": "~94-96%",
-    "when": "2026-11-01 23:31 Asia/Shanghai"
-  }
+﻿{
+    "phase":  "2ijy",
+    "command_queue":  "DISABLED",
+    "speed_rule":  "pause or 1x only; never 5x",
+    "FN_CMD_QUEUE_POST":  "0x22c41e0",
+    "gaps":  [
+                 {
+                     "id":  "no_tooling_post",
+                     "status":  "closed",
+                     "note":  "2bc 18/18 RO post_abi+cmd_layout; 2bm reconfirmed"
+                 },
+                 {
+                     "id":  "midflight_move_sample",
+                     "status":  "stubbed",
+                     "note":  "STUBBED sample. 2ei: capture recipe docs/MIDFLIGHT_CMOVE_CAPTURE.md; watcher heartbeat+instant dump+heap-every 0; still needs real user right-click."
+                 },
+                 {
+                     "id":  "action_flag_names",
+                     "status":  "closed",
+                     "note":  "2am/2an/2aq token names"
+                 },
+                 {
+                     "id":  "strategic_serialize",
+                     "status":  "closed",
+                     "note":  "Phase 2aq"
+                 },
+                 {
+                     "id":  "order_cmd_layouts",
+                     "status":  "closed",
+                     "note":  "2ar+2bm+2bn: 10/10 Order Execute + serialize vt+0xa0 + deserialize vt+0xa8 + clone sizes + factories live"
+                 },
+                 {
+                     "id":  "army_handle_province",
+                     "status":  "closed",
+                     "note":  "Phase 2as CHandle@CArmy+0x18 type 0x33; CProvince+0xa4 id hyp"
+                 },
+                 {
+                     "id":  "army_subject_wiring",
+                     "status":  "closed",
+                     "note":  "2bn+2bo: army_subjects Move/Strategic/Cancel recipes; HAI 22 armies live"
+                 },
+                 {
+                     "id":  "FN_HANDLE_RESOLVE",
+                     "status":  "closed",
+                     "note":  "0x2284800 hash lookup; 17/17 HAI"
+                 },
+                 {
+                     "id":  "drain_execute_edges",
+                     "status":  "closed",
+                     "note":  "2bn+2br: 6CC/726/725/empty-ring; SessionUpdate set/clear 6cc+inc 6c8+sticky F8; Dummy drain ring a0/b8/c0/c8/pending 60/68"
+                 },
+                 {
+                     "id":  "post_gate_analysis",
+                     "status":  "closed",
+                     "note":  "2bn+2bo: 725 necessary not sufficient; tool gate stays closed"
+                 },
+                 {
+                     "id":  "never_post_speed",
+                     "status":  "closed",
+                     "note":  "2bo: Inc/Dec/Set/Hourly/Ping+Pause type_ids+factories; Pause NEVER_POST"
+                 },
+                 {
+                     "id":  "command_queue_tool_gate",
+                     "status":  "CLOSED_NOT_OPENED",
+                     "note":  "Re-closed after 2iki",
+                     "proven_once":  {
+                                         "phase":  "2iju",
+                                         "mode":  "OPEN_STRATEGIC_ONLY",
+                                         "restored":  true
+                                     },
+                     "proven_once_move":  {
+                                              "phase":  "2ijx",
+                                              "factory_idx":  1402,
+                                              "result":  "G6_MOVE_POST_HIT",
+                                              "post_wait_ms_config":  20000
+                                          },
+                     "proven_once_move_crt":  {
+                                                  "phase":  "2ijy",
+                                                  "result":  "G6_MOVE_HIT_BUT_PROCESS_EXIT",
+                                                  "fix":  "no_free_stub_on_timeout"
+                                              }
+                 },
+                 {
+                     "id":  "network_execlist_path",
+                     "status":  "n/a_sp",
+                     "note":  "DummyServer SP"
+                 },
+                 {
+                     "id":  "ring_embed",
+                     "status":  "closed",
+                     "note":  "DummyServer+0xa0 embed; sink add rbx,0xa0"
+                 },
+                 {
+                     "id":  "ALLOW_POST_gate",
+                     "status":  "closed",
+                     "note":  "2ikf restored",
+                     "proven_once":  {
+                                         "phase":  "2iju",
+                                         "env":  "CLAUSEWITZ_ALLOW_POST=1",
+                                         "restored":  true
+                                     }
+                 },
+                 {
+                     "id":  "move_early_gate_docs",
+                     "status":  "closed",
+                     "note":  "CMoveCommand vt+0x60/0x80 both FALSE; session+0x725==1 bypasses on live SP (2bm). Documented in cmd_layout.POST_GATES — not a Post enable."
+                 },
+                 {
+                     "id":  "cmd_catalog_live",
+                     "status":  "closed",
+                     "note":  "2bm: Move/Strategic/Cancel/StartGame/Chat + 10 Orders + CUnitMoveAction slots; sticky StartGame live; army handles OK"
+                 },
+                 {
+                     "id":  "factory_table_deepen",
+                     "status":  "closed",
+                     "note":  "2bo: bias 0x2328/thresh 0x2710/max 0x2AF7; 456 non-null; catalog 36/36 factory match incl NEVER_POST+REMAINING"
+                 },
+                 {
+                     "id":  "isvalid_paths",
+                     "status":  "closed",
+                     "note":  "2bs: 49 paths — EXTRA 18 + ORDERS 10 + REMAINING 15 + core Move/Strategic/Cancel/Pause"
+                 },
+                 {
+                     "id":  "remaining_army_orders",
+                     "status":  "closed",
+                     "note":  "2bp serdes + 2br kinds + 2bs fields/ISVALID_PATHS 15/15 closed"
+                 },
+                 {
+                     "id":  "extra_naval_air_subtypes",
+                     "status":  "closed",
+                     "note":  "2bs: MissionMove/MassMove/DeployAirWing/NavyCancel + fleet/mission/template curated set in EXTRA 18/18"
+                 }
+             ],
+    "enable_when":  [
+                        "Independent non-destructive Post proof — DONE 2bc/2bm",
+                        "Mid-flight leaf: Strategic CAPTURED+layout MATCH (2fa/2fb); ordinary CMove still STUBBED — ring recreate still required",
+                        "Explicit CLAUSEWITZ_ALLOW_POST=1",
+                        "Never auto-enable inside per-tick loops",
+                        "Never Post speed/HourlyTick commands"
+                    ],
+    "notes_2ay":  "Pipeline RO-proven; G_SESSION promoted; midflight Move + tooling Post proof still open",
+    "notes_2bl":  "2bc Post ABI tooling proof CLOSED. midflight Move STUBBED (DX11 input). Sticky StartGame equivalent RO sample captured. Posting remains DISABLED.",
+    "blocks_enabling_post":  [
+                                 {
+                                     "id":  "midflight_CMoveCommand",
+                                     "status":  "PARTIAL_strategic_ok_ordinary_move_stubbed",
+                                     "must":  "Live mid-flight leaf: Strategic DONE (2fa/2fb); ordinary CMove optional; IsValid path documented (2fc); ring recreate still required",
+                                     "note":  "2fc: Strategic IsValid cmd 0x1402260 / action 0x12c2c20 / type_id 0x364a; gate CLOSED; allow_post False"
+                                 },
+                                 {
+                                     "id":  "serialize_recreate_roundtrip",
+                                     "status":  "offline_strategic_rebuild_PASS_live_factory_RO_inprocess_ring_embed_STUBBED",
+                                     "must":  "Prove hand-built or captured cmd survives Dummy 0x22d8ad0 recreate into ring",
+                                     "note":  "2fd: offline Strategic 0x50 bit-identical rebuild PASS; live factory/recreate wiring RO; in-process ring embed still needs Post — NOT executed; allow_post False"
+                                 },
+                                 {
+                                     "id":  "CLAUSEWITZ_ALLOW_POST",
+                                     "status":  "hard-deny",
+                                     "must":  "Explicit CLAUSEWITZ_ALLOW_POST=1; allow_post always False now"
+                                 },
+                                 {
+                                     "id":  "no_guess_writes",
+                                     "status":  "policy",
+                                     "must":  "No WriteProcessMemory/Post on guessed layouts"
+                                 },
+                                 {
+                                     "id":  "never_speed_cmds",
+                                     "status":  "policy",
+                                     "must":  "Never Post NEVER_POST set (speed/HourlyTick/Ping/Pause)"
+                                 },
+                                 {
+                                     "id":  "tool_gate",
+                                     "status":  "CLOSED_NOT_OPENED",
+                                     "must":  "command_queue_tool_gate stays DISABLED; TOOL_GATE_PREDICATES CLOSED_NOT_OPENED"
+                                 }
+                             ],
+    "notes_2bm":  "Expanded cmd_layout: BASE, POST_GATES, ORDERS(10), STARTGAME, CHAT, ARMY_MOVE_SUBJECTS. Live 2bm catalog 16/16. Midflight still stubbed. Posting DISABLED.",
+    "notes_2bn":  "Order serialize/deserialize/factory 10/10; army_subjects wiring; drain edges; Post-gate analysis still forbids enable. Midflight stubbed; watcher armed. Posting DISABLED.",
+    "notes_2bo":  "Factory deepen + IsValid paths + Strategic/Cancel recipes + Pause NEVER_POST + 15 remaining army-order stubs. Midflight stubbed; watcher armed. Posting DISABLED. Tool gate NOT opened.",
+    "notes_2bp":  {
+                      "ts":  "2026-10-31T05:42:01",
+                      "gettypeid":  "36/36",
+                      "factory":  "36/36",
+                      "shared_bin_serdes":  "36/36 vt+8/10/18/20",
+                      "move_strategic_cancel_serdes_clone":  "full proof",
+                      "remaining_army_orders_15":  "serialize+deserialize+clone+gettypeid full",
+                      "dummy_roundtrip":  "wiring_closed_live_buffer_stubbed",
+                      "tool_gate":  "CLOSED_NOT_OPENED analysis only",
+                      "allow_post":  false,
+                      "midflight_watcher_pid":  29656,
+                      "speed_rule":  "pause or 1x only; never 5x"
+                  },
+    "notes_2bq":  {
+                      "ts":  "2026-10-31T05:48:07",
+                      "live_buffer_dummy_rt":  "STRUCTURAL_LIVE_OK sticky StartGame token 0x1F3; in-process ring embed STUBBED",
+                      "extra_land":  "6/6",
+                      "extra_naval_air":  "6/6",
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "midflight_watcher_pid":  29656,
+                      "ring_empty":  true
+                  },
+    "notes_2br":  {
+                      "ts":  "2026-10-31T05:53:53",
+                      "extra_fields_isvalid":  "8/8",
+                      "orders_isvalid":  "10/10",
+                      "remaining_kinds":  "15/15",
+                      "session_drain_execute_edges":  "live-matched",
+                      "sticky_startgame":  "live via wrapper+0",
+                      "isvalid_paths":  24,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "midflight_watcher_pid":  29656,
+                      "ring_embed":  "STUBBED"
+                  },
+    "notes_2bs":  {
+                      "ts":  "2026-10-31T05:57:28",
+                      "extra":  "18/18",
+                      "remaining_fields":  "15/15",
+                      "isvalid_paths":  49,
+                      "tool_gate":  "CLOSED_NOT_OPENED analysis only",
+                      "allow_post":  false,
+                      "midflight_watcher_pid":  29656,
+                      "sticky_startgame":  "live"
+                  },
+    "notes_2bt":  {
+                      "ts":  "2026-10-31T06:03:53",
+                      "land_army_focus":  "10/10",
+                      "support_attack":  "layout+tokens+recipe",
+                      "strategic_action_tokens":  "0x289D/0x2840/0x29F1/0x37BC",
+                      "isvalid_paths":  52,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2bu":  {
+                      "ts":  "2026-10-31T06:09:32",
+                      "land_army_focus":  "25/25",
+                      "exe_proofs":  "11/11",
+                      "isvalid_paths":  59,
+                      "groups":  {
+                                     "cancel_abort":  3,
+                                     "frontline":  9,
+                                     "theater":  7,
+                                     "retreat":  5,
+                                     "move":  4,
+                                     "strategic":  2,
+                                     "attack":  1
+                                 },
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2bv":  {
+                      "ts":  "2026-10-31T06:12:10",
+                      "land_army_focus":  "37/37",
+                      "exe_proofs":  "37/37",
+                      "isvalid_paths":  64,
+                      "order_group_group":  12,
+                      "key_offensive":  "CSetOrderGroupExecutionTypeCommand",
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2bw":  {
+                      "ts":  "2026-10-31T06:17:08",
+                      "land_army_focus":  "54/54",
+                      "exe_proofs":  "54/54",
+                      "isvalid_paths":  67,
+                      "order_group_group":  20,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2bx":  {
+                      "ts":  "2026-10-31T06:20:53",
+                      "land_army_focus":  "86/86",
+                      "exe_proofs":  "86/86",
+                      "isvalid_paths":  99,
+                      "new_rtti_land":  32,
+                      "thin_capstone":  19,
+                      "order_group_group":  41,
+                      "frontline_group":  15,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2by":  {
+                      "ts":  "2026-10-31T06:23:09",
+                      "land_army_focus":  "93/93",
+                      "exe_proofs":  "93/93",
+                      "isvalid_paths":  106,
+                      "new_land":  7,
+                      "thin_capstone":  37,
+                      "order_group_group":  44,
+                      "move_group":  11,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  29656,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2bz":  {
+                      "ts":  "2026-10-31T06:28:46",
+                      "land_army_focus":  "115/115",
+                      "exe_proofs":  "115/115",
+                      "isvalid_paths":  128,
+                      "new_land":  22,
+                      "thin_capstone":  88,
+                      "order_group_group":  52,
+                      "move_group":  15,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  36128,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2ca":  {
+                      "ts":  "2026-10-31T06:29:32",
+                      "land_army_focus":  "115/115",
+                      "exe_proofs":  "115/115",
+                      "isvalid_paths":  128,
+                      "offensive_capstone_targets":  50,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  36128,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2cb":  {
+                      "ts":  "2026-10-31T06:32:19",
+                      "land_army_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "new_land_adjacent":  6,
+                      "thin_capstone":  57,
+                      "order_group_group":  56,
+                      "move_group":  17,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  36128,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2cc":  {
+                      "ts":  "2026-10-31T06:33:11",
+                      "land_army_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "callgraph_targets":  121,
+                      "shared_helpers_ge3":  40,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "allow_post":  false,
+                      "watcher":  36128,
+                      "posting":  "DISABLED"
+                  },
+    "notes_2cd":  {
+                      "phase":  "2cd",
+                      "when":  "2026-10-31 06:36 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "shared_helpers":  40,
+                      "helper_by_class":  {
+                                              "field_predicate":  14,
+                                              "flag_gate":  1,
+                                              "inline_predicate":  4,
+                                              "wide_object_walk":  3,
+                                              "dispatcher_or_composite":  16,
+                                              "string_annotated":  2
+                                          },
+                      "isvalid_gate_helpers":  39,
+                      "execute_body_helpers":  22,
+                      "named_helpers":  [
+                                            "gamestate_instance_guard",
+                                            "gamestate_instance_guard_b",
+                                            "gamestate_instance_guard_c",
+                                            "gamestate_instance_guard_d",
+                                            "gamestate_instance_guard_e",
+                                            "thread_is_main_thread",
+                                            "get_order_instance",
+                                            "deployment_train_gate",
+                                            "division_subunit_type_check"
+                                        ],
+                      "post_implications":  [
+                                                "ThreadIsMainThread (0x23c3a0) must hold at any future Post — observe only; never patch",
+                                                "gamestate_instance_guard* family gates many IsValid paths — Post candidates must pass live IsValid first",
+                                                "GetOrderInstance (0xc40490) resolves order objects for frontline/order-group Executes — subject must be live order id",
+                                                "deployment_train_gate + division_subunit_type_check annotate conveyor/deploy edges — land Post recipes must carry valid subunit/type",
+                                                "Top hitters 0x2284800/0x254aa00/0x2607890 are dispatcher/composite shared across land cmds — treat as shared plumbing not command-specific fields",
+                                                "CLAUSEWITZ_ALLOW_POST unset; command_queue_tool_gate CLOSED_NOT_OPENED; no inject"
+                                            ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "tick":  1,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2ce":  {
+                      "phase":  "2ce",
+                      "when":  "2026-10-31 06:39 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "shared_helpers_primary":  40,
+                      "second_order_hot":  14,
+                      "helpers_total":  54,
+                      "isvalid_gate_helpers":  47,
+                      "execute_body_helpers":  34,
+                      "role_post_paths":  [
+                                              "attack",
+                                              "move",
+                                              "strategic",
+                                              "frontline",
+                                              "retreat",
+                                              "cancel_abort"
+                                          ],
+                      "role_min_gate_count":  7,
+                      "recipes_added":  [
+                                            "move_command_recipe",
+                                            "order_reconnect_recipe",
+                                            "replace_fallback_recipe",
+                                            "land_role_post_path_recipe"
+                                        ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "tick":  1,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2cf":  {
+                      "phase":  "2cf",
+                      "when":  "2026-10-31 06:42 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "helpers_total":  101,
+                      "by_tier":  {
+                                      "primary_shared":  40,
+                                      "second_order":  14,
+                                      "execute_shared_unknown":  47
+                                  },
+                      "isvalid_gate_helpers":  75,
+                      "execute_body_helpers":  81,
+                      "role_post_paths":  [
+                                              "attack",
+                                              "retreat",
+                                              "move",
+                                              "strategic",
+                                              "cancel_abort",
+                                              "frontline",
+                                              "theater",
+                                              "order_group",
+                                              "garrison"
+                                          ],
+                      "expanded_roles_2cf":  [
+                                                 "theater",
+                                                 "order_group",
+                                                 "garrison"
+                                             ],
+                      "soft_gates_by_role":  {
+                                                 "attack":  [
+                                                                "0x1e1510",
+                                                                "0x2607890"
+                                                            ],
+                                                 "retreat":  [
+                                                                 "0x2284800",
+                                                                 "0xbbb1e0",
+                                                                 "0x11f240",
+                                                                 "0x1e1510",
+                                                                 "0x2607890"
+                                                             ],
+                                                 "move":  [
+                                                              "0x2607890",
+                                                              "0x1e1510",
+                                                              "0x11f240",
+                                                              "0x2284800"
+                                                          ],
+                                                 "strategic":  [
+                                                                   "0x254aa00",
+                                                                   "0x25a0390",
+                                                                   "0x2607890"
+                                                               ],
+                                                 "cancel_abort":  [
+                                                                      "0x2284800",
+                                                                      "0x2348bf0",
+                                                                      "0x25c3770",
+                                                                      "0x11f240",
+                                                                      "0x1b8180",
+                                                                      "0x1e1510",
+                                                                      "0x2607890"
+                                                                  ],
+                                                 "frontline":  [
+                                                                   "0x2284800",
+                                                                   "0xbbb1e0",
+                                                                   "0xc40230"
+                                                               ],
+                                                 "theater":  [
+                                                                 "0x2607890"
+                                                             ],
+                                                 "order_group":  [
+                                                                     "0x2284800"
+                                                                 ],
+                                                 "garrison":  [
+                                                                  "0x2284800",
+                                                                  "0xbbb1e0",
+                                                                  "0xc40230"
+                                                              ]
+                                             },
+                      "recipes_added":  [
+                                            "land_execute_shared_unknown_recipe",
+                                            "theater_role_post_path_recipe",
+                                            "order_group_role_post_path_recipe",
+                                            "garrison_role_post_path_recipe"
+                                        ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "tick":  1,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2cg":  {
+                      "phase":  "2cg",
+                      "when":  "2026-10-31 06:47 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "helpers_total":  107,
+                      "by_tier":  {
+                                      "primary_shared":  40,
+                                      "second_order":  14,
+                                      "execute_shared_unknown":  47,
+                                      "unknown_second_order":  6
+                                  },
+                      "isvalid_gate_helpers":  76,
+                      "execute_body_helpers":  86,
+                      "preferred_cores":  {
+                                              "attack_core":  [
+                                                                  "0x1e1510",
+                                                                  "0x2607890"
+                                                              ],
+                                              "retreat_fallback_core":  [
+                                                                            "0x2284800",
+                                                                            "0xbbb1e0"
+                                                                        ],
+                                              "frontline_core":  [
+                                                                     "0x2284800",
+                                                                     "0xbbb1e0",
+                                                                     "0xc40230"
+                                                                 ],
+                                              "garrison_core":  [
+                                                                    "0x2284800",
+                                                                    "0xbbb1e0",
+                                                                    "0xc40230"
+                                                                ],
+                                              "move_army_core":  [
+                                                                     "0x1e1510",
+                                                                     "0x2607890"
+                                                                 ],
+                                              "strategic_redeploy_core":  [
+                                                                              "0x254aa00",
+                                                                              "0x25a0390"
+                                                                          ],
+                                              "strategic_pin_core":  [
+                                                                         "0x2607890"
+                                                                     ],
+                                              "order_group_core":  [
+                                                                       "0x2284800"
+                                                                   ],
+                                              "theater_core":  [
+                                                                   "0x18dde70"
+                                                               ]
+                                          },
+                      "soft_to_hard_closures":  [
+                                                    {
+                                                        "role":  "attack",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x1e1510",
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_coverage":  "5/7",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "frontline",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2284800",
+                                                                                           "0xbbb1e0",
+                                                                                           "0xc40230"
+                                                                                       ],
+                                                        "core_coverage":  "11/15",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "garrison",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0xc40230"
+                                                                                       ],
+                                                        "core_coverage":  "2/3",
+                                                        "full_role_hard":  [
+                                                                               "0x2284800",
+                                                                               "0xbbb1e0"
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "move",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x1e1510",
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_coverage":  "10/17",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "order_group",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2284800"
+                                                                                       ],
+                                                        "core_coverage":  "42/56",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "retreat",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0xbbb1e0"
+                                                                                       ],
+                                                        "core_coverage":  "5/6",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "role":  "strategic",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_coverage":  "2/4",
+                                                        "full_role_hard":  [
+
+                                                                           ]
+                                                    },
+                                                    {
+                                                        "preferred_core":  "attack_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x1e1510",
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x1e1510",
+                                                                          "0x2607890"
+                                                                      ],
+                                                        "coverage":  "5/7",
+                                                        "basis":  "exclude RailwayGun* outliers"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "retreat_fallback_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2284800",
+                                                                                           "0xbbb1e0"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x2284800",
+                                                                          "0xbbb1e0"
+                                                                      ],
+                                                        "coverage":  "3/6",
+                                                        "basis":  "share 0x2284800+0xbbb1e0"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "frontline_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2284800",
+                                                                                           "0xbbb1e0",
+                                                                                           "0xc40230"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x2284800",
+                                                                          "0xbbb1e0",
+                                                                          "0xc40230"
+                                                                      ],
+                                                        "coverage":  "11/15",
+                                                        "basis":  "share 0x2284800+0xbbb1e0+0xc40230 (close soft-\u003ehard)"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "garrison_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0xc40230"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x2284800",
+                                                                          "0xbbb1e0",
+                                                                          "0xc40230"
+                                                                      ],
+                                                        "coverage":  "2/3",
+                                                        "basis":  "share triple incl 0xc40230"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "move_army_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x1e1510",
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x1e1510",
+                                                                          "0x2607890"
+                                                                      ],
+                                                        "coverage":  "10/17",
+                                                        "basis":  "share 0x2607890+0x1e1510"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "strategic_redeploy_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x254aa00",
+                                                                                           "0x25a0390"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x254aa00",
+                                                                          "0x25a0390"
+                                                                      ],
+                                                        "coverage":  "2/4",
+                                                        "basis":  "share 0x254aa00+0x25a0390"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "strategic_pin_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2607890"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x2607890"
+                                                                      ],
+                                                        "coverage":  "2/4",
+                                                        "basis":  "0x2607890 cluster excluding redeploy"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "order_group_core",
+                                                        "closed_soft_into_core_hard":  [
+                                                                                           "0x2284800"
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x2284800"
+                                                                      ],
+                                                        "coverage":  "42/56",
+                                                        "basis":  "share 0x2284800 (soft majority closed for core)"
+                                                    },
+                                                    {
+                                                        "preferred_core":  "theater_core",
+                                                        "closed_soft_into_core_hard":  [
+
+                                                                                       ],
+                                                        "core_hard":  [
+                                                                          "0x18dde70"
+                                                                      ],
+                                                        "coverage":  "3/11",
+                                                        "basis":  "share seed 0x18dde70"
+                                                    }
+                                                ],
+                      "recipes_added":  [
+                                            "land_preferred_core_recipe",
+                                            "land_unknown_second_order_recipe",
+                                            "attack_core_post_path_recipe",
+                                            "move_army_core_post_path_recipe",
+                                            "frontline_core_post_path_recipe",
+                                            "retreat_fallback_core_post_path_recipe"
+                                        ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2ch":  {
+                      "phase":  "2ch",
+                      "when":  "2026-10-31 06:50 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "helpers_total":  137,
+                      "by_tier":  {
+                                      "primary_shared":  40,
+                                      "second_order":  14,
+                                      "execute_shared_unknown":  47,
+                                      "unknown_second_order":  6,
+                                      "cross_land_fresh":  30
+                                  },
+                      "isvalid_gate_helpers":  90,
+                      "execute_body_helpers":  103,
+                      "preferred_core_count":  21,
+                      "new_cores":  [
+                                        "retreat_bbb_only_core",
+                                        "frontline_bbb_core",
+                                        "garrison_bbb_core",
+                                        "move_theater_core",
+                                        "move_c07b80_core",
+                                        "strategic_unit_redeploy_core",
+                                        "order_group_bbb_core",
+                                        "order_group_leader_core",
+                                        "order_group_conveyor_core",
+                                        "theater_garrison_prio_core",
+                                        "theater_reorder_core",
+                                        "cancel_abort_core"
+                                    ],
+                      "preferred_cores":  {
+                                              "attack_core":  [
+                                                                  "0x1e1510",
+                                                                  "0x2607890"
+                                                              ],
+                                              "retreat_fallback_core":  [
+                                                                            "0x2284800",
+                                                                            "0xbbb1e0"
+                                                                        ],
+                                              "retreat_bbb_only_core":  [
+                                                                            "0xbbb1e0"
+                                                                        ],
+                                              "frontline_core":  [
+                                                                     "0x2284800",
+                                                                     "0xbbb1e0",
+                                                                     "0xc40230"
+                                                                 ],
+                                              "frontline_bbb_core":  [
+                                                                         "0xbbb1e0"
+                                                                     ],
+                                              "garrison_core":  [
+                                                                    "0x2284800",
+                                                                    "0xbbb1e0",
+                                                                    "0xc40230"
+                                                                ],
+                                              "garrison_bbb_core":  [
+                                                                        "0x2284800",
+                                                                        "0xbbb1e0"
+                                                                    ],
+                                              "move_army_core":  [
+                                                                     "0x1e1510",
+                                                                     "0x2607890"
+                                                                 ],
+                                              "move_theater_core":  [
+                                                                        "0x2284800",
+                                                                        "0xbbb1e0"
+                                                                    ],
+                                              "move_c07b80_core":  [
+                                                                       "0xc07b80"
+                                                                   ],
+                                              "strategic_redeploy_core":  [
+                                                                              "0x254aa00",
+                                                                              "0x25a0390"
+                                                                          ],
+                                              "strategic_pin_core":  [
+                                                                         "0x2607890"
+                                                                     ],
+                                              "strategic_unit_redeploy_core":  [
+                                                                                   "0x1e1510",
+                                                                                   "0x2607890",
+                                                                                   "0x57f7b0"
+                                                                               ],
+                                              "order_group_core":  [
+                                                                       "0x2284800"
+                                                                   ],
+                                              "order_group_bbb_core":  [
+                                                                           "0xbbb1e0"
+                                                                       ],
+                                              "order_group_leader_core":  [
+                                                                              "0x11ecb20"
+                                                                          ],
+                                              "order_group_conveyor_core":  [
+                                                                                "0x1c31490"
+                                                                            ],
+                                              "theater_core":  [
+                                                                   "0x18dde70"
+                                                               ],
+                                              "theater_garrison_prio_core":  [
+                                                                                 "0x3b65a0",
+                                                                                 "0xac1e20"
+                                                                             ],
+                                              "theater_reorder_core":  [
+                                                                           "0xd73540"
+                                                                       ],
+                                              "cancel_abort_core":  [
+                                                                        "0x2284800",
+                                                                        "0x2348bf0",
+                                                                        "0x25c3770"
+                                                                    ]
+                                          },
+                      "recipes_added":  [
+                                            "land_cross_fresh_helper_recipe",
+                                            "garrison_bbb_core_post_path_recipe",
+                                            "frontline_bbb_core_post_path_recipe",
+                                            "move_theater_core_post_path_recipe",
+                                            "theater_garrison_prio_core_post_path_recipe",
+                                            "strategic_unit_redeploy_core_post_path_recipe",
+                                            "cancel_abort_core_post_path_recipe"
+                                        ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "tick":  1,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2ci":  {
+                      "phase":  "2ci",
+                      "when":  "2026-10-31 06:53 Asia/Shanghai",
+                      "land_focus":  "121/121",
+                      "exe_proofs":  "121/121",
+                      "isvalid_paths":  134,
+                      "helpers_total":  195,
+                      "by_tier":  {
+                                      "primary_shared":  40,
+                                      "second_order":  14,
+                                      "execute_shared_unknown":  47,
+                                      "unknown_second_order":  6,
+                                      "cross_land_fresh":  30,
+                                      "land_execute_unknown_shared":  58
+                                  },
+                      "isvalid_gate_helpers":  105,
+                      "execute_body_helpers":  144,
+                      "named_helpers_count":  28,
+                      "preferred_core_count":  34,
+                      "coverage":  {
+                                       "covered":  121,
+                                       "total":  121,
+                                       "uncovered":  [
+
+                                                     ]
+                                   },
+                      "genuine_divergences_count":  17,
+                      "recipes_added":  [
+                                            "land_named_gate_recipe",
+                                            "land_genuine_divergence_recipe",
+                                            "land_execute_unknown_shared_recipe",
+                                            "railwaygun_divergence_recipe"
+                                        ],
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "watcher_pid":  36128,
+                      "tick":  1,
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST",
+                                      "helper_patch",
+                                      "Post_inject"
+                                  ]
+                  },
+    "notes_2cj":  {
+                      "phase":  "2cj",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  237,
+                      "named_helpers":  75,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "genuine_divergences_refined":  17,
+                      "offensive_line_execute_fully_cataloged":  "25/25",
+                      "isvalid_gate_helpers":  107,
+                      "execute_body_helpers":  183,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_named_helper_expansion_recipe",
+                                      "offensive_line_execute_recipe",
+                                      "land_post_path_checklist_recipe",
+                                      "land_divergence_gate_delta_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cj RO deepen only. Post remains disabled."
+                  },
+    "notes_2ck":  {
+                      "phase":  "2ck",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  237,
+                      "helpers_inflation":  "none (shared≥2 miss=0; singletons docs-only)",
+                      "named_helpers":  96,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "role_post_path_matrix":  true,
+                      "singleton_execute_edges_documented":  87,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_role_post_path_matrix_recipe",
+                                      "land_singleton_execute_edge_recipe",
+                                      "land_post_readiness_checklist_2ck_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2ck RO matrix/checklist focus. Post remains disabled."
+                  },
+    "notes_2cl":  {
+                      "phase":  "2cl",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  237,
+                      "helpers_inflation":  "none (gate_label_only=15)",
+                      "named_helpers":  116,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  116,
+                      "cmds_required_gates_fully_named":  116,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_recipe",
+                                      "land_role_post_path_matrix_2cl_recipe",
+                                      "land_post_readiness_checklist_2cl_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cl RO cmd-index focus. Post remains disabled."
+                  },
+    "notes_2cm":  {
+                      "phase":  "2cm",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  252,
+                      "gate_label_only_closed":  true,
+                      "gate_label_promoted":  15,
+                      "named_helpers":  145,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "cmds_required_gates_fully_named":  121,
+                      "avg_post_path_confidence":  0.911,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cm_recipe",
+                                      "land_gate_label_promoted_recipe",
+                                      "land_post_readiness_checklist_2cm_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cm RO: gate_label_only closed; cmd index 121/121. Post remains disabled."
+                  },
+    "notes_2cn":  {
+                      "phase":  "2cn",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  252,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  223,
+                      "avg_post_path_confidence":  0.957,
+                      "prev_avg_2cm":  0.911,
+                      "cmds_below_0_9":  24,
+                      "soft_unnamed_all_closed":  true,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cn_recipe",
+                                      "land_confidence_report_2cn_recipe",
+                                      "land_post_readiness_checklist_2cn_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cn RO confidence raise via naming. Post remains disabled."
+                  },
+    "notes_2co":  {
+                      "phase":  "2co",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_prev_2cn":  252,
+                      "helpers_added":  "56 second_order hits\u003e=2 only",
+                      "deep_thin_named_outside_shared":  60,
+                      "named_helpers":  370,
+                      "avg_post_path_confidence":  0.977,
+                      "prev_avg_2cn":  0.957,
+                      "cmds_below_0_9":  6,
+                      "soft_unnamed_all_closed":  true,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2co_recipe",
+                                      "land_confidence_report_2co_recipe",
+                                      "land_post_readiness_checklist_2co_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2co RO Capstone confidence raise. Post remains disabled."
+                  },
+    "notes_2cp":  {
+                      "phase":  "2cp",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  476,
+                      "avg_post_path_confidence":  0.99,
+                      "prev_avg_2co":  0.977,
+                      "cmds_below_0_9":  0,
+                      "soft6_closed":  true,
+                      "soft_unnamed_all_closed":  true,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cp_recipe",
+                                      "land_confidence_report_2cp_recipe",
+                                      "land_post_readiness_checklist_2cp_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cp RO Capstone structural close of below-0.9. Post remains disabled."
+                  },
+    "notes_2cq":  {
+                      "phase":  "2cq",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  637,
+                      "avg_post_path_confidence":  0.997,
+                      "prev_avg_2cp":  0.99,
+                      "cmds_below_0_9":  0,
+                      "cmds_below_0_95":  0,
+                      "merge_armies":  1.0,
+                      "soft_unnamed_all_closed":  true,
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cq_recipe",
+                                      "land_confidence_report_2cq_recipe",
+                                      "land_post_readiness_checklist_2cq_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cq RO Capstone below-0.95 + MergeArmies close. Post remains disabled."
+                  },
+    "notes_2cr":  {
+                      "phase":  "2cr",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  658,
+                      "avg_post_path_confidence":  1.0,
+                      "prev_avg_2cq":  0.997,
+                      "cmds_below_0_9":  0,
+                      "cmds_below_0_95":  0,
+                      "cmds_below_1_0":  0,
+                      "merge_armies":  1.0,
+                      "singleton_unnamed_closed":  true,
+                      "ol_second_named":  7,
+                      "genuine_remaining_unnamed_execute":  [
+
+                                                            ],
+                      "preferred_cores":  34,
+                      "coverage":  "121/121",
+                      "cmd_post_path_index":  121,
+                      "watcher_pid":  36128,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cr_recipe",
+                                      "land_confidence_report_2cr_recipe",
+                                      "land_post_readiness_checklist_2cr_recipe",
+                                      "land_remaining_unnamed_execute_edges_2cr_recipe",
+                                      "land_offensive_line_post_path_2cr_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes"
+                                 ],
+                      "note":  "2cr RO Capstone singleton unnamed execute + OL second-order close. Post remains disabled."
+                  },
+    "notes_2cs":  {
+                      "phase":  "2cs",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  658,
+                      "named_new":  0,
+                      "avg_post_path_confidence":  1.0,
+                      "cmds_below_1_0":  0,
+                      "focus":  "usability",
+                      "live_armies_hai":  22,
+                      "watcher_pid":  36128,
+                      "watcher_alive":  true,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cs_recipe",
+                                      "land_role_post_path_matrix_2cs_recipe",
+                                      "land_confidence_report_2cs_recipe",
+                                      "land_post_readiness_checklist_2cs_recipe",
+                                      "land_offensive_line_post_path_2cs_recipe",
+                                      "land_midflight_move_watcher_readiness_2cs_recipe",
+                                      "land_live_army_subject_observe_2cs_recipe",
+                                      "land_live_focus_fn_verify_2cs_recipe"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch/hook helpers",
+                                     "Post inject / midflight write",
+                                     "HourlyTick / GameSpeed writes",
+                                     "guess writes",
+                                     "wake user / inject input"
+                                 ],
+                      "note":  "2cs RO usability package after confidence saturation. Post remains disabled."
+                  },
+    "notes_2ct":  {
+                      "phase":  "2ct",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  658,
+                      "named_new":  0,
+                      "avg_post_path_confidence":  1.0,
+                      "cmds_below_1_0":  0,
+                      "focus":  "deep_observe",
+                      "live_armies_hai":  22,
+                      "org_hyp_nonzero":  5,
+                      "movement_dest_nonempty":  0,
+                      "template_name_proven":  true,
+                      "province_controller_tag_hyp":  "+0x58",
+                      "role_observe_roles":  [
+                                                 "move",
+                                                 "attack",
+                                                 "strategic",
+                                                 "retreat",
+                                                 "frontline",
+                                                 "theater",
+                                                 "order_group",
+                                                 "garrison",
+                                                 "cancel_abort"
+                                             ],
+                      "watcher_pid":  36128,
+                      "watcher_alive":  true,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2ct_recipe",
+                                      "land_role_post_path_matrix_2ct_recipe",
+                                      "land_role_observe_2ct_recipe",
+                                      "land_confidence_report_2ct_recipe",
+                                      "land_post_readiness_checklist_2ct_recipe",
+                                      "land_offensive_line_post_path_2ct_recipe",
+                                      "land_midflight_move_watcher_readiness_2ct_recipe",
+                                      "land_live_army_subject_observe_2ct_recipe"
+                                  ],
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "ALLOW_POST",
+                                      "command_queue_tool_gate"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST",
+                                     "patch helpers",
+                                     "Post inject",
+                                     "HourlyTick / GameSpeed",
+                                     "promote hyp org/str offsets",
+                                     "wake user / inject input"
+                                 ]
+                  },
+    "notes_2cu":  {
+                      "phase":  "2cu",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  658,
+                      "named_new":  0,
+                      "avg_post_path_confidence":  1.0,
+                      "cmds_below_1_0":  0,
+                      "focus":  "classify_reject_org",
+                      "carmy_count":  17,
+                      "ctaskforce_count":  5,
+                      "org_str_status":  "REJECTED_AS_CARMY_ORG",
+                      "movement_dest_nonempty":  0,
+                      "rtti_vt":  {
+                                      "CArmy":  "0x29d6d68",
+                                      "CTaskForce":  "0x29df8a0"
+                                  },
+                      "role_observe_roles":  [
+                                                 "move",
+                                                 "attack",
+                                                 "strategic",
+                                                 "retreat",
+                                                 "frontline",
+                                                 "theater",
+                                                 "order_group",
+                                                 "garrison",
+                                                 "cancel_abort"
+                                             ],
+                      "watcher_pid":  36128,
+                      "watcher_alive":  true,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cu_recipe",
+                                      "land_role_post_path_matrix_2cu_recipe",
+                                      "land_role_observe_2cu_recipe",
+                                      "land_confidence_report_2cu_recipe",
+                                      "land_post_readiness_checklist_2cu_recipe",
+                                      "land_offensive_line_post_path_2cu_recipe",
+                                      "land_midflight_move_watcher_readiness_2cu_recipe",
+                                      "land_live_army_subject_observe_2cu_recipe"
+                                  ],
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "ALLOW_POST",
+                                      "command_queue_tool_gate"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST",
+                                     "patch helpers",
+                                     "Post inject",
+                                     "HourlyTick / GameSpeed",
+                                     "promote 0x520/0x6ec as CArmy org (REJECTED — CTaskForce)",
+                                     "invent movement_dest while paused",
+                                     "wake user / inject input"
+                                 ]
+                  },
+    "notes_2cv":  {
+                      "phase":  "2cv",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land_cmds":  "121/121 unchanged",
+                      "helpers_total":  308,
+                      "helpers_inflation":  "none",
+                      "named_helpers":  658,
+                      "named_new":  0,
+                      "avg_post_path_confidence":  1.0,
+                      "cmds_below_1_0":  0,
+                      "focus":  "theatre_namegroup_deepen",
+                      "carmy_count":  17,
+                      "ctaskforce_count":  5,
+                      "carmy_theatre_ok":  17,
+                      "carmy_namegroup_ok":  17,
+                      "unique_theatres":  1,
+                      "org_str_status":  "REJECTED_AS_CARMY_ORG",
+                      "movement_dest_nonempty":  0,
+                      "rtti_vt":  {
+                                      "CArmy":  "0x29d6d68",
+                                      "CTaskForce":  "0x29df8a0",
+                                      "CTheatre":  "0x29f2188",
+                                      "CNameGroupMember":  "0x29b3c68",
+                                      "CSubUnitDefinition":  "0x28076f0"
+                                  },
+                      "new_proven_fields":  {
+                                                "CArmy+0x2a0":  "CTheatre",
+                                                "CArmy+0x340":  "CNameGroupMember",
+                                                "CNameGroupMember+0x60":  "display_name_ptr",
+                                                "CTheatre+0x0c/0x48":  "country_tag",
+                                                "CTheatre+0xe8":  "CProvince",
+                                                "CArmy+0x478":  "CArmyRequests"
+                                            },
+                      "role_observe_roles":  [
+                                                 "move",
+                                                 "attack",
+                                                 "strategic",
+                                                 "retreat",
+                                                 "frontline",
+                                                 "theater",
+                                                 "order_group",
+                                                 "garrison",
+                                                 "cancel_abort"
+                                             ],
+                      "watcher_pid":  36128,
+                      "watcher_alive":  true,
+                      "hoi4_pid":  2880,
+                      "recipes":  [
+                                      "land_cmd_post_path_index_2cv_recipe",
+                                      "land_role_post_path_matrix_2cv_recipe",
+                                      "land_role_observe_2cv_recipe",
+                                      "land_confidence_report_2cv_recipe",
+                                      "land_post_readiness_checklist_2cv_recipe",
+                                      "land_offensive_line_post_path_2cv_recipe",
+                                      "land_midflight_move_watcher_readiness_2cv_recipe",
+                                      "land_live_army_subject_observe_2cv_recipe"
+                                  ],
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "ALLOW_POST",
+                                      "command_queue_tool_gate"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST",
+                                     "patch helpers",
+                                     "Post inject",
+                                     "HourlyTick / GameSpeed",
+                                     "revive rejected org/str @0x520/0x6ec",
+                                     "invent movement_dest while paused",
+                                     "wake user / inject input"
+                                 ]
+                  },
+    "notes_2cw":  {
+                      "phase":  "2cw",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land":  "121/121",
+                      "confidence":  1.0,
+                      "focus":  "CArmyRequests field-map + theatre air-mgr + FrontSection observe",
+                      "org_str":  "REJECTED_AS_CARMY_ORG",
+                      "movement_dest":  "empty_paused",
+                      "watcher":  36128
+                  },
+    "notes_2cx":  {
+                      "phase":  "2cx",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land":  "121/121",
+                      "confidence":  1.0,
+                      "focus":  "CFront theatre/controller + reinf/upgrades country",
+                      "org_str":  "REJECTED_AS_CARMY_ORG",
+                      "watcher":  36128
+                  },
+    "notes_2cy":  {
+                      "phase":  "2cy",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land":  "121/121",
+                      "confidence":  1.0,
+                      "focus":  "CFront slot-array + CControllerArea province",
+                      "org_str":  "REJECTED_AS_CARMY_ORG",
+                      "watcher":  36128,
+                      "proven":  [
+                                     "CFront slot-array k=0..7 theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90 (slot0 1199/1199; pairs \u003e=1143/1199)",
+                                     "CControllerArea+0x28→CProvince 296/296",
+                                     "CControllerArea+0x148→CProvince 288/296",
+                                     "HAI theatre in 30 fronts (any slot); slot0-only was 6"
+                                 ]
+                  },
+    "notes_2cz":  {
+                      "phase":  "2cz",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "land":  "121/121",
+                      "confidence":  1.0,
+                      "focus":  "CFront slots\u003e=16 + FS slot-embed + prov+0x58 reject",
+                      "org_str":  "REJECTED_AS_CARMY_ORG",
+                      "watcher":  36128,
+                      "proven":  [
+                                     "CFront slot-array k=0..15 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot15 \u003e=1114/1199",
+                                     "HAI theatre in 44 fronts any-slot (was 30@8 / 6@slot0)",
+                                     "CFrontSection embeds parent slot theatre*/controller* (866 theatre / 305 controller matches)",
+                                     "CProvince+0x58 REJECTED as controller-country tag"
+                                 ]
+                  },
+    "notes_2da":  {
+                      "phase":  "2da",
+                      "parent":  "a2c5246",
+                      "focus":  "CFront slots\u003e=64 + FS theatre stable embeds + CArmyRequests peer hyp",
+                      "proven":  [
+                                     "CFront slot-array k=0..63 (at least) theatre@+0x18+k*0x90 / ctrl@+0x70+k*0x90; slot0 1199/1199; slot63 947/1199",
+                                     "HAI theatre in 92 fronts any-slot (was 44@16 / 60@32 / 6@slot0)",
+                                     "CFrontSection stable theatre* embeds @+0x28/+0x40/+0x58 (and +0x70 stride repeats @+0x98/+0xb0/+0xc8); 122/1570",
+                                     "CArmyRequests peer CArmy* hyp @+0x108/+0x130/+0x190 (10/17 other HAI; not self)"
+                                 ],
+                      "rejected_or_unresolved":  [
+                                                     "CProvince+0x58 controller-country tag (REJECTED 2cz)",
+                                                     "org/str @0x520/0x6ec (REJECTED)",
+                                                     "theatre→army direct CArmy*/handle/req ptr in theatre blob (0 hits; army→theatre @+0x2a0 remains one-way)",
+                                                     "FS controller* stable embed (weak/noisy vs 2cz; not same-k with theatre this session)",
+                                                     "CFront slot-count field near header (no reliable hyp)"
+                                                 ],
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "ALLOW_POST",
+                                      "command_queue_tool_gate"
+                                  ],
+                      "watcher_36128":  "RO alive",
+                      "hoi4_pid":  2880
+                  },
+    "notes_2db":  {
+                      "phase":  "2db",
+                      "parent":  "54a9d87",
+                      "focus":  "REJECT CFront multi-slot array (=packed 0x90); peer alias triple; theatre→army still 0",
+                      "proven":  [
+                                     "CFront multi-slot-array model (2cy-2da k=0..N) REJECTED: 1171/1199 neighbors at +0x90 are themselves CFront; slot-k theatre == (F+k*0x90)+0x18",
+                                     "CFront object stride 0x90 in packed runs (max run 454; 28 runs); per-object theatre@+0x18 and controller@+0x70 only (1199/1199)",
+                                     "HAI fronts with theatre@+0x18 = 6 (slot0-only; any-slot inflation was neighbor walk)",
+                                     "CArmyRequests peer ptr aliased at +0x108/+0x130/+0x190 identical 16/17; 16 unique peers; often same theatre",
+                                     "FS theatre* embeds @+0x28/+0x40/+0x58 still present but match packed-run neighbor theatres (not parent multi-slots); 97 FS with 4 same-k triples under old indexing"
+                                 ],
+                      "rejected_or_unresolved":  [
+                                                     "CFront multi-slot array @+0x18+k*0x90 (REJECTED_AS_PACKED_ADJACENT_CFRONT_2db)",
+                                                     "theatre→army direct CArmy*/handle/req/CPdxArray/CCountry path (still 0)",
+                                                     "CProvince+0x58 controller-country tag (REJECTED 2cz)",
+                                                     "org/str @0x520/0x6ec (REJECTED)",
+                                                     "req peer bidirectional / owner_match (0; chain not a simple doubly-linked list)"
+                                                 ],
+                      "stubbed":  [
+                                      "midflight_CMoveCommand",
+                                      "ring_embed",
+                                      "ALLOW_POST",
+                                      "command_queue_tool_gate"
+                                  ],
+                      "watcher_36128":  "RO alive",
+                      "hoi4_pid":  2880
+                  },
+    "notes_2dc":  {
+                      "phase":  "2dc",
+                      "parent":  "5c51ac9",
+                      "focus":  "CFront kind@+0x8 / id@+0xc + peer one-way chains + theatre-\u003earmy still 0",
+                      "cfront_kind":  "0x42 constant 1199/1199",
+                      "cfront_id":  "u32@+0xc unique 1199/1199",
+                      "peer":  "one-way chains; 10 HAI + 5 DOM(tag16)",
+                      "theatre_army":  "UNRESOLVED",
+                      "orders_heap":  0
+                  },
+    "notes_2ei":  {
+                      "phase":  "2ei",
+                      "when":  "2026-10-31 09:39 Asia/Shanghai",
+                      "focus":  "midflight_CMove_capture_recipe_and_watcher_RO_harden",
+                      "land_cmds":  "121/121 CLOSED — not re-churned",
+                      "confidence":  1.0,
+                      "doc":  "docs/MIDFLIGHT_CMOVE_CAPTURE.md",
+                      "watcher_improvements":  [
+                                                   "heartbeat reports/midflight_watcher_heartbeat.json",
+                                                   "instant capture reports/midflight_cmove_capture.json",
+                                                   "default --heap-every 0"
+                                               ],
+                      "watcher_pid_before":  36128,
+                      "hoi4_pid":  2880,
+                      "movement_dest":  "empty_paused_not_retested_1x",
+                      "allow_post":  false,
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "posting":  "DISABLED",
+                      "stubbed":  [
+                                      "midflight_CMoveCommand sample",
+                                      "ring_embed Move buffer",
+                                      "command_queue_tool_gate enable",
+                                      "ALLOW_POST",
+                                      "CLAUSEWITZ_ALLOW_POST"
+                                  ],
+                      "do_not":  [
+                                     "enable ALLOW_POST / CLAUSEWITZ_ALLOW_POST",
+                                     "patch helpers",
+                                     "Post inject",
+                                     "HourlyTick / GameSpeed",
+                                     "revive rejected org/str / prov+0x58 / CFront multi-slot",
+                                     "wake user / inject input",
+                                     "Capstone/helper confidence inflation"
+                                 ],
+                      "note":  "2ei efficient single slice. Post remains disabled.",
+                      "watcher_pid":  15020,
+                      "watcher_alive":  true,
+                      "live_counters":  {
+                                            "drain":  1338085,
+                                            "exec":  13,
+                                            "seq":  15,
+                                            "stage_count":  0
+                                        },
+                      "sha":  "f506d08"
+                  },
+    "notes_2ej":  {
+                      "ts":  "2026-10-31",
+                      "allow_post":  false,
+                      "set_1x":  "CLI -start_speed=1 relaunch works; UI Space does not",
+                      "clock":  "exec/seq advance at 1x proves unpaused",
+                      "move":  "blocked without Post; DX11 ignores synthetic input",
+                      "midflight_sample":  null
+                  },
+    "notes_2ek":  {
+                      "ts":  "2026-10-31",
+                      "allow_post":  false,
+                      "hard_deny":  "allow_post() always False",
+                      "move_without_post":  "impossible with current catalog — console null, UI inject dead, recipes docs-only",
+                      "clock":  "HourlyTick+exec/seq prove sim; UI H:M pack unproven",
+                      "next":  "RO map G_GAMESTATE time fields; do not open Post"
+                  },
+    "notes_2el":  {
+                      "when":  "2026-10-31T10:16:49",
+                      "gs_date_hours_off":  "0x484",
+                      "gs_date_year_off":  "0x478",
+                      "epoch":  "1936-01-01 00:00",
+                      "minute":  "N/A hourly",
+                      "allow_post":  false,
+                      "post_touched":  false,
+                      "live_ui_example":  "1936-01-03 20:00+"
+                  },
+    "notes_2em":  {
+                      "when":  "2026-10-31T10:30:41",
+                      "choice":  "A_strengthen_midflight_watcher",
+                      "burst_on_edge":  12,
+                      "interval":  0.02,
+                      "sightline_hourlytick_25s":  289,
+                      "caught_army_move":  false,
+                      "allow_post":  false,
+                      "post_touched":  false,
+                      "next_blocker":  "midflight_CMoveCommand live sample"
+                  },
+    "notes_2en":  {
+                      "when":  "2026-10-31T10:32:34",
+                      "choice":  "A_safe_post_enable_checklist_doc",
+                      "doc":  "docs/SAFE_POST_ENABLE_CHECKLIST.md",
+                      "gate_opened":  false,
+                      "allow_post":  false,
+                      "post_touched":  false,
+                      "missing":  [
+                                      "midflight_CMoveCommand_plus_action_embed",
+                                      "serialize_recreate_ring_on_Move",
+                                      "explicit_CLAUSEWITZ_ALLOW_POST",
+                                      "tool_gate_open_predicates"
+                                  ]
+                  },
+    "notes_2eo":  {
+                      "when":  "2026-10-31T10:36:23",
+                      "choice":  "A_full_action_embed_decode",
+                      "allow_post":  false,
+                      "post_touched":  false,
+                      "live_move_sample":  false,
+                      "decode_ready":  true
+                  },
+    "notes_2fc":  {
+                      "ts":  "2026-10-31T03:51:13.356359+00:00",
+                      "allow_post":  false,
+                      "strategic_leaf":  "CAPTURED_2fa",
+                      "strategic_layout":  "MATCH_2fb",
+                      "strategic_isvalid_path":  "DOCUMENTED_2fc",
+                      "cmd_isvalid":  "0x1402260",
+                      "action_isvalid":  "0x12c2c20",
+                      "action_type_id":  "0x364a",
+                      "wrap":  "0x22d8ea0",
+                      "ring_embed_recipe":  "DESIGN_ONLY_2fb",
+                      "ring_recreate_proof":  "STUBBED",
+                      "ordinary_CMove_live":  "STUBBED",
+                      "tool_gate":  "CLOSED_NOT_OPENED",
+                      "gate":  "CLOSED"
+                  },
+    "notes_2fd":  {
+                      "ts":  "2026-10-31T03:53:42.262959+00:00",
+                      "allow_post":  false,
+                      "offline_rebuild":  "PASS",
+                      "live_factory_wiring":  "see report",
+                      "in_process_ring_embed":  "STUBBED_needs_Post",
+                      "executed_2fb_recipe":  false,
+                      "gate":  "CLOSED"
+                  },
+    "notes_2fe":  {
+                      "ts":  "2026-10-31T03:56:21.664310+00:00",
+                      "allow_post":  false,
+                      "ro_ceiling":  "Strategic offline rebuild PASS + live factory wiring; in-process ring embed needs Post",
+                      "factory_idx_strategic":  4753,
+                      "ordinary_cmove_catalog":  "COMPLETE",
+                      "ordinary_cmove_live":  "STUBBED",
+                      "human_gated_next":  "CLAUSEWITZ_ALLOW_POST=1 after review → tool-gate → one Strategic Post @1x",
+                      "gate":  "CLOSED",
+                      "executed_2fb_recipe":  false
+                  },
+    "phase_2iji":  {
+                       "result":  "SAFE_POST_GATE_CHECKLIST_POLISH",
+                       "gates_missing":  [
+                                             "G1",
+                                             "G2",
+                                             "G3",
+                                             "G4",
+                                             "G5",
+                                             "G6"
+                                         ],
+                       "allow_post":  false,
+                       "doc":  "docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md"
+                   },
+    "g4_g5_g6_once":  {
+                          "G4":  "PROVEN_ONCE_THEN_RESTORED",
+                          "G5":  "PROVEN_ONCE_STRATEGIC_ONLY_THEN_RESTORED",
+                          "G6":  "G6_STRATEGIC_POST_HIT",
+                          "fold_phase":  "2ijv"
+                      },
+    "phase2ijy":  {
+                      "move_path_hit_reaffirm":  true,
+                      "crt_stable":  false,
+                      "exit_code":  "0xC0000374",
+                      "ucrt_malloc_staged":  true,
+                      "allow_post_final":  false
+                  },
+    "phase2ijz":  {
+                      "result":  "G6_MOVE_UCRT_MALLOC_STABLE_HIT",
+                      "province_buf_kind":  "ucrt_malloc",
+                      "allow_post_final":  false,
+                      "ts":  "2026-11-01 22:56:16 Asia/Shanghai"
+                  },
+    "phase2ika":  {
+                      "result":  "G6_CANCEL_1415_PATH_CLEARED_HIT",
+                      "factory_idx":  1415,
+                      "allow_post_final":  false,
+                      "ts":  "2026-11-01 22:59:59 Asia/Shanghai"
+                  },
+    "phase2ikb":  {
+                      "result":  "G6_CANCEL_MULTI2_PATH_CLEARED_HIT",
+                      "attack":  "PARKED_PEACETIME",
+                      "war":  {
+                                  "status":  "PEACETIME_NO_WAR_DETECTED",
+                                  "evidence":  "offsets_verified has no war keys; ITA 1936 Feb peacetime; declare console not Post-proven",
+                                  "attack":  "PARKED"
+                              },
+                      "allow_post_final":  false,
+                      "ts":  "2026-11-01 23:03:37 Asia/Shanghai"
+                  },
+    "phase2ikc":  {
+                      "result":  "G6_ATTACK_3620_POSTED_STABLE_HIT",
+                      "war":  {
+                                  "status":  "WARTIME_ETH_DAY1_HISTORICAL",
+                                  "basis":  "start_tag=ETH @1x AI-on; 1936 ETH at war with ITA on day 1 (2et/2fa proven)",
+                                  "player_tag":  15,
+                                  "ui_date":  null,
+                                  "declare":  "NOT_USED"
+                              },
+                      "attack":  {
+                                     "factory_idx":  3620,
+                                     "ok":  true,
+                                     "result":  "ATTACK_POSTED_STABLE",
+                                     "army":  1037,
+                                     "province":  6906,
+                                     "post_wait":  0,
+                                     "post_rax":  1,
+                                     "buf_kind":  "inline_none"
+                                 },
+                      "allow_post_final":  false,
+                      "estimate":  "~84-86%",
+                      "ts":  "2026-11-01 23:14:27 Asia/Shanghai"
+                  },
+    "phase2ikd":  {
+                      "result":  "G6_ATTACK_MULTI2_POSTED_STABLE_HIT",
+                      "war":  {
+                                  "status":  "WARTIME_ETH_CONTINUATION",
+                                  "basis":  "live ETH session from 2ikc; day-1 historical war vs ITA",
+                                  "declare":  "NOT_USED"
+                              },
+                      "posts_n":  2,
+                      "densify":  "HONEST_EMPTY_PATH_PROVINCE",
+                      "allow_post_final":  false,
+                      "estimate":  "~86-88%",
+                      "ts":  "2026-11-01 23:17:25 Asia/Shanghai"
+                  },
+    "phase2ike":  {
+                      "result":  "G6_LOOP_MOVE_ATTACK_CANCEL_HIT",
+                      "HIT":  true,
+                      "army":  1037,
+                      "move":  "PATH_CONTAINS_DEST",
+                      "attack":  "ATTACK_POSTED_STABLE",
+                      "cancel":  "PATH_CLEARED_ALL",
+                      "allow_post_final":  false,
+                      "estimate":  "~88-90%",
+                      "when":  "2026-11-01 23:20 Asia/Shanghai"
+                  },
+    "phase2ikf":  {
+                      "result":  "G6_STRATEGIC_WARTIME_ENCIRCLE_HIT",
+                      "HIT":  true,
+                      "army":  1037,
+                      "dest":  11838,
+                      "post_result":  "PATH_CONTAINS_DEST",
+                      "allow_post_final":  false,
+                      "estimate":  "~90-92%",
+                      "when":  "2026-11-01 23:24 Asia/Shanghai"
+                  },
+    "phase2ikg":  {
+                      "result":  "G6_MULTI_STRATEGIC_CONCENTRATE_HIT",
+                      "HIT":  true,
+                      "dest":  6906,
+                      "movers":  [
+                                     1037,
+                                     1038
+                                 ],
+                      "retreat":  "PARKED_NOT_PROVEN_CHEAP",
+                      "allow_post_final":  false,
+                      "estimate":  "~92-94%",
+                      "when":  "2026-11-01 23:27 Asia/Shanghai"
+                  },
+    "phase2ikh":  {
+                      "result":  "G6_ATTACK_AFTER_CONCENTRATE_HIT",
+                      "HIT":  true,
+                      "army":  1042,
+                      "target":  1886,
+                      "retreat":  "HARD_DENY_PARKED_NOT_PROVEN_CHEAP",
+                      "allow_post_final":  false,
+                      "estimate":  "~94-96%",
+                      "when":  "2026-11-01 23:31 Asia/Shanghai"
+                  },
+    "last_phase":  "2iki",
+    "allow_post":  false,
+    "posting":  "DISABLED",
+    "phase2iki":  "G6_MULTI_ATTACK_CONCENTRATE_HIT"
 }
