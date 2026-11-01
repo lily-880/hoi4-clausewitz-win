@@ -107,3 +107,8 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 - Combat evidence: path/province RO densify (no org/str invent)
 - Agent loop: Move→Cancel→Strategic→Attack(1-/2-army wartime); Instant PARKED
 - allow_post default False.
+
+## 2ike fold (2026-11-01 23:20:07 Asia/Shanghai)
+- Wartime agent loop: Move → Attack → Cancel = G6_LOOP_MOVE_ATTACK_CANCEL_HIT
+- Strategic prior HIT-class; Instant PARKED
+- allow_post default False.

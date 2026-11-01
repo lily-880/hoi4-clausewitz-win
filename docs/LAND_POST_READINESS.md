@@ -635,3 +635,11 @@ ATTACK_DRY_ISVALID_FALSE. ETH day-1 war relaunch. Attack factory 3620 one-shot.
 
 ## 2ikd (2026-11-01 23:17:25 Asia/Shanghai)
 G6_ATTACK_MULTI2_POSTED_STABLE_HIT. Two-army Attack 3620 + honest path/province densify.
+
+## 2ike (2026-11-01 23:20:07 Asia/Shanghai)
+G6_LOOP_MOVE_ATTACK_CANCEL_HIT. ETH wartime Move1402→Attack3620→Cancel1415 one-army loop.
+
+## PHASE2IKE (2026-11-01 23:20 Asia/Shanghai)
+
+G6_LOOP_MOVE_ATTACK_CANCEL_HIT on army 1037 wartime ETH. Move→Attack→Cancel all ok; Instant PARKED; allow_post False.
+Estimate ~88–90%.

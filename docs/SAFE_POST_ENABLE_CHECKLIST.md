@@ -602,3 +602,7 @@ War=WARTIME_ETH_DAY1_HISTORICAL. SupportAttack 3620: **ATTACK_DRY_ISVALID_FALSE*
 
 ## 2ikd (2026-11-01 23:17:25 Asia/Shanghai)
 Multi-army SupportAttack 3620: **G6_ATTACK_MULTI2_POSTED_STABLE_HIT**. Combat-adjacent RO densify (path/province only; org/str NOT invented). Instant PARKED. allow_post False.
+
+## 2ike (2026-11-01 23:20:07 Asia/Shanghai)
+Wartime agent loop Move→Attack→Cancel: **G6_LOOP_MOVE_ATTACK_CANCEL_HIT**. Instant PARKED. allow_post False.
+- [x] **2ike** G6_LOOP_MOVE_ATTACK_CANCEL_HIT army1037 Move1402 PATH_CONTAINS_DEST→Attack3620 ATTACK_POSTED_STABLE→Cancel1415 PATH_CLEARED_ALL; gates restored; Instant PARKED; ~88–90% — 2026-11-01 23:20 Asia/Shanghai
