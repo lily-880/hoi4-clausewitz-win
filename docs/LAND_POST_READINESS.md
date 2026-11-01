@@ -265,6 +265,11 @@ See `docs/PHASE2IJM_FACTORY_POSTABI_CLOCK_RO.md`. Live reaffirm factory/FN/Strat
 PathC ~60–62%; ~70% NOT crossed.
 
 
+
+### 2ijn army-subject + Strategic recipe RO (catalog)
+
+See docs/PHASE2IJN_ARMY_SUBJECT_STRATEGIC_RO.md. Live ITA CArmy subjects **58/58** handle_ok + province_id_ok; proven CA_HANDLE/PROVINCE_ID/TAG/PTR; Strategic/Move/SA/Cancel recipes posting: DISABLED. org/str @0x520/0x6ec remain HYPOTHESIS_ONLY. G1–G6 unchanged; G4–G6 human. allow_post False. PathC ~60–62% (≤+1–2pp; ~70% NOT crossed).
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -493,10 +498,13 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 - **2ijk:** G2 ring_embed RO prep INLINE_BLOB + SAFE needs catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp readiness clarity; ~70% NOT crossed; G2 live/G4+ still block).
 - **2ijl:** agent card fold G1 ACCEPTABLE + G2 RO prep; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
-- **2ijm:** factory/Post-ABI/clock RO reaffirm; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
+- **2ijm:** factory/Post-ABI/clock RO reaffirm
+- **2ijn:** ITA army-subject 58/58 + Strategic recipes DISABLED; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed); org/str hyp NOT invented; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijl · agent card G1+G2 fold · 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijm · factory/Post-ABI/clock RO · 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijn — army-subject Strategic RO — 2026-11-01 Asia/Shanghai*
