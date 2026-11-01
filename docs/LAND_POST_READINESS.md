@@ -617,3 +617,7 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 ## 2ijy (2026-11-01 22:54 Asia/Shanghai)
 G6 Move PATH_CONTAINS_DEST again; CRT stability open (heap). Next: ucrt_malloc live reaffirm.
+
+
+## 2ijz (2026-11-01 22:56:16 Asia/Shanghai)
+G6 Move with ucrt malloc: G6_MOVE_UCRT_MALLOC_STABLE_HIT. Next: Cancel 1415 if HIT else heap/alloc follow-up.

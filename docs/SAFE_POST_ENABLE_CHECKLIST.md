@@ -584,3 +584,7 @@ post_wait=258 stub_leaked=None
 
 ## 2ijy heap (2026-11-01 22:54 Asia/Shanghai)
 Move PATH HIT reaffirm; exit **0xC0000374**. Stub-leak shipped; ucrt malloc staged; allow_post False.
+
+
+## 2ijz (2026-11-01 22:56:16 Asia/Shanghai)
+Move ucrt_malloc one-shot: **G6_MOVE_UCRT_MALLOC_STABLE_HIT**. province_buf_kind=ucrt_malloc for live Post. allow_post restored False.

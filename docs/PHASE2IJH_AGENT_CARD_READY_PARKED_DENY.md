@@ -78,3 +78,8 @@ Human midflight CMove **or** wartime Instant; then SAFE Post for ring_embed. Do 
 ## 2ijy fold (2026-11-01 22:54 Asia/Shanghai)
 - Move: PATH HIT (2ijx+2ijy) then **0xC0000374** on VirtualAllocEx province_arr.
 - Staged: ucrt malloc live buf; stub leak; find_pid largest-WS. Instant/Attack PARKED. Path-C ~74-76%.
+
+
+## 2ijz fold (2026-11-01 22:56:16 Asia/Shanghai)
+- Move Post ucrt_malloc: G6_MOVE_UCRT_MALLOC_STABLE_HIT.
+- Instant PARKED. Attack PARKED peacetime. allow_post default False.
