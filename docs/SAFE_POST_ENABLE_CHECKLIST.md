@@ -123,6 +123,14 @@ Still blocks ALLOW_POST: **G2 live** 路 **G4** 路 **G5** 路 **G6**. G3 Instan
 - Docs: `docs/PHASE2IJP_ARMY_PROVINCE_MAP_RO.md` · `reports/phase2ijp_army_province_map_ro.json`.
 - Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. G3 Instant PARKED. Executor cannot flip G4.
 
+
+### 2ijq push-sync + occupancy catalog (catalog)
+
+- FIRST retry push **SUCCESS** `7ca963c..21e20f2` (2ijp lag cleared).
+- Agent card folds 2ijp occupancy 58→37 multi=18 max_stack=3 + G1–G6; no invent.
+- Docs: `docs/PHASE2IJQ_PUSH_OCCUPANCY_CATALOG.md`.
+- Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. Instant PARKED. Executor cannot flip G4.
+
 ### Not progress
 
 PATH/OG50-only densify 路 Instant empty re-polls 路 midflight empty re-polls 路 Capstone/121 路 Assign quiet endless polls.
@@ -463,3 +471,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2ijo — push-sync + agent catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijp — army→province map RO. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijq — push-sync + occupancy catalog. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*

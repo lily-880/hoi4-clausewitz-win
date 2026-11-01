@@ -1,0 +1,113 @@
+{
+  "phase": "2ijq",
+  "result": "PUSH_OCCUPANCY_CATALOG_HIT",
+  "allow_post": false,
+  "posting": "DISABLED",
+  "push_status": {
+    "result": "PUSH_SUCCESS",
+    "range": "7ca963c..21e20f2",
+    "prior_fail": "2ijp PC github.com:443 timeout; origin lagged at 7ca963c",
+    "head": "21e20f2",
+    "origin_main": "21e20f2",
+    "synced_pre_commit": true,
+    "log": "21e20f2 Phase 2ijp: ITA army-province occupancy map RO (no Post)"
+  },
+  "live_s0": {
+    "pid": 31788,
+    "year": 1936,
+    "day_index": 308,
+    "ui_date": "1936-11-04",
+    "clock_class": "CONTINUOUS",
+    "speed_policy": "pause-or-1x only",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x push-sync + occupancy-map agent catalog (no Post)",
+    "drain": 264061,
+    "exec": 67030,
+    "pending": 0,
+    "stage_count": 0,
+    "allow_post": false
+  },
+  "live_s1": {
+    "pid": 31788,
+    "year": 1936,
+    "day_index": 308,
+    "ui_date": "1936-11-04",
+    "clock_class": "CONTINUOUS",
+    "speed_policy": "pause-or-1x only",
+    "country_tag_filter": 15,
+    "scenario": "ITA@1x push-sync + occupancy-map agent catalog (no Post)",
+    "drain": 264124,
+    "exec": 67033,
+    "pending": 0,
+    "stage_count": 0,
+    "allow_post": false
+  },
+  "calendar_ok": true,
+  "drain_delta": 63,
+  "exec_delta": 3,
+  "gates_g1_g6": {
+    "G1": {
+      "state": "ACCEPTABLE",
+      "via": "Strategic-only (2ijj)"
+    },
+    "G2": {
+      "state": "RO_PREP_HIT_LIVE_STUBBED",
+      "via": "2ijk"
+    },
+    "G3": {
+      "state": "PARKED",
+      "via": "peacetime Instant"
+    },
+    "G4": {
+      "state": "HARD_DENY_UNTIL_HUMAN",
+      "via": "CLAUSEWITZ_ALLOW_POST=1; executor cannot flip"
+    },
+    "G5": {
+      "state": "CLOSED_NOT_OPENED",
+      "via": "tool-gate after G4"
+    },
+    "G6": {
+      "state": "FORBIDDEN_NOW",
+      "via": "ONE Strategic Post @1x after G4+G5"
+    }
+  },
+  "agent_card": {
+    "ready_ro_feed": [
+      "CA_HANDLE/PROVINCE_ID/TAG/PTR + CP_ID proven",
+      "2ijp occupancy 58\u219237 multi=18 max_stack=3 co-location clusters",
+      "2ijn subjects 58/58 + Strategic recipes posting DISABLED",
+      "2ijm factory/Post-ABI/clock RO HIT",
+      "2ijk G2 ring_embed RO prep HIT (live STUBBED)",
+      "clock CONTINUOUS"
+    ],
+    "parked": [
+      "Instant peacetime (G3)",
+      "PATH/OG50 densify-as-unlock",
+      "org/str @0x520/0x6ec HYPOTHESIS_ONLY",
+      "CProvince+0x58 controller_tag hypothesis_strong",
+      "theater/frontline live handles (ARMY type only proven)"
+    ],
+    "hard_deny": [
+      "allow_post False",
+      "Post inject / 2fb/2gk / ring_embed live / tool-gate",
+      "executor cannot flip G4",
+      "5x / Capstone/121 / invent field names"
+    ],
+    "occupancy_rollup_2ijp": {
+      "result": "ARMY_PROVINCE_MAP_RO_HIT",
+      "army_count": 58,
+      "unique_provinces": 37,
+      "multi_army_provinces": 18,
+      "max_stack": 3,
+      "source": "reports/phase2ijp_army_province_map_ro_summary.json"
+    }
+  },
+  "path_c_honesty": {
+    "baseline_band": "~60-62%",
+    "this_slice_pp": "0pp Path-C capability (sync/catalog only)",
+    "crossed_70": false
+  },
+  "next_shortest_blocker": "Human G4 CLAUSEWITZ_ALLOW_POST=1 (executor cannot flip) \u2192 G5 tool-gate \u2192 G2 live ring_embed / G6 one Strategic Post @1x",
+  "timestamp_asia_shanghai": "2026-11-01 21:43:26 Asia/Shanghai",
+  "quota_note": "t51u cheap sync/catalog slice; not a Path-C +10pp milestone"
+}
