@@ -423,4 +423,6 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 **2iw NON-Post PATH200 oi57/70:** result=`PATH200_OI57_70_DENSE_HIT` · 1040→[12857] oi=70 · 1053→[9945] oi=57 · focus_oi_seed=2 · OG50 sizes 70:1 / 57:4 · Inst70 empty (inst_ok=False; Instant≠481) · ARR88×PATH in70_and_88=[] · clock=RELOAD_OR_NEW_CAMPAIGN ui=1936-01-14 · allow_post=False · historical Post 2iw script NOT re-run · still NO ALLOW_POST.
 
+**2ix NON-Post longer PATH200:** result=PATH200_LONGER_STABLE_THIN · ~480s@1x day_index stuck=13 exec flat=8182 · PATH unchanged vs 2iw (1040/oi70, 1053/oi57) · new_dests=[] Inst70=[] · calendar stall honesty · allow_post=False · Post scripts not re-run.
+
 

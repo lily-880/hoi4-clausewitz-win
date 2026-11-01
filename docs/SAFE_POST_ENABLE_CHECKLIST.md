@@ -314,6 +314,7 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 | 2iv | 2iu focus-740 cohort rehome after oi recycle | **COHORT_REHOME_HIT** (Post still CLOSED) |
 | 2iv-relaunch | fresh ITA PATH200 path_only oi=70/57 | **PATH200_RELAUNCH_PATH_ONLY_HIT** (Post still CLOSED) |
 | 2iw-NONPOST | denser PATH200 oi=57/70 focus_oi_seed | **PATH200_OI57_70_DENSE_HIT** (Post still CLOSED; Post-2iw script not re-run) |
+| 2ix-NONPOST | longer 1x advance; PATH stable-thin / calendar stall | **PATH200_LONGER_STABLE_THIN** (Post still CLOSED) |
 
 ### HARD_DENY unchanged
 
