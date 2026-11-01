@@ -77,6 +77,15 @@ Still blocks ALLOW_POST: **G2** ring_embed live · **G4** human env · **G5** to
 - Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6** (G1 Strategic-only ACCEPTABLE 2ijj; G3 Instant PARKED).
 
 
+### Agent card fold (2ijl) — catalog only
+
+**Gate remains CLOSED. allow_post False.**
+
+Single READY/PARKED/HARD_DENY card after G1 Strategic-only ACCEPTABLE (2ijj) + G2 RO prep HIT (2ijk). See `docs/PHASE2IJL_AGENT_CARD_G1G2_FOLD.md`.
+
+Still blocks ALLOW_POST: **G2 live** · **G4** · **G5** · **G6**. G3 Instant PARKED. Executor cannot flip G4.
+
+
 ### Not progress
 
 PATH/OG50-only densify · Instant empty re-polls · midflight empty re-polls · Capstone/121 · Assign quiet endless polls.
@@ -407,3 +416,5 @@ Catalog consolidate pointer: `docs/LAND_POST_READINESS.md` (Phase 2gi + deltas b
 *Phase 2iv — cohort rehome + relaunch PATH200. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
 
 *Phase 2ijk — G2 ring_embed RO prep. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijl — agent card G1+G2 fold. Gate stays CLOSED. 2026-11-01 Asia/Shanghai*

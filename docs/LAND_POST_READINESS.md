@@ -113,7 +113,7 @@ ITA war-day pending+heap plan leaves empty (2gc–2gh). CMove ≤45s observe emp
 
 **2gm–2gs perception (see §6b):** `CArmy+0x200` multi (tag-FP) ⊀ Instance`+0x70`; named dest empty; **OG+0x50 ≡ CArmy+0xB8** walkback live; Assign type=51 resolve proven; Assign oi≠0 **quiet** through dense 2gr.
 
-**Next shortest NON-Post:** G2 live ring_embed still needs human SAFE Post (G4); RO prep HIT 2ijk — retry GitHub push when reachable. Still **NO ALLOW_POST**. (2iv `COHORT_REHOME_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
+**Next shortest NON-Post:** Human G4 CLAUSEWITZ_ALLOW_POST=1 (executor cannot flip) → G5 → G2 live/G6; agent card folded 2ijl. Still **NO ALLOW_POST**. (2iv `COHORT_REHOME_HIT`); retry GitHub push when reachable. Still **NO ALLOW_POST**.
 
 
 
@@ -247,6 +247,18 @@ See `docs/PHASE2IJI_SAFE_POST_GATE_CHECKLIST.md`. Turns 2ijh READY/PARKED/HARD_D
 See `docs/PHASE2IJJ_G1_STRATEGIC_ONLY_ACCEPTANCE.md`. Live Strat factory **4753 MATCH** + VT FN MATCH; offline 2fd bit_identical + 2gk DESIGN. G1 alternate to midflight CMove for SAFE Post *discussion* — **G2/G4/G5/G6 still block**. allow_post False. PathC ~60% honesty.
 
 
+### 2ijl agent card — G1 Strategic-only + G2 RO prep fold (catalog)
+
+See `docs/PHASE2IJL_AGENT_CARD_G1G2_FOLD.md`. Folds **2ijj G1 ACCEPTABLE** + **2ijk G2 RO prep HIT** into one READY/PARKED/HARD_DENY card with G1–G6 states.
+
+- **READY (+G1/G2 RO):** prior 2ijh surfaces + Strategic-only G1 ACCEPTABLE + ring INLINE_BLOB / G2 RO prep catalog (live embed still STUBBED).
+- **PARKED:** Instant peacetime; midflight empty; PATH/OG50 densify; G2 **live** until human SAFE Post.
+- **HARD_DENY:** allow_post / Post / ring_embed live / tool-gate / 5x / invent names / ask-user Post / Capstone/121.
+- **Gates:** G1 ACCEPTABLE (Strategic-only) · G2 RO HIT / live STUBBED · G3 PARKED · G4/G5/G6 human-gated CLOSED.
+- Live reaffirm: pid 31788 day_index=227 ui=1936-08-15 factory/FN True/True Strat4753=True.
+- **Path C honesty (t50u):** still ~60–62%; this fold ≤+1–2pp clarity; ~70% NOT crossed (G2 live / G4+).
+
+
 ### Proven RO constants (session)
 
 | Symbol | Value |
@@ -294,8 +306,8 @@ Layouts (MATCH, still no Post): Strategic 2fa/2fb; MOVE offline skeleton 2gj; As
 ### Human-gated next (still CLOSED — do not ask user to right-click / enable Post)
 
 ```
-[ ] A  Ordinary CMove (+ embed) live midflight hex  — OR Strategic-only + human SAFE Post for ring_embed
-[ ] B  Ring-embed recreate proof on captured buffer
+[~] A  G1 Strategic-only ACCEPTABLE (2ijj); ordinary CMove midflight still optional/STUBBED
+[~] B  G2 RO prep HIT (2ijk INLINE_BLOB + needs catalog); **live ring_embed still STUBBED**
 [ ] C  Human CLAUSEWITZ_ALLOW_POST=1 for ONE controlled experiment
 [ ] D  Dedicated tool-gate open + NEVER_POST
 [ ] E  ONE land MOVE|Strategic Post @1x; verify; pause; unset
@@ -474,5 +486,8 @@ HARD_DENY unchanged: `allow_post` False · tool-gate CLOSED · no Post inject ·
 
 
 - **2ijk:** G2 ring_embed RO prep INLINE_BLOB + SAFE needs catalog; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp readiness clarity; ~70% NOT crossed; G2 live/G4+ still block).
+- **2ijl:** agent card fold G1 ACCEPTABLE + G2 RO prep; NO Post; Instant PARKED; PathC ~60–62% honesty (≤+1–2pp; ~70% NOT crossed).
 
 *Phase 2ijk · G2 ring_embed RO prep · 2026-11-01 Asia/Shanghai*
+
+*Phase 2ijl · agent card G1+G2 fold · 2026-11-01 Asia/Shanghai*
