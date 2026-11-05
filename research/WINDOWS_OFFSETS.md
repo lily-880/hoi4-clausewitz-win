@@ -52,8 +52,12 @@ python clausewitz_win.py status
 | countries_count | GS+`0x310` CPdxArray.size | **verified** (440) |
 | majors_count | GS+`0x328` | **verified** (3) |
 | player_tag | GS+`0x518` | **verified** (15) |
-| date_year | GS+`0x478` i32 | **hypothesis** (1936); exposed in status with note |
-| date_aux | GS+`0x47c` i32 | **hypothesis** (seen 31) — possible day-of-year; **not** full Y-M-D |
+| date_year | GS+`0x478` i32 | **verified** with UI; exposed in status |
+| date_day_index | GS+`0x484` i32 | **verified** days after Jan 1 (1936+4→1936-01-05) |
+| date_aux | GS+`0x47c` i32 | hypothesis only — not day-of-month |
+| ui_hour_tick | GS+`0x468` u32 | **verified** +1 each UI hour (11→12→13) |
+| ui_hour | `(u32(+0x468)%24)+1` | **verified** UI 11/12/13; `docs/CLOCK_ALIGNMENT.md` |
+| ~~+0x480~~ | GS+`0x480` | **DISCARD as hour** (stayed 4) |
 | divisions_count | — | **stubbed** — see dead ends |
 | GS_PAUSE_HOURS `0x908` | Linux | **invalid** on Windows (pointer-looking) |
 | CO_STATES | Country+`0x460` | **matches Linux** (CState* arrays; vptr `0x29b4d38`) |

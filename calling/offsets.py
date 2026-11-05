@@ -45,6 +45,8 @@ HYPOTHESIS_STRUCT = {
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
     "GS_DATE_YEAR": 0x478,  # i32 year
     "GS_DATE_AUX": 0x47C,  # i32, not the day index
+    "GS_DATE_HOUR_LIKE": 0x480,  # NOT UI hour; discard
+    "GS_DATE_HOUR_TICK": 0x468,  # u32 +1/UI hour; ui_hour=(tick%24)+1
     "GS_DATE_HOURS": 0x484,  # i32 days after 1 January of GS_DATE_YEAR, not hours since 1936
     # Country (CCountry) 鈥?verified in-game via -hands_off (Haiti 1936), two samples
     "CO_ARMIES": 0x290,  # CPdxArray<CArmy*>; sizes seen 17 then 50; Windows CArmy == division-level

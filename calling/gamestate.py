@@ -524,15 +524,19 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
         out["verified"]["player_tag"] = tag
 
     # Date: year@+0x478; days after 1 January of that year @+0x484.
-    from clock import ui_date
+    from clock import ui_date, ui_hour
     year = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_YEAR", 0x478))[0]
     aux = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_AUX", 0x47C))[0]
     day_index = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOURS", 0x484))[0]
     hour_like = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOUR_LIKE", 0x480))[0]
+    hour_tick = struct.unpack_from("<I", blob, O.HYPOTHESIS_STRUCT.get("GS_DATE_HOUR_TICK", 0x468))[0]
+    hour_ui = ui_hour(hour_tick)
     out["fields"]["date_year_hypothesis"] = year
     out["fields"]["date_aux_0x47c"] = aux
     out["fields"]["date_day_index"] = day_index
     out["fields"]["date_hour_like_0x480"] = hour_like
+    out["fields"]["date_hour_tick_0x468"] = hour_tick
+    out["fields"]["date_ui_hour"] = hour_ui
     out["fields"]["date_full"] = None
     shown = ui_date(year, day_index)
     if 1936 <= year <= 1950:
@@ -542,10 +546,14 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
             "year": year,
             "ui": shown,
             "day_index": day_index,
-            "source": "G_GAMESTATE+0x478 year + +0x484 days after 1 January",
+            "ui_hour": hour_ui,
+            "hour_tick": hour_tick,
+            "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour",
         }
         out["verified"]["date_full"] = out["fields"]["date_full"]
-        out["verified"]["date_note"] = "year@+0x478; day index@+0x484 (1942+229 = 1942-08-18)"
+        if hour_ui is not None:
+            out["verified"]["date_ui_hour"] = hour_ui
+        out["verified"]["date_note"] = "year@+0x478; day@+0x484; ui_hour from +0x468"
     elif 1936 <= year <= 1950:
         out["verified"]["date_note"] = "year@+0x478; day index@+0x484 out of range"
 

@@ -66,6 +66,7 @@ python clausewitz_win.py doctor
 python clausewitz_win.py peinfo
 # 游戏已在地图上时：
 python clausewitz_win.py status
+# UI date/hour: docs/CLOCK_ALIGNMENT.md  (+0x478/+0x484 date; (u32(+0x468)%24)+1 hour)
 python clausewitz_win.py redeploy 1042 758 --dry-run
 ```
 
