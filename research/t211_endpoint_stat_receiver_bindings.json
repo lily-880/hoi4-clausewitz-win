@@ -1,0 +1,97 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "army": "0x219b3ccfbc0",
+  "combat": "0x219dddd86b0",
+  "slots": {
+    "army_f8": "0xce4d70",
+    "army_128": "0xcd9a10",
+    "combat_58": "0x2b3e00"
+  },
+  "flows": {
+    "0x20e9e0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x20e9e0",
+      "window_size": 48,
+      "reachable_instruction_count": 2,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "20e9e0 mov rax, qword ptr [rcx + 0x18]",
+        "20e9e4 ret "
+      ]
+    },
+    "0xce4d70": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xce4d70",
+      "window_size": 512,
+      "reachable_instruction_count": 4,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "ce4d70 mov rax, qword ptr [rcx + 0x420]",
+        "ce4d77 mov qword ptr [rdx], rax",
+        "ce4d7a mov rax, rdx",
+        "ce4d7d ret "
+      ]
+    },
+    "0xcd9a10": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xcd9a10",
+      "window_size": 512,
+      "reachable_instruction_count": 9,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xcd9a1c",
+          "operand": "qword ptr [rax + 0x120]"
+        }
+      ],
+      "asm": [
+        "cd9a10 push rbx",
+        "cd9a12 sub rsp, 0x20",
+        "cd9a16 mov rax, qword ptr [rcx]",
+        "cd9a19 mov rbx, rdx",
+        "cd9a1c call qword ptr [rax + 0x120]",
+        "cd9a22 mov rax, rbx",
+        "cd9a25 add rsp, 0x20",
+        "cd9a29 pop rbx",
+        "cd9a2a ret "
+      ]
+    },
+    "0x2b3e00": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x2b3e00",
+      "window_size": 512,
+      "reachable_instruction_count": 2,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "2b3e00 mov eax, 1",
+        "2b3e05 ret "
+      ]
+    }
+  },
+  "scope": "exact receiver/stat provenance for end condition, not manpower casualty or phase proof by assumption"
+}

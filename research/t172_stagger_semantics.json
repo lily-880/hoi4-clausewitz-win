@@ -1,0 +1,24 @@
+{
+  "pid": 26976,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "question": "Why only unit 1835 was stamped by 15aa9c0 with the current hour tick",
+  "answer": "ce4fc0, a CArmy virtual method at vtable +0x90, calls 15ab390 only when (hour_tick - 0x29C55C0) % 24 equals unit_id % 24. On this scene the residue is 11; among the 21 own units only 1835 has unit_id % 24 == 11, and only 1835 has CArmyRequests+0xE0 == 60759371.",
+  "constant": {
+    "hex": "0x29C55C0",
+    "decimal": 43800000,
+    "instruction": "0xce57ad sub r8d, 0x29c55c0"
+  },
+  "hour_tick": 60759371,
+  "hour_residue": 11,
+  "matching_unit_ids": [
+    1835
+  ],
+  "stamped_unit_ids": [
+    1835
+  ],
+  "path": "ce4fc0 (per-army tick) -> if residue matches: 15ab390 (e0+24*setting date gate) -> 15aa9c0 (15a26f0 may create request; 140b9c0 allocates; stamp e0 on non-empty work path). 15a96e0 is called for the same CArmyRequests regardless of the residue gate.",
+  "other_entries_not_needed_for_this_scene": "ce82d0 and ceb320 also call 15aa9c0, but the live stamp set equals exactly the residue-matching set, so the virtual hourly stagger accounts for the current stamp.",
+  "15a26f0": "Once a unit is selected, 15a26f0 builds or updates CReinforcementRequest objects from a work list; 140b9c0 then allocates (this scene: produced=3 toward need=80). The first-loop source object is template+0x108 as passed by 15aa9c0; live bytes there were not a populated {begin,+0x14 count} list, so that inner layout is not claimed this batch. Selection, not a unique flag on 1835, is what limited the live request set.",
+  "not_promoted": "This explains why only one request is live at 1936-01-01 hour 12. It does not promote demanded=77 or affected_unit_ids=[1835]: later hours will select other unit_id%24 slots, so [1835] is not the complete shortage-affected set, and 77 is still only this hour's official 1409810 infantry sum."
+}

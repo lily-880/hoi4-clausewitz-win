@@ -1,0 +1,26 @@
+173d7d0 push rbx
+173d7d2 sub rsp, 0x20
+173d7d6 lea rbx, [rcx + 0x104]
+173d7dd mov rcx, rbx
+173d7e0 call 0xbbb250
+173d7e5 test al, al
+173d7e7 jne 0x173d7f1
+173d7e9 xor eax, eax
+173d7eb add rsp, 0x20
+173d7ef pop rbx
+173d7f0 ret 
+173d7f1 cmp dword ptr [rbx], 0
+173d7f4 jne 0x173d80c
+173d7f6 cmp dword ptr [rbx + 4], 0
+173d7fa jne 0x173d80c
+173d7fc xor eax, eax
+173d7fe lea rcx, [rax + 0x3c]
+173d802 add rsp, 0x20
+173d806 pop rbx
+173d807 jmp 0x164d3b0
+173d80c mov rcx, rbx
+173d80f call 0x2284870
+173d814 lea rcx, [rax + 0x3c]
+173d818 add rsp, 0x20
+173d81c pop rbx
+173d81d jmp 0x164d3b0

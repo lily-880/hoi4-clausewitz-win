@@ -1,0 +1,54 @@
+708270 push rbx
+708272 sub rsp, 0x40
+708276 mov rbx, qword ptr [rip + 0x2cd6efb]
+70827d test rbx, rbx
+708280 jne 0x70833c
+708286 mov ecx, 0x178
+70828b call 0x25a01dc
+708290 mov rbx, rax
+708293 mov qword ptr [rsp + 0x50], rax
+708298 test rax, rax
+70829b je 0x708333
+7082a1 xorps xmm0, xmm0
+7082a4 movups xmmword ptr [rsp + 0x20], xmm0
+7082a9 xorps xmm1, xmm1
+7082ac movdqu xmmword ptr [rsp + 0x30], xmm1
+7082b2 mov ecx, 0x20
+7082b7 call 0x25a01dc
+7082bc mov qword ptr [rsp + 0x20], rax
+7082c1 movdqa xmm0, xmmword ptr [rip + 0x208d737]
+7082c9 movdqu xmmword ptr [rsp + 0x30], xmm0
+7082cf movups xmm0, xmmword ptr [rip + 0x215b8da]
+7082d6 movups xmmword ptr [rax], xmm0
+7082d9 mov byte ptr [rax + 0x10], 0
+7082dd xor r8d, r8d
+7082e0 lea rdx, [rsp + 0x20]
+7082e5 mov rcx, rbx
+7082e8 call 0x705110
+7082ed nop 
+7082ee mov rdx, qword ptr [rsp + 0x38]
+7082f3 cmp rdx, 0xf
+7082f7 jbe 0x708327
+7082f9 inc rdx
+7082fc mov rcx, qword ptr [rsp + 0x20]
+708301 mov rax, rcx
+708304 cmp rdx, 0x1000
+70830b jb 0x708322
+70830d add rdx, 0x27
+708311 mov rcx, qword ptr [rcx - 8]
+708315 sub rax, rcx
+708318 add rax, -8
+70831c cmp rax, 0x1f
+708320 ja 0x708345
+708322 call 0x25a0218
+708327 lea rax, [rip + 0x215b6a2]
+70832e mov qword ptr [rbx], rax
+708331 jmp 0x708335
+708333 xor ebx, ebx
+708335 mov qword ptr [rip + 0x2cd6e3c], rbx
+70833c mov rax, rbx
+70833f add rsp, 0x40
+708343 pop rbx
+708344 ret 
+708345 call 0x25c7db4
+70834a nop 

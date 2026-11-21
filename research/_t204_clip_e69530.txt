@@ -1,0 +1,130 @@
+e69530 mov qword ptr [rax - 0x38], r12
+e69534 mov qword ptr [rax - 0x40], r13
+e69538 lea r13, [r8 - 0x21]
+e6953c shr r13, 5
+e69540 inc r13
+e69543 nop dword ptr [rax]
+e69547 nop word ptr [rax + rax]
+e69550 lea r12, [r15 + 0x80]
+e69557 cmp r15, r12
+e6955a je 0xe695ed
+e69560 lea rdi, [r15 + 4]
+e69564 cmp rdi, r12
+e69567 je 0xe695ed
+e6956d mov rbp, r15
+e69570 mov eax, dword ptr [rdi]
+e69572 lea rcx, [rsp + 0x30]
+e69577 mov rdx, r15
+e6957a mov dword ptr [rsp + 0x30], eax
+e6957e mov rsi, rdi
+e69581 call r14
+e69584 test al, al
+e69586 je 0xe695a9
+e69588 mov r8, rdi
+e6958b mov rcx, rbp
+e6958e sub r8, r15
+e69591 mov rdx, r15
+e69594 sub rcx, r8
+e69597 add rcx, 8
+e6959b call 0x26079d0
+e695a0 mov eax, dword ptr [rsp + 0x30]
+e695a4 mov dword ptr [r15], eax
+e695a7 jmp 0xe695e0
+e695a9 mov rdx, rbp
+e695ac lea rcx, [rsp + 0x30]
+e695b1 mov rbx, rbp
+e695b4 call r14
+e695b7 test al, al
+e695b9 je 0xe695da
+e695bb nop dword ptr [rax + rax]
+e695c0 mov eax, dword ptr [rbx]
+e695c2 lea rcx, [rsp + 0x30]
+e695c7 mov dword ptr [rsi], eax
+e695c9 mov rsi, rbx
+e695cc sub rbx, 4
+e695d0 mov rdx, rbx
+e695d3 call r14
+e695d6 test al, al
+e695d8 jne 0xe695c0
+e695da mov eax, dword ptr [rsp + 0x30]
+e695de mov dword ptr [rsi], eax
+e695e0 add rdi, 4
+e695e4 add rbp, 4
+e695e8 cmp rdi, r12
+e695eb jne 0xe69570
+e695ed mov r15, r12
+e695f0 sub r13, 1
+e695f4 jne 0xe69550
+e695fa mov rdx, qword ptr [rsp + 0x98]
+e69602 mov r8, r14
+e69605 mov rcx, r12
+e69608 call 0xe6a070
+e6960d mov r13, qword ptr [rsp + 0xa0]
+e69615 mov rbx, qword ptr [rsp + 0x90]
+e6961d mov rsi, qword ptr [rsp + 0xa8]
+e69625 nop word ptr [rax + rax]
+e69630 add r13, -0x20
+e69634 lea r15, [rbx + 0x80]
+e6963b mov eax, 0x20
+e69640 mov rdi, r15
+e69643 cmp r13, rax
+e69646 cmovl rax, r13
+e6964a sub r13, rax
+e6964d lea r12, [r15 + rax*4]
+e69651 mov rdx, rbx
+e69654 lea rbp, [rsi + 4]
+e69658 mov rcx, rdi
+e6965b call r14
+e6965e test al, al
+e69660 je 0xe69686
+e69662 mov eax, dword ptr [rdi]
+e69664 add rdi, 4
+e69668 mov dword ptr [rsi], eax
+e6966a cmp rdi, r12
+e6966d jne 0xe69693
+e6966f sub r15, rbx
+e69672 mov rdx, rbx
+e69675 mov r8, r15
+e69678 mov rcx, rbp
+e6967b call 0x26079d0
+e69680 lea rsi, [r15 + rbp]
+e69684 jmp 0xe696b0
+e69686 mov eax, dword ptr [rbx]
+e69688 add rbx, 4
+e6968c mov dword ptr [rsi], eax
+e6968e cmp rbx, r15
+e69691 je 0xe69698
+e69693 mov rsi, rbp
+e69696 jmp 0xe69651
+e69698 mov rbx, r12
+e6969b mov rdx, rdi
+e6969e sub rbx, rdi
+e696a1 mov rcx, rbp
+e696a4 mov r8, rbx
+e696a7 call 0x26079d0
+e696ac lea rsi, [rbx + rbp]
+e696b0 mov rbx, r12
+e696b3 cmp r13, 0x20
+e696b7 jg 0xe69630
+e696bd mov r13, qword ptr [rsp + 0x98]
+e696c5 mov rdx, r12
+e696c8 mov r8, r13
+e696cb mov rcx, rsi
+e696ce sub r8, r12
+e696d1 call 0x26079d0
+e696d6 mov rsi, qword ptr [rsp + 0xa0]
+e696de mov r9d, 0x40
+e696e4 mov r15, qword ptr [rsp + 0xa8]
+e696ec mov rbp, qword ptr [rsp + 0x90]
+e696f4 mov rcx, r15
+e696f7 mov qword ptr [rsp + 0x28], r14
+e696fc mov r8, rbp
+e696ff mov qword ptr [rsp + 0x20], rsi
+e69704 lea rdi, [r15 + rsi*4]
+e69708 mov rdx, rdi
+e6970b call 0xe69910
+e69710 mov r12, qword ptr [rsp + 0x50]
+e69715 mov ebx, 0x80
+e6971a cmp rsi, rbx
+e6971d jle 0xe69761
+e6971f nop 

@@ -1,0 +1,39 @@
+1c2f8a0 push rbx
+1c2f8a2 sub rsp, 0x20
+1c2f8a6 mov rbx, rcx
+1c2f8a9 mov ecx, 0x38
+1c2f8ae call 0x25a01dc
+1c2f8b3 mov qword ptr [rsp + 0x30], rax
+1c2f8b8 mov rdx, rax
+1c2f8bb test rax, rax
+1c2f8be je 0x1c2f921
+1c2f8c0 mov byte ptr [rdx + 8], 0
+1c2f8c4 lea rax, [rip + 0xb6fbd5]
+1c2f8cb mov qword ptr [rdx], rax
+1c2f8ce mov eax, dword ptr [rbx + 0xc]
+1c2f8d1 mov dword ptr [rdx + 0xc], eax
+1c2f8d4 mov rax, qword ptr [rbx + 0x10]
+1c2f8d8 mov qword ptr [rdx + 0x10], rax
+1c2f8dc movzx eax, word ptr [rbx + 0x18]
+1c2f8e0 mov word ptr [rdx + 0x18], ax
+1c2f8e4 lea rax, [rip + 0xe907e5]
+1c2f8eb movzx ecx, byte ptr [rbx + 0x1a]
+1c2f8ef mov byte ptr [rdx + 0x1a], cl
+1c2f8f2 movzx ecx, byte ptr [rbx + 0x1b]
+1c2f8f6 mov byte ptr [rdx + 0x1b], cl
+1c2f8f9 mov ecx, dword ptr [rbx + 0x1c]
+1c2f8fc mov dword ptr [rdx + 0x1c], ecx
+1c2f8ff mov ecx, dword ptr [rbx + 0x20]
+1c2f902 mov qword ptr [rdx], rax
+1c2f905 mov rax, rdx
+1c2f908 mov dword ptr [rdx + 0x20], ecx
+1c2f90b mov rcx, qword ptr [rbx + 0x28]
+1c2f90f mov qword ptr [rdx + 0x28], rcx
+1c2f913 mov rcx, qword ptr [rbx + 0x30]
+1c2f917 mov qword ptr [rdx + 0x30], rcx
+1c2f91b add rsp, 0x20
+1c2f91f pop rbx
+1c2f920 ret 
+1c2f921 add rsp, 0x20
+1c2f925 pop rbx
+1c2f926 ret 

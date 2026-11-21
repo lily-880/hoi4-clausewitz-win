@@ -1,0 +1,341 @@
+{
+  "at_est": "2026-11-21T02:25:04.241392-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "names": [
+    {
+      "rva": "0x280f2e0",
+      "text": "TRIGGER_IS_NOT_IN_FACTION_WITH"
+    },
+    {
+      "rva": "0x280f300",
+      "text": "TRIGGER_IS_IN_FACTION_WITH"
+    },
+    {
+      "rva": "0x2b42e30",
+      "text": "is_in_faction_with"
+    }
+  ],
+  "references": [
+    {
+      "site": "0x112f50",
+      "name": "is_in_faction_with",
+      "rva": "0x2b42e30",
+      "pdata": [
+        "0x83760",
+        "0x119491",
+        "0x309285c"
+      ]
+    },
+    {
+      "site": "0x43ebdd",
+      "name": "TRIGGER_IS_NOT_IN_FACTION_WITH",
+      "rva": "0x280f2e0",
+      "pdata": [
+        "0x43eb90",
+        "0x43ed06",
+        "0x2eb5fa8"
+      ]
+    },
+    {
+      "site": "0x43ebe4",
+      "name": "TRIGGER_IS_IN_FACTION_WITH",
+      "rva": "0x280f300",
+      "pdata": [
+        "0x43eb90",
+        "0x43ed06",
+        "0x2eb5fa8"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "tooltip": "0x43eb90",
+      "tooltip_slot": 21,
+      "vtable_rva": "0x280f220",
+      "class_name": ".?AVCIsInFactionWithTrigger@@",
+      "col_offset": 0,
+      "evaluator_slot": 22,
+      "evaluator_rva": "0x3f90f0"
+    }
+  ],
+  "functions": {
+    "0x43eb90": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x43eb90",
+      "window_size": 374,
+      "reachable_instruction_count": 94,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x43ebba",
+          "operand": "qword ptr [rax + 0xb8]"
+        },
+        {
+          "site": "0x43ebc8",
+          "operand": "0xc07eb0"
+        },
+        {
+          "site": "0x43ebd8",
+          "operand": "0xc08170"
+        },
+        {
+          "site": "0x43ec27",
+          "operand": "0x3e3c70"
+        },
+        {
+          "site": "0x43eced",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x43ed00",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x43ecb3",
+          "operand": "0x11f240"
+        }
+      ],
+      "asm": [
+        "43eb90 mov qword ptr [rsp + 0x10], rdx",
+        "43eb95 push rbx",
+        "43eb96 push rbp",
+        "43eb97 push rsi",
+        "43eb98 push rdi",
+        "43eb99 push r14",
+        "43eb9b sub rsp, 0x70",
+        "43eb9f movzx edi, r9b",
+        "43eba3 mov rsi, r8",
+        "43eba6 mov r14, rdx",
+        "43eba9 xor ebp, ebp",
+        "43ebab mov dword ptr [rsp + 0x40], ebp",
+        "43ebaf mov rax, qword ptr [rcx]",
+        "43ebb2 lea rdx, [rsp + 0xb8]",
+        "43ebba call qword ptr [rax + 0xb8]",
+        "43ebc0 lea rcx, [rsp + 0xb8]",
+        "43ebc8 call 0xc07eb0",
+        "43ebcd mov rbx, rax",
+        "43ebd0 lea rcx, [rsp + 0xb8]",
+        "43ebd8 call 0xc08170",
+        "43ebdd lea rdx, [rip + 0x23d06fc]",
+        "43ebe4 lea rcx, [rip + 0x23d0715]",
+        "43ebeb test dil, dil",
+        "43ebee cmovne rcx, rdx",
+        "43ebf2 mov qword ptr [rsp + 0xa0], rcx",
+        "43ebfa mov qword ptr [rsp + 0x30], rbx",
+        "43ebff lea rcx, [rip + 0x237db02]",
+        "43ec06 mov qword ptr [rsp + 0x28], rcx",
+        "43ec0b mov qword ptr [rsp + 0x20], rax",
+        "43ec10 lea r9, [rip + 0x238d341]",
+        "43ec17 lea r8, [rsp + 0xa0]",
+        "43ec1f mov rdx, rsi",
+        "43ec22 lea rcx, [rsp + 0x48]",
+        "43ec27 call 0x3e3c70",
+        "43ec2c nop ",
+        "43ec2d xorps xmm0, xmm0",
+        "43ec30 movups xmmword ptr [r14], xmm0",
+        "43ec34 mov qword ptr [r14 + 0x10], rbp",
+        "43ec38 mov qword ptr [r14 + 0x18], rbp",
+        "43ec3c movups xmm0, xmmword ptr [rax]",
+        "43ec3f movups xmmword ptr [r14], xmm0",
+        "43ec43 movups xmm1, xmmword ptr [rax + 0x10]",
+        "43ec47 movups xmmword ptr [r14 + 0x10], xmm1",
+        "43ec4c mov qword ptr [rax + 0x10], rbp",
+        "43ec50 mov qword ptr [rax + 0x18], 0xf",
+        "43ec58 mov byte ptr [rax], bpl",
+        "43ec5b or ebp, 2",
+        "43ec5e mov dword ptr [rsp + 0x40], ebp",
+        "43ec62 mov rcx, qword ptr [r14 + 0x10]",
+        "43ec66 mov rdx, qword ptr [r14 + 0x18]",
+        "43ec6a mov rax, rdx",
+        "43ec6d sub rax, rcx",
+        "43ec70 cmp rax, 1",
+        "43ec74 jb 0x43ec92",
+        "43ec76 lea rax, [rcx + 1]",
+        "43ec7a mov qword ptr [r14 + 0x10], rax",
+        "43ec7e mov rax, r14",
+        "43ec81 cmp rdx, 0xf",
+        "43ec85 jbe 0x43ec8a",
+        "43ec87 mov rax, qword ptr [r14]",
+        "43ec8a mov word ptr [rax + rcx], 0xa",
+        "43ec90 jmp 0x43ecb9",
+        "43ec92 mov qword ptr [rsp + 0x20], 1",
+        "43ec9b lea r9, [rip + 0x235818e]",
+        "43eca2 movzx r8d, byte ptr [rsp + 0xb8]",
+        "43ecab mov edx, 1",
+        "43ecb0 mov rcx, r14",
+        "43ecb3 call 0x11f240",
+        "43ecb8 nop ",
+        "43ecb9 mov rdx, qword ptr [rsp + 0x60]",
+        "43ecbe cmp rdx, 0xf",
+        "43ecc2 jbe 0x43ecf2",
+        "43ecc4 inc rdx",
+        "43ecc7 mov rcx, qword ptr [rsp + 0x48]",
+        "43eccc mov rax, rcx",
+        "43eccf cmp rdx, 0x1000",
+        "43ecd6 jb 0x43eced",
+        "43ecd8 add rdx, 0x27",
+        "43ecdc mov rcx, qword ptr [rcx - 8]",
+        "43ece0 sub rax, rcx",
+        "43ece3 add rax, -8",
+        "43ece7 cmp rax, 0x1f",
+        "43eceb ja 0x43ed00",
+        "43eced call 0x25a0218",
+        "43ecf2 mov rax, r14",
+        "43ecf5 add rsp, 0x70",
+        "43ecf9 pop r14",
+        "43ecfb pop rdi",
+        "43ecfc pop rsi",
+        "43ecfd pop rbp",
+        "43ecfe pop rbx",
+        "43ecff ret ",
+        "43ed00 call 0x25c7db4",
+        "43ed05 int3 "
+      ],
+      "raw_hex": "48895424105355565741564883ec70410fb6f9498bf04c8bf233ed896c2440488b01488d9424b8000000ff90b8000000488d8c24b8000000e8e3927c00488bd8488d8c24b8000000e893957c00488d15fc063d02488d0d15073d024084ff480f45ca48898c24a000000048895c2430488d0d02db370248894c242848894424204c8d0d41d338024c8d8424a0000000488bd6488d4c2448e84450faff900f57c0410f110649896e1049896e180f1000410f11060f104810410f114e104889681048c740180f00000040882883cd02896c2440498b4e10498b5618488bc2482bc14883f801721c488d410149894610498bc64883fa0f7603498b0666c704080a00eb2748c7442420010000004c8d0d8e813502440fb68424b8000000ba01000000498bcee88805ceff90488b5424604883fa0f762e48ffc2488b4c2448488bc14881fa0010000072154883c227488b49f8482bc14883c0f84883f81f7713e826151602498bc64883c470415e5f5e5d5bc3e8af901802cc",
+      "sha256": "735d947016ab11136d8f2c04fb116f8a32af08f2fed171860ba23b9f768aeeac",
+      "pdata": [
+        "0x43eb90",
+        "0x43ed06",
+        "0x2eb5fa8"
+      ],
+      "literals": [
+        {
+          "site": "0x43ebdd",
+          "rva": "0x280f2e0",
+          "text": "TRIGGER_IS_NOT_IN_FACTION_WITH"
+        },
+        {
+          "site": "0x43ebe4",
+          "rva": "0x280f300",
+          "text": "TRIGGER_IS_IN_FACTION_WITH"
+        },
+        {
+          "site": "0x43ebff",
+          "rva": "0x27bc708",
+          "text": "COUNTRY"
+        },
+        {
+          "site": "0x43ec10",
+          "rva": "0x27cbf58",
+          "text": "TAG"
+        }
+      ]
+    },
+    "0x3f90f0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x3f90f0",
+      "window_size": 152,
+      "reachable_instruction_count": 35,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x3f9104",
+          "operand": "qword ptr [rax + 0xb8]"
+        },
+        {
+          "site": "0x3f9116",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0x3f9131",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0x3f914c",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0x3f915d",
+          "operand": "0xc07bf0"
+        }
+      ],
+      "asm": [
+        "3f90f0 push rbx",
+        "3f90f2 sub rsp, 0x20",
+        "3f90f6 mov rax, qword ptr [rcx]",
+        "3f90f9 mov rbx, rdx",
+        "3f90fc mov r8, rdx",
+        "3f90ff lea rdx, [rsp + 0x30]",
+        "3f9104 call qword ptr [rax + 0xb8]",
+        "3f910a mov eax, dword ptr [rbx + 8]",
+        "3f910d lea rcx, [rsp + 0x38]",
+        "3f9112 mov dword ptr [rsp + 0x38], eax",
+        "3f9116 call 0xc07bf0",
+        "3f911b mov rcx, qword ptr [rax + 0xf88]",
+        "3f9122 cmp qword ptr [rcx + 0x2d8], 0",
+        "3f912a je 0x3f9180",
+        "3f912c lea rcx, [rsp + 0x30]",
+        "3f9131 call 0xc07bf0",
+        "3f9136 mov rcx, qword ptr [rax + 0xf88]",
+        "3f913d cmp qword ptr [rcx + 0x2d8], 0",
+        "3f9145 je 0x3f9180",
+        "3f9147 lea rcx, [rsp + 0x30]",
+        "3f914c call 0xc07bf0",
+        "3f9151 lea rcx, [rsp + 0x38]",
+        "3f9156 mov rbx, qword ptr [rax + 0xf88]",
+        "3f915d call 0xc07bf0",
+        "3f9162 mov rcx, qword ptr [rax + 0xf88]",
+        "3f9169 mov rax, qword ptr [rcx + 0x2d8]",
+        "3f9170 cmp qword ptr [rbx + 0x2d8], rax",
+        "3f9177 sete al",
+        "3f917a add rsp, 0x20",
+        "3f917e pop rbx",
+        "3f917f ret ",
+        "3f9180 xor al, al",
+        "3f9182 add rsp, 0x20",
+        "3f9186 pop rbx",
+        "3f9187 ret "
+      ],
+      "raw_hex": "40534883ec20488b01488bda4c8bc2488d542430ff90b80000008b4308488d4c243889442438e8d5ea8000488b88880f00004883b9d8020000007454488d4c2430e8baea8000488b88880f00004883b9d8020000007439488d4c2430e89fea8000488d4c2438488b98880f0000e88eea8000488b88880f0000488b81d8020000483983d80200000f94c04883c4205bc332c04883c4205bc3",
+      "sha256": "56bfc2d6d5660370b79b299c2a61d4f227e545107428792e74b36387df4f173e",
+      "pdata": [
+        "0x3f90f0",
+        "0x3f9188",
+        "0x2e7a2f4"
+      ],
+      "literals": []
+    }
+  },
+  "stable_dependencies": 0,
+  "promotions": [],
+  "scope": "Exact named allied/faction-with consumer discovery and real trigger-table evaluator binding only. No live country/faction/unit inputs, nonwar/null-faction inference, engine calls or schema promotion."
+}

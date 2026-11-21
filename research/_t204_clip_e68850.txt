@@ -1,0 +1,30 @@
+e68850 push rbx
+e68852 sub rsp, 0x40
+e68856 mov rbx, rcx
+e68859 mov dword ptr [rcx], r8d
+e6885c mov byte ptr [rcx + 4], dl
+e6885f mov eax, dword ptr [r9]
+e68862 mov dword ptr [rsp + 0x20], eax
+e68866 xorps xmm0, xmm0
+e68869 xor eax, eax
+e6886b movups xmmword ptr [rsp + 0x28], xmm0
+e68870 mov qword ptr [rsp + 0x38], rax
+e68875 lea rcx, [rsp + 0x28]
+e6887a call 0x11f6f0
+e6887f nop 
+e68880 mov eax, dword ptr [rsp + 0x20]
+e68884 mov dword ptr [rbx + 8], eax
+e68887 lea rcx, [rbx + 0x10]
+e6888b lea rdx, [rsp + 0x28]
+e68890 call 0x15d9e0
+e68895 nop 
+e68896 mov rdx, qword ptr [rsp + 0x28]
+e6889b test rdx, rdx
+e6889e je 0xe688b3
+e688a0 mov dword ptr [rsp + 0x34], 0
+e688a8 mov rcx, qword ptr [rsp + 0x38]
+e688ad mov rax, qword ptr [rcx]
+e688b0 call qword ptr [rax + 0x10]
+e688b3 add rsp, 0x40
+e688b7 pop rbx
+e688b8 ret 

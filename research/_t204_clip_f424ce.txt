@@ -1,0 +1,26 @@
+f424ce mov qword ptr [rsp + 0x48], r15
+f424d3 add r8, rdi
+f424d6 call 0xf46710
+f424db movsxd rax, dword ptr [rsi + 0xc]
+f424df mov r14, qword ptr [rsi]
+f424e2 imul rdx, rax, 0xe8
+f424e9 imul r15, rbp, 0xe8
+f424f0 lea rbx, [rdx + rdi]
+f424f4 add r14, rdx
+f424f7 add r15, rdi
+f424fa cmp rbx, r15
+f424fd je 0xf42528
+f424ff nop 
+f42500 mov rcx, r14
+f42503 mov rdx, rbx
+f42506 add r14, 0xe8
+f4250d call 0xf3d440
+f42512 xor edx, edx
+f42514 mov rcx, rbx
+f42517 call 0xf41850
+f4251c add rbx, 0xe8
+f42523 cmp rbx, r15
+f42526 jne 0xf42500
+f42528 mov r15, qword ptr [rsp + 0x48]
+f4252d mov dword ptr [rsi + 0xc], ebp
+f42530 jmp 0xf425f8

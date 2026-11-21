@@ -1,0 +1,54 @@
+{
+  "build": "HOI4 1.19.5.0.7c6c",
+  "pid": 26976,
+  "read_only": true,
+  "promoted": "world.provinces.has_river_crossing",
+  "shape": "object: neighbor province id (decimal string) -> bool, same land-neighbor set as world.provinces.neighbors; true iff adjacency type in {2,3}",
+  "not_a_province_bool": true,
+  "not_promoted_as": "single boolean on the province",
+  "engine_predicate": {
+    "func": "0x12971a0",
+    "clip": "research/_t181_clip_river_type_range_0x12971a0.txt",
+    "family": [
+      "0x12971a0",
+      "0x1297f10",
+      "0x1298c80",
+      "0x12999f0",
+      "0x129a760"
+    ],
+    "ins": [
+      "0x1297bbd movzx eax, byte ptr [rdx + 0x10]",
+      "0x1297bc1 sub al, 2",
+      "0x1297bc3 cmp al, 1",
+      "0x1297bc5 ja 0x1297bd1"
+    ],
+    "meaning": "unsigned range type in {2,3} (river, river_large); adds an extra path cost from [rip+0x33e1838]",
+    "context_asserts": [
+      "NeighborFlow < CurrentEntry._Flow",
+      "InfraRatio <= 1_fixed",
+      "caller 0x12ae4e5: !_NonLocalNodes.Contains( _pCapital->GetProvinceID() )"
+    ],
+    "context": "supply/infra network pathfinding; per-edge, not a province-wide flag"
+  },
+  "token_clip_0x83760": {
+    "role": "string-token registrar only; river_crossing string 0x2b494b0 is lea'd at 0xab285 into slot 0x346D188",
+    "not_a_reader": true,
+    "direct_rip_consumers_of_slot": "none besides registrar"
+  },
+  "no_stored_province_bool": {
+    "proof": "research/t181_no_stored_province_bool.json",
+    "cprovince_0_0x200": "no byte or aligned scalar splits the 8 river-edge vs 4 non-river own provinces",
+    "definition_arrays": "[CProvince+0xb8]+0x28 and +0x40 are pdx arrays present only on the 8 river-edge provinces; size at +0x34 is 1 vs 0, but province 1984 has five type-2 edges so this is not a crossing count. RTTI SRiverPath / SProvinceRiverPoint are map river geometry, not the field."
+  },
+  "live": {
+    "own_provinces": 12,
+    "edges": 73,
+    "type_hist": {
+      "0": 57,
+      "2": 16,
+      "3": 0
+    },
+    "true_crossings": 16,
+    "provinces_with_any_crossing": 8
+  }
+}

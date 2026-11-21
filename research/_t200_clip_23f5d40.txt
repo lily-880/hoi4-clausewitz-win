@@ -1,0 +1,149 @@
+23f5d40 test rdx, rdx
+23f5d43 je 0x23f5f85
+23f5d49 mov qword ptr [rsp + 0x10], rdx
+23f5d4e push rbx
+23f5d4f push rsi
+23f5d50 push rdi
+23f5d51 push r12
+23f5d53 push r13
+23f5d55 push r14
+23f5d57 push r15
+23f5d59 sub rsp, 0x1d0
+23f5d60 mov r15, rdx
+23f5d63 mov rax, qword ptr [rcx + 0x18]
+23f5d67 mov r8d, dword ptr [rax + 0x60]
+23f5d6b mov eax, 0x7fff
+23f5d70 cmp r8d, eax
+23f5d73 cmovl ax, r8w
+23f5d78 mov word ptr [rdx + 0x18], ax
+23f5d7c mov esi, 1
+23f5d81 cmp byte ptr [rdx + 0x1a], 0
+23f5d85 jne 0x23f5d97
+23f5d87 mov eax, esi
+23f5d89 lock xadd dword ptr [rcx + 0xd0], eax
+23f5d91 mov dword ptr [rdx + 0x1c], eax
+23f5d94 mov dword ptr [rdx + 0x20], eax
+23f5d97 lea rcx, [rsp + 0x58]
+23f5d9c call 0x1015500
+23f5da1 nop 
+23f5da2 mov byte ptr [rsp + 0x20], 0
+23f5da7 mov r9d, esi
+23f5daa xor r8d, r8d
+23f5dad lea rdx, [rsp + 0x58]
+23f5db2 lea rcx, [rsp + 0x70]
+23f5db7 call 0x2573500
+23f5dbc nop 
+23f5dbd xor r8d, r8d
+23f5dc0 lea rdx, [rsp + 0x70]
+23f5dc5 lea rcx, [rsp + 0x30]
+23f5dca call 0x2541870
+23f5dcf nop 
+23f5dd0 mov rax, qword ptr [r15]
+23f5dd3 lea rdx, [rsp + 0x220]
+23f5ddb mov rcx, r15
+23f5dde call qword ptr [rax + 0x58]
+23f5de1 mov r8, r15
+23f5de4 mov edx, dword ptr [rax]
+23f5de6 lea rcx, [rsp + 0x30]
+23f5deb call 0x25458c0
+23f5df0 nop 
+23f5df1 lea rcx, [rsp + 0x30]
+23f5df6 call 0x2541b00
+23f5dfb nop 
+23f5dfc lea rcx, [rsp + 0x70]
+23f5e01 call 0x2573590
+23f5e06 nop 
+23f5e07 jmp 0x23f5e16
+23f5e09 mov esi, 1
+23f5e0e mov r15, qword ptr [rsp + 0x218]
+23f5e16 xor r14d, r14d
+23f5e19 cmp dword ptr [rip + 0x1271dd4], r14d
+23f5e20 jle 0x23f5f5e
+23f5e26 xor r12d, r12d
+23f5e29 nop dword ptr [rax]
+23f5e30 mov rax, qword ptr [rip + 0x1271db1]
+23f5e37 mov rbx, qword ptr [r12 + rax]
+23f5e3b mov edx, dword ptr [rsp + 0x64]
+23f5e3f mov rcx, qword ptr [rsp + 0x58]
+23f5e44 call 0x22d8b40
+23f5e49 mov qword ptr [rsp + 0x228], rax
+23f5e51 test rax, rax
+23f5e54 je 0x23f5f4a
+23f5e5a add rbx, 0xa0
+23f5e61 mov qword ptr [rsp + 0x30], rbx
+23f5e66 mov byte ptr [rsp + 0x38], 0
+23f5e6b nop dword ptr [rax + rax]
+23f5e70 mov ecx, dword ptr [rbx]
+23f5e72 test ecx, ecx
+23f5e74 jne 0x23f5e7e
+23f5e76 xor eax, eax
+23f5e78 lock cmpxchg dword ptr [rbx], esi
+23f5e7c je 0x23f5e82
+23f5e7e pause 
+23f5e80 jmp 0x23f5e70
+23f5e82 mov byte ptr [rsp + 0x38], 1
+23f5e87 mov rcx, qword ptr [rbx + 0x28]
+23f5e8b movzx eax, cl
+23f5e8e add al, byte ptr [rbx + 0x20]
+23f5e91 test al, 1
+23f5e93 jne 0x23f5eae
+23f5e95 lea rax, [rcx + 2]
+23f5e99 shr rax, 1
+23f5e9c cmp qword ptr [rbx + 0x18], rax
+23f5ea0 ja 0x23f5eae
+23f5ea2 mov rdx, rsi
+23f5ea5 lea rcx, [rbx + 8]
+23f5ea9 call 0x6d0250
+23f5eae mov rdx, qword ptr [rbx + 0x18]
+23f5eb2 lea rcx, [rdx*2 - 1]
+23f5eba and rcx, qword ptr [rbx + 0x20]
+23f5ebe mov qword ptr [rbx + 0x20], rcx
+23f5ec2 mov r13, qword ptr [rbx + 0x28]
+23f5ec6 add r13, rcx
+23f5ec9 mov rcx, r13
+23f5ecc shr rcx, 1
+23f5ecf mov qword ptr [rsp + 0x220], rcx
+23f5ed7 lea rax, [rdx - 1]
+23f5edb and rax, rcx
+23f5ede lea rcx, [rax*8]
+23f5ee6 mov qword ptr [rsp + 0x218], rcx
+23f5eee mov rax, qword ptr [rbx + 0x10]
+23f5ef2 cmp qword ptr [rcx + rax], 0
+23f5ef7 jne 0x23f5f13
+23f5ef9 mov ecx, 0x10
+23f5efe call 0x25a01dc
+23f5f03 mov rcx, qword ptr [rbx + 0x10]
+23f5f07 mov rdx, qword ptr [rsp + 0x218]
+23f5f0f mov qword ptr [rdx + rcx], rax
+23f5f13 mov rcx, qword ptr [rbx + 0x18]
+23f5f17 dec rcx
+23f5f1a and rcx, qword ptr [rsp + 0x220]
+23f5f22 and r13d, 1
+23f5f26 mov rax, qword ptr [rbx + 0x10]
+23f5f2a mov rcx, qword ptr [rax + rcx*8]
+23f5f2e mov rax, qword ptr [rsp + 0x228]
+23f5f36 mov qword ptr [rcx + r13*8], rax
+23f5f3a inc qword ptr [rbx + 0x28]
+23f5f3e nop 
+23f5f3f mov dword ptr [rbx], 0
+23f5f45 mov byte ptr [rsp + 0x38], 0
+23f5f4a inc r14d
+23f5f4d add r12, 8
+23f5f51 cmp r14d, dword ptr [rip + 0x1271c9c]
+23f5f58 jl 0x23f5e30
+23f5f5e mov rax, qword ptr [r15]
+23f5f61 mov edx, esi
+23f5f63 mov rcx, r15
+23f5f66 call qword ptr [rax]
+23f5f68 nop 
+23f5f69 lea rcx, [rsp + 0x58]
+23f5f6e call 0x120310
+23f5f73 add rsp, 0x1d0
+23f5f7a pop r15
+23f5f7c pop r14
+23f5f7e pop r13
+23f5f80 pop r12
+23f5f82 pop rdi
+23f5f83 pop rsi
+23f5f84 pop rbx
+23f5f85 ret 

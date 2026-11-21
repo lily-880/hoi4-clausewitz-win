@@ -1,0 +1,68 @@
+165e980 mov qword ptr [rsp + 8], rbx
+165e985 mov qword ptr [rsp + 0x10], rbp
+165e98a mov qword ptr [rsp + 0x18], rsi
+165e98f push rdi
+165e990 sub rsp, 0x20
+165e994 mov rbx, rcx
+165e997 call 0x147c240
+165e99c xor esi, esi
+165e99e lea rax, [rip + 0x13f83f3]
+165e9a5 mov qword ptr [rbx], rax
+165e9a8 lea rcx, [rbx + 0xc0]
+165e9af lea rax, [rip + 0x13f84ba]
+165e9b6 mov qword ptr [rbx + 0x98], rsi
+165e9bd mov qword ptr [rbx + 0x10], rax
+165e9c1 mov qword ptr [rbx + 0xa0], rsi
+165e9c8 mov dword ptr [rbx + 0xa8], esi
+165e9ce mov qword ptr [rbx + 0xb0], rsi
+165e9d5 mov qword ptr [rbx + 0xb8], rsi
+165e9dc call 0x11f6f0
+165e9e1 mov rax, qword ptr gs:[0x58]
+165e9ea mov ecx, dword ptr [rip + 0x20350a8]
+165e9f0 mov qword ptr [rbx + 0xd8], rsi
+165e9f7 mov qword ptr [rbx + 0xe0], rsi
+165e9fe mov edx, 0x20ec
+165ea03 mov rdi, qword ptr [rax + rcx*8]
+165ea07 add rdi, rdx
+165ea0a mov eax, dword ptr [rdi]
+165ea0c cmp dword ptr [rip + 0x1d7e70e], eax
+165ea12 jg 0x165eab8
+165ea18 lea rbp, [rip + 0x1a9e5e1]
+165ea1f mov qword ptr [rbx + 0xe8], rbp
+165ea26 mov qword ptr [rbx + 0xf0], rsi
+165ea2d mov qword ptr [rbx + 0xf8], rsi
+165ea34 mov eax, dword ptr [rdi]
+165ea36 cmp dword ptr [rip + 0x1d7e6e4], eax
+165ea3c jg 0x165ea89
+165ea3e mov qword ptr [rbx + 0x100], rbp
+165ea45 mov rax, rbx
+165ea48 mov rbp, qword ptr [rsp + 0x38]
+165ea4d mov word ptr [rbx + 0x10c], si
+165ea54 mov dword ptr [rbx + 0x110], esi
+165ea5a mov word ptr [rbx + 0x114], si
+165ea61 mov dword ptr [rbx + 0x108], 1
+165ea6b mov qword ptr [rbx + 0x118], rsi
+165ea72 mov byte ptr [rbx + 0x120], sil
+165ea79 mov rbx, qword ptr [rsp + 0x30]
+165ea7e mov rsi, qword ptr [rsp + 0x40]
+165ea83 add rsp, 0x20
+165ea87 pop rdi
+165ea88 ret 
+165ea89 lea rcx, [rip + 0x1d7e690]
+165ea90 call 0x25a0588
+165ea95 cmp dword ptr [rip + 0x1d7e684], -1
+165ea9c jne 0x165ea3e
+165ea9e lea rcx, [rip + 0x111725b]
+165eaa5 call 0x25a0450
+165eaaa lea rcx, [rip + 0x1d7e66f]
+165eab1 call 0x25a051c
+165eab6 jmp 0x165ea3e
+165eab8 lea rcx, [rip + 0x1d7e661]
+165eabf call 0x25a0588
+165eac4 cmp dword ptr [rip + 0x1d7e655], -1
+165eacb jne 0x165ea18
+165ead1 lea rcx, [rip + 0x1117228]
+165ead8 call 0x25a0450
+165eadd lea rcx, [rip + 0x1d7e63c]
+165eae4 call 0x25a051c
+165eae9 jmp 0x165ea18

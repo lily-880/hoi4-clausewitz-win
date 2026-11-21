@@ -1,0 +1,17 @@
+{
+  "need": {
+    "unit_remaining": "For a selected fielded unit, request need equals CReferencedDivisionTemplate+0x120 minus CArmy+0x348 (archetype deficit). t170: unit 1835 template 588 need 400, on-hand 320, remaining 80.",
+    "official_country_1409810": "1409810(this,out,type)= cap(1409890(...) + 14080c0(...), [0xffffac1d29df04c0, 0x53e2d620fb40]). 1409890 sums deployment F70+0x60 deficits, reinforcement (request+0x78 need minus request+0x38 produced), then occupation/logistics/operations adders. 14080c0 is CCountryResources+0x758, not request deficits.",
+    "this_scene": "deployment/resources/occupation/logistics/operations empty for infantry; only live request is unit 1835 with need 80 produced 3, official 1409810 infantry = 77. Fielded deficit sum 2520 is not this official total."
+  },
+  "produced": {
+    "accept_path": "Only bound CReinforcementStatus slot 2 accept with a live status and stock r9 is deployment.daily (1eae60 -> 72f220 -> d71810 -> d71b60 @ 0xd723b6). Hourly path is request+logistics, not accept (t178).",
+    "formula": "Pre-daily, for each production+0x200 present type with qty>0: offered starts as that FIXED qty; acceptors with slot1 want>0 (resources, occupation, upgrades, deployment lists, then reinforcement) each get slot2(..., r9=offered) and write back the remainder. For non-air reinforcement, cb8e80 passes r9 through; give = min(max(0, need - produced), offered).",
+    "not": "produced = min(need, current stock) after the type has left the pool. Live infantry_equipment is absent at hour 12; produced=3 remains t170/t171 evidence."
+  },
+  "not_promoted": {
+    "demanded": "77 is the reimplemented official 1409810 infantry sum this scene, but no campaign-stored non-UI copy was found.",
+    "deficit": "not independently stored or contracted",
+    "affected_unit_ids": "Official 1409810 contributors this scene are [1835] (the only live request). 19 fielded units are short. The contract may mean all shortage-affected units; do not promote [1835] as affected_unit_ids."
+  }
+}

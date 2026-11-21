@@ -1,0 +1,46 @@
+1347fe6 mov qword ptr [rsp + 0x38], r14
+1347feb mov rbx, rcx
+1347fee cmp qword ptr [rdi + 0x130], 0
+1347ff6 je 0x1348018
+1347ff8 mov rax, qword ptr [rcx + 0x30]
+1347ffc lea r14, [rcx + 0x30]
+1348000 cmp qword ptr [rax + 0x130], 0
+1348008 je 0x1348018
+134800a mov eax, dword ptr [rcx + 0x44]
+134800d cdq 
+134800e idiv dword ptr [rip + 0x2098c38]
+1348014 test edx, edx
+1348016 jne 0x1348025
+1348018 call 0x134bd60
+134801d mov rdi, qword ptr [rbx + 0x28]
+1348021 lea r14, [rbx + 0x30]
+1348025 inc dword ptr [rbx + 0x44]
+1348028 cmp dword ptr [rbx + 0x40], -1
+134802c jne 0x1348035
+134802e mov dword ptr [rbx + 0x40], 0
+1348035 mov rdi, qword ptr [rdi + 0x38]
+1348039 mov qword ptr [rsp + 0x30], rsi
+134803e test rdi, rdi
+1348041 je 0x1348075
+1348043 mov rsi, qword ptr [rdi + 0x10]
+1348047 mov rcx, rdi
+134804a call 0xd26800
+134804f test al, al
+1348051 je 0x1348066
+1348053 mov r8b, 1
+1348056 mov rdx, rdi
+1348059 mov rcx, rbx
+134805c call 0x134bbb0
+1348061 mov rax, r14
+1348064 jmp 0x134806a
+1348066 lea rax, [rbx + 0x30]
+134806a mov rdi, rsi
+134806d test rsi, rsi
+1348070 jne 0x1348043
+1348072 mov r14, rax
+1348075 mov rax, qword ptr [r14]
+1348078 mov r14, qword ptr [rsp + 0x38]
+134807d mov rdi, qword ptr [rax + 0x38]
+1348081 test rdi, rdi
+1348084 je 0x13480b6
+1348086 nop word ptr [rax + rax]

@@ -1,0 +1,23 @@
+e64680 push rbx
+e64682 sub rsp, 0x30
+e64686 mov rbx, rcx
+e64689 call 0x2edec0
+e6468e cmp byte ptr [rbx + 0x678], 0
+e64695 je 0xe646da
+e64697 cmp dword ptr [rbx + 0x634], 0
+e6469e je 0xe646da
+e646a0 mov r9d, 0x1000
+e646a6 lea rdx, [rip + 0x1930070]
+e646ad mov r8d, 0x22
+e646b3 lea rcx, [rsp + 0x20]
+e646b8 call 0x254b3f0
+e646bd cmp qword ptr [rbx + 0x30], 0xf
+e646c2 lea r8, [rbx + 0x18]
+e646c6 jbe 0xe646cb
+e646c8 mov r8, qword ptr [r8]
+e646cb lea rdx, [rip + 0x1b83e7e]
+e646d2 mov rcx, rax
+e646d5 call 0x254b900
+e646da add rsp, 0x30
+e646de pop rbx
+e646df ret 

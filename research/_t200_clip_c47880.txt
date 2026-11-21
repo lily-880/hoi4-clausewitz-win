@@ -1,0 +1,34 @@
+c47880 mov qword ptr [rsp + 8], rbx
+c47885 push rdi
+c47886 sub rsp, 0x20
+c4788a cmp byte ptr [rcx + 0x199], 0
+c47891 je 0xc478da
+c47893 mov rbx, qword ptr [rcx + 0x50]
+c47897 movsxd rax, dword ptr [rcx + 0x5c]
+c4789b lea rdi, [rbx + rax*8]
+c4789f cmp rbx, rdi
+c478a2 je 0xc478cd
+c478a4 mov rcx, qword ptr [rbx]
+c478a7 mov rax, qword ptr [rcx]
+c478aa call qword ptr [rax + 0x20]
+c478ad test rax, rax
+c478b0 je 0xc478c4
+c478b2 cmp dword ptr [rax + 8], 0
+c478b6 jne 0xc478c4
+c478b8 mov rcx, rax
+c478bb call 0xe64c50
+c478c0 test al, al
+c478c2 jne 0xc478da
+c478c4 add rbx, 8
+c478c8 cmp rbx, rdi
+c478cb jne 0xc478a4
+c478cd mov al, 1
+c478cf mov rbx, qword ptr [rsp + 0x30]
+c478d4 add rsp, 0x20
+c478d8 pop rdi
+c478d9 ret 
+c478da mov rbx, qword ptr [rsp + 0x30]
+c478df xor al, al
+c478e1 add rsp, 0x20
+c478e5 pop rdi
+c478e6 ret 

@@ -1,0 +1,86 @@
+e622f2 mov qword ptr [rsp + 0x40], rbp
+e622f7 lea rbp, [rip + 0x25889ee]
+e622fe mov qword ptr [rsp + 0x48], rsi
+e62303 cmp byte ptr [rdi + 0x18], 0
+e62307 jne 0xe6232b
+e62309 mov ecx, 0x10
+e6230e call 0x253ecd0
+e62313 mov r8, rax
+e62316 mov edx, 0x10
+e6231b mov rcx, rdi
+e6231e call 0x25429c0
+e62323 mov rcx, rdi
+e62326 call 0x2546920
+e6232b mov rcx, rdi
+e6232e call 0x2546f40
+e62333 lea rdx, [rbx + 0x1c]
+e62337 mov rcx, rdi
+e6233a call 0x22856e0
+e6233f cmp byte ptr [rdi + 0x18], 0
+e62343 jne 0xe62352
+e62345 mov edx, 0x12
+e6234a mov rcx, rdi
+e6234d call 0x20b1d0
+e62352 mov ecx, dword ptr [rbx + 0x24]
+e62355 test ecx, ecx
+e62357 je 0xe623c1
+e62359 sub ecx, 1
+e6235c je 0xe623b3
+e6235e cmp ecx, 1
+e62361 je 0xe623ba
+e62363 cmp byte ptr [rip + 0x282d2a7], 0
+e6236a je 0xe623b3
+e6236c cmp byte ptr [rip + 0x2588979], 0
+e62373 jne 0xe623b3
+e62375 lea rax, [rsp + 0x50]
+e6237a mov qword ptr [rsp + 0x28], rbp
+e6237f mov r9b, 1
+e62382 mov qword ptr [rsp + 0x20], rax
+e62387 mov r8d, 0x16b
+e6238d mov byte ptr [rsp + 0x50], 0
+e62392 lea rdx, [rip + 0x1932384]
+e62399 lea rcx, [rip + 0x1b86120]
+e623a0 call 0x254ab40
+e623a5 cmp byte ptr [rsp + 0x50], 0
+e623aa mov byte ptr [rip + 0x258893c], al
+e623b0 je 0xe623b3
+e623b2 int3 
+e623b3 mov edx, 0x77
+e623b8 jmp 0xe623c6
+e623ba mov edx, 0x4ba7
+e623bf jmp 0xe623c6
+e623c1 mov edx, 0x4ba5
+e623c6 mov rcx, rdi
+e623c9 call 0x20b1d0
+e623ce mov rcx, rdi
+e623d1 call 0x2546550
+e623d6 mov rax, qword ptr [rbx + 0x10]
+e623da cmp byte ptr [rax + 0x19], 0
+e623de je 0xe62408
+e623e0 mov rax, qword ptr [rbx + 8]
+e623e4 cmp byte ptr [rax + 0x19], 0
+e623e8 jne 0xe62403
+e623ea nop word ptr [rax + rax]
+e623f0 cmp rbx, qword ptr [rax + 0x10]
+e623f4 jne 0xe62403
+e623f6 mov rbx, rax
+e623f9 mov rax, qword ptr [rax + 8]
+e623fd cmp byte ptr [rax + 0x19], 0
+e62401 je 0xe623f0
+e62403 mov rbx, rax
+e62406 jmp 0xe6242f
+e62408 mov rcx, qword ptr [rax]
+e6240b mov rbx, rax
+e6240e cmp byte ptr [rcx + 0x19], 0
+e62412 jne 0xe6242f
+e62414 nop dword ptr [rax]
+e62418 nop dword ptr [rax + rax]
+e62420 mov rax, qword ptr [rcx]
+e62423 mov rbx, rcx
+e62426 mov rcx, rax
+e62429 cmp byte ptr [rax + 0x19], 0
+e6242d je 0xe62420
+e6242f cmp byte ptr [rbx + 0x19], 0
+e62433 je 0xe62303
+e62439 mov rsi, qword ptr [rsp + 0x48]
+e6243e mov rbp, qword ptr [rsp + 0x40]

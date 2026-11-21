@@ -1,0 +1,126 @@
+import json
+from pathlib import Path
+
+SHA = "98d83a601f67b73d71a62c559e9a9a29a75e92eb831c7df2be4d42de7ac7e201"
+
+not_memory = [
+    {"field":"meta.allow_write","bucket":"config","reason":"清单已写明由配置提供，默认 false，非内存发现。不能把配置当内存证实。"},
+    {"field":"meta.geography_scope","bucket":"config","reason":"清单已写明由配置提供的指挥范围，默认 null，非内存发现。"},
+    {"field":"policy.stance","bucket":"config","reason":"由玩家方针或接口默认值提供，非内存发现。"},
+    {"field":"policy.instructions","bucket":"config","reason":"由玩家提供的方针原文，非内存发现。"},
+    {"field":"feedback.last_orders.order_seq","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.type","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.subject_ids","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.target_province_ids","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.plan_id","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.accepted","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.last_orders.error","bucket":"ledger","reason":"回执账本，不是内存字段。"},
+    {"field":"feedback.ticks_since_issue","bucket":"ledger","reason":"回执账本派生节拍，不是内存字段。"},
+]
+
+blocked = [
+    {"field":"world.own_units.supply.in_supply","bucket":"blocked_supply","reason":"无 in_supply/isolated 具名 token；不得发明 0–1 比例。"},
+    {"field":"world.own_units.supply.ratio","bucket":"blocked_supply","reason":"army_current_supply_ratio 不是 0–1；不得用 72/108。"},
+    {"field":"world.own_units.supply.isolated","bucket":"blocked_supply","reason":"与 in_supply 相同边界。"},
+    {"field":"world.own_units.in_combat","bucket":"blocked_combat","reason":"无陆上 IsInCombat；空 GS_COMBATS 不得写成 false。"},
+    {"field":"world.own_units.combat_id","bucket":"blocked_combat","reason":"依赖当前战斗对象，与 in_combat 同挡。"},
+    {"field":"world.own_units.order.type","bucket":"blocked_order","reason":"需非空命令或 commandlist+8 编码；空路径不能证明待机。"},
+    {"field":"world.own_units.order.target_province_ids","bucket":"blocked_order","reason":"依赖非空命令。"},
+    {"field":"world.own_units.order.path_province_ids","bucket":"blocked_order","reason":"尚无非空路径验收。"},
+    {"field":"world.own_units.order.eta","bucket":"blocked_order","reason":"依赖非空命令。"},
+    {"field":"world.own_units.formation.army_id","bucket":"blocked_formation","reason":"ABI 已绑定，需非空 orders_group。"},
+    {"field":"world.own_units.formation.army_group_id","bucket":"blocked_formation","reason":"ABI 已绑定，需非空集团军群。"},
+    {"field":"world.army_groups.army_group_id","bucket":"blocked_formation","reason":"全世界 orders_group / army_group 为空。"},
+    {"field":"world.army_groups.name","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.army_groups.leader_id","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.army_groups.army_ids","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.armies.army_id","bucket":"blocked_formation","reason":"全世界 COrdersGroup 为 0。"},
+    {"field":"world.armies.name","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.armies.leader_id","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.armies.unit_ids","bucket":"blocked_formation","reason":"同上。"},
+    {"field":"world.armies.plan_id","bucket":"blocked_formation","reason":"无集团军也无玩家计划。"},
+    {"field":"world.leaders.assigned_to","bucket":"blocked_leaders","reason":"20 名将领均未任命；空任职不得写成未分配。"},
+    {"field":"world.combats.combat_id","bucket":"blocked_combat","reason":"GS 战斗表为空，不得写成无战斗。"},
+    {"field":"world.combats.province_id","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.attacker_unit_ids","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.defender_unit_ids","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.phase","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.result","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.casualties","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.started_at","bucket":"blocked_combat","reason":"同上。"},
+    {"field":"world.combats.ended_at","bucket":"blocked_combat","reason":"同上。"},
+]
+
+sample_boundary = [
+    {"field":"world.visible_units","bucket":"fow_boundary","reason":"无陆上单位可见 getter；不可把外军当玩家可见输出。"},
+    {"field":"world.visible_units.relation_to_player","bucket":"fow_boundary","reason":"挂在 visible_units 上，无可见表则不升格。"},
+    {"field":"world.visible_units.visibility.spotted","bucket":"fow_boundary","reason":"already_spotted 是海军任务；visible 是 gfx；intel 是国家级情报池。"},
+    {"field":"world.visible_units.visibility.confidence","bucket":"fow_boundary","reason":"同上，无 0–1 单位置信度 getter。"},
+    {"field":"world.plans.plan_id","bucket":"plans_boundary","reason":"官方 COrderInstance，活体全世界 0；CFront 是边境结构。"},
+    {"field":"world.plans.type","bucket":"plans_boundary","reason":"frontline 等数值尚未对照，且无活体计划。"},
+    {"field":"world.plans.vertex_province_ids","bucket":"plans_boundary","reason":"无活体计划。"},
+    {"field":"world.plans.assigned_army_ids","bucket":"plans_boundary","reason":"无活体计划。"},
+    {"field":"world.plans.assigned_unit_ids","bucket":"plans_boundary","reason":"无活体计划。"},
+    {"field":"world.plans.executing","bucket":"plans_boundary","reason":"can_execute 不是 executing；无活体计划。"},
+    {"field":"world.plans.axis_province_ids","bucket":"plans_boundary","reason":"无活体计划。"},
+    {"field":"world.plans.status","bucket":"plans_boundary","reason":"无活体计划。"},
+    {"field":"world.crises.kind","bucket":"crises_boundary","reason":"无对上 schema 的官方常驻危机表。"},
+    {"field":"world.crises.unit_ids","bucket":"crises_boundary","reason":"同上。"},
+    {"field":"world.crises.province_ids","bucket":"crises_boundary","reason":"同上。"},
+    {"field":"world.crises.severity","bucket":"crises_boundary","reason":"同上。"},
+    {"field":"world.crises.notes","bucket":"crises_boundary","reason":"同上。"},
+    {"field":"world.wars.front_invalidated","bucket":"wars_token","reason":"无具名 token，不硬猜。"},
+    {"field":"world.shortages.equipment.demanded","bucket":"shortage_77","reason":"77 轨迹已关闭；不得升格 77 或 produced=min(need,stock)。"},
+    {"field":"world.shortages.equipment.deficit","bucket":"shortage_77","reason":"同上。"},
+    {"field":"world.shortages.equipment.affected_unit_ids","bucket":"shortage_77","reason":"不得把 [1835] 升格为官方受影响列表。"},
+    {"field":"world.shortages.equipment.affected_plan_ids","bucket":"shortage_77","reason":"无玩家计划，且装备缺口合同未定。"},
+    {"field":"world.shortages.manpower.needed","bucket":"manpower_gap_no_contrast","reason":"官方师级缺口是 CC6480=max(need-current,0)。本快照 21 师 current=need=105000，缺口 0。没有不满员对照，也没有独立的国家级 needed 写者（15ab8c4 的 need 属补充状态 produced/need 轨迹；108660d 是驻军）。不把满员 0 升格为国家级所需补充人力。"},
+    {"field":"world.shortages.manpower.deficit","bucket":"manpower_gap_no_contrast","reason":"与 needed 在本快照都是 0，且无 available<needed 对照，不分开升格。"},
+    {"field":"world.shortages.manpower.affected_unit_ids","bucket":"manpower_gap_no_contrast","reason":"官方缺口>0 的师在本快照为空；不满员对照之前不把空列表写成已验证。"},
+    {"field":"world.shortages.manpower.front_cannot_hold","bucket":"manpower_front","reason":"需要战线/计划样本。"},
+    {"field":"world.shortages.missing_divisions","bucket":"manpower_front","reason":"需要战线现有兵力无法维持的样本。"},
+]
+
+all_rows = not_memory + blocked + sample_boundary
+fields = [r["field"] for r in all_rows]
+assert len(all_rows)==69, len(all_rows)
+assert len(set(fields))==69
+
+triage = {
+    "promoted": [],
+    "unverified": 69,
+    "not_memory": {"count": len(not_memory), "fields": not_memory},
+    "blocked_or_boundary": {"count": len(blocked)+len(sample_boundary), "blocked": blocked, "boundary": sample_boundary},
+    "independently_pursuable_on_this_snapshot": [],
+    "conclusion": "On this ETH 1936-01-01 snapshot, none of the remaining 69 unverified fields can be honestly promoted. 12 are config or local feedback ledgers, not memory. The other 57 already require a user-provided contrast sample or sit on a named-getter/sample boundary recorded in t167–t189.",
+}
+Path("research/t190_unverified_triage.json").write_text(json.dumps(triage, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+
+Path("research/t190_inventory_sha256.json").write_text(json.dumps({
+    "path": r"D:\Michael Foo\钢四陆军总司令\态势信息读取能力清单.md",
+    "sha256": SHA,
+    "updated": False,
+    "fields": 116,
+    "verified": 47,
+    "unverified": 69,
+    "tables": 14,
+    "columns": 3,
+    "header": "| 字段名 | 已验证/未验证 | 说明 |",
+    "promoted": [],
+    "complete_input": False,
+    "reason": "all 69 remaining fields are config/ledger or already at a sample/named-getter boundary"
+}, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+
+off_path = Path("calling/tables/offsets_input_windows_1.19.5.json")
+off = json.loads(off_path.read_text(encoding="utf-8"))
+off["unverified_triage_t190"] = {
+    "promoted": False,
+    "unverified": 69,
+    "not_memory": 12,
+    "blocked_or_boundary": 57,
+    "independently_pursuable_on_this_snapshot": [],
+    "manpower_gap_live": "21 units current=need=105000, CC6480 gap 0; not promoted as country needed",
+    "proofs": ["research/t190_unverified_triage.json", "research/t190_live_manpower_gap.json"],
+}
+off_path.write_text(json.dumps(off, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+print("triage", len(not_memory), "not_memory", len(blocked), "blocked", len(sample_boundary), "boundary", "total", len(all_rows))

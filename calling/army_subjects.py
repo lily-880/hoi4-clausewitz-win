@@ -425,11 +425,17 @@ def set_order_group_icon_recipe(order_group_handle: list[int] | tuple[int, int],
 
 
 def set_army_leader_recipe(leader_handle: list[int] | tuple[int, int],
+                           orders_group_handle: list[int] | tuple[int, int],
                            deploy_army_hq: int = 0) -> dict[str, Any]:
-    """CSetArmyLeaderCommand — RO only."""
+    """CSetArmyLeaderCommand — RO packing only.
+
+    IsValid/Execute require the orders_group/army handle at +0x30 (t192 live).
+    """
     return {
         "leader_off": 0x28,
         "leader": list(leader_handle),
+        "orders_group_off": 0x30,
+        "orders_group": list(orders_group_handle),
         "deploy_army_hq_off": 0x38,
         "deploy_army_hq": deploy_army_hq,
         "posting": "DISABLED",

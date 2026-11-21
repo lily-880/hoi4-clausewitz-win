@@ -1,0 +1,44 @@
+174a860 mov qword ptr [rsp + 8], rbx
+174a865 push rdi
+174a866 sub rsp, 0x20
+174a86a mov rbx, rcx
+174a86d mov rdi, rdx
+174a870 mov rcx, qword ptr [rcx + 0x5e0]
+174a877 mov rax, qword ptr [rcx]
+174a87a call qword ptr [rax + 0x28]
+174a87d test al, al
+174a87f je 0x174a8e8
+174a881 mov rcx, rdi
+174a884 call 0x22e3890
+174a889 test eax, eax
+174a88b jne 0x174a8e8
+174a88d mov rcx, rdi
+174a890 call 0xd73190
+174a895 mov rcx, rax
+174a898 call 0x143aa30
+174a89d cmp eax, 1
+174a8a0 jne 0x174a8e8
+174a8a2 lea rcx, [rbx + 0x5e8]
+174a8a9 cmp dword ptr [rcx], 0
+174a8ac jne 0x174a8b8
+174a8ae cmp dword ptr [rcx + 4], 0
+174a8b2 jne 0x174a8b8
+174a8b4 xor eax, eax
+174a8b6 jmp 0x174a8bd
+174a8b8 call 0x2284870
+174a8bd lea rbx, [rax + 0x18]
+174a8c1 mov rcx, rbx
+174a8c4 call 0xbea5e0
+174a8c9 mov rcx, rax
+174a8cc call 0xc07bf0
+174a8d1 mov rdx, rax
+174a8d4 mov rcx, rbx
+174a8d7 call 0x164d860
+174a8dc test al, al
+174a8de jne 0x174a8e8
+174a8e0 mov rcx, rdi
+174a8e3 call 0x1a944b0
+174a8e8 mov rbx, qword ptr [rsp + 0x30]
+174a8ed add rsp, 0x20
+174a8f1 pop rdi
+174a8f2 ret 

@@ -1,0 +1,144 @@
+fc6d50 mov qword ptr [rsp + 0x10], rbx
+fc6d55 mov qword ptr [rsp + 0x18], rbp
+fc6d5a mov qword ptr [rsp + 0x20], rsi
+fc6d5f push rdi
+fc6d60 push r12
+fc6d62 push r13
+fc6d64 push r14
+fc6d66 push r15
+fc6d68 sub rsp, 0xa0
+fc6d6f mov r15, rdx
+fc6d72 mov rdi, rcx
+fc6d75 mov rbx, qword ptr [rcx + 0x88]
+fc6d7c test rbx, rbx
+fc6d7f jne 0xfc6d88
+fc6d81 mov rbx, qword ptr [rcx + 0x80]
+fc6d88 mov rdx, rbx
+fc6d8b lea rcx, [rsp + 0x30]
+fc6d90 call 0xfcca80
+fc6d95 nop 
+fc6d96 lea rcx, [rsp + 0x50]
+fc6d9b call 0xfc2fc0
+fc6da0 nop 
+fc6da1 lea rdx, [rsp + 0x30]
+fc6da6 lea rcx, [rsp + 0x50]
+fc6dab cmp dword ptr [rdi + 0x224], 4
+fc6db2 jne 0xfc6dbb
+fc6db4 call 0xfc7680
+fc6db9 jmp 0xfc6dc0
+fc6dbb call 0xfc7850
+fc6dc0 xor r13d, r13d
+fc6dc3 cmp dword ptr [rsp + 0x5c], r13d
+fc6dc8 je 0xfc6f44
+fc6dce mov rcx, rbx
+fc6dd1 call 0xc450a0
+fc6dd6 mov r14, rax
+fc6dd9 cmp byte ptr [rip + 0x26c8831], r13b
+fc6de0 je 0xfc6ed8
+fc6de6 cmp byte ptr [rip + 0x2416343], r13b
+fc6ded jne 0xfc6e46
+fc6def cmp qword ptr [rip + 0x24168ba], r13
+fc6df6 jne 0xfc6e46
+fc6df8 mov byte ptr [rsp + 0xd0], r13b
+fc6e00 lea rax, [rip + 0x2416329]
+fc6e07 mov qword ptr [rsp + 0x28], rax
+fc6e0c lea rax, [rsp + 0xd0]
+fc6e14 mov qword ptr [rsp + 0x20], rax
+fc6e19 mov r9b, 1
+fc6e1c mov r8d, 0x464
+fc6e22 lea rdx, [rip + 0x17cd8f4]
+fc6e29 lea rcx, [rip + 0x17cda08]
+fc6e30 call 0x254ab40
+fc6e35 mov byte ptr [rip + 0x24162f5], al
+fc6e3b cmp byte ptr [rsp + 0xd0], r13b
+fc6e43 je 0xfc6e46
+fc6e45 int3 
+fc6e46 cmp byte ptr [rip + 0x26c87c4], r13b
+fc6e4d je 0xfc6ed8
+fc6e53 cmp byte ptr [rip + 0x24162d7], r13b
+fc6e5a jne 0xfc6ed8
+fc6e5c mov ecx, dword ptr [rip + 0x26ccc36]
+fc6e62 mov rax, qword ptr gs:[0x58]
+fc6e6b mov rbx, qword ptr [rax + rcx*8]
+fc6e6f mov eax, 0x20e8
+fc6e74 cmp byte ptr [rax + rbx], r13b
+fc6e78 jne 0xfc6e7f
+fc6e7a call 0x25a04d0
+fc6e7f mov eax, 0x10
+fc6e84 cmp dword ptr [rax + rbx], r13d
+fc6e88 je 0xfc6ed8
+fc6e8a mov byte ptr [rsp + 0xd0], r13b
+fc6e92 lea rax, [rip + 0x2416298]
+fc6e99 mov qword ptr [rsp + 0x28], rax
+fc6e9e lea rax, [rsp + 0xd0]
+fc6ea6 mov qword ptr [rsp + 0x20], rax
+fc6eab mov r9b, 1
+fc6eae mov r8d, 0x465
+fc6eb4 lea rdx, [rip + 0x17cd862]
+fc6ebb lea rcx, [rip + 0x17cd99e]
+fc6ec2 call 0x254ab40
+fc6ec7 mov byte ptr [rip + 0x2416264], al
+fc6ecd cmp byte ptr [rsp + 0xd0], r13b
+fc6ed5 je 0xfc6ed8
+fc6ed7 int3 
+fc6ed8 mov rcx, qword ptr [rip + 0x24167d1]
+fc6edf mov rsi, qword ptr [r15]
+fc6ee2 movsxd rax, dword ptr [r15 + 0xc]
+fc6ee6 lea r15, [rsi + rax*4]
+fc6eea cmp rsi, r15
+fc6eed je 0xfc6f44
+fc6eef lea r12, [rcx + 8]
+fc6ef3 mov rax, qword ptr [r12]
+fc6ef7 mov edx, dword ptr [rsi]
+fc6ef9 mov rcx, r12
+fc6efc call qword ptr [rax]
+fc6efe mov rbp, qword ptr [rax + 0xd0]
+fc6f05 test rbp, rbp
+fc6f08 je 0xfc6f3b
+fc6f0a mov rbx, qword ptr [rsp + 0x50]
+fc6f0f movsxd rax, dword ptr [rsp + 0x5c]
+fc6f14 lea rdi, [rbx + rax*8]
+fc6f18 cmp rbx, rdi
+fc6f1b je 0xfc6f3b
+fc6f1d nop dword ptr [rax]
+fc6f20 mov r8, r14
+fc6f23 mov rdx, qword ptr [rbx]
+fc6f26 mov rcx, rbp
+fc6f29 call 0xd57d90
+fc6f2e test al, al
+fc6f30 jne 0xfc6f47
+fc6f32 add rbx, 8
+fc6f36 cmp rbx, rdi
+fc6f39 jne 0xfc6f20
+fc6f3b add rsi, 4
+fc6f3f cmp rsi, r15
+fc6f42 jne 0xfc6ef3
+fc6f44 mov rbp, r13
+fc6f47 mov rdx, qword ptr [rsp + 0x50]
+fc6f4c test rdx, rdx
+fc6f4f je 0xfc6f6b
+fc6f51 mov dword ptr [rsp + 0x5c], r13d
+fc6f56 mov rcx, qword ptr [rsp + 0x60]
+fc6f5b mov rax, qword ptr [rcx]
+fc6f5e call qword ptr [rax + 0x10]
+fc6f61 mov qword ptr [rsp + 0x50], r13
+fc6f66 mov dword ptr [rsp + 0x58], r13d
+fc6f6b mov rdx, qword ptr [rsp + 0x30]
+fc6f70 test rdx, rdx
+fc6f73 je 0xfc6f86
+fc6f75 mov dword ptr [rsp + 0x3c], r13d
+fc6f7a mov rcx, qword ptr [rsp + 0x40]
+fc6f7f mov r8, qword ptr [rcx]
+fc6f82 call qword ptr [r8 + 0x10]
+fc6f86 mov rax, rbp
+fc6f89 lea r11, [rsp + 0xa0]
+fc6f91 mov rbx, qword ptr [r11 + 0x38]
+fc6f95 mov rbp, qword ptr [r11 + 0x40]
+fc6f99 mov rsi, qword ptr [r11 + 0x48]
+fc6f9d mov rsp, r11
+fc6fa0 pop r15
+fc6fa2 pop r14
+fc6fa4 pop r13
+fc6fa6 pop r12
+fc6fa8 pop rdi
+fc6fa9 ret 

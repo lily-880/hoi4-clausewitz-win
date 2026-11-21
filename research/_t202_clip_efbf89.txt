@@ -1,0 +1,93 @@
+efbf89 cmp byte ptr [rip + 0x24eef7a], 0
+efbf90 jne 0xefbfe3
+efbf92 mov rcx, rdi
+efbf95 call 0xc4f0e0
+efbf9a test rax, rax
+efbf9d jne 0xefbfe3
+efbf9f mov byte ptr [rsp + 0x40], al
+efbfa3 lea rdx, [rip + 0x1898773]
+efbfaa lea rax, [rip + 0x24eef59]
+efbfb1 mov r9b, 1
+efbfb4 mov qword ptr [rsp + 0x28], rax
+efbfb9 lea rcx, [rip + 0x1adb820]
+efbfc0 lea rax, [rsp + 0x40]
+efbfc5 mov r8d, 0x2a4
+efbfcb mov qword ptr [rsp + 0x20], rax
+efbfd0 call 0x254ab40
+efbfd5 cmp byte ptr [rsp + 0x40], 0
+efbfda mov byte ptr [rip + 0x24eef2a], al
+efbfe0 je 0xefbfe3
+efbfe2 int3 
+efbfe3 cmp qword ptr [rdi + 0x2f8], 0
+efbfeb jne 0xefc0e6
+efbff1 mov rcx, rdi
+efbff4 call 0xe64c50
+efbff9 test al, al
+efbffb je 0xefc0e6
+efc001 mov rax, qword ptr [rdi + 0x1f0]
+efc008 mov rcx, qword ptr [rax + 0xb8]
+efc00f test byte ptr [rcx + 0xd2], 1
+efc016 je 0xefc0e6
+efc01c lea rcx, [rdi + 0x1d8]
+efc023 call 0xc07690
+efc028 mov rcx, qword ptr [rdi + 0x138]
+efc02f mov edx, dword ptr [rdi + 0x3f8]
+efc035 movsxd rbx, dword ptr [rcx + 0x590]
+efc03c cmp edx, ebx
+efc03e jle 0xefc05f
+efc040 sub edx, ebx
+efc042 lea rcx, [rax + 0x328]
+efc049 xor r9d, r9d
+efc04c xor r8d, r8d
+efc04f call 0xd5f970
+efc054 mov dword ptr [rdi + 0x3f8], ebx
+efc05a jmp 0xefc0e6
+efc05f je 0xefc0e6
+efc065 lea r10, [rax + 0x328]
+efc06c mov r9d, ebx
+efc06f sub r9d, edx
+efc072 movabs r11, 0x29f16b11c6d1e109
+efc07c imul rcx, rbx, 0x186a0
+efc083 xor ebx, ebx
+efc085 mov rax, r11
+efc088 imul rcx, qword ptr [rip + 0x24e7400]
+efc090 imul rcx
+efc093 mov rax, r11
+efc096 mov r8, rdx
+efc099 sar r8, 0xe
+efc09d mov rcx, r8
+efc0a0 shr rcx, 0x3f
+efc0a4 add r8, rcx
+efc0a7 mov rcx, r10
+efc0aa imul r8
+efc0ad sar rdx, 0xe
+efc0b1 mov rax, rdx
+efc0b4 shr rax, 0x3f
+efc0b8 add rdx, rax
+efc0bb imul rax, rdx, 0x186a0
+efc0c2 sub r8, rax
+efc0c5 test r8, r8
+efc0c8 setg bl
+efc0cb add ebx, edx
+efc0cd cmp r9d, ebx
+efc0d0 cmovl ebx, r9d
+efc0d4 xor r8d, r8d
+efc0d7 mov edx, ebx
+efc0d9 call 0xd5ffa0
+efc0de sub ebx, eax
+efc0e0 add dword ptr [rdi + 0x3f8], ebx
+efc0e6 mov rax, qword ptr [rdi + 0x1f0]
+efc0ed mov rbx, qword ptr [rax + 0xc0]
+efc0f4 test rbx, rbx
+efc0f7 je 0xefc110
+efc0f9 mov rcx, rbx
+efc0fc call 0xa26110
+efc101 test al, al
+efc103 je 0xefc110
+efc105 mov rdx, rbx
+efc108 mov rcx, rdi
+efc10b call 0xe65740
+efc110 mov rbx, qword ptr [rsp + 0x50]
+efc115 add rsp, 0x30
+efc119 pop rdi
+efc11a ret 

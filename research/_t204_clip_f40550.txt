@@ -1,0 +1,31 @@
+f40550 push rbx
+f40552 sub rsp, 0x30
+f40556 cmp byte ptr [rip + 0x274f0b4], 0
+f4055d mov rbx, rcx
+f40560 je 0xf405bf
+f40562 cmp byte ptr [rip + 0x24aaa78], 0
+f40569 jne 0xf405bf
+f4056b cmp qword ptr [rcx], 0
+f4056f jne 0xf405bf
+f40571 lea rax, [rip + 0x24aaa69]
+f40578 mov byte ptr [rsp + 0x40], 0
+f4057d mov qword ptr [rsp + 0x28], rax
+f40582 lea rdx, [rip + 0x1854194]
+f40589 lea rax, [rsp + 0x40]
+f4058e mov r9b, 1
+f40591 mov r8d, 0x7c
+f40597 mov qword ptr [rsp + 0x20], rax
+f4059c lea rcx, [rip + 0x185bc25]
+f405a3 call 0x254ab40
+f405a8 cmp byte ptr [rsp + 0x40], 0
+f405ad mov byte ptr [rip + 0x24aaa2e], al
+f405b3 je 0xf405b6
+f405b5 int3 
+f405b6 mov rax, qword ptr [rbx]
+f405b9 add rsp, 0x30
+f405bd pop rbx
+f405be ret 
+f405bf mov rax, qword ptr [rcx]
+f405c2 add rsp, 0x30
+f405c6 pop rbx
+f405c7 ret 

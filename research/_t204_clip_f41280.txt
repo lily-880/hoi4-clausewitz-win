@@ -1,0 +1,30 @@
+f41280 mov qword ptr [rsp + 8], rbx
+f41285 mov qword ptr [rsp + 0x10], rsi
+f4128a push rdi
+f4128b sub rsp, 0x20
+f4128f mov ebx, dword ptr [rdx]
+f41291 mov rsi, rcx
+f41294 mov edi, dword ptr [rdx + 4]
+f41297 cmp ebx, edi
+f41299 je 0xf412df
+f4129b nop dword ptr [rax + rax]
+f412a0 mov r10, qword ptr [rsi + 8]
+f412a4 mov rax, qword ptr [rsi]
+f412a7 movsxd rdx, ebx
+f412aa lea r9, [r10 + 0x120]
+f412b1 mov rcx, qword ptr [rax]
+f412b4 lea r8, [r10 + 0x138]
+f412bb movsxd rax, dword ptr [rcx + rdx*4]
+f412bf mov rdx, qword ptr [r10 + 0x108]
+f412c6 imul rcx, rax, 0x320
+f412cd mov rdx, qword ptr [rdx + rax*8]
+f412d1 add rcx, qword ptr [r9]
+f412d4 call 0x12aaed0
+f412d9 inc ebx
+f412db cmp ebx, edi
+f412dd jne 0xf412a0
+f412df mov rbx, qword ptr [rsp + 0x30]
+f412e4 mov rsi, qword ptr [rsp + 0x38]
+f412e9 add rsp, 0x20
+f412ed pop rdi
+f412ee ret 

@@ -1,0 +1,58 @@
+0xedb2a0  mov qword ptr [rsp + 8], rbx
+0xedb2a5  mov qword ptr [rsp + 0x10], rbp
+0xedb2aa  mov qword ptr [rsp + 0x18], rsi
+0xedb2af  mov qword ptr [rsp + 0x20], rdi
+0xedb2b4  push r14
+0xedb2b6  sub rsp, 0x20
+0xedb2ba  mov rax, qword ptr [rdx + 0x3f0]
+0xedb2c1  mov rbp, rdx
+0xedb2c4  mov rbx, qword ptr [rcx + 0x58]
+0xedb2c8  mov r14, rcx
+0xedb2cb  mov rdi, qword ptr [rax + 0x538]
+0xedb2d2  movsxd rax, dword ptr [rcx + 0x64]
+0xedb2d6  lea rsi, [rbx + rax*8]
+0xedb2da  cmp rbx, rsi
+0xedb2dd  je 0xedb30f
+0xedb2df  nop 
+0xedb2e0  mov rax, qword ptr [rbx]
+0xedb2e3  mov rcx, qword ptr [rax + 0x88]
+0xedb2ea  mov rax, qword ptr [rcx + 0x3f0]
+0xedb2f1  cmp rdi, qword ptr [rax + 0x538]
+0xedb2f8  jne 0xedb306
+0xedb2fa  mov rdx, rbp
+0xedb2fd  call 0xc2dad0
+0xedb302  test al, al
+0xedb304  jne 0xedb37e
+0xedb306  add rbx, 8
+0xedb30a  cmp rbx, rsi
+0xedb30d  jne 0xedb2e0
+0xedb30f  mov rbx, qword ptr [r14 + 0x88]
+0xedb316  movsxd rax, dword ptr [r14 + 0x94]
+0xedb31d  lea rsi, [rbx + rax*8]
+0xedb321  cmp rbx, rsi
+0xedb324  je 0xedb361
+0xedb326  nop word ptr [rax + rax]
+0xedb330  mov rax, qword ptr [rbx]
+0xedb333  mov rcx, qword ptr [rax + 0x40]
+0xedb337  test rcx, rcx
+0xedb33a  je 0xedb358
+0xedb33c  mov rax, qword ptr [rcx + 0x3f0]
+0xedb343  cmp rdi, qword ptr [rax + 0x538]
+0xedb34a  jne 0xedb358
+0xedb34c  mov rdx, rbp
+0xedb34f  call 0xc2dad0
+0xedb354  test al, al
+0xedb356  jne 0xedb37e
+0xedb358  add rbx, 8
+0xedb35c  cmp rbx, rsi
+0xedb35f  jne 0xedb330
+0xedb361  xor al, al
+0xedb363  mov rbx, qword ptr [rsp + 0x30]
+0xedb368  mov rbp, qword ptr [rsp + 0x38]
+0xedb36d  mov rsi, qword ptr [rsp + 0x40]
+0xedb372  mov rdi, qword ptr [rsp + 0x48]
+0xedb377  add rsp, 0x20
+0xedb37b  pop r14
+0xedb37d  ret 
+0xedb37e  mov al, 1
+0xedb380  jmp 0xedb363

@@ -1,0 +1,157 @@
+e64f50 mov qword ptr [rsp + 8], rbx
+e64f55 mov qword ptr [rsp + 0x18], rbp
+e64f5a mov qword ptr [rsp + 0x20], rsi
+e64f5f push rdi
+e64f60 push r12
+e64f62 push r13
+e64f64 push r14
+e64f66 push r15
+e64f68 sub rsp, 0x30
+e64f6c mov rax, qword ptr [r8 + 0xd8]
+e64f73 movzx r15d, r9b
+e64f77 mov rbp, r8
+e64f7a mov rsi, rdx
+e64f7d mov r12, rcx
+e64f80 cmp qword ptr [rdx + 0xd8], rax
+e64f87 jne 0xe64fa4
+e64f89 call 0xc07bf0
+e64f8e xor r8d, r8d
+e64f91 mov rdx, rbp
+e64f94 mov rcx, rax
+e64f97 call 0x7453c0
+e64f9c test al, al
+e64f9e jne 0xe6518b
+e64fa4 mov rax, qword ptr [rsi + 0xb8]
+e64fab xor r15b, 1
+e64faf movsxd rcx, dword ptr [rax + 0x7c]
+e64fb3 test ecx, ecx
+e64fb5 jle 0xe6516a
+e64fbb xor r14d, r14d
+e64fbe mov edx, 0x20e8
+e64fc3 mov edi, r14d
+e64fc6 lea r8, [rip + 0x2578163]
+e64fcd mov r13, rcx
+e64fd0 mov rax, qword ptr [rsi + 0xb8]
+e64fd7 mov rcx, qword ptr [rax + 0x70]
+e64fdb cmp byte ptr [rcx + rdi + 0x10], 4
+e64fe0 je 0xe6515a
+e64fe6 cmp byte ptr [rip + 0x282a624], 0
+e64fed je 0xe650cf
+e64ff3 cmp byte ptr [rip + 0x2578136], 0
+e64ffa jne 0xe65049
+e64ffc cmp qword ptr [rip + 0x25786ac], 0
+e65004 jne 0xe65049
+e65006 mov qword ptr [rsp + 0x28], r8
+e6500b lea rax, [rsp + 0x68]
+e65010 mov r8d, 0x464
+e65016 mov qword ptr [rsp + 0x20], rax
+e6501b mov r9b, 1
+e6501e mov byte ptr [rsp + 0x68], 0
+e65023 lea rdx, [rip + 0x192f6f3]
+e6502a lea rcx, [rip + 0x192f807]
+e65031 call 0x254ab40
+e65036 cmp byte ptr [rsp + 0x68], 0
+e6503b mov byte ptr [rip + 0x25780ef], al
+e65041 je 0xe65044
+e65043 int3 
+e65044 mov edx, 0x20e8
+e65049 cmp byte ptr [rip + 0x282a5c1], 0
+e65050 je 0xe650cf
+e65056 cmp byte ptr [rip + 0x25780d4], 0
+e6505d jne 0xe650cf
+e6505f mov rax, qword ptr gs:[0x58]
+e65068 mov ecx, dword ptr [rip + 0x282ea2a]
+e6506e mov rbx, qword ptr [rax + rcx*8]
+e65072 mov eax, edx
+e65074 cmp byte ptr [rax + rbx], 0
+e65078 jne 0xe6507f
+e6507a call 0x25a04d0
+e6507f mov eax, 0x10
+e65084 cmp dword ptr [rax + rbx], 0
+e65088 je 0xe650cf
+e6508a lea rax, [rip + 0x25780a0]
+e65091 mov byte ptr [rsp + 0x68], 0
+e65096 mov qword ptr [rsp + 0x28], rax
+e6509b lea rdx, [rip + 0x192f67b]
+e650a2 lea rax, [rsp + 0x68]
+e650a7 mov r9b, 1
+e650aa mov r8d, 0x465
+e650b0 mov qword ptr [rsp + 0x20], rax
+e650b5 lea rcx, [rip + 0x192f7a4]
+e650bc call 0x254ab40
+e650c1 cmp byte ptr [rsp + 0x68], 0
+e650c6 mov byte ptr [rip + 0x2578065], al
+e650cc je 0xe650cf
+e650ce int3 
+e650cf mov rcx, qword ptr [rip + 0x25785da]
+e650d6 add rcx, 8
+e650da mov rax, qword ptr [rcx]
+e650dd mov r8, qword ptr [rax]
+e650e0 mov rax, qword ptr [rsi + 0xb8]
+e650e7 mov rdx, qword ptr [rax + 0x70]
+e650eb mov edx, dword ptr [rdx + rdi + 8]
+e650ef call r8
+e650f2 mov rbx, rax
+e650f5 test rax, rax
+e650f8 je 0xe6514e
+e650fa mov rcx, qword ptr [rax + 0xb8]
+e65101 test byte ptr [rcx + 0xd2], 1
+e65108 je 0xe6514e
+e6510a cmp rax, rbp
+e6510d jne 0xe65129
+e6510f mov rcx, r12
+e65112 call 0xc07bf0
+e65117 xor r8d, r8d
+e6511a mov rdx, rbx
+e6511d mov rcx, rax
+e65120 call 0x7453c0
+e65125 test al, al
+e65127 jne 0xe6518b
+e65129 mov rcx, r12
+e6512c call 0xc07bf0
+e65131 xor r8d, r8d
+e65134 mov rdx, rbx
+e65137 mov rcx, rax
+e6513a call 0x7453c0
+e6513f test al, al
+e65141 movzx r15d, r15b
+e65145 mov eax, 1
+e6514a cmovne r15d, eax
+e6514e mov edx, 0x20e8
+e65153 lea r8, [rip + 0x2577fd6]
+e6515a inc r14
+e6515d add rdi, 0x30
+e65161 cmp r14, r13
+e65164 jl 0xe64fd0
+e6516a test r15b, r15b
+e6516d jne 0xe6518f
+e6516f mov rcx, rbp
+e65172 call 0xeef530
+e65177 test al, al
+e65179 je 0xe651b9
+e6517b mov rax, qword ptr [rbp + 0xd8]
+e65182 cmp qword ptr [rsi + 0xd8], rax
+e65189 jne 0xe651b9
+e6518b mov al, 1
+e6518d jmp 0xe651bb
+e6518f mov rcx, qword ptr [rsi + 0xd0]
+e65196 test rcx, rcx
+e65199 je 0xe651b9
+e6519b mov rdx, qword ptr [rbp + 0xd0]
+e651a2 test rdx, rdx
+e651a5 je 0xe651b9
+e651a7 mov r8, qword ptr [rsp + 0x80]
+e651af xor r9d, r9d
+e651b2 call 0xd55250
+e651b7 jmp 0xe651bb
+e651b9 xor al, al
+e651bb mov rbx, qword ptr [rsp + 0x60]
+e651c0 mov rbp, qword ptr [rsp + 0x70]
+e651c5 mov rsi, qword ptr [rsp + 0x78]
+e651ca add rsp, 0x30
+e651ce pop r15
+e651d0 pop r14
+e651d2 pop r13
+e651d4 pop r12
+e651d6 pop rdi
+e651d7 ret 

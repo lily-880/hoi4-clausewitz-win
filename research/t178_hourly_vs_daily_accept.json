@@ -1,0 +1,49 @@
+{
+  "pid": 26976,
+  "hour_tick": 60759371,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "accept_paths": {
+    "daily": {
+      "chain": "1eae60 gamestate.daily -> 72f220 country daily -> d71810 deployment.daily -> d71b60 @ 0xd723b6 slot2",
+      "r9": "remaining share of production+0x200 present-row qty (FIXED)",
+      "reinforcement_status": "passed live as rdx / [rbp+0x1008]"
+    },
+    "d724e0_sibling": {
+      "callers": [
+        "0xd47380",
+        "0xd4b860"
+      ],
+      "behavior": "d724e0(CDeploymentStatus) also calls d71b60, but both callers xor edx/r8/r9 to 0 before the call, so d6f140(CReinforcementStatus / upgrades / occupation) is skipped. Not an accept onto CReinforcementStatus.",
+      "e8_of_those_callers": 0
+    }
+  },
+  "no_hourly_accept_found": {
+    "gamestate.hourly": "0x1f5230 (string at 0x27a0810). Direct unique callees 1e5660, 202f30, 1ee7f0 do not call d71b60/d71810/72f220/15a93d0/15aa9c0/717400/1095760/d6f140.",
+    "15a93d0": "still no E8/E9; only preferred-base hit is CReinforcementStatus vtable slot 2",
+    "d71b60_e8_only": [
+      "0xd71810",
+      "0xd724e0"
+    ],
+    "d71810_e8_only": [
+      "0x72f220"
+    ],
+    "72f220_e8_only": [
+      "0x1eae60"
+    ],
+    "d6f140_e8_only": [
+      "0xd71b60"
+    ]
+  },
+  "hourly_request_not_accept": {
+    "ce4fc0": "CArmy vtable 0x29d6d98 slot 18 (offset +0x90); 24-hour stagger request work (t172). No E8/E9. Not called as [rax+0x90] from gamestate.hourly.",
+    "15ab390": "only E8 caller is ce4fc0",
+    "15aa9c0": "called from 15ab390 / ce82d0 / ceb320. Calls 15a26f0 (request init), 140b9c0 (logistics modes 1/0/6), 15a5c80, 1095760. The two call [rax+0x10] sites (0x15aaef8, 0x15aafe8) are allocator frees (rcx=allocator, rdx=buffer, no type/offered in r8/r9), not 15a93d0."
+  },
+  "produced_prediction": "The only bound accept that actually invokes CReinforcementStatus slot 2 with a live status and stock-based r9 is deployment.daily. Pre-daily: for each production+0x200 present type with qty>0, offered starts as qty and is reduced by earlier acceptors (resources, occupation, upgrades, deployment lists) before 15a93d0; give=min(max(0,need-produced), offered). This is not min(need, current stock) after the type has left the pool. Live infantry_equipment is still absent at hour 12, so the formula cannot be evaluated against the current pool for produced=3.",
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ]
+}

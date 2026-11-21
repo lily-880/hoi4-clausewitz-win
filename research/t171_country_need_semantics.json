@@ -1,0 +1,48 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "pid": 26976,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "path_1409810": "1409810 calls 1409890(this, out, type, r9=0) then adds 14080c0 and caps at 0x53e2d620fb40",
+  "path_1409890": [
+    "cf4fe0 type gate; if false skip deploy/request/specials but still add occupation/logistics/operations",
+    "deployment: [this+0x20] is country, country+0xf70 CDeploymentStatus, b2cb40 returns status+0x60 array; for each item deficit=max(0, need-current)*weight/100000 with default weight 1.0",
+    "reinforcement: 717400(country)=country+0xf78; for each CArmyReinforcementRequests, each CReinforcementRequest adds 10948a0(need+0x78) + 2574ba0(1094900(produced+0x38)) i.e. need-produced",
+    "cf5620/cf5660 type-gated specials via 7362c0 country object; infantry flags do not take these branches",
+    "then 140a400 occupation, 1409e50 logistics, 140a600 operations"
+  ],
+  "corrected_hypotheses": {
+    "F70_plus20": "104/141 CSubUnitDefinition is a catalog, not the 1409890 source",
+    "14080c0": "walks CCountryResources+0x758, not reinforcement request deficits"
+  },
+  "live_scene": {
+    "deployment_plus60_empty": true,
+    "request_need_minus_produced_infantry": 77,
+    "resources_occupation_logistics_operations_empty": true,
+    "infantry_specials_off": true,
+    "official_1409810_infantry_this_scene": 77,
+    "contributors": [
+      1835
+    ],
+    "fielded_deficit_sum_still_2520_and_not_used": 2520
+  },
+  "affected_unit_ids_semantics": "Official 1409890/1409810 only includes deploying items in F70+0x60 and units with a live CReinforcementRequest. It does not walk the 19 short fielded divisions. In this scene the official contributor set is [1835]. That is not enough to promote world.shortages.equipment.affected_unit_ids, because the contract field may mean all shortage-affected units; the other 18 remain short but are absent from this sum. demanded/deficit stay unverified: 77 is the reimplemented official sum for infantry, but no stored 77*100000 was found in bounded status objects, and type-gate coverage is infantry-only.",
+  "why_only_one_live_request": {
+    "all_21_units_have_CArmyRequests_at_army_plus478": true,
+    "only_1835_has_a_CReinforcementRequest_in_the_country_F78_list": true,
+    "stamp_e0": "CArmyRequests+0xe0 equals current GS+0x468 hour tick 60759371 only for 1835; the other 20 still have 43791240",
+    "15aa9c0": "processes one CArmyRequests, may create requests via 15a26f0, then stamps +0xe0 only on the non-empty work path",
+    "15ab390": "date gate: ebx=[this+0xe0]+24*setting, skip 15aa9c0 if ebx>current tick; this does not by itself keep the other 20 unprocessed, because their stamps are in the past",
+    "open": "Why 15aa9c0 has only stamped 1835 this campaign (callers ce82d0 / ceb320 / 15ab390 selection, or a first-loop allocation gate) is the next independent block"
+  },
+  "named_request_fields": {
+    "status": 32,
+    "progress": 40,
+    "total_progress": 48,
+    "produced": 56,
+    "need": 120,
+    "date_CGameDate": 168,
+    "live": "status=0, progress=0, total_progress=100000, date object present"
+  }
+}

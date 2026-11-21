@@ -1,0 +1,20 @@
+c47840 sub rsp, 0x28
+c47844 cmp qword ptr [rcx + 0x88], 0
+c4784c je 0xc47877
+c4784e mov rcx, qword ptr [rcx + 0x68]
+c47852 test rcx, rcx
+c47855 je 0xc47877
+c47857 mov rax, qword ptr [rcx]
+c4785a call qword ptr [rax + 0x20]
+c4785d test rax, rax
+c47860 je 0xc47877
+c47862 cmp dword ptr [rax + 8], 0
+c47866 jne 0xc47877
+c47868 mov rcx, rax
+c4786b call 0xe64c50
+c47870 xor al, 1
+c47872 add rsp, 0x28
+c47876 ret 
+c47877 xor al, al
+c47879 add rsp, 0x28
+c4787d ret 

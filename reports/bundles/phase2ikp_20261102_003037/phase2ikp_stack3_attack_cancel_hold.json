@@ -1,0 +1,1358 @@
+{
+  "phase": "2ikp",
+  "result": "G6_STACK3_ATTACK_ALL_THEN_PEEL",
+  "HIT": false,
+  "war": "WARTIME_ETH_CONTINUATION",
+  "authorization": "user t52u",
+  "speed_policy": "pause-or-1x only; NEVER 5x",
+  "retreat": {
+    "status": "HARD_DENY_PARKED_NOT_PROVEN_CHEAP",
+    "retreat_order_py": false,
+    "decision": "PARKED \u2014 stack3 Attack-all + Cancel hold"
+  },
+  "calendar_ensure": {
+    "ok": true,
+    "tapped": false,
+    "day0": 51,
+    "day1": 52
+  },
+  "plan": {
+    "bias": "WAIT_STACK3_ATTACK_ALL_CANCEL_HOLD",
+    "movers": [
+      1037,
+      1038
+    ],
+    "anchor": 1042,
+    "concentrate_dest": 6906,
+    "attack_target": 1886,
+    "attack_target_source": "PRIOR_WARTIME_HIT_DEST",
+    "require_stack": 3,
+    "eth_army_n": 17,
+    "occupancy_dest": 1,
+    "adjacency": "HONEST_EMPTY",
+    "move_hop": "NOT_DEFAULT_THIS_SLICE"
+  },
+  "before": {
+    "1037": {
+      "army": 1037,
+      "ok": true,
+      "province": 3931,
+      "path": [],
+      "path_len": 0,
+      "at_concentrate": false,
+      "at_attack_target": false,
+      "dest_in_path": false,
+      "target_in_path": false
+    },
+    "1038": {
+      "army": 1038,
+      "ok": true,
+      "province": 11838,
+      "path": [],
+      "path_len": 0,
+      "at_concentrate": false,
+      "at_attack_target": false,
+      "dest_in_path": false,
+      "target_in_path": false
+    },
+    "1042": {
+      "army": 1042,
+      "ok": true,
+      "province": 6906,
+      "path": [],
+      "path_len": 0,
+      "at_concentrate": true,
+      "at_attack_target": false,
+      "dest_in_path": false,
+      "target_in_path": false
+    }
+  },
+  "strategic_posts": [
+    {
+      "army": 1037,
+      "skipped": null,
+      "role": "mover",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID"
+      },
+      "post_result": "PATH_CONTAINS_DEST",
+      "path_after_has_dest": true
+    },
+    {
+      "army": 1038,
+      "skipped": null,
+      "role": "mover",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID"
+      },
+      "post_result": "PATH_CONTAINS_DEST",
+      "path_after_has_dest": true
+    },
+    {
+      "army": 1042,
+      "skipped": true,
+      "role": null,
+      "dry": null,
+      "post_result": null,
+      "path_after_has_dest": false
+    }
+  ],
+  "strategic_hits": [
+    "HIT",
+    "HIT",
+    "SKIP"
+  ],
+  "cancel_posts": [
+    {
+      "army": 1037,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "PATH_CLEARED_ALL",
+      "re_strategic": "ISSUED_HOLD"
+    },
+    {
+      "army": 1038,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "POSTED_PATH_STILL_SET",
+      "re_strategic": "ISSUED_HOLD"
+    },
+    {
+      "army": 1037,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "PATH_CLEARED_ALL",
+      "re_strategic": "ISSUED_HOLD"
+    },
+    {
+      "army": 1038,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "PATH_CLEARED_ALL",
+      "re_strategic": "ISSUED_HOLD"
+    },
+    {
+      "army": 1037,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "PATH_CLEARED_ALL",
+      "re_strategic": "ISSUED_HOLD"
+    },
+    {
+      "army": 1038,
+      "reason": "PEEL_DURING_HOLD_OR_ARRIVE",
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID",
+        "isvalid": null
+      },
+      "post_result": "PATH_CLEARED_ALL",
+      "re_strategic": "ISSUED_HOLD"
+    }
+  ],
+  "arrive": {
+    "seconds_budget": 90.0,
+    "early_stop_stack3": true,
+    "fallback_attack": false,
+    "samples_n": 9,
+    "compact": [
+      {
+        "t": 0.21,
+        "ui": "1936-02-22",
+        "provs": {
+          "1037": [
+            3931,
+            10,
+            true
+          ],
+          "1038": [
+            11838,
+            10,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 3.46,
+        "ui": "1936-02-22",
+        "provs": {
+          "1037": [
+            3931,
+            9,
+            true
+          ],
+          "1038": [
+            11838,
+            10,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 6.7,
+        "ui": "1936-02-23",
+        "provs": {
+          "1037": [
+            9857,
+            9,
+            true
+          ],
+          "1038": [
+            11821,
+            9,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 9.91,
+        "ui": "1936-02-23",
+        "provs": {
+          "1037": [
+            6901,
+            8,
+            true
+          ],
+          "1038": [
+            9813,
+            7,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 13.15,
+        "ui": "1936-02-23",
+        "provs": {
+          "1037": [
+            3816,
+            6,
+            true
+          ],
+          "1038": [
+            3954,
+            5,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 16.39,
+        "ui": "1936-02-23",
+        "provs": {
+          "1037": [
+            13223,
+            5,
+            true
+          ],
+          "1038": [
+            6966,
+            4,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 19.62,
+        "ui": "1936-02-24",
+        "provs": {
+          "1037": [
+            3873,
+            3,
+            true
+          ],
+          "1038": [
+            3873,
+            2,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 22.86,
+        "ui": "1936-02-24",
+        "provs": {
+          "1037": [
+            6817,
+            2,
+            true
+          ],
+          "1038": [
+            9896,
+            1,
+            true
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "at_conc": [
+          1042
+        ],
+        "enroute": [
+          1037,
+          1038
+        ]
+      },
+      {
+        "t": 26.09,
+        "ui": "1936-02-24",
+        "provs": {
+          "1037": [
+            6906,
+            8,
+            false
+          ],
+          "1038": [
+            6906,
+            9,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        },
+        "stack_depth": 3,
+        "at_conc": [
+          1037,
+          1038,
+          1042
+        ],
+        "enroute": []
+      }
+    ]
+  },
+  "attack_moment": {
+    "t": 29.38,
+    "ui": "1936-02-24",
+    "attackers": [
+      1037,
+      1038,
+      1042
+    ],
+    "stack_at_post": [
+      1042
+    ],
+    "stack_depth_at_post": 1,
+    "any_at_1886": false,
+    "provs": {
+      "1037": 9896,
+      "1038": 6817,
+      "1042": 6906
+    }
+  },
+  "attackers": [
+    1037,
+    1038,
+    1042
+  ],
+  "attack_posts": [
+    {
+      "army": 1037,
+      "src_province": 6906,
+      "target": 1886,
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID"
+      },
+      "post_result": "ATTACK_POSTED_STABLE",
+      "post_rax": 1,
+      "immediate_on_stack3": true,
+      "fallback_stack2": null
+    },
+    {
+      "army": 1038,
+      "src_province": 6906,
+      "target": 1886,
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID"
+      },
+      "post_result": "ATTACK_POSTED_STABLE",
+      "post_rax": 1,
+      "immediate_on_stack3": true,
+      "fallback_stack2": null
+    },
+    {
+      "army": 1042,
+      "src_province": 6906,
+      "target": 1886,
+      "dry": {
+        "ok": true,
+        "result": "DRY_RUN_VALID"
+      },
+      "post_result": "ATTACK_POSTED_STABLE",
+      "post_rax": 1,
+      "immediate_on_stack3": true,
+      "fallback_stack2": null
+    }
+  ],
+  "attack_hits": [
+    "HIT",
+    "HIT",
+    "HIT"
+  ],
+  "hold_after_attack": {
+    "samples_n": 7,
+    "stack_depths": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      1
+    ],
+    "hold_post_window_ge2": false,
+    "compact": [
+      {
+        "t": 2.49,
+        "ui": "1936-02-25",
+        "syn": {
+          "provinces": {
+            "1037": 6817,
+            "1038": 6817,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1042
+          ],
+          "stack_depth": 1,
+          "any_path": true,
+          "enroute_conc": [],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6817,
+            8,
+            false
+          ],
+          "1038": [
+            6817,
+            8,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 8.17,
+        "ui": "1936-02-25",
+        "syn": {
+          "provinces": {
+            "1037": 9896,
+            "1038": 13223,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1042
+          ],
+          "stack_depth": 1,
+          "any_path": true,
+          "enroute_conc": [],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            9896,
+            0,
+            false
+          ],
+          "1038": [
+            13223,
+            5,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 13.78,
+        "ui": "1936-02-25",
+        "syn": {
+          "provinces": {
+            "1037": 6817,
+            "1038": 6966,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1042
+          ],
+          "stack_depth": 1,
+          "any_path": true,
+          "enroute_conc": [
+            1038
+          ],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6817,
+            8,
+            false
+          ],
+          "1038": [
+            6966,
+            3,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 17.01,
+        "ui": "1936-02-26",
+        "syn": {
+          "provinces": {
+            "1037": 6817,
+            "1038": 9896,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1042
+          ],
+          "stack_depth": 1,
+          "any_path": true,
+          "enroute_conc": [
+            1037,
+            1038
+          ],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6817,
+            2,
+            false
+          ],
+          "1038": [
+            9896,
+            1,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 22.5,
+        "ui": "1936-02-26",
+        "syn": {
+          "provinces": {
+            "1037": 6906,
+            "1038": 9896,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1037,
+            1042
+          ],
+          "stack_depth": 2,
+          "any_path": true,
+          "enroute_conc": [],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6906,
+            8,
+            false
+          ],
+          "1038": [
+            9896,
+            9,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 27.99,
+        "ui": "1936-02-27",
+        "syn": {
+          "provinces": {
+            "1037": 6817,
+            "1038": 6906,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1038,
+            1042
+          ],
+          "stack_depth": 2,
+          "any_path": true,
+          "enroute_conc": [],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6817,
+            7,
+            false
+          ],
+          "1038": [
+            6906,
+            9,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      },
+      {
+        "t": 33.38,
+        "ui": "1936-02-27",
+        "syn": {
+          "provinces": {
+            "1037": 6817,
+            "1038": 3873,
+            "1042": 6906
+          },
+          "any_at_1886": false,
+          "stack_at_6906": [
+            1042
+          ],
+          "stack_depth": 1,
+          "any_path": true,
+          "enroute_conc": [
+            1037
+          ],
+          "enroute_atk": [],
+          "combat_densify": "HONEST_EMPTY",
+          "adjacency": "HONEST_EMPTY"
+        },
+        "provs": {
+          "1037": [
+            6817,
+            2,
+            false
+          ],
+          "1038": [
+            3873,
+            7,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false
+          ]
+        }
+      }
+    ]
+  },
+  "durable_observe": {
+    "seconds_budget": 90.0,
+    "early_stop": null,
+    "samples_n": 18,
+    "durable_stack_ge2": false,
+    "synthesis": {
+      "provinces": {
+        "1037": 3931,
+        "1038": 11838,
+        "1042": 6906
+      },
+      "any_at_1886": false,
+      "stack_at_6906": [
+        1042
+      ],
+      "stack_depth": 1,
+      "any_path": false,
+      "enroute_conc": [],
+      "enroute_atk": [],
+      "combat_densify": "HONEST_EMPTY",
+      "adjacency": "HONEST_EMPTY"
+    },
+    "compact": [
+      {
+        "t": 0.18,
+        "ui": "1936-02-27",
+        "provs": {
+          "1037": [
+            9896,
+            9,
+            false,
+            false
+          ],
+          "1038": [
+            6817,
+            2,
+            true,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 5.38,
+        "ui": "1936-02-28",
+        "provs": {
+          "1037": [
+            3873,
+            6,
+            false,
+            false
+          ],
+          "1038": [
+            9896,
+            9,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 10.58,
+        "ui": "1936-02-28",
+        "provs": {
+          "1037": [
+            3954,
+            4,
+            false,
+            false
+          ],
+          "1038": [
+            3873,
+            7,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 15.8,
+        "ui": "1936-02-28",
+        "provs": {
+          "1037": [
+            6901,
+            2,
+            false,
+            false
+          ],
+          "1038": [
+            3954,
+            4,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 20.99,
+        "ui": "1936-02-29",
+        "provs": {
+          "1037": [
+            9857,
+            1,
+            false,
+            false
+          ],
+          "1038": [
+            11821,
+            1,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 26.17,
+        "ui": "1936-02-29",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11821,
+            1,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": true
+      },
+      {
+        "t": 31.43,
+        "ui": "1936-03-01",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 36.63,
+        "ui": "1936-03-01",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 41.86,
+        "ui": "1936-03-02",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 47.06,
+        "ui": "1936-03-02",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 52.28,
+        "ui": "1936-03-02",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 57.5,
+        "ui": "1936-03-03",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 62.73,
+        "ui": "1936-03-03",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 67.94,
+        "ui": "1936-03-04",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 73.12,
+        "ui": "1936-03-04",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 78.3,
+        "ui": "1936-03-04",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 83.49,
+        "ui": "1936-03-05",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      },
+      {
+        "t": 88.67,
+        "ui": "1936-03-05",
+        "provs": {
+          "1037": [
+            3931,
+            0,
+            false,
+            false
+          ],
+          "1038": [
+            11838,
+            0,
+            false,
+            false
+          ],
+          "1042": [
+            6906,
+            0,
+            false,
+            false
+          ]
+        },
+        "stack_depth": 1,
+        "any_at_1886": false,
+        "any_path": false
+      }
+    ]
+  },
+  "hold_through_attack": false,
+  "attacked_all3": true,
+  "stability": {
+    "seconds": 25.0,
+    "responding_stayed": true,
+    "alive_final": true,
+    "heap_exit": false,
+    "samples_n": 25
+  },
+  "live0": {
+    "pid": 31084,
+    "ui_date": "1936-02-21",
+    "day_index": 51,
+    "player_tag": 15,
+    "allow_post": false,
+    "war_basis": "1936 ETH day-1 historical war vs ITA (continuation/relaunch)"
+  },
+  "live_after": {
+    "pid": 31084,
+    "ui_date": "1936-03-08",
+    "day_index": 67,
+    "player_tag": 15,
+    "allow_post": false,
+    "war_basis": "1936 ETH day-1 historical war vs ITA (continuation/relaunch)"
+  },
+  "instant": "PARKED",
+  "final_allow_post": false,
+  "marker_exists": false,
+  "post_attempts": {
+    "strategic": 2,
+    "attack": 3,
+    "cancel": 6,
+    "re_strategic_after_cancel": 6,
+    "move": 0,
+    "retreat": 0
+  },
+  "path_c": {
+    "baseline": "~60%",
+    "prior_2iko": "~98-99%",
+    "estimate_after": "~98-99%",
+    "crossed_70": true,
+    "note": "Attack-all3 while stack3; peeled after (Cancel tried)"
+  },
+  "timestamp_asia_shanghai": "2026-11-02 00:30:08 Asia/Shanghai"
+}

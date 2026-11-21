@@ -1,0 +1,21 @@
+404ae0 push rbx
+404ae2 sub rsp, 0x20
+404ae6 mov ecx, 0x60
+404aeb call 0x25a01dc
+404af0 mov rbx, rax
+404af3 mov qword ptr [rsp + 0x38], rax
+404af8 test rax, rax
+404afb je 0x404b20
+404afd mov rcx, rax
+404b00 call 0x591560
+404b05 lea rax, [rip + 0x2405dbc]
+404b0c mov qword ptr [rbx], rax
+404b0f mov qword ptr [rbx + 0x58], 0
+404b17 mov rax, rbx
+404b1a add rsp, 0x20
+404b1e pop rbx
+404b1f ret 
+404b20 xor eax, eax
+404b22 add rsp, 0x20
+404b26 pop rbx
+404b27 ret 

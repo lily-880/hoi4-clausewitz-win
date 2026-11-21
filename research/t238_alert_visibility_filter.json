@@ -1,0 +1,77 @@
+{
+  "at_est": "2026-11-21T01:47:51.675407-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "functions": {
+    "0xb620c0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xb620c0",
+      "window_size": 512,
+      "reachable_instruction_count": 11,
+      "unresolved_edges": [
+        {
+          "address": "0xb620e4",
+          "reason": "indirect jump",
+          "operand": "rcx"
+        }
+      ],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "b620c0 add edx, -8",
+        "b620c3 cmp edx, 0x49",
+        "b620c6 ja 0xb620e9",
+        "b620c8 movsxd rax, edx",
+        "b620cb lea rdx, [rip - 0xb620d2]",
+        "b620d2 movzx eax, byte ptr [rdx + rax + 0xb620f4]",
+        "b620da mov ecx, dword ptr [rdx + rax*4 + 0xb620ec]",
+        "b620e1 add rcx, rdx",
+        "b620e4 jmp rcx",
+        "b620e9 xor al, al",
+        "b620eb ret "
+      ],
+      "raw_hex": "83c2f883fa4977214863c2488d152edf49ff0fb68402f420b6008b8c82ec20b6004803caffe1b001c332c0c3e620b600e920b6000000000000000000000000010000000000000000000000000000000000000000000000010001010000000000000000000000000000000000000000000000000000000000000000000000cccc48895c240848896c2410488974242057415641574883ec20488bda488d542450488bcbe8f8ea1200488b0d491388024839080f8ce9000000488d542450488bcbe8dbf11200488b0d74f587024839080f8fcc000000488b83280700004c8bb8f0010000498bcfe835b938004885c00f84c8000000488b8b280700004881c1d8010000e8295a0a0033d2488bc84c8bf0e8dc61beff84c00f84850000004d8bb6880f000033ed4139aea40000007e736690498b86980000004863cd488d0c88e8ed590a00488bc8e8d5f1bdff498b97c8000000488bc8e806f7140033ff488bf039780c7e3233db66660f1f840000000000488b0e488b0c0b8b5110c1ea08f6c2017409e8a92c4a0084c07531ffc74883c3083b7e0c7cdaffc5413baea40000007c8f32c0488b5c2440488b6c2448488b7424584883c420415f415e5fc3b001ebe340534883ec3080797900756f8b41603941647c67488d5948e8c3697e018b0b84c0741785c97509394b04750433c0eb39488bcbe8b8257201eb2f85c97505394b",
+      "sha256": "8a21de6b06e35e2f708bcd5ed757eafa95b4da473b6d2c88bca2a886250be3cd",
+      "pdata": null,
+      "literals": []
+    }
+  },
+  "promotions": [],
+  "scope": "Exact B620C0 callee for B6DD96; receiver/output must be proven from instructions, never glow color/448/threshold severity mapping. No native invocation."
+}

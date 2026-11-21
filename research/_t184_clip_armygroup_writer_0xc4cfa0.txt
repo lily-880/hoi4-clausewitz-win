@@ -1,0 +1,42 @@
+0xc4cfa0  mov qword ptr [rsp + 0x18], rsi
+0xc4cfa5  push rdi
+0xc4cfa6  sub rsp, 0x20
+0xc4cfaa  mov qword ptr [rsp + 0x38], rbp
+0xc4cfaf  mov rsi, rdx
+0xc4cfb2  movsxd rbp, dword ptr [rcx + 0x23c]
+0xc4cfb9  mov rdi, rcx
+0xc4cfbc  test rbp, rbp
+0xc4cfbf  jle 0xc4cff9
+0xc4cfc1  mov qword ptr [rsp + 0x30], rbx
+0xc4cfc6  xor ebx, ebx
+0xc4cfc8  nop dword ptr [rax + rax]
+0xc4cfd0  mov rax, qword ptr [rdi + 0x230]
+0xc4cfd7  mov edx, 0x30ae  ; TOKEN orders_group
+0xc4cfdc  mov rcx, rsi
+0xc4cfdf  mov r8, qword ptr [rax + rbx*8]
+0xc4cfe3  add r8, 8
+0xc4cfe7  call 0x22857c0
+0xc4cfec  inc rbx
+0xc4cfef  cmp rbx, rbp
+0xc4cff2  jl 0xc4cfd0
+0xc4cff4  mov rbx, qword ptr [rsp + 0x30]
+0xc4cff9  movzx r8d, byte ptr [rdi + 0x248]
+0xc4d001  mov rbp, qword ptr [rsp + 0x38]
+0xc4d006  test r8b, r8b
+0xc4d009  je 0xc4d018
+0xc4d00b  mov edx, 0x3a2e  ; TOKEN collapse
+0xc4d010  mov rcx, rsi
+0xc4d013  call 0x2546250
+0xc4d018  mov rdx, rsi
+0xc4d01b  mov rcx, rdi
+0xc4d01e  mov rsi, qword ptr [rsp + 0x40]
+0xc4d023  add rsp, 0x20
+0xc4d027  pop rdi
+0xc4d028  jmp 0xc4d030
+0xc4d02d  int3 
+0xc4d02e  int3 
+0xc4d02f  int3 
+0xc4d030  mov qword ptr [rsp + 0x10], rbx
+0xc4d035  mov qword ptr [rsp + 0x18], rsi
+0xc4d03a  mov qword ptr [rsp + 0x20], rdi
+0xc4d03f  push rbp

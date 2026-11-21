@@ -1,0 +1,271 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "ctor_rtti": {
+    "vtable": "0x2a2d020",
+    "col": "0x2d815f0",
+    "col_words": [
+      1,
+      0,
+      0,
+      53514536,
+      47715864,
+      47715824
+    ],
+    "type_descriptor": "0x3309128",
+    "class": ".?AVCCancelMovementCommand@@"
+  },
+  "new_flows": {
+    "0xc4fa10": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc4fa10",
+      "window_size": 576,
+      "reachable_instruction_count": 103,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc4fa28",
+          "operand": "qword ptr [rax + 0x40]"
+        },
+        {
+          "site": "0xc4fa39",
+          "operand": "0xccb550"
+        },
+        {
+          "site": "0xc4fa4d",
+          "operand": "0xc6ff70"
+        },
+        {
+          "site": "0xc4fa64",
+          "operand": "0x5a5210"
+        },
+        {
+          "site": "0xc4fa8f",
+          "operand": "0x31f8b0"
+        },
+        {
+          "site": "0xc4face",
+          "operand": "0x5a5210"
+        },
+        {
+          "site": "0xc4faff",
+          "operand": "0x31f8b0"
+        },
+        {
+          "site": "0xc4fb4e",
+          "operand": "qword ptr [rax + 0x60]"
+        }
+      ],
+      "asm": [
+        "c4fa10 mov qword ptr [rsp + 0x10], rbx",
+        "c4fa15 mov qword ptr [rsp + 0x18], rbp",
+        "c4fa1a push rsi",
+        "c4fa1b push rdi",
+        "c4fa1c push r14",
+        "c4fa1e sub rsp, 0x20",
+        "c4fa22 mov rax, qword ptr [rcx]",
+        "c4fa25 mov rbx, rcx",
+        "c4fa28 call qword ptr [rax + 0x40]",
+        "c4fa2b xor edi, edi",
+        "c4fa2d test rax, rax",
+        "c4fa30 je 0xc4fb2b",
+        "c4fa36 mov rcx, rax",
+        "c4fa39 call 0xccb550",
+        "c4fa3e test rax, rax",
+        "c4fa41 je 0xc4fb2b",
+        "c4fa47 mov rdx, rbx",
+        "c4fa4a mov rcx, rax",
+        "c4fa4d call 0xc6ff70",
+        "c4fa52 mov r8d, 0x297",
+        "c4fa58 lea rdx, [rsp + 0x40]",
+        "c4fa5d mov r14, rax",
+        "c4fa60 lea rcx, [rax + 0x10]",
+        "c4fa64 call 0x5a5210",
+        "c4fa69 cmp qword ptr [rax], rdi",
+        "c4fa6c jle 0xc4fabf",
+        "c4fa6e movsxd rcx, dword ptr [rbx + 0x1b4]",
+        "c4fa75 test ecx, ecx",
+        "c4fa77 jle 0xc4fabf",
+        "c4fa79 mov rbp, rcx",
+        "c4fa7c mov esi, edi",
+        "c4fa7e nop ",
+        "c4fa80 mov rax, qword ptr [rbx + 0x1a8]",
+        "c4fa87 mov rcx, qword ptr [rax + rsi*8]",
+        "c4fa8b mov rcx, qword ptr [rcx + 0x30]",
+        "c4fa8f call 0x31f8b0",
+        "c4fa94 mov rcx, rdi",
+        "c4fa97 movsxd rdx, dword ptr [rax + 0xc]",
+        "c4fa9b test edx, edx",
+        "c4fa9d jle 0xc4fab7",
+        "c4fa9f mov rax, qword ptr [rax]",
+        "c4faa2 cmp qword ptr [rax], rbx",
+        "c4faa5 je 0xc4fb5d",
+        "c4faab inc rcx",
+        "c4faae add rax, 8",
+        "c4fab2 cmp rcx, rdx",
+        "c4fab5 jl 0xc4faa2",
+        "c4fab7 inc rsi",
+        "c4faba cmp rsi, rbp",
+        "c4fabd jl 0xc4fa80",
+        "c4fabf lea rcx, [r14 + 0x10]",
+        "c4fac3 mov r8d, 0x298",
+        "c4fac9 lea rdx, [rsp + 0x40]",
+        "c4face call 0x5a5210",
+        "c4fad3 cmp qword ptr [rax], rdi",
+        "c4fad6 jle 0xc4fb2b",
+        "c4fad8 movsxd rax, dword ptr [rbx + 0x1b4]",
+        "c4fadf test eax, eax",
+        "c4fae1 jle 0xc4fb2b",
+        "c4fae3 mov rbp, rax",
+        "c4fae6 mov rsi, rdi",
+        "c4fae9 nop dword ptr [rax]",
+        "c4faf0 mov rax, qword ptr [rbx + 0x1a8]",
+        "c4faf7 mov rcx, qword ptr [rax + rsi*8]",
+        "c4fafb mov rcx, qword ptr [rcx + 0x28]",
+        "c4faff call 0x31f8b0",
+        "c4fb04 mov rcx, rdi",
+        "c4fb07 movsxd rdx, dword ptr [rax + 0xc]",
+        "c4fb0b test edx, edx",
+        "c4fb0d jle 0xc4fb23",
+        "c4fb0f mov rax, qword ptr [rax]",
+        "c4fb12 cmp qword ptr [rax], rbx",
+        "c4fb15 je 0xc4fb5d",
+        "c4fb17 inc rcx",
+        "c4fb1a add rax, 8",
+        "c4fb1e cmp rcx, rdx",
+        "c4fb21 jl 0xc4fb12",
+        "c4fb23 inc rsi",
+        "c4fb26 cmp rsi, rbp",
+        "c4fb29 jl 0xc4faf0",
+        "c4fb2b movsxd rsi, dword ptr [rbx + 0x1b4]",
+        "c4fb32 test rsi, rsi",
+        "c4fb35 jle 0xc4fb5d",
+        "c4fb37 nop word ptr [rax + rax]",
+        "c4fb40 mov rax, qword ptr [rbx + 0x1a8]",
+        "c4fb47 mov rcx, qword ptr [rax + rdi*8]",
+        "c4fb4b mov rax, qword ptr [rcx]",
+        "c4fb4e call qword ptr [rax + 0x60]",
+        "c4fb51 test al, al",
+        "c4fb53 jne 0xc4fb72",
+        "c4fb55 inc rdi",
+        "c4fb58 cmp rdi, rsi",
+        "c4fb5b jl 0xc4fb40",
+        "c4fb5d xor al, al",
+        "c4fb5f mov rbx, qword ptr [rsp + 0x48]",
+        "c4fb64 mov rbp, qword ptr [rsp + 0x50]",
+        "c4fb69 add rsp, 0x20",
+        "c4fb6d pop r14",
+        "c4fb6f pop rdi",
+        "c4fb70 pop rsi",
+        "c4fb71 ret ",
+        "c4fb72 mov al, 1",
+        "c4fb74 jmp 0xc4fb5f"
+      ]
+    },
+    "0xc51530": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc51530",
+      "window_size": 160,
+      "reachable_instruction_count": 16,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc51553",
+          "operand": "0x2284870"
+        }
+      ],
+      "asm": [
+        "c51530 sub rsp, 0x28",
+        "c51534 add rcx, 0x32c",
+        "c5153b cmp dword ptr [rcx], 0",
+        "c5153e jne 0xc51553",
+        "c51540 cmp dword ptr [rcx + 4], 0",
+        "c51544 jne 0xc51553",
+        "c51546 xor eax, eax",
+        "c51548 test rax, rax",
+        "c5154b setne al",
+        "c5154e add rsp, 0x28",
+        "c51552 ret ",
+        "c51553 call 0x2284870",
+        "c51558 test rax, rax",
+        "c5155b setne al",
+        "c5155e add rsp, 0x28",
+        "c51562 ret "
+      ]
+    },
+    "0x748490": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x748490",
+      "window_size": 256,
+      "reachable_instruction_count": 34,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x7484c7",
+          "operand": "0xc08790"
+        },
+        {
+          "site": "0x7484df",
+          "operand": "0x748500"
+        }
+      ],
+      "asm": [
+        "748490 mov qword ptr [rsp + 8], rbx",
+        "748495 mov qword ptr [rsp + 0x10], rbp",
+        "74849a mov qword ptr [rsp + 0x18], rsi",
+        "74849f push rdi",
+        "7484a0 sub rsp, 0x20",
+        "7484a4 mov eax, dword ptr [rcx + 8]",
+        "7484a7 mov rdi, rcx",
+        "7484aa add rcx, 8",
+        "7484ae mov rbx, rdx",
+        "7484b1 mov edx, dword ptr [rdx]",
+        "7484b3 movzx esi, r9b",
+        "7484b7 movzx ebp, r8b",
+        "7484bb cmp edx, eax",
+        "7484bd je 0x7484e6",
+        "7484bf test edx, edx",
+        "7484c1 je 0x7484d1",
+        "7484c3 test eax, eax",
+        "7484c5 je 0x7484d1",
+        "7484c7 call 0xc08790",
+        "7484cc cmp dword ptr [rbx + 4], eax",
+        "7484cf je 0x7484e6",
+        "7484d1 movzx r9d, sil",
+        "7484d5 movzx r8d, bpl",
+        "7484d9 mov rdx, rbx",
+        "7484dc mov rcx, rdi",
+        "7484df call 0x748500",
+        "7484e4 jmp 0x7484e8",
+        "7484e6 mov al, 1",
+        "7484e8 mov rbx, qword ptr [rsp + 0x30]",
+        "7484ed mov rbp, qword ptr [rsp + 0x38]",
+        "7484f2 mov rsi, qword ptr [rsp + 0x40]",
+        "7484f7 add rsp, 0x20",
+        "7484fb pop rdi",
+        "7484fc ret "
+      ]
+    }
+  },
+  "scope": "native command identity/eligibility only; no construct/validate/queue/execute; UI filtering not automatically full current-order classifier"
+}

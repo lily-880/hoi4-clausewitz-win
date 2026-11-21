@@ -1,0 +1,15 @@
+e64ae0 push rbx
+e64ae2 sub rsp, 0x20
+e64ae6 mov rbx, rcx
+e64ae9 mov rcx, qword ptr [rdx]
+e64aec call 0x717010
+e64af1 mov rdx, qword ptr [rbx + 8]
+e64af5 mov rcx, rax
+e64af8 call 0x2ef600
+e64afd test al, al
+e64aff je 0xe64b08
+e64b01 mov rax, qword ptr [rbx + 0x10]
+e64b05 mov byte ptr [rax], 1
+e64b08 add rsp, 0x20
+e64b0c pop rbx
+e64b0d ret 

@@ -1,0 +1,56 @@
+0x1409560  mov qword ptr [rsp + 8], rbx
+0x1409565  mov qword ptr [rsp + 0x18], rsi
+0x140956a  push rdi
+0x140956b  sub rsp, 0x20
+0x140956f  mov rbx, r8
+0x1409572  mov rsi, rdx
+0x1409575  mov rdi, rcx
+0x1409578  call 0x1409630
+0x140957d  xor r9d, r9d
+0x1409580  lea rdx, [rsp + 0x38]
+0x1409585  mov r8, rbx
+0x1409588  mov rcx, rdi
+0x140958b  call 0x1409890
+0x1409590  mov r8, rbx
+0x1409593  lea rdx, [rsp + 0x48]
+0x1409598  mov rcx, rdi
+0x140959b  call 0x14080c0
+0x14095a0  mov rdx, qword ptr [rsp + 0x38]
+0x14095a5  movabs rdi, 0x53e2d620fb40
+0x14095af  movabs rbx, 0xffffac1d29df04c0
+0x14095b9  add rdx, qword ptr [rax]
+0x14095bc  cmp rdx, rdi
+0x14095bf  jle 0x14095c6
+0x14095c1  mov rdx, rdi
+0x14095c4  jmp 0x14095cd
+0x14095c6  cmp rdx, rbx
+0x14095c9  cmovl rdx, rbx
+0x14095cd  lea rcx, [rsp + 0x38]
+0x14095d2  call 0x2574ba0
+0x14095d7  mov rdx, qword ptr [rax]
+0x14095da  add rdx, qword ptr [rsi]
+0x14095dd  cmp rdx, rdi
+0x14095e0  jle 0x14095f8
+0x14095e2  mov qword ptr [rsi], rdi
+0x14095e5  mov rax, rsi
+0x14095e8  mov rbx, qword ptr [rsp + 0x30]
+0x14095ed  mov rsi, qword ptr [rsp + 0x40]
+0x14095f2  add rsp, 0x20
+0x14095f6  pop rdi
+0x14095f7  ret
+0x14095f8  cmp rdx, rbx
+0x14095fb  jge 0x1409613
+0x14095fd  mov qword ptr [rsi], rbx
+0x1409600  mov rax, rsi
+0x1409603  mov rbx, qword ptr [rsp + 0x30]
+0x1409608  mov rsi, qword ptr [rsp + 0x40]
+0x140960d  add rsp, 0x20
+0x1409611  pop rdi
+0x1409612  ret
+0x1409613  mov qword ptr [rsi], rdx
+0x1409616  mov rax, rsi
+0x1409619  mov rbx, qword ptr [rsp + 0x30]
+0x140961e  mov rsi, qword ptr [rsp + 0x40]
+0x1409623  add rsp, 0x20
+0x1409627  pop rdi
+0x1409628  ret

@@ -1,0 +1,56 @@
+cc4c90 mov qword ptr [rsp + 0x10], rbx
+cc4c95 mov qword ptr [rsp + 0x18], rbp
+cc4c9a push rsi
+cc4c9b push rdi
+cc4c9c push r12
+cc4c9e push r14
+cc4ca0 push r15
+cc4ca2 sub rsp, 0x20
+cc4ca6 mov ebx, dword ptr [rdx]
+cc4ca8 lea r15, [rcx + 8]
+cc4cac xor r14d, r14d
+cc4caf mov dword ptr [rsp + 0x50], ebx
+cc4cb3 mov r12d, r8d
+cc4cb6 test ebx, ebx
+cc4cb8 jne 0xcc4cbf
+cc4cba mov esi, r14d
+cc4cbd jmp 0xcc4cc9
+cc4cbf mov rcx, rdx
+cc4cc2 call 0xc08790
+cc4cc7 mov esi, eax
+cc4cc9 mov rdi, qword ptr [r15 + 8]
+cc4ccd movsxd rcx, dword ptr [r15 + 0x14]
+cc4cd1 mov dword ptr [rsp + 0x54], esi
+cc4cd5 lea rbp, [rdi + rcx*8]
+cc4cd9 cmp rdi, rbp
+cc4cdc je 0xcc4d09
+cc4cde nop 
+cc4ce0 mov ecx, dword ptr [rdi]
+cc4ce2 cmp ebx, ecx
+cc4ce4 je 0xcc4d05
+cc4ce6 test ebx, ebx
+cc4ce8 je 0xcc4cfa
+cc4cea test ecx, ecx
+cc4cec je 0xcc4cfa
+cc4cee mov rcx, rdi
+cc4cf1 call 0xc08790
+cc4cf6 cmp esi, eax
+cc4cf8 je 0xcc4d05
+cc4cfa add rdi, 8
+cc4cfe cmp rdi, rbp
+cc4d01 jne 0xcc4ce0
+cc4d03 jmp 0xcc4d09
+cc4d05 mov r14d, dword ptr [rdi + 4]
+cc4d09 lea r8d, [r14 + r12]
+cc4d0d mov rcx, r15
+cc4d10 lea rdx, [rsp + 0x50]
+cc4d15 call 0xcc7550
+cc4d1a mov rbx, qword ptr [rsp + 0x58]
+cc4d1f mov rbp, qword ptr [rsp + 0x60]
+cc4d24 add rsp, 0x20
+cc4d28 pop r15
+cc4d2a pop r14
+cc4d2c pop r12
+cc4d2e pop rdi
+cc4d2f pop rsi
+cc4d30 ret 

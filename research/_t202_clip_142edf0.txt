@@ -1,0 +1,40 @@
+142edf0 mov qword ptr [rsp + 8], rbx
+142edf5 push rdi
+142edf6 sub rsp, 0x40
+142edfa mov rbx, rdx
+142edfd mov rdi, rcx
+142ee00 call 0x584870
+142ee05 test al, al
+142ee07 jne 0x142ee6e
+142ee09 lea rcx, [rdi + 0x58]
+142ee0d xorps xmm0, xmm0
+142ee10 movups xmmword ptr [rsp + 0x20], xmm0
+142ee15 movdqa xmm1, xmmword ptr [rip + 0x1366b73]
+142ee1d movdqu xmmword ptr [rsp + 0x30], xmm1
+142ee23 mov byte ptr [rsp + 0x20], al
+142ee27 lea r8, [rsp + 0x20]
+142ee2c mov rdx, rbx
+142ee2f call 0x58d210
+142ee34 nop 
+142ee35 mov rdx, qword ptr [rsp + 0x38]
+142ee3a cmp rdx, 0xf
+142ee3e jbe 0x142ee6e
+142ee40 inc rdx
+142ee43 mov rcx, qword ptr [rsp + 0x20]
+142ee48 mov rax, rcx
+142ee4b cmp rdx, 0x1000
+142ee52 jb 0x142ee69
+142ee54 add rdx, 0x27
+142ee58 mov rcx, qword ptr [rcx - 8]
+142ee5c sub rax, rcx
+142ee5f add rax, -8
+142ee63 cmp rax, 0x1f
+142ee67 ja 0x142ee7b
+142ee69 call 0x25a0218
+142ee6e mov al, 1
+142ee70 mov rbx, qword ptr [rsp + 0x50]
+142ee75 add rsp, 0x40
+142ee79 pop rdi
+142ee7a ret 
+142ee7b call 0x25c7db4
+142ee80 int3 

@@ -1,0 +1,56 @@
+{
+  "pid": 26976,
+  "hour_tick": 60759371,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "correction_of_t173": "140b9c0/15b1da0 is not the produced allocator. 15b1da0 is a capped add into a logistics dense array indexed by type+0x598.",
+  "logistics_add": {
+    "14075c0": "pool=15b1d90([CLogisticsStatus+8][mode]); work-list stride 16; 15b1da0(pool, amount, type+0x598)",
+    "15b1d90": "[CLoopHistory+0x10 CLoopHistoryContainer]+0x30 untyped dense array (live count 81)",
+    "15b1da0_caps": [
+      "0x53e2d620fb40",
+      "0xffffac1d29df04c0"
+    ],
+    "140b9c0_modes": [
+      1,
+      0,
+      6
+    ],
+    "140b810_modes": [
+      4,
+      0,
+      6
+    ],
+    "live_infantry_slot": "type+0x598=15; all observed mode slots are 0 after this already-completed hour"
+  },
+  "produced_path": {
+    "15a26f0": "inits produced empty via 10925a0(request+0x38); writes need only",
+    "15a5c80": "need can be reduced (1098540); excess produced can be returned to stock (ee1250). No add to produced",
+    "ee1250": "dest pool -> production+0x200 (subtract dest, add stock)",
+    "15a55e0": "pending-list registration only",
+    "15a92f0": "give=min(max(0, need-produced), offered); 1092b70(request+0x38, type, give) adds to produced; remaining offered written back. No E8/E9/absolute-RVA callers found this batch, so the offered-amount source is not yet bound to national stock",
+    "1092b70": "primitive add-to-variant-pool row (capped)",
+    "1098700": "subtract via 2574ba0 neg then 1092b70",
+    "1098540": "subtract from a pool row (negated add)",
+    "10928b0": "add a stride-0x18 list into a variant pool"
+  },
+  "live": {
+    "request": "0x26cb1969530",
+    "need_infantry": 80,
+    "produced_from_t170": 3,
+    "stock_present_types": [
+      {
+        "equipment_type": "train_equipment",
+        "stockpile": 5
+      }
+    ],
+    "infantry_not_in_present_stock": true,
+    "note": "produced was not re-walked with the variant-pool type-row stride in this live script; t170/t171 remain the produced=3 evidence. Current stock has no present infantry_equipment row, consistent with a prior allocation having already left the national stock empty of infantry, but that is not a stored-value cross-check of 77 or 3."
+  },
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ],
+  "produced_not_yet_a_prediction_formula": "15a92f0 gives the accept step, but offered comes from an unbound caller. Do not claim produced=min(need, stock) yet."
+}

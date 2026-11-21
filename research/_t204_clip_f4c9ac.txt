@@ -1,0 +1,32 @@
+f4c9ac lea rax, [rip + 0x249077e]
+f4c9b3 mov byte ptr [rsp + 0x48], 0
+f4c9b8 mov qword ptr [rsp + 0x28], rax
+f4c9bd lea rdx, [rip + 0x1847d59]
+f4c9c4 lea rax, [rsp + 0x48]
+f4c9c9 mov r9b, 1
+f4c9cc mov r8d, 0x465
+f4c9d2 mov qword ptr [rsp + 0x20], rax
+f4c9d7 lea rcx, [rip + 0x1847e82]
+f4c9de call 0x254ab40
+f4c9e3 cmp byte ptr [rsp + 0x48], 0
+f4c9e8 mov byte ptr [rip + 0x2490743], al
+f4c9ee je 0xf4c9f1
+f4c9f0 int3 
+f4c9f1 mov rax, qword ptr [rip + 0x2490cb8]
+f4c9f8 test rax, rax
+f4c9fb je 0xf4ca29
+f4c9fd cmp byte ptr [rax + 0xa39], 0
+f4ca04 je 0xf4ca29
+f4ca06 mov rcx, qword ptr [rip + 0x24910fb]
+f4ca0d mov rax, qword ptr [rcx]
+f4ca10 call qword ptr [rax + 0x2f0]
+f4ca16 test al, al
+f4ca18 je 0xf4ca29
+f4ca1a xor edx, edx
+f4ca1c mov rcx, rdi
+f4ca1f add rsp, 0x30
+f4ca23 pop rdi
+f4ca24 jmp 0xf49f10
+f4ca29 add rsp, 0x30
+f4ca2d pop rdi
+f4ca2e ret 

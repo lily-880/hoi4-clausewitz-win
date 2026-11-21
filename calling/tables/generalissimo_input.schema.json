@@ -1,0 +1,1061 @@
+{
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "game_time": {
+          "$ref": "#/$defs/GameTime"
+        },
+        "player_country": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "speed": {
+          "enum": [
+            "pause",
+            "1x"
+          ]
+        },
+        "allow_write": {
+          "type": "boolean"
+        },
+        "geography_scope": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "global"
+                  ]
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "theater"
+                  ]
+                },
+                "province_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "required": [
+                "kind",
+                "province_ids"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "game_time",
+        "player_country",
+        "speed",
+        "allow_write",
+        "geography_scope"
+      ],
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "stance": {
+          "enum": [
+            "preserve_force",
+            "hold_line",
+            "annihilate",
+            "economize_manpower",
+            "custom"
+          ]
+        },
+        "instructions": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "world": {
+      "type": "object",
+      "properties": {
+        "own_units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Unit"
+          }
+        },
+        "visible_units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VisibleUnit"
+          }
+        },
+        "army_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ArmyGroup"
+          }
+        },
+        "armies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Army"
+          }
+        },
+        "leaders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Leader"
+          }
+        },
+        "provinces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Province"
+          }
+        },
+        "plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Plan"
+          }
+        },
+        "combats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Combat"
+          }
+        },
+        "crises": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Crisis"
+          }
+        },
+        "wars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/War"
+          }
+        },
+        "shortages": {
+          "$ref": "#/$defs/Shortages"
+        }
+      },
+      "required": [
+        "own_units",
+        "visible_units",
+        "army_groups",
+        "armies",
+        "leaders",
+        "provinces",
+        "plans",
+        "combats",
+        "crises",
+        "wars",
+        "shortages"
+      ],
+      "additionalProperties": false
+    },
+    "feedback": {
+      "$ref": "#/$defs/Feedback"
+    }
+  },
+  "required": [
+    "meta",
+    "policy",
+    "world",
+    "feedback"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "CountryRef": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "index"
+      ],
+      "additionalProperties": false
+    },
+    "GameTime": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "hour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 24
+        }
+      },
+      "required": [
+        "year",
+        "month",
+        "day",
+        "hour"
+      ],
+      "additionalProperties": false
+    },
+    "OrderType": {
+      "enum": [
+        "idle",
+        "move",
+        "strategic_redeploy",
+        "attack",
+        "support_attack",
+        "retreat",
+        "garrison",
+        "training",
+        "exercise",
+        "unknown"
+      ]
+    },
+    "Relation": {
+      "enum": [
+        "self",
+        "ally",
+        "enemy",
+        "neutral",
+        "subject",
+        "overlord",
+        "unknown"
+      ]
+    },
+    "Template": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "battalions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "type",
+              "count"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "combat_width": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "template_id"
+      ],
+      "additionalProperties": false
+    },
+    "Strength": {
+      "type": "object",
+      "properties": {
+        "manpower": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "equipment_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Supply": {
+      "type": "object",
+      "properties": {
+        "in_supply": {
+          "type": "boolean"
+        },
+        "ratio": {
+          "type": "number"
+        },
+        "isolated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "in_supply"
+      ],
+      "additionalProperties": false
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/OrderType"
+        },
+        "target_province_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "path_province_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "eta": {
+          "type": "object",
+          "properties": {
+            "hours": {
+              "type": "number"
+            },
+            "progress": {
+              "type": "number"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "target_province_ids",
+        "path_province_ids"
+      ],
+      "additionalProperties": false
+    },
+    "Formation": {
+      "type": "object",
+      "properties": {
+        "army_id": {
+          "type": "integer"
+        },
+        "army_group_id": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Unit": {
+      "type": "object",
+      "properties": {
+        "unit_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "province_id": {
+          "type": "integer"
+        },
+        "owner": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "relation_to_player": {
+          "$ref": "#/$defs/Relation"
+        },
+        "template": {
+          "$ref": "#/$defs/Template"
+        },
+        "organization": {
+          "type": "number"
+        },
+        "strength": {
+          "$ref": "#/$defs/Strength"
+        },
+        "supply": {
+          "$ref": "#/$defs/Supply"
+        },
+        "in_combat": {
+          "type": "boolean"
+        },
+        "combat_id": {
+          "type": "integer"
+        },
+        "order": {
+          "$ref": "#/$defs/Order"
+        },
+        "formation": {
+          "$ref": "#/$defs/Formation"
+        },
+        "leader_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "unit_id",
+        "province_id",
+        "owner",
+        "relation_to_player",
+        "in_combat",
+        "order"
+      ],
+      "additionalProperties": false
+    },
+    "VisibleUnit": {
+      "type": "object",
+      "properties": {
+        "unit_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "province_id": {
+          "type": "integer"
+        },
+        "owner": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "relation_to_player": {
+          "$ref": "#/$defs/Relation"
+        },
+        "template": {
+          "$ref": "#/$defs/Template"
+        },
+        "organization": {
+          "type": "number"
+        },
+        "strength": {
+          "$ref": "#/$defs/Strength"
+        },
+        "supply": {
+          "$ref": "#/$defs/Supply"
+        },
+        "in_combat": {
+          "type": "boolean"
+        },
+        "combat_id": {
+          "type": "integer"
+        },
+        "order": {
+          "$ref": "#/$defs/Order"
+        },
+        "formation": {
+          "$ref": "#/$defs/Formation"
+        },
+        "leader_id": {
+          "type": "integer"
+        },
+        "visibility": {
+          "type": "object",
+          "properties": {
+            "spotted": {
+              "type": "boolean"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "spotted"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "unit_id",
+        "province_id",
+        "owner",
+        "relation_to_player",
+        "in_combat",
+        "order",
+        "visibility"
+      ],
+      "additionalProperties": false
+    },
+    "ArmyGroup": {
+      "type": "object",
+      "properties": {
+        "army_group_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "leader_id": {
+          "type": "integer"
+        },
+        "army_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [
+        "army_group_id",
+        "army_ids"
+      ],
+      "additionalProperties": false
+    },
+    "Army": {
+      "type": "object",
+      "properties": {
+        "army_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "leader_id": {
+          "type": "integer"
+        },
+        "unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "plan_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "army_id",
+        "unit_ids"
+      ],
+      "additionalProperties": false
+    },
+    "Leader": {
+      "type": "object",
+      "properties": {
+        "leader_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "skill": {
+          "type": "number"
+        },
+        "attack": {
+          "type": "number"
+        },
+        "defense": {
+          "type": "number"
+        },
+        "planning": {
+          "type": "number"
+        },
+        "logistics": {
+          "type": "number"
+        },
+        "traits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assigned_to": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "army",
+                "army_group",
+                "unit"
+              ]
+            },
+            "id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "leader_id"
+      ],
+      "additionalProperties": false
+    },
+    "Province": {
+      "type": "object",
+      "properties": {
+        "province_id": {
+          "type": "integer"
+        },
+        "controller": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "owner": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "terrain": {
+          "type": "string"
+        },
+        "infrastructure": {
+          "type": "integer"
+        },
+        "fort_level": {
+          "type": "integer"
+        },
+        "coastal_fort_level": {
+          "type": "integer"
+        },
+        "victory_points": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "neighbors": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "has_river_crossing": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "required": [
+        "province_id",
+        "terrain",
+        "infrastructure",
+        "fort_level"
+      ],
+      "additionalProperties": false
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "frontline",
+            "offensive_line",
+            "garrison",
+            "area_defense"
+          ]
+        },
+        "vertex_province_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "assigned_army_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "assigned_unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "executing": {
+          "type": "boolean"
+        },
+        "axis_province_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "blocked",
+            "stalled",
+            "invalid"
+          ]
+        }
+      },
+      "required": [
+        "plan_id",
+        "type",
+        "vertex_province_ids",
+        "assigned_army_ids",
+        "assigned_unit_ids",
+        "executing"
+      ],
+      "additionalProperties": false
+    },
+    "Combat": {
+      "type": "object",
+      "properties": {
+        "combat_id": {
+          "type": "integer"
+        },
+        "province_id": {
+          "type": "integer"
+        },
+        "attacker_unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "defender_unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "phase": {
+          "enum": [
+            "ongoing",
+            "ended"
+          ]
+        },
+        "result": {
+          "enum": [
+            "our_victory",
+            "our_defeat",
+            "inconclusive"
+          ]
+        },
+        "casualties": {
+          "type": "object",
+          "properties": {
+            "our_manpower": {
+              "type": "integer"
+            },
+            "enemy_manpower": {
+              "type": "integer"
+            },
+            "our_org_loss": {
+              "type": "number"
+            },
+            "enemy_org_loss": {
+              "type": "number"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "started_at": {
+          "$ref": "#/$defs/GameTime"
+        },
+        "ended_at": {
+          "$ref": "#/$defs/GameTime"
+        }
+      },
+      "required": [
+        "combat_id",
+        "province_id",
+        "attacker_unit_ids",
+        "defender_unit_ids",
+        "phase"
+      ],
+      "additionalProperties": false
+    },
+    "Crisis": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "encircled",
+            "encirclement_imminent",
+            "org_collapse",
+            "out_of_supply",
+            "plan_failed"
+          ]
+        },
+        "unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "province_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "severity": {
+          "enum": [
+            "watch",
+            "high",
+            "critical"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "unit_ids",
+        "province_ids",
+        "severity"
+      ],
+      "additionalProperties": false
+    },
+    "War": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "b": {
+          "$ref": "#/$defs/CountryRef"
+        },
+        "state": {
+          "enum": [
+            "at_war",
+            "ceasefire",
+            "capitulated",
+            "puppeted",
+            "not_at_war"
+          ]
+        },
+        "front_invalidated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "Shortages": {
+      "type": "object",
+      "properties": {
+        "equipment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "equipment_type": {
+                "type": "string"
+              },
+              "stockpile": {
+                "type": "integer"
+              },
+              "demanded": {
+                "type": "integer"
+              },
+              "deficit": {
+                "type": "integer"
+              },
+              "affected_unit_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "affected_plan_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": [
+              "equipment_type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "manpower": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "integer"
+            },
+            "needed": {
+              "type": "integer"
+            },
+            "deficit": {
+              "type": "integer"
+            },
+            "affected_unit_ids": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "front_cannot_hold": {
+              "type": "boolean"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "missing_divisions": {
+          "type": "object",
+          "properties": {
+            "plan_id": {
+              "type": "integer"
+            },
+            "province_ids": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "needed_estimate": {
+              "type": "integer"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "equipment",
+        "manpower"
+      ],
+      "additionalProperties": false
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "last_orders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "order_seq": {
+                "type": "integer"
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/OrderType"
+                  },
+                  {
+                    "enum": [
+                      "create_frontline",
+                      "create_offensive_line",
+                      "create_garrison",
+                      "assign_to_plan",
+                      "reassign_unit",
+                      "create_army",
+                      "create_army_group",
+                      "assign_leader",
+                      "use_leader_ability",
+                      "train",
+                      "exercise"
+                    ]
+                  }
+                ]
+              },
+              "subject_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "target_province_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "plan_id": {
+                "type": "integer"
+              },
+              "accepted": {
+                "type": "boolean"
+              },
+              "error": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_seq",
+              "type",
+              "subject_ids",
+              "accepted"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "ticks_since_issue": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "last_orders"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "title": "GeneralissimoInput full snapshot shape (not delta transport)",
+  "$comment": "Transcribed from Canvas 4688f13e-df44-4e3f-a501-69afa305b270. Shape validity is not semantic proof. Policy fields may be omitted for documented defaults; cadence delta messages need a separate merge validator. has_river_crossing edge mapping is left object-shaped because the source has no canonical edge schema."
+}

@@ -1,0 +1,47 @@
+{
+  "target": "D:\\Michael Foo\\钢四陆军总司令\\态势信息读取能力清单.md",
+  "expected_before_sha256": "4219d8b0fa9c800fdb34ce3f2b12256c0a28490b21cf12da411f8dbe73aba91a",
+  "last_confirmed_inventory": {
+    "tables": 14,
+    "fields": 116,
+    "columns": 3,
+    "verified": 72,
+    "unverified": 44
+  },
+  "proof_accepted_pending_sync": [
+    {
+      "field": "world.own_units.supply.ratio",
+      "old_status": "未验证",
+      "new_status": "已验证"
+    },
+    {
+      "field": "world.own_units.supply.in_supply",
+      "old_status": "未验证",
+      "new_status": "已验证"
+    }
+  ],
+  "patch_scope": "Change only status cells of these two existing rows; preserve every other cell, all 14 tables/116 fields/3 columns and no appendix.",
+  "projected_inventory_after_sync": {
+    "verified": 74,
+    "unverified": 42
+  },
+  "evidence": [
+    "t201_semantic_bridges.json",
+    "t201_supply_ui_live_inputs.json",
+    "t201_e2e_audit.json",
+    "t201_recursive_e2e_audit.json"
+  ],
+  "semantics": {
+    "ratio": "Official tooltip effective supply, clamp(max(delivered factor, reserve/72),0,100000)/100000; 72 is observed global, not hardcoded by reader.",
+    "in_supply": "Inverse CE4F10 out-of-supply predicate, observed threshold0.99; includes official special branch. Not mere positive delivery, not isolation."
+  },
+  "applied": false,
+  "current_D_readback_sha256": null,
+  "block": "Read and sanctioned CopyToBox refused path outside allowed local-exec root; no Shell or alternative transport bypass; no D write attempted.",
+  "t202_new_promotions": [],
+  "t202_note": "No new schema field promoted. All pending t201 status changes remain unapplied; no D access.",
+  "t204_new_promotions": [],
+  "t204_note": "No new promotions. Existing t201 ratio/in_supply rows only, applied=false. 109 regressions passed after namespace and route-map-pointer research fixes. D untouched.",
+  "t205_new_promotions": [],
+  "t205_note": "Native lifecycle/keyword evidence only. Existing t201 two rows pending; no D access or synchronization; 14/116/3 unchanged."
+}

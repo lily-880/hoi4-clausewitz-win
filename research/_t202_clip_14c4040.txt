@@ -1,0 +1,39 @@
+14c4040 mov qword ptr [rsp + 8], rbx
+14c4045 push rdi
+14c4046 sub rsp, 0x20
+14c404a mov edi, edx
+14c404c mov rbx, rcx
+14c404f mov rdx, qword ptr [rcx + 0xb8]
+14c4056 cmp rdx, 0xf
+14c405a jbe 0x14c408c
+14c405c mov rcx, qword ptr [rcx + 0xa0]
+14c4063 inc rdx
+14c4066 cmp rdx, 0x1000
+14c406d jb 0x14c4087
+14c406f mov r8, qword ptr [rcx - 8]
+14c4073 add rdx, 0x27
+14c4077 sub rcx, r8
+14c407a lea rax, [rcx - 8]
+14c407e cmp rax, 0x1f
+14c4082 ja 0x14c40dc
+14c4084 mov rcx, r8
+14c4087 call 0x25a0218
+14c408c lea rcx, [rbx + 0x48]
+14c4090 mov qword ptr [rbx + 0xb0], 0
+14c409b mov qword ptr [rbx + 0xb8], 0xf
+14c40a6 mov byte ptr [rbx + 0xa0], 0
+14c40ad call 0x5917b0
+14c40b2 lea rcx, [rbx + 8]
+14c40b6 call 0x154720
+14c40bb test dil, 1
+14c40bf je 0x14c40ce
+14c40c1 mov edx, 0xc0
+14c40c6 mov rcx, rbx
+14c40c9 call 0x25a0218
+14c40ce mov rax, rbx
+14c40d1 mov rbx, qword ptr [rsp + 0x30]
+14c40d6 add rsp, 0x20
+14c40da pop rdi
+14c40db ret 
+14c40dc call 0x25c7db4
+14c40e1 int3 

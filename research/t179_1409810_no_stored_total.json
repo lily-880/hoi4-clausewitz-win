@@ -1,0 +1,37 @@
+{
+  "e8_count": 11,
+  "funcs": [
+    "0x1453780",
+    "0x1ddf4e0",
+    "0x1de0d60",
+    "0x1df0130",
+    "0x1df0810",
+    "0x1e1f6a0",
+    "0x1e208f0",
+    "0x1fa1a50",
+    "0x2d5b40",
+    "0x52df40"
+  ],
+  "classification": {
+    "0x2d5b40": "convoy UI strings; result formatted via 2572ef0/254d0a0",
+    "0x52df40": "script/event ForEach over country (Infinite cycle in event FROM scope; Parallel ForEach). lock add accumulates (stock-need)/FIXED into a script dword, not a country status field",
+    "0x1453780": "IsTradable(...) trade path; result used transiently",
+    "0x1ddf4e0": "PRODUCTION_EFFICIENCY UI",
+    "0x1de0d60": "PRODUCTION_NAVAL_DEPLOYMENT / total_need UI",
+    "0x1df0130": "PRODUCTION_EQUIPMENT_TOTAL_NEED UI",
+    "0x1df0810": "PRODUCTION_EQUIPMENT_TOTAL_NEED UI widget flag",
+    "0x1e1f6a0": "already-known logistics UI; stores result at UI object +0x648",
+    "0x1e208f0": "LOGISTICS_EQUIPMENT_VALUE UI; add to UI object +0x668",
+    "0x1fa1a50": "DIPLOMACY_LEND_LEASE_IN_STOCK_VALUE UI"
+  },
+  "all_ui_or_script_or_known_ui_cache": true,
+  "logistics_postdailythreaded": {
+    "func": "0x140ba10",
+    "string": "logistics.postdailythreaded",
+    "behavior": "calls 1409630, 1409890, 14080c0; caps the 1409890+14080c0 sum; subtracts from stock; 15b1d90 then 15b3220(type+0x598, difference). Writes a logistics dense-array balance, not a stored official 77.",
+    "live_logistics_e48_is_80_not_77": true
+  },
+  "bounded_status_scan": "research/t179_bounded_77_scan.json; no i64 77 and no 77*100000 in country and known status objects / production present rows / request objects",
+  "logistics_plus_e48": "i64 80 only (1835 request need), not 77",
+  "conclusion": "No campaign-stored non-UI official 1409810 total found. Stop this shortage trail this batch."
+}

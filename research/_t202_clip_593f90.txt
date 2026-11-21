@@ -1,0 +1,59 @@
+593f90 push rbx
+593f92 sub rsp, 0x20
+593f96 test dword ptr [rcx + 0x24], 0x400
+593f9d mov rbx, rcx
+593fa0 je 0x594018
+593fa2 mov rax, qword ptr [rcx]
+593fa5 call qword ptr [rax + 0x78]
+593fa8 test eax, eax
+593faa je 0x594018
+593fac cmp eax, 2
+593faf je 0x594010
+593fb1 mov ecx, dword ptr [rbx + 0x24]
+593fb4 test cl, 1
+593fb7 je 0x593fbd
+593fb9 test al, 4
+593fbb je 0x594010
+593fbd test cl, 2
+593fc0 je 0x593fc6
+593fc2 test al, 8
+593fc4 je 0x594010
+593fc6 test cl, 4
+593fc9 je 0x593fcf
+593fcb test al, 0x10
+593fcd je 0x594010
+593fcf test cl, 8
+593fd2 je 0x593fd8
+593fd4 test al, 0x20
+593fd6 je 0x594010
+593fd8 test cl, 0x10
+593fdb je 0x593fe1
+593fdd test al, 0x40
+593fdf je 0x594010
+593fe1 test cl, 0x20
+593fe4 je 0x593fec
+593fe6 bt eax, 0xa
+593fea jae 0x594010
+593fec test cl, 0x40
+593fef je 0x593ff5
+593ff1 test al, al
+593ff3 jns 0x594010
+593ff5 test cl, cl
+593ff7 jns 0x593fff
+593ff9 bt eax, 8
+593ffd jae 0x594010
+593fff bt ecx, 8
+594003 jae 0x594018
+594005 shr eax, 9
+594008 and al, 1
+59400a add rsp, 0x20
+59400e pop rbx
+59400f ret 
+594010 xor al, al
+594012 add rsp, 0x20
+594016 pop rbx
+594017 ret 
+594018 mov al, 1
+59401a add rsp, 0x20
+59401e pop rbx
+59401f ret 

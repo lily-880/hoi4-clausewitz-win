@@ -1,0 +1,77 @@
+0xd6f140  mov qword ptr [rsp + 0x20], rbx
+0xd6f145  push r14
+0xd6f147  sub rsp, 0x20
+0xd6f14b  mov rax, qword ptr [rdx]
+0xd6f14e  mov rbx, rdx
+0xd6f151  mov r14, rcx
+0xd6f154  lea rdx, [rsp + 0x38]
+0xd6f159  mov rcx, rbx
+0xd6f15c  call qword ptr [rax + 8]
+0xd6f15f  mov r8, qword ptr [rax]
+0xd6f162  mov qword ptr [rbx + 0x10], r8
+0xd6f166  test r8, r8
+0xd6f169  jle 0xd6f221
+0xd6f16f  movsxd rax, dword ptr [r14 + 0xc]
+0xd6f173  mov ecx, dword ptr [r14 + 8]
+0xd6f177  cmp eax, ecx
+0xd6f179  jne 0xd6f213
+0xd6f17f  inc eax
+0xd6f181  movd xmm0, ecx
+0xd6f185  mov rcx, qword ptr [r14 + 0x10]
+0xd6f189  mov r8d, 8
+0xd6f18f  mov qword ptr [rsp + 0x30], rsi
+0xd6f194  cvtdq2ps xmm0, xmm0
+0xd6f197  mov qword ptr [rsp + 0x40], rdi
+0xd6f19c  mulss xmm0, dword ptr [rip + 0x1a267e4]
+0xd6f1a4  cvttss2si esi, xmm0
+0xd6f1a8  cmp eax, esi
+0xd6f1aa  cmovg esi, eax
+0xd6f1ad  mov rax, qword ptr [rcx]
+0xd6f1b0  mov edx, esi
+0xd6f1b2  shl rdx, 3
+0xd6f1b6  call qword ptr [rax + 8]
+0xd6f1b9  mov rdi, rax
+0xd6f1bc  movsxd rax, dword ptr [r14 + 0xc]
+0xd6f1c0  mov rcx, rdi
+0xd6f1c3  mov qword ptr [rdi + rax*8], rbx
+0xd6f1c7  movsxd r8, dword ptr [r14 + 0xc]
+0xd6f1cb  mov rdx, qword ptr [r14]
+0xd6f1ce  shl r8, 3
+0xd6f1d2  call 0x26079d0
+0xd6f1d7  mov ebx, dword ptr [r14 + 0xc]
+0xd6f1db  mov rcx, qword ptr [r14 + 0x10]
+0xd6f1df  inc ebx
+0xd6f1e1  mov rdx, qword ptr [r14]
+0xd6f1e4  mov dword ptr [r14 + 0xc], 0
+0xd6f1ec  mov rax, qword ptr [rcx]
+0xd6f1ef  call qword ptr [rax + 0x10]
+0xd6f1f2  mov qword ptr [r14], rdi
+0xd6f1f5  mov rdi, qword ptr [rsp + 0x40]
+0xd6f1fa  mov dword ptr [r14 + 8], esi
+0xd6f1fe  mov rsi, qword ptr [rsp + 0x30]
+0xd6f203  mov dword ptr [r14 + 0xc], ebx
+0xd6f207  mov rbx, qword ptr [rsp + 0x48]
+0xd6f20c  add rsp, 0x20
+0xd6f210  pop r14
+0xd6f212  ret 
+0xd6f213  mov rcx, rax
+0xd6f216  mov rax, qword ptr [r14]
+0xd6f219  mov qword ptr [rax + rcx*8], rbx
+0xd6f21d  inc dword ptr [r14 + 0xc]
+0xd6f221  mov rbx, qword ptr [rsp + 0x48]
+0xd6f226  add rsp, 0x20
+0xd6f22a  pop r14
+0xd6f22c  ret 
+0xd6f22d  int3 
+0xd6f22e  int3 
+0xd6f22f  int3 
+0xd6f230  mov qword ptr [rsp + 8], rbx
+0xd6f235  mov qword ptr [rsp + 0x10], rbp
+0xd6f23a  mov qword ptr [rsp + 0x20], rsi
+0xd6f23f  push rdi
+0xd6f240  push r14
+0xd6f242  push r15
+0xd6f244  sub rsp, 0x30
+0xd6f248  mov r15, r9
+0xd6f24b  mov r14, r8
+0xd6f24e  mov esi, edx

@@ -1,0 +1,261 @@
+{
+  "at_est": "2026-11-20T10:47:16.915826-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "functions": {
+    "0x748500": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x748500",
+      "window_size": 576,
+      "reachable_instruction_count": 60,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x748563",
+          "operand": "0xd85ee0"
+        },
+        {
+          "site": "0x748580",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0x7485a6",
+          "operand": "0xd87160"
+        },
+        {
+          "site": "0x7485b2",
+          "operand": "0xd871b0"
+        }
+      ],
+      "asm": [
+        "748500 mov qword ptr [rsp + 8], rbx",
+        "748505 mov qword ptr [rsp + 0x10], rsi",
+        "74850a push rdi",
+        "74850b sub rsp, 0x20",
+        "74850f mov rax, qword ptr [rcx + 0xf88]",
+        "748516 mov rsi, rdx",
+        "748519 movsxd r11, dword ptr [rdx + 4]",
+        "74851d mov rdi, rcx",
+        "748520 mov r10, qword ptr [rax + 8]",
+        "748524 mov rbx, qword ptr [r10 + r11*8]",
+        "748528 mov rax, qword ptr [rbx + 0x2e8]",
+        "74852f test rax, rax",
+        "748532 je 0x74854c",
+        "748534 cmp byte ptr [rax + 0x49], 0",
+        "748538 jne 0x74854c",
+        "74853a xor al, al",
+        "74853c mov rbx, qword ptr [rsp + 0x30]",
+        "748541 mov rsi, qword ptr [rsp + 0x38]",
+        "748546 add rsp, 0x20",
+        "74854a pop rdi",
+        "74854b ret ",
+        "74854c test r8b, r8b",
+        "74854f je 0x74856c",
+        "748551 cmp qword ptr [rbx + 0x2a0], 0",
+        "748559 jne 0x7485cc",
+        "74855b test r9b, r9b",
+        "74855e je 0x74856c",
+        "748560 mov rcx, rbx",
+        "748563 call 0xd85ee0",
+        "748568 test al, al",
+        "74856a jne 0x7485cc",
+        "74856c mov rax, qword ptr [rdi + 0xf88]",
+        "748573 cmp qword ptr [rax + 0x2d8], 0",
+        "74857b je 0x7485a3",
+        "74857d mov rcx, rsi",
+        "748580 call 0xc07bf0",
+        "748585 mov rdx, qword ptr [rdi + 0xf88]",
+        "74858c mov rax, qword ptr [rax + 0xf88]",
+        "748593 mov rax, qword ptr [rax + 0x2d8]",
+        "74859a cmp qword ptr [rdx + 0x2d8], rax",
+        "7485a1 je 0x7485cc",
+        "7485a3 mov rcx, rbx",
+        "7485a6 call 0xd87160",
+        "7485ab test al, al",
+        "7485ad jne 0x7485cc",
+        "7485af mov rcx, rbx",
+        "7485b2 call 0xd871b0",
+        "7485b7 test al, al",
+        "7485b9 setne al",
+        "7485bc mov rbx, qword ptr [rsp + 0x30]",
+        "7485c1 mov rsi, qword ptr [rsp + 0x38]",
+        "7485c6 add rsp, 0x20",
+        "7485ca pop rdi",
+        "7485cb ret ",
+        "7485cc mov rbx, qword ptr [rsp + 0x30]",
+        "7485d1 mov al, 1",
+        "7485d3 mov rsi, qword ptr [rsp + 0x38]",
+        "7485d8 add rsp, 0x20",
+        "7485dc pop rdi",
+        "7485dd ret "
+      ],
+      "raw_hex": "48895c24084889742410574883ec20488b81880f0000488bf24c635a04488bf94c8b50084b8b1cda488b83e80200004885c0741880784900751232c0488b5c2430488b7424384883c4205fc34584c0741b4883bba00200000075714584c9740c488bcbe878d9630084c07560488b87880f00004883b8d8020000007426488bcee86bf64b00488b97880f0000488b80880f0000488b80d8020000483982d80200007429488bcbe8b5eb630084c0751d488bcbe8f9eb630084c00f95c0488b5c2430488b7424384883c4205fc3488b5c2430b001488b7424384883c4205fc3cccc40574883ec30803d2470f40200488bf90f84eb000000803d334bc90200754f48833da950c902007545488d05204bc902c6442440004889442428488d15fcc00402488d44244041b10141b8640400004889442420488d0dfdc10402e80025e001807c2440008805e54ac9027401cc803dbc6ff402000f8486000000803dcf4ac90200757d65488b0425580000008b0d25b4f40248895c2448488b1cc8b8e8200000803c18007505e8447ee501b810000000833c1800488b5c24487445488d058e4ac902c6442440004889442428488d1569c00402488d44244041b10141b8650400004889442420488d0d92c10402e86d24e001807c2440008805534ac9027401cc488b0dc84fc902488d5708e8af01abff84c00f95c04883c4305fc3cccccccc40534883ec20488b81880f0000488bd94883b8d802000000742e488bcae8cef44b00488b8b880f0000488b80880f0000488b80d8020000483981d80200007508",
+      "sha256": "73204a43b5e22a9a852a63a35df568d9a65a9e959cfa9c3c587d034146d516b1"
+    }
+  },
+  "bypass_switch_rva": "0x33ddaaa",
+  "bypass_switch_byte": 1,
+  "literals": [
+    {
+      "rva": "0x27a7664",
+      "text": "fow"
+    },
+    {
+      "rva": "0x27a7678",
+      "text": "Turns off fog of war in a province or in general"
+    },
+    {
+      "rva": "0x27ad1c8",
+      "text": "Fog of War is now ON."
+    },
+    {
+      "rva": "0x27ad1e0",
+      "text": "Fog of War is now OFF."
+    },
+    {
+      "rva": "0x29e76e0",
+      "text": "modified debug flags (fog of war / traits / debug overlay)"
+    },
+    {
+      "rva": "0x2a52220",
+      "text": "button_fog"
+    },
+    {
+      "rva": "0x2be6070",
+      "text": "glFogCoordPointer"
+    },
+    {
+      "rva": "0x2be6088",
+      "text": "glFogCoordd"
+    },
+    {
+      "rva": "0x2be6098",
+      "text": "glFogCoorddv"
+    },
+    {
+      "rva": "0x2be60a8",
+      "text": "glFogCoordf"
+    },
+    {
+      "rva": "0x2be60b8",
+      "text": "glFogCoordfv"
+    },
+    {
+      "rva": "0x2becd70",
+      "text": "glVertexArrayFogCoordOffsetEXT"
+    },
+    {
+      "rva": "0x2becf98",
+      "text": "glFogCoordPointerEXT"
+    },
+    {
+      "rva": "0x2becfb0",
+      "text": "glFogCoorddEXT"
+    },
+    {
+      "rva": "0x2becfc0",
+      "text": "glFogCoorddvEXT"
+    },
+    {
+      "rva": "0x2becfd0",
+      "text": "glFogCoordfEXT"
+    },
+    {
+      "rva": "0x2becfe0",
+      "text": "glFogCoordfvEXT"
+    },
+    {
+      "rva": "0x2bee740",
+      "text": "glFogCoordPointerListIBM"
+    },
+    {
+      "rva": "0x2bef370",
+      "text": "glFogCoordhNV"
+    },
+    {
+      "rva": "0x2bef380",
+      "text": "glFogCoordhvNV"
+    },
+    {
+      "rva": "0x2befa88",
+      "text": "glPathFogGenNV"
+    },
+    {
+      "rva": "0x2bf06f0",
+      "text": "glFogCoordFormatNV"
+    },
+    {
+      "rva": "0x2bf1000",
+      "text": "glFogFuncSGIS"
+    },
+    {
+      "rva": "0x2bf1010",
+      "text": "glGetFogFuncSGIS"
+    },
+    {
+      "rva": "0x2bf1190",
+      "text": "glTextureFogSGIX"
+    },
+    {
+      "rva": "0x2bf2fe8",
+      "text": "GL_EXT_fog_coord"
+    },
+    {
+      "rva": "0x2bf3b50",
+      "text": "GL_NV_fog_distance"
+    },
+    {
+      "rva": "0x2bf4208",
+      "text": "GL_SGIS_fog_function"
+    },
+    {
+      "rva": "0x2bf4400",
+      "text": "GL_SGIX_fog_offset"
+    },
+    {
+      "rva": "0x2bf4418",
+      "text": "GL_SGIX_fog_texture"
+    },
+    {
+      "rva": "0x2bf47a8",
+      "text": "GL_WIN_specular_fog"
+    }
+  ]
+}

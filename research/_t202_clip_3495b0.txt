@@ -1,0 +1,37 @@
+3495b0 mov qword ptr [rsp + 8], rbx
+3495b5 push rdi
+3495b6 sub rsp, 0x20
+3495ba mov edi, edx
+3495bc mov rbx, rcx
+3495bf mov rdx, qword ptr [rcx + 0x70]
+3495c3 cmp rdx, 0xf
+3495c7 jbe 0x3495f6
+3495c9 mov rcx, qword ptr [rcx + 0x58]
+3495cd inc rdx
+3495d0 cmp rdx, 0x1000
+3495d7 jb 0x3495f1
+3495d9 mov r8, qword ptr [rcx - 8]
+3495dd add rdx, 0x27
+3495e1 sub rcx, r8
+3495e4 lea rax, [rcx - 8]
+3495e8 cmp rax, 0x1f
+3495ec ja 0x349633
+3495ee mov rcx, r8
+3495f1 call 0x25a0218
+3495f6 mov rcx, rbx
+3495f9 mov qword ptr [rbx + 0x68], 0
+349601 mov qword ptr [rbx + 0x70], 0xf
+349609 mov byte ptr [rbx + 0x58], 0
+34960d call 0x584540
+349612 test dil, 1
+349616 je 0x349625
+349618 mov edx, 0x78
+34961d mov rcx, rbx
+349620 call 0x25a0218
+349625 mov rax, rbx
+349628 mov rbx, qword ptr [rsp + 0x30]
+34962d add rsp, 0x20
+349631 pop rdi
+349632 ret 
+349633 call 0x25c7db4
+349638 int3 

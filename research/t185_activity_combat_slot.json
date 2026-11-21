@@ -1,0 +1,33 @@
+{
+  "promoted": false,
+  "SArmyUnitActivityData": {
+    "rtti": ".?AUSArmyUnitActivityData@@",
+    "vtable": "0x29d7098",
+    "serialize": "0x19eeaa0",
+    "deserialize": "0x19ee810",
+    "layout": {
+      "combat": "dword +0x8 token 0x2916, written iff nonzero via 0x25459e0",
+      "training": "dword +0xc token 0x2fba, written iff nonzero",
+      "division": "handle at +0x10, written iff 0x74ad90 says present, via 0x22856e0"
+    },
+    "not_embedded_in_CArmy": true,
+    "carmy_0x338": "CArmy interface vtable 0x29d7030 (this-adjustor 0xccb540 lea rax,[rcx-0x338]); 0x19eeaa0 is the NEXT packed vtable 0x29d7098, not a CArmy method",
+    "carmy_0x340_is": "CNameGroupMember* (21/21 live ETH); not the combat dword. Do not treat CA+0x340 as in_combat.",
+    "fill_paths_seen": "stack/array copies (0xce8ea0, 0xcecd10, 0x1338c40, 0x1468293); no official CArmy slot that sources combat+8 was bound"
+  },
+  "pLandCombat_assert": {
+    "function": "0x11105b0",
+    "string_rva": "0x2a04720",
+    "xref": "0x1110ec5",
+    "r14_is_CArmy": "uses location CArmy+0x1f0 and path size +0x20c",
+    "not_a_bound_slot": "assert tests the result of 0x25c38b0 (typed lookup/cast) on rsi; not a proven CArmy field offset",
+    "pMovingTo_sibling": "same function, 0xc52e90 after path size +0x20c > 0; not promoted as order.type"
+  },
+  "InCombat_string": "still navy carrier assert at 0x29f9547 only",
+  "clips": [
+    "research/_t185_clip_19eeaa0.txt",
+    "research/_t185_clip_19ee810.txt",
+    "research/_t185_clip_plandcombat_assert_0x11105b0.txt",
+    "research/_t185_clip_c52e90.txt"
+  ]
+}

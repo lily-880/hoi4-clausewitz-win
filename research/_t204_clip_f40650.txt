@@ -1,0 +1,62 @@
+f40650 push rbx
+f40652 push rdi
+f40653 push r15
+f40655 sub rsp, 0x20
+f40659 mov ebx, dword ptr [rdx]
+f4065b mov r15, rcx
+f4065e mov edi, dword ptr [rdx + 4]
+f40661 cmp ebx, edi
+f40663 je 0xf40739
+f40669 mov qword ptr [rsp + 0x40], rbp
+f4066e xor ebp, ebp
+f40670 mov qword ptr [rsp + 0x48], rsi
+f40675 mov qword ptr [rsp + 0x50], r14
+f4067a nop word ptr [rax + rax]
+f40680 mov rsi, qword ptr [r15]
+f40683 mov edx, ebx
+f40685 movsxd rax, ebx
+f40688 imul r14, rax, 0xd8
+f4068f mov rax, qword ptr [rsi]
+f40692 mov rcx, qword ptr [rax + 0x138]
+f40699 mov qword ptr [r14 + rcx], rbp
+f4069d mov rax, qword ptr [rsi]
+f406a0 mov rcx, qword ptr [rax + 0x138]
+f406a7 mov qword ptr [rcx + r14 + 8], rbp
+f406ac mov rax, qword ptr [rsi]
+f406af mov rcx, qword ptr [rax + 0x138]
+f406b6 mov word ptr [rcx + r14 + 0x14], bp
+f406bc mov rax, qword ptr [rsi]
+f406bf mov rcx, qword ptr [rax + 0x138]
+f406c6 mov dword ptr [rcx + r14 + 0x24], ebp
+f406cb mov rax, qword ptr [rsi]
+f406ce mov rcx, qword ptr [rax + 0x138]
+f406d5 mov dword ptr [rcx + r14 + 0x3c], ebp
+f406da mov rax, qword ptr [rsi]
+f406dd mov rcx, qword ptr [rax + 0x138]
+f406e4 mov word ptr [rcx + r14 + 0x10], bp
+f406ea mov rcx, qword ptr [rsi + 8]
+f406ee add rcx, 8
+f406f2 mov rax, qword ptr [rcx]
+f406f5 call qword ptr [rax]
+f406f7 test rax, rax
+f406fa je 0xf40720
+f406fc lea rcx, [rax + 0x188]
+f40703 cmp dword ptr [rcx], ebp
+f40705 jne 0xf4070b
+f40707 mov eax, ebp
+f40709 jmp 0xf40710
+f4070b call 0xc08790
+f40710 mov rcx, qword ptr [rsi]
+f40713 mov rdx, qword ptr [rcx + 0x138]
+f4071a mov word ptr [rdx + r14 + 0x10], ax
+f40720 inc ebx
+f40722 cmp ebx, edi
+f40724 jne 0xf40680
+f4072a mov r14, qword ptr [rsp + 0x50]
+f4072f mov rsi, qword ptr [rsp + 0x48]
+f40734 mov rbp, qword ptr [rsp + 0x40]
+f40739 add rsp, 0x20
+f4073d pop r15
+f4073f pop rdi
+f40740 pop rbx
+f40741 ret 

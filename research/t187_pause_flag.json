@@ -1,0 +1,47 @@
+{
+  "promoted": [
+    "meta.speed"
+  ],
+  "live_value": "pause",
+  "official": {
+    "CPauseGame": {
+      "rtti": ".?AVCPauseGame@@",
+      "vtable": "0x29e6e10",
+      "command_token": "0x29ec pausegame (getter 0xe56c30)",
+      "execute": "0xe55060 (vtable +0x50)",
+      "execute_calls": "G_IDLER (0x33ddb08) CInGameIdler vt+0x2f0 then vt+0x298 with edx=command+0x48"
+    },
+    "CInGameIdler": {
+      "getter_vt_plus_0x2f0": "0xe46300  movzx eax, byte [rcx+0x6c1]; ret",
+      "setter_vt_plus_0x298": "0xe487f0",
+      "pause_flag": "byte +0x6c1",
+      "related": "+0x6c0 cleared at setter entry; +0x6c3 is a sibling flag written with +0x6c1 on the force-pause path, not the official query"
+    },
+    "not_game_pause": {
+      "token_paused_0x3691": "national-focus writer 0x2f52a0 (activate_shine_on_focus / completed / progress)",
+      "unit_controller_pause_0x35ba": "CArmy secondary writer 0xced2e0, unit-level",
+      "GS_plus_0x4B8": "hour progress f32, ticks only while unpaused; not the pause flag",
+      "GS_plus_0x4BC": "speed index (0=1x setting); live 0 while paused"
+    }
+  },
+  "live": {
+    "idler": "0x26cae443710",
+    "b6c0": 0,
+    "b6c1": 1,
+    "b6c2": 0,
+    "b6c3": 0,
+    "bytes_6b8_6d0": "601c73176d020000000100000000000000000000000000000000000000000000",
+    "gs_4b8_f32": 0.0,
+    "gs_4bc_i32": 0,
+    "speed_notch": 1,
+    "hour_progress": 0.0,
+    "hour_tick": 60759371
+  },
+  "clips": [
+    "research/_t187_clip_Pause_0xe55060.txt",
+    "research/_t187_clip_Pause_0xe56c30.txt",
+    "research/_t187_clip_idler_query_vt2f0_0xe46300.txt",
+    "research/_t187_clip_idler_setpause_0xe487f0.txt"
+  ],
+  "schema": "meta.speed enum pause|1x; this snapshot is pause"
+}

@@ -1,0 +1,637 @@
+{
+  "t190_conclusion": "On this ETH 1936-01-01 snapshot, none of the remaining 69 unverified fields can be honestly promoted. 12 are config or local feedback ledgers, not memory. The other 57 already require a user-provided contrast sample or sit on a named-getter/sample boundary recorded in t167–t189.",
+  "t190_not_memory": {
+    "count": 12,
+    "fields": [
+      {
+        "field": "meta.allow_write",
+        "bucket": "config",
+        "reason": "清单已写明由配置提供，默认 false，非内存发现。不能把配置当内存证实。"
+      },
+      {
+        "field": "meta.geography_scope",
+        "bucket": "config",
+        "reason": "清单已写明由配置提供的指挥范围，默认 null，非内存发现。"
+      },
+      {
+        "field": "policy.stance",
+        "bucket": "config",
+        "reason": "由玩家方针或接口默认值提供，非内存发现。"
+      },
+      {
+        "field": "policy.instructions",
+        "bucket": "config",
+        "reason": "由玩家提供的方针原文，非内存发现。"
+      },
+      {
+        "field": "feedback.last_orders.order_seq",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.type",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.subject_ids",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.target_province_ids",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.plan_id",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.accepted",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.last_orders.error",
+        "bucket": "ledger",
+        "reason": "回执账本，不是内存字段。"
+      },
+      {
+        "field": "feedback.ticks_since_issue",
+        "bucket": "ledger",
+        "reason": "回执账本派生节拍，不是内存字段。"
+      }
+    ]
+  },
+  "t190_blocked": {
+    "count": 57,
+    "blocked": [
+      {
+        "field": "world.own_units.supply.in_supply",
+        "bucket": "blocked_supply",
+        "reason": "无 in_supply/isolated 具名 token；不得发明 0–1 比例。"
+      },
+      {
+        "field": "world.own_units.supply.ratio",
+        "bucket": "blocked_supply",
+        "reason": "army_current_supply_ratio 不是 0–1；不得用 72/108。"
+      },
+      {
+        "field": "world.own_units.supply.isolated",
+        "bucket": "blocked_supply",
+        "reason": "与 in_supply 相同边界。"
+      },
+      {
+        "field": "world.own_units.in_combat",
+        "bucket": "blocked_combat",
+        "reason": "无陆上 IsInCombat；空 GS_COMBATS 不得写成 false。"
+      },
+      {
+        "field": "world.own_units.combat_id",
+        "bucket": "blocked_combat",
+        "reason": "依赖当前战斗对象，与 in_combat 同挡。"
+      },
+      {
+        "field": "world.own_units.order.type",
+        "bucket": "blocked_order",
+        "reason": "需非空命令或 commandlist+8 编码；空路径不能证明待机。"
+      },
+      {
+        "field": "world.own_units.order.target_province_ids",
+        "bucket": "blocked_order",
+        "reason": "依赖非空命令。"
+      },
+      {
+        "field": "world.own_units.order.path_province_ids",
+        "bucket": "blocked_order",
+        "reason": "尚无非空路径验收。"
+      },
+      {
+        "field": "world.own_units.order.eta",
+        "bucket": "blocked_order",
+        "reason": "依赖非空命令。"
+      },
+      {
+        "field": "world.own_units.formation.army_id",
+        "bucket": "blocked_formation",
+        "reason": "ABI 已绑定，需非空 orders_group。"
+      },
+      {
+        "field": "world.own_units.formation.army_group_id",
+        "bucket": "blocked_formation",
+        "reason": "ABI 已绑定，需非空集团军群。"
+      },
+      {
+        "field": "world.army_groups.army_group_id",
+        "bucket": "blocked_formation",
+        "reason": "全世界 orders_group / army_group 为空。"
+      },
+      {
+        "field": "world.army_groups.name",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.army_groups.leader_id",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.army_groups.army_ids",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.armies.army_id",
+        "bucket": "blocked_formation",
+        "reason": "全世界 COrdersGroup 为 0。"
+      },
+      {
+        "field": "world.armies.name",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.armies.leader_id",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.armies.unit_ids",
+        "bucket": "blocked_formation",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.armies.plan_id",
+        "bucket": "blocked_formation",
+        "reason": "无集团军也无玩家计划。"
+      },
+      {
+        "field": "world.leaders.assigned_to",
+        "bucket": "blocked_leaders",
+        "reason": "20 名将领均未任命；空任职不得写成未分配。"
+      },
+      {
+        "field": "world.combats.combat_id",
+        "bucket": "blocked_combat",
+        "reason": "GS 战斗表为空，不得写成无战斗。"
+      },
+      {
+        "field": "world.combats.province_id",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.attacker_unit_ids",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.defender_unit_ids",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.phase",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.result",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.casualties",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.started_at",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.combats.ended_at",
+        "bucket": "blocked_combat",
+        "reason": "同上。"
+      }
+    ],
+    "boundary": [
+      {
+        "field": "world.visible_units",
+        "bucket": "fow_boundary",
+        "reason": "无陆上单位可见 getter；不可把外军当玩家可见输出。"
+      },
+      {
+        "field": "world.visible_units.relation_to_player",
+        "bucket": "fow_boundary",
+        "reason": "挂在 visible_units 上，无可见表则不升格。"
+      },
+      {
+        "field": "world.visible_units.visibility.spotted",
+        "bucket": "fow_boundary",
+        "reason": "already_spotted 是海军任务；visible 是 gfx；intel 是国家级情报池。"
+      },
+      {
+        "field": "world.visible_units.visibility.confidence",
+        "bucket": "fow_boundary",
+        "reason": "同上，无 0–1 单位置信度 getter。"
+      },
+      {
+        "field": "world.plans.plan_id",
+        "bucket": "plans_boundary",
+        "reason": "官方 COrderInstance，活体全世界 0；CFront 是边境结构。"
+      },
+      {
+        "field": "world.plans.type",
+        "bucket": "plans_boundary",
+        "reason": "frontline 等数值尚未对照，且无活体计划。"
+      },
+      {
+        "field": "world.plans.vertex_province_ids",
+        "bucket": "plans_boundary",
+        "reason": "无活体计划。"
+      },
+      {
+        "field": "world.plans.assigned_army_ids",
+        "bucket": "plans_boundary",
+        "reason": "无活体计划。"
+      },
+      {
+        "field": "world.plans.assigned_unit_ids",
+        "bucket": "plans_boundary",
+        "reason": "无活体计划。"
+      },
+      {
+        "field": "world.plans.executing",
+        "bucket": "plans_boundary",
+        "reason": "can_execute 不是 executing；无活体计划。"
+      },
+      {
+        "field": "world.plans.axis_province_ids",
+        "bucket": "plans_boundary",
+        "reason": "无活体计划。"
+      },
+      {
+        "field": "world.plans.status",
+        "bucket": "plans_boundary",
+        "reason": "无活体计划。"
+      },
+      {
+        "field": "world.crises.kind",
+        "bucket": "crises_boundary",
+        "reason": "无对上 schema 的官方常驻危机表。"
+      },
+      {
+        "field": "world.crises.unit_ids",
+        "bucket": "crises_boundary",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.crises.province_ids",
+        "bucket": "crises_boundary",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.crises.severity",
+        "bucket": "crises_boundary",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.crises.notes",
+        "bucket": "crises_boundary",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.wars.front_invalidated",
+        "bucket": "wars_token",
+        "reason": "无具名 token，不硬猜。"
+      },
+      {
+        "field": "world.shortages.equipment.demanded",
+        "bucket": "shortage_77",
+        "reason": "77 轨迹已关闭；不得升格 77 或 produced=min(need,stock)。"
+      },
+      {
+        "field": "world.shortages.equipment.deficit",
+        "bucket": "shortage_77",
+        "reason": "同上。"
+      },
+      {
+        "field": "world.shortages.equipment.affected_unit_ids",
+        "bucket": "shortage_77",
+        "reason": "不得把 [1835] 升格为官方受影响列表。"
+      },
+      {
+        "field": "world.shortages.equipment.affected_plan_ids",
+        "bucket": "shortage_77",
+        "reason": "无玩家计划，且装备缺口合同未定。"
+      },
+      {
+        "field": "world.shortages.manpower.needed",
+        "bucket": "manpower_gap_no_contrast",
+        "reason": "官方师级缺口是 CC6480=max(need-current,0)。本快照 21 师 current=need=105000，缺口 0。没有不满员对照，也没有独立的国家级 needed 写者（15ab8c4 的 need 属补充状态 produced/need 轨迹；108660d 是驻军）。不把满员 0 升格为国家级所需补充人力。"
+      },
+      {
+        "field": "world.shortages.manpower.deficit",
+        "bucket": "manpower_gap_no_contrast",
+        "reason": "与 needed 在本快照都是 0，且无 available<needed 对照，不分开升格。"
+      },
+      {
+        "field": "world.shortages.manpower.affected_unit_ids",
+        "bucket": "manpower_gap_no_contrast",
+        "reason": "官方缺口>0 的师在本快照为空；不满员对照之前不把空列表写成已验证。"
+      },
+      {
+        "field": "world.shortages.manpower.front_cannot_hold",
+        "bucket": "manpower_front",
+        "reason": "需要战线/计划样本。"
+      },
+      {
+        "field": "world.shortages.missing_divisions",
+        "bucket": "manpower_front",
+        "reason": "需要战线现有兵力无法维持的样本。"
+      }
+    ]
+  },
+  "t190_pursuable": [],
+  "t190_unverified_slim": {},
+  "research/_t194_clip_COrderNewFrontCommand_execute_0x18d9070.txt": {
+    "exists": true,
+    "len": 5591,
+    "windows": [
+      {
+        "pat": "0x70",
+        "at": 845,
+        "text": "18d90b2  call 0x2284870\n0x18d90b7  mov r12, rax\n0x18d90ba  mov qword ptr [rbp + 0x108], r12\n0x18d90c1  mov edx, dword ptr [r13 + 0x68]\n0x18d90c5  mov rcx, r12\n0x18d90c8  call 0xc402a0\n0x18d90cd  mov rsi, rax\n0x18d90d0  mov qword ptr [rbp + 8], rax\n0x18d90d4  mov qword ptr [rbp - 0x70], r15\n0x18d90d8  mov qword ptr [rbp - 0x68], r15\n0x18d90dc  mov eax, 0x20ec\n0x18d90e1  mov edi, dword ptr [rip + 0x1dba9b1]\n0x18d90e7  mov rcx, qword ptr gs:[0x58]\n0x18d90f0  mov rbx, qword ptr [rcx + rdi*8]\n0x18d90f4  mov ecx, dword ptr [rbx + rax]\n0x18d90f7  cmp dword ptr [rip"
+      },
+      {
+        "pat": "0x70",
+        "at": 1627,
+        "text": "x18d911b  call 0x25a0450\n0x18d9120  lea rcx, [rip + 0x1b03ff9]\n0x18d9127  call 0x25a051c\n0x18d912c  lea rax, [rip + 0x1823ecd]\n0x18d9133  mov qword ptr [rbp - 0x60], rax\n0x18d9137  cmp byte ptr [r13 + 0x6e], 0\n0x18d913c  sete r9b\n0x18d9140  mov r8, rsi\n0x18d9143  lea rdx, [rbp - 0x70]\n0x18d9147  lea rcx, [r13 + 0x50]\n0x18d914b  call 0x10b8620\n0x18d9150  cmp dword ptr [rbp - 0x64], 0\n0x18d9154  je 0x18d99af\n0x18d915a  mov qword ptr [rsp + 0x78], r15\n0x18d915f  mov qword ptr [rbp - 0x80], r15\n0x18d9163  mov eax, 0x20ec\n0x18d9168  mov eax, dword ptr [rbx + rax]"
+      },
+      {
+        "pat": "0x70",
+        "at": 4471,
+        "text": " 0x25a0588\n0x18d92ad  cmp dword ptr [rip + 0x1b03e6c], -1\n0x18d92b4  jne 0x18d92ce\n0x18d92b6  lea rcx, [rip + 0xe9ca43]\n0x18d92bd  call 0x25a0450\n0x18d92c2  lea rcx, [rip + 0x1b03e57]\n0x18d92c9  call 0x25a051c\n0x18d92ce  lea rax, [rip + 0x1823d2b]\n0x18d92d5  mov qword ptr [rsp + 0x70], rax\n0x18d92da  xor edi, edi\n0x18d92dc  mov dword ptr [rbp + 0x100], edi\n0x18d92e2  cmp dword ptr [rbp - 0x64], edi\n0x18d92e5  jle 0x18d995f\n0x18d92eb  movss xmm6, dword ptr [rip + 0xebc695]\n0x18d92f3  mov edx, 2\n0x18d92f8  mov rcx, r12\n0x18d92fb  call 0xc41720\n0x18d9300  mov r"
+      },
+      {
+        "pat": "0x70",
+        "at": 5045,
+        "text": "18d9303  mov qword ptr [rbp - 0x10], rax\n0x18d9307  test r15, r15\n0x18d930a  je 0x18d9318\n0x18d930c  cmp r15, r12\n0x18d930f  je 0x18d9318\n0x18d9311  mov qword ptr [rax + 0x378], r15\n0x18d9318  movsxd rcx, edi\n0x18d931b  lea rdx, [rcx + rcx*2]\n0x18d931f  mov rcx, qword ptr [rbp - 0x70]\n0x18d9323  lea rdx, [rcx + rdx*8]\n0x18d9327  xor r8d, r8d\n0x18d932a  mov rcx, r14\n0x18d932d  call 0x10b0d90\n0x18d9332  movzx eax, byte ptr [r13 + 0x6d]\n0x18d9337  mov byte ptr [r14 + 0x118], al\n0x18d933e  movzx eax, byte ptr [r13 + 0x6e]\n0x18d9343  mov byte ptr [r14 + 0x119], a"
+      },
+      {
+        "pat": "0x10b0d90",
+        "at": 3461,
+        "text": " r12\n0x18d9229  call 0xc41bb0\n0x18d922e  mov rsi, rax\n0x18d9231  mov qword ptr [rbp - 0x58], rax\n0x18d9235  movzx ecx, byte ptr [r13 + 0x6e]\n0x18d923a  mov byte ptr [rax + 0x119], cl\n0x18d9240  xor r8d, r8d\n0x18d9243  lea rdx, [r13 + 0x50]\n0x18d9247  mov rcx, rax\n0x18d924a  call 0x10b0d90\n0x18d924f  lea rcx, [r13 + 0x30]\n0x18d9253  cmp dword ptr [rcx], 0\n0x18d9256  jne 0x18d925e\n0x18d9258  cmp dword ptr [rcx + 4], 0\n0x18d925c  je 0x18d9266\n0x18d925e  call 0x2284870\n0x18d9263  mov r15, rax\n0x18d9266  mov qword ptr [rbp - 0x20], r15\n0x18d926a  mov qword ptr [rsp + "
+      },
+      {
+        "pat": "0x10b0d90",
+        "at": 5149,
+        "text": " r15, r12\n0x18d930f  je 0x18d9318\n0x18d9311  mov qword ptr [rax + 0x378], r15\n0x18d9318  movsxd rcx, edi\n0x18d931b  lea rdx, [rcx + rcx*2]\n0x18d931f  mov rcx, qword ptr [rbp - 0x70]\n0x18d9323  lea rdx, [rcx + rdx*8]\n0x18d9327  xor r8d, r8d\n0x18d932a  mov rcx, r14\n0x18d932d  call 0x10b0d90\n0x18d9332  movzx eax, byte ptr [r13 + 0x6d]\n0x18d9337  mov byte ptr [r14 + 0x118], al\n0x18d933e  movzx eax, byte ptr [r13 + 0x6e]\n0x18d9343  mov byte ptr [r14 + 0x119], al\n0x18d934a  mov edx, 1\n0x18d934f  mov rcx, r12\n0x18d9352  call 0xc41720\n0x18d9357  mov rsi, rax\n0x18d935a  t"
+      },
+      {
+        "pat": "0x50",
+        "at": 1660,
+        "text": "0  lea rcx, [rip + 0x1b03ff9]\n0x18d9127  call 0x25a051c\n0x18d912c  lea rax, [rip + 0x1823ecd]\n0x18d9133  mov qword ptr [rbp - 0x60], rax\n0x18d9137  cmp byte ptr [r13 + 0x6e], 0\n0x18d913c  sete r9b\n0x18d9140  mov r8, rsi\n0x18d9143  lea rdx, [rbp - 0x70]\n0x18d9147  lea rcx, [r13 + 0x50]\n0x18d914b  call 0x10b8620\n0x18d9150  cmp dword ptr [rbp - 0x64], 0\n0x18d9154  je 0x18d99af\n0x18d915a  mov qword ptr [rsp + 0x78], r15\n0x18d915f  mov qword ptr [rbp - 0x80], r15\n0x18d9163  mov eax, 0x20ec\n0x18d9168  mov eax, dword ptr [rbx + rax]\n0x18d916b  cmp dword ptr [rip + "
+      },
+      {
+        "pat": "0x50",
+        "at": 3415,
+        "text": "2\n0x18d9221  call 0xc41620\n0x18d9226  mov rcx, r12\n0x18d9229  call 0xc41bb0\n0x18d922e  mov rsi, rax\n0x18d9231  mov qword ptr [rbp - 0x58], rax\n0x18d9235  movzx ecx, byte ptr [r13 + 0x6e]\n0x18d923a  mov byte ptr [rax + 0x119], cl\n0x18d9240  xor r8d, r8d\n0x18d9243  lea rdx, [r13 + 0x50]\n0x18d9247  mov rcx, rax\n0x18d924a  call 0x10b0d90\n0x18d924f  lea rcx, [r13 + 0x30]\n0x18d9253  cmp dword ptr [rcx], 0\n0x18d9256  jne 0x18d925e\n0x18d9258  cmp dword ptr [rcx + 4], 0\n0x18d925c  je 0x18d9266\n0x18d925e  call 0x2284870\n0x18d9263  mov r15, rax\n0x18d9266  mov qword ptr"
+      }
+    ]
+  },
+  "research/_t194_clip_COrderNewFrontCommand_isvalid_0x18df550.txt": {
+    "exists": true,
+    "len": 1186,
+    "windows": [
+      {
+        "pat": "c402a0",
+        "at": 1031,
+        "text": "a3  je 0x18df5d1\n0x18df5a5  mov edx, dword ptr [rbx + 0x68]\n0x18df5a8  test edx, edx\n0x18df5aa  je 0x18df5d1\n0x18df5ac  cmp byte ptr [rbx + 0x6d], 0\n0x18df5b0  je 0x18df5b8\n0x18df5b2  cmp byte ptr [rbx + 0x6e], 0\n0x18df5b6  jne 0x18df5d1\n0x18df5b8  mov rcx, rdi\n0x18df5bb  call 0xc402a0\n0x18df5c0  test rax, rax\n0x18df5c3  setne al\n0x18df5c6  mov rbx, qword ptr [rsp + 0x30]\n0x18df5cb  add rsp, 0x20\n0x18df5cf  pop rdi\n0x18df5d0  ret \n"
+      }
+    ]
+  },
+  "research/_t194_clip_COrderSetPathCommand_isvalid_0x18dff70.txt": {
+    "exists": true,
+    "len": 944,
+    "windows": [
+      {
+        "pat": "0x258",
+        "at": 783,
+        "text": "rcx, rax\n0x18dffaa  call 0xc402a0\n0x18dffaf  test rax, rax\n0x18dffb2  je 0x18dffdd\n0x18dffb4  mov ecx, dword ptr [rip + 0x1b0b2ea]\n0x18dffba  cmp dword ptr [rax + 0x25c], ecx\n0x18dffc0  jne 0x18dffdd\n0x18dffc2  mov ecx, dword ptr [rip + 0x1b0b2d8]\n0x18dffc8  cmp dword ptr [rax + 0x258], ecx\n0x18dffce  jne 0x18dffdd\n0x18dffd0  mov al, 1\n0x18dffd2  mov rbx, qword ptr [rsp + 0x30]\n0x18dffd7  add rsp, 0x20\n0x18dffdb  pop rdi\n0x18dffdc  ret \n"
+      },
+      {
+        "pat": "c402a0",
+        "at": 530,
+        "text": "8dff8e  jne 0x18dff96\n0x18dff90  cmp dword ptr [rdi + 0x2c], 0\n0x18dff94  je 0x18dffdd\n0x18dff96  lea rcx, [rdi + 0x28]\n0x18dff9a  call 0x2284870\n0x18dff9f  test rax, rax\n0x18dffa2  je 0x18dffdd\n0x18dffa4  mov edx, dword ptr [rdi + 0x30]\n0x18dffa7  mov rcx, rax\n0x18dffaa  call 0xc402a0\n0x18dffaf  test rax, rax\n0x18dffb2  je 0x18dffdd\n0x18dffb4  mov ecx, dword ptr [rip + 0x1b0b2ea]\n0x18dffba  cmp dword ptr [rax + 0x25c], ecx\n0x18dffc0  jne 0x18dffdd\n0x18dffc2  mov ecx, dword ptr [rip + 0x1b0b2d8]\n0x18dffc8  cmp dword ptr [rax + 0x258], ecx\n0x18dffce  jne 0x18df"
+      }
+    ]
+  },
+  "research/_t194_clip_COrderSetPathCommand_execute_0x18daf60.txt": {
+    "exists": true,
+    "len": 6434,
+    "windows": [
+      {
+        "pat": "0x50",
+        "at": 485,
+        "text": "mp dword ptr [rcx + 4], 0\n0x18daf7a  jne 0x18daf80\n0x18daf7c  xor edi, edi\n0x18daf7e  jmp 0x18daf88\n0x18daf80  call 0x2284870\n0x18daf85  mov rdi, rax\n0x18daf88  mov edx, dword ptr [rbx + 0x30]\n0x18daf8b  mov rcx, rdi\n0x18daf8e  call 0xc402a0\n0x18daf93  movzx r9d, byte ptr [rbx + 0x50]\n0x18daf98  lea r8, [rbx + 0x38]\n0x18daf9c  mov rdx, rax\n0x18daf9f  mov byte ptr [rsp + 0x20], 1\n0x18dafa4  mov rcx, rdi\n0x18dafa7  call 0x18e5f60\n0x18dafac  mov rbx, qword ptr [rsp + 0x40]\n0x18dafb1  add rsp, 0x30\n0x18dafb5  pop rdi\n0x18dafb6  ret \n0x18dafb7  int3 \n0x18dafb8  i"
+      },
+      {
+        "pat": "0x50",
+        "at": 5537,
+        "text": "d ptr [rsp + 0x48], rdi\n0x18db1de  nop \n0x18db1e0  mov rcx, rbx\n0x18db1e3  call 0x2b6260\n0x18db1e8  mov rdi, rax\n0x18db1eb  test rax, rax\n0x18db1ee  je 0x18db1fd\n0x18db1f0  mov rcx, rax\n0x18db1f3  call 0x16bcac0\n0x18db1f8  cmp rax, rbp\n0x18db1fb  je 0x18db208\n0x18db1fd  add rbx, 0x50\n0x18db201  cmp rbx, rsi\n0x18db204  jne 0x18db1e0\n0x18db206  jmp 0x18db218\n0x18db208  mov rcx, r14\n0x18db20b  call 0xc793c0\n0x18db210  mov rcx, rdi\n0x18db213  call 0x16bd540\n0x18db218  mov rdi, qword ptr [rsp + 0x48]\n0x18db21d  mov rbx, qword ptr [rsp + 0x50]\n0x18db222  add rsp, "
+      },
+      {
+        "pat": "0x50",
+        "at": 5795,
+        "text": "8\n0x18db1fd  add rbx, 0x50\n0x18db201  cmp rbx, rsi\n0x18db204  jne 0x18db1e0\n0x18db206  jmp 0x18db218\n0x18db208  mov rcx, r14\n0x18db20b  call 0xc793c0\n0x18db210  mov rcx, rdi\n0x18db213  call 0x16bd540\n0x18db218  mov rdi, qword ptr [rsp + 0x48]\n0x18db21d  mov rbx, qword ptr [rsp + 0x50]\n0x18db222  add rsp, 0x20\n0x18db226  pop r14\n0x18db228  pop rsi\n0x18db229  pop rbp\n0x18db22a  ret \n0x18db22b  int3 \n0x18db22c  int3 \n0x18db22d  int3 \n0x18db22e  int3 \n0x18db22f  int3 \n0x18db230  mov qword ptr [rsp + 0x10], rsi\n0x18db235  push rdi\n0x18db236  sub rsp, 0x20\n0x18db2"
+      },
+      {
+        "pat": "c402a0",
+        "at": 440,
+        "text": "rcx], 0\n0x18daf74  jne 0x18daf80\n0x18daf76  cmp dword ptr [rcx + 4], 0\n0x18daf7a  jne 0x18daf80\n0x18daf7c  xor edi, edi\n0x18daf7e  jmp 0x18daf88\n0x18daf80  call 0x2284870\n0x18daf85  mov rdi, rax\n0x18daf88  mov edx, dword ptr [rbx + 0x30]\n0x18daf8b  mov rcx, rdi\n0x18daf8e  call 0xc402a0\n0x18daf93  movzx r9d, byte ptr [rbx + 0x50]\n0x18daf98  lea r8, [rbx + 0x38]\n0x18daf9c  mov rdx, rax\n0x18daf9f  mov byte ptr [rsp + 0x20], 1\n0x18dafa4  mov rcx, rdi\n0x18dafa7  call 0x18e5f60\n0x18dafac  mov rbx, qword ptr [rsp + 0x40]\n0x18dafb1  add rsp, 0x30\n0x18dafb5  pop rdi\n0x"
+      }
+    ]
+  },
+  "research/t194_bind_cmds.json": {
+    "exists": true,
+    "len": 65407,
+    "windows": [
+      {
+        "pat": "0x70",
+        "at": 50018,
+        "text": "rd ptr [rbp + 0x108], r12\",\n        \"0x18d90c1  mov edx, dword ptr [r13 + 0x68]\",\n        \"0x18d90c5  mov rcx, r12\",\n        \"0x18d90c8  call 0xc402a0\",\n        \"0x18d90cd  mov rsi, rax\",\n        \"0x18d90d0  mov qword ptr [rbp + 8], rax\",\n        \"0x18d90d4  mov qword ptr [rbp - 0x70], r15\",\n        \"0x18d90d8  mov qword ptr [rbp - 0x68], r15\",\n        \"0x18d90dc  mov eax, 0x20ec\",\n        \"0x18d90e1  mov edi, dword ptr [rip + 0x1dba9b1]\",\n        \"0x18d90e7  mov rcx, qword ptr gs:[0x58]\",\n        \"0x18d90f0  mov rbx, qword ptr [rcx + rdi*8]\",\n        \"0x18d"
+      },
+      {
+        "pat": "0x70",
+        "at": 51042,
+        "text": "8d9127  call 0x25a051c\",\n        \"0x18d912c  lea rax, [rip + 0x1823ecd]\",\n        \"0x18d9133  mov qword ptr [rbp - 0x60], rax\",\n        \"0x18d9137  cmp byte ptr [r13 + 0x6e], 0\",\n        \"0x18d913c  sete r9b\",\n        \"0x18d9140  mov r8, rsi\",\n        \"0x18d9143  lea rdx, [rbp - 0x70]\",\n        \"0x18d9147  lea rcx, [r13 + 0x50]\",\n        \"0x18d914b  call 0x10b8620\",\n        \"0x18d9150  cmp dword ptr [rbp - 0x64], 0\",\n        \"0x18d9154  je 0x18d99af\",\n        \"0x18d915a  mov qword ptr [rsp + 0x78], r15\",\n        \"0x18d915f  mov qword ptr [rbp - 0x80], r15\",\n"
+      },
+      {
+        "pat": "0x70",
+        "at": 54946,
+        "text": "rd ptr [rbp + 0x108], r12\",\n        \"0x18d90c1  mov edx, dword ptr [r13 + 0x68]\",\n        \"0x18d90c5  mov rcx, r12\",\n        \"0x18d90c8  call 0xc402a0\",\n        \"0x18d90cd  mov rsi, rax\",\n        \"0x18d90d0  mov qword ptr [rbp + 8], rax\",\n        \"0x18d90d4  mov qword ptr [rbp - 0x70], r15\",\n        \"0x18d90d8  mov qword ptr [rbp - 0x68], r15\",\n        \"0x18d90dc  mov eax, 0x20ec\",\n        \"0x18d90e1  mov edi, dword ptr [rip + 0x1dba9b1]\",\n        \"0x18d90e7  mov rcx, qword ptr gs:[0x58]\",\n        \"0x18d90f0  mov rbx, qword ptr [rcx + rdi*8]\",\n        \"0x18d"
+      },
+      {
+        "pat": "0x70",
+        "at": 55970,
+        "text": "8d9127  call 0x25a051c\",\n        \"0x18d912c  lea rax, [rip + 0x1823ecd]\",\n        \"0x18d9133  mov qword ptr [rbp - 0x60], rax\",\n        \"0x18d9137  cmp byte ptr [r13 + 0x6e], 0\",\n        \"0x18d913c  sete r9b\",\n        \"0x18d9140  mov r8, rsi\",\n        \"0x18d9143  lea rdx, [rbp - 0x70]\",\n        \"0x18d9147  lea rcx, [r13 + 0x50]\"\n      ]\n    },\n    \"CSetArmyLeaderCommand\": {\n      \"isvalid_head\": [\n        \"0x18e0540  mov qword ptr [rsp + 8], rbx\",\n        \"0x18e0545  mov qword ptr [rsp + 0x10], rbp\",\n        \"0x18e054a  mov qword ptr [rsp + 0x18], rsi\",\n    "
+      },
+      {
+        "pat": "path",
+        "at": 28,
+        "text": "{\n  \"cmds\": {\n    \"COrderSetPathCommand\": {\n      \"idx\": null,\n      \"vts\": [\n        \"0x2a84fe0\"\n      ],\n      \"idx_search\": [],\n      \"slots\": {\n        \"0x2a84fe0\": [\n          {\n            \"slot\": 0,\n            \"rva\": \"0x18cc640\",\n            \"fn\": [\n              \"0x18cc640\",\n              \"0x18cc6a3\",\n"
+      },
+      {
+        "pat": "path",
+        "at": 23326,
+        "text": "  \"rva\": \"0x154030\",\n            \"fn\": null\n          },\n          {\n            \"slot\": 15,\n            \"rva\": \"0x11d530\",\n            \"fn\": null\n          }\n        ]\n      },\n      \"isvalid\": \"0x11ee9d0\",\n      \"execute\": \"0x11e00f0\"\n    }\n  },\n  \"clips_head\": {\n    \"COrderSetPathCommand\": {\n      \"isvalid_head\": [\n        \"0x18dff70  mov qword ptr [rsp + 8], rbx\",\n        \"0x18dff75  push rdi\",\n        \"0x18dff76  sub rsp, 0x20\",\n        \"0x18dff7a  mov rdi, rcx\",\n        \"0x18dff7d  add rcx, 0x28\",\n        \"0x18dff81  call 0xbbb250\",\n        \"0x18dff86 "
+      },
+      {
+        "pat": "0x50",
+        "at": 25364,
+        "text": "        \"0x18daf7e  jmp 0x18daf88\",\n        \"0x18daf80  call 0x2284870\",\n        \"0x18daf85  mov rdi, rax\",\n        \"0x18daf88  mov edx, dword ptr [rbx + 0x30]\",\n        \"0x18daf8b  mov rcx, rdi\",\n        \"0x18daf8e  call 0xc402a0\",\n        \"0x18daf93  movzx r9d, byte ptr [rbx + 0x50]\",\n        \"0x18daf98  lea r8, [rbx + 0x38]\",\n        \"0x18daf9c  mov rdx, rax\",\n        \"0x18daf9f  mov byte ptr [rsp + 0x20], 1\",\n        \"0x18dafa4  mov rcx, rdi\",\n        \"0x18dafa7  call 0x18e5f60\",\n        \"0x18dafac  mov rbx, qword ptr [rsp + 0x40]\",\n        \"0x18dafb1  a"
+      },
+      {
+        "pat": "0x50",
+        "at": 29370,
+        "text": "c]\",\n        \"0x18de9d4  mov rcx, rbx\",\n        \"0x18de9d7  mov r8d, 0x15\",\n        \"0x18de9dd  call 0x26079d0\",\n        \"0x18de9e2  xor al, al\",\n        \"0x18de9e4  mov byte ptr [rbx + 0x15], 0\",\n        \"0x18de9e8  jmp 0x18ded00\",\n        \"0x18de9ed  movzx r8d, byte ptr [rsp + 0x50]\",\n        \"0x18de9f3  lea r9, [rip + 0x114f816]\",\n        \"0x18de9fa  mov edx, 0x15\",\n        \"0x18de9ff  mov qword ptr [rsp + 0x20], 0x15\",\n        \"0x18dea08  mov rcx, rbx\",\n        \"0x18dea0b  call 0x11f240\",\n        \"0x18dea10  xor al, al\",\n        \"0x18dea12  jmp 0x18ded00"
+      }
+    ],
+    "json_keys": [
+      "cmds",
+      "clips_head"
+    ]
+  },
+  "research/t193_bind_newfront.json": {
+    "exists": true,
+    "len": 2089,
+    "windows": [],
+    "json_keys": [
+      "factory_idx",
+      "type_id",
+      "factory_rva",
+      "factory_head",
+      "size",
+      "vts",
+      "vt_slots"
+    ]
+  },
+  "research/t194_type_jump.json": {
+    "exists": true,
+    "len": 22234,
+    "windows": [
+      {
+        "pat": "0x70",
+        "at": 6240,
+        "text": "LID_PROV\"\n        }\n      ],\n      \"ins\": [\n        \"0xfca856  xor r9d, r9d\",\n        \"0xfca859  xor r8d, r8d\",\n        \"0xfca85c  lea rdx, [rip + 0x1a2bdcd]\",\n        \"0xfca863  lea rcx, [rbp + 0x718]\",\n        \"0xfca86a  call 0x22aeab0\",\n        \"0xfca86f  mov dword ptr [rsp + 0x70], 0x1800\",\n        \"0xfca877  lea r9, [rbp + 0x718]\",\n        \"0xfca87e  lea r8, [rip + 0x17e9d9b]\",\n        \"0xfca885  lea rdx, [rip + 0x18917f0]\",\n        \"0xfca88c  lea rcx, [rbp + 0xc38]\",\n        \"0xfca893  call 0x2fbb30\",\n        \"0xfca898  nop \",\n        \"0xfca899  mov rd"
+      },
+      {
+        "pat": "0x50",
+        "at": 11939,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 13310,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 14681,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 16052,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 17424,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 18796,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      },
+      {
+        "pat": "0x50",
+        "at": 20168,
+        "text": "\",\n        \"0xfcb371  cmp byte ptr [rbx + 0x260], dil\",\n        \"0xfcb378  jne 0xfcb43c\",\n        \"0xfcb37e  cmp byte ptr [rbx + 0x220], dil\",\n        \"0xfcb385  jne 0xfcb905\",\n        \"0xfcb38b  mov rax, qword ptr [rip + 0x2412776]\",\n        \"0xfcb392  mov rcx, qword ptr [rax + 0x508]\",\n        \"0xfcb399  mov rax, qword ptr [rcx]\",\n        \"0xfcb39c  call qword ptr [rax + 0x38]\",\n        \"0xfcb39f  test al, al\",\n        \"0xfcb3a1  je 0xfcb905\",\n        \"0xfcb3a7  cmp dword ptr [rbx + 0x90], edi\",\n        \"0xfcb3ad  jne 0xfcb905\",\n        \"0xfcb3b3  cmp byte"
+      }
+    ],
+    "json_keys": [
+      "asserts",
+      "enumish",
+      "short_order_tokens",
+      "jump_table",
+      "entry_detail"
+    ]
+  },
+  "research/t188_plan_writers.json": {
+    "exists": true,
+    "len": 2644,
+    "windows": [
+      {
+        "pat": "0x70",
+        "at": 955,
+        "text": "SION (assert 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"instance_id\": \"dword +0x244, token 0x30af\",\n    \"path\": \"array +0x70, token path 0x174 (not proven as schema vertex_province_ids without a live plan)\",\n    \"states\": \"array +0xe0, token states 0x2e3b (area-defense states candidate)\",\n    \"can_execute\": \"token 0x30b2; this is not plans.executing\",\n    \"other_tokens\": [\n      \"order_children\",\n    "
+      },
+      {
+        "pat": "path",
+        "at": 940,
+        "text": "3\": \"ORDER_INVASION (assert 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"instance_id\": \"dword +0x244, token 0x30af\",\n    \"path\": \"array +0x70, token path 0x174 (not proven as schema vertex_province_ids without a live plan)\",\n    \"states\": \"array +0xe0, token states 0x2e3b (area-defense states candidate)\",\n    \"can_execute\": \"token 0x30b2; this is not plans.executing\",\n    \"other_tokens\": [\n      \"order_"
+      },
+      {
+        "pat": "path",
+        "at": 967,
+        "text": " 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"instance_id\": \"dword +0x244, token 0x30af\",\n    \"path\": \"array +0x70, token path 0x174 (not proven as schema vertex_province_ids without a live plan)\",\n    \"states\": \"array +0xe0, token states 0x2e3b (area-defense states candidate)\",\n    \"can_execute\": \"token 0x30b2; this is not plans.executing\",\n    \"other_tokens\": [\n      \"order_children\",\n      \"fallback\""
+      },
+      {
+        "pat": "path",
+        "at": 2387,
+        "text": "\": \"token 0x30ae, data +0x80 / size +0x8c, live size 0 worldwide\"\n  },\n  \"CFront\": {\n    \"writer\": \"0xf809b0\",\n    \"tokens\": [\n      \"dirty\",\n      \"provinces\",\n      \"enemies\",\n      \"id_counter\",\n      \"section\",\n      \"area\"\n    ],\n    \"not\": \"player plan; no type/instance_id/path/executing\"\n  },\n  \"not_land_fow\": {\n    \"already_spotted_0x3bb3\": \"naval-mission writer around 0x104353b (mission/radar/navy_engagement_rule/spotting_target); not world.visible_units.visibility.spotted\"\n  },\n  \"live\": \"research/t188_live_plans.json\"\n}\n"
+      },
+      {
+        "pat": "0x50",
+        "at": 2042,
+        "text": "\"order_instance_array\": \"+0x98 / size +0xa4, token 0x35f7\",\n    \"fallback\": \"token 0x33d8\",\n    \"virtual_fallback\": \"token 0x35f3\",\n    \"execution_type\": \"token 0x36aa at 0xc4d619, group-level, not proven as plans.executing\"\n  },\n  \"CTheatre\": {\n    \"front\": \"token 0x29e0, data +0x50 / size +0x5c, live elems are CFront only\",\n    \"orders_group\": \"token 0x30ae, data +0x80 / size +0x8c, live size 0 worldwide\"\n  },\n  \"CFront\": {\n    \"writer\": \"0xf809b0\",\n    \"tokens\": [\n      \"dirty\",\n      \"provinces\",\n      \"enemies\",\n      \"id_counter\",\n      \"section\",\n    "
+      },
+      {
+        "pat": "ORDER_",
+        "at": 609,
+        "text": "ion/area), not player-drawn plans. Empty tables and border fronts must not be promoted.\",\n  \"COrderInstance\": {\n    \"writer\": \"0x10d1450\",\n    \"writer_vtable_plus_10\": \"0x2a026e8\",\n    \"type\": \"dword +0x30, token type 0xe1 via 0x25459e0\",\n    \"GetOrderType_proven\": {\n      \"1\": \"ORDER_MOVE (assert 0x10b2c8a / 0x2a02d50)\",\n      \"3\": \"ORDER_INVASION (assert 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"inst"
+      },
+      {
+        "pat": "ORDER_",
+        "at": 665,
+        "text": "er fronts must not be promoted.\",\n  \"COrderInstance\": {\n    \"writer\": \"0x10d1450\",\n    \"writer_vtable_plus_10\": \"0x2a026e8\",\n    \"type\": \"dword +0x30, token type 0xe1 via 0x25459e0\",\n    \"GetOrderType_proven\": {\n      \"1\": \"ORDER_MOVE (assert 0x10b2c8a / 0x2a02d50)\",\n      \"3\": \"ORDER_INVASION (assert 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"instance_id\": \"dword +0x244, token 0x30af\",\n    \"path\": \"arr"
+      },
+      {
+        "pat": "ORDER_",
+        "at": 812,
+        "text": "30, token type 0xe1 via 0x25459e0\",\n    \"GetOrderType_proven\": {\n      \"1\": \"ORDER_MOVE (assert 0x10b2c8a / 0x2a02d50)\",\n      \"3\": \"ORDER_INVASION (assert 0x10b038e / 0x2a02c18)\"\n    },\n    \"GetOrderType_candidates\": {\n      \"4\": \"compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc\",\n      \"5\": \"compared at 0x10bc7d8, not named\"\n    },\n    \"instance_id\": \"dword +0x244, token 0x30af\",\n    \"path\": \"array +0x70, token path 0x174 (not proven as schema vertex_province_ids without a live plan)\",\n    \"states\": \"array +0xe0, token states 0x2e3b (area-d"
+      }
+    ],
+    "json_keys": [
+      "promoted",
+      "reason_not_promoted",
+      "COrderInstance",
+      "COrdersGroup",
+      "CTheatre",
+      "CFront",
+      "not_land_fow",
+      "live"
+    ]
+  },
+  "newfront_execute_head": "0x18d9070  mov qword ptr [rsp + 8], rcx\n0x18d9075  push rbp\n0x18d9076  push rbx\n0x18d9077  push rsi\n0x18d9078  push rdi\n0x18d9079  push r12\n0x18d907b  push r13\n0x18d907d  push r14\n0x18d907f  push r15\n0x18d9081  lea rbp, [rsp - 0xa8]\n0x18d9089  sub rsp, 0x1a8\n0x18d9090  movaps xmmword ptr [rsp + 0x190], xmm6\n0x18d9098  mov r13, rcx\n0x18d909b  add rcx, 0x28\n0x18d909f  xor r15d, r15d\n0x18d90a2  cmp dword ptr [rcx], r15d\n0x18d90a5  jne 0x18d90b2\n0x18d90a7  cmp dword ptr [rcx + 4], r15d\n0x18d90ab  jne 0x18d90b2\n0x18d90ad  mov r12d, r15d\n0x18d90b0  jmp 0x18d90ba\n0x18d90b2  call 0x2284870\n0x18d90b7  mov r12, rax\n0x18d90ba  mov qword ptr [rbp + 0x108], r12\n0x18d90c1  mov edx, dword ptr [r13 + 0x68]\n0x18d90c5  mov rcx, r12\n0x18d90c8  call 0xc402a0\n0x18d90cd  mov rsi, rax\n0x18d90d0  mov qword ptr [rbp + 8], rax\n0x18d90d4  mov qword ptr [rbp - 0x70], r15\n0x18d90d8  mov qword ptr [rbp - 0x68], r15\n0x18d90dc  mov eax, 0x20ec\n0x18d90e1  mov edi, dword ptr [rip + 0x1dba9b1]\n0x18d90e7  mov rcx, qword ptr gs:[0x58]\n0x18d90f0  mov rbx, qword ptr [rcx + rdi*8]\n0x18d90f4  mov ecx, dword ptr [rbx + rax]\n0x18d90f7  cmp dword ptr [rip + 0x1b04023], ecx\n0x18d90fd  jle 0x18d912c\n0x18d90ff  lea rcx, [rip + 0x1b0401a]\n0x18d9106  call 0x25a0588\n0x18d910b  cmp dword ptr [rip + 0x1b0400e], -1\n0x18d9112  jne 0x18d912c\n0x18d9114  lea rcx, [rip + 0xe9cbe5]\n0x18d911b  call 0x25a0450\n0x18d9120  lea rcx, [rip + 0x1b03ff9]\n0x18d9127  call 0x25a051c\n0x18d912c  lea rax, [rip + 0x1823ecd]\n0x18d9133  mov qword ptr [rbp - 0x60], rax\n0x18d9137  cmp byte ptr [r13 + 0x6e], 0\n0x18d913c  sete r9b\n0x18d9140  mov r8, rsi\n0x18d9143  lea rdx, [rbp - 0x70]\n0x18d9147  lea rcx, [r13 + 0x50]\n0x18d914b  call 0x10b8620\n0x18d9150  cmp dword ptr [rbp - 0x64], 0\n0x18d9154  je 0x18d99af\n0x18d915a  mov qword ptr [rsp + 0x78], r15\n0x18d915f  mov qword ptr [rbp - 0x80], r15\n0x18d9163  mov eax, 0x20ec\n0x18d9168  mov eax, dword ptr [rbx + rax]\n0x18d916b  cmp dword ptr [rip + 0x1b03faf], eax\n0x18d9171  jle 0x18d91a0\n0x18d9173  lea rcx, [rip + 0x1b03fa6]\n0x18d917a  call 0x25a0588\n0x18d917f  cmp dword ptr [rip + 0x1b03f9a], -1\n0x18d9186  jne 0x18d91a0\n0x18d9188  lea rcx, [rip + 0xe9cb71]\n0x18d918f  call 0x25a0450\n0x18d9194  lea rcx, [rip + 0x1b03f85]\n0x18d919b  call 0x25a051c\n0x18d91a0  lea rax, [rip + 0x1823e59]\n0x18d91a7  mov qword ptr [rbp - 0x78], rax\n0x18d91ab  mov r8b, 1\n0x18d91ae  lea rdx, [rsp + 0x78]\n0x18d91b3  mov rcx, rsi\n0x18d91b6  call 0x10af100\n0x18d91bb  cmp byte ptr [rip + 0x1db644f], 0\n0x18d91c2  je 0x18d921e\n0x18d91c4  cmp byte ptr [rip + 0x1b5fd98], 0\n0x18d91cb  jne 0x18d921e\n0x18d91cd  cmp dword ptr [rbp - 0x7c], 0\n0x18d91d1  jne 0x18d921e\n0x18d91d3  mov byte ptr [rbp + 0xf8], 0\n0x18d91da  lea rax, [rip + 0x1b5fd82]\n0x18d91e1  mov qword ptr [rsp + 0x28], rax\n0x18d91e6  lea rax, [rbp + 0xf8]\n0x18d91ed  mov qword ptr [rsp + 0x20], rax\n0x18d91f2  mov r9b, 1\n0x18d91f5  mov r8d, 0x1635\n0x18d91fb  lea rdx, [rip + 0xebb51b]\n0x18d9202  lea rcx, [rip + 0x11ade9f]\n0x18d9209  call 0x254ab40\n0x18d920e  mov byte ptr [rip + 0x1b5fd4f], al\n0x18d9214  cmp byte ptr [rbp + 0xf8], 0\n0x18d921b  je 0x18d921e\n0x18d921d  int3 \n0x18d921e  mov rcx, r12\n0x18d9221  call 0xc41620\n0x18d9226  mov rcx, r12\n0x18d9229  call 0xc41bb0\n0x18d922e  mov rsi, rax\n0x18d9231  mov qword ptr [rbp - 0x58], rax\n0x18d9235  movzx ecx, byte ptr [r13 + 0x6e]\n0x18d923a  mov byte ptr [rax + 0x119], cl\n0x18d9240  xor r8d, r8d\n0x18d9243  lea rdx, [r13 + 0x50]\n0x18d9247  mov rcx, rax\n0x18d924a  call 0x10b0d90\n0x18d924f  lea rcx, [r13 + 0x30]\n0x18d9253  cmp dword ptr [rcx], 0\n0x18d9256  jne 0x18d925e\n0x18d9258  cmp dword ptr [rcx + 4], 0\n0x18d925c  je 0x18d9266\n0x18d925e  call 0x2284870\n0x18d9263  mov r15, rax\n0x18d9266  mov qword ptr [rbp - 0x20], r15\n0x18d926a  mov qword ptr [rsp + 0x60], 0\n0x18d9273  xor eax, eax\n0x18d9275  mov dword ptr [rbp + 0xf8], eax\n0x18d927b  mov qword ptr [rsp + 0x68], rax",
+  "newfront_execute_all_if_short": "0x18d9070  mov qword ptr [rsp + 8], rcx\n0x18d9075  push rbp\n0x18d9076  push rbx\n0x18d9077  push rsi\n0x18d9078  push rdi\n0x18d9079  push r12\n0x18d907b  push r13\n0x18d907d  push r14\n0x18d907f  push r15\n0x18d9081  lea rbp, [rsp - 0xa8]\n0x18d9089  sub rsp, 0x1a8\n0x18d9090  movaps xmmword ptr [rsp + 0x190], xmm6\n0x18d9098  mov r13, rcx\n0x18d909b  add rcx, 0x28\n0x18d909f  xor r15d, r15d\n0x18d90a2  cmp dword ptr [rcx], r15d\n0x18d90a5  jne 0x18d90b2\n0x18d90a7  cmp dword ptr [rcx + 4], r15d\n0x18d90ab  jne 0x18d90b2\n0x18d90ad  mov r12d, r15d\n0x18d90b0  jmp 0x18d90ba\n0x18d90b2  call 0x2284870\n0x18d90b7  mov r12, rax\n0x18d90ba  mov qword ptr [rbp + 0x108], r12\n0x18d90c1  mov edx, dword ptr [r13 + 0x68]\n0x18d90c5  mov rcx, r12\n0x18d90c8  call 0xc402a0\n0x18d90cd  mov rsi, rax\n0x18d90d0  mov qword ptr [rbp + 8], rax\n0x18d90d4  mov qword ptr [rbp - 0x70], r15\n0x18d90d8  mov qword ptr [rbp - 0x68], r15\n0x18d90dc  mov eax, 0x20ec\n0x18d90e1  mov edi, dword ptr [rip + 0x1dba9b1]\n0x18d90e7  mov rcx, qword ptr gs:[0x58]\n0x18d90f0  mov rbx, qword ptr [rcx + rdi*8]\n0x18d90f4  mov ecx, dword ptr [rbx + rax]\n0x18d90f7  cmp dword ptr [rip + 0x1b04023], ecx\n0x18d90fd  jle 0x18d912c\n0x18d90ff  lea rcx, [rip + 0x1b0401a]\n0x18d9106  call 0x25a0588\n0x18d910b  cmp dword ptr [rip + 0x1b0400e], -1\n0x18d9112  jne 0x18d912c\n0x18d9114  lea rcx, [rip + 0xe9cbe5]\n0x18d911b  call 0x25a0450\n0x18d9120  lea rcx, [rip + 0x1b03ff9]\n0x18d9127  call 0x25a051c\n0x18d912c  lea rax, [rip + 0x1823ecd]\n0x18d9133  mov qword ptr [rbp - 0x60], rax\n0x18d9137  cmp byte ptr [r13 + 0x6e], 0\n0x18d913c  sete r9b\n0x18d9140  mov r8, rsi\n0x18d9143  lea rdx, [rbp - 0x70]\n0x18d9147  lea rcx, [r13 + 0x50]\n0x18d914b  call 0x10b8620\n0x18d9150  cmp dword ptr [rbp - 0x64], 0\n0x18d9154  je 0x18d99af\n0x18d915a  mov qword ptr [rsp + 0x78], r15\n0x18d915f  mov qword ptr [rbp - 0x80], r15\n0x18d9163  mov eax, 0x20ec\n0x18d9168  mov eax, dword ptr [rbx + rax]\n0x18d916b  cmp dword ptr [rip + 0x1b03faf], eax\n0x18d9171  jle 0x18d91a0\n0x18d9173  lea rcx, [rip + 0x1b03fa6]\n0x18d917a  call 0x25a0588\n0x18d917f  cmp dword ptr [rip + 0x1b03f9a], -1\n0x18d9186  jne 0x18d91a0\n0x18d9188  lea rcx, [rip + 0xe9cb71]\n0x18d918f  call 0x25a0450\n0x18d9194  lea rcx, [rip + 0x1b03f85]\n0x18d919b  call 0x25a051c\n0x18d91a0  lea rax, [rip + 0x1823e59]\n0x18d91a7  mov qword ptr [rbp - 0x78], rax\n0x18d91ab  mov r8b, 1\n0x18d91ae  lea rdx, [rsp + 0x78]\n0x18d91b3  mov rcx, rsi\n0x18d91b6  call 0x10af100\n0x18d91bb  cmp byte ptr [rip + 0x1db644f], 0\n0x18d91c2  je 0x18d921e\n0x18d91c4  cmp byte ptr [rip + 0x1b5fd98], 0\n0x18d91cb  jne 0x18d921e\n0x18d91cd  cmp dword ptr [rbp - 0x7c], 0\n0x18d91d1  jne 0x18d921e\n0x18d91d3  mov byte ptr [rbp + 0xf8], 0\n0x18d91da  lea rax, [rip + 0x1b5fd82]\n0x18d91e1  mov qword ptr [rsp + 0x28], rax\n0x18d91e6  lea rax, [rbp + 0xf8]\n0x18d91ed  mov qword ptr [rsp + 0x20], rax\n0x18d91f2  mov r9b, 1\n0x18d91f5  mov r8d, 0x1635\n0x18d91fb  lea rdx, [rip + 0xebb51b]\n0x18d9202  lea rcx, [rip + 0x11ade9f]\n0x18d9209  call 0x254ab40\n0x18d920e  mov byte ptr [rip + 0x1b5fd4f], al\n0x18d9214  cmp byte ptr [rbp + 0xf8], 0\n0x18d921b  je 0x18d921e\n0x18d921d  int3 \n0x18d921e  mov rcx, r12\n0x18d9221  call 0xc41620\n0x18d9226  mov rcx, r12\n0x18d9229  call 0xc41bb0\n0x18d922e  mov rsi, rax\n0x18d9231  mov qword ptr [rbp - 0x58], rax\n0x18d9235  movzx ecx, byte ptr [r13 + 0x6e]\n0x18d923a  mov byte ptr [rax + 0x119], cl\n0x18d9240  xor r8d, r8d\n0x18d9243  lea rdx, [r13 + 0x50]\n0x18d9247  mov rcx, rax\n0x18d924a  call 0x10b0d90\n0x18d924f  lea rcx, [r13 + 0x30]\n0x18d9253  cmp dword ptr [rcx], 0\n0x18d9256  jne 0x18d925e\n0x18d9258  cmp dword ptr [rcx + 4], 0\n0x18d925c  je 0x18d9266\n0x18d925e  call 0x2284870\n0x18d9263  mov r15, rax\n0x18d9266  mov qword ptr [rbp - 0x20], r15\n0x18d926a  mov qword ptr [rsp + 0x60], 0\n0x18d9273  xor eax, eax\n0x18d9275  mov dword ptr [rbp + 0xf8], eax\n0x18d927b  mov qword ptr [rsp + 0x68], rax\n0x18d9280  mov rax, qword ptr gs:[0x58]\n0x18d9289  mov rax, qword ptr [rax + rdi*8]\n0x18d928d  mov qword ptr [rbp - 0x18], rax\n0x18d9291  mov ecx, 0x20ec\n0x18d9296  mov eax, dword ptr [rax + rcx]\n0x18d9299  cmp dword ptr [rip + 0x1b03e81], eax\n0x18d929f  jle 0x18d92ce\n0x18d92a1  lea rcx, [rip + 0x1b03e78]\n0x18d92a8  call 0x25a0588\n0x18d92ad  cmp dword ptr [rip + 0x1b03e6c], -1\n0x18d92b4  jne 0x18d92ce\n0x18d92b6  lea rcx, [rip + 0xe9ca43]\n0x18d92bd  call 0x25a0450\n0x18d92c2  lea rcx, [rip + 0x1b03e57]\n0x18d92c9  call 0x25a051c\n0x18d92ce  lea rax, [rip + 0x1823d2b]\n0x18d92d5  mov qword ptr [rsp + 0x70], rax\n0x18d92da  xor edi, edi\n0x18d92dc  mov dword ptr [rbp + 0x100], edi\n0x18d92e2  cmp dword ptr [rbp - 0x64], edi\n0x18d92e5  jle 0x18d995f\n0x18d92eb  movss xmm6, dword ptr [rip + 0xebc695]\n0x18d92f3  mov edx, 2\n0x18d92f8  mov rcx, r12\n0x18d92fb  call 0xc41720\n0x18d9300  mov r14, rax\n0x18d9303  mov qword ptr [rbp - 0x10], rax\n0x18d9307  test r15, r15\n0x18d930a  je 0x18d9318\n0x18d930c  cmp r15, r12\n0x18d930f  je 0x18d9318\n0x18d9311  mov qword ptr [rax + 0x378], r15\n0x18d9318  movsxd rcx, edi\n0x18d931b  lea rdx, [rcx + rcx*2]\n0x18d931f  mov rcx, qword ptr [rbp - 0x70]\n0x18d9323  lea rdx, [rcx + rdx*8]\n0x18d9327  xor r8d, r8d\n0x18d932a  mov rcx, r14\n0x18d932d  call 0x10b0d90\n0x18d9332  movzx eax, byte ptr [r13 + 0x6d]\n0x18d9337  mov byte ptr [r14 + 0x118], al\n0x18d933e  movzx eax, byte ptr [r13 + 0x6e]\n0x18d9343  mov byte ptr [r14 + 0x119], al\n0x18d934a  mov edx, 1\n0x18d934f  mov rcx, r12\n0x18d9352  call 0xc41720\n0x18d9357  mov rsi, rax\n0x18d935a  test r15, r15\n0x18d935d  je 0x18d936b\n0x18d935f  cmp r15, r12\n0x18d9362  je 0x18d936b\n0x18d9364  mov qword ptr [rax + 0x378], r15\n0x18d936b  mov rdx, r14\n",
+  "newfront_isvalid_full": "0x18df550  mov qword ptr [rsp + 8], rbx\n0x18df555  push rdi\n0x18df556  sub rsp, 0x20\n0x18df55a  cmp dword ptr [rcx + 0x5c], 0\n0x18df55e  mov rbx, rcx\n0x18df561  je 0x18df5d1\n0x18df563  add rcx, 0x28\n0x18df567  call 0xbbb250\n0x18df56c  test al, al\n0x18df56e  je 0x18df5d1\n0x18df570  cmp dword ptr [rbx + 0x28], 0\n0x18df574  jne 0x18df580\n0x18df576  cmp dword ptr [rbx + 0x2c], 0\n0x18df57a  jne 0x18df580\n0x18df57c  xor edi, edi\n0x18df57e  jmp 0x18df58c\n0x18df580  lea rcx, [rbx + 0x28]\n0x18df584  call 0x2284870\n0x18df589  mov rdi, rax\n0x18df58c  cmp dword ptr [rbx + 0x30], 0\n0x18df590  lea rcx, [rbx + 0x30]\n0x18df594  jne 0x18df59c\n0x18df596  cmp dword ptr [rcx + 4], 0\n0x18df59a  je 0x18df5a5\n0x18df59c  call 0xbbb250\n0x18df5a1  test al, al\n0x18df5a3  je 0x18df5d1\n0x18df5a5  mov edx, dword ptr [rbx + 0x68]\n0x18df5a8  test edx, edx\n0x18df5aa  je 0x18df5d1\n0x18df5ac  cmp byte ptr [rbx + 0x6d], 0\n0x18df5b0  je 0x18df5b8\n0x18df5b2  cmp byte ptr [rbx + 0x6e], 0\n0x18df5b6  jne 0x18df5d1\n0x18df5b8  mov rcx, rdi\n0x18df5bb  call 0xc402a0\n0x18df5c0  test rax, rax\n0x18df5c3  setne al\n0x18df5c6  mov rbx, qword ptr [rsp + 0x30]\n0x18df5cb  add rsp, 0x20\n0x18df5cf  pop rdi\n0x18df5d0  ret \n"
+}

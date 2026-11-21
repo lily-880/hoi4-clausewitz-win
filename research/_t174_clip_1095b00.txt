@@ -1,0 +1,67 @@
+0x1095b00  push r12
+0x1095b02  push r13
+0x1095b04  push r14
+0x1095b06  sub rsp, 0x50
+0x1095b0a  mov rax, qword ptr [rdx + 0x538]
+0x1095b11  xor r12d, r12d
+0x1095b14  mov r14, r8
+0x1095b17  mov r13, rcx
+0x1095b1a  mov r9d, r12d
+0x1095b1d  mov r10d, dword ptr [rax + 0x478]
+0x1095b24  movsxd rax, dword ptr [rcx + 0x14]
+0x1095b28  test eax, eax
+0x1095b2a  jle 0x1095d1e
+0x1095b30  mov qword ptr [rsp + 0x80], rsi
+0x1095b38  mov r11, rax
+0x1095b3b  mov rsi, qword ptr [rcx + 8]
+0x1095b3f  mov edx, r12d
+0x1095b42  mov r8, rsi
+0x1095b45  nop word ptr [rax + rax]
+0x1095b50  mov rax, qword ptr [r8]
+0x1095b53  cmp dword ptr [rax + 0x478], r10d
+0x1095b5a  jge 0x1095b7e
+0x1095b5c  inc r9d
+0x1095b5f  inc rdx
+0x1095b62  add r8, 0x18
+0x1095b66  cmp rdx, r11
+0x1095b69  jl 0x1095b50
+0x1095b6b  mov rsi, qword ptr [rsp + 0x80]
+0x1095b73  add rsp, 0x50
+0x1095b77  pop r14
+0x1095b79  pop r13
+0x1095b7b  pop r12
+0x1095b7d  ret 
+0x1095b7e  jg 0x1095d16
+0x1095b84  mov ecx, dword ptr [r14 + 8]
+0x1095b88  mov qword ptr [rsp + 0x78], rbp
+0x1095b8d  movaps xmmword ptr [rsp + 0x30], xmm6
+0x1095b92  movss xmm6, dword ptr [rip + 0x16ffdee]
+0x1095b9a  movsxd rax, r9d
+0x1095b9d  mov qword ptr [rsp + 0x70], rbx
+0x1095ba2  mov qword ptr [rsp + 0x48], rdi
+0x1095ba7  lea rbp, [rax + rax*2]
+0x1095bab  mov eax, dword ptr [r14 + 0xc]
+0x1095baf  add eax, dword ptr [rsi + rbp*8 + 0xc]
+0x1095bb3  cmp eax, ecx
+0x1095bb5  jle 0x1095c0c
+0x1095bb7  movd xmm0, ecx
+0x1095bbb  mov r8d, 8
+0x1095bc1  mov rcx, qword ptr [r14 + 0x10]
+0x1095bc5  cvtdq2ps xmm0, xmm0
+0x1095bc8  mulss xmm0, xmm6
+0x1095bcc  cvttss2si edi, xmm0
+0x1095bd0  cmp eax, edi
+0x1095bd2  cmovg edi, eax
+0x1095bd5  mov rax, qword ptr [rcx]
+0x1095bd8  mov edx, edi
+0x1095bda  shl rdx, 4
+0x1095bde  call qword ptr [rax + 8]
+0x1095be1  movsxd r8, dword ptr [r14 + 0xc]
+0x1095be5  mov rcx, rax
+0x1095be8  mov rdx, qword ptr [r14]
+0x1095beb  mov rbx, rax
+0x1095bee  shl r8, 4
+0x1095bf2  call 0x26079d0
+0x1095bf7  mov rcx, qword ptr [r14 + 0x10]
+0x1095bfb  mov rdx, qword ptr [r14]
+0x1095bfe  mov r8, qword ptr [rcx]

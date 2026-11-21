@@ -1,0 +1,218 @@
+{
+  "at_est": "2026-11-21T02:12:33.010795-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "tails": [
+    {
+      "label": "puppet_of",
+      "vtable_rva": "0x2811080",
+      "slots": [
+        {
+          "index": 21,
+          "rva": "0x441690",
+          "in_text": true
+        },
+        {
+          "index": 22,
+          "rva": "0x3f9e40",
+          "in_text": true
+        },
+        {
+          "index": 23,
+          "rva": "0x1443990",
+          "in_text": true
+        },
+        {
+          "index": 24,
+          "rva": "-0x2db1db74beb3",
+          "in_text": false
+        }
+      ]
+    },
+    {
+      "label": "subject_of",
+      "vtable_rva": "0x2811278",
+      "slots": [
+        {
+          "index": 21,
+          "rva": "0x442880",
+          "in_text": true
+        },
+        {
+          "index": 22,
+          "rva": "0x3fa270",
+          "in_text": true
+        },
+        {
+          "index": 23,
+          "rva": "0x1443990",
+          "in_text": true
+        },
+        {
+          "index": 24,
+          "rva": "0x5f51c55017815254",
+          "in_text": false
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "0xd87160": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd87160",
+      "window_size": 73,
+      "reachable_instruction_count": 25,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd87192",
+          "operand": "0xc085f0"
+        }
+      ],
+      "asm": [
+        "d87160 sub rsp, 0x28",
+        "d87164 mov rax, qword ptr [rcx + 0x288]",
+        "d8716b test rax, rax",
+        "d8716e je 0xd871a2",
+        "d87170 cmp dword ptr [rax + 8], 0x30d1",
+        "d87177 jne 0xd871a2",
+        "d87179 mov edx, dword ptr [rcx + 0x50]",
+        "d8717c lea r8, [rax + 0x10]",
+        "d87180 mov eax, dword ptr [rax + 0x10]",
+        "d87183 cmp eax, edx",
+        "d87185 je 0xd8719b",
+        "d87187 test eax, eax",
+        "d87189 je 0xd871a2",
+        "d8718b test edx, edx",
+        "d8718d je 0xd871a2",
+        "d8718f mov rcx, r8",
+        "d87192 call 0xc085f0",
+        "d87197 test al, al",
+        "d87199 je 0xd871a2",
+        "d8719b mov al, 1",
+        "d8719d add rsp, 0x28",
+        "d871a1 ret ",
+        "d871a2 xor al, al",
+        "d871a4 add rsp, 0x28",
+        "d871a8 ret "
+      ],
+      "raw_hex": "4883ec28488b81880200004885c07432817808d130000075298b51504c8d40108b40103bc2741485c0741785d27413498bc8e85914e8ff84c07407b0014883c428c332c04883c428c3",
+      "sha256": "3330d17d8dda86cdc3c6d68b8e24c1be2c3800d2e13f7c8116e783eb28bf3344",
+      "pdata": [
+        "0xd87160",
+        "0xd871a9",
+        "0x2e7a310"
+      ],
+      "literals": []
+    },
+    "0x1443990": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x1443990",
+      "window_size": 127,
+      "reachable_instruction_count": 34,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x14439b4",
+          "operand": "0xc08770"
+        },
+        {
+          "site": "0x14439cd",
+          "operand": "0xc08260"
+        },
+        {
+          "site": "0x14439e7",
+          "operand": "0x58ac90"
+        },
+        {
+          "site": "0x14439f4",
+          "operand": "qword ptr [rax + 0x40]"
+        }
+      ],
+      "asm": [
+        "1443990 mov qword ptr [rsp + 8], rbx",
+        "1443995 mov qword ptr [rsp + 0x10], rbp",
+        "144399a mov qword ptr [rsp + 0x18], rsi",
+        "144399f push rdi",
+        "14439a0 sub rsp, 0x20",
+        "14439a4 mov rdi, rcx",
+        "14439a7 mov rsi, r8",
+        "14439aa add rcx, 0x170",
+        "14439b1 mov rbx, rdx",
+        "14439b4 call 0xc08770",
+        "14439b9 mov r8, rsi",
+        "14439bc mov rdx, rbx",
+        "14439bf test al, al",
+        "14439c1 je 0x14439d4",
+        "14439c3 xor r9d, r9d",
+        "14439c6 lea rcx, [rdi + 0x170]",
+        "14439cd call 0xc08260",
+        "14439d2 jmp 0x14439f7",
+        "14439d4 cmp byte ptr [rdi + 0xa8], 0",
+        "14439db je 0x14439ee",
+        "14439dd lea rcx, [rdi + 0xa0]",
+        "14439e4 xor r9d, r9d",
+        "14439e7 call 0x58ac90",
+        "14439ec jmp 0x14439f7",
+        "14439ee mov rax, qword ptr [rdi]",
+        "14439f1 mov rcx, rdi",
+        "14439f4 call qword ptr [rax + 0x40]",
+        "14439f7 mov rbp, qword ptr [rsp + 0x38]",
+        "14439fc mov rax, rbx",
+        "14439ff mov rbx, qword ptr [rsp + 0x30]",
+        "1443a04 mov rsi, qword ptr [rsp + 0x40]",
+        "1443a09 add rsp, 0x20",
+        "1443a0d pop rdi",
+        "1443a0e ret "
+      ],
+      "raw_hex": "48895c240848896c24104889742418574883ec20488bf9498bf04881c170010000488bdae8b74d7cff4c8bc6488bd384c074114533c9488d8f70010000e88e487cffeb2380bfa8000000007411488d8fa00000004533c9e8a47214ffeb09488b07488bcfff5040488b6c2438488bc3488b5c2430488b7424404883c4205fc3",
+      "sha256": "acdadb5cdb34d7550c79ae39762c20de981dbba6249752581469a6661a84a42c",
+      "pdata": [
+        "0x1443990",
+        "0x1443a0f",
+        "0x2e7aab4"
+      ],
+      "literals": []
+    }
+  },
+  "promotions": [],
+  "scope": "Exact binary subject-of predicate relation-status consumer D87160 and actual+B8 parameter getter slots, respecting extended interface metadata stop. No native invocation or current foreign-unit visibility inference."
+}

@@ -1,0 +1,47 @@
+{
+  "promoted": [
+    "world.own_units.order.path_province_ids"
+  ],
+  "not_promoted": {
+    "world.own_units.order.type": "commandlist still size 0 after PATH_CONTAINS_DEST; do not invent type=move from a nonempty path",
+    "world.own_units.order.target_province_ids": "CArmy+0x220 full_path still empty; do not infer target as path[-1]",
+    "world.own_units.order.eta": "CArmy+0x240 movement_progress still 0 while paused; unit has not started moving"
+  },
+  "ca": "CArmy+0x200 data, +0x20c size; official CPdxArray<u32>",
+  "live": {
+    "unit_id": 1829,
+    "province_id": 5010,
+    "path": [
+      8036
+    ],
+    "other_units_empty_paths": 20,
+    "commandlist_size": 0,
+    "full_path": [],
+    "movement_progress": 0,
+    "still_paused": true,
+    "speed_index": 0,
+    "hour_tick": 60759371
+  },
+  "post": {
+    "authorized_by": [
+      "pt180u"
+    ],
+    "factory_idx": 1402,
+    "factory_rva": "0x13fb070",
+    "FN_CMD_QUEUE_POST": "0x22c4250",
+    "result": "PATH_CONTAINS_DEST",
+    "province_buf_kind": "ucrt_malloc",
+    "path_after": [
+      8036
+    ]
+  },
+  "rebase_1_19_5": {
+    "ARMY_VT": "0x29d6d98",
+    "MOVE_VT": "0x2a2cde0",
+    "ACTION_VT": "0x2a1fac8",
+    "FACTORY_RVA": "0x13fb070",
+    "ACTION_ISVALID_RVA": "0x12c2d10",
+    "FN_CMD_QUEUE_POST": "0x22c4250",
+    "note": "1.19.4 constants in move_order/post_abi missed the ~+0x70 .text slide and rdata vtable move; rebound from live TYPEID_FACTORY_TABLE + RTTI + pdata before the one-shot Post"
+  }
+}

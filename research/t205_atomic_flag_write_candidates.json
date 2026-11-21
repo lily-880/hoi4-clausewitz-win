@@ -1,0 +1,164 @@
+{
+  "scope": "native loaded-text opcode-prefilter + pdata-boundary decode; byte1E/2E and word1D/2D only. Not exhaustive for aliases, bulk/vector writes, unknown leaf spans, indirect calls. No class/field semantics from offsets alone.",
+  "base": "0x7ff7a91c0000",
+  "text_sha256": "0c95498acf60a1dd31a676ac36a1df4af4555daef86ecd67c8be35fdf2203772",
+  "raw_hits": 462,
+  "unbound_hits": [
+    "0xf4589a",
+    "0x1318c88",
+    "0x19eca9a",
+    "0x2125fba",
+    "0x2241ad3",
+    "0x235e706",
+    "0x24c7b9f",
+    "0x24ddcfe"
+  ],
+  "write_sites": [],
+  "previous_unbound_windows": [
+    {
+      "candidate": "0xd9cca5",
+      "heuristic_aligned_start": "0xd9cca0",
+      "boundary_proven": false,
+      "bytes": "4885c0740880782e000f94c0c3b001c348895c241048896c24184889742420574883ec20488bf1488bda488d8a880100008b018b96f00100003bc2741d85c00f",
+      "asm": [
+        "d9cca0 test rax, rax",
+        "d9cca3 je 0xd9ccad",
+        "d9cca5 cmp byte ptr [rax + 0x2e], 0",
+        "d9cca9 sete al",
+        "d9ccac ret ",
+        "d9ccad mov al, 1",
+        "d9ccaf ret ",
+        "d9ccb0 mov qword ptr [rsp + 0x10], rbx",
+        "d9ccb5 mov qword ptr [rsp + 0x18], rbp",
+        "d9ccba mov qword ptr [rsp + 0x20], rsi",
+        "d9ccbf push rdi",
+        "d9ccc0 sub rsp, 0x20",
+        "d9ccc4 mov rsi, rcx",
+        "d9ccc7 mov rbx, rdx",
+        "d9ccca lea rcx, [rdx + 0x188]",
+        "d9ccd1 mov eax, dword ptr [rcx]",
+        "d9ccd3 mov edx, dword ptr [rsi + 0x1f0]",
+        "d9ccd9 cmp eax, edx",
+        "d9ccdb je 0xd9ccfa",
+        "d9ccdd test eax, eax"
+      ]
+    },
+    {
+      "candidate": "0x226c98a",
+      "heuristic_aligned_start": "0x226c980",
+      "boundary_proven": false,
+      "bytes": "5110488951186689512c88512e488951384889513089516048894178488991980000008991a0000000488991a80000008991b000000048895168488951706689",
+      "asm": [
+        "226c980 push rcx",
+        "226c981 adc byte ptr [rax - 0x77], cl",
+        "226c984 push rcx",
+        "226c985 sbb byte ptr [rsi - 0x77], ah",
+        "226c988 push rcx",
+        "226c989 sub al, 0x88",
+        "226c98b push rcx",
+        "226c98c mov qword ptr cs:[rcx + 0x38], rdx",
+        "226c991 mov qword ptr [rcx + 0x30], rdx",
+        "226c995 mov dword ptr [rcx + 0x60], edx",
+        "226c998 mov qword ptr [rcx + 0x78], rax",
+        "226c99c mov qword ptr [rcx + 0x98], rdx",
+        "226c9a3 mov dword ptr [rcx + 0xa0], edx",
+        "226c9a9 mov qword ptr [rcx + 0xa8], rdx",
+        "226c9b0 mov dword ptr [rcx + 0xb0], edx",
+        "226c9b6 mov qword ptr [rcx + 0x68], rdx",
+        "226c9ba mov qword ptr [rcx + 0x70], rdx"
+      ]
+    },
+    {
+      "candidate": "0x23f1d9e",
+      "heuristic_aligned_start": "0x23f1d90",
+      "boundary_proven": false,
+      "bytes": "c0fd410fb68400981e3f02418b9480601e3f024903d0ffe24883b928010000000f95c0c34883b908010000000f95c0c34883b948010000000f95c0c34883b968",
+      "asm": [
+        "23f1d90 sar ch, 0x41",
+        "23f1d93 movzx eax, byte ptr [rax + rax + 0x23f1e98]",
+        "23f1d9b mov edx, dword ptr [r8 + rax*4 + 0x23f1e60]",
+        "23f1da3 add rdx, r8",
+        "23f1da6 jmp rdx",
+        "23f1da8 cmp qword ptr [rcx + 0x128], 0",
+        "23f1db0 setne al",
+        "23f1db3 ret ",
+        "23f1db4 cmp qword ptr [rcx + 0x108], 0",
+        "23f1dbc setne al",
+        "23f1dbf ret ",
+        "23f1dc0 cmp qword ptr [rcx + 0x148], 0",
+        "23f1dc8 setne al",
+        "23f1dcb ret "
+      ]
+    },
+    {
+      "candidate": "0x26dae1c",
+      "heuristic_aligned_start": "0x26dae10",
+      "boundary_proven": false,
+      "bytes": "488b8a700100004883c160e980731eff488b8a700100004881c188000000e9dd54a4fdcccccccccccccccccccccccccc488b8a700100004881c1a0000000e9bd",
+      "asm": [
+        "26dae10 mov rcx, qword ptr [rdx + 0x170]",
+        "26dae17 add rcx, 0x60",
+        "26dae1b jmp 0x18c21a0",
+        "26dae20 mov rcx, qword ptr [rdx + 0x170]",
+        "26dae27 add rcx, 0x88",
+        "26dae2e jmp 0x120310",
+        "26dae33 int3 ",
+        "26dae34 int3 ",
+        "26dae35 int3 ",
+        "26dae36 int3 ",
+        "26dae37 int3 ",
+        "26dae38 int3 ",
+        "26dae39 int3 ",
+        "26dae3a int3 ",
+        "26dae3b int3 ",
+        "26dae3c int3 ",
+        "26dae3d int3 ",
+        "26dae3e int3 ",
+        "26dae3f int3 ",
+        "26dae40 mov rcx, qword ptr [rdx + 0x170]",
+        "26dae47 add rcx, 0xa0"
+      ]
+    }
+  ],
+  "guard_after": {
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "pause": 1,
+    "speed_slot": 0,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "plans": [
+      {
+        "id": 1,
+        "executing": false
+      },
+      {
+        "id": 2,
+        "executing": false
+      },
+      {
+        "id": 6,
+        "executing": false
+      },
+      {
+        "id": 5,
+        "executing": false
+      },
+      {
+        "id": 4,
+        "executing": false
+      },
+      {
+        "id": 3,
+        "executing": false
+      }
+    ],
+    "gate_open": false
+  }
+}

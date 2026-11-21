@@ -1,0 +1,92 @@
+2573160 mov qword ptr [rsp + 8], rbx
+2573165 mov qword ptr [rsp + 0x10], rsi
+257316a mov qword ptr [rsp + 0x18], rdi
+257316f mov qword ptr [rsp + 0x20], r14
+2573174 mov r10d, dword ptr [rdx]
+2573177 mov rsi, rdx
+257317a mov edi, dword ptr [rcx]
+257317c mov r11d, r10d
+257317f and r11d, 3
+2573183 mov r14, rcx
+2573186 mov ebx, r11d
+2573189 neg ebx
+257318b and ebx, 3
+257318e je 0x25731e8
+2573190 cmp ebx, r9d
+2573193 jg 0x25731e8
+2573195 sub r9d, ebx
+2573198 nop dword ptr [rax + rax]
+25731a0 movzx ecx, byte ptr [r8]
+25731a4 mov eax, r10d
+25731a7 shl ecx, 0x18
+25731aa dec ebx
+25731ac shr eax, 8
+25731af mov r10d, ecx
+25731b2 or r10d, eax
+25731b5 inc r8
+25731b8 inc r11d
+25731bb cmp r11d, 4
+25731bf jne 0x25731e4
+25731c1 imul eax, r10d, 0xcc9e2d51
+25731c8 rol eax, 0xf
+25731cb imul r10d, eax, 0x1b873593
+25731d2 xor edi, r10d
+25731d5 rol edi, 0xd
+25731d8 add edi, 0xfaddaf14
+25731de xor r11d, r11d
+25731e1 lea edi, [rdi + rdi*4]
+25731e4 test ebx, ebx
+25731e6 jne 0x25731a0
+25731e8 mov eax, r9d
+25731eb cdq 
+25731ec and edx, 3
+25731ef add eax, edx
+25731f1 and eax, 0xfffffffc
+25731f4 movsxd rbx, eax
+25731f7 add rbx, r8
+25731fa cmp r8, rbx
+25731fd jae 0x2573227
+25731ff nop 
+2573200 imul ecx, dword ptr [r8], 0xcc9e2d51
+2573207 add r8, 4
+257320b rol ecx, 0xf
+257320e imul edx, ecx, 0x1b873593
+2573214 xor edi, edx
+2573216 rol edi, 0xd
+2573219 add edi, 0xfaddaf14
+257321f lea edi, [rdi + rdi*4]
+2573222 cmp r8, rbx
+2573225 jb 0x2573200
+2573227 sub r9d, eax
+257322a je 0x257327b
+257322c nop dword ptr [rax]
+2573230 movzx ecx, byte ptr [r8]
+2573234 lea r8, [r8 + 1]
+2573238 mov eax, r10d
+257323b shl ecx, 0x18
+257323e shr eax, 8
+2573241 mov r10d, ecx
+2573244 or r10d, eax
+2573247 dec r9d
+257324a inc r11d
+257324d cmp r11d, 4
+2573251 jne 0x2573276
+2573253 imul eax, r10d, 0xcc9e2d51
+257325a rol eax, 0xf
+257325d imul r10d, eax, 0x1b873593
+2573264 xor edi, r10d
+2573267 rol edi, 0xd
+257326a add edi, 0xfaddaf14
+2573270 xor r11d, r11d
+2573273 lea edi, [rdi + rdi*4]
+2573276 test r9d, r9d
+2573279 jne 0x2573230
+257327b mov rbx, qword ptr [rsp + 8]
+2573280 and r10d, 0xffffff00
+2573287 mov dword ptr [r14], edi
+257328a or r10d, r11d
+257328d mov rdi, qword ptr [rsp + 0x18]
+2573292 mov r14, qword ptr [rsp + 0x20]
+2573297 mov dword ptr [rsi], r10d
+257329a mov rsi, qword ptr [rsp + 0x10]
+257329f ret 

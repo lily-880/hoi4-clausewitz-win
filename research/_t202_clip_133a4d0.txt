@@ -1,0 +1,85 @@
+133a4d0 mov qword ptr [rsp + 8], rbx
+133a4d5 mov qword ptr [rsp + 0x10], rsi
+133a4da push rdi
+133a4db sub rsp, 0x20
+133a4df lea rax, [rip + 0x16e91ba]
+133a4e6 mov rbx, rcx
+133a4e9 mov qword ptr [rcx], rax
+133a4ec mov rdi, qword ptr [rcx + 0x140]
+133a4f3 movsxd rax, dword ptr [rcx + 0x14c]
+133a4fa lea rsi, [rdi + rax*8]
+133a4fe cmp rdi, rsi
+133a501 je 0x133a51e
+133a503 mov rcx, qword ptr [rdi]
+133a506 test rcx, rcx
+133a509 je 0x133a515
+133a50b mov rax, qword ptr [rcx]
+133a50e mov edx, 1
+133a513 call qword ptr [rax]
+133a515 add rdi, 8
+133a519 cmp rdi, rsi
+133a51c jne 0x133a503
+133a51e xor edi, edi
+133a520 lea rcx, [rbx + 0x1d0]
+133a527 mov dword ptr [rbx + 0x14c], edi
+133a52d call 0xd387b0
+133a532 mov rdx, qword ptr [rbx + 0x1b0]
+133a539 test rdx, rdx
+133a53c je 0x133a55e
+133a53e mov rcx, qword ptr [rbx + 0x1c0]
+133a545 mov dword ptr [rbx + 0x1bc], edi
+133a54b mov rax, qword ptr [rcx]
+133a54e call qword ptr [rax + 0x10]
+133a551 mov qword ptr [rbx + 0x1b0], rdi
+133a558 mov dword ptr [rbx + 0x1b8], edi
+133a55e mov rdx, qword ptr [rbx + 0x198]
+133a565 test rdx, rdx
+133a568 je 0x133a58a
+133a56a mov rcx, qword ptr [rbx + 0x1a8]
+133a571 mov dword ptr [rbx + 0x1a4], edi
+133a577 mov rax, qword ptr [rcx]
+133a57a call qword ptr [rax + 0x10]
+133a57d mov qword ptr [rbx + 0x198], rdi
+133a584 mov dword ptr [rbx + 0x1a0], edi
+133a58a mov rdx, qword ptr [rbx + 0x140]
+133a591 test rdx, rdx
+133a594 je 0x133a5b6
+133a596 mov rcx, qword ptr [rbx + 0x150]
+133a59d mov dword ptr [rbx + 0x14c], edi
+133a5a3 mov rax, qword ptr [rcx]
+133a5a6 call qword ptr [rax + 0x10]
+133a5a9 mov qword ptr [rbx + 0x140], rdi
+133a5b0 mov dword ptr [rbx + 0x148], edi
+133a5b6 mov rdx, qword ptr [rbx + 0x118]
+133a5bd test rdx, rdx
+133a5c0 je 0x133a5e2
+133a5c2 mov rcx, qword ptr [rbx + 0x128]
+133a5c9 mov dword ptr [rbx + 0x124], edi
+133a5cf mov rax, qword ptr [rcx]
+133a5d2 call qword ptr [rax + 0x10]
+133a5d5 mov qword ptr [rbx + 0x118], rdi
+133a5dc mov dword ptr [rbx + 0x120], edi
+133a5e2 mov rdx, qword ptr [rbx + 0x100]
+133a5e9 test rdx, rdx
+133a5ec je 0x133a60e
+133a5ee mov rcx, qword ptr [rbx + 0x110]
+133a5f5 mov dword ptr [rbx + 0x10c], edi
+133a5fb mov rax, qword ptr [rcx]
+133a5fe call qword ptr [rax + 0x10]
+133a601 mov qword ptr [rbx + 0x100], rdi
+133a608 mov dword ptr [rbx + 0x108], edi
+133a60e mov rdx, qword ptr [rbx + 0xe8]
+133a615 test rdx, rdx
+133a618 je 0x133a63a
+133a61a mov rcx, qword ptr [rbx + 0xf8]
+133a621 mov dword ptr [rbx + 0xf4], edi
+133a627 mov rax, qword ptr [rcx]
+133a62a call qword ptr [rax + 0x10]
+133a62d mov qword ptr [rbx + 0xe8], rdi
+133a634 mov dword ptr [rbx + 0xf0], edi
+133a63a mov rcx, rbx
+133a63d mov rbx, qword ptr [rsp + 0x30]
+133a642 mov rsi, qword ptr [rsp + 0x38]
+133a647 add rsp, 0x20
+133a64b pop rdi
+133a64c jmp 0x133a380

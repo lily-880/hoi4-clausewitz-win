@@ -1,0 +1,278 @@
+{
+  "verified_identity_ctor": {
+    "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+    "window_start": "0x153750",
+    "window_size": 64,
+    "reachable_instruction_count": 3,
+    "unresolved_edges": [],
+    "external_tails": [],
+    "calls": [],
+    "asm": [
+      "153750 mov dword ptr [rcx], edx",
+      "153752 mov rax, rcx",
+      "153755 ret "
+    ]
+  },
+  "initial_attempts": "v1 used wrong ECX/RDX; v2 EDX/R8 stopped at identity ctor153750 and failed positive control; neither accepted as names/absence proof",
+  "scope": "only direct native registration calls (EDX token/R8 name; known positive control required) with constant RIP setup through statically verified identity ctor153750 before last call; no save access or function invocation",
+  "registration_call_candidates": 10770,
+  "matched": [
+    {
+      "call": "0xa626d",
+      "token": "0x28b7",
+      "token_rva": "0x2b49e64",
+      "name": "leader",
+      "name_rva": "0x2a20b3c",
+      "context": [
+        "a6217 mov rcx, qword ptr [rsp + 0xf640]",
+        "a621f call 0x153750",
+        "a6224 lea r8, [rip + 0x2aa0eed]",
+        "a622b mov edx, dword ptr [rax]",
+        "a622d lea rcx, [rip + 0x33c09cc]",
+        "a6234 call 0x2547630",
+        "a6239 nop ",
+        "a623a lea rax, [rsp + 0x2714]",
+        "a6242 mov qword ptr [rsp + 0xf648], rax",
+        "a624a mov edx, dword ptr [rip + 0x2aa3c14]",
+        "a6250 mov rcx, qword ptr [rsp + 0xf648]",
+        "a6258 call 0x153750",
+        "a625d lea r8, [rip + 0x297a8d8]",
+        "a6264 mov edx, dword ptr [rax]",
+        "a6266 lea rcx, [rip + 0x33c09db]"
+      ]
+    },
+    {
+      "call": "0xf25b1",
+      "token": "0x3750",
+      "token_rva": "0x2b6ceac",
+      "name": "manpower_lost",
+      "name_rva": "0x2b69880",
+      "context": [
+        "f255b mov rcx, qword ptr [rsp + 0x1a160]",
+        "f2563 call 0x153750",
+        "f2568 lea r8, [rip + 0x2a77301]",
+        "f256f mov edx, dword ptr [rax]",
+        "f2571 lea rcx, [rip + 0x33d4aa8]",
+        "f2578 call 0x2547630",
+        "f257d nop ",
+        "f257e lea rax, [rsp + 0x7ca4]",
+        "f2586 mov qword ptr [rsp + 0x1a168], rax",
+        "f258e mov edx, dword ptr [rip + 0x2a7a918]",
+        "f2594 mov rcx, qword ptr [rsp + 0x1a168]",
+        "f259c call 0x153750",
+        "f25a1 lea r8, [rip + 0x2a772d8]",
+        "f25a8 mov edx, dword ptr [rax]",
+        "f25aa lea rcx, [rip + 0x33d4ab7]"
+      ]
+    },
+    {
+      "call": "0xf25ea",
+      "token": "0x3751",
+      "token_rva": "0x2b6cedc",
+      "name": "manpower_lost_air_factor",
+      "name_rva": "0x2b69898",
+      "context": [
+        "f2594 mov rcx, qword ptr [rsp + 0x1a168]",
+        "f259c call 0x153750",
+        "f25a1 lea r8, [rip + 0x2a772d8]",
+        "f25a8 mov edx, dword ptr [rax]",
+        "f25aa lea rcx, [rip + 0x33d4ab7]",
+        "f25b1 call 0x2547630",
+        "f25b6 nop ",
+        "f25b7 lea rax, [rsp + 0x7ca8]",
+        "f25bf mov qword ptr [rsp + 0x1a170], rax",
+        "f25c7 mov edx, dword ptr [rip + 0x2a7a90f]",
+        "f25cd mov rcx, qword ptr [rsp + 0x1a170]",
+        "f25d5 call 0x153750",
+        "f25da lea r8, [rip + 0x2a772b7]",
+        "f25e1 mov edx, dword ptr [rax]",
+        "f25e3 lea rcx, [rip + 0x33d4ac6]"
+      ]
+    },
+    {
+      "call": "0xf2623",
+      "token": "0x3753",
+      "token_rva": "0x2b6cf04",
+      "name": "equipment_lost",
+      "name_rva": "0x2b698b8",
+      "context": [
+        "f25cd mov rcx, qword ptr [rsp + 0x1a170]",
+        "f25d5 call 0x153750",
+        "f25da lea r8, [rip + 0x2a772b7]",
+        "f25e1 mov edx, dword ptr [rax]",
+        "f25e3 lea rcx, [rip + 0x33d4ac6]",
+        "f25ea call 0x2547630",
+        "f25ef nop ",
+        "f25f0 lea rax, [rsp + 0x7cac]",
+        "f25f8 mov qword ptr [rsp + 0x1a178], rax",
+        "f2600 mov edx, dword ptr [rip + 0x2a7a8fe]",
+        "f2606 mov rcx, qword ptr [rsp + 0x1a178]",
+        "f260e call 0x153750",
+        "f2613 lea r8, [rip + 0x2a7729e]",
+        "f261a mov edx, dword ptr [rax]",
+        "f261c lea rcx, [rip + 0x33d4ad5]"
+      ]
+    },
+    {
+      "call": "0xf27eb",
+      "token": "0x375c",
+      "token_rva": "0x2b6d044",
+      "name": "modifier_hours",
+      "name_rva": "0x2b69968",
+      "context": [
+        "f2795 mov rcx, qword ptr [rsp + 0x1a1b0]",
+        "f279d call 0x153750",
+        "f27a2 lea r8, [rip + 0x2a771af]",
+        "f27a9 mov edx, dword ptr [rax]",
+        "f27ab lea rcx, [rip + 0x33d4b3e]",
+        "f27b2 call 0x2547630",
+        "f27b7 nop ",
+        "f27b8 lea rax, [rsp + 0x7ccc]",
+        "f27c0 mov qword ptr [rsp + 0x1a1b8], rax",
+        "f27c8 mov edx, dword ptr [rip + 0x2a7a876]",
+        "f27ce mov rcx, qword ptr [rsp + 0x1a1b8]",
+        "f27d6 call 0x153750",
+        "f27db lea r8, [rip + 0x2a77186]",
+        "f27e2 mov edx, dword ptr [rax]",
+        "f27e4 lea rcx, [rip + 0x33d4b4d]"
+      ]
+    },
+    {
+      "call": "0xf3664",
+      "token": "0x3850",
+      "token_rva": "0x2b6daa0",
+      "name": "equipment_captured_by_enemy",
+      "name_rva": "0x2b69f60",
+      "context": [
+        "f360e mov rcx, qword ptr [rsp + 0x1a3b8]",
+        "f3616 call 0x153750",
+        "f361b lea r8, [rip + 0x2a7691e]",
+        "f3622 mov edx, dword ptr [rax]",
+        "f3624 lea rcx, [rip + 0x33d4f0d]",
+        "f362b call 0x2547630",
+        "f3630 nop ",
+        "f3631 lea rax, [rsp + 0x7dd0]",
+        "f3639 mov qword ptr [rsp + 0x1a3c0], rax",
+        "f3641 mov edx, dword ptr [rip + 0x2a7a459]",
+        "f3647 mov rcx, qword ptr [rsp + 0x1a3c0]",
+        "f364f call 0x153750",
+        "f3654 lea r8, [rip + 0x2a76905]",
+        "f365b mov edx, dword ptr [rax]",
+        "f365d lea rcx, [rip + 0x33d4f1c]"
+      ]
+    },
+    {
+      "call": "0x107491",
+      "token": "0x4cb2",
+      "token_rva": "0x2b3e378",
+      "name": "equipment_recovered",
+      "name_rva": "0x2b38da0",
+      "context": [
+        "10743b mov rcx, qword ptr [rsp + 0x1d060]",
+        "107443 call 0x153750",
+        "107448 lea r8, [rip + 0x2a31911]",
+        "10744f mov edx, dword ptr [rax]",
+        "107451 lea rcx, [rip + 0x33da2c8]",
+        "107458 call 0x2547630",
+        "10745d nop ",
+        "10745e lea rax, [rsp + 0x9424]",
+        "107466 mov qword ptr [rsp + 0x1d068], rax",
+        "10746e mov edx, dword ptr [rip + 0x2a36f04]",
+        "107474 mov rcx, qword ptr [rsp + 0x1d068]",
+        "10747c call 0x153750",
+        "107481 lea r8, [rip + 0x2a31918]",
+        "107488 mov edx, dword ptr [rax]",
+        "10748a lea rcx, [rip + 0x33da2d7]"
+      ]
+    },
+    {
+      "call": "0x108025",
+      "token": "0x4cf2",
+      "token_rva": "0x2b3ece8",
+      "name": "disrupted_supply",
+      "name_rva": "0x2b39a20",
+      "context": [
+        "107fcf mov rcx, qword ptr [rsp + 0x1d200]",
+        "107fd7 call 0x153750",
+        "107fdc lea r8, [rip + 0x2a31a05]",
+        "107fe3 mov edx, dword ptr [rax]",
+        "107fe5 lea rcx, [rip + 0x33da5d4]",
+        "107fec call 0x2547630",
+        "107ff1 nop ",
+        "107ff2 lea rax, [rsp + 0x94f4]",
+        "107ffa mov qword ptr [rsp + 0x1d208], rax",
+        "108002 mov edx, dword ptr [rip + 0x2a36ce0]",
+        "108008 mov rcx, qword ptr [rsp + 0x1d208]",
+        "108010 call 0x153750",
+        "108015 lea r8, [rip + 0x2a31a04]",
+        "10801c mov edx, dword ptr [rax]",
+        "10801e lea rcx, [rip + 0x33da5e3]"
+      ]
+    },
+    {
+      "call": "0x109aa4",
+      "token": "0x4de7",
+      "token_rva": "0x2b40460",
+      "name": "motorization_level",
+      "name_rva": "0x2b3b198",
+      "context": [
+        "109a4e mov rcx, qword ptr [rsp + 0x1d5b8]",
+        "109a56 call 0x153750",
+        "109a5b lea r8, [rip + 0x2a316f6]",
+        "109a62 mov edx, dword ptr [rax]",
+        "109a64 lea rcx, [rip + 0x33daccd]",
+        "109a6b call 0x2547630",
+        "109a70 nop ",
+        "109a71 lea rax, [rsp + 0x96d0]",
+        "109a79 mov qword ptr [rsp + 0x1d5c0], rax",
+        "109a81 mov edx, dword ptr [rip + 0x2a369d9]",
+        "109a87 mov rcx, qword ptr [rsp + 0x1d5c0]",
+        "109a8f call 0x153750",
+        "109a94 lea r8, [rip + 0x2a316fd]",
+        "109a9b mov edx, dword ptr [rax]",
+        "109a9d lea rcx, [rip + 0x33dacdc]"
+      ]
+    }
+  ],
+  "guard_after": {
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "pause": 1,
+    "speed_slot": 0,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "plans": [
+      {
+        "id": 1,
+        "executing": false
+      },
+      {
+        "id": 2,
+        "executing": false
+      },
+      {
+        "id": 6,
+        "executing": false
+      },
+      {
+        "id": 5,
+        "executing": false
+      },
+      {
+        "id": 4,
+        "executing": false
+      },
+      {
+        "id": 3,
+        "executing": false
+      }
+    ],
+    "gate_open": false
+  }
+}

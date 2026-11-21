@@ -1,0 +1,26 @@
+f423b4 mov qword ptr [rsp + 0x30], rbx
+f423b9 mov qword ptr [rsp + 0x38], rdi
+f423be mov rax, qword ptr [rcx]
+f423c1 mulss xmm0, dword ptr [rip + 0x18535bf]
+f423c9 mov r9, qword ptr [rax + 8]
+f423cd cvttss2si edi, xmm0
+f423d1 cmp ebp, edi
+f423d3 cmovg edi, ebp
+f423d6 lea rdx, [rdi + rdi*2]
+f423da shl rdx, 3
+f423de call r9
+f423e1 movsxd rcx, dword ptr [r14 + 0xc]
+f423e5 mov rbx, rax
+f423e8 mov rdx, qword ptr [r14]
+f423eb lea r8, [rcx + rcx*2]
+f423ef mov rcx, rax
+f423f2 shl r8, 3
+f423f6 call 0x26079d0
+f423fb mov rcx, qword ptr [r14 + 0x10]
+f423ff mov rdx, qword ptr [r14]
+f42402 mov r8, qword ptr [rcx]
+f42405 call qword ptr [r8 + 0x10]
+f42409 mov qword ptr [r14], rbx
+f4240c mov rbx, qword ptr [rsp + 0x30]
+f42411 mov dword ptr [r14 + 8], edi
+f42415 mov rdi, qword ptr [rsp + 0x38]

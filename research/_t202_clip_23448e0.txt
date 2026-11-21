@@ -1,0 +1,12 @@
+23448e0 push rbx
+23448e2 sub rsp, 0x20
+23448e6 mov rbx, qword ptr [rcx + 0x10]
+23448ea test rbx, rbx
+23448ed je 0x2344904
+23448ef mov rax, qword ptr [rbx + 0x30]
+23448f3 lea rcx, [rbx + 0x30]
+23448f7 call qword ptr [rax + 0x80]
+23448fd or byte ptr [rbx + 0xa5], 0x10
+2344904 add rsp, 0x20
+2344908 pop rbx
+2344909 ret 

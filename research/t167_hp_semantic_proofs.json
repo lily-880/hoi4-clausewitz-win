@@ -1,0 +1,33 @@
+{
+  "new_field": "world.own_units.strength.current",
+  "baseline_fixed": "world.own_units.strength.max no longer aliases CA+420 on1.19.5",
+  "not_full_hp_equality_proof": true,
+  "actual_mutation": [
+    "CEC4AD sub qword[army+420], damage; then clamps nonnegative in following fragment",
+    "CEC6AF separately subtracts damage from same field",
+    "CE5352 calls primary virtual+108, CE535C compares CA+420 with returned bound; CE5365 clamps current down to bound"
+  ],
+  "actual_max_getter": {
+    "vtable": "CArmy primary RVA29D6D98 +108",
+    "target": "CDF460",
+    "instructions": [
+      "mov rax,[rcx+138]",
+      "mov rcx,[rax+288]",
+      "mov eax,64h",
+      "cmp rcx,rax",
+      "cmovg rax,rcx",
+      "mov[rdx],rax"
+    ],
+    "formula": "max(100, signed qword(CArmy aggregate CSubUnitDefinition+288)) /100000",
+    "units": "engine FIXED100000; minimum raw100 means0.001HP, not100HP"
+  },
+  "live_acceptance": "21 own current and independent max values read twice; opening values equal, but equality is not semantic proof",
+  "tests": "synthetic current100/max125, zero-current, true engine minimum0.001, above-max and negative rejection; no game damage or memory writes",
+  "files": [
+    "t167_army_hp420_dataflow.json",
+    "t167_hp_current_max_getter.json",
+    "t167_hp_leaf_getters.json",
+    "t167_live_capture.json",
+    "t167_live_capture_repeat.json"
+  ]
+}

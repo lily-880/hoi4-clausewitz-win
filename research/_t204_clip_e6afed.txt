@@ -1,0 +1,18 @@
+e6afed mov qword ptr [rsp + 0x30], rbp
+e6aff2 xor ebp, ebp
+e6aff4 cmp byte ptr [rbx - 0x1c], bpl
+e6aff8 je 0xe6b018
+e6affa mov rdx, qword ptr [rbx - 0x10]
+e6affe test rdx, rdx
+e6b001 je 0xe6b016
+e6b003 mov rcx, qword ptr [rbx]
+e6b006 mov dword ptr [rbx - 4], ebp
+e6b009 mov rax, qword ptr [rcx]
+e6b00c call qword ptr [rax + 0x10]
+e6b00f mov qword ptr [rbx - 0x10], rbp
+e6b013 mov dword ptr [rbx - 8], ebp
+e6b016 dec edi
+e6b018 add rbx, 0x28
+e6b01c test edi, edi
+e6b01e jg 0xe6aff4
+e6b020 mov rbp, qword ptr [rsp + 0x30]

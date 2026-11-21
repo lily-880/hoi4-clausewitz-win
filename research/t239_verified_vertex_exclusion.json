@@ -1,0 +1,32 @@
+{
+  "source": "Existing box handoff reader; no modifications",
+  "source_sha256": "1aecf151e7f221fa2f1a6b86b37a9d15bf2a44d0f7f649f552b2af8f808e65b5",
+  "matched_live_production_file_hash": true,
+  "line_start": 383,
+  "line_end": 401,
+  "excerpt": [
+    "        r.require(ip, 'COrderInstance')",
+    "        unit_ids = []",
+    "        for mp in r.array(ip + 0x210, 256):",
+    "            primary = mp - ORDERS_GROUP_MEMBER_THISADJ",
+    "            r.require(primary, 'CArmy')",
+    "            unit_ids.append(r.i(primary + 0x1c))",
+    "        data, cap, n = struct.unpack('<QII', r.exact(ip + 0x70, 16))",
+    "        if not 0 <= n <= cap <= 65536 or (n and data < 0x10000):",
+    "            raise ObservationError('invalid plan path')",
+    "        path = list(struct.unpack('<' + 'I' * n, r.exact(data, n * 4))) if n else []",
+    "        if any(not 1 <= v <= 65535 for v in path):",
+    "            raise ObservationError('invalid plan vertex province')",
+    "        iid = r.i(ip + 0x244)",
+    "        plans.append({'plan_id': iid, 'assigned_army_ids': [army_id],",
+    "            'assigned_unit_ids': unit_ids,",
+    "            'executing': bool(r.exact(ip + 0x248, 1)[0]),",
+    "            'vertex_province_ids': path})",
+    "        for off in (0x1f8, 0x2d0):",
+    "            for child in r.array(ip + off, 256):"
+  ],
+  "already_verified_field": "world.plans.vertex_province_ids",
+  "offset": "0x70",
+  "new_consumer": "10B9240 matches scalar R8d against recursive children+70 i32s and appends unique matching child pointers; not ordered axis extraction",
+  "new_field_promotion": false
+}

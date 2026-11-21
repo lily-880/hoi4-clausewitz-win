@@ -1,0 +1,28 @@
+1762170 mov qword ptr [rsp + 8], rbx
+1762175 push rdi
+1762176 sub rsp, 0x20
+176217a mov rdx, qword ptr [rcx + 8]
+176217e mov rbx, qword ptr [rdx + 0x600]
+1762185 lea rcx, [rdx + 0x608]
+176218c cmp dword ptr [rcx], 0
+176218f mov rax, qword ptr [rbx]
+1762192 mov rdi, qword ptr [rax + 0x20]
+1762196 jne 0x17621b5
+1762198 cmp dword ptr [rcx + 4], 0
+176219c jne 0x17621b5
+176219e xor eax, eax
+17621a0 mov rcx, rbx
+17621a3 mov edx, eax
+17621a5 mov rax, rdi
+17621a8 mov rbx, qword ptr [rsp + 0x30]
+17621ad add rsp, 0x20
+17621b1 pop rdi
+17621b2 jmp rax
+17621b5 call 0x2284870
+17621ba mov rdx, rax
+17621bd mov rcx, rbx
+17621c0 mov rax, rdi
+17621c3 mov rbx, qword ptr [rsp + 0x30]
+17621c8 add rsp, 0x20
+17621cc pop rdi
+17621cd jmp rax

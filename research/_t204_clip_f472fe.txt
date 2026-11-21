@@ -1,0 +1,30 @@
+f472fe mov qword ptr [rsp + 0x30], rbx
+f47303 mov qword ptr [rsp + 0x38], rdi
+f47308 mov edi, ebp
+f4730a nop word ptr [rax + rax]
+f47310 mov rbx, qword ptr [r14]
+f47313 add rbx, rdi
+f47316 cmp qword ptr [rbx + 0x10], rbp
+f4731a je 0xf47343
+f4731c mov r8d, dword ptr [rbx + 0x1c]
+f47320 lea rcx, [rbx + 0x10]
+f47324 xor edx, edx
+f47326 call 0xa41a50
+f4732b mov rcx, qword ptr [rbx + 0x20]
+f4732f mov rdx, qword ptr [rbx + 0x10]
+f47333 mov dword ptr [rbx + 0x1c], ebp
+f47336 mov rax, qword ptr [rcx]
+f47339 call qword ptr [rax + 0x10]
+f4733c mov qword ptr [rbx + 0x10], rbp
+f47340 mov dword ptr [rbx + 0x18], ebp
+f47343 add rdi, 0x28
+f47347 sub rsi, 1
+f4734b jne 0xf47310
+f4734d mov rdi, qword ptr [rsp + 0x38]
+f47352 mov rbx, qword ptr [rsp + 0x30]
+f47357 mov dword ptr [r14 + 0xc], ebp
+f4735b mov rbp, qword ptr [rsp + 0x40]
+f47360 mov rsi, qword ptr [rsp + 0x48]
+f47365 add rsp, 0x20
+f47369 pop r14
+f4736b ret 

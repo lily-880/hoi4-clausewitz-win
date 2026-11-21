@@ -1,0 +1,122 @@
+cc768c int3 
+cc768d int3 
+cc768e int3 
+cc768f int3 
+cc7690 sub rsp, 0x28
+cc7694 mov eax, dword ptr [rcx + 0x14]
+cc7697 test eax, eax
+cc7699 jle 0xcc76c4
+cc769b cmp eax, 1
+cc769e jne 0xcc76bd
+cc76a0 mov rcx, qword ptr [rcx + 8]
+cc76a4 mov edx, dword ptr [rdx]
+cc76a6 mov eax, dword ptr [rcx]
+cc76a8 cmp eax, edx
+cc76aa je 0xcc76c4
+cc76ac test eax, eax
+cc76ae je 0xcc76bd
+cc76b0 test edx, edx
+cc76b2 je 0xcc76bd
+cc76b4 call 0xc085f0
+cc76b9 test al, al
+cc76bb jne 0xcc76c4
+cc76bd mov al, 1
+cc76bf add rsp, 0x28
+cc76c3 ret 
+cc76c4 xor al, al
+cc76c6 add rsp, 0x28
+cc76ca ret 
+cc76cb int3 
+cc76cc int3 
+cc76cd int3 
+cc76ce int3 
+cc76cf int3 
+cc76d0 push rsi
+cc76d2 push r13
+cc76d4 push r15
+cc76d6 sub rsp, 0x30
+cc76da mov rsi, qword ptr [rdx + 8]
+cc76de mov r15, rcx
+cc76e1 movsxd rax, dword ptr [rdx + 0x14]
+cc76e5 lea r13, [rsi + rax*8]
+cc76e9 cmp rsi, r13
+cc76ec je 0xcc7799
+cc76f2 mov qword ptr [rsp + 0x50], rbx
+cc76f7 mov qword ptr [rsp + 0x60], rbp
+cc76fc mov qword ptr [rsp + 0x68], rdi
+cc7701 mov qword ptr [rsp + 0x28], r12
+cc7706 mov qword ptr [rsp + 0x20], r14
+cc770b nop dword ptr [rax + rax]
+cc7710 mov ebx, dword ptr [rsi]
+cc7712 mov r12d, dword ptr [rsi + 4]
+cc7716 mov dword ptr [rsp + 0x58], ebx
+cc771a test ebx, ebx
+cc771c jne 0xcc7722
+cc771e xor ebp, ebp
+cc7720 jmp 0xcc772c
+cc7722 mov rcx, rsi
+cc7725 call 0xc08790
+cc772a mov ebp, eax
+cc772c mov rdi, qword ptr [r15 + 8]
+cc7730 movsxd rcx, dword ptr [r15 + 0x14]
+cc7734 mov dword ptr [rsp + 0x5c], ebp
+cc7738 lea r14, [rdi + rcx*8]
+cc773c cmp rdi, r14
+cc773f je 0xcc7764
+cc7741 mov ecx, dword ptr [rdi]
+cc7743 cmp ebx, ecx
+cc7745 je 0xcc77a3
+cc7747 test ebx, ebx
+cc7749 je 0xcc775b
+cc774b test ecx, ecx
+cc774d je 0xcc775b
+cc774f mov rcx, rdi
+cc7752 call 0xc08790
+cc7757 cmp ebp, eax
+cc7759 je 0xcc77a3
+cc775b add rdi, 8
+cc775f cmp rdi, r14
+cc7762 jne 0xcc7741
+cc7764 xor r8d, r8d
+cc7767 sub r8d, r12d
+cc776a lea rdx, [rsp + 0x58]
+cc776f mov rcx, r15
+cc7772 call 0xcc7550
+cc7777 add rsi, 8
+cc777b cmp rsi, r13
+cc777e jne 0xcc7710
+cc7780 mov r14, qword ptr [rsp + 0x20]
+cc7785 mov r12, qword ptr [rsp + 0x28]
+cc778a mov rdi, qword ptr [rsp + 0x68]
+cc778f mov rbp, qword ptr [rsp + 0x60]
+cc7794 mov rbx, qword ptr [rsp + 0x50]
+cc7799 add rsp, 0x30
+cc779d pop r15
+cc779f pop r13
+cc77a1 pop rsi
+cc77a2 ret 
+cc77a3 mov r8d, dword ptr [rdi + 4]
+cc77a7 jmp 0xcc7767
+cc77a9 int3 
+cc77aa int3 
+cc77ab int3 
+cc77ac int3 
+cc77ad int3 
+cc77ae int3 
+cc77af int3 
+cc77b0 mov rax, rcx
+cc77b3 mov r9, r8
+cc77b6 mov r8, rdx
+cc77b9 add rcx, 8
+cc77bd mov rdx, qword ptr [rax + 0x48]
+cc77c1 jmp 0xcc77d0
+cc77c6 int3 
+cc77c7 int3 
+cc77c8 int3 
+cc77c9 int3 
+cc77ca int3 
+cc77cb int3 
+cc77cc int3 
+cc77cd int3 
+cc77ce int3 
+cc77cf int3 

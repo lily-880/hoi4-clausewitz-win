@@ -1,0 +1,27 @@
+1f2acb0 mov qword ptr [rsp + 8], rbx
+1f2acb5 push rdi
+1f2acb6 sub rsp, 0x20
+1f2acba mov edi, edx
+1f2acbc mov rbx, rcx
+1f2acbf lea rax, [rip + 0xbd97fa]
+1f2acc6 mov qword ptr [rcx], rax
+1f2acc9 call 0x1f2add0
+1f2acce mov rdx, qword ptr [rbx + 8]
+1f2acd2 test rdx, rdx
+1f2acd5 je 0x1f2acf7
+1f2acd7 mov dword ptr [rbx + 0x14], 0
+1f2acde mov rcx, qword ptr [rbx + 0x18]
+1f2ace2 mov rax, qword ptr [rcx]
+1f2ace5 call qword ptr [rax + 0x10]
+1f2ace8 mov qword ptr [rbx + 8], 0
+1f2acf0 mov dword ptr [rbx + 0x10], 0
+1f2acf7 test dil, 1
+1f2acfb je 0x1f2ad0a
+1f2acfd mov edx, 0x28
+1f2ad02 mov rcx, rbx
+1f2ad05 call 0x25a0218
+1f2ad0a mov rax, rbx
+1f2ad0d mov rbx, qword ptr [rsp + 0x30]
+1f2ad12 add rsp, 0x20
+1f2ad16 pop rdi
+1f2ad17 ret 

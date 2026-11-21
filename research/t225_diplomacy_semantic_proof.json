@@ -1,0 +1,125 @@
+{
+  "promoted_fields": [],
+  "relation_candidate_proof": "TRIGGER_HAS_WAR_WITH literal280BCC0 -> tooltip439CC0 -> exact same vtable280BBE0 slotsA8/B0 -> evaluator3F79E0; named predicate is nonnull CRelationStatus+2E8 and byte49==0. Separate748400 getter matches operands. No class/combat/opacity inference.",
+  "faction_negative_proof": "TRIGGER_IS_IN_FACTION_WITH280F300 ->43EB90 ->vtable280F220->3F90F0; both nonnull diplomacy+2D8 pointers must be equal. Own player+2D8 null makes all same-faction targets false; zero candidate enumeration.",
+  "live_controls": {
+    "bilateral_war": [
+      3,
+      443
+    ],
+    "same_war_object_both_directions": true,
+    "foreign_nonwar_bilateral": [
+      1,
+      16
+    ],
+    "self_nonwar": 3,
+    "independently_proved_foreign_friendly_positives": 0,
+    "foreign_nonwar_does_not_mean_ally": true,
+    "stable_diplomacy_dependencies": 59,
+    "stable_binding_subject_dependencies": 29,
+    "same_subjects_rebound": [
+      399,
+      481
+    ],
+    "extra_subject_scans": 0
+  },
+  "result": {
+    "pairs": [
+      {
+        "source_tag": 3,
+        "target_tag": 443,
+        "war": true,
+        "same_faction": false,
+        "candidate_only": "enemy",
+        "war_pointer": "0x23e02fa4b00"
+      },
+      {
+        "source_tag": 443,
+        "target_tag": 3,
+        "war": true,
+        "same_faction": false,
+        "candidate_only": "enemy",
+        "war_pointer": "0x23e02fa4b00"
+      },
+      {
+        "source_tag": 3,
+        "target_tag": 1,
+        "war": false,
+        "same_faction": false,
+        "candidate_only": "unknown",
+        "war_pointer": "0x0"
+      },
+      {
+        "source_tag": 1,
+        "target_tag": 3,
+        "war": false,
+        "same_faction": false,
+        "candidate_only": "unknown",
+        "war_pointer": "0x0"
+      },
+      {
+        "source_tag": 3,
+        "target_tag": 16,
+        "war": false,
+        "same_faction": false,
+        "candidate_only": "unknown",
+        "war_pointer": "0x0"
+      },
+      {
+        "source_tag": 16,
+        "target_tag": 3,
+        "war": false,
+        "same_faction": false,
+        "candidate_only": "unknown",
+        "war_pointer": "0x0"
+      },
+      {
+        "source_tag": 3,
+        "target_tag": 3,
+        "war": false,
+        "same_faction": false,
+        "candidate_only": "self",
+        "war_pointer": "0x0"
+      }
+    ],
+    "owner_enemy_subject_ids": [
+      399,
+      481
+    ],
+    "visible_units_exported": false,
+    "relation_exported": false,
+    "promotion_eligible": false,
+    "foreign_friendly_positive_count": 0,
+    "complete_visible_feed": false,
+    "complete_input": false,
+    "reason": "independently named war consumer proved, but actual friendly schema relation positive is missing; false-war subjects stay unknown"
+  },
+  "inventory_sha256": "ebd57b52a517d88e51e39b10f3c3b529e2ce2b542e9fde5ebd9f9d2cb1871ae5",
+  "verified": 83,
+  "unverified": 33,
+  "memory_unverified": 21,
+  "nonmemory_unverified": 12,
+  "tables": 14,
+  "fields": 116,
+  "columns": 3,
+  "tests": {
+    "unique": 24,
+    "task_specific": 20,
+    "shared": 4,
+    "runs": 1,
+    "invocations": 24,
+    "failures": 0,
+    "errors": 0,
+    "windows": 0,
+    "old_suites": 0
+  },
+  "scope": "Research evidence only. No relation enum/feed/Input production acceptance.481 remains prior internal visibility-negative control, not emitted. No opacity normalization.",
+  "corrections": [
+    "token-name registration is not evaluation binding",
+    "short C08790 .pdata capture superseded by closed0x140 window",
+    "actual nonnull faction RTTI is .?AVCFaction@NFactions@@, not unqualified CFaction",
+    "CArmy handle+18/id+1C, owner+1E0; generic CId+8/+C hypothesis rejected",
+    "two null faction pointers do not mean same faction"
+  ],
+  "next_target": "world.shortages.manpower.needed: independently named country-level current reinforcement-men consumer, distinguish per-unit CC6480 missing sum from country aggregate; do not repeat equipment demand/date scans; retain relation friendly-positive requirement for later."
+}

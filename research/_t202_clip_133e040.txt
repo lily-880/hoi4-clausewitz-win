@@ -1,0 +1,85 @@
+133e040 mov qword ptr [rsp + 8], rbx
+133e045 mov qword ptr [rsp + 0x10], rbp
+133e04a mov qword ptr [rsp + 0x18], rsi
+133e04f mov qword ptr [rsp + 0x20], rdi
+133e054 push r14
+133e056 sub rsp, 0x20
+133e05a xor edx, edx
+133e05c lea rdi, [rcx + 0x28]
+133e060 mov qword ptr [rcx + 0xa0], rdx
+133e067 mov rbx, rcx
+133e06a mov qword ptr [rcx + 0xa8], rdx
+133e071 lea rsi, [rbx + 0x30]
+133e075 mov qword ptr [rcx + 0xb0], rdx
+133e07c mov qword ptr [rcx + 0xb8], rdx
+133e083 mov qword ptr [rcx + 0xc0], rdx
+133e08a mov qword ptr [rcx + 0xc8], rdx
+133e091 mov rcx, qword ptr [rdi]
+133e094 mov rax, qword ptr [rsi]
+133e097 mov r14, rcx
+133e09a mov rbp, rax
+133e09d cmp dword ptr [rcx + 0x48], edx
+133e0a0 cmovle r14, rdx
+133e0a4 cmp dword ptr [rax + 0x48], edx
+133e0a7 cmovle rbp, rdx
+133e0ab test r14, r14
+133e0ae je 0x133e1c9
+133e0b4 test rbp, rbp
+133e0b7 je 0x133e1c9
+133e0bd mov rcx, qword ptr [rcx + 0x130]
+133e0c4 mov rdx, rsi
+133e0c7 test rcx, rcx
+133e0ca je 0x133e0e4
+133e0cc mov rdx, qword ptr [rax + 0x130]
+133e0d3 call 0x707d10
+133e0d8 test al, al
+133e0da jne 0x133e147
+133e0dc lea rdx, [rbx + 0x30]
+133e0e0 lea rdi, [rbx + 0x28]
+133e0e4 mov rcx, qword ptr [r14 + 0x130]
+133e0eb test rcx, rcx
+133e0ee je 0x133e147
+133e0f0 mov rax, qword ptr [rcx + 0x140]
+133e0f7 mov rsi, rdx
+133e0fa add qword ptr [rbx + 0xa8], rax
+133e101 mov rax, qword ptr [rcx + 0x148]
+133e108 add qword ptr [rbx + 0xb0], rax
+133e10f mov rax, qword ptr [rcx + 0x150]
+133e116 add qword ptr [rbx + 0xb8], rax
+133e11d mov rax, qword ptr [rcx + 0x138]
+133e124 add qword ptr [rbx + 0xa0], rax
+133e12b mov rax, qword ptr [rcx + 0x158]
+133e132 add qword ptr [rbx + 0xc0], rax
+133e139 mov rax, qword ptr [rcx + 0x160]
+133e140 add qword ptr [rbx + 0xc8], rax
+133e147 mov rax, qword ptr [rsi]
+133e14a mov rcx, qword ptr [rax + 0x130]
+133e151 test rcx, rcx
+133e154 je 0x133e169
+133e156 mov rax, qword ptr [rdi]
+133e159 mov rdx, qword ptr [rax + 0x130]
+133e160 call 0x707d10
+133e165 test al, al
+133e167 jne 0x133e1c9
+133e169 mov rcx, qword ptr [rbp + 0x130]
+133e170 test rcx, rcx
+133e173 je 0x133e1c9
+133e175 mov rax, qword ptr [rcx + 0x140]
+133e17c add qword ptr [rbx + 0xa8], rax
+133e183 mov rax, qword ptr [rcx + 0x148]
+133e18a add qword ptr [rbx + 0xb0], rax
+133e191 mov rax, qword ptr [rcx + 0x150]
+133e198 add qword ptr [rbx + 0xb8], rax
+133e19f mov rax, qword ptr [rcx + 0x138]
+133e1a6 add qword ptr [rbx + 0xa0], rax
+133e1ad mov rax, qword ptr [rcx + 0x158]
+133e1b4 add qword ptr [rbx + 0xc0], rax
+133e1bb mov rax, qword ptr [rcx + 0x160]
+133e1c2 add qword ptr [rbx + 0xc8], rax
+133e1c9 mov rbx, qword ptr [rsp + 0x30]
+133e1ce mov rbp, qword ptr [rsp + 0x38]
+133e1d3 mov rsi, qword ptr [rsp + 0x40]
+133e1d8 mov rdi, qword ptr [rsp + 0x48]
+133e1dd add rsp, 0x20
+133e1e1 pop r14
+133e1e3 ret 

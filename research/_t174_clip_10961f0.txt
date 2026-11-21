@@ -1,0 +1,28 @@
+0x10961f0  push rsi
+0x10961f2  sub rsp, 0x30
+0x10961f6  mov r9, qword ptr [rdx + 0x538]
+0x10961fd  movzx r11d, r8b
+0x1096201  cmp byte ptr [r9 + 0x10], 0
+0x1096206  je 0x1096334
+0x109620c  movsxd rax, dword ptr [rcx + 0x14]
+0x1096210  lea rsi, [rcx + 8]
+0x1096214  xor edx, edx
+0x1096216  test eax, eax
+0x1096218  jle 0x109623c
+0x109621a  mov r10, qword ptr [rsi]
+0x109621d  mov r8, rax
+0x1096220  mov rax, r10
+0x1096223  xor ecx, ecx
+0x1096225  cmp qword ptr [rax], r9
+0x1096228  je 0x10962f5
+0x109622e  inc edx
+0x1096230  inc rcx
+0x1096233  add rax, 0x10
+0x1096237  cmp rcx, r8
+0x109623a  jl 0x1096225
+0x109623c  test r11b, r11b
+0x109623f  je 0x1096334
+0x1096245  movsxd rax, dword ptr [rsi + 0xc]
+0x1096249  mov ecx, dword ptr [rsi + 8]
+0x109624c  mov qword ptr [rsp + 0x48], rbp
+0x1096251  mov qword ptr [rsp + 0x20], r9

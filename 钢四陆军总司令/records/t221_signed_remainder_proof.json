@@ -1,0 +1,66 @@
+{
+  "at_est": "2026-11-20T10:34:31.035696-05:00",
+  "field_considered": "world.shortages.equipment.deficit",
+  "promoted": false,
+  "inventory_unchanged": true,
+  "official_consumer": "1e1f6a0 per-type logistics UI widget named in_stock, not balance and not a deficit token",
+  "formula": "in_stock_field(+0x5f8) starts as 1409630 native current, then subtracts 1409810 official need. The signed remainder equals independently stored logistics slot16 in this snapshot.",
+  "train_distinction": "cache15 total stock 83 items; official current/uncommitted 68; signed remainder +68; commitment 15 is already removed from current and is not a shortage. deficit/nonnegative shortfall=0.",
+  "positive_shortage_remainders": {
+    "infantry_equipment": {
+      "signed_remainder_raw": -1001500000,
+      "nonnegative_shortfall": 10015,
+      "demanded": 10015,
+      "cache15_raw": -75000
+    },
+    "artillery_equipment": {
+      "signed_remainder_raw": -14700000,
+      "nonnegative_shortfall": 147,
+      "demanded": 147,
+      "cache15_raw": -40000
+    },
+    "support_equipment": {
+      "signed_remainder_raw": -12100000,
+      "nonnegative_shortfall": 121,
+      "demanded": 121,
+      "cache15_raw": -75000
+    },
+    "light_tank_chassis": {
+      "signed_remainder_raw": -232400000,
+      "nonnegative_shortfall": 2324,
+      "demanded": 2324,
+      "cache15_raw": 0
+    },
+    "motorized_equipment": {
+      "signed_remainder_raw": -127800000,
+      "nonnegative_shortfall": 1278,
+      "demanded": 1278,
+      "cache15_raw": 0
+    },
+    "train_equipment": {
+      "signed_remainder_raw": 6800000,
+      "nonnegative_shortfall": 0,
+      "demanded": 0,
+      "cache15_raw": 8300000
+    }
+  },
+  "naming": "Official balance token binds +0x608=14076d0 resource residual (slots 1-5 and 0x12 subtracted from 1407c30), scale FIXED. Official needs token is not 1409810; 1409810 is stored once at +0x648 and used only as the hidden subtrahend. No deficit/shortage/缺口 literal in 1e1f6a0/1e208f0.",
+  "aggregate_1e208f0": "Adds 1409700 (CCountryResources+0x770/+0x77c, distinct from 14080c0 +0x758/+0x764) into current-need before displaying the same in_stock widget. Current +0x77c count is 0, so aggregate equals per-type remainder this scene. 1409700 nonempty scenes are out of this block scope.",
+  "why_not_promoted": "The official consumer displays a signed remainder under the name in_stock. There is no independent official nonnegative 缺口数量 field or token. Deriving deficit=max(0,-remainder) matches demanded for the six scoped types when current is 0 and is 0 for train, but that is an inferred projection, not a named official quantity. Inventory stays 81/35.",
+  "tests": {
+    "new_methods": 28,
+    "independent_scenarios": 28,
+    "windows": 0
+  },
+  "inventory_sha256": "b62c8bb5cd37404b28060a0820e6e7466283d4cb0f1a9cb1c535a045542479dc",
+  "inventory_counts": {
+    "verified": 81,
+    "unverified": 35,
+    "memory_unverified": 23,
+    "nonmemory_unverified": 12,
+    "tables": 14,
+    "fields": 116,
+    "columns": 3
+  },
+  "next_target": "world.own_units.supply.isolated, or alternatively equipment.affected_plan_ids if a causal official plan-link consumer can be bound. Do not repeat train/motor demand scans, date/month scans, or deficit token searches in 1e1f6a0/1e208f0."
+}

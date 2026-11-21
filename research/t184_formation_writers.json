@@ -1,0 +1,153 @@
+{
+  "game": "HOI4 1.19.5.0.7c6c",
+  "pid": 26976,
+  "read_only": true,
+  "handle": {
+    "id_writer": "0x22858a0",
+    "layout": "handle type at this+0x8, id at this+0xc; tokens id 0xb and type 0xe1",
+    "subhandle_writer": "0x22857c0",
+    "subhandle_layout": "r8 points at the handle: type=dword[r8], id=dword[r8+4]. Used as this+8 for groups, this+0x18 for CArmy",
+    "clip": "research/_t184_clip_base_id_writer_0x22858a0.txt"
+  },
+  "CTheatre": {
+    "writer": "0xf81510",
+    "vtable": "0x29f22b8",
+    "id": "0x22858a0 → type +0x8, id +0xc",
+    "arrays": {
+      "area": {
+        "token": "0x2b95",
+        "data": "+0x18",
+        "size": "+0x24",
+        "elem": "CControllerArea*; province id at [elem+0x28]+0xa4; omit if size<=0"
+      },
+      "front": {
+        "token": "0x29e0",
+        "data": "+0x50",
+        "size": "+0x5c",
+        "omit_if_size_le_0": true
+      },
+      "unit": {
+        "token": "0x28a3",
+        "data": "+0x68",
+        "size": "+0x74",
+        "elem": "CArmy*; handle at +0x18 written via 0x22857c0; omit if size<=0"
+      },
+      "orders_group": {
+        "token": "0x30ae",
+        "data": "+0x80",
+        "size": "+0x8c",
+        "elem": "COrdersGroup*; 0x25458c0 virtual serialize; omit if size<=0"
+      },
+      "field_marshal_group": {
+        "token": "0x3801",
+        "data": "+0x98",
+        "size": "+0xa4",
+        "elem": "CArmyGroup*; omit if size<=0"
+      },
+      "theater_group": {
+        "token": "0x35d1",
+        "data": "+0xc8",
+        "size": "+0xd4",
+        "elem": "CTheaterGroup*; omit if size<=0"
+      }
+    },
+    "clip": "research/_t184_clip_theatre_writer_0xf81510.txt"
+  },
+  "COrdersGroup": {
+    "writer": "0xc4d030",
+    "schema_role": "world.armies (集团军)",
+    "id": "type +0x8, id +0xc via 0x22858a0",
+    "name": "+0x160 (written iff [+0x170]!=0)",
+    "members": {
+      "data": "+0x50",
+      "size": "+0x5c",
+      "unit_handle_via_vcall_plus_0x18": true,
+      "token_unit": "0x28a3"
+    },
+    "leader": {
+      "ptr": "+0x88",
+      "handle_at": "+8",
+      "token": "0x28b7",
+      "written_iff_nonzero": true
+    },
+    "leader_unit": {
+      "ptr": "+0x68"
+    },
+    "order_instance": {
+      "source_array": "+0x98 / size +0xa4",
+      "token": "0x35f7"
+    },
+    "field_marshal_group_flag": {
+      "byte": "+0x39",
+      "token": "0x3801",
+      "note": "boolean flag, not the parent pointer"
+    },
+    "clip": "research/_t184_clip_ordersgroup_writer_0xc4d030.txt"
+  },
+  "CArmyGroup": {
+    "writer": "0xc4cfa0",
+    "schema_role": "world.army_groups (集团军群); derived, jmp 0xc4d030",
+    "child_orders_groups": {
+      "token": "0x30ae",
+      "data": "+0x230",
+      "size": "+0x23c",
+      "handle_at_child+8": true,
+      "via": "0x22857c0"
+    },
+    "collapse": {
+      "byte": "+0x248",
+      "token": "0x3a2e",
+      "written_iff_nonzero": true
+    },
+    "clip": "research/_t184_clip_armygroup_writer_0xc4cfa0.txt"
+  },
+  "CTheaterGroup": {
+    "writer": "0x16d9e10",
+    "id": "0x22858a0",
+    "priority": "+0x20",
+    "name": "+0x28",
+    "orders_group": {
+      "data": "+0x48",
+      "size": "+0x54",
+      "handle_at_child+8": true
+    },
+    "clip": "research/_t184_clip_theatergroup_writer_0x16d9e10.txt"
+  },
+  "live_eth": {
+    "theatres": 1,
+    "theatre_id": 43,
+    "handle_type": 67,
+    "unit_array_size": 21,
+    "unit_ids": [
+      1829,
+      1830,
+      1831,
+      1832,
+      1833,
+      1834,
+      1835,
+      1836,
+      1837,
+      1838,
+      1839,
+      1840,
+      1841,
+      1842,
+      1843,
+      1844,
+      1845,
+      1846,
+      1847,
+      1848,
+      1849
+    ],
+    "orders_group": 0,
+    "field_marshal_group": 0,
+    "theater_group": 0,
+    "area_size": 1,
+    "front_size": 6,
+    "note": "21 own CArmy are theatre members; this is not formation.army_id. Groups empty. front size 6 is a structure candidate only, not promoted as plans."
+  },
+  "promoted": false,
+  "why": "official empty group arrays omit keys (distinguishable encoding) but this scene has no army/army-group object, so army_id / army_group_id / world.armies / world.army_groups cannot be proven. Theatre unit list is not the formation contract."
+}

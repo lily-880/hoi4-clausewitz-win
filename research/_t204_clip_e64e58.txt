@@ -1,0 +1,49 @@
+e64e58 mov qword ptr [rsp + 0x50], rsi
+e64e5d mov qword ptr [rsp + 0x48], rdi
+e64e62 mov qword ptr [rsp + 0x38], r14
+e64e67 nop word ptr [rax + rax]
+e64e70 mov rax, qword ptr [r15]
+e64e73 mov rsi, qword ptr [rax + 0xb0]
+e64e7a movsxd rax, dword ptr [rax + 0xbc]
+e64e81 lea r14, [rsi + rax*8]
+e64e85 cmp rsi, r14
+e64e88 je 0xe64f0f
+e64e8e movzx r15d, byte ptr [rsp + 0x80]
+e64e97 mov rdi, qword ptr [rsi]
+e64e9a test r13b, r13b
+e64e9d je 0xe64eab
+e64e9f mov rcx, rdi
+e64ea2 call 0xeef530
+e64ea7 test al, al
+e64ea9 je 0xe64efe
+e64eab mov rcx, qword ptr [rbp + 0x1f0]
+e64eb2 lea rdx, [rsp + 0x70]
+e64eb7 mov r8, rdi
+e64eba call 0xeed810
+e64ebf mov rax, qword ptr [rsp + 0x70]
+e64ec4 cmp rax, rbx
+e64ec7 jge 0xe64efe
+e64ec9 mov rdx, qword ptr [rbp + 0x1f0]
+e64ed0 mov rcx, qword ptr [rdi + 0xc8]
+e64ed7 cmp qword ptr [rdx + 0xc8], rcx
+e64ede je 0xe64ef8
+e64ee0 movzx r8d, r15b
+e64ee4 mov rdx, rdi
+e64ee7 mov rcx, rbp
+e64eea call 0x103b5d0
+e64eef test al, al
+e64ef1 je 0xe64efe
+e64ef3 mov rax, qword ptr [rsp + 0x70]
+e64ef8 mov r12, rdi
+e64efb mov rbx, rax
+e64efe add rsi, 8
+e64f02 cmp rsi, r14
+e64f05 jne 0xe64e97
+e64f07 mov r15, qword ptr [rsp + 0x88]
+e64f0f add r15, 8
+e64f13 mov qword ptr [rsp + 0x88], r15
+e64f1b cmp r15, qword ptr [rsp + 0x20]
+e64f20 jne 0xe64e70
+e64f26 mov r14, qword ptr [rsp + 0x38]
+e64f2b mov rdi, qword ptr [rsp + 0x48]
+e64f30 mov rsi, qword ptr [rsp + 0x50]

@@ -1,0 +1,58 @@
+def own_plans(r, country):
+    """COrderInstance roots AND official recursive children (10AF270).
+
+    Group+98/+B0/+C8 alone misses actual instances, e.g. 2->4->3.
+    Child arrays +1F8/+2D0 are used by the official ID lookup; read only.
+    This exports instance IDs/paths, not an invented semantic type/axis.
+    """
+    plans = []
+    roots = []
+    for tp in r.array(country + 0x168, 64):
+        r.require(tp, 'CTheatre')
+        for gp in r.array(tp + 0x80, 256):
+            r.require(gp, 'COrdersGroup')
+            army_id = r.i(gp + 0xc)
+            for off in (0x98, 0xb0, 0xc8):
+                roots.extend((ip, army_id, 0) for ip in r.array(gp + off, 256))
+    root_ptrs = {ip for ip, _, _ in roots}
+    pending = list(roots)
+    seen = set()
+    evidence_parents = {}
+    pos = 0
+    while pos < len(pending):
+        ip, army_id, depth = pending[pos]
+        pos += 1
+        if ip in seen:
+            continue
+        if depth > 64 or len(seen) >= 4096:
+            raise ObservationError('plan hierarchy exceeds bounded scope')
+        seen.add(ip)
+        r.require(ip, 'COrderInstance')
+        unit_ids = []
+        for mp in r.array(ip + 0x210, 256):
+            primary = mp - ORDERS_GROUP_MEMBER_THISADJ
+            r.require(primary, 'CArmy')
+            unit_ids.append(r.i(primary + 0x1c))
+        data, cap, n = struct.unpack('<QII', r.exact(ip + 0x70, 16))
+        if not 0 <= n <= cap <= 65536 or (n and data < 0x10000):
+            raise ObservationError('invalid plan path')
+        path = list(struct.unpack('<' + 'I' * n, r.exact(data, n * 4))) if n else []
+        if any(not 1 <= v <= 65535 for v in path):
+            raise ObservationError('invalid plan vertex province')
+        iid = r.i(ip + 0x244)
+        plans.append({'plan_id': iid, 'assigned_army_ids': [army_id],
+            'assigned_unit_ids': unit_ids,
+            'executing': bool(r.exact(ip + 0x248, 1)[0]),
+            'vertex_province_ids': path})
+        for off in (0x1f8, 0x2d0):
+            for child in r.array(ip + off, 256):
+                evidence_parents.setdefault(str(r.i(child + 0x244)), []).append(iid)
+                pending.append((child, army_id, depth + 1))
+        # type/axis/status remain omitted, including unsupported fallback enums.
+    return plans, {'instance_count': len(plans),
+        'root_instance_count': len(root_ptrs),
+        'recursive_child_count': len(seen - root_ptrs),
+        'parent_instance_ids': evidence_parents,
+        'scope': 'COrdersGroup roots and COrderInstance +1F8/+2D0 recursive lookup arrays'}
+
+

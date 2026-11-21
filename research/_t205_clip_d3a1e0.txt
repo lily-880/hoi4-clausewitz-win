@@ -1,0 +1,143 @@
+d3a1e0 push rbx
+d3a1e2 push rbp
+d3a1e3 push rdi
+d3a1e4 sub rsp, 0x40
+d3a1e8 cmp byte ptr [rip + 0x2955422], 0
+d3a1ef mov rbx, rdx
+d3a1f2 mov rdi, rcx
+d3a1f5 je 0xd3a24e
+d3a1f7 cmp byte ptr [rip + 0x26b06ca], 0
+d3a1fe jne 0xd3a24e
+d3a200 test byte ptr [rcx + 0x2e8], 4
+d3a207 je 0xd3a24e
+d3a209 lea rax, [rip + 0x26b06b8]
+d3a210 mov byte ptr [rsp + 0x60], 0
+d3a215 mov qword ptr [rsp + 0x28], rax
+d3a21a lea rdx, [rip + 0x1a5a4fc]
+d3a221 lea rax, [rsp + 0x60]
+d3a226 mov r9b, 1
+d3a229 mov r8d, 0x2dc
+d3a22f mov qword ptr [rsp + 0x20], rax
+d3a234 lea rcx, [rip + 0x1ca0165]
+d3a23b call 0x254ab40
+d3a240 cmp byte ptr [rsp + 0x60], 0
+d3a245 mov byte ptr [rip + 0x26b067d], al
+d3a24b je 0xd3a24e
+d3a24d int3 
+d3a24e movsxd rcx, dword ptr [rdi + 0x2c]
+d3a252 xor ebp, ebp
+d3a254 mov rbx, qword ptr [rbx + 8]
+d3a258 mov qword ptr [rsp + 0x70], r14
+d3a25d lea r14, [rdi + 0x20]
+d3a261 mov qword ptr [rsp + 0x60], rbx
+d3a266 test ecx, ecx
+d3a268 jle 0xd3a2dc
+d3a26a mov r9, qword ptr [r14]
+d3a26d mov rdx, rcx
+d3a270 mov r8d, dword ptr [rsp + 0x64]
+d3a275 mov rax, r9
+d3a278 mov ecx, ebp
+d3a27a nop word ptr [rax + rax]
+d3a280 cmp dword ptr [rax + 4], r8d
+d3a284 jne 0xd3a28a
+d3a286 cmp dword ptr [rax], ebx
+d3a288 je 0xd3a29a
+d3a28a inc ebp
+d3a28c inc rcx
+d3a28f add rax, 0xc
+d3a293 cmp rcx, rdx
+d3a296 jl 0xd3a280
+d3a298 jmp 0xd3a2de
+d3a29a movsxd rax, ebp
+d3a29d lea r8, [rax + rax*2]
+d3a2a1 inc dword ptr [r9 + r8*4 + 8]
+d3a2a6 test ebp, ebp
+d3a2a8 je 0xd3a3d7
+d3a2ae mov rdx, qword ptr [r14]
+d3a2b1 mov rcx, qword ptr [rdx + r8*4]
+d3a2b5 mov rax, qword ptr [rdx]
+d3a2b8 mov qword ptr [rdx], rcx
+d3a2bb mov qword ptr [rdx + r8*4], rax
+d3a2bf mov ecx, dword ptr [rdx + 8]
+d3a2c2 mov eax, dword ptr [rdx + r8*4 + 8]
+d3a2c7 mov dword ptr [rdx + 8], eax
+d3a2ca mov dword ptr [rdx + r8*4 + 8], ecx
+d3a2cf mov r14, qword ptr [rsp + 0x70]
+d3a2d4 add rsp, 0x40
+d3a2d8 pop rdi
+d3a2d9 pop rbp
+d3a2da pop rbx
+d3a2db ret 
+d3a2dc je 0xd3a303
+d3a2de mov rdx, qword ptr [r14]
+d3a2e1 mov rcx, r14
+d3a2e4 call 0x6949a0
+d3a2e9 mov rax, qword ptr [r14]
+d3a2ec mov qword ptr [rax], rbx
+d3a2ef mov dword ptr [rax + 8], 1
+d3a2f6 mov r14, qword ptr [rsp + 0x70]
+d3a2fb add rsp, 0x40
+d3a2ff pop rdi
+d3a300 pop rbp
+d3a301 pop rbx
+d3a302 ret 
+d3a303 movsxd rax, dword ptr [rdi + 0x2c]
+d3a307 mov ecx, dword ptr [r14 + 8]
+d3a30b mov qword ptr [rsp + 0x30], rbx
+d3a310 cmp eax, ecx
+d3a312 jne 0xd3a3b9
+d3a318 movd xmm0, ecx
+d3a31c inc eax
+d3a31e mov rcx, qword ptr [r14 + 0x10]
+d3a322 mov r8d, 4
+d3a328 cvtdq2ps xmm0, xmm0
+d3a32b mov qword ptr [rsp + 0x68], rsi
+d3a330 mov r9, qword ptr [rcx]
+d3a333 mulss xmm0, dword ptr [rip + 0x1a5b64d]
+d3a33b cvttss2si esi, xmm0
+d3a33f cmp eax, esi
+d3a341 cmovg esi, eax
+d3a344 lea rdx, [rsi + rsi*2]
+d3a348 shl rdx, 2
+d3a34c call qword ptr [r9 + 8]
+d3a350 movsxd rcx, dword ptr [r14 + 0xc]
+d3a354 mov rdi, rax
+d3a357 movsd xmm0, qword ptr [rsp + 0x30]
+d3a35d lea rdx, [rcx + rcx*2]
+d3a361 movsd qword ptr [rax + rdx*4], xmm0
+d3a366 mov dword ptr [rax + rdx*4 + 8], 1
+d3a36e movsxd rcx, dword ptr [r14 + 0xc]
+d3a372 mov rdx, qword ptr [r14]
+d3a375 lea r8, [rcx + rcx*2]
+d3a379 mov rcx, rax
+d3a37c shl r8, 2
+d3a380 call 0x26079d0
+d3a385 mov ebx, dword ptr [r14 + 0xc]
+d3a389 mov rcx, qword ptr [r14 + 0x10]
+d3a38d inc ebx
+d3a38f mov rdx, qword ptr [r14]
+d3a392 mov dword ptr [r14 + 0xc], ebp
+d3a396 mov rax, qword ptr [rcx]
+d3a399 call qword ptr [rax + 0x10]
+d3a39c mov dword ptr [r14 + 8], esi
+d3a3a0 mov rsi, qword ptr [rsp + 0x68]
+d3a3a5 mov qword ptr [r14], rdi
+d3a3a8 mov dword ptr [r14 + 0xc], ebx
+d3a3ac mov r14, qword ptr [rsp + 0x70]
+d3a3b1 add rsp, 0x40
+d3a3b5 pop rdi
+d3a3b6 pop rbp
+d3a3b7 pop rbx
+d3a3b8 ret 
+d3a3b9 movsd xmm0, qword ptr [rsp + 0x30]
+d3a3bf lea rcx, [rax + rax*2]
+d3a3c3 mov rax, qword ptr [r14]
+d3a3c6 movsd qword ptr [rax + rcx*4], xmm0
+d3a3cb mov dword ptr [rax + rcx*4 + 8], 1
+d3a3d3 inc dword ptr [r14 + 0xc]
+d3a3d7 mov r14, qword ptr [rsp + 0x70]
+d3a3dc add rsp, 0x40
+d3a3e0 pop rdi
+d3a3e1 pop rbp
+d3a3e2 pop rbx
+d3a3e3 ret 

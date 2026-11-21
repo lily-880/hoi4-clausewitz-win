@@ -1,0 +1,186 @@
+f459f0 mov qword ptr [rsp + 0x10], rbx
+f459f5 push rdi
+f459f6 sub rsp, 0x40
+f459fa movsxd rax, dword ptr [rcx + 0x14]
+f459fe mov rdi, rcx
+f45a01 cmp eax, 0x7fff
+f45a06 jg 0xf45b04
+f45a0c je 0xf45afa
+f45a12 cmp eax, 0x7f
+f45a15 jg 0xf45a79
+f45a17 je 0xf45a6f
+f45a19 cmp eax, 0x3f
+f45a1c ja 0xf45c73
+f45a22 lea rdx, [rip - 0xf45a29]
+f45a29 movzx eax, byte ptr [rdx + rax + 0xf45cc4]
+f45a31 mov ecx, dword ptr [rdx + rax*4 + 0xf45cac]
+f45a38 add rcx, rdx
+f45a3b jmp rcx
+f45a3d mov ebx, 3
+f45a42 jmp 0xf45c5f
+f45a47 mov ebx, 4
+f45a4c jmp 0xf45c5f
+f45a51 mov ebx, 5
+f45a56 jmp 0xf45c5f
+f45a5b mov ebx, 6
+f45a60 jmp 0xf45c5f
+f45a65 mov ebx, 7
+f45a6a jmp 0xf45c5f
+f45a6f mov ebx, 8
+f45a74 jmp 0xf45c5f
+f45a79 cmp eax, 0x7ff
+f45a7e jg 0xf45ac3
+f45a80 je 0xf45ab9
+f45a82 cmp eax, 0xff
+f45a87 je 0xf45aaf
+f45a89 cmp eax, 0x1ff
+f45a8e je 0xf45aa5
+f45a90 cmp eax, 0x3ff
+f45a95 jne 0xf45c73
+f45a9b mov ebx, 0xb
+f45aa0 jmp 0xf45bec
+f45aa5 mov ebx, 0xa
+f45aaa jmp 0xf45c5f
+f45aaf mov ebx, 9
+f45ab4 jmp 0xf45c5f
+f45ab9 mov ebx, 0xc
+f45abe jmp 0xf45bec
+f45ac3 cmp eax, 0xfff
+f45ac8 je 0xf45af0
+f45aca cmp eax, 0x1fff
+f45acf je 0xf45ae6
+f45ad1 cmp eax, 0x3fff
+f45ad6 jne 0xf45c73
+f45adc mov ebx, 0xf
+f45ae1 jmp 0xf45bec
+f45ae6 mov ebx, 0xe
+f45aeb jmp 0xf45bec
+f45af0 mov ebx, 0xd
+f45af5 jmp 0xf45bec
+f45afa mov ebx, 0x10
+f45aff jmp 0xf45bec
+f45b04 cmp eax, 0x7fffff
+f45b09 jg 0xf45b90
+f45b0f je 0xf45b89
+f45b11 cmp eax, 0x7ffff
+f45b16 jg 0xf45b5b
+f45b18 je 0xf45b51
+f45b1a cmp eax, 0xffff
+f45b1f je 0xf45b47
+f45b21 cmp eax, 0x1ffff
+f45b26 je 0xf45b3d
+f45b28 cmp eax, 0x3ffff
+f45b2d jne 0xf45c73
+f45b33 mov ebx, 0x13
+f45b38 jmp 0xf45bec
+f45b3d mov ebx, 0x12
+f45b42 jmp 0xf45bec
+f45b47 mov ebx, 0x11
+f45b4c jmp 0xf45bec
+f45b51 mov ebx, 0x14
+f45b56 jmp 0xf45bec
+f45b5b cmp eax, 0xfffff
+f45b60 je 0xf45b82
+f45b62 cmp eax, 0x1fffff
+f45b67 je 0xf45b7b
+f45b69 cmp eax, 0x3fffff
+f45b6e jne 0xf45c73
+f45b74 mov ebx, 0x17
+f45b79 jmp 0xf45bec
+f45b7b mov ebx, 0x16
+f45b80 jmp 0xf45bec
+f45b82 mov ebx, 0x15
+f45b87 jmp 0xf45bec
+f45b89 mov ebx, 0x18
+f45b8e jmp 0xf45bec
+f45b90 cmp eax, 0x7ffffff
+f45b95 jg 0xf45bce
+f45b97 je 0xf45bc7
+f45b99 cmp eax, 0xffffff
+f45b9e je 0xf45bc0
+f45ba0 cmp eax, 0x1ffffff
+f45ba5 je 0xf45bb9
+f45ba7 cmp eax, 0x3ffffff
+f45bac jne 0xf45c73
+f45bb2 mov ebx, 0x1b
+f45bb7 jmp 0xf45bec
+f45bb9 mov ebx, 0x1a
+f45bbe jmp 0xf45bec
+f45bc0 mov ebx, 0x19
+f45bc5 jmp 0xf45bec
+f45bc7 mov ebx, 0x1c
+f45bcc jmp 0xf45bec
+f45bce cmp eax, 0xfffffff
+f45bd3 je 0xf45be7
+f45bd5 cmp eax, 0x1fffffff
+f45bda jne 0xf45c73
+f45be0 mov ebx, 0x1e
+f45be5 jmp 0xf45bec
+f45be7 mov ebx, 0x1d
+f45bec cmp byte ptr [rip + 0x2749a1e], 0
+f45bf3 je 0xf45c5f
+f45bf5 cmp byte ptr [rip + 0x24a53ea], 0
+f45bfc jne 0xf45c5f
+f45bfe movd xmm1, dword ptr [rcx + 0x10]
+f45c03 movd xmm0, eax
+f45c07 cvtdq2ps xmm1, xmm1
+f45c0a cvtdq2ps xmm0, xmm0
+f45c0d divss xmm1, xmm0
+f45c11 comiss xmm1, dword ptr [rip + 0x1858148]
+f45c18 ja 0xf45c5f
+f45c1a lea rax, [rip + 0x24a53c5]
+f45c21 mov byte ptr [rsp + 0x50], 0
+f45c26 mov qword ptr [rsp + 0x28], rax
+f45c2b lea rdx, [rip + 0x184eaeb]
+f45c32 lea rax, [rsp + 0x50]
+f45c37 mov r9b, 1
+f45c3a mov r8d, 0x238
+f45c40 mov qword ptr [rsp + 0x20], rax
+f45c45 lea rcx, [rip + 0x1857024]
+f45c4c call 0x254ab40
+f45c51 cmp byte ptr [rsp + 0x50], 0
+f45c56 mov byte ptr [rip + 0x24a538a], al
+f45c5c je 0xf45c5f
+f45c5e int3 
+f45c5f mov edx, ebx
+f45c61 mov rcx, rdi
+f45c64 mov rbx, qword ptr [rsp + 0x58]
+f45c69 add rsp, 0x40
+f45c6d pop rdi
+f45c6e jmp 0xf470f0
+f45c73 mov r9d, 0x1000
+f45c79 lea rdx, [rip + 0x184ea9d]
+f45c80 mov r8d, 0x231
+f45c86 lea rcx, [rsp + 0x30]
+f45c8b call 0x254b3f0
+f45c90 mov r8d, dword ptr [rdi + 0x14]
+f45c94 lea rdx, [rip + 0x1856f95]
+f45c9b inc r8d
+f45c9e mov rcx, rax
+f45ca1 call 0x254b900
+f45ca6 call 0x25cf270
+f45cab int3 
+f45cac cmp eax, 0x4700f45a
+f45cb1 pop rdx
+f45cb2 hlt 
+f45cb3 add byte ptr [rcx + 0x5a], dl
+f45cb6 hlt 
+f45cb7 add byte ptr [rbx + 0x5a], bl
+f45cba hlt 
+f45cbb add byte ptr [rbp + 0x5a], ah
+f45cbe hlt 
+f45cbf add byte ptr [rbx + 0x5c], dh
+f45cc2 hlt 
+f45cc3 add byte ptr [rax], al
+f45cc5 add byte ptr [rip + 0x5050500], al
+f45ccb add dword ptr [rip + 0x5050505], eax
+f45cd1 add eax, 0x5050205
+f45cd6 add eax, 0x5050505
+f45cdb add eax, 0x5050505
+f45ce0 add eax, 0x5030505
+f45ce5 add eax, 0x5050505
+f45cea add eax, 0x5050505
+f45cef add eax, 0x5050505
+f45cf4 add eax, 0x5050505
+f45cf9 add eax, 0x5050505
+f45cfe add eax, 0x5050505

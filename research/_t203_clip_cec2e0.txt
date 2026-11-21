@@ -1,0 +1,149 @@
+cec2e0 push rbp
+cec2e2 push r13
+cec2e4 push r14
+cec2e6 push r15
+cec2e8 sub rsp, 0x38
+cec2ec mov rax, qword ptr [rcx + 0x3b8]
+cec2f3 movzx r13d, r9b
+cec2f7 mov rbp, r8
+cec2fa mov r14, rdx
+cec2fd mov r15, rcx
+cec300 test rax, rax
+cec303 je 0xcec312
+cec305 cmp byte ptr [rax + 0x234], 0
+cec30c jne 0xcec534
+cec312 mov qword ptr [rsp + 0x68], rbx
+cec317 xor ecx, ecx
+cec319 mov qword ptr [rsp + 0x70], rsi
+cec31e mov esi, ecx
+cec320 mov rcx, qword ptr [r15 + 0xc0]
+cec327 mov qword ptr [rsp + 0x78], rdi
+cec32c mov qword ptr [rsp + 0x30], r12
+cec331 mov r12d, 0x186a0
+cec337 mov ebx, r12d
+cec33a mov edi, r12d
+cec33d test rcx, rcx
+cec340 je 0xcec3b8
+cec342 call 0x34c290
+cec347 test rax, rax
+cec34a je 0xcec3b8
+cec34c mov rcx, qword ptr [r15 + 0xc0]
+cec353 test rcx, rcx
+cec356 je 0xcec35f
+cec358 call 0x34c290
+cec35d jmp 0xcec361
+cec35f xor eax, eax
+cec361 mov rdx, r15
+cec364 mov rcx, rax
+cec367 call 0xc6ff70
+cec36c mov r8d, 0x295
+cec372 lea rdx, [rsp + 0x60]
+cec377 lea rsi, [rax + 0x10]
+cec37b mov rcx, rsi
+cec37e call 0x5a5210
+cec383 mov r8d, 0x294
+cec389 lea rdx, [rsp + 0x60]
+cec38e mov rcx, rsi
+cec391 mov rbx, qword ptr [rax]
+cec394 add rbx, r12
+cec397 call 0x5a5210
+cec39c mov r8d, 0x296
+cec3a2 lea rdx, [rsp + 0x60]
+cec3a7 mov rcx, rsi
+cec3aa mov rdi, qword ptr [rax]
+cec3ad add rdi, r12
+cec3b0 call 0x5a5210
+cec3b5 mov rsi, qword ptr [rax]
+cec3b8 add rsi, qword ptr [rip + 0x26f5061]
+cec3bf mov eax, 0
+cec3c4 test rbx, rbx
+cec3c7 mov rcx, r15
+cec3ca cmovs rbx, rax
+cec3ce imul rbx, r14
+cec3d2 movabs r14, 0x29f16b11c6d1e109
+cec3dc mov rax, r14
+cec3df imul rbx
+cec3e2 mov rbx, rdx
+cec3e5 lea rdx, [rsp + 0x60]
+cec3ea sar rbx, 0xe
+cec3ee mov rax, rbx
+cec3f1 shr rax, 0x3f
+cec3f5 add rbx, rax
+cec3f8 call 0xcdf900
+cec3fd mov r8d, 0
+cec403 add rdi, qword ptr [rax]
+cec406 mov rax, r14
+cec409 cmovs rdi, r8
+cec40d imul rdi, rbp
+cec411 imul rdi
+cec414 mov rdi, rdx
+cec417 sar rdi, 0xe
+cec41b mov rax, rdi
+cec41e shr rax, 0x3f
+cec422 add rdi, rax
+cec425 test r13b, r13b
+cec428 je 0xcec431
+cec42a add qword ptr [r15 + 0x440], rbx
+cec431 add qword ptr [r15 + 0x448], rbx
+cec438 add qword ptr [r15 + 0x450], rdi
+cec43f test rsi, rsi
+cec442 je 0xcec4ad
+cec444 mov rcx, qword ptr [r15 + 0x138]
+cec44b mov rax, r14
+cec44e sub r12, qword ptr [rcx + 0xe8]
+cec455 lea rcx, [rbx + rdi]
+cec459 imul rcx, rsi
+cec45d imul rcx
+cec460 mov rax, r14
+cec463 sar rdx, 0xe
+cec467 mov rcx, rdx
+cec46a shr rcx, 0x3f
+cec46e add rdx, rcx
+cec471 imul r12, rdx
+cec475 imul r12
+cec478 mov rsi, rdx
+cec47b sar rsi, 0xe
+cec47f mov rax, rsi
+cec482 shr rax, 0x3f
+cec486 add rsi, rax
+cec489 test rsi, rsi
+cec48c jle 0xcec4ad
+cec48e lea rcx, [r15 + 0x1d8]
+cec495 call 0xc07690
+cec49a mov r8, rsi
+cec49d mov edx, 2
+cec4a2 mov rcx, rax
+cec4a5 call 0x7194a0
+cec4aa xor r8d, r8d
+cec4ad sub qword ptr [r15 + 0x420], rbx
+cec4b4 mov rcx, qword ptr [r15 + 0x428]
+cec4bb mov rax, qword ptr [r15 + 0x420]
+cec4c2 sub rcx, rdi
+cec4c5 mov r12, qword ptr [rsp + 0x30]
+cec4ca mov rdi, qword ptr [rsp + 0x78]
+cec4cf mov rsi, qword ptr [rsp + 0x70]
+cec4d4 mov rbx, qword ptr [rsp + 0x68]
+cec4d9 mov qword ptr [r15 + 0x428], rcx
+cec4e0 test rax, rax
+cec4e3 jns 0xcec4ec
+cec4e5 mov qword ptr [r15 + 0x420], r8
+cec4ec test rcx, rcx
+cec4ef jns 0xcec4f8
+cec4f1 mov qword ptr [r15 + 0x428], r8
+cec4f8 cmp byte ptr [rip + 0x2813e6b], 0
+cec4ff je 0xcec534
+cec501 mov r9d, 5
+cec507 lea rdx, [rip + 0x1aa820f]
+cec50e mov r8d, 0x86f
+cec514 lea rcx, [rsp + 0x20]
+cec519 call 0x254b3f0
+cec51e mov r8, qword ptr [r15 + 0x420]
+cec525 lea rdx, [rip + 0x1ceaefc]
+cec52c mov rcx, rax
+cec52f call 0x254b900
+cec534 add rsp, 0x38
+cec538 pop r15
+cec53a pop r14
+cec53c pop r13
+cec53e pop rbp
+cec53f ret 

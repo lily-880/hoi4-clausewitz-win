@@ -1,0 +1,49 @@
+f474d7 mov qword ptr [rsp + 0x40], rbx
+f474dc mov qword ptr [rsp + 0x48], rdi
+f474e1 mov qword ptr [rsp + 0x50], r14
+f474e6 mov qword ptr [rsp + 0x20], r15
+f474eb test r8d, r8d
+f474ee je 0xf4750a
+f474f0 movd xmm0, eax
+f474f4 cvtdq2ps xmm0, xmm0
+f474f7 mulss xmm0, dword ptr [rip + 0x184e489]
+f474ff cvttss2si eax, xmm0
+f47503 cmp edx, eax
+f47505 cmovg eax, edx
+f47508 mov ebp, eax
+f4750a mov rcx, qword ptr [rcx + 0x10]
+f4750e mov r8d, 8
+f47514 mov rax, qword ptr [rcx]
+f47517 mov r9, qword ptr [rax + 8]
+f4751b mov eax, ebp
+f4751d imul rdx, rax, 0x78
+f47521 call r9
+f47524 mov rbx, qword ptr [rsi]
+f47527 mov r15, rax
+f4752a movsxd rcx, dword ptr [rsi + 0xc]
+f4752e mov rdi, rax
+f47531 imul r14, rcx, 0x78
+f47535 add r14, rbx
+f47538 cmp rbx, r14
+f4753b je 0xf47562
+f4753d nop dword ptr [rax]
+f47540 mov rcx, rdi
+f47543 mov rdx, rbx
+f47546 add rdi, 0x78
+f4754a call 0xf3d200
+f4754f xor edx, edx
+f47551 mov rcx, rbx
+f47554 call 0xf417a0
+f47559 add rbx, 0x78
+f4755d cmp rbx, r14
+f47560 jne 0xf47540
+f47562 mov rcx, qword ptr [rsi + 0x10]
+f47566 mov rdx, qword ptr [rsi]
+f47569 mov rax, qword ptr [rcx]
+f4756c call qword ptr [rax + 0x10]
+f4756f mov r14, qword ptr [rsp + 0x50]
+f47574 mov rdi, qword ptr [rsp + 0x48]
+f47579 mov rbx, qword ptr [rsp + 0x40]
+f4757e mov qword ptr [rsi], r15
+f47581 mov r15, qword ptr [rsp + 0x20]
+f47586 mov dword ptr [rsi + 8], ebp

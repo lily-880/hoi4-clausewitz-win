@@ -1,0 +1,31 @@
+{
+  "pid": 26976,
+  "hour_tick": 60759371,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "why_t174_missed_callers": "vtable entries are stored as preferred image-base 0x140000000 + RVA (e.g. 0x1415a92f0), so a raw-RVA / E8 search finds none",
+  "chain": [
+    "CReinforcementStatus.slot2 15a93d0 computes offered via cb8e80, then 15a16a0 on status+0x20 (groups)",
+    "15a16a0 calls group.slot1 15a8790 (want weight) and group.slot2 15a8cd0",
+    "15a8cd0 is 15a9440(out, group+0x28, type, offered)",
+    "15a9440 / 15a16a0 call CReinforcementRequest.slot2 15a92f0 with r8=type, r9=offered",
+    "15a92f0: give=min(max(0,need-produced), offered); 1092b70 adds give to request+0x38; remaining=offered-give"
+  ],
+  "live": {
+    "CReinforcementStatus": "0x26c49c0c140",
+    "plus38": "CCountry 0x26c4b672530",
+    "plus20_groups": [
+      "CArmyReinforcementRequests 0x26cb01e6fa0"
+    ],
+    "group_plus28_requests": [
+      "CReinforcementRequest 0x26cb1969530 unit 1835"
+    ]
+  },
+  "offered_not_raw_stockpile": "cb8e80 walks country-linked equipment sources and writes a computed amount; production+0x200 currently has no present infantry_equipment row. Do not claim produced=min(need, stockpile).",
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ],
+  "produced_prediction": "accept step and distribution chain are bound; offered formula (cb8e80) and the hourly caller of 15a93d0 are not yet a closed prediction"
+}

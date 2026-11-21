@@ -1,0 +1,46 @@
+2283ef0 push rbx
+2283ef2 sub rsp, 0x30
+2283ef6 cmp byte ptr [rip + 0x140b714], 0
+2283efd mov rbx, rcx
+2283f00 je 0x2283f58
+2283f02 cmp byte ptr [rip + 0x127c082], 0
+2283f09 jne 0x2283f58
+2283f0b call 0x2556ba0
+2283f10 test al, al
+2283f12 jne 0x2283f58
+2283f14 mov byte ptr [rsp + 0x48], al
+2283f18 lea rdx, [rip + 0x5107fe]
+2283f1f lea rax, [rip + 0x127c065]
+2283f26 mov r9b, 1
+2283f29 mov qword ptr [rsp + 0x28], rax
+2283f2e lea rcx, [rip + 0x92d14b]
+2283f35 lea rax, [rsp + 0x48]
+2283f3a mov r8d, 0x20a
+2283f40 mov qword ptr [rsp + 0x20], rax
+2283f45 call 0x254ab40
+2283f4a cmp byte ptr [rsp + 0x48], 0
+2283f4f mov byte ptr [rip + 0x127c036], al
+2283f55 je 0x2283f58
+2283f57 int3 
+2283f58 mov ecx, 1
+2283f5d lock xadd dword ptr [rip + 0x127bfbb], ecx
+2283f65 movzx eax, word ptr [rip + 0x127bfb8]
+2283f6c lea rdx, [rsp + 0x48]
+2283f71 inc ecx
+2283f73 add eax, 0x1268
+2283f78 mov dword ptr [rsp + 0x4c], ecx
+2283f7c xor r8d, r8d
+2283f7f mov rcx, rbx
+2283f82 mov dword ptr [rsp + 0x48], eax
+2283f86 call 0x2283c60
+2283f8b mov ecx, dword ptr [rip + 0x127bf8f]
+2283f91 lea rdx, [rip + 0x510785]
+2283f98 xor r9d, r9d
+2283f9b mov r8d, 0x5a
+2283fa1 nop 
+2283fa2 movzx ebx, al
+2283fa5 call 0x2299640
+2283faa movzx eax, bl
+2283fad add rsp, 0x30
+2283fb1 pop rbx
+2283fb2 ret 

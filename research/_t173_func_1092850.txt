@@ -1,0 +1,16 @@
+0x1092850  push rbx
+0x1092852  sub rsp, 0x20
+0x1092856  mov rbx, r8
+0x1092859  mov r8b, 1
+0x109285c  call 0x10961f0
+0x1092861  test rax, rax
+0x1092864  je 0x109289b
+0x1092866  mov rdx, qword ptr [rax + 8]
+0x109286a  movabs rcx, 0x53e2d620fb40
+0x1092874  add rdx, rbx
+0x1092877  cmp rdx, rcx
+0x109287a  jle 0x1092886
+0x109287c  mov qword ptr [rax + 8], rcx
+0x1092880  add rsp, 0x20
+0x1092884  pop rbx
+0x1092885  ret

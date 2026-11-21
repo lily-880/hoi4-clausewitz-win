@@ -1,0 +1,103 @@
+eef530 sub rsp, 0x38
+eef534 cmp byte ptr [rip + 0x27a00d6], 0
+eef53b mov qword ptr [rsp + 0x30], rdi
+eef540 mov rdi, rcx
+eef543 je 0xeef634
+eef549 cmp byte ptr [rip + 0x24edbe0], 0
+eef550 jne 0xeef5a1
+eef552 cmp qword ptr [rip + 0x24ee156], 0
+eef55a jne 0xeef5a1
+eef55c lea rax, [rip + 0x24edbcd]
+eef563 mov byte ptr [rsp + 0x40], 0
+eef568 mov qword ptr [rsp + 0x28], rax
+eef56d lea rdx, [rip + 0x18a51a9]
+eef574 lea rax, [rsp + 0x40]
+eef579 mov r9b, 1
+eef57c mov r8d, 0x464
+eef582 mov qword ptr [rsp + 0x20], rax
+eef587 lea rcx, [rip + 0x18a52aa]
+eef58e call 0x254ab40
+eef593 cmp byte ptr [rsp + 0x40], 0
+eef598 mov byte ptr [rip + 0x24edb92], al
+eef59e je 0xeef5a1
+eef5a0 int3 
+eef5a1 cmp byte ptr [rip + 0x27a0069], 0
+eef5a8 je 0xeef634
+eef5ae cmp byte ptr [rip + 0x24edb7c], 0
+eef5b5 jne 0xeef634
+eef5b7 mov rax, qword ptr gs:[0x58]
+eef5c0 mov ecx, dword ptr [rip + 0x27a44d2]
+eef5c6 mov qword ptr [rsp + 0x48], rbx
+eef5cb mov rbx, qword ptr [rax + rcx*8]
+eef5cf mov eax, 0x20e8
+eef5d4 cmp byte ptr [rax + rbx], 0
+eef5d8 jne 0xeef5df
+eef5da call 0x25a04d0
+eef5df mov eax, 0x10
+eef5e4 cmp dword ptr [rax + rbx], 0
+eef5e8 mov rbx, qword ptr [rsp + 0x48]
+eef5ed je 0xeef634
+eef5ef lea rax, [rip + 0x24edb3b]
+eef5f6 mov byte ptr [rsp + 0x40], 0
+eef5fb mov qword ptr [rsp + 0x28], rax
+eef600 lea rdx, [rip + 0x18a5116]
+eef607 lea rax, [rsp + 0x40]
+eef60c mov r9b, 1
+eef60f mov r8d, 0x465
+eef615 mov qword ptr [rsp + 0x20], rax
+eef61a lea rcx, [rip + 0x18a523f]
+eef621 call 0x254ab40
+eef626 cmp byte ptr [rsp + 0x40], 0
+eef62b mov byte ptr [rip + 0x24edb00], al
+eef631 je 0xeef634
+eef633 int3 
+eef634 mov rax, qword ptr [rip + 0x24ee075]
+eef63b mov r8d, dword ptr [rdi + 0xa4]
+eef642 mov rdi, qword ptr [rsp + 0x30]
+eef647 mov qword ptr [rsp + 0x40], 0
+eef650 mov r9, qword ptr [rax + 0x698]
+eef657 mov eax, r8d
+eef65a shr eax, 0x10
+eef65d xor eax, r8d
+eef660 imul ecx, eax, 0x45d9f3b
+eef666 movsxd r10, dword ptr [r9 + 0x34]
+eef66a mov r11, qword ptr [r9 + 0x28]
+eef66e mov eax, ecx
+eef670 shr eax, 0x10
+eef673 xor eax, ecx
+eef675 imul ecx, eax, 0x45d9f3b
+eef67b movsxd rax, ecx
+eef67e mov edx, ecx
+eef680 mov cl, 1
+eef682 shr rdx, 0x10
+eef686 xor rdx, rax
+eef689 and rdx, r10
+eef68c lea rax, [rdx + rdx*2]
+eef690 cmp byte ptr [r11 + rax*8 + 4], cl
+eef695 lea rax, [r11 + rax*8]
+eef699 jb 0xeef6b1
+eef69b nop dword ptr [rax + rax]
+eef6a0 cmp r8d, dword ptr [rax + 8]
+eef6a4 je 0xeef6c2
+eef6a6 add rax, 0x18
+eef6aa inc cl
+eef6ac cmp cl, byte ptr [rax + 4]
+eef6af jbe 0xeef6a0
+eef6b1 lea rax, [rsp + 0x40]
+eef6b6 cmp qword ptr [rax], 0
+eef6ba setne al
+eef6bd add rsp, 0x38
+eef6c1 ret 
+eef6c2 movzx edx, byte ptr [r9 + 0x38]
+eef6c7 inc edx
+eef6c9 add edx, r10d
+eef6cc movsxd rcx, edx
+eef6cf lea rdx, [rcx + rcx*2]
+eef6d3 lea rcx, [r11 + rdx*8]
+eef6d7 cmp rax, rcx
+eef6da je 0xeef6b1
+eef6dc add rax, 0x10
+eef6e0 cmp qword ptr [rax], 0
+eef6e4 setne al
+eef6e7 add rsp, 0x38
+eef6eb ret 

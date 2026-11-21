@@ -1,0 +1,152 @@
+11a7790 mov qword ptr [rsp + 0x18], rbx
+11a7795 mov qword ptr [rsp + 0x20], rbp
+11a779a mov qword ptr [rsp + 0x10], rdx
+11a779f push rsi
+11a77a0 push rdi
+11a77a1 push r14
+11a77a3 sub rsp, 0xa0
+11a77aa mov rsi, rdx
+11a77ad mov rbp, rcx
+11a77b0 xor r14d, r14d
+11a77b3 mov dword ptr [rsp + 0x30], r14d
+11a77b8 mov rbx, qword ptr [rcx + 0x78]
+11a77bc movsxd rax, dword ptr [rcx + 0x84]
+11a77c3 lea rdi, [rbx + rax*8]
+11a77c7 cmp rbx, rdi
+11a77ca je 0x11a7805
+11a77cc nop dword ptr [rax]
+11a77d0 cmp dword ptr [rbx], r14d
+11a77d3 jne 0x11a77db
+11a77d5 cmp dword ptr [rbx + 4], r14d
+11a77d9 je 0x11a77ec
+11a77db mov rcx, rbx
+11a77de call 0x2284870
+11a77e3 test rax, rax
+11a77e6 lea rcx, [rax - 0x10]
+11a77ea jne 0x11a77ef
+11a77ec mov rcx, r14
+11a77ef call 0xe64c50
+11a77f4 test al, al
+11a77f6 je 0x11a79b9
+11a77fc add rbx, 8
+11a7800 cmp rbx, rdi
+11a7803 jne 0x11a77d0
+11a7805 xorps xmm0, xmm0
+11a7808 movups xmmword ptr [rsp + 0x38], xmm0
+11a780d movdqa xmm1, xmmword ptr [rip + 0x15ee17b]
+11a7815 movdqu xmmword ptr [rsp + 0x48], xmm1
+11a781b mov byte ptr [rsp + 0x38], r14b
+11a7820 lea rdi, [rsp + 0x38]
+11a7825 mov ebx, 2
+11a782a mov dword ptr [rsp + 0x30], ebx
+11a782e mov eax, dword ptr [rbp + 0x84]
+11a7834 mov dword ptr [rsp + 0xc0], eax
+11a783b lea rax, [rip + 0x2239752]
+11a7842 mov qword ptr [rsp + 0x28], rax
+11a7847 lea rax, [rip + 0x185708a]
+11a784e mov qword ptr [rsp + 0x20], rax
+11a7853 lea r9, [rsp + 0xc0]
+11a785b lea r8, [rip + 0x18669b6]
+11a7862 lea rdx, [rip + 0x18669b7]
+11a7869 lea rcx, [rsp + 0x58]
+11a786e call 0x70f240
+11a7873 nop 
+11a7874 xorps xmm0, xmm0
+11a7877 movups xmmword ptr [rsi], xmm0
+11a787a mov qword ptr [rsi + 0x10], r14
+11a787e mov qword ptr [rsi + 0x18], r14
+11a7882 movups xmm0, xmmword ptr [rax]
+11a7885 movups xmmword ptr [rsi], xmm0
+11a7888 movups xmm1, xmmword ptr [rax + 0x10]
+11a788c movups xmmword ptr [rsi + 0x10], xmm1
+11a7890 mov qword ptr [rax + 0x10], r14
+11a7894 mov qword ptr [rax + 0x18], 0xf
+11a789c mov byte ptr [rax], 0
+11a789f bts ebx, 8
+11a78a3 mov dword ptr [rsp + 0x30], ebx
+11a78a7 mov r8, qword ptr [rdi + 0x10]
+11a78ab cmp qword ptr [rdi + 0x18], 0xf
+11a78b0 jbe 0x11a78b5
+11a78b2 mov rdi, qword ptr [rdi]
+11a78b5 mov rdx, rdi
+11a78b8 mov rcx, rsi
+11a78bb call 0x12b330
+11a78c0 btr ebx, 8
+11a78c4 or ebx, 4
+11a78c7 mov rdx, qword ptr [rsp + 0x70]
+11a78cc cmp rdx, 0xf
+11a78d0 jbe 0x11a7904
+11a78d2 inc rdx
+11a78d5 mov rcx, qword ptr [rsp + 0x58]
+11a78da mov rax, rcx
+11a78dd cmp rdx, 0x1000
+11a78e4 jb 0x11a78ff
+11a78e6 add rdx, 0x27
+11a78ea mov rcx, qword ptr [rcx - 8]
+11a78ee sub rax, rcx
+11a78f1 add rax, -8
+11a78f5 cmp rax, 0x1f
+11a78f9 ja 0x11a79e5
+11a78ff call 0x25a0218
+11a7904 movdqa xmm0, xmmword ptr [rip + 0x15ee084]
+11a790c movdqu xmmword ptr [rsp + 0x68], xmm0
+11a7912 mov byte ptr [rsp + 0x58], 0
+11a7917 test bl, 2
+11a791a je 0x11a795d
+11a791c and ebx, 0xfffffffd
+11a791f mov rdx, qword ptr [rsp + 0x50]
+11a7924 cmp rdx, 0xf
+11a7928 jbe 0x11a795d
+11a792a inc rdx
+11a792d mov rcx, qword ptr [rsp + 0x38]
+11a7932 mov rax, rcx
+11a7935 cmp rdx, 0x1000
+11a793c jb 0x11a7957
+11a793e add rdx, 0x27
+11a7942 mov rcx, qword ptr [rcx - 8]
+11a7946 sub rax, rcx
+11a7949 add rax, -8
+11a794d cmp rax, 0x1f
+11a7951 ja 0x11a79eb
+11a7957 call 0x25a0218
+11a795c nop 
+11a795d test bl, 1
+11a7960 je 0x11a799e
+11a7962 mov rdx, qword ptr [rsp + 0x90]
+11a796a cmp rdx, 0xf
+11a796e jbe 0x11a799e
+11a7970 inc rdx
+11a7973 mov rcx, qword ptr [rsp + 0x78]
+11a7978 mov rax, rcx
+11a797b cmp rdx, 0x1000
+11a7982 jb 0x11a7999
+11a7984 add rdx, 0x27
+11a7988 mov rcx, qword ptr [rcx - 8]
+11a798c sub rax, rcx
+11a798f add rax, -8
+11a7993 cmp rax, 0x1f
+11a7997 ja 0x11a79df
+11a7999 call 0x25a0218
+11a799e mov rax, rsi
+11a79a1 lea r11, [rsp + 0xa0]
+11a79a9 mov rbx, qword ptr [r11 + 0x30]
+11a79ad mov rbp, qword ptr [r11 + 0x38]
+11a79b1 mov rsp, r11
+11a79b4 pop r14
+11a79b6 pop rdi
+11a79b7 pop rsi
+11a79b8 ret 
+11a79b9 xor r9d, r9d
+11a79bc xor r8d, r8d
+11a79bf lea rdx, [rip + 0x186682a]
+11a79c6 lea rcx, [rsp + 0x78]
+11a79cb call 0x22aeab0
+11a79d0 lea rdi, [rsp + 0x78]
+11a79d5 mov ebx, 0x19
+11a79da jmp 0x11a782a
+11a79df call 0x25c7db4
+11a79e4 nop 
+11a79e5 call 0x25c7db4
+11a79ea nop 
+11a79eb call 0x25c7db4
+11a79f0 int3 

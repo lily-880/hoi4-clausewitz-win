@@ -1,0 +1,29 @@
+c4e890 push rbx
+c4e892 sub rsp, 0x20
+c4e896 mov edx, dword ptr [rip + 0x2a451fc]
+c4e89c xor eax, eax
+c4e89e mov qword ptr [rcx + 8], rax
+c4e8a2 mov rbx, rcx
+c4e8a5 mov qword ptr [rcx + 0x10], rax
+c4e8a9 mov rax, qword ptr gs:[0x58]
+c4e8b2 mov byte ptr [rcx], 5
+c4e8b5 mov ecx, 0x20ec
+c4e8ba mov rax, qword ptr [rax + rdx*8]
+c4e8be mov eax, dword ptr [rcx + rax]
+c4e8c1 cmp dword ptr [rip + 0x278e859], eax
+c4e8c7 jg 0xc4e8dd
+c4e8c9 lea rax, [rip + 0x24ae730]
+c4e8d0 mov qword ptr [rbx + 0x18], rax
+c4e8d4 mov rax, rbx
+c4e8d7 add rsp, 0x20
+c4e8db pop rbx
+c4e8dc ret 
+c4e8dd lea rcx, [rip + 0x278e83c]
+c4e8e4 call 0x25a0588
+c4e8e9 cmp dword ptr [rip + 0x278e830], -1
+c4e8f0 jne 0xc4e8c9
+c4e8f2 lea rcx, [rip + 0x1b27407]
+c4e8f9 call 0x25a0450
+c4e8fe lea rcx, [rip + 0x278e81b]
+c4e905 call 0x25a051c
+c4e90a jmp 0xc4e8c9

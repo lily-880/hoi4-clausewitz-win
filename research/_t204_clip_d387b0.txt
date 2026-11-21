@@ -1,0 +1,50 @@
+d387b0 mov qword ptr [rsp + 8], rbx
+d387b5 mov qword ptr [rsp + 0x10], rsi
+d387ba push rdi
+d387bb sub rsp, 0x20
+d387bf lea rax, [rip + 0x1ca190a]
+d387c6 mov rdi, rcx
+d387c9 mov qword ptr [rcx], rax
+d387cc mov rbx, qword ptr [rcx + 8]
+d387d0 movsxd rax, dword ptr [rcx + 0x14]
+d387d4 lea rsi, [rbx + rax*8]
+d387d8 cmp rbx, rsi
+d387db je 0xd387fb
+d387dd nop dword ptr [rax]
+d387e0 mov rcx, qword ptr [rbx]
+d387e3 test rcx, rcx
+d387e6 je 0xd387f2
+d387e8 mov rax, qword ptr [rcx]
+d387eb mov edx, 1
+d387f0 call qword ptr [rax]
+d387f2 add rbx, 8
+d387f6 cmp rbx, rsi
+d387f9 jne 0xd387e0
+d387fb lea rcx, [rdi + 0x58]
+d387ff call 0xd388e0
+d38804 lea rcx, [rdi + 0x38]
+d38808 call 0x68c7f0
+d3880d mov rdx, qword ptr [rdi + 0x20]
+d38811 xor ebx, ebx
+d38813 test rdx, rdx
+d38816 je 0xd3882c
+d38818 mov rcx, qword ptr [rdi + 0x30]
+d3881c mov dword ptr [rdi + 0x2c], ebx
+d3881f mov rax, qword ptr [rcx]
+d38822 call qword ptr [rax + 0x10]
+d38825 mov qword ptr [rdi + 0x20], rbx
+d38829 mov dword ptr [rdi + 0x28], ebx
+d3882c mov rdx, qword ptr [rdi + 8]
+d38830 test rdx, rdx
+d38833 je 0xd38849
+d38835 mov rcx, qword ptr [rdi + 0x18]
+d38839 mov dword ptr [rdi + 0x14], ebx
+d3883c mov rax, qword ptr [rcx]
+d3883f call qword ptr [rax + 0x10]
+d38842 mov qword ptr [rdi + 8], rbx
+d38846 mov dword ptr [rdi + 0x10], ebx
+d38849 mov rbx, qword ptr [rsp + 0x30]
+d3884e mov rsi, qword ptr [rsp + 0x38]
+d38853 add rsp, 0x20
+d38857 pop rdi
+d38858 ret 

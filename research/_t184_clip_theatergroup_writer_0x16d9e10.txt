@@ -1,0 +1,41 @@
+0x16d9e10  mov qword ptr [rsp + 0x10], rbp
+0x16d9e15  mov qword ptr [rsp + 0x18], rsi
+0x16d9e1a  push rdi
+0x16d9e1b  sub rsp, 0x20
+0x16d9e1f  mov rbp, rdx
+0x16d9e22  mov rdi, rcx
+0x16d9e25  call 0x22858a0
+0x16d9e2a  mov r8d, dword ptr [rdi + 0x20]
+0x16d9e2e  mov edx, 0x8d  ; TOKEN priority
+0x16d9e33  mov rcx, rbp
+0x16d9e36  call 0x25459e0
+0x16d9e3b  mov rcx, rbp
+0x16d9e3e  call 0x25429d0
+0x16d9e43  test al, al
+0x16d9e45  jne 0x16d9e5b
+0x16d9e47  lea r8, [rdi + 0x28]
+0x16d9e4b  xor r9d, r9d
+0x16d9e4e  mov edx, 0x1b  ; TOKEN name
+0x16d9e53  mov rcx, rbp
+0x16d9e56  call 0x2545940
+0x16d9e5b  movsxd rsi, dword ptr [rdi + 0x54]
+0x16d9e5f  test rsi, rsi
+0x16d9e62  jle 0x16d9e96
+0x16d9e64  mov qword ptr [rsp + 0x30], rbx
+0x16d9e69  xor ebx, ebx
+0x16d9e6b  nop dword ptr [rax + rax]
+0x16d9e70  mov rax, qword ptr [rdi + 0x48]
+0x16d9e74  mov edx, 0x30ae  ; TOKEN orders_group
+0x16d9e79  mov rcx, rbp
+0x16d9e7c  mov r8, qword ptr [rax + rbx*8]
+0x16d9e80  add r8, 8
+0x16d9e84  call 0x22857c0
+0x16d9e89  inc rbx
+0x16d9e8c  cmp rbx, rsi
+0x16d9e8f  jl 0x16d9e70
+0x16d9e91  mov rbx, qword ptr [rsp + 0x30]
+0x16d9e96  mov rbp, qword ptr [rsp + 0x38]
+0x16d9e9b  mov rsi, qword ptr [rsp + 0x40]
+0x16d9ea0  add rsp, 0x20
+0x16d9ea4  pop rdi
+0x16d9ea5  ret 

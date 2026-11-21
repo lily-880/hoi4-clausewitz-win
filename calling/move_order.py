@@ -1,9 +1,9 @@
 """One proven Windows post: ordinary CMoveCommand for one army.
 
-Factory 0x13FB000 (idx 1402) builds CMoveCommand + CUnitMoveAction embed.
+Factory 0x13FB070 (idx 1402, 1.19.5) builds CMoveCommand + CUnitMoveAction embed.
 Province destinations: dry_run VirtualAllocEx; live Post ucrtbase!malloc u32[1]
 (2ijy: VirtualAllocEx + vector dtor → 0xC0000374 heap corruption).
-IsValid: action RVA 0x12C2CA0 (rcx=cmd+0x28). Post: FN_CMD_QUEUE_POST.
+IsValid: action RVA 0x12C2D10 (rcx=cmd+0x28). Post: FN_CMD_QUEUE_POST.
 """
 from __future__ import annotations
 
@@ -16,12 +16,14 @@ from config import assert_post_allowed, allow_post
 from handle import HANDLE_TYPE_ARMY, resolve_handle
 from process import Backend, find_pid
 
-FACTORY_RVA = 0x13FB000
+# 1.19.5.0.7c6c rebase (t191): same factory idx / size 0x88, RVAs slid ~+0x70;
+# vtables from RTTI; factory from live TYPEID_FACTORY_TABLE idx 1402.
+FACTORY_RVA = 0x13FB070
 FACTORY_IDX = 1402
-ACTION_ISVALID_RVA = 0x12C2CA0
-MOVE_VT = 0x2A2C790
-ACTION_VT = 0x2A1F648
-ARMY_VT = 0x29D6D68
+ACTION_ISVALID_RVA = 0x12C2D10  # CUnitMoveAction vt+0x50; 1.19.4 was 0x12C2CA0
+MOVE_VT = 0x2A2CDE0
+ACTION_VT = 0x2A1FAC8
+ARMY_VT = 0x29D6D98  # matches offsets_input_windows_1.19.5.json CArmy
 PATH_OFF = 0x200
 HANDLE_TYPE = 0x33
 

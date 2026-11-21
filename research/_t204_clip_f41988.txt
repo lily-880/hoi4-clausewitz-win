@@ -1,0 +1,68 @@
+f41988 mov qword ptr [rsp + 0x60], rbp
+f4198d mov ebp, dword ptr [rip + 0x2752105]
+f41993 mov qword ptr [rsp + 0x70], r12
+f41998 mov qword ptr [rsp + 0x78], r13
+f4199d lea r13, [rip + 0x249b78c]
+f419a4 mov qword ptr [rsp + 0x30], r15
+f419a9 mov r15d, 0x10
+f419af mov r12d, 0x20e8
+f419b5 nop word ptr [rax + rax]
+f419c0 cmp byte ptr [rip + 0x274dc4a], 0
+f419c7 je 0xf41a95
+f419cd cmp byte ptr [rip + 0x249b75c], 0
+f419d4 jne 0xf41a1e
+f419d6 cmp qword ptr [rip + 0x249bcd2], 0
+f419de jne 0xf41a1e
+f419e0 lea rax, [rsp + 0x68]
+f419e5 mov qword ptr [rsp + 0x28], r13
+f419ea mov r9b, 1
+f419ed mov qword ptr [rsp + 0x20], rax
+f419f2 mov r8d, 0x464
+f419f8 mov byte ptr [rsp + 0x68], 0
+f419fd lea rdx, [rip + 0x1852d19]
+f41a04 lea rcx, [rip + 0x1852e2d]
+f41a0b call 0x254ab40
+f41a10 cmp byte ptr [rsp + 0x68], 0
+f41a15 mov byte ptr [rip + 0x249b715], al
+f41a1b je 0xf41a1e
+f41a1d int3 
+f41a1e cmp byte ptr [rip + 0x274dbec], 0
+f41a25 je 0xf41a95
+f41a27 cmp byte ptr [rip + 0x249b703], 0
+f41a2e jne 0xf41a95
+f41a30 mov rax, qword ptr gs:[0x58]
+f41a39 mov rbx, qword ptr [rax + rbp*8]
+f41a3d cmp byte ptr [r12 + rbx], 0
+f41a42 jne 0xf41a49
+f41a44 call 0x25a04d0
+f41a49 cmp dword ptr [r15 + rbx], 0
+f41a4e je 0xf41a95
+f41a50 lea rax, [rip + 0x249b6da]
+f41a57 mov byte ptr [rsp + 0x68], 0
+f41a5c mov qword ptr [rsp + 0x28], rax
+f41a61 lea rdx, [rip + 0x1852cb5]
+f41a68 lea rax, [rsp + 0x68]
+f41a6d mov r9b, 1
+f41a70 mov r8d, 0x465
+f41a76 mov qword ptr [rsp + 0x20], rax
+f41a7b lea rcx, [rip + 0x1852dde]
+f41a82 call 0x254ab40
+f41a87 cmp byte ptr [rsp + 0x68], 0
+f41a8c mov byte ptr [rip + 0x249b69f], al
+f41a92 je 0xf41a95
+f41a94 int3 
+f41a95 mov rcx, qword ptr [rip + 0x249bc14]
+f41a9c mov edx, dword ptr [rdi + 8]
+f41a9f add rcx, 8
+f41aa3 mov rax, qword ptr [rcx]
+f41aa6 call qword ptr [rax]
+f41aa8 mov rdx, rax
+f41aab mov rcx, r14
+f41aae call 0xf47840
+f41ab3 add rdi, 0x30
+f41ab7 cmp rdi, rsi
+f41aba jne 0xf419c0
+f41ac0 mov r15, qword ptr [rsp + 0x30]
+f41ac5 mov r13, qword ptr [rsp + 0x78]
+f41aca mov r12, qword ptr [rsp + 0x70]
+f41acf mov rbp, qword ptr [rsp + 0x60]

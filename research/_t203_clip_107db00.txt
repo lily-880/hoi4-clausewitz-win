@@ -1,0 +1,37 @@
+107db00 push rbx
+107db02 sub rsp, 0x40
+107db06 mov rbx, rcx
+107db09 lea rdx, [rsp + 0x20]
+107db0e call 0x107dee0
+107db13 nop 
+107db14 mov rcx, qword ptr [rbx + 0x20]
+107db18 add rcx, 8
+107db1c mov eax, dword ptr [rcx]
+107db1e mov dword ptr [rsp + 0x50], eax
+107db22 cmp dword ptr [rcx], 0
+107db25 jne 0x107db2b
+107db27 xor eax, eax
+107db29 jmp 0x107db30
+107db2b call 0xc08790
+107db30 mov dword ptr [rsp + 0x54], eax
+107db34 xor r8d, r8d
+107db37 lea rdx, [rsp + 0x50]
+107db3c lea rcx, [rsp + 0x20]
+107db41 call 0xcc7550
+107db46 lea rcx, [rbx + 0x90]
+107db4d call 0xcc6570
+107db52 mov ebx, eax
+107db54 lea rcx, [rsp + 0x20]
+107db59 call 0xcc6570
+107db5e add ebx, eax
+107db60 mov rdx, qword ptr [rsp + 0x28]
+107db65 test rdx, rdx
+107db68 je 0x107db7e
+107db6a mov dword ptr [rsp + 0x34], 0
+107db72 mov rcx, qword ptr [rsp + 0x38]
+107db77 mov r8, qword ptr [rcx]
+107db7a call qword ptr [r8 + 0x10]
+107db7e mov eax, ebx
+107db80 add rsp, 0x40
+107db84 pop rbx
+107db85 ret 

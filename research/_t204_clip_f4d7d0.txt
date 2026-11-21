@@ -1,0 +1,41 @@
+f4d7d0 mov qword ptr [rsp + 0x10], rbx
+f4d7d5 mov qword ptr [rsp + 0x18], rbp
+f4d7da mov qword ptr [rsp + 0x20], rsi
+f4d7df push r14
+f4d7e1 sub rsp, 0x20
+f4d7e5 mov rsi, qword ptr [rcx + 8]
+f4d7e9 mov r14d, dword ptr [rsi + 0x20]
+f4d7ed mov ebx, r14d
+f4d7f0 mov ebp, dword ptr [rsi + 0x18]
+f4d7f3 lock xadd dword ptr [rsi], ebx
+f4d7f7 cmp ebx, ebp
+f4d7f9 jge 0xf4d840
+f4d7fb mov qword ptr [rsp + 0x30], rdi
+f4d800 lea eax, [rbx + r14]
+f4d804 mov edi, ebp
+f4d806 cmp eax, ebp
+f4d808 cmovl edi, eax
+f4d80b cmp ebx, edi
+f4d80d je 0xf4d82c
+f4d80f nop 
+f4d810 movsxd rax, ebx
+f4d813 imul rcx, rax, 0x320
+f4d81a mov rax, qword ptr [rsi + 0x28]
+f4d81e add rcx, qword ptr [rax]
+f4d821 call 0x12ad910
+f4d826 inc ebx
+f4d828 cmp ebx, edi
+f4d82a jne 0xf4d810
+f4d82c cmp edi, ebp
+f4d82e je 0xf4d83b
+f4d830 mov ebx, r14d
+f4d833 lock xadd dword ptr [rsi], ebx
+f4d837 cmp ebx, ebp
+f4d839 jl 0xf4d800
+f4d83b mov rdi, qword ptr [rsp + 0x30]
+f4d840 mov rbx, qword ptr [rsp + 0x38]
+f4d845 mov rbp, qword ptr [rsp + 0x40]
+f4d84a mov rsi, qword ptr [rsp + 0x48]
+f4d84f add rsp, 0x20
+f4d853 pop r14
+f4d855 ret 

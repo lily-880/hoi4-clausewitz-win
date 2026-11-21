@@ -1,0 +1,62 @@
+{
+  "at_est": "2026-11-20T10:24:57.427492-05:00",
+  "change": "extend existing demanded scope by train_equipment and motorized_equipment, no newly verified field",
+  "mapping": "7362c0 -> active GS33dd6b0 +3d8 CSupplySystem -> +108 country-object array indexed via C08790 (GS+340 remap). Actual raw3 maps3; identity never assumed. Returned CCountrySupplySystem+78 points to actual SOV country, +80 points to non-RTTI-required per-country work block.",
+  "train_independent_count_chain": [
+    "12b8e40 uses stride48 worklist at country supply+20; discriminator0 rows add signed i32+4 to mapped per-country stride0x320 block+140; current own rows1+1+5+1+7=15.",
+    "12be8f0 resets supply+110 then walks own production+220 variant rows, gates train cf5620, converts FIXED quantities to whole items and sums into +110 while building +120 stride24 variant-handle pool. Current one train_equipment_1 variant8300000 FIXED ->83, same exact handle6274947219526 joins one supply-pool row with83 items.",
+    "1409630 train current=max(0,cache15-15*FIXED)=68 items. 1409890 train part=max(0,cap(cap(baseNeed-83*FIXED)+15*FIXED))=0. Cache16=68 equals current68-demand0. The83-68 difference15 is train commitment operand, NOT unmet demand/deficit."
+  ],
+  "motor_chain": "44b=1 plus raw flags8 takes vehicle special: demand=cap(cap(requestNeed-Produced - owned138*FIXED)+neededC8*FIXED), no train nonnegative clamp at native intermediate. Current counters0/0, current0, request base1278, balance-1278 independently matches. Reject negative final demand in research scope.",
+  "results": {
+    "train_equipment": {
+      "demanded": 0,
+      "request_base_raw": 0,
+      "native_current_raw": 6800000,
+      "stored_balance_raw": 6800000,
+      "count_operand": 15,
+      "owned_counter": 83
+    },
+    "motorized_equipment": {
+      "demanded": 1278,
+      "request_base_raw": 127800000,
+      "native_current_raw": 0,
+      "stored_balance_raw": -127800000,
+      "count_operand": 0,
+      "owned_counter": 0
+    }
+  },
+  "scope_conditions": [
+    "t219 four types retained unchanged",
+    "new two self-archetype roots only, exact cf5620/cf5660/cf2e50 predicates",
+    "all five extra components empty",
+    "same stable own-country map and parent/child layout",
+    "train whole-item variant pool exact-handle join and worklist sum cross-check",
+    "only current own discriminator0 worklist shape covered; other shapes omitted",
+    "independent daily cache equality; reject stale cache/fractional or negative demand"
+  ],
+  "not_claimed": [
+    "stockpile train68: native current68 is uncommitted availability; total stockpool83 not renamed",
+    "deficit field",
+    "manpower/casualties/combat-history identity",
+    "air/convoy or arbitrary inherited type gates",
+    "full production capture or fingerprint acceptance",
+    "parser/serializer complete closure"
+  ],
+  "tests": {
+    "new_methods": 34,
+    "independent_nonoverlapping_scenarios": 33,
+    "windows": 0
+  },
+  "inventory_counts": {
+    "verified": 81,
+    "unverified": 35,
+    "memory_unverified": 23,
+    "nonmemory_unverified": 12,
+    "tables": 14,
+    "fields": 116,
+    "columns": 3
+  },
+  "inventory_sha256": "b62c8bb5cd37404b28060a0820e6e7466283d4cb0f1a9cb1c535a045542479dc",
+  "next_target": "independent native UI consumer of negative slot16 balance to establish equipment.deficit role; distinguish train stock83 vs uncommitted current68 before formula promotion. Reuse existing140ba10/1409630 proofs rather than scan again."
+}

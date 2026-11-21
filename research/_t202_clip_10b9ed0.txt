@@ -1,0 +1,15 @@
+10b9ed0 mov rax, qword ptr [rcx + 0x1e0]
+10b9ed7 movsxd rcx, dword ptr [rcx + 0x1ec]
+10b9ede lea r8, [rax + rcx*8]
+10b9ee2 cmp rax, r8
+10b9ee5 je 0x10b9ef8
+10b9ee7 mov rcx, qword ptr [rax]
+10b9eea cmp dword ptr [rcx + 0x30], edx
+10b9eed je 0x10b9efb
+10b9eef add rax, 8
+10b9ef3 cmp rax, r8
+10b9ef6 jne 0x10b9ee7
+10b9ef8 xor eax, eax
+10b9efa ret 
+10b9efb mov rax, rcx
+10b9efe ret 

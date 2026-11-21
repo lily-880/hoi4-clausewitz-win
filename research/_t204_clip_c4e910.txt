@@ -1,0 +1,16 @@
+c4e910 push rbx
+c4e912 sub rsp, 0x20
+c4e916 mov rdx, qword ptr [rcx + 0x50]
+c4e91a mov rbx, rcx
+c4e91d test rdx, rdx
+c4e920 je 0xc4e942
+c4e922 mov dword ptr [rcx + 0x5c], 0
+c4e929 mov rcx, qword ptr [rcx + 0x60]
+c4e92d mov rax, qword ptr [rcx]
+c4e930 call qword ptr [rax + 0x10]
+c4e933 mov qword ptr [rbx + 0x50], 0
+c4e93b mov dword ptr [rbx + 0x58], 0
+c4e942 mov rcx, rbx
+c4e945 add rsp, 0x20
+c4e949 pop rbx
+c4e94a jmp 0x22839a0

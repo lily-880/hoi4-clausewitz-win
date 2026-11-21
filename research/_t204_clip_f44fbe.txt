@@ -1,0 +1,26 @@
+f44fbe call 0x1163290
+f44fc3 mov r9, rax
+f44fc6 test rax, rax
+f44fc9 je 0xf44f81
+f44fcb mov rcx, qword ptr [rbx + 0x1e0]
+f44fd2 cmp dword ptr [rcx + 8], 0x2fab
+f44fd9 jne 0xf44f81
+f44fdb movsxd rcx, dword ptr [rax + 0x58]
+f44fdf lea rdx, [rcx + rcx*4]
+f44fe3 mov rcx, qword ptr [rsi + 0x28]
+f44fe7 lea rax, [rcx + rdx*8]
+f44feb movsx ecx, word ptr [rbx + 0x42]
+f44fef movzx edx, word ptr [rax + 0x20]
+f44ff3 cmp edx, ecx
+f44ff5 jne 0xf45007
+f44ff7 movzx ecx, word ptr [rax + 0x22]
+f44ffb movsx eax, word ptr [rbx + 0x40]
+f44fff cmp ecx, eax
+f45001 je 0xf44f81
+f45007 mov r8b, 1
+f4500a mov rdx, r9
+f4500d mov rcx, rsi
+f45010 mov rbx, qword ptr [rsp + 0x48]
+f45015 add rsp, 0x20
+f45019 pop rsi
+f4501a jmp 0xf41c90

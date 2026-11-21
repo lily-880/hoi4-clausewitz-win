@@ -1,0 +1,125 @@
+{
+  "at_est": "2026-11-20T10:50:20.811079-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "scope": "fresh code rebind of previously closed selector only; no repeat movement-demand scans",
+  "functions": {
+    "0xc55df0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc55df0",
+      "window_size": 512,
+      "reachable_instruction_count": 50,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc55e17",
+          "operand": "0xc52e90"
+        },
+        {
+          "site": "0xc55e65",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0xc55e97",
+          "operand": "0x748400"
+        },
+        {
+          "site": "0xc55e86",
+          "operand": "0xc08790"
+        }
+      ],
+      "asm": [
+        "c55df0 mov qword ptr [rsp + 0x10], rbx",
+        "c55df5 push rdi",
+        "c55df6 sub rsp, 0x20",
+        "c55dfa cmp dword ptr [rcx + 0x20c], 0",
+        "c55e01 movzx edi, dl",
+        "c55e04 mov rbx, rcx",
+        "c55e07 jle 0xc55ea7",
+        "c55e0d cmp dword ptr [rcx + 8], 0",
+        "c55e11 jne 0xc55ea7",
+        "c55e17 call 0xc52e90",
+        "c55e1c test rax, rax",
+        "c55e1f je 0xc55ea7",
+        "c55e25 mov rdx, qword ptr [rbx + 0x1f0]",
+        "c55e2c mov rcx, qword ptr [rdx + 0xb8]",
+        "c55e33 test byte ptr [rcx + 0xd2], 3",
+        "c55e3a jne 0xc55ea7",
+        "c55e3c mov rcx, qword ptr [rax + 0xb8]",
+        "c55e43 test byte ptr [rcx + 0xd2], 1",
+        "c55e4a je 0xc55ea7",
+        "c55e4c test dil, dil",
+        "c55e4f je 0xc55e5e",
+        "c55e51 mov al, 1",
+        "c55e53 mov rbx, qword ptr [rsp + 0x38]",
+        "c55e58 add rsp, 0x20",
+        "c55e5c pop rdi",
+        "c55e5d ret ",
+        "c55e5e lea rcx, [rax + 0x188]",
+        "c55e65 call 0xc07bf0",
+        "c55e6a mov ecx, dword ptr [rbx + 0x1e0]",
+        "c55e70 mov rdi, rax",
+        "c55e73 mov dword ptr [rsp + 0x30], ecx",
+        "c55e77 test ecx, ecx",
+        "c55e79 jne 0xc55e7f",
+        "c55e7b xor eax, eax",
+        "c55e7d jmp 0xc55e8b",
+        "c55e7f lea rcx, [rbx + 0x1e0]",
+        "c55e86 call 0xc08790",
+        "c55e8b lea rdx, [rsp + 0x30]",
+        "c55e90 mov dword ptr [rsp + 0x34], eax",
+        "c55e94 mov rcx, rdi",
+        "c55e97 call 0x748400",
+        "c55e9c mov rbx, qword ptr [rsp + 0x38]",
+        "c55ea1 add rsp, 0x20",
+        "c55ea5 pop rdi",
+        "c55ea6 ret ",
+        "c55ea7 mov rbx, qword ptr [rsp + 0x38]",
+        "c55eac xor al, al",
+        "c55eae add rsp, 0x20",
+        "c55eb2 pop rdi",
+        "c55eb3 ret "
+      ],
+      "raw_hex": "48895c2410574883ec2083b90c020000000fb6fa488bd90f8e9a000000837908000f8590000000e874d0ffff4885c00f8482000000488b93f0010000488b8ab8000000f681d200000003756b488b88b8000000f681d200000001745b4084ff740db001488b5c24384883c4205fc3488d8888010000e8861dfbff8b8be0010000488bf8894c243085c9750433c0eb0c488d8be0010000e80529fbff488d54243089442434488bcfe86425afff488b5c24384883c4205fc3488b5c243832c04883c4205fc3cccccccccccccccccccccccc40534883ec2083b90c02000000488bd97e62e8e9c9ffff4885c07458488d88880100008339007e4c48897c2438e8fe1cfbff8b8be0010000488bf8894c243085c9750433c0eb0c488d8be0010000e87d28fbff488d54243089442434488bcfe8dc24afff488b7c243884c00f95c04883c4205bc332c04883c4205bc3cccccccc48630549344d024869d0a086010048b809e1d1c6116bf12948f7ea48c1fa0e488bc248c1e83f4803d03991300100000f9dc0c3cccccccccccccccccccccccccc83b9b4010000004c8bc1741e488b81a8010000488b10488b4a28498d90e00100004883c138e9b62bf0ff32c0c3cccccc48895c240848896c24104889742418574883ec204863b9b4010000488bea488bf14885ff7e2733db0f1f840000000000488b86a8010000488b0cd8e880130f00",
+      "sha256": "5fa5feb9d7b4c530da2939ae7326d0ea26ee3b4bff39e8c77b7817824095edfb"
+    }
+  },
+  "matches_frozen_t209_instructions": true
+}

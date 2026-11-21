@@ -1,0 +1,77 @@
+f41ce6 mov qword ptr [rsp + 0x38], r14
+f41ceb mov rdi, qword ptr [rax + 8]
+f41cef movsxd rax, dword ptr [rax + 0x14]
+f41cf3 lea r14, [rdi + rax*4]
+f41cf7 cmp rdi, r14
+f41cfa je 0xf41e4d
+f41d00 mov qword ptr [rsp + 0x60], rsi
+f41d05 lea rax, [rip + 0x249b424]
+f41d0c mov qword ptr [rsp + 0x68], r12
+f41d11 mov qword ptr [rsp + 0x78], r13
+f41d16 mov qword ptr [rsp + 0x30], r15
+f41d1b mov r15d, dword ptr [rip + 0x2751d76]
+f41d22 mov r13d, 0x20e8
+f41d28 mov r12d, 0x10
+f41d2e nop 
+f41d30 cmp byte ptr [rip + 0x274d8da], 0
+f41d37 mov esi, dword ptr [rdi]
+f41d39 je 0xf41e08
+f41d3f cmp byte ptr [rip + 0x249b3ea], 0
+f41d46 jne 0xf41d90
+f41d48 cmp qword ptr [rip + 0x249b960], 0
+f41d50 jne 0xf41d90
+f41d52 mov qword ptr [rsp + 0x28], rax
+f41d57 lea rdx, [rip + 0x18529bf]
+f41d5e lea rax, [rsp + 0x70]
+f41d63 mov byte ptr [rsp + 0x70], 0
+f41d68 mov r9b, 1
+f41d6b mov qword ptr [rsp + 0x20], rax
+f41d70 mov r8d, 0x464
+f41d76 lea rcx, [rip + 0x1852abb]
+f41d7d call 0x254ab40
+f41d82 cmp byte ptr [rsp + 0x70], 0
+f41d87 mov byte ptr [rip + 0x249b3a3], al
+f41d8d je 0xf41d90
+f41d8f int3 
+f41d90 cmp byte ptr [rip + 0x274d87a], 0
+f41d97 je 0xf41e08
+f41d99 cmp byte ptr [rip + 0x249b391], 0
+f41da0 jne 0xf41e08
+f41da2 mov rax, qword ptr gs:[0x58]
+f41dab mov rbx, qword ptr [rax + r15*8]
+f41daf cmp byte ptr [r13 + rbx], 0
+f41db5 jne 0xf41dbc
+f41db7 call 0x25a04d0
+f41dbc cmp dword ptr [r12 + rbx], 0
+f41dc1 je 0xf41e08
+f41dc3 lea rax, [rip + 0x249b367]
+f41dca mov byte ptr [rsp + 0x70], 0
+f41dcf mov qword ptr [rsp + 0x28], rax
+f41dd4 lea rdx, [rip + 0x1852942]
+f41ddb lea rax, [rsp + 0x70]
+f41de0 mov r9b, 1
+f41de3 mov r8d, 0x465
+f41de9 mov qword ptr [rsp + 0x20], rax
+f41dee lea rcx, [rip + 0x1852a6b]
+f41df5 call 0x254ab40
+f41dfa cmp byte ptr [rsp + 0x70], 0
+f41dff mov byte ptr [rip + 0x249b32c], al
+f41e05 je 0xf41e08
+f41e07 int3 
+f41e08 mov rcx, qword ptr [rip + 0x249b8a1]
+f41e0f mov edx, esi
+f41e11 add rcx, 8
+f41e15 mov rax, qword ptr [rcx]
+f41e18 call qword ptr [rax]
+f41e1a mov rdx, rax
+f41e1d mov rcx, rbp
+f41e20 call 0xf41950
+f41e25 add rdi, 4
+f41e29 lea rax, [rip + 0x249b300]
+f41e30 cmp rdi, r14
+f41e33 jne 0xf41d30
+f41e39 mov r15, qword ptr [rsp + 0x30]
+f41e3e mov r13, qword ptr [rsp + 0x78]
+f41e43 mov r12, qword ptr [rsp + 0x68]
+f41e48 mov rsi, qword ptr [rsp + 0x60]
+f41e4d mov r14, qword ptr [rsp + 0x38]

@@ -1,0 +1,54 @@
+12bc8a0 mov qword ptr [rsp + 8], rbx
+12bc8a5 push rdi
+12bc8a6 sub rsp, 0x20
+12bc8aa mov rdi, rcx
+12bc8ad mov rbx, rdx
+12bc8b0 mov rcx, qword ptr [rcx + 0x78]
+12bc8b4 call 0x747c40
+12bc8b9 test al, al
+12bc8bb jne 0x12bc8c8
+12bc8bd mov r10d, 0x186a0
+12bc8c3 mov eax, r10d
+12bc8c6 jmp 0x12bc8d6
+12bc8c8 mov r10, qword ptr [rip + 0x21253d9]
+12bc8cf mov rax, qword ptr [rip + 0x21255b2]
+12bc8d6 cmp rbx, r10
+12bc8d9 jl 0x12bc8e5
+12bc8db cmp rbx, rax
+12bc8de mov r10, rbx
+12bc8e1 cmovg r10, rax
+12bc8e5 mov rax, qword ptr [rdi + 0x80]
+12bc8ec xor r9d, r9d
+12bc8ef mov rbx, qword ptr [rsp + 0x30]
+12bc8f4 movabs r11, 0x29f16b11c6d1e109
+12bc8fe mov qword ptr [rdi + 0x180], r10
+12bc905 mov r8, qword ptr [rax + 0x130]
+12bc90c mov rax, r11
+12bc90f imul r8
+12bc912 sar rdx, 0xe
+12bc916 mov rax, rdx
+12bc919 shr rax, 0x3f
+12bc91d add rdx, rax
+12bc920 mov rax, r11
+12bc923 imul rcx, rdx, 0x186a0
+12bc92a sub r8, rcx
+12bc92d mov ecx, r9d
+12bc930 test r8, r8
+12bc933 setg cl
+12bc936 add ecx, edx
+12bc938 movsxd r8, ecx
+12bc93b imul r8, r10
+12bc93f imul r8
+12bc942 sar rdx, 0xe
+12bc946 mov rax, rdx
+12bc949 shr rax, 0x3f
+12bc94d add rdx, rax
+12bc950 imul rax, rdx, 0x186a0
+12bc957 sub r8, rax
+12bc95a test r8, r8
+12bc95d setg r9b
+12bc961 add r9d, edx
+12bc964 mov dword ptr [rdi + 0xc8], r9d
+12bc96b add rsp, 0x20
+12bc96f pop rdi
+12bc970 ret 

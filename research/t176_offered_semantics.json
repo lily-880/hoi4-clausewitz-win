@@ -1,0 +1,37 @@
+{
+  "pid": 26976,
+  "hour_tick": 60759371,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "cf4e10": "IsAir: walk type parent via +0x538; or([+0x5a0],[+0x5a8]); 100f620 bit-clean; test 0x1f0037fc00. Proven by fe84d0/fe86c0/fe1160/fe1590 asserts: pVariant->GetType().IsAir() && \"Expected air equipment.\"",
+  "cb8e80_non_air": "if not IsAir([type+0x3f0]): *out = incoming r9; no source walk, no fe84d0/fe86c0. Site 0xcb9306.",
+  "cb8e80_air": "if IsAir: walk [717410_result+0x58] holders; split inner +0x28 items via fe1160 (list A / fe84d0) vs fe1590 (list B / fe86c0). Each returns *out = incoming - take*0x186a0 (FIXED). fe84d0/fe86c0/fdf340 mutate pVariant (1092b70 on variant+0x1d8; fe86c0 also add take to +0x88). Final *out is leftover r9 after those takes.",
+  "infantry_is_air": false,
+  "infantry_offered": "pass-through of r9 into 15a93d0 / cb8e80. Not production+0x200 and not the air source walk. Cannot write produced=min(need, stockpile) until the r9 supplier is bound.",
+  "15a93d0_callers": "still no E8/E9; only preferred-base hit is CReinforcementStatus vtable 0x2a4b878 slot 2 at 0x2a4b888. Vtable LEAs remain ctor 15a4a70 and dtor 15a5180.",
+  "717400": "mov rax, [rcx+0xf78]; ret. Live country+0xf78 == CReinforcementStatus 0x26c49c0c140. country+8 == 44 (ETH index), used by 717410 handle path.",
+  "717400_callers_not_accept": [
+    "0xcec1c0 (ctor 15a4620)",
+    "0x11433c0 (reads status+8)",
+    "0x11e5f30 (writes status+8)",
+    "0x14083b0",
+    "0x1409951 / 0x140a0e5 (sum 10948a0(request+0x78) over status+0x20 groups; need-side, same caps as 1409810)",
+    "0x1e02417 (returns status+8)",
+    "0x1e03300 -> 15a8180 (description/UI; no slot 2)"
+  ],
+  "15a8f00": "CArmyUpgradesStatus vtable 0x2a4ba28 slot 2; sibling dispatcher, not the reinforcement accept driver. 15a8cf0 is CArmyUpgradesRequests slot 2.",
+  "1409951_note": "walks the same live request list and adds 10948a0(request+0x78) (need). For unit 1835 that term is the need amount (80), so it is not by itself a stored cross-check of official 77.",
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ],
+  "live": {
+    "CReinforcementStatus": "0x26c49c0c140",
+    "CCountry": "0x26c4b672530",
+    "country_plus_f78_is_status": true,
+    "infantry_type": "0x26bc2d15050",
+    "infantry_type_plus5a0": "0x20",
+    "infantry_is_air": false
+  }
+}

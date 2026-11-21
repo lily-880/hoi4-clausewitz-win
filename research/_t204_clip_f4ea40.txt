@@ -1,0 +1,42 @@
+f4ea40 push rdi
+f4ea42 mov rdi, qword ptr [rcx]
+f4ea45 mov r10d, r8d
+f4ea48 sub r10d, edx
+f4ea4b mov r11, rcx
+f4ea4e test r10d, r10d
+f4ea51 jg 0xf4ea57
+f4ea53 xor eax, eax
+f4ea55 pop rdi
+f4ea56 ret 
+f4ea57 movsxd rax, edx
+f4ea5a mov qword ptr [rsp + 0x10], rbx
+f4ea5f lea rcx, [rax + rax*4]
+f4ea63 movsxd rax, dword ptr [r11 + 0xc]
+f4ea67 lea r9, [rdi + rcx*8]
+f4ea6b lea rcx, [rax + rax*4]
+f4ea6f movsxd rax, r8d
+f4ea72 lea rbx, [rdi + rcx*8]
+f4ea76 lea rcx, [rax + rax*4]
+f4ea7a lea rcx, [rdi + rcx*8]
+f4ea7e cmp rcx, rbx
+f4ea81 je 0xf4eabb
+f4ea83 lea rdx, [r9 + 8]
+f4ea87 lea r8, [rcx + 8]
+f4ea8b nop dword ptr [rax + rax]
+f4ea90 mov eax, dword ptr [rcx]
+f4ea92 lea rdx, [rdx + 0x28]
+f4ea96 mov dword ptr [r9], eax
+f4ea99 lea r9, [r9 + 0x28]
+f4ea9d movups xmm0, xmmword ptr [r8]
+f4eaa1 add rcx, 0x28
+f4eaa5 lea r8, [r8 + 0x28]
+f4eaa9 movups xmmword ptr [rdx - 0x28], xmm0
+f4eaad movups xmm1, xmmword ptr [r8 - 0x18]
+f4eab2 movups xmmword ptr [rdx - 0x18], xmm1
+f4eab6 cmp rcx, rbx
+f4eab9 jne 0xf4ea90
+f4eabb sub dword ptr [r11 + 0xc], r10d
+f4eabf mov eax, r10d
+f4eac2 mov rbx, qword ptr [rsp + 0x10]
+f4eac7 pop rdi
+f4eac8 ret 

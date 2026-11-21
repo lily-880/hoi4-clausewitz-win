@@ -1,0 +1,18 @@
+e68c96 mov qword ptr [rsp + 0x40], r15
+e68c9b mov r15, qword ptr [rsp + 0xa8]
+e68ca3 mov rdx, rbx
+e68ca6 mov rcx, rsi
+e68ca9 call r15
+e68cac test al, al
+e68cae jne 0xe68cca
+e68cb0 add rbx, 4
+e68cb4 dec rbp
+e68cb7 cmp rbx, rsi
+e68cba jne 0xe68ca3
+e68cbc mov r15, qword ptr [rsp + 0x40]
+e68cc1 add rsp, 0x48
+e68cc5 pop rdi
+e68cc6 pop rsi
+e68cc7 pop rbp
+e68cc8 pop rbx
+e68cc9 ret 

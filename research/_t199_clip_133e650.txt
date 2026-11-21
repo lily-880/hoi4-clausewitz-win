@@ -1,0 +1,45 @@
+133e650 mov qword ptr [rsp + 8], rbx
+133e655 mov qword ptr [rsp + 0x10], rbp
+133e65a mov qword ptr [rsp + 0x18], rsi
+133e65f mov qword ptr [rsp + 0x20], rdi
+133e664 push r14
+133e666 sub rsp, 0x20
+133e66a mov rsi, rcx
+133e66d mov rcx, qword ptr [rcx + 0x28]
+133e671 call 0x31f8b0
+133e676 xor ebx, ebx
+133e678 mov r14, rax
+133e67b movsxd rbp, dword ptr [rax + 0xc]
+133e67f test rbp, rbp
+133e682 jle 0x133e6a7
+133e684 mov edi, ebx
+133e686 nop word ptr [rax + rax]
+133e690 mov rcx, qword ptr [r14]
+133e693 mov rdx, rsi
+133e696 mov rcx, qword ptr [rcx + rdi*8]
+133e69a call 0xc59960
+133e69f inc rdi
+133e6a2 cmp rdi, rbp
+133e6a5 jl 0x133e690
+133e6a7 mov rcx, qword ptr [rsi + 0x30]
+133e6ab call 0x31f8b0
+133e6b0 mov rdi, rax
+133e6b3 movsxd rbp, dword ptr [rax + 0xc]
+133e6b7 test rbp, rbp
+133e6ba jle 0x133e6d7
+133e6bc nop dword ptr [rax]
+133e6c0 mov rcx, qword ptr [rdi]
+133e6c3 mov rdx, rsi
+133e6c6 mov rcx, qword ptr [rcx + rbx*8]
+133e6ca call 0xc59960
+133e6cf inc rbx
+133e6d2 cmp rbx, rbp
+133e6d5 jl 0x133e6c0
+133e6d7 mov rcx, rsi
+133e6da mov rbx, qword ptr [rsp + 0x30]
+133e6df mov rbp, qword ptr [rsp + 0x38]
+133e6e4 mov rsi, qword ptr [rsp + 0x40]
+133e6e9 mov rdi, qword ptr [rsp + 0x48]
+133e6ee add rsp, 0x20
+133e6f2 pop r14
+133e6f4 jmp 0x147d480

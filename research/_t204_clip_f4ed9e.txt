@@ -1,0 +1,20 @@
+f4ed9e mov rcx, qword ptr [rbx]
+f4eda1 lea r8, [rax + rax*4]
+f4eda5 mov rax, qword ptr [rdx]
+f4eda8 add rdx, 8
+f4edac mov qword ptr [rcx + r8*8], rax
+f4edb0 lea rcx, [rcx + r8*8]
+f4edb4 add rcx, 8
+f4edb8 call 0x11f770
+f4edbd inc dword ptr [rbx + 0xc]
+f4edc0 mov edi, dword ptr [rbx + 0xc]
+f4edc3 mov rsi, qword ptr [rsp + 0x48]
+f4edc8 lea eax, [rdi - 1]
+f4edcb movsxd rcx, eax
+f4edce mov rax, qword ptr [rbx]
+f4edd1 mov rbx, qword ptr [rsp + 0x40]
+f4edd6 lea rdx, [rcx + rcx*4]
+f4edda lea rax, [rax + rdx*8]
+f4edde add rsp, 0x20
+f4ede2 pop rdi
+f4ede3 ret 

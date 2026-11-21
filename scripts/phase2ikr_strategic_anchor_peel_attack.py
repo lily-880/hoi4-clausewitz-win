@@ -40,9 +40,9 @@ DOC = ROOT / "docs" / "PHASE2IKR_STRATEGIC_ANCHOR_PEEL_ATTACK.md"
 CONSOLE = ROOT / "reports" / "phase2ikr_run_console.txt"
 
 CA_PROVINCE = 0x28
-CONCENTRATE_DEST = 7213  # live stack 1038+1045 @7213 (1037 gone)
+CONCENTRATE_DEST = 6906  # live stack 1038+1045 @7213 (1037 gone)
 ATTACK_TARGET = 1886
-MOVERS = (1038, 1045)  # 1037 missing mid-campaign; 1045 co-located @7213
+MOVERS = (1043, 1045)  # 1037 missing mid-campaign; 1045 co-located @7213
 ANCHOR = 1042  # rejoin concentrate via Strategic
 TRACK = (*MOVERS, ANCHOR)
 

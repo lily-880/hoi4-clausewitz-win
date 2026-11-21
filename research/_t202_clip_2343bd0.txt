@@ -1,0 +1,18 @@
+2343bd0 push rbx
+2343bd2 sub rsp, 0x20
+2343bd6 mov rcx, qword ptr [rcx + 0x10]
+2343bda mov rbx, rdx
+2343bdd test rcx, rcx
+2343be0 je 0x2343bf4
+2343be2 mov rax, qword ptr [rcx]
+2343be5 call qword ptr [rax + 0xe8]
+2343beb mov rax, rbx
+2343bee add rsp, 0x20
+2343bf2 pop rbx
+2343bf3 ret 
+2343bf4 xor eax, eax
+2343bf6 mov qword ptr [rdx], rax
+2343bf9 mov rax, rbx
+2343bfc add rsp, 0x20
+2343c00 pop rbx
+2343c01 ret 

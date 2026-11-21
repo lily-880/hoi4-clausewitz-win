@@ -39,10 +39,33 @@ HYPOTHESIS_STRUCT = {
     "GS_COUNTRIES": 0x310,
     "GS_MAJORS": 0x328,
     "GS_TAG2INDEX": 0x340,
+    # GS_PLAYER_TAG@0x518 is the old player-index hypothesis. On HOI4 1.19.4
+    # Windows (live 2026-11-13, pid 36620) it read 15 (Republican Spain's
+    # 17-division OOB) while the human player was Ethiopia at index 44.
+    # Do not treat this field as the current player.
     "GS_PLAYER_TAG": 0x518,
+    # Observed live 2026-11-13: i32 country index of the country the
+    # player currently controls. Follows console `tag` (ETH 44 -> CHI 38
+    # in that session). Class field name not proven.
+    "GS_PLAYER_INDEX_OBSERVED": 0x520,
     "GS_STRATEGIC_AIR_MANAGER": 0x690,  # CStrategicAirManager* (live RTTI)
     "GS_CHARACTER_MANAGER": 0x6A8,  # CCharacterManager* (live RTTI)
     "GS_PAUSE_HOURS": 0x908,  # Linux; NOT verified on Windows (garbage)
+    # Observed live 2026-11-14 (pid 36620, USA 68, clock frozen):
+    # i32 at CGameState+0x4BC. User increased UI speed one notch twice;
+    # this was the only CGameState word that changed (0 -> 1 -> 2) and
+    # it stayed put while GS_DATE_HOUR_TICK@0x468 did not advance.
+    # Speed setting, 0-based; UI notch = value+1 (live values 0,1,2).
+    # NOT the pause/running flag; that address is still unknown on Windows.
+    # Observed live 2026-11-14 (pid 36620, 1x unpaused):
+    # f32 at CGameState+0x4B8, immediately before the speed index.
+    # Frozen at 0.0 while paused; while running at 1x it advances at
+    # about 0.5 per real second (0.378->0.780 in 0.8s; 0.045->0.544 in 1.0s),
+    # i.e. 0..1 over the 2 real seconds of one game hour at speed 1.
+    # This is hour progress inside the current UI hour, not a pause bool.
+    # Pause can be inferred only by sampling this (or the hour tick) twice.
+    "GS_HOUR_PROGRESS_F32": 0x4B8,
+    "GS_GAME_SPEED_INDEX": 0x4BC,
     "GS_DATE_YEAR": 0x478,  # i32 year
     "GS_DATE_AUX": 0x47C,  # i32, not the day index
     "GS_DATE_HOUR_LIKE": 0x480,  # NOT UI hour; discard
@@ -57,10 +80,43 @@ HYPOTHESIS_STRUCT = {
     "CO_CONTROLLER_AREAS": 0x548,  # CPdxArray<CControllerArea*> (live HAI=9)
     "CO_OWNER_AREAS": 0x560,  # CPdxArray<COwnerArea*> (live HAI=9)
     "CO_MODIFIERS": 0x5D0,  # CPdxArray<CModifier*> (live HAI=36)
+    # Observed live 2026-11-13: i32 at +0x538 and +0x53C were 1 only for
+    # the originally selected human country (ETH 44) among 440 CCountry
+    # objects. They did not follow a later console `tag` to CHI 38.
+    # Class field names not RTTI-proven; not the current player after tag.
+    "CO_HUMAN_PLAYER_FLAG_A": 0x538,
+    "CO_HUMAN_PLAYER_FLAG_B": 0x53C,
     # CArmy fields (division-like on Windows 1.19.4 鈥?all 17/17 paused HAI)
     "CA_SUBUNIT_DEF": 0x138,  # CSubUnitDefinition*
     "CA_PROVINCE": 0x1F0,  # CProvince*
     "CA_DIV_TEMPLATE": 0x3B8,  # CReferencedDivisionTemplate*
+    # Live-proven 2026-11-14 HOI4 1.19.4 Windows, ETH opening 21/21, pid 22604, paused.
+    # Division scalars below are i32 Clausewitz FIXED (value/100000) unless noted.
+    # CArmy object size / heap stride is 0x690.
+    "CA_PATH": 0x200,  # CPdxArray<u32> movement path; t191 live Move 1829 5010->8036 read back [8036]. Empty is not idle.
+    "CA_STRENGTH_420_RAW": 0x420,  # Historical full-HP equality did NOT prove max. On1.19.5 this is CURRENT HP; max uses primary vtable+0x108, see input version profile.
+    "CA_ORGANIZATION": 0x428,  # FIXED current org; 21/21 = 0.95 * template max_org at this opening snapshot
+    "CA_EQUIPMENT_RATIO": 0x468,  # FIXED; 21/21 = start_equipment_factor. An identical copy exists at +0x5A8; not registered until the two diverge.
+    "CA_MANPOWER": 0x4F0,  # FIXED; 21/21 = template manpower 4000/5000/6000. current vs max not split (no casualties yet)
+    "CA_EXPERIENCE": 0x5B8,  # FIXED; 21/21 = start_experience_factor
+    "CA_LEADER_ID": 0x564,  # i32; -1 if none; 68853-68857 for the five OOB officers
+    "CA_OFFICER": 0x568,  # SUnitOfficerData*; non-null iff an officer is present
+    "CA_OBJECT_SIZE": 0x690,  # live allocation stride between CArmy objects
+    "CA_ORDERS_GROUP": 0xC0,  # COrdersGroup*; t192 unit 1838 after COrderGroupCommand. Do not read +0x750 (overlaps next 0x690 object).
+    "CAL_ASSIGNED_HANDLE": 0x1048,  # CArmyLeader {u32 type, u32 id}; type 53 = COrdersGroup/army. Not deployed +0x1068 (stayed 0 after appoint).
+    "OG_MEMBERS": 0x50,  # CPdxArray of member pointers; official writer 0xc4d030 calls vt+0x20 then handle at +0x18
+    "OG_LEADER": 0x88,  # CArmyLeader*; official token 0x28b7 handle at leader+8; omit if null
+    "OG_NAME": 0x160,  # MSVC string; t192 default "第1集团军"
+    "OG_HANDLE_TYPE": 53,  # live COrdersGroup handle type
+    "OG_MEMBER_THISADJ": 0xB8,  # live this-adjust from member interface pointer back to CArmy
+    "OG_PARENT_ARMY_GROUP": 0x1B8,  # CArmyGroup*; t193 army 1 after CArmyGroupCommand. Inverse of CArmyGroup+0x230.
+    "AG_CHILD_ORDERS": 0x230,  # official CArmyGroup writer 0xc4cfa0 child COrdersGroup* array / size +0x23c
+    "OI_TYPE": 0x30,  # COrderInstance type dword; token 0xe1. t193 NewRoot writes 2; 1=ORDER_MOVE, 3=ORDER_INVASION still the only named GetOrderType values
+    "OI_PATH": 0x70,  # official path array, token 0x174; still empty after t196 NewFront (provinces at +0x258 are not vertex/path)
+    "OI_STATES": 0xE0,  # token 0x2e3b
+    "OI_SCHEDULED_MEMBER": 0x210,  # CPdxArray, token 0x30b1 scheduled_member; plans.assigned_unit_ids after COrderAssignCommand
+    "OI_INSTANCE_ID": 0x244,  # token 0x30af
+    "OI_CAN_EXECUTE": 0x248,  # byte, token 0x30b2 iff nonzero; COrderExecuteCommand writes this; plans.executing promoted t196
     # CStrategicAirManager (via GS_STRATEGIC_AIR_MANAGER)
     "SAM_STRATEGIC_AIRS": 0x30,  # CPdxArray<CStrategicAir*> (live world=440)
     "SAM_AIR_BASES": 0x90,  # CPdxArray<CAirBase*> (live world=1082)
@@ -81,6 +137,12 @@ PROVEN_STATIC = {
     "CCurrentGameState_vtable": 0x279F168,
     "CCurrentGameState_vtable_secondary": 0x279F1C0,
     "CInGameIdler_vtable": 0x29E5838,
+    # Observed live 2026-11-13 on HOI4 1.19.4 (pid 36620). RVA is +0xA0
+    # from CInGameIdler_vtable. Player confirmed the campaign map was
+    # already visible. Nearby RTTI sweep did not yield a reliable class
+    # name: treat as an in-game session-gate alias only; do not assume
+    # this object is CInGameIdler itself.
+    "in_game_idler_vtable_observed": [0x29E58D8],
     "CFrontEndIdler_vtable": 0x29C6D30,
     "CGameIdler_vtable": 0x27B4158,
     "CGameApplication_vtable": 0x2796308,

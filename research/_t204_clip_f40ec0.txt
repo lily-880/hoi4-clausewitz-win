@@ -1,0 +1,83 @@
+f40ec0 mov rax, rsp
+f40ec3 push rsi
+f40ec4 push rdi
+f40ec5 push r12
+f40ec7 sub rsp, 0x60
+f40ecb mov edi, dword ptr [rdx]
+f40ecd mov r12, rcx
+f40ed0 mov esi, dword ptr [rdx + 4]
+f40ed3 cmp edi, esi
+f40ed5 je 0xf41008
+f40edb mov qword ptr [rax + 8], rbx
+f40edf mov qword ptr [rax - 0x20], rbp
+f40ee3 mov qword ptr [rax - 0x28], r13
+f40ee7 xor r13d, r13d
+f40eea mov qword ptr [rax - 0x30], r14
+f40eee mov qword ptr [rax - 0x38], r15
+f40ef2 nop dword ptr [rax]
+f40ef6 nop word ptr [rax + rax]
+f40f00 mov rax, qword ptr [r12]
+f40f04 mov ebx, 0x186a0
+f40f09 movsxd rdx, edi
+f40f0c mov rcx, qword ptr [rax]
+f40f0f mov rax, qword ptr [r12 + 0x18]
+f40f14 movsxd rdx, dword ptr [rcx + rdx*4]
+f40f18 mov r15, qword ptr [rax]
+f40f1b mov r14, rdx
+f40f1e mov rax, qword ptr [r12 + 8]
+f40f23 shl r14, 5
+f40f27 add r14, qword ptr [rax + 0x10]
+f40f2b mov rax, qword ptr [r12 + 0x10]
+f40f30 mov rcx, qword ptr [rax]
+f40f33 mov rbp, qword ptr [rcx + rdx*8]
+f40f37 mov rcx, r15
+f40f3a call 0xf9cc10
+f40f3f test rax, rax
+f40f42 je 0xf40f65
+f40f44 lea rcx, [rax + 0x10]
+f40f48 mov r8d, 0x236
+f40f4e lea rdx, [rsp + 0x88]
+f40f56 call 0x5a5210
+f40f5b mov rbx, qword ptr [rax]
+f40f5e add rbx, 0x186a0
+f40f65 mov rcx, qword ptr [rbp + 0xc0]
+f40f6c test rcx, rcx
+f40f6f je 0xf40f9d
+f40f71 mov qword ptr [rsp + 0x30], r13
+f40f76 lea r8, [rbp + 0x188]
+f40f7d mov dword ptr [rsp + 0x28], r13d
+f40f82 lea rdx, [rsp + 0x90]
+f40f8a mov r9d, 0x236
+f40f90 mov qword ptr [rsp + 0x20], r13
+f40f95 call 0xa23cc0
+f40f9a add rbx, qword ptr [rax]
+f40f9d mov rdx, qword ptr [rbp + 0xc8]
+f40fa4 test rdx, rdx
+f40fa7 je 0xf40fd3
+f40fa9 mov edx, dword ptr [rdx + 0x60]
+f40fac mov rcx, r15
+f40faf call 0xf9cd30
+f40fb4 test rax, rax
+f40fb7 je 0xf40fd3
+f40fb9 lea rcx, [rax + 0x10]
+f40fbd mov r8d, 0x236
+f40fc3 lea rdx, [rsp + 0x98]
+f40fcb call 0x5a5210
+f40fd0 add rbx, qword ptr [rax]
+f40fd3 mov eax, 0x2710
+f40fd8 cmp rbx, rax
+f40fdb cmovl rbx, rax
+f40fdf inc edi
+f40fe1 mov qword ptr [r14], rbx
+f40fe4 cmp edi, esi
+f40fe6 jne 0xf40f00
+f40fec mov r15, qword ptr [rsp + 0x40]
+f40ff1 mov r14, qword ptr [rsp + 0x48]
+f40ff6 mov r13, qword ptr [rsp + 0x50]
+f40ffb mov rbp, qword ptr [rsp + 0x58]
+f41000 mov rbx, qword ptr [rsp + 0x80]
+f41008 add rsp, 0x60
+f4100c pop r12
+f4100e pop rdi
+f4100f pop rsi
+f41010 ret 

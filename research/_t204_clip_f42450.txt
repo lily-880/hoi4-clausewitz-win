@@ -1,0 +1,127 @@
+f42450 mov qword ptr [rsp + 0x18], rbx
+f42455 push rbp
+f42456 push rsi
+f42457 push rdi
+f42458 sub rsp, 0x20
+f4245c movsxd rax, dword ptr [rcx + 0xc]
+f42460 mov rdi, rdx
+f42463 movsxd rbp, r8d
+f42466 mov rsi, rcx
+f42469 cmp ebp, eax
+f4246b jg 0xf424ba
+f4246d mov r9, qword ptr [rcx]
+f42470 imul rbx, rbp, 0xe8
+f42477 lea r8, [rbx + rdx]
+f4247b call 0xf46710
+f42480 mov eax, dword ptr [rsi + 0xc]
+f42483 cmp ebp, eax
+f42485 jge 0xf424aa
+f42487 sub eax, ebp
+f42489 mov edi, eax
+f4248b nop dword ptr [rax + rax]
+f42490 mov rcx, qword ptr [rsi]
+f42493 xor edx, edx
+f42495 add rcx, rbx
+f42498 call 0xf41850
+f4249d add rbx, 0xe8
+f424a4 sub rdi, 1
+f424a8 jne 0xf42490
+f424aa mov dword ptr [rsi + 0xc], ebp
+f424ad mov rbx, qword ptr [rsp + 0x50]
+f424b2 add rsp, 0x20
+f424b6 pop rdi
+f424b7 pop rsi
+f424b8 pop rbp
+f424b9 ret 
+f424ba mov qword ptr [rsp + 0x40], r14
+f424bf cmp ebp, dword ptr [rcx + 8]
+f424c2 jg 0xf42535
+f424c4 mov r9, qword ptr [rcx]
+f424c7 imul r8, rax, 0xe8
+f424ce mov qword ptr [rsp + 0x48], r15
+f424d3 add r8, rdi
+f424d6 call 0xf46710
+f424db movsxd rax, dword ptr [rsi + 0xc]
+f424df mov r14, qword ptr [rsi]
+f424e2 imul rdx, rax, 0xe8
+f424e9 imul r15, rbp, 0xe8
+f424f0 lea rbx, [rdx + rdi]
+f424f4 add r14, rdx
+f424f7 add r15, rdi
+f424fa cmp rbx, r15
+f424fd je 0xf42528
+f424ff nop 
+f42500 mov rcx, r14
+f42503 mov rdx, rbx
+f42506 add r14, 0xe8
+f4250d call 0xf3d440
+f42512 xor edx, edx
+f42514 mov rcx, rbx
+f42517 call 0xf41850
+f4251c add rbx, 0xe8
+f42523 cmp rbx, r15
+f42526 jne 0xf42500
+f42528 mov r15, qword ptr [rsp + 0x48]
+f4252d mov dword ptr [rsi + 0xc], ebp
+f42530 jmp 0xf425f8
+f42535 call 0xf47280
+f4253a mov ecx, dword ptr [rsi + 0xc]
+f4253d cmp ebp, ecx
+f4253f jle 0xf4258d
+f42541 mov eax, dword ptr [rsi + 8]
+f42544 cmp ebp, eax
+f42546 jle 0xf425ba
+f42548 mov rcx, qword ptr [rsi + 0x10]
+f4254c mov r8d, 8
+f42552 movd xmm0, eax
+f42556 cvtdq2ps xmm0, xmm0
+f42559 mov rax, qword ptr [rcx]
+f4255c mulss xmm0, dword ptr [rip + 0x1853424]
+f42564 mov r9, qword ptr [rax + 8]
+f42568 cvttss2si ebx, xmm0
+f4256c cmp ebp, ebx
+f4256e cmovg ebx, ebp
+f42571 mov eax, ebx
+f42573 imul rdx, rax, 0xe8
+f4257a call r9
+f4257d mov r8d, ebx
+f42580 mov rdx, rax
+f42583 mov rcx, rsi
+f42586 call 0xf478e0
+f4258b jmp 0xf425ba
+f4258d jge 0xf425ba
+f4258f imul rbx, rbp, 0xe8
+f42596 sub ecx, ebp
+f42598 mov r14d, ecx
+f4259b nop dword ptr [rax + rax]
+f425a0 mov rcx, qword ptr [rsi]
+f425a3 xor edx, edx
+f425a5 add rcx, rbx
+f425a8 call 0xf41850
+f425ad add rbx, 0xe8
+f425b4 sub r14, 1
+f425b8 jne 0xf425a0
+f425ba mov dword ptr [rsi + 0xc], ebp
+f425bd mov rbx, qword ptr [rsi]
+f425c0 imul rsi, rbp, 0xe8
+f425c7 add rsi, rdi
+f425ca cmp rdi, rsi
+f425cd je 0xf425f8
+f425cf nop 
+f425d0 mov rcx, rbx
+f425d3 mov rdx, rdi
+f425d6 add rbx, 0xe8
+f425dd call 0xf3d440
+f425e2 xor edx, edx
+f425e4 mov rcx, rdi
+f425e7 call 0xf41850
+f425ec add rdi, 0xe8
+f425f3 cmp rdi, rsi
+f425f6 jne 0xf425d0
+f425f8 mov r14, qword ptr [rsp + 0x40]
+f425fd mov rbx, qword ptr [rsp + 0x50]
+f42602 add rsp, 0x20
+f42606 pop rdi
+f42607 pop rsi
+f42608 pop rbp
+f42609 ret 

@@ -1,0 +1,17 @@
+1fa590 mov r8d, 1
+1fa596 mov eax, dword ptr [rip + 0x31e3134]
+1fa59c test eax, eax
+1fa59e jne 0x1fa5ab
+1fa5a0 lock cmpxchg dword ptr [rip + 0x31e3127], r8d
+1fa5a9 je 0x1fa5af
+1fa5ab pause 
+1fa5ad jmp 0x1fa596
+1fa5af mov eax, dword ptr [rcx + 0x748]
+1fa5b5 inc eax
+1fa5b7 mov dword ptr [rdx], 0x3e
+1fa5bd mov dword ptr [rcx + 0x748], eax
+1fa5c3 mov dword ptr [rdx + 4], eax
+1fa5c6 nop 
+1fa5c7 mov dword ptr [rip + 0x31e30ff], 0
+1fa5d1 mov rax, rdx
+1fa5d4 ret 

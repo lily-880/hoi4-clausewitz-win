@@ -1,0 +1,34 @@
+134bb30 mov qword ptr [rsp + 8], rbx
+134bb35 mov qword ptr [rsp + 0x10], rbp
+134bb3a mov qword ptr [rsp + 0x18], rsi
+134bb3f push rdi
+134bb40 sub rsp, 0x20
+134bb44 cmp dword ptr [rdx + 8], 0
+134bb48 movzx edi, r8b
+134bb4c mov rbx, rdx
+134bb4f mov rbp, rcx
+134bb52 jne 0x134bb7d
+134bb54 mov rax, qword ptr [rdx]
+134bb57 mov rcx, rdx
+134bb5a call qword ptr [rax + 0x38]
+134bb5d mov rcx, rax
+134bb60 mov rsi, rax
+134bb63 call 0xce5fa0
+134bb68 test al, al
+134bb6a je 0x134bb7d
+134bb6c test dil, dil
+134bb6f jne 0x134bb79
+134bb71 mov rcx, rsi
+134bb74 call 0x134ae00
+134bb79 xor al, al
+134bb7b jmp 0x134bb8c
+134bb7d movzx r8d, dil
+134bb81 mov rdx, rbx
+134bb84 mov rcx, rbp
+134bb87 call 0x147fac0
+134bb8c mov rbx, qword ptr [rsp + 0x30]
+134bb91 mov rbp, qword ptr [rsp + 0x38]
+134bb96 mov rsi, qword ptr [rsp + 0x40]
+134bb9b add rsp, 0x20
+134bb9f pop rdi
+134bba0 ret 

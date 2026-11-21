@@ -1,0 +1,120 @@
+import json
+from pathlib import Path
+
+ev={
+    "authorized_by":["pt180u"],
+    "pid":26976,
+    "tag":"ETH",
+    "date":"1936-01-01 12:00",
+    "hour_tick":60759371,
+    "paused":True,
+    "speed_index":0,
+    "commands":[
+        {
+            "name":"CArmyGroupCommand",
+            "factory_idx":5433,
+            "factory_rva":"0x18cf780",
+            "subjects":{"theatre":[67,43],"orders_groups":[[53,1]]},
+            "dry_isvalid":1,
+            "post_rax":1,
+            "result":"created CArmyGroup handle type 53 id=2 name=第1集团军群; child +0x230=[army 1]; leader null after create",
+        },
+        {
+            "name":"CSetArmyLeaderCommand",
+            "factory_idx":3369,
+            "factory_rva":"0x18d0c10",
+            "subjects":{"leader":[4713,313],"orders_group":[53,2],"deploy_hq":0},
+            "dry_isvalid":1,
+            "post_rax":1,
+            "result":"CArmyGroup+0x88 -> 313 ETH_haile_selassie_gugsa; CArmyLeader+0x1048={53,2} resolves to CArmyGroup; deployed still 0",
+        },
+        {
+            "name":"COrderNewRootCommand",
+            "factory_idx":4096,
+            "factory_rva":"0x18d0440",
+            "subjects":{"group":[53,1],"provinces_48_4c":[13237,13238]},
+            "dry_isvalid":1,
+            "post_rax":1,
+            "result":"created COrderInstance type=2 instance_id=1 on army 1; official path +0x70 empty; provinces copied to +0x258; not executed",
+        },
+    ],
+    "preexisting_not_ours":{"CTheaterGroup":{"handle":[68,32],"note":"already present before t193 Post; not an army group; not promoted"}},
+    "keep_unit_1829_path":[8036],
+    "promoted":[
+        "world.own_units.formation.army_group_id",
+        "world.army_groups.army_group_id",
+        "world.army_groups.name",
+        "world.army_groups.leader_id",
+        "world.army_groups.army_ids",
+        "world.armies.plan_id",
+        "world.plans.plan_id",
+        "world.plans.assigned_army_ids",
+    ],
+    "not_promoted":{
+        "world.plans.type":"live +0x30=2 from COrderNewRootCommand; GetOrderType still only names 1=ORDER_MOVE and 3=ORDER_INVASION; schema frontline/offensive_line/garrison/area_defense not numerically bound",
+        "world.plans.vertex_province_ids":"official path array +0x70 token 0x174 stayed empty; 13237/13238 landed at +0x258, not the official path",
+        "world.plans.assigned_unit_ids":"NewRoot packed no unit vector; scheduled_member array empty",
+        "world.plans.executing":"can_execute token 0x30b2 at +0x248 is 0 and is not executing; plan was not COrderExecuteCommand'd",
+        "world.plans.axis_province_ids":"no official axis array observed",
+        "world.plans.status":"no official status enum observed",
+    },
+}
+Path("research/t193_army_group_plan.json").write_text(json.dumps(ev,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
+jp=Path("calling/tables/offsets_input_windows_1.19.5.json")
+off=json.loads(jp.read_text(encoding="utf-8"))
+off["army_group_plan_t193"]={
+    "CArmyGroupCommand":{
+        "factory_idx":5433,
+        "factory_rva_1_19_5":"0x18cf780",
+        "vt":"0x2a846e0",
+        "isvalid":"0x18ddfe0",
+        "execute":"0x18d2640",
+        "create_call":"0xf70110",
+        "size":"0x80",
+        "pack":"theatre handle +0x28 (type 67 id 43); ucrt COrdersGroup-handle vector +0x30; +0x48/+0x60 empty",
+    },
+    "COrderNewRootCommand":{
+        "factory_idx":4096,
+        "factory_rva_1_19_5":"0x18d0440",
+        "vt":"0x2a856a0",
+        "isvalid":"0x18df5e0",
+        "execute":"0x18d9a30",
+        "create_call":"0xc41720 edx=2",
+        "size":"0x70",
+        "pack":"group handle +0x28 (type 53 id 1); province pair +0x48/+0x4c (13237,13238)",
+        "note":"COrderNewFrontCommand is not the first-plan command; it requires an existing instance id at +0x68 via 0xc402a0",
+    },
+    "CArmyGroup_writer":"0xc4cfa0 then jmp 0xc4d030",
+    "CArmyGroup_id":"handle type 53 at +0x8, id at +0xc (same type as COrdersGroup; distinguish by RTTI / +0x39 flag / theatre array)",
+    "CArmyGroup_name":"+0x160",
+    "CArmyGroup_leader":"+0x88",
+    "CArmyGroup_children":"+0x230 / +0x23c COrdersGroup*",
+    "COrdersGroup_parent_army_group":"+0x1B8 CArmyGroup*",
+    "COrderInstance_type":"+0x30 token 0xe1; live 2 after NewRoot; 1 and 3 still the only named GetOrderType values",
+    "COrderInstance_id":"+0x244 token 0x30af; live 1",
+    "COrderInstance_path":"+0x70 token 0x174 still empty after this NewRoot",
+    "COrderInstance_can_execute":"+0x248 token 0x30b2 iff nonzero; live 0; not plans.executing",
+    "live":{
+        "army_group_id":2,
+        "army_group_name":"第1集团军群",
+        "ag_leader_id":313,
+        "army_ids":[1],
+        "plan_id":1,
+        "assigned_army_ids":[1],
+        "member_unit_id":1838,
+        "paused":True,
+        "keep_unit_1829_path":[8036],
+    },
+    "promoted": ev["promoted"],
+    "not_promoted": list(ev["not_promoted"]),
+    "proofs":[
+        "research/t193_ag_post.json",
+        "research/t193_plan_post.json",
+        "research/t193_ag_contrast.json",
+        "research/t193_live_fields.json",
+        "research/t193_army_group_plan.json",
+    ],
+}
+jp.write_text(json.dumps(off,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+print("wrote evidence and offset key")

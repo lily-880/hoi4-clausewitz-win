@@ -1,0 +1,18 @@
+f47290 mov qword ptr [rsp + 0x30], rbx
+f47295 xor ebx, ebx
+f47297 mov qword ptr [rsp + 0x38], rsi
+f4729c mov esi, eax
+f4729e nop 
+f472a0 mov rcx, qword ptr [rdi]
+f472a3 xor edx, edx
+f472a5 add rcx, rbx
+f472a8 call 0xf41850
+f472ad add rbx, 0xe8
+f472b4 sub rsi, 1
+f472b8 jne 0xf472a0
+f472ba mov rsi, qword ptr [rsp + 0x38]
+f472bf mov rbx, qword ptr [rsp + 0x30]
+f472c4 mov dword ptr [rdi + 0xc], 0
+f472cb add rsp, 0x20
+f472cf pop rdi
+f472d0 ret 

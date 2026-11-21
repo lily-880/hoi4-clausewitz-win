@@ -1,0 +1,15 @@
+ce4f10 cmp qword ptr [rcx + 0x2f8], 0
+ce4f18 mov r8, rcx
+ce4f1b je 0xce4f20
+ce4f1d xor al, al
+ce4f1f ret 
+ce4f20 cmp qword ptr [rcx + 0x600], 0
+ce4f28 jg 0xce4f37
+ce4f2a xor eax, eax
+ce4f2c cmp rax, qword ptr [rip + 0x26feecd]
+ce4f33 setl al
+ce4f36 ret 
+ce4f37 movsxd rax, dword ptr [rip + 0x26fe73a]
+ce4f3e imul rcx, rax, 0x186a0
+ce4f45 test rcx, rcx
+ce4f48 je 0xce4f75

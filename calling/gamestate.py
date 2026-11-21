@@ -5,6 +5,7 @@ import struct
 from typing import Any, Dict, List, Optional
 
 import offsets as O
+from country_tags import tag_for_index
 
 
 def _pdx_array(p, addr: int) -> Optional[dict]:
@@ -34,15 +35,28 @@ def looks_like_gamestate(p, gs_ptr: int) -> Dict[str, Any]:
     # HOI4 has on the order of a few hundred country slots
     good_size = isinstance(size, int) and 50 <= size <= 2000 and 50 <= cap <= 5000 and size <= cap
     report["checks"]["countries_size_plausible"] = good_size
-    # player tag at +0x518
-    tag = None
+    # Cheap layout check only: 0x518 is the old player-index hypothesis and
+    # is not the human player on 1.19.4 Windows. 0x520 was the human index
+    # in the 2026-11-13 live session. Either being in range is enough here.
+    legacy = None
+    observed = None
     try:
-        tag = p.i32(gs_ptr + 0x518)
+        legacy = p.i32(gs_ptr + 0x518)
     except OSError:
         pass
-    report["checks"]["player_tag_raw"] = tag
-    report["checks"]["player_tag_plausible"] = tag is not None and 0 <= tag < 2000
-    report["ok"] = bool(good_size and report["checks"]["player_tag_plausible"])
+    try:
+        observed = p.i32(gs_ptr + 0x520)
+    except OSError:
+        pass
+    report["checks"]["player_tag_legacy_0x518"] = legacy
+    report["checks"]["player_index_observed_0x520"] = observed
+    report["checks"]["player_tag_raw"] = observed if observed is not None else legacy
+    plausible = (
+        (observed is not None and 0 <= observed < 2000)
+        or (legacy is not None and 0 <= legacy < 2000)
+    )
+    report["checks"]["player_tag_plausible"] = plausible
+    report["ok"] = bool(good_size and plausible)
     return report
 
 
@@ -195,6 +209,10 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
 
     FE = O.PROVEN_STATIC.get("CFrontEndIdler_vtable")
     IG = O.PROVEN_STATIC["CInGameIdler_vtable"]
+    IG_OBS = O.PROVEN_STATIC.get("in_game_idler_vtable_observed") or []
+    if isinstance(IG_OBS, int):
+        IG_OBS = [IG_OBS]
+    IN_GAME_VTS = {IG, *IG_OBS}
     APP = O.PROVEN_STATIC.get("CGameApplication_vtable")
     gidler = O.WINDOWS_GLOBALS.get("G_IDLER")
     ggs = O.WINDOWS_GLOBALS.get("G_GAMESTATE")
@@ -269,15 +287,24 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
         pass
     out["idler"] = idler_info
 
-    if vt_rva == IG or (rtti and "CInGameIdler" in rtti):
+    if vt_rva in IN_GAME_VTS or (rtti and "CInGameIdler" in rtti):
         out["session"] = "in_game"
         out["in_game"] = True
-        out["signals"]["idler_class"] = "CInGameIdler"
-        out["guidance"] = (
-            "CInGameIdler live — idler+0x530 is CGameApplication (Post hyp REJECTED). "
-            "Hunt real queue elsewhere (CCommand soft-call / session graph). "
-            "CO_ARMIES@0x290 CArmy* is division-like on Windows. Posting stays DISABLED."
-        )
+        if vt_rva == IG or (rtti and "CInGameIdler" in rtti):
+            out["signals"]["idler_class"] = "CInGameIdler"
+            out["guidance"] = (
+                "CInGameIdler live — idler+0x530 is CGameApplication (Post hyp REJECTED). "
+                "Hunt real queue elsewhere (CCommand soft-call / session graph). "
+                "CO_ARMIES@0x290 CArmy* is division-like on Windows. Posting stays DISABLED."
+            )
+        else:
+            out["signals"]["idler_class"] = "observed_in_game_idler"
+            out["guidance"] = (
+                "Observed in-game idler vtable %s live (campaign map confirmed; "
+                "class name not RTTI-proven). Session gate treats this as in_game. "
+                "Posting stays DISABLED."
+                % hex(vt_rva)
+            )
         out["user_action"] = None
         return out
 
@@ -309,6 +336,114 @@ def detect_session(p, pe=None) -> Dict[str, Any]:
 
 
 
+
+def _i32_at(p, addr: int) -> Optional[int]:
+    blob = p.try_read(addr, 4)
+    if not blob or len(blob) < 4:
+        return None
+    return struct.unpack_from("<i", blob, 0)[0]
+
+
+def _u64_at(p, addr: int) -> Optional[int]:
+    blob = p.try_read(addr, 8)
+    if not blob or len(blob) < 8:
+        return None
+    return struct.unpack_from("<Q", blob, 0)[0]
+
+
+def resolve_player_country(p, gs_ptr: int, countries: Optional[dict] = None) -> Dict[str, Any]:
+    """Resolve the human player's CCountry index.
+
+    GS_PLAYER_TAG@0x518 is the old hypothesis and must not be used alone:
+    on HOI4 1.19.4 Windows (live 2026-11-13) it read 15 (Republican Spain)
+    while the human player was Ethiopia at index 44.
+
+    Preference:
+      1. GS+0x520 when it names a valid country. Live 2026-11-13: this
+         followed a console `tag` switch (ETH 44 -> CHI 38) while the
+         CCountry+0x538/+0x53C flags stayed on the original country.
+      2. The unique country whose observed flags at +0x538 and +0x53C
+         are both 1, only if (1) is unavailable. Those flags are not
+         the current player after `tag`.
+    """
+    H = O.HYPOTHESIS_STRUCT
+    out: Dict[str, Any] = {
+        "ok": False,
+        "player_index": None,
+        "country_ptr": None,
+        "source": None,
+        "legacy_gs_0x518": None,
+        "observed_gs_0x520": None,
+        "human_flag_indices": [],
+        "tag": None,
+        "reason": None,
+    }
+    if not gs_ptr or gs_ptr < 0x10000:
+        out["reason"] = "bad gs"
+        return out
+    if countries is None:
+        countries = _pdx_array(p, gs_ptr + H["GS_COUNTRIES"])
+    out["legacy_gs_0x518"] = _i32_at(p, gs_ptr + H["GS_PLAYER_TAG"])
+    out["observed_gs_0x520"] = _i32_at(p, gs_ptr + H.get("GS_PLAYER_INDEX_OBSERVED", 0x520))
+    if not countries or not (50 <= countries["size"] <= 2000):
+        out["reason"] = "countries implausible"
+        return out
+    n = countries["size"]
+    flag_a = H.get("CO_HUMAN_PLAYER_FLAG_A", 0x538)
+    hits: List[int] = []
+    partial: List[dict] = []
+    for idx in range(n):
+        cptr = _u64_at(p, countries["data"] + idx * 8)
+        if not cptr:
+            continue
+        blob = p.try_read(cptr + flag_a, 8)
+        if not blob or len(blob) < 8:
+            continue
+        a, b = struct.unpack_from("<ii", blob, 0)
+        if a == 1 and b == 1:
+            hits.append(idx)
+        elif a == 1 or b == 1:
+            partial.append({"index": idx, "flag_a": a, "flag_b": b})
+    out["human_flag_indices"] = hits
+    if partial:
+        out["human_flag_partial"] = partial
+    cand_520 = out["observed_gs_0x520"]
+    valid_520 = False
+    if isinstance(cand_520, int) and 0 <= cand_520 < n:
+        valid_520 = bool(_u64_at(p, countries["data"] + cand_520 * 8))
+
+    if len(hits) == 1:
+        out["original_human_index"] = hits[0]
+    if valid_520:
+        out["player_index"] = cand_520
+        out["ok"] = True
+        if len(hits) == 1 and hits[0] == cand_520:
+            out["source"] = "gs_0x520+human_flags"
+        else:
+            out["source"] = "gs_0x520"
+            if len(hits) == 1 and hits[0] != cand_520:
+                # Flags still name the country selected at game start;
+                # they do not follow console `tag`.
+                out["human_flags_unmoved"] = hits[0]
+    elif len(hits) == 1:
+        out["player_index"] = hits[0]
+        out["ok"] = True
+        out["source"] = "human_flags"
+        out["reason"] = "GS+0x520 not a valid country; fell back to human flags"
+    else:
+        out["reason"] = "GS+0x520 not a valid country and no unique human-player flag"
+        return out
+
+    cptr = _u64_at(p, countries["data"] + out["player_index"] * 8)
+    out["country_ptr"] = hex(cptr) if cptr else None
+    if not cptr:
+        out["ok"] = False
+        out["reason"] = "null country"
+        return out
+    out["tag"] = tag_for_index(out["player_index"])
+    return out
+
+
 def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
     """READ-ONLY: player CCountry + CO_ARMIES (0x290) CArmy* array.
 
@@ -329,17 +464,17 @@ def probe_player_armies(p, pe, gs_ptr: int) -> Dict[str, Any]:
         out["reason"] = "bad gs"
         return out
     countries = _pdx_array(p, gs_ptr + O.HYPOTHESIS_STRUCT["GS_COUNTRIES"])
-    tag_blob = p.try_read(gs_ptr + O.HYPOTHESIS_STRUCT["GS_PLAYER_TAG"], 4)
-    if not tag_blob:
-        out["reason"] = "no tag"
-        return out
-    tag = struct.unpack_from("<i", tag_blob, 0)[0]
+    resolved = resolve_player_country(p, gs_ptr, countries)
+    out["player_resolve"] = resolved
+    out["player_tag_legacy_0x518"] = resolved.get("legacy_gs_0x518")
+    tag = resolved.get("player_index")
     out["player_tag"] = tag
+    out["player_tag_letter"] = resolved.get("tag")
+    if not resolved.get("ok") or tag is None:
+        out["reason"] = resolved.get("reason") or "player resolve failed"
+        return out
     if not countries or not (50 <= countries["size"] <= 2000):
         out["reason"] = "countries implausible"
-        return out
-    if not (0 <= tag < countries["size"]):
-        out["reason"] = "bad tag"
         return out
     cptr = struct.unpack_from("<Q", p.try_read(countries["data"] + tag * 8, 8) or b"\0"*8, 0)[0]
     out["country_ptr"] = hex(cptr) if cptr else None
@@ -518,10 +653,20 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
     if majors and 1 <= majors["size"] <= 20 and majors["size"] <= majors["capacity"] <= 64:
         out["verified"]["majors_count"] = majors["size"]
 
-    tag = struct.unpack_from("<i", blob, O.HYPOTHESIS_STRUCT["GS_PLAYER_TAG"])[0]
-    out["fields"]["player_tag_raw"] = tag
-    if 0 <= tag < 2000:
+    resolved = resolve_player_country(p, gs_ptr, countries)
+    out["fields"]["player_resolve"] = resolved
+    out["fields"]["player_tag_legacy_0x518"] = resolved.get("legacy_gs_0x518")
+    out["fields"]["player_index_observed_0x520"] = resolved.get("observed_gs_0x520")
+    if resolved.get("ok") and resolved.get("player_index") is not None:
+        tag = resolved["player_index"]
+        out["fields"]["player_tag_raw"] = tag
+        out["fields"]["player_tag_letter"] = resolved.get("tag")
         out["verified"]["player_tag"] = tag
+        out["verified"]["player_tag_letter"] = resolved.get("tag")
+        out["verified"]["player_source"] = resolved.get("source")
+    else:
+        out["fields"]["player_tag_raw"] = None
+        out["fields"]["player_resolve_error"] = resolved.get("reason")
 
     # Date: year@+0x478; days after 1 January of that year @+0x484.
     from clock import ui_date, ui_hour
@@ -556,6 +701,28 @@ def read_campaign_summary(p, gs_ptr: int) -> Dict[str, Any]:
         out["verified"]["date_note"] = "year@+0x478; day@+0x484; ui_hour from +0x468"
     elif 1936 <= year <= 1950:
         out["verified"]["date_note"] = "year@+0x478; day index@+0x484 out of range"
+
+    # Speed setting @+0x4BC (live 2026-11-14). Index is 0-based UI notch;
+    # this is not a pause flag, so meta.speed pause|1x stays incomplete.
+    speed_off = O.HYPOTHESIS_STRUCT.get("GS_GAME_SPEED_INDEX", 0x4BC)
+    if len(blob) >= speed_off + 4:
+        speed_index = struct.unpack_from("<i", blob, speed_off)[0]
+        out["fields"]["game_speed_index"] = speed_index
+        out["fields"]["game_speed_notch"] = speed_index + 1 if 0 <= speed_index <= 4 else None
+        out["fields"]["game_speed_note"] = (
+            "GS+0x4BC i32, 0-based UI speed setting (notch=index+1); "
+            "GS+0x4B8 f32 is 0..1 progress inside the current game hour "
+            "(ticks only while unpaused); pause bool address still unknown"
+        )
+        if 0 <= speed_index <= 4:
+            out["verified"]["game_speed_index"] = speed_index
+            out["verified"]["game_speed_notch"] = speed_index + 1
+        prog_off = O.HYPOTHESIS_STRUCT.get("GS_HOUR_PROGRESS_F32", 0x4B8)
+        if len(blob) >= prog_off + 4:
+            hour_progress = struct.unpack_from("<f", blob, prog_off)[0]
+            out["fields"]["game_hour_progress"] = hour_progress
+            if 0.0 <= hour_progress <= 1.0:
+                out["verified"]["game_hour_progress"] = hour_progress
 
     out["fields"]["divisions_count"] = None
     out["fields"]["divisions_note"] = (

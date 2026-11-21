@@ -1,0 +1,29 @@
+eef530 sub rsp, 0x38
+eef534 cmp byte ptr [rip + 0x27a00d6], 0
+eef53b mov qword ptr [rsp + 0x30], rdi
+eef540 mov rdi, rcx
+eef543 je 0xeef634
+eef549 cmp byte ptr [rip + 0x24edbe0], 0
+eef550 jne 0xeef5a1
+eef552 cmp qword ptr [rip + 0x24ee156], 0
+eef55a jne 0xeef5a1
+eef55c lea rax, [rip + 0x24edbcd]
+eef563 mov byte ptr [rsp + 0x40], 0
+eef568 mov qword ptr [rsp + 0x28], rax
+eef56d lea rdx, [rip + 0x18a51a9]
+eef574 lea rax, [rsp + 0x40]
+eef579 mov r9b, 1
+eef57c mov r8d, 0x464
+eef582 mov qword ptr [rsp + 0x20], rax
+eef587 lea rcx, [rip + 0x18a52aa]
+eef58e call 0x254ab40
+eef593 cmp byte ptr [rsp + 0x40], 0
+eef598 mov byte ptr [rip + 0x24edb92], al
+eef59e je 0xeef5a1
+eef5a0 int3 
+eef5a1 cmp byte ptr [rip + 0x27a0069], 0
+eef5a8 je 0xeef634
+eef5ae cmp byte ptr [rip + 0x24edb7c], 0
+eef5b5 jne 0xeef634
+eef5b7 mov rax, qword ptr gs:[0x58]
+eef5c0 mov ecx, dword ptr [rip + 0x27a44d2]

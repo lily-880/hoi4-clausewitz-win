@@ -1,0 +1,100 @@
+cc7550 mov qword ptr [rsp + 0x10], rbx
+cc7555 mov qword ptr [rsp + 0x18], rbp
+cc755a push rsi
+cc755b push rdi
+cc755c push r12
+cc755e push r14
+cc7560 push r15
+cc7562 sub rsp, 0x20
+cc7566 movsxd r12, dword ptr [rcx + 0x14]
+cc756a xor esi, esi
+cc756c mov r15d, r8d
+cc756f mov r14, rdx
+cc7572 mov rbp, rcx
+cc7575 test r12, r12
+cc7578 jle 0xcc75b2
+cc757a xor ebx, ebx
+cc757c nop dword ptr [rax]
+cc7580 mov rax, qword ptr [rbp + 8]
+cc7584 mov ecx, dword ptr [rax + rbx*8]
+cc7587 lea rdi, [rax + rbx*8]
+cc758b mov eax, dword ptr [r14]
+cc758e cmp eax, ecx
+cc7590 je 0xcc75f4
+cc7592 test eax, eax
+cc7594 je 0xcc75a8
+cc7596 test ecx, ecx
+cc7598 je 0xcc75a8
+cc759a mov rcx, rdi
+cc759d call 0xc08790
+cc75a2 cmp dword ptr [r14 + 4], eax
+cc75a6 je 0xcc75f4
+cc75a8 inc esi
+cc75aa inc rbx
+cc75ad cmp rbx, r12
+cc75b0 jl 0xcc7580
+cc75b2 test r15d, r15d
+cc75b5 jle 0xcc7675
+cc75bb movsxd rbx, dword ptr [rbp + 0x14]
+cc75bf lea r12, [rbp + 8]
+cc75c3 mov eax, dword ptr [r14]
+cc75c6 mov rdi, qword ptr [r12]
+cc75ca mov dword ptr [rsp + 0x50], eax
+cc75ce mov dword ptr [rsp + 0x54], r15d
+cc75d3 test rbx, rbx
+cc75d6 jle 0xcc765e
+cc75dc nop dword ptr [rax]
+cc75e0 mov rsi, rbx
+cc75e3 shr rbx, 1
+cc75e6 and esi, 1
+cc75e9 cmp dword ptr [rsp + 0x50], 0
+cc75ee jne 0xcc7629
+cc75f0 xor ebp, ebp
+cc75f2 jmp 0xcc7635
+cc75f4 test r15d, r15d
+cc75f7 jle 0xcc75ff
+cc75f9 mov dword ptr [rdi + 4], r15d
+cc75fd jmp 0xcc7675
+cc75ff mov r9, qword ptr [rbp + 8]
+cc7603 movsxd rax, esi
+cc7606 lea rcx, [r9 + rax*8]
+cc760a movsxd rax, dword ptr [rbp + 0x14]
+cc760e lea r8, [r9 + rax*8]
+cc7612 lea eax, [rsi + 1]
+cc7615 movsxd rdx, eax
+cc7618 lea rdx, [r9 + rdx*8]
+cc761c sub r8, rdx
+cc761f call 0x26079d0
+cc7624 dec dword ptr [rbp + 0x14]
+cc7627 jmp 0xcc7675
+cc7629 lea rcx, [rsp + 0x50]
+cc762e call 0xc08790
+cc7633 mov ebp, eax
+cc7635 cmp dword ptr [rdi + rbx*8], 0
+cc7639 lea rcx, [rdi + rbx*8]
+cc763d jne 0xcc7643
+cc763f xor eax, eax
+cc7641 jmp 0xcc7648
+cc7643 call 0xc08790
+cc7648 xor r9d, r9d
+cc764b lea r8, [rsi + rbx]
+cc764f cmp ebp, eax
+cc7651 cmovge r9, r8
+cc7655 lea rdi, [rdi + r9*8]
+cc7659 test rbx, rbx
+cc765c jne 0xcc75e0
+cc765e sub rdi, qword ptr [r12]
+cc7662 lea r8, [rsp + 0x50]
+cc7667 sar rdi, 3
+cc766b mov rcx, r12
+cc766e mov edx, edi
+cc7670 call 0x1cd320
+cc7675 mov rbx, qword ptr [rsp + 0x58]
+cc767a mov rbp, qword ptr [rsp + 0x60]
+cc767f add rsp, 0x20
+cc7683 pop r15
+cc7685 pop r14
+cc7687 pop r12
+cc7689 pop rdi
+cc768a pop rsi
+cc768b ret 

@@ -1,0 +1,21 @@
+0x10948a0  mov r9, qword ptr [r8 + 0x538]
+0x10948a7  cmp byte ptr [r9 + 0x10], 0
+0x10948ac  je 0x10948d9
+0x10948ae  movsxd rax, dword ptr [rcx + 0x14]
+0x10948b2  xor r8d, r8d
+0x10948b5  test eax, eax
+0x10948b7  jle 0x10948d9
+0x10948b9  mov r11, qword ptr [rcx + 8]
+0x10948bd  mov r10, rax
+0x10948c0  mov rax, r11
+0x10948c3  xor ecx, ecx
+0x10948c5  cmp qword ptr [rax], r9
+0x10948c8  je 0x10948e4
+0x10948ca  inc r8d
+0x10948cd  inc rcx
+0x10948d0  add rax, 0x10
+0x10948d4  cmp rcx, r10
+0x10948d7  jl 0x10948c5
+0x10948d9  mov qword ptr [rdx], 0
+0x10948e0  mov rax, rdx
+0x10948e3  ret 

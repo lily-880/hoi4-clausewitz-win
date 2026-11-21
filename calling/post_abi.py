@@ -1,7 +1,8 @@
 """Read-only documentation of the Windows SP command Post -> Execute ABI.
 
 Never posts. Call assert_post_allowed() before any future write path.
-Proven against HOI4 1.19.4.1 (Operation Postern) on Windows — Haiti SP.
+Current addresses: HOI4 1.19.5.0.7c6c. t200 static lifecycle audit.
+Post acknowledgement is sink acceptance, never proof of an observed state change.
 """
 from __future__ import annotations
 
@@ -11,26 +12,27 @@ except ImportError:
     from config import assert_post_allowed, allow_post
 
 # --- Proven RVAs (image-relative) ---
-FN_CMD_QUEUE_POST = 0x22C41E0
-FN_CMD_QUEUE_POST_SINK_DUMMY = 0x23F5CD0  # CDummyServer vt+0x28
-FN_CMD_QUEUE_DRAIN_DUMMY = 0x23F64E0  # CDummyServer vt+0x30
-FN_SESSION_UPDATE = 0x22C6410
-FN_EXECUTE_LOOP = 0x22C4710
-EXECUTE_SITE_A = 0x22C6C9D  # cmd.vt+0x50 inside session update
-EXECUTE_SITE_B = 0x22C47DD  # second list
+FN_CMD_QUEUE_POST = 0x22C4250  # 1.19.5.0.7c6c; 1.19.4 was 0x22C41E0. Confirmed: [session+0x40].vt+0x28 sink, gates +0x725/+0x726/+0x6cc
+FN_CMD_QUEUE_POST_SINK_DUMMY = 0x23F5D40  # CDummyServer vt+0x28 (1.19.5)
+FN_CMD_QUEUE_DRAIN_DUMMY = 0x23F6550  # CDummyServer vt+0x30 (1.19.5)
+FN_SESSION_UPDATE = 0x22C6480  # 1.19.5
+FN_EXECUTE_LOOP = 0x22C4780  # t200 PE .pdata + static vt+0x50 call proof; old value was INSIDE Post
+EXECUTE_SITE_A = 0x22C6D0D  # cmd.vt+0x50 inside session update
+EXECUTE_SITE_B = 0x22C484D  # second list
 
 G_IDLER = 0x33DDB08
 G_GAMESTATE = 0x33DD6B0
 G_SESSION = 0x34FFBE8  # Phase 2ay: matches App+0x380 CSession* (live)
 
-CDummyServer_VT = 0x2BCB040
+CDummyServer_VT = 0x2BCBEA0  # 1.19.5 RTTI; live server matches
 CDummyServer_RING = 0xA0
 CDummyServer_PENDING = 0x58  # head; tail +0x60; count +0x68
 CDummyServer_EXECLIST = 0x40  # head; tail +0x48; count +0x50
 
 CCommand_VT_ISVALID = 0x48
 CCommand_VT_EXECUTE = 0x50
-CCommand_VT_POSTEXEC = 0x58
+CCommand_VT_TYPE_TOKEN = 0x58  # CPauseGame e56c30 returns token0x29ec; NOT PostExec
+CCommand_VT_POSTEXEC = CCommand_VT_TYPE_TOKEN  # historical compatibility alias only; never an actuator
 CCommand_VT_CLONE = 0x68
 
 CSession_SERVER = 0x40

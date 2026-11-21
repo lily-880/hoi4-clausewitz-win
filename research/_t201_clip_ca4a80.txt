@@ -1,0 +1,61 @@
+ca4a80 mov qword ptr [rsp + 0x10], rbx
+ca4a85 mov qword ptr [rsp + 8], rcx
+ca4a8a push rdi
+ca4a8b sub rsp, 0x20
+ca4a8f mov rbx, rcx
+ca4a92 lea rax, [rip + 0x1bb730f]
+ca4a99 mov qword ptr [rcx], rax
+ca4a9c mov rax, qword ptr [rip + 0x27467fd]
+ca4aa3 mov qword ptr [rcx + 8], rax
+ca4aa7 mov byte ptr [rcx + 0x10], 0
+ca4aab lea rax, [rip + 0x1d2afa6]
+ca4ab2 mov qword ptr [rcx], rax
+ca4ab5 xor edi, edi
+ca4ab7 mov dword ptr [rcx + 0x18], edi
+ca4aba mov byte ptr [rcx + 0x1c], dl
+ca4abd mov word ptr [rcx + 0x1d], 0x100
+ca4ac3 mov byte ptr [rcx + 0x1f], dil
+ca4ac7 mov qword ptr [rcx + 0x20], 0x186a0
+ca4acf mov qword ptr [rcx + 0x28], 0x186a0
+ca4ad7 mov qword ptr [rcx + 0x30], 0x186a0
+ca4adf mov edx, 0x186a0
+ca4ae4 lea rcx, [rsp + 0x40]
+ca4ae9 call 0x2574ba0
+ca4aee mov rcx, qword ptr [rax]
+ca4af1 mov qword ptr [rbx + 0x38], rcx
+ca4af5 mov qword ptr [rbx + 0x40], 0x186a0
+ca4afd mov qword ptr [rbx + 0x48], rdi
+ca4b01 mov qword ptr [rbx + 0x50], rdi
+ca4b05 mov qword ptr [rbx + 0x58], rdi
+ca4b09 mov ecx, dword ptr [rip + 0x29eef89]
+ca4b0f mov rax, qword ptr gs:[0x58]
+ca4b18 mov edx, 0x20ec
+ca4b1d mov rax, qword ptr [rax + rcx*8]
+ca4b21 mov eax, dword ptr [rdx + rax]
+ca4b24 cmp dword ptr [rip + 0x27385f6], eax
+ca4b2a jg 0xca4b71
+ca4b2c lea rax, [rip + 0x24584cd]
+ca4b33 mov qword ptr [rbx + 0x60], rax
+ca4b37 mov qword ptr [rbx + 0x68], rdi
+ca4b3b mov dword ptr [rbx + 0x70], edi
+ca4b3e mov qword ptr [rbx + 0x78], rdi
+ca4b42 mov dword ptr [rbx + 0x80], edi
+ca4b48 mov qword ptr [rbx + 0x88], rdi
+ca4b4f mov dword ptr [rbx + 0x90], edi
+ca4b55 mov qword ptr [rbx + 0x98], rdi
+ca4b5c mov qword ptr [rbx + 0xa0], rdi
+ca4b63 mov rax, rbx
+ca4b66 mov rbx, qword ptr [rsp + 0x38]
+ca4b6b add rsp, 0x20
+ca4b6f pop rdi
+ca4b70 ret 
+ca4b71 lea rcx, [rip + 0x27385a8]
+ca4b78 call 0x25a0588
+ca4b7d cmp dword ptr [rip + 0x273859c], -1
+ca4b84 jne 0xca4b2c
+ca4b86 lea rcx, [rip + 0x1ad1173]
+ca4b8d call 0x25a0450
+ca4b92 lea rcx, [rip + 0x2738587]
+ca4b99 call 0x25a051c
+ca4b9e jmp 0xca4b2c
+ca4ba0 int3 

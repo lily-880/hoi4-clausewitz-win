@@ -1,0 +1,44 @@
+5872b0 push rbx
+5872b2 sub rsp, 0x40
+5872b6 cmp dword ptr [rcx + 0x20], -1
+5872ba mov rbx, rcx
+5872bd jg 0x58732d
+5872bf cmp qword ptr [rcx + 0x48], 0
+5872c4 jne 0x587327
+5872c6 cmp byte ptr [rcx + 0x34], 0
+5872ca je 0x587327
+5872cc add rcx, 0x2c
+5872d0 call 0x588d70
+5872d5 lea rdx, [rsp + 0x20]
+5872da mov rcx, rax
+5872dd call 0x2548720
+5872e2 lea rcx, [rbx + 0x38]
+5872e6 mov rdx, rax
+5872e9 call 0x121490
+5872ee mov rdx, qword ptr [rsp + 0x38]
+5872f3 cmp rdx, 0xf
+5872f7 jbe 0x587327
+5872f9 mov rcx, qword ptr [rsp + 0x20]
+5872fe inc rdx
+587301 mov rax, rcx
+587304 cmp rdx, 0x1000
+58730b jb 0x587322
+58730d mov rcx, qword ptr [rcx - 8]
+587311 add rdx, 0x27
+587315 sub rax, rcx
+587318 add rax, -8
+58731c cmp rax, 0x1f
+587320 ja 0x587345
+587322 call 0x25a0218
+587327 lea rax, [rbx + 0x38]
+58732b jmp 0x587335
+58732d mov ecx, dword ptr [rcx + 0x20]
+587330 call 0x253ecd0
+587335 cmp qword ptr [rax + 0x18], 0xf
+58733a jbe 0x58733f
+58733c mov rax, qword ptr [rax]
+58733f add rsp, 0x40
+587343 pop rbx
+587344 ret 
+587345 call 0x25c7db4
+58734a int3 

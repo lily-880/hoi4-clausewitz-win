@@ -1,0 +1,36 @@
+cc4a70 mov qword ptr [rsp + 8], rbx
+cc4a75 mov qword ptr [rsp + 0x10], rsi
+cc4a7a push rdi
+cc4a7b sub rsp, 0x20
+cc4a7f mov edi, edx
+cc4a81 xor esi, esi
+cc4a83 mov rdx, qword ptr [rcx + 0x30]
+cc4a87 mov rbx, rcx
+cc4a8a test rdx, rdx
+cc4a8d je 0xcc4aa3
+cc4a8f mov dword ptr [rcx + 0x3c], esi
+cc4a92 mov rcx, qword ptr [rcx + 0x40]
+cc4a96 mov rax, qword ptr [rcx]
+cc4a99 call qword ptr [rax + 0x10]
+cc4a9c mov qword ptr [rbx + 0x30], rsi
+cc4aa0 mov dword ptr [rbx + 0x38], esi
+cc4aa3 mov rdx, qword ptr [rbx + 0x10]
+cc4aa7 test rdx, rdx
+cc4aaa je 0xcc4ac0
+cc4aac mov rcx, qword ptr [rbx + 0x20]
+cc4ab0 mov dword ptr [rbx + 0x1c], esi
+cc4ab3 mov rax, qword ptr [rcx]
+cc4ab6 call qword ptr [rax + 0x10]
+cc4ab9 mov qword ptr [rbx + 0x10], rsi
+cc4abd mov dword ptr [rbx + 0x18], esi
+cc4ac0 test dil, 1
+cc4ac4 je 0xcc4ad3
+cc4ac6 mov edx, 0x50
+cc4acb mov rcx, rbx
+cc4ace call 0x25a0218
+cc4ad3 mov rsi, qword ptr [rsp + 0x38]
+cc4ad8 mov rax, rbx
+cc4adb mov rbx, qword ptr [rsp + 0x30]
+cc4ae0 add rsp, 0x20
+cc4ae4 pop rdi
+cc4ae5 ret 

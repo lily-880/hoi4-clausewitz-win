@@ -1,0 +1,36 @@
+f47380 push rbp
+f47382 push rsi
+f47383 sub rsp, 0x38
+f47387 mov eax, dword ptr [rcx + 8]
+f4738a mov ebp, edx
+f4738c mov rsi, rcx
+f4738f cmp edx, eax
+f47391 jle 0xf474b3
+f47397 mov qword ptr [rsp + 0x58], rdi
+f4739c mov qword ptr [rsp + 0x60], r12
+f473a1 mov qword ptr [rsp + 0x28], r14
+f473a6 mov qword ptr [rsp + 0x20], r15
+f473ab test r8d, r8d
+f473ae je 0xf473ca
+f473b0 movd xmm0, eax
+f473b4 cvtdq2ps xmm0, xmm0
+f473b7 mulss xmm0, dword ptr [rip + 0x184e5c9]
+f473bf cvttss2si eax, xmm0
+f473c3 cmp edx, eax
+f473c5 cmovg eax, edx
+f473c8 mov ebp, eax
+f473ca mov rcx, qword ptr [rcx + 0x10]
+f473ce mov r8d, 8
+f473d4 mov rax, qword ptr [rcx]
+f473d7 mov r9, qword ptr [rax + 8]
+f473db mov eax, ebp
+f473dd imul rdx, rax, 0xd8
+f473e4 call r9
+f473e7 mov rdi, qword ptr [rsi]
+f473ea mov r12, rax
+f473ed movsxd rcx, dword ptr [rsi + 0xc]
+f473f1 mov r14, rax
+f473f4 imul r15, rcx, 0xd8
+f473fb add r15, rdi
+f473fe cmp rdi, r15
+f47401 je 0xf4748c

@@ -1,0 +1,59 @@
+f47980 mov qword ptr [rsp + 0x10], rbx
+f47985 mov qword ptr [rsp + 0x18], rsi
+f4798a push rdi
+f4798b sub rsp, 0x20
+f4798f movsxd rax, dword ptr [rdx + 0xa4]
+f47996 mov rdi, rcx
+f47999 shl rax, 5
+f4799d mov rbx, rdx
+f479a0 add rax, qword ptr [rcx + 0x10]
+f479a4 movzx ecx, byte ptr [rax + 0x18]
+f479a8 test cl, 8
+f479ab jne 0xf479cb
+f479ad or cl, 8
+f479b0 mov byte ptr [rax + 0x18], cl
+f479b3 lea rcx, [rdi + 0x70]
+f479b7 mov eax, dword ptr [rdx + 0xa4]
+f479bd lea rdx, [rsp + 0x30]
+f479c2 mov dword ptr [rsp + 0x30], eax
+f479c6 call 0x12e040
+f479cb add rbx, 0x188
+f479d2 xor esi, esi
+f479d4 cmp dword ptr [rbx], esi
+f479d6 jne 0xf479dc
+f479d8 mov eax, esi
+f479da jmp 0xf479e4
+f479dc mov rcx, rbx
+f479df call 0xc08790
+f479e4 cdqe 
+f479e6 imul rcx, rax, 0x78
+f479ea add rcx, qword ptr [rdi + 0x40]
+f479ee movzx eax, byte ptr [rcx + 0x70]
+f479f2 test al, 8
+f479f4 jne 0xf47a0a
+f479f6 or al, 8
+f479f8 mov rdx, rbx
+f479fb mov byte ptr [rcx + 0x70], al
+f479fe lea rcx, [rdi + 0xd0]
+f47a05 call 0x12e040
+f47a0a cmp dword ptr [rbx], esi
+f47a0c je 0xf47a18
+f47a0e mov rcx, rbx
+f47a11 call 0xc08790
+f47a16 mov esi, eax
+f47a18 movsxd rax, esi
+f47a1b imul rcx, rax, 0x78
+f47a1f add rcx, qword ptr [rdi + 0x40]
+f47a23 movzx eax, byte ptr [rcx + 0x70]
+f47a27 test al, 4
+f47a29 jne 0xf47a3f
+f47a2b or al, 4
+f47a2d mov rdx, rbx
+f47a30 mov byte ptr [rcx + 0x70], al
+f47a33 lea rcx, [rdi + 0xb8]
+f47a3a call 0x12e040
+f47a3f mov rbx, qword ptr [rsp + 0x38]
+f47a44 mov rsi, qword ptr [rsp + 0x40]
+f47a49 add rsp, 0x20
+f47a4d pop rdi
+f47a4e ret 

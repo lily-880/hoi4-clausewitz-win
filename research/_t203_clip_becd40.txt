@@ -1,0 +1,175 @@
+becd40 mov qword ptr [rsp + 0x10], rbx
+becd45 mov qword ptr [rsp + 0x18], rbp
+becd4a push rsi
+becd4b push rdi
+becd4c push r14
+becd4e sub rsp, 0x30
+becd52 mov rdi, rcx
+becd55 mov r14, rdx
+becd58 mov rcx, rdx
+becd5b call 0x678eb0
+becd60 mov ecx, dword ptr [rdi + 0x1e0]
+becd66 xor ebp, ebp
+becd68 mov eax, ebp
+becd6a sub ecx, 1
+becd6d je 0xbece28
+becd73 cmp ecx, 1
+becd76 jne 0xbecf3e
+becd7c cmp byte ptr [rip + 0x2aa288f], al
+becd82 je 0xbece14
+becd88 cmp byte ptr [rip + 0x27fd6dc], al
+becd8e jne 0xbece14
+becd94 lea rcx, [rdi + 0x1dc]
+becd9b cmp dword ptr [rcx], eax
+becd9d jle 0xbecdcf
+becd9f call 0xc07bf0
+becda4 mov edx, dword ptr [rdi + 0x1d4]
+becdaa mov rcx, qword ptr [rax + 0xf88]
+becdb1 add rcx, 0x1f0
+becdb8 mov eax, dword ptr [rcx]
+becdba cmp eax, edx
+becdbc je 0xbece14
+becdbe test eax, eax
+becdc0 je 0xbecdcf
+becdc2 test edx, edx
+becdc4 je 0xbecdcf
+becdc6 call 0xc085f0
+becdcb test al, al
+becdcd jne 0xbece14
+becdcf lea rax, [rip + 0x27fd694]
+becdd6 mov byte ptr [rsp + 0x50], bpl
+becddb mov qword ptr [rsp + 0x28], rax
+becde0 lea rdx, [rip + 0x1ba7936]
+becde7 lea rax, [rsp + 0x50]
+becdec mov r9b, 1
+becdef mov r8d, 0x7c5
+becdf5 mov qword ptr [rsp + 0x20], rax
+becdfa lea rcx, [rip + 0x1ddfaef]
+bece01 call 0x254ab40
+bece06 mov byte ptr [rip + 0x27fd65e], al
+bece0c cmp byte ptr [rsp + 0x50], bpl
+bece11 je 0xbece14
+bece13 int3 
+bece14 mov r8d, dword ptr [rdi + 0x178]
+bece1b mov eax, 0x186a0
+bece20 mov ebx, r8d
+bece23 jmp 0xbecf4f
+bece28 cmp byte ptr [rip + 0x2aa27e3], al
+bece2e je 0xbece84
+bece30 cmp byte ptr [rip + 0x27fd633], al
+bece36 jne 0xbece84
+bece38 cmp dword ptr [rdi + 0x1dc], eax
+bece3e jg 0xbece84
+bece40 mov byte ptr [rsp + 0x50], al
+bece44 lea rdx, [rip + 0x1ba78d2]
+bece4b lea rax, [rip + 0x27fd617]
+bece52 mov r9b, 1
+bece55 mov qword ptr [rsp + 0x28], rax
+bece5a lea rcx, [rip + 0x1ddfa6f]
+bece61 lea rax, [rsp + 0x50]
+bece66 mov r8d, 0x7b3
+bece6c mov qword ptr [rsp + 0x20], rax
+bece71 call 0x254ab40
+bece76 mov byte ptr [rip + 0x27fd5ed], al
+bece7c cmp byte ptr [rsp + 0x50], bpl
+bece81 je 0xbece84
+bece83 int3 
+bece84 lea rcx, [rdi + 0x1dc]
+bece8b call 0xc07bf0
+bece90 mov edx, dword ptr [rdi + 0x1d4]
+bece96 mov rbx, rax
+bece99 mov rcx, qword ptr [rax + 0xf88]
+becea0 add rcx, 0x188
+becea7 mov r8d, dword ptr [rcx]
+beceaa cmp r8d, edx
+becead je 0xbeced2
+beceaf test r8d, r8d
+beceb2 je 0xbecec1
+beceb4 test edx, edx
+beceb6 je 0xbecec1
+beceb8 call 0xc085f0
+becebd test al, al
+becebf jne 0xbeced2
+becec1 mov r8d, dword ptr [rdi + 0x178]
+becec8 mov esi, ebp
+bececa mov ebx, r8d
+bececd jmp 0xbecf76
+beced2 lea rcx, [rbx + 0x5b8]
+beced9 mov r8d, 0x111
+becedf lea rdx, [rsp + 0x50]
+becee4 call 0x5a5210
+becee9 lea rcx, [rdi + 0x1d4]
+becef0 mov rbx, qword ptr [rax]
+becef3 call 0xc07bf0
+becef8 mov r8d, 0x28e
+becefe lea rdx, [rsp + 0x50]
+becf03 lea rcx, [rax + 0x5b8]
+becf0a call 0x5a5210
+becf0f mov rax, qword ptr [rax]
+becf12 add rax, rbx
+becf15 jns 0xbecf25
+becf17 mov r8d, dword ptr [rdi + 0x178]
+becf1e mov esi, ebp
+becf20 mov ebx, r8d
+becf23 jmp 0xbecf76
+becf25 cmp rax, 0x182b8
+becf2b jle 0xbecf3e
+becf2d mov r8d, dword ptr [rdi + 0x178]
+becf34 mov eax, 0x182b8
+becf39 mov ebx, r8d
+becf3c jmp 0xbecf4f
+becf3e mov r8d, dword ptr [rdi + 0x178]
+becf45 mov ebx, r8d
+becf48 mov esi, ebp
+becf4a test rax, rax
+becf4d jle 0xbecf76
+becf4f movsxd rcx, r8d
+becf52 imul rcx, rax
+becf56 movabs rax, 0x29f16b11c6d1e109
+becf60 imul rcx
+becf63 mov rsi, rdx
+becf66 sar rsi, 0xe
+becf6a mov rax, rsi
+becf6d shr rax, 0x3f
+becf71 add rsi, rax
+becf74 sub ebx, esi
+becf76 test ebx, ebx
+becf78 jns 0xbecf7e
+becf7a mov ebx, ebp
+becf7c jmp 0xbecf85
+becf7e cmp ebx, r8d
+becf81 cmovg ebx, r8d
+becf85 lea rcx, [rdi + 0x1d4]
+becf8c mov eax, dword ptr [rcx]
+becf8e mov dword ptr [rsp + 0x50], eax
+becf92 test eax, eax
+becf94 jne 0xbecf9a
+becf96 mov eax, ebp
+becf98 jmp 0xbecf9f
+becf9a call 0xc08790
+becf9f mov r8d, ebx
+becfa2 mov dword ptr [rsp + 0x54], eax
+becfa6 lea rdx, [rsp + 0x50]
+becfab mov rcx, r14
+becfae call 0xcc7550
+becfb3 test esi, esi
+becfb5 jle 0xbecfe3
+becfb7 lea rcx, [rdi + 0x1dc]
+becfbe mov eax, dword ptr [rcx]
+becfc0 mov dword ptr [rsp + 0x50], eax
+becfc4 test eax, eax
+becfc6 je 0xbecfcf
+becfc8 call 0xc08790
+becfcd mov ebp, eax
+becfcf mov r8d, esi
+becfd2 mov dword ptr [rsp + 0x54], ebp
+becfd6 lea rdx, [rsp + 0x50]
+becfdb mov rcx, r14
+becfde call 0xcc7550
+becfe3 mov rbx, qword ptr [rsp + 0x58]
+becfe8 mov rbp, qword ptr [rsp + 0x60]
+becfed add rsp, 0x30
+becff1 pop r14
+becff3 pop rdi
+becff4 pop rsi
+becff5 ret 

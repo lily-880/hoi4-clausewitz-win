@@ -1,0 +1,27 @@
+147fd5a mov qword ptr [rsp + 0x48], rbp
+147fd5f nop 
+147fd60 mov rcx, rbx
+147fd63 mov rbx, qword ptr [rbx + 0x10]
+147fd67 call 0xc07bf0
+147fd6c mov ecx, dword ptr [rdi]
+147fd6e mov rbp, rax
+147fd71 mov dword ptr [rsp + 0x40], ecx
+147fd75 test ecx, ecx
+147fd77 jne 0x147fd7d
+147fd79 xor eax, eax
+147fd7b jmp 0x147fd85
+147fd7d mov rcx, rdi
+147fd80 call 0xc08790
+147fd85 xor r9d, r9d
+147fd88 mov dword ptr [rsp + 0x44], eax
+147fd8c xor r8d, r8d
+147fd8f lea rdx, [rsp + 0x40]
+147fd94 mov rcx, rbp
+147fd97 call 0x748490
+147fd9c test al, al
+147fd9e jne 0x147fda7
+147fda0 test rbx, rbx
+147fda3 jne 0x147fd60
+147fda5 jmp 0x147fdae
+147fda7 mov byte ptr [rsi + 0xda], 1
+147fdae mov rbp, qword ptr [rsp + 0x48]

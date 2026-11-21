@@ -1,0 +1,28 @@
+13491a0 mov qword ptr [rsp + 8], rbx
+13491a5 push rdi
+13491a6 sub rsp, 0x20
+13491aa mov rax, qword ptr [rdx]
+13491ad mov rcx, rdx
+13491b0 mov rbx, r8
+13491b3 mov rdi, rdx
+13491b6 call qword ptr [rax + 0xe8]
+13491bc test rax, rax
+13491bf je 0x13491ce
+13491c1 mov r8, rdi
+13491c4 xor edx, edx
+13491c6 mov rcx, rax
+13491c9 call 0xc748c0
+13491ce mov rax, qword ptr [rbx]
+13491d1 mov rcx, rbx
+13491d4 call qword ptr [rax + 0xe8]
+13491da test rax, rax
+13491dd je 0x13491ec
+13491df mov r8, rbx
+13491e2 mov dl, 1
+13491e4 mov rcx, rax
+13491e7 call 0xc748c0
+13491ec lea rcx, [rbx + 0x1d0]
+13491f3 mov rbx, qword ptr [rsp + 0x30]
+13491f8 add rsp, 0x20
+13491fc pop rdi
+13491fd jmp 0xd3ef80

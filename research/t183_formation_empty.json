@@ -1,0 +1,27 @@
+{
+  "player_theatres": 1,
+  "roots": {
+    "CCountry+0x168": "pdx array of CTheatre* (t165, reconfirmed)"
+  },
+  "group_arrays_on_CTheatre": {
+    "orders_group": {
+      "off": "0x80",
+      "size": 0
+    },
+    "field_marshal_group": {
+      "off": "0x98",
+      "size": 0
+    },
+    "theater_group": {
+      "off": "0xc8",
+      "size": 0
+    }
+  },
+  "unit_formation_pointers": "no CTheatre/CArmyGroup/CTheaterGroup pointer on the 21 own CArmy in +0x20..0x800",
+  "schema": {
+    "army_id": "integer optional",
+    "army_group_id": "integer optional"
+  },
+  "promoted": false,
+  "why": "official empty group arrays are a structure candidate only; this scene has no army or army-group object, so army_id/army_group_id cannot be proven"
+}

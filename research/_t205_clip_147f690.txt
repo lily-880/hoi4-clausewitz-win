@@ -1,0 +1,15 @@
+147f690 push rbx
+147f692 sub rsp, 0x20
+147f696 cmp dword ptr [rcx + 0x2c], 0
+147f69a mov rbx, rcx
+147f69d jle 0x147f6b5
+147f69f nop 
+147f6a0 mov rdx, qword ptr [rbx + 0x20]
+147f6a4 mov rcx, rbx
+147f6a7 mov rdx, qword ptr [rdx]
+147f6aa call 0x147f6c0
+147f6af cmp dword ptr [rbx + 0x2c], 0
+147f6b3 jg 0x147f6a0
+147f6b5 add rsp, 0x20
+147f6b9 pop rbx
+147f6ba ret 

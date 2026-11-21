@@ -1,0 +1,504 @@
+{
+  "at_est": "2026-11-21T02:00:51.132372-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "country_lookup_sample": {
+    "raw_index": 3,
+    "canonical_index": 3,
+    "matches_fresh_runtime_country": true,
+    "country_tag": "SOV"
+  },
+  "names": [
+    {
+      "rva": "0x2811060",
+      "text": "TRIGGER_IS_PUPPET"
+    },
+    {
+      "rva": "0x2811258",
+      "text": "TRIGGER_IS_SUBJECT"
+    },
+    {
+      "rva": "0x2b43750",
+      "text": "is_puppet"
+    },
+    {
+      "rva": "0x2b47eb0",
+      "text": "is_subject"
+    }
+  ],
+  "references": [
+    {
+      "site": "0xa7f4f",
+      "name": "is_subject",
+      "rva": "0x2b47eb0",
+      "pdata": [
+        "0x83760",
+        "0x119491",
+        "0x309285c"
+      ]
+    },
+    {
+      "site": "0x113aab",
+      "name": "is_puppet",
+      "rva": "0x2b43750",
+      "pdata": [
+        "0x83760",
+        "0x119491",
+        "0x309285c"
+      ]
+    },
+    {
+      "site": "0x4419b3",
+      "name": "TRIGGER_IS_PUPPET",
+      "rva": "0x2811060",
+      "pdata": [
+        "0x441970",
+        "0x441bcc",
+        "0x2eb71d8"
+      ]
+    },
+    {
+      "site": "0x442b87",
+      "name": "TRIGGER_IS_SUBJECT",
+      "rva": "0x2811258",
+      "pdata": [
+        "0x442b60",
+        "0x442ce4",
+        "0x2ea4944"
+      ]
+    }
+  ],
+  "functions": {
+    "0x441970": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x441970",
+      "window_size": 604,
+      "reachable_instruction_count": 149,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x4419a4",
+          "operand": "0xc07eb0"
+        },
+        {
+          "site": "0x4419e4",
+          "operand": "0x25a0600"
+        },
+        {
+          "site": "0x4419f2",
+          "operand": "0x11f770"
+        },
+        {
+          "site": "0x441a12",
+          "operand": "0x121490"
+        },
+        {
+          "site": "0x441a4f",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x441a66",
+          "operand": "0x22aeab0"
+        },
+        {
+          "site": "0x441a85",
+          "operand": "0x25a06e4"
+        },
+        {
+          "site": "0x441a98",
+          "operand": "0x116c2c0"
+        },
+        {
+          "site": "0x441ad5",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x441ba0",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x441bba",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x441bc0",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x441bc6",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x441b66",
+          "operand": "0x11f240"
+        }
+      ],
+      "asm": [
+        "441970 mov qword ptr [rsp + 0x10], rdx",
+        "441975 push rbp",
+        "441976 push rbx",
+        "441977 push rsi",
+        "441978 push rdi",
+        "441979 push r13",
+        "44197b push r14",
+        "44197d push r15",
+        "44197f lea rbp, [rsp - 0x10]",
+        "441984 sub rsp, 0x110",
+        "44198b movzx edi, r9b",
+        "44198f mov r13, r8",
+        "441992 mov r14, rdx",
+        "441995 mov rbx, rcx",
+        "441998 mov dword ptr [rsp + 0x30], 0",
+        "4419a0 lea rcx, [r8 + 8]",
+        "4419a4 call 0xc07eb0",
+        "4419a9 mov rsi, rax",
+        "4419ac lea rax, [rip + 0x23cf695]",
+        "4419b3 lea r15, [rip + 0x23cf6a6]",
+        "4419ba cmp dil, byte ptr [rbx + 0x58]",
+        "4419be cmove r15, rax",
+        "4419c2 lea rbx, [rip - 0x18c459]",
+        "4419c9 mov qword ptr [rsp + 0x20], rbx",
+        "4419ce lea r9, [rip - 0x18c975]",
+        "4419d5 mov edx, 0x68",
+        "4419da mov r8d, 1",
+        "4419e0 lea rcx, [rbp - 0x60]",
+        "4419e4 call 0x25a0600",
+        "4419e9 nop ",
+        "4419ea mov rdx, rsi",
+        "4419ed lea rcx, [rsp + 0x58]",
+        "4419f2 call 0x11f770",
+        "4419f7 lea rax, [rip + 0x237ad0a]",
+        "4419fe mov qword ptr [rbp - 0x58], rax",
+        "441a02 mov dword ptr [rbp - 0x60], 1",
+        "441a09 lea rdx, [rsp + 0x58]",
+        "441a0e lea rcx, [rbp - 0x30]",
+        "441a12 call 0x121490",
+        "441a17 mov rdx, qword ptr [rsp + 0x70]",
+        "441a1c cmp rdx, 0xf",
+        "441a20 jbe 0x441a54",
+        "441a22 inc rdx",
+        "441a25 mov rcx, qword ptr [rsp + 0x58]",
+        "441a2a mov rax, rcx",
+        "441a2d cmp rdx, 0x1000",
+        "441a34 jb 0x441a4f",
+        "441a36 add rdx, 0x27",
+        "441a3a mov rcx, qword ptr [rcx - 8]",
+        "441a3e sub rax, rcx",
+        "441a41 add rax, -8",
+        "441a45 cmp rax, 0x1f",
+        "441a49 ja 0x441bc0",
+        "441a4f call 0x25a0218",
+        "441a54 mov r9d, 1",
+        "441a5a lea r8, [rbp - 0x60]",
+        "441a5e mov rdx, r15",
+        "441a61 lea rcx, [rsp + 0x78]",
+        "441a66 call 0x22aeab0",
+        "441a6b mov dword ptr [rsp + 0x30], 0xc",
+        "441a73 mov r9, rbx",
+        "441a76 mov edx, 0x68",
+        "441a7b mov r8d, 1",
+        "441a81 lea rcx, [rbp - 0x60]",
+        "441a85 call 0x25a06e4",
+        "441a8a nop ",
+        "441a8b lea r8, [rsp + 0x78]",
+        "441a90 mov rdx, r13",
+        "441a93 lea rcx, [rsp + 0x38]",
+        "441a98 call 0x116c2c0",
+        "441a9d nop ",
+        "441a9e mov rdx, qword ptr [rbp - 0x70]",
+        "441aa2 cmp rdx, 0xf",
+        "441aa6 jbe 0x441adb",
+        "441aa8 inc rdx",
+        "441aab mov rcx, qword ptr [rsp + 0x78]",
+        "441ab0 mov rax, rcx",
+        "441ab3 cmp rdx, 0x1000",
+        "441aba jb 0x441ad5",
+        "441abc add rdx, 0x27",
+        "441ac0 mov rcx, qword ptr [rcx - 8]",
+        "441ac4 sub rax, rcx",
+        "441ac7 add rax, -8",
+        "441acb cmp rax, 0x1f",
+        "441acf ja 0x441bc6",
+        "441ad5 call 0x25a0218",
+        "441ada nop ",
+        "441adb mov qword ptr [r14 + 0x10], 0",
+        "441ae3 mov qword ptr [r14 + 0x18], 0",
+        "441aeb movups xmm0, xmmword ptr [rsp + 0x38]",
+        "441af0 movups xmmword ptr [r14], xmm0",
+        "441af4 movups xmm1, xmmword ptr [rsp + 0x48]",
+        "441af9 movups xmmword ptr [r14 + 0x10], xmm1",
+        "441afe movdqa xmm0, xmmword ptr [rip + 0x2353e8a]",
+        "441b06 movdqu xmmword ptr [rsp + 0x48], xmm0",
+        "441b0c mov byte ptr [rsp + 0x38], 0",
+        "441b11 mov dword ptr [rsp + 0x30], 0x1a",
+        "441b19 mov rcx, qword ptr [r14 + 0x10]",
+        "441b1d mov rdx, qword ptr [r14 + 0x18]",
+        "441b21 mov rax, rdx",
+        "441b24 sub rax, rcx",
+        "441b27 cmp rax, 1",
+        "441b2b jb 0x441b49",
+        "441b2d lea rax, [rcx + 1]",
+        "441b31 mov qword ptr [r14 + 0x10], rax",
+        "441b35 mov rax, r14",
+        "441b38 cmp rdx, 0xf",
+        "441b3c jbe 0x441b41",
+        "441b3e mov rax, qword ptr [r14]",
+        "441b41 mov word ptr [rax + rcx], 0xa",
+        "441b47 jmp 0x441b6c",
+        "441b49 mov qword ptr [rsp + 0x20], 1",
+        "441b52 lea r9, [rip + 0x23552d7]",
+        "441b59 movzx r8d, byte ptr [rbp + 0x68]",
+        "441b5e mov edx, 1",
+        "441b63 mov rcx, r14",
+        "441b66 call 0x11f240",
+        "441b6b nop ",
+        "441b6c mov rdx, qword ptr [rsp + 0x50]",
+        "441b71 cmp rdx, 0xf",
+        "441b75 jbe 0x441ba5",
+        "441b77 inc rdx",
+        "441b7a mov rcx, qword ptr [rsp + 0x38]",
+        "441b7f mov rax, rcx",
+        "441b82 cmp rdx, 0x1000",
+        "441b89 jb 0x441ba0",
+        "441b8b add rdx, 0x27",
+        "441b8f mov rcx, qword ptr [rcx - 8]",
+        "441b93 sub rax, rcx",
+        "441b96 add rax, -8",
+        "441b9a cmp rax, 0x1f",
+        "441b9e ja 0x441bba",
+        "441ba0 call 0x25a0218",
+        "441ba5 mov rax, r14",
+        "441ba8 add rsp, 0x110",
+        "441baf pop r15",
+        "441bb1 pop r14",
+        "441bb3 pop r13",
+        "441bb5 pop rdi",
+        "441bb6 pop rsi",
+        "441bb7 pop rbx",
+        "441bb8 pop rbp",
+        "441bb9 ret ",
+        "441bba call 0x25c7db4",
+        "441bbf nop ",
+        "441bc0 call 0x25c7db4",
+        "441bc5 nop ",
+        "441bc6 call 0x25c7db4",
+        "441bcb int3 "
+      ],
+      "raw_hex": "488954241055535657415541564157488d6c24f04881ec10010000410fb6f94d8be84c8bf2488bd9c744243000000000498d4808e807657c00488bf0488d0595f63c024c8d3da6f63c02403a7b584c0f44f8488d1da73be7ff48895c24204c8d0d8b36e7ffba6800000041b801000000488d4da0e817ec150290488bd6488d4c2458e879ddcdff488d050aad3702488945a8c745a001000000488d542458488d4dd0e879facdff488b5424704883fa0f763248ffc2488b4c2458488bc14881fa0010000072194883c227488b49f8482bc14883c0f84883f81f0f8771010000e8c4e7150241b9010000004c8d45a0498bd7488d4c2478e845d0e601c74424300c0000004c8bcbba6800000041b801000000488d4da0e85aec1502904c8d442478498bd5488d4c2438e823a8d20090488b55904883fa0f763348ffc2488b4c2478488bc14881fa0010000072194883c227488b49f8482bc14883c0f84883f81f0f87f1000000e83ee715029049c746100000000049c74618000000000f10442438410f11060f104c2448410f114e10660f6f058a3e3502f30f7f442448c644243800c74424301a000000498b4e10498b5618488bc2482bc14883f801721c488d410149894610498bc64883fa0f7603498b0666c704080a00eb2348c7442420010000004c8d0dd7523502440fb64568ba01000000498bcee8d5d6cdff90488b5424504883fa0f762e48ffc2488b4c2438488bc14881fa0010000072154883c227488b49f8482bc14883c0f84883f81f771ae873e61502498bc64881c410010000415f415e415d5f5e5b5dc3e8f561180290e8ef61180290e8e9611802cc",
+      "sha256": "a223238001499657427d2f73fb885a0d030398668ff02c564c28b98f70eb7ace",
+      "pdata": [
+        "0x441970",
+        "0x441bcc",
+        "0x2eb71d8"
+      ],
+      "literals": [
+        {
+          "site": "0x4419ac",
+          "rva": "0x2811048",
+          "text": "TRIGGER_IS_NOT_PUPPET"
+        },
+        {
+          "site": "0x4419b3",
+          "rva": "0x2811060",
+          "text": "TRIGGER_IS_PUPPET"
+        },
+        {
+          "site": "0x4419f7",
+          "rva": "0x27bc708",
+          "text": "COUNTRY"
+        }
+      ]
+    },
+    "0x442b60": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x442b60",
+      "window_size": 388,
+      "reachable_instruction_count": 92,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x442ba1",
+          "operand": "0x22aeab0"
+        },
+        {
+          "site": "0x442bb4",
+          "operand": "0x116c2c0"
+        },
+        {
+          "site": "0x442bf2",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x442cbf",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x442cd8",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x442c85",
+          "operand": "0x11f240"
+        },
+        {
+          "site": "0x442cde",
+          "operand": "0x25c7db4"
+        }
+      ],
+      "asm": [
+        "442b60 mov qword ptr [rsp + 8], rbx",
+        "442b65 mov qword ptr [rsp + 0x10], rdx",
+        "442b6a push rdi",
+        "442b6b sub rsp, 0x80",
+        "442b72 mov rbx, r8",
+        "442b75 mov rdi, rdx",
+        "442b78 mov dword ptr [rsp + 0x30], 0",
+        "442b80 lea rax, [rip + 0x23ce6b9]",
+        "442b87 lea rdx, [rip + 0x23ce6ca]",
+        "442b8e cmp r9b, byte ptr [rcx + 0x58]",
+        "442b92 cmove rdx, rax",
+        "442b96 xor r9d, r9d",
+        "442b99 xor r8d, r8d",
+        "442b9c lea rcx, [rsp + 0x58]",
+        "442ba1 call 0x22aeab0",
+        "442ba6 nop ",
+        "442ba7 lea r8, [rsp + 0x58]",
+        "442bac mov rdx, rbx",
+        "442baf lea rcx, [rsp + 0x38]",
+        "442bb4 call 0x116c2c0",
+        "442bb9 nop ",
+        "442bba mov rdx, qword ptr [rsp + 0x70]",
+        "442bbf cmp rdx, 0xf",
+        "442bc3 jbe 0x442bf8",
+        "442bc5 inc rdx",
+        "442bc8 mov rcx, qword ptr [rsp + 0x58]",
+        "442bcd mov rax, rcx",
+        "442bd0 cmp rdx, 0x1000",
+        "442bd7 jb 0x442bf2",
+        "442bd9 add rdx, 0x27",
+        "442bdd mov rcx, qword ptr [rcx - 8]",
+        "442be1 sub rax, rcx",
+        "442be4 add rax, -8",
+        "442be8 cmp rax, 0x1f",
+        "442bec ja 0x442cde",
+        "442bf2 call 0x25a0218",
+        "442bf7 nop ",
+        "442bf8 mov qword ptr [rdi + 0x10], 0",
+        "442c00 mov qword ptr [rdi + 0x18], 0",
+        "442c08 movups xmm0, xmmword ptr [rsp + 0x38]",
+        "442c0d movups xmmword ptr [rdi], xmm0",
+        "442c10 movups xmm1, xmmword ptr [rsp + 0x48]",
+        "442c15 movups xmmword ptr [rdi + 0x10], xmm1",
+        "442c19 movdqa xmm0, xmmword ptr [rip + 0x2352d6f]",
+        "442c21 movdqu xmmword ptr [rsp + 0x48], xmm0",
+        "442c27 mov byte ptr [rsp + 0x38], 0",
+        "442c2c mov dword ptr [rsp + 0x30], 0x1e",
+        "442c34 mov rcx, qword ptr [rdi + 0x10]",
+        "442c38 mov rdx, qword ptr [rdi + 0x18]",
+        "442c3c mov rax, rdx",
+        "442c3f sub rax, rcx",
+        "442c42 cmp rax, 1",
+        "442c46 jb 0x442c64",
+        "442c48 lea rax, [rcx + 1]",
+        "442c4c mov qword ptr [rdi + 0x10], rax",
+        "442c50 mov rax, rdi",
+        "442c53 cmp rdx, 0xf",
+        "442c57 jbe 0x442c5c",
+        "442c59 mov rax, qword ptr [rdi]",
+        "442c5c mov word ptr [rax + rcx], 0xa",
+        "442c62 jmp 0x442c8b",
+        "442c64 mov qword ptr [rsp + 0x20], 1",
+        "442c6d lea r9, [rip + 0x23541bc]",
+        "442c74 movzx r8d, byte ptr [rsp + 0xa8]",
+        "442c7d mov edx, 1",
+        "442c82 mov rcx, rdi",
+        "442c85 call 0x11f240",
+        "442c8a nop ",
+        "442c8b mov rdx, qword ptr [rsp + 0x50]",
+        "442c90 cmp rdx, 0xf",
+        "442c94 jbe 0x442cc4",
+        "442c96 inc rdx",
+        "442c99 mov rcx, qword ptr [rsp + 0x38]",
+        "442c9e mov rax, rcx",
+        "442ca1 cmp rdx, 0x1000",
+        "442ca8 jb 0x442cbf",
+        "442caa add rdx, 0x27",
+        "442cae mov rcx, qword ptr [rcx - 8]",
+        "442cb2 sub rax, rcx",
+        "442cb5 add rax, -8",
+        "442cb9 cmp rax, 0x1f",
+        "442cbd ja 0x442cd8",
+        "442cbf call 0x25a0218",
+        "442cc4 mov rax, rdi",
+        "442cc7 mov rbx, qword ptr [rsp + 0x90]",
+        "442ccf add rsp, 0x80",
+        "442cd6 pop rdi",
+        "442cd7 ret ",
+        "442cd8 call 0x25c7db4",
+        "442cdd int3 ",
+        "442cde call 0x25c7db4",
+        "442ce3 int3 "
+      ],
+      "raw_hex": "48895c24084889542410574881ec80000000498bd8488bfac744243000000000488d05b9e63c02488d15cae63c02443a4958480f44d04533c94533c0488d4c2458e80abfe601904c8d442458488bd3488d4c2438e80797d20090488b5424704883fa0f763348ffc2488b4c2458488bc14881fa0010000072194883c227488b49f8482bc14883c0f84883f81f0f87ec000000e821d615029048c747100000000048c74718000000000f104424380f11070f104c24480f114f10660f6f056f2d3502f30f7f442448c644243800c74424301e000000488b4f10488b5718488bc2482bc14883f801721c488d410148894710488bc74883fa0f7603488b0766c704080a00eb2748c7442420010000004c8d0dbc413502440fb68424a8000000ba01000000488bcfe8b6c5cdff90488b5424504883fa0f762e48ffc2488b4c2438488bc14881fa0010000072154883c227488b49f8482bc14883c0f84883f81f7719e854d51502488bc7488b9c24900000004881c4800000005fc3e8d7501802cce8d1501802cc",
+      "sha256": "9dedcb657b598b3b87f4d9a4f6bb7f0aa05f2d272fd00978f61dd41a1f41584e",
+      "pdata": [
+        "0x442b60",
+        "0x442ce4",
+        "0x2ea4944"
+      ],
+      "literals": [
+        {
+          "site": "0x442b80",
+          "rva": "0x2811240",
+          "text": "TRIGGER_IS_NOT_SUBJECT"
+        },
+        {
+          "site": "0x442b87",
+          "rva": "0x2811258",
+          "text": "TRIGGER_IS_SUBJECT"
+        }
+      ]
+    }
+  },
+  "stable_dependencies": 10,
+  "promotions": [],
+  "scope": "Actual current selected country-handle canonicalization only; distinct named subject/overlord relation entrance, no faction/null-faction/nonwar-friendly scan, no foreign unit/country census, no promotion or invoked getters."
+}

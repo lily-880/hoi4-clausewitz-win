@@ -1,0 +1,27 @@
+# t242 checkpoint — named faction predicate has no live positive; distinct isolation receiver pivot
+
+## Guard / closed candidate, not history-based friendship
+Initial fresh actual guard02:25:03 EST:PID31576/base0x7ff72fc80000/version1.19.5.0.7c6c/SOV3/pause1/speed0/tick60781105/both OPENfalse;175prior windows and production51/four hashes/control hashes matched. Every new reader freshly derives roots and checks equal guard before/after.
+Exact named TRIGGER_IS_IN_FACTION_WITH/NOT consumer43EB90, actual COL-validated CIsInFactionWithTrigger vtable280F220(offset0), slot21tooltip/22evaluator3F90F0/23dynamic target resolver1443990;24metadata. Source scope+8 and resolved target both C07BF0->country+F88 manager+2D8. BOTH must be nonnull, then exact pointer equality returns true. Not generic schema friendly/allied definition, and null==null is explicitly FALSE. Exact ALLIED_WITH names were not found in the initial limited requested set; no global absence claim.
+At02:25:50 EST only3bounded named lookups/3bucket keys:SOV3,MON69,JAP48. Actual SOV+2D8=null;MON=null;JAP=nonnull. Four directed controls SOV->MON,MON->SOV,SOV->JAP,JAP->SOV (2unordered pairs) all false;0true controls. Historical SOV/MON alliance is NOT substituted. No null-faction/nonwar friendly inference, no MAN/JAP puppet resampling, no visible owner/visibility assumption or census. Branch CLOSED for requested live controls, no repeated polls. 0relation promotion.
+
+## Distinct remaining-field pivot: own_units.supply.isolated
+Receiver-bound NEW virtual10/20 bodies from29D6F78, not repeated global SETcc/overlap scans or49all-connected samples. Actual COL2D4DBE8 names CArmy with complete-object offset16 (Army+10 secondary interface), NOT a distinct invented CSupplyConsumer class.
+slot10 CED2E0 is a persistence-shaped body calling parentF4CA30 and serializers; slot20 CE95A0 is a token-dispatch/loading body with OOB/template errors. Code was READ ONLY, never serializer/parser invocation or save access. No runtime lifecycle or isolation semantics inferred from vtable slot names.
+Original CE95A0 artifact deliberately retains unresolved indirect CE97CF. Independently resolved offline: inputtoken-2E9A <=4A;75-byte index tableCEA1B8,7RVA targets atCEA19C,653union reachable instructions,0remaining unresolved direct edges in this bounded body. Calls remain opaque, not global closure. New cases include rdi+29F; COL offset10 means Army+2AF, illustrating why receiver correction matters. Explicit code also uses RDI-10 when a complete Army pointer is needed.
+Apparent CE9A6B byte[RCX+2E] writer is REJECTED: CE9A0E allocates30hex bytes, CE9A18 sets RCX to new allocation, then constructs47-byte literal and writes terminator+2F. Exact consumed constant29D7250 is "Army refers to a non existing division template". It does NOT write consumer1E/Army2E. This was exact constant lookup, not diagnostic-string scan or severity/enum inference.
+No new unit samples, no isolated positive manufactured,0isolated promotion. Default token path CEA036 passes same secondary RDI to C58600: a specific unclosed NEXT parser/receiver entrance, not proof of runtime isolation writer.
+
+## Tests and attempts (separate counts)
+20UNIQUE offline methods:17targeted+3shared,1suite start/completion,20invocations,allpass;0failure/error/collection failure/rerun. Exact names/output in t242_regression_attempt1.json. Covers named interface/source-target/null guards/live actual contrasts, bounded identities/no positives/pivot, CArmy secondary offset/persistence distinction, preserved partial vs exact two-level switch closure, false+2E string receiver, opaque fallback,180pin union/session/inventory/no promotion.
+Remote research4executions4successes0failures0spawn failures. Initial guard1/terminal seal1 separate.
+Offline switch generation2starts1completion: first stopped at missing-capstone import,0tests or process reads. Package setup2attempts: initial --user pip rejected externally-managed environment, no override; isolated box /workspace/hoi4-t242/offline-venv withcapstone5.0.9 succeeded. All recorded in t242_offline_setup_attempts.json; these are NOT remote research failures or test-suite failures. Original raw partial artifact unchanged; offline replay script/result preserved.
+Native terminal pins180=175prior+4newcode windows+1exact47-byte literal window. Production51/four hashes/nativecontrols/fingerprint gates unchanged.
+Inventory87/29(17memory12nonmemory),14tables116fields3columns unchanged. SHA8213d5be560adf5565e8244f45e16fc2e5aa987ad2dbbc8ccf057939dd18cbf3.
+Game writes/Post/nativecalls/formatter/save access/time advance/pause-speed/UI changes all0; no fullcapture/commitpush/genericproductionedits/backgroundtasks. This is research checkpoint, NEVER game save.
+
+## Next target
+C58600 default parser path from CE95A0, exact secondary+10/complete receiver contract and actual packed/alias byte handling, with independently named semantics before even considering isolated. Do not invoke parser, access saves, infer lifecycle from loader, rerun all-connected units, or repeat faction/MAN-JAP/global-writer scans. If parser-only/no productive isolation chain, close narrowly and pivot another remaining memory field.
+
+## Persistence
+C authority only C:\Users\Lenovo\Documents\钢四陆军总司令, box /workspace/hoi4-docs-latest. Parent665records667files pending0. Final manifest/receipt gives terminal size/SHA counts;9historical box extras retained. No deprecated D docs.

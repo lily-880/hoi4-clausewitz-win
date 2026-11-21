@@ -1,0 +1,69 @@
+349260 mov qword ptr [rsp + 8], rbx
+349265 mov qword ptr [rsp + 0x10], rsi
+34926a push rdi
+34926b sub rsp, 0x20
+34926f mov edi, edx
+349271 xor esi, esi
+349273 mov rdx, qword ptr [rcx + 0x178]
+34927a mov rbx, rcx
+34927d test rdx, rdx
+349280 je 0x3492a2
+349282 mov dword ptr [rcx + 0x184], esi
+349288 mov rcx, qword ptr [rcx + 0x188]
+34928f mov rax, qword ptr [rcx]
+349292 call qword ptr [rax + 0x10]
+349295 mov qword ptr [rbx + 0x178], rsi
+34929c mov dword ptr [rbx + 0x180], esi
+3492a2 mov rdx, qword ptr [rbx + 0x160]
+3492a9 test rdx, rdx
+3492ac je 0x3492ce
+3492ae mov rcx, qword ptr [rbx + 0x170]
+3492b5 mov dword ptr [rbx + 0x16c], esi
+3492bb mov rax, qword ptr [rcx]
+3492be call qword ptr [rax + 0x10]
+3492c1 mov qword ptr [rbx + 0x160], rsi
+3492c8 mov dword ptr [rbx + 0x168], esi
+3492ce mov rdx, qword ptr [rbx + 0x148]
+3492d5 test rdx, rdx
+3492d8 je 0x3492fa
+3492da mov rcx, qword ptr [rbx + 0x158]
+3492e1 mov dword ptr [rbx + 0x154], esi
+3492e7 mov rax, qword ptr [rcx]
+3492ea call qword ptr [rax + 0x10]
+3492ed mov qword ptr [rbx + 0x148], rsi
+3492f4 mov dword ptr [rbx + 0x150], esi
+3492fa mov rdx, qword ptr [rbx + 0x140]
+349301 cmp rdx, 0xf
+349305 jbe 0x349337
+349307 mov rcx, qword ptr [rbx + 0x128]
+34930e inc rdx
+349311 cmp rdx, 0x1000
+349318 jb 0x349332
+34931a mov r8, qword ptr [rcx - 8]
+34931e add rdx, 0x27
+349322 sub rcx, r8
+349325 lea rax, [rcx - 8]
+349329 cmp rax, 0x1f
+34932d ja 0x349387
+34932f mov rcx, r8
+349332 call 0x25a0218
+349337 lea rcx, [rbx + 0x58]
+34933b mov qword ptr [rbx + 0x138], rsi
+349342 mov qword ptr [rbx + 0x140], 0xf
+34934d mov byte ptr [rbx + 0x128], sil
+349354 call 0x15c320
+349359 mov rcx, rbx
+34935c call 0x584540
+349361 test dil, 1
+349365 je 0x349374
+349367 mov edx, 0x190
+34936c mov rcx, rbx
+34936f call 0x25a0218
+349374 mov rsi, qword ptr [rsp + 0x38]
+349379 mov rax, rbx
+34937c mov rbx, qword ptr [rsp + 0x30]
+349381 add rsp, 0x20
+349385 pop rdi
+349386 ret 
+349387 call 0x25c7db4
+34938c int3 

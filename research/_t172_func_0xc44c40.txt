@@ -1,0 +1,54 @@
+0xc44c40  push rbp
+0xc44c42  lea rbp, [rsp - 0x57]
+0xc44c47  sub rsp, 0xb0
+0xc44c4e  mov r8, qword ptr [rcx + 8]
+0xc44c52  movsxd rcx, dword ptr [rcx + 0x14]
+0xc44c56  shl rcx, 4
+0xc44c5a  add rcx, r8
+0xc44c5d  movaps xmmword ptr [rsp + 0xa0], xmm6
+0xc44c65  mov qword ptr [rbp - 0x41], rcx
+0xc44c69  mov qword ptr [rbp - 0x39], rcx
+0xc44c6d  mov byte ptr [rbp - 0x30], 0
+0xc44c71  mov qword ptr [rbp - 0x59], r8
+0xc44c75  mov qword ptr [rbp - 0x51], rcx
+0xc44c79  mov byte ptr [rbp - 0x48], 1
+0xc44c7d  cmp r8, rcx
+0xc44c80  je 0xc44c96
+0xc44c82  cmp qword ptr [r8 + 8], 0
+0xc44c87  jne 0xc44c96
+0xc44c89  add r8, 0x10
+0xc44c8d  mov qword ptr [rbp - 0x59], r8
+0xc44c91  cmp r8, rcx
+0xc44c94  jne 0xc44c82
+0xc44c96  movups xmm6, xmmword ptr [rbp - 0x41]
+0xc44c9a  mov byte ptr [rbp + 8], 1
+0xc44c9e  mov rax, rdx
+0xc44ca1  movups xmm1, xmmword ptr [rbp - 0x59]
+0xc44ca5  mov byte ptr [rbp + 0x40], 0
+0xc44ca9  movsd xmm0, qword ptr [rbp - 0x31]
+0xc44cae  movsd xmm2, qword ptr [rbp - 0x49]
+0xc44cb3  movaps xmm5, xmm0
+0xc44cb6  movups xmmword ptr [rdx], xmm1
+0xc44cb9  movups xmmword ptr [rdx + 0x38], xmm6
+0xc44cbd  movups xmmword ptr [rbp - 0x11], xmm6
+0xc44cc1  movups xmm0, xmmword ptr [rbp - 0x19]
+0xc44cc5  movups xmm1, xmmword ptr [rbp - 9]
+0xc44cc9  movsd xmm0, xmm2
+0xc44ccd  movups xmmword ptr [rdx + 0x10], xmm0
+0xc44cd1  movsd xmm0, qword ptr [rbp + 7]
+0xc44cd6  unpcklpd xmm1, xmm5
+0xc44cda  movups xmmword ptr [rdx + 0x20], xmm1
+0xc44cde  movsd qword ptr [rdx + 0x30], xmm0
+0xc44ce3  movups xmmword ptr [rbp + 0x27], xmm6
+0xc44ce7  movups xmm0, xmmword ptr [rbp + 0x1f]
+0xc44ceb  movups xmm1, xmmword ptr [rbp + 0x2f]
+0xc44cef  movaps xmm6, xmmword ptr [rsp + 0xa0]
+0xc44cf7  movsd xmm0, xmm5
+0xc44cfb  movups xmmword ptr [rdx + 0x48], xmm0
+0xc44cff  movsd xmm0, qword ptr [rbp + 0x3f]
+0xc44d04  unpcklpd xmm1, xmm5
+0xc44d08  movups xmmword ptr [rdx + 0x58], xmm1
+0xc44d0c  movsd qword ptr [rdx + 0x68], xmm0
+0xc44d11  add rsp, 0xb0
+0xc44d18  pop rbp
+0xc44d19  ret

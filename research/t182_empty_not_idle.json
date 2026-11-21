@@ -1,0 +1,81 @@
+{
+  "rule": "official empty list or zero flag may prove a structure candidate and an official encoding, but must not be promoted as order.type=idle or in_combat=false",
+  "session": {
+    "pid": 26976,
+    "own_units": 21,
+    "hour_tick": 60759371
+  },
+  "live": {
+    "commandlist": {
+      "ca": "CArmy+0x2c0 data, +0x2cc size",
+      "size": 0,
+      "units": 21,
+      "writer_omits_key": true
+    },
+    "path": {
+      "ca": "CArmy+0x200 data, +0x20c size",
+      "size": 0,
+      "units": 21,
+      "writer_omits_key": true
+    },
+    "full_path": {
+      "ca": "CArmy+0x220 data, +0x22c size",
+      "size": 0,
+      "units": 21,
+      "writer_omits_key": true
+    },
+    "support_attack": {
+      "ca": "CArmy+0x1e8",
+      "ptr": "0x0",
+      "units": 21
+    },
+    "previous": {
+      "ca": "CArmy+0x1f8",
+      "ptr": "0x0",
+      "units": 21
+    },
+    "retreat": {
+      "ca": "CArmy+0x24c",
+      "value": 0,
+      "units": 21,
+      "written_iff_nonzero": true
+    },
+    "withdraw": {
+      "ca": "CArmy+0x24d",
+      "value": 0,
+      "units": 21
+    },
+    "strategic_redeployment": {
+      "ca": "CArmy+0x2af",
+      "value": 0,
+      "units": 21
+    },
+    "movement_progress": {
+      "ca": "CArmy+0x240",
+      "value": 0,
+      "units": 21
+    },
+    "out_of_supply_days": {
+      "ca": "CArmy+0x498",
+      "value": 0,
+      "units": 21,
+      "writer_skips_if_le_0": true
+    },
+    "gs_combats": {
+      "location": "GS+0x268",
+      "data": 0,
+      "size": 0
+    },
+    "supply_ratio_610": 72.0,
+    "max_supply_600": 108.0
+  },
+  "why_not_promoted": {
+    "in_combat": "no official CArmy IsInCombat / current CLandCombat* reader bound; last_combat_date is historical; empty GS+0x268 is a structure candidate only",
+    "order": "commandlist / path / full_path official-empty and retreat/withdraw/SR official-zero do not equal schema enum idle; GetOrderType is a plan-object type at +0x30, not unit.order.type. Do not write empty arrays as false/idle.",
+    "supply.ratio": "official token army_current_supply_ratio at CA+0x610 is 72.0 under /100000, same rejection as t165 (not a 0..1 ratio). Do not invent 72/108.",
+    "in_supply_isolated": "no named isolated / in_supply token on CArmy; oos_days==0 is an official skip, not the boolean contract",
+    "formation": "not rebound this batch; t165 theatres exist with empty groups — structure only",
+    "leaders.assigned_to": "is_assigned token 0x385b writers 0x26940 / 0x14a8ec0 not yet bound to this field"
+  },
+  "promoted": false
+}

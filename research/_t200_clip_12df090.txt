@@ -1,0 +1,93 @@
+12df090 mov qword ptr [rsp + 8], rbx
+12df095 push rdi
+12df096 sub rsp, 0x30
+12df09a movsxd rax, dword ptr [rcx + 0x3c]
+12df09e mov r8, rdx
+12df0a1 mov rdx, qword ptr [rcx + 0x30]
+12df0a5 lea r9, [rdx + rax*8]
+12df0a9 cmp rdx, r9
+12df0ac je 0x12df0c1
+12df0ae nop 
+12df0b0 mov rbx, qword ptr [rdx]
+12df0b3 cmp qword ptr [rbx], r8
+12df0b6 je 0x12df125
+12df0b8 add rdx, 8
+12df0bc cmp rdx, r9
+12df0bf jne 0x12df0b0
+12df0c1 mov r9, qword ptr [rcx + 0x18]
+12df0c5 movsxd rax, dword ptr [rcx + 0x24]
+12df0c9 lea r10, [r9 + rax*8]
+12df0cd cmp r9, r10
+12df0d0 je 0x12df118
+12df0d2 mov rbx, qword ptr [r9]
+12df0d5 cmp qword ptr [rbx], r8
+12df0d8 je 0x12df182
+12df0de movsxd rcx, dword ptr [rbx + 0xa4]
+12df0e5 mov rax, qword ptr [rbx + 0x98]
+12df0ec lea rdx, [rcx + rcx*4]
+12df0f0 lea rcx, [rax + rdx*8]
+12df0f4 cmp rax, rcx
+12df0f7 je 0x12df10f
+12df0f9 nop dword ptr [rax]
+12df100 cmp r8, qword ptr [rax + 8]
+12df104 je 0x12df182
+12df106 add rax, 0x28
+12df10a cmp rax, rcx
+12df10d jne 0x12df100
+12df10f add r9, 8
+12df113 cmp r9, r10
+12df116 jne 0x12df0d2
+12df118 xor eax, eax
+12df11a mov rbx, qword ptr [rsp + 0x40]
+12df11f add rsp, 0x30
+12df123 pop rdi
+12df124 ret 
+12df125 mov eax, dword ptr [rip + 0x210c179]
+12df12b lea rcx, [rbx + 0x34]
+12df12f xor edi, edi
+12df131 cmp dword ptr [rcx + 4], eax
+12df134 jne 0x12df140
+12df136 mov eax, dword ptr [rip + 0x210c164]
+12df13c cmp dword ptr [rcx], eax
+12df13e je 0x12df174
+12df140 call 0x2284870
+12df145 mov rcx, rax
+12df148 mov dword ptr [rsp + 0x20], edi
+12df14c lea r9, [rip + 0x1e8473d]
+12df153 xor edx, edx
+12df155 lea r8, [rip + 0x1e64c24]
+12df15c call 0x25c38b0
+12df161 test rax, rax
+12df164 je 0x12df174
+12df166 mov edx, dword ptr [rbx + 0x3c]
+12df169 mov rcx, rax
+12df16c call 0xc402a0
+12df171 mov rdi, rax
+12df174 mov rax, rdi
+12df177 mov rbx, qword ptr [rsp + 0x40]
+12df17c add rsp, 0x30
+12df180 pop rdi
+12df181 ret 
+12df182 mov eax, dword ptr [rip + 0x210c11c]
+12df188 lea rcx, [rbx + 0x60]
+12df18c xor edi, edi
+12df18e cmp dword ptr [rcx + 4], eax
+12df191 jne 0x12df19d
+12df193 mov eax, dword ptr [rip + 0x210c107]
+12df199 cmp dword ptr [rcx], eax
+12df19b je 0x12df174
+12df19d call 0x2284870
+12df1a2 mov rcx, rax
+12df1a5 mov dword ptr [rsp + 0x20], edi
+12df1a9 lea r9, [rip + 0x1e846e0]
+12df1b0 xor edx, edx
+12df1b2 lea r8, [rip + 0x1e64bc7]
+12df1b9 call 0x25c38b0
+12df1be test rax, rax
+12df1c1 je 0x12df174
+12df1c3 mov edx, dword ptr [rbx + 0x68]
+12df1c6 mov rcx, rax
+12df1c9 mov rbx, qword ptr [rsp + 0x40]
+12df1ce add rsp, 0x30
+12df1d2 pop rdi
+12df1d3 jmp 0xc402a0

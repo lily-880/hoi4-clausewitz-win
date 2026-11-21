@@ -1,0 +1,49 @@
+0x15b1da0  mov rax, qword ptr [rcx]
+0x15b1da3  movsxd r8, r8d
+0x15b1da6  mov rcx, qword ptr [rax + r8*8]
+0x15b1daa  add rcx, rdx
+0x15b1dad  lea r9, [rax + r8*8]
+0x15b1db1  movabs rax, 0x53e2d620fb40
+0x15b1dbb  cmp rcx, rax
+0x15b1dbe  jle 0x15b1dc4
+0x15b1dc0  mov qword ptr [r9], rax
+0x15b1dc3  ret 
+0x15b1dc4  movabs rax, 0xffffac1d29df04c0
+0x15b1dce  cmp rcx, rax
+0x15b1dd1  cmovl rcx, rax
+0x15b1dd5  mov qword ptr [r9], rcx
+0x15b1dd8  ret 
+0x15b1dd9  int3 
+0x15b1dda  int3 
+0x15b1ddb  int3 
+0x15b1ddc  int3 
+0x15b1ddd  int3 
+0x15b1dde  int3 
+0x15b1ddf  int3 
+0x15b1de0  add rcx, 8
+0x15b1de4  jmp 0x15b2820
+0x15b1de9  int3 
+0x15b1dea  int3 
+0x15b1deb  int3 
+0x15b1dec  int3 
+0x15b1ded  int3 
+0x15b1dee  int3 
+0x15b1def  int3 
+0x15b1df0  add rcx, 8
+0x15b1df4  jmp 0x15b1e00
+0x15b1df9  int3 
+0x15b1dfa  int3 
+0x15b1dfb  int3 
+0x15b1dfc  int3 
+0x15b1dfd  int3 
+0x15b1dfe  int3 
+0x15b1dff  int3 
+0x15b1e00  mov qword ptr [rsp + 0x10], rbx
+0x15b1e05  mov qword ptr [rsp + 0x18], rbp
+0x15b1e0a  mov qword ptr [rsp + 0x20], rsi
+0x15b1e0f  push rdi
+0x15b1e10  sub rsp, 0x20
+0x15b1e14  mov esi, edx
+0x15b1e16  mov rbx, rcx
+0x15b1e19  lea rdi, [rcx + 0x20]
+0x15b1e1d  xor ebp, ebp

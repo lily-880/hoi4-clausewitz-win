@@ -1,0 +1,32 @@
+f468a3 mov qword ptr [rsp + 0x30], rbx
+f468a8 mov rdi, r9
+f468ab mov qword ptr [rsp + 0x38], rbp
+f468b0 lea rbx, [rdx + 8]
+f468b4 xor ebp, ebp
+f468b6 mov rsi, r8
+f468b9 nop dword ptr [rax]
+f468c0 movzx eax, word ptr [rbx - 8]
+f468c4 mov rcx, rdi
+f468c7 mov rdx, rbx
+f468ca add rdi, 0x20
+f468ce mov word ptr [rcx], ax
+f468d1 add rcx, 8
+f468d5 call 0xf3ed90
+f468da mov rdx, qword ptr [rbx]
+f468dd test rdx, rdx
+f468e0 je 0xf468f5
+f468e2 mov rcx, qword ptr [rbx + 0x10]
+f468e6 mov dword ptr [rbx + 0xc], ebp
+f468e9 mov rax, qword ptr [rcx]
+f468ec call qword ptr [rax + 0x10]
+f468ef mov qword ptr [rbx], rbp
+f468f2 mov dword ptr [rbx + 8], ebp
+f468f5 add rbx, 0x20
+f468f9 lea rax, [rbx - 8]
+f468fd cmp rax, rsi
+f46900 jne 0xf468c0
+f46902 mov rbp, qword ptr [rsp + 0x38]
+f46907 mov rbx, qword ptr [rsp + 0x30]
+f4690c mov rsi, qword ptr [rsp + 0x40]
+f46911 add rsp, 0x20
+f46915 pop rdi

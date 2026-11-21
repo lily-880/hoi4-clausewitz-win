@@ -1,0 +1,73 @@
+f4d500 push rbx
+f4d502 push r12
+f4d504 push r13
+f4d506 push r14
+f4d508 sub rsp, 0x28
+f4d50c mov r14, qword ptr [rcx + 8]
+f4d510 mov r13d, dword ptr [r14 + 0x20]
+f4d514 mov ebx, r13d
+f4d517 mov r12d, dword ptr [r14 + 0x18]
+f4d51b lock xadd dword ptr [r14], ebx
+f4d520 cmp ebx, r12d
+f4d523 jge 0xf4d619
+f4d529 mov qword ptr [rsp + 0x58], rbp
+f4d52e mov qword ptr [rsp + 0x60], rsi
+f4d533 mov qword ptr [rsp + 0x68], rdi
+f4d538 mov qword ptr [rsp + 0x20], r15
+f4d53d nop dword ptr [rax]
+f4d540 lea eax, [rbx + r13]
+f4d544 mov r15d, r12d
+f4d547 cmp eax, r12d
+f4d54a cmovl r15d, eax
+f4d54e cmp ebx, r15d
+f4d551 je 0xf4d5ef
+f4d557 nop word ptr [rax + rax]
+f4d560 movsxd rax, ebx
+f4d563 imul rsi, rax, 0xd8
+f4d56a mov rax, qword ptr [r14 + 0x28]
+f4d56e add rsi, qword ptr [rax]
+f4d571 mov rdi, qword ptr [rsi + 0x30]
+f4d575 movsxd rbp, dword ptr [rsi + 0x3c]
+f4d579 shl rbp, 4
+f4d57d add rbp, rdi
+f4d580 cmp rdi, rbp
+f4d583 je 0xf4d5e4
+f4d585 nop word ptr [rax + rax]
+f4d590 mov r8, qword ptr [r14 + 0x30]
+f4d594 movzx ecx, word ptr [rdi + 2]
+f4d598 mov r9, qword ptr [rdi + 8]
+f4d59c mov rax, qword ptr [r8 + 0x108]
+f4d5a3 mov rcx, qword ptr [rax + rcx*8]
+f4d5a7 movzx eax, word ptr [rdi]
+f4d5aa mov rdx, qword ptr [rcx + 0x80]
+f4d5b1 imul rcx, rax, 0xe8
+f4d5b8 add rcx, qword ptr [rdx + 0xb8]
+f4d5bf lea rdx, [rsp + 0x50]
+f4d5c4 call 0x19d8eb0
+f4d5c9 mov rax, qword ptr [rsp + 0x50]
+f4d5ce add qword ptr [rsi + 8], rax
+f4d5d2 test rax, rax
+f4d5d5 jle 0xf4d5db
+f4d5d7 inc word ptr [rsi + 0x14]
+f4d5db add rdi, 0x10
+f4d5df cmp rdi, rbp
+f4d5e2 jne 0xf4d590
+f4d5e4 inc ebx
+f4d5e6 cmp ebx, r15d
+f4d5e9 jne 0xf4d560
+f4d5ef cmp r15d, r12d
+f4d5f2 je 0xf4d605
+f4d5f4 mov ebx, r13d
+f4d5f7 lock xadd dword ptr [r14], ebx
+f4d5fc cmp ebx, r12d
+f4d5ff jl 0xf4d540
+f4d605 mov rdi, qword ptr [rsp + 0x68]
+f4d60a mov rsi, qword ptr [rsp + 0x60]
+f4d60f mov rbp, qword ptr [rsp + 0x58]
+f4d614 mov r15, qword ptr [rsp + 0x20]
+f4d619 add rsp, 0x28
+f4d61d pop r14
+f4d61f pop r13
+f4d621 pop r12
+f4d623 pop rbx
+f4d624 ret 

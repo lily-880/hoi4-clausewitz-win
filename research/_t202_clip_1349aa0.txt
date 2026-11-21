@@ -1,0 +1,165 @@
+1349aa0 push rbx
+1349aa2 push rbp
+1349aa3 push rsi
+1349aa4 push rdi
+1349aa5 push r12
+1349aa7 push r14
+1349aa9 push r15
+1349aab sub rsp, 0x20
+1349aaf mov r15, qword ptr [rsp + 0x90]
+1349ab7 mov rbx, r9
+1349aba mov rsi, r8
+1349abd mov ebp, edx
+1349abf mov rdi, rcx
+1349ac2 call 0x20e9e0
+1349ac7 cmp byte ptr [rdi + 0xd8], 0
+1349ace mov r8, rax
+1349ad1 movabs r14, 0x29f16b11c6d1e109
+1349adb je 0x1349b13
+1349add mov rcx, qword ptr [rsi + 0x138]
+1349ae4 mov rax, r14
+1349ae7 imul r9, qword ptr [rcx + 0xa8], 0x2710
+1349af2 imul r9
+1349af5 mov rax, qword ptr [r8 + 0xc0]
+1349afc sar rdx, 0xe
+1349b00 mov rcx, rdx
+1349b03 shr rcx, 0x3f
+1349b07 add rdx, rcx
+1349b0a mov rcx, qword ptr [r8 + 0xa8]
+1349b11 jmp 0x1349b47
+1349b13 mov rax, qword ptr [rsi + 0x138]
+1349b1a imul rcx, qword ptr [rax + 0xb0], 0x2710
+1349b25 mov rax, r14
+1349b28 imul rcx
+1349b2b mov rcx, qword ptr [r8 + 0xb0]
+1349b32 sar rdx, 0xe
+1349b36 mov rax, rdx
+1349b39 shr rax, 0x3f
+1349b3d add rdx, rax
+1349b40 mov rax, qword ptr [r8 + 0xc8]
+1349b47 mov r12d, dword ptr [rip + 0x2096226]
+1349b4e lea r8, [r15 + rcx]
+1349b52 mov r15d, dword ptr [rip + 0x209619b]
+1349b59 add rax, 0x186a0
+1349b5f imul rdx, rbx
+1349b63 mov qword ptr [rsp + 0x78], rax
+1349b68 mov rax, r14
+1349b6b imul rdx
+1349b6e mov qword ptr [rsp + 0x60], r8
+1349b73 mov rbx, rdx
+1349b76 sar rbx, 0xe
+1349b7a mov rax, rbx
+1349b7d shr rax, 0x3f
+1349b81 add rbx, rax
+1349b84 cmp dword ptr [rsp + 0x88], 0
+1349b8c jle 0x1349b9c
+1349b8e mov r12d, dword ptr [rip + 0x2096397]
+1349b95 mov r15d, dword ptr [rip + 0x2096434]
+1349b9c test ebp, ebp
+1349b9e jle 0x1349d0f
+1349ba4 mov rdi, qword ptr [rsp + 0x80]
+1349bac mov qword ptr [rsp + 0x68], r13
+1349bb1 mov r13, qword ptr [rsp + 0xa0]
+1349bb9 nop dword ptr [rax]
+1349bc0 mov rax, qword ptr [rsi]
+1349bc3 mov rcx, rsi
+1349bc6 call qword ptr [rax + 0xd0]
+1349bcc test al, al
+1349bce jne 0x1349d0a
+1349bd4 mov r8, rdi
+1349bd7 mov rdx, rbx
+1349bda mov rcx, rsi
+1349bdd call 0xc4f4f0
+1349be2 test al, al
+1349be4 je 0x1349d00
+1349bea mov r9d, dword ptr [rdi]
+1349bed mov r8d, dword ptr [rdi + 4]
+1349bf1 mov ecx, r8d
+1349bf4 imul eax, r9d, 0x4ad685b3
+1349bfb sub ecx, eax
+1349bfd mov edx, ecx
+1349bff shr edx, 8
+1349c02 xor edx, ecx
+1349c04 add edx, 0x68e31da4
+1349c0a mov eax, edx
+1349c0c shl eax, 8
+1349c0f xor eax, edx
+1349c11 imul ecx, eax, 0x1b56c4e9
+1349c17 mov eax, ecx
+1349c19 shr eax, 8
+1349c1c xor eax, ecx
+1349c1e imul r10d, eax, 0x92d68ca2
+1349c25 imul eax, r9d, 0x4ad685b3
+1349c2c sub r8d, eax
+1349c2f sub r8d, 0x4ad685b3
+1349c36 mov ecx, r8d
+1349c39 shr ecx, 8
+1349c3c xor ecx, r8d
+1349c3f mov r8, qword ptr [rsp + 0x78]
+1349c44 add ecx, 0x68e31da4
+1349c4a mov eax, ecx
+1349c4c shl eax, 8
+1349c4f xor eax, ecx
+1349c51 imul ecx, eax, 0x1b56c4e9
+1349c57 mov eax, ecx
+1349c59 shr eax, 8
+1349c5c xor eax, ecx
+1349c5e imul ecx, eax, 0x92d68ca2
+1349c64 lea eax, [r9 + 2]
+1349c68 mov dword ptr [rdi], eax
+1349c6a mov eax, ecx
+1349c6c shr eax, 8
+1349c6f xor eax, ecx
+1349c71 btr eax, 0x1f
+1349c75 cdq 
+1349c76 idiv r12d
+1349c79 lea eax, [rdx + 1]
+1349c7c cdqe 
+1349c7e imul rax, qword ptr [rsp + 0x60]
+1349c84 imul rcx, rax, 0x186a0
+1349c8b mov rax, r14
+1349c8e imul rcx
+1349c91 mov rcx, rdx
+1349c94 sar rcx, 0xe
+1349c98 mov rax, rcx
+1349c9b shr rax, 0x3f
+1349c9f add rcx, rax
+1349ca2 mov eax, r10d
+1349ca5 shr eax, 8
+1349ca8 xor eax, r10d
+1349cab btr eax, 0x1f
+1349caf cdq 
+1349cb0 idiv r15d
+1349cb3 lea eax, [rdx + 1]
+1349cb6 cdqe 
+1349cb8 imul rax, qword ptr [rsp + 0x60]
+1349cbe imul rdx, rax, 0x186a0
+1349cc5 mov rax, r14
+1349cc8 imul rdx
+1349ccb sar rdx, 0xe
+1349ccf mov rax, rdx
+1349cd2 shr rax, 0x3f
+1349cd6 add rdx, rax
+1349cd9 mov rax, r14
+1349cdc imul r8, rdx
+1349ce0 imul r8
+1349ce3 sar rdx, 0xe
+1349ce7 mov rax, rdx
+1349cea shr rax, 0x3f
+1349cee add rdx, rax
+1349cf1 mov rax, qword ptr [rsp + 0x98]
+1349cf9 add qword ptr [rax], rcx
+1349cfc add qword ptr [r13], rdx
+1349d00 dec ebp
+1349d02 test ebp, ebp
+1349d04 jg 0x1349bc0
+1349d0a mov r13, qword ptr [rsp + 0x68]
+1349d0f add rsp, 0x20
+1349d13 pop r15
+1349d15 pop r14
+1349d17 pop r12
+1349d19 pop rdi
+1349d1a pop rsi
+1349d1b pop rbp
+1349d1c pop rbx
+1349d1d ret 

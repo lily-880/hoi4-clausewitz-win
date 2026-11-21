@@ -1,0 +1,158 @@
+{
+  "verified_identity_ctor": {
+    "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+    "window_start": "0x153750",
+    "window_size": 64,
+    "reachable_instruction_count": 3,
+    "unresolved_edges": [],
+    "external_tails": [],
+    "calls": [],
+    "asm": [
+      "153750 mov dword ptr [rcx], edx",
+      "153752 mov rax, rcx",
+      "153755 ret "
+    ]
+  },
+  "initial_attempts": "v1 used wrong ECX/RDX; v2 EDX/R8 stopped at identity ctor153750 and failed positive control; neither accepted as names/absence proof",
+  "scope": "only direct native registration calls (EDX token/R8 name; known positive control required) with constant RIP setup through statically verified identity ctor153750 before last call; no save access or function invocation",
+  "registration_call_candidates": 10770,
+  "matched": [
+    {
+      "call": "0xa626d",
+      "token": "0x28b7",
+      "token_rva": "0x2b49e64",
+      "name": "leader",
+      "name_rva": "0x2a20b3c",
+      "context": [
+        "a6217 mov rcx, qword ptr [rsp + 0xf640]",
+        "a621f call 0x153750",
+        "a6224 lea r8, [rip + 0x2aa0eed]",
+        "a622b mov edx, dword ptr [rax]",
+        "a622d lea rcx, [rip + 0x33c09cc]",
+        "a6234 call 0x2547630",
+        "a6239 nop ",
+        "a623a lea rax, [rsp + 0x2714]",
+        "a6242 mov qword ptr [rsp + 0xf648], rax",
+        "a624a mov edx, dword ptr [rip + 0x2aa3c14]",
+        "a6250 mov rcx, qword ptr [rsp + 0xf648]",
+        "a6258 call 0x153750",
+        "a625d lea r8, [rip + 0x297a8d8]",
+        "a6264 mov edx, dword ptr [rax]",
+        "a6266 lea rcx, [rip + 0x33c09db]"
+      ]
+    },
+    {
+      "call": "0xf25b1",
+      "token": "0x3750",
+      "token_rva": "0x2b6ceac",
+      "name": "manpower_lost",
+      "name_rva": "0x2b69880",
+      "context": [
+        "f255b mov rcx, qword ptr [rsp + 0x1a160]",
+        "f2563 call 0x153750",
+        "f2568 lea r8, [rip + 0x2a77301]",
+        "f256f mov edx, dword ptr [rax]",
+        "f2571 lea rcx, [rip + 0x33d4aa8]",
+        "f2578 call 0x2547630",
+        "f257d nop ",
+        "f257e lea rax, [rsp + 0x7ca4]",
+        "f2586 mov qword ptr [rsp + 0x1a168], rax",
+        "f258e mov edx, dword ptr [rip + 0x2a7a918]",
+        "f2594 mov rcx, qword ptr [rsp + 0x1a168]",
+        "f259c call 0x153750",
+        "f25a1 lea r8, [rip + 0x2a772d8]",
+        "f25a8 mov edx, dword ptr [rax]",
+        "f25aa lea rcx, [rip + 0x33d4ab7]"
+      ]
+    },
+    {
+      "call": "0x108025",
+      "token": "0x4cf2",
+      "token_rva": "0x2b3ece8",
+      "name": "disrupted_supply",
+      "name_rva": "0x2b39a20",
+      "context": [
+        "107fcf mov rcx, qword ptr [rsp + 0x1d200]",
+        "107fd7 call 0x153750",
+        "107fdc lea r8, [rip + 0x2a31a05]",
+        "107fe3 mov edx, dword ptr [rax]",
+        "107fe5 lea rcx, [rip + 0x33da5d4]",
+        "107fec call 0x2547630",
+        "107ff1 nop ",
+        "107ff2 lea rax, [rsp + 0x94f4]",
+        "107ffa mov qword ptr [rsp + 0x1d208], rax",
+        "108002 mov edx, dword ptr [rip + 0x2a36ce0]",
+        "108008 mov rcx, qword ptr [rsp + 0x1d208]",
+        "108010 call 0x153750",
+        "108015 lea r8, [rip + 0x2a31a04]",
+        "10801c mov edx, dword ptr [rax]",
+        "10801e lea rcx, [rip + 0x33da5e3]"
+      ]
+    },
+    {
+      "call": "0x109aa4",
+      "token": "0x4de7",
+      "token_rva": "0x2b40460",
+      "name": "motorization_level",
+      "name_rva": "0x2b3b198",
+      "context": [
+        "109a4e mov rcx, qword ptr [rsp + 0x1d5b8]",
+        "109a56 call 0x153750",
+        "109a5b lea r8, [rip + 0x2a316f6]",
+        "109a62 mov edx, dword ptr [rax]",
+        "109a64 lea rcx, [rip + 0x33daccd]",
+        "109a6b call 0x2547630",
+        "109a70 nop ",
+        "109a71 lea rax, [rsp + 0x96d0]",
+        "109a79 mov qword ptr [rsp + 0x1d5c0], rax",
+        "109a81 mov edx, dword ptr [rip + 0x2a369d9]",
+        "109a87 mov rcx, qword ptr [rsp + 0x1d5c0]",
+        "109a8f call 0x153750",
+        "109a94 lea r8, [rip + 0x2a316fd]",
+        "109a9b mov edx, dword ptr [rax]",
+        "109a9d lea rcx, [rip + 0x33dacdc]"
+      ]
+    }
+  ],
+  "guard_after": {
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "pause": 1,
+    "speed_slot": 0,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "plans": [
+      {
+        "id": 1,
+        "executing": false
+      },
+      {
+        "id": 2,
+        "executing": false
+      },
+      {
+        "id": 6,
+        "executing": false
+      },
+      {
+        "id": 5,
+        "executing": false
+      },
+      {
+        "id": 4,
+        "executing": false
+      },
+      {
+        "id": 3,
+        "executing": false
+      }
+    ],
+    "gate_open": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "flows": {
+    "0xf4ca30": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xf4ca30",
+      "window_size": 1280,
+      "reachable_instruction_count": 19,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0xf4ca75",
+          "target": "0x25459e0"
+        }
+      ],
+      "calls": [
+        {
+          "site": "0xf4ca40",
+          "operand": "0x22858a0"
+        },
+        {
+          "site": "0xf4ca59",
+          "operand": "0x2545f90"
+        }
+      ],
+      "asm": [
+        "f4ca30 mov qword ptr [rsp + 8], rbx",
+        "f4ca35 push rdi",
+        "f4ca36 sub rsp, 0x20",
+        "f4ca3a mov rbx, rdx",
+        "f4ca3d mov rdi, rcx",
+        "f4ca40 call 0x22858a0",
+        "f4ca45 mov r8, qword ptr [rdi + 0xa0]",
+        "f4ca4c test r8, r8",
+        "f4ca4f jle 0xf4ca5e",
+        "f4ca51 mov edx, 0x4cf2",
+        "f4ca56 mov rcx, rbx",
+        "f4ca59 call 0x2545f90",
+        "f4ca5e movzx r8d, byte ptr [rdi + 0x1d]",
+        "f4ca63 mov edx, 0x4de7",
+        "f4ca68 mov rcx, rbx",
+        "f4ca6b mov rbx, qword ptr [rsp + 0x30]",
+        "f4ca70 add rsp, 0x20",
+        "f4ca74 pop rdi",
+        "f4ca75 jmp 0x25459e0"
+      ]
+    },
+    "0xf46e30": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xf46e30",
+      "window_size": 512,
+      "reachable_instruction_count": 22,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0xf46e53",
+          "target": "0x2285170"
+        },
+        {
+          "site": "0xf46e7c",
+          "target": "0x2543500"
+        }
+      ],
+      "calls": [
+        {
+          "site": "0xf46e5f",
+          "operand": "0x2547aa0"
+        }
+      ],
+      "asm": [
+        "f46e30 push rbx",
+        "f46e32 sub rsp, 0x20",
+        "f46e36 mov rax, rdx",
+        "f46e39 mov rbx, rcx",
+        "f46e3c cmp r8d, 0x4cf2",
+        "f46e43 je 0xf46e6d",
+        "f46e45 cmp r8d, 0x4de7",
+        "f46e4c je 0xf46e58",
+        "f46e4e add rsp, 0x20",
+        "f46e52 pop rbx",
+        "f46e53 jmp 0x2285170",
+        "f46e58 lea rcx, [rdx + 0xc0]",
+        "f46e5f call 0x2547aa0",
+        "f46e64 mov byte ptr [rbx + 0x1d], al",
+        "f46e67 add rsp, 0x20",
+        "f46e6b pop rbx",
+        "f46e6c ret ",
+        "f46e6d lea rdx, [rcx + 0xa0]",
+        "f46e74 mov rcx, rax",
+        "f46e77 add rsp, 0x20",
+        "f46e7b pop rbx",
+        "f46e7c jmp 0x2543500"
+      ]
+    }
+  }
+}

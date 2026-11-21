@@ -1,0 +1,48 @@
+147db50 mov qword ptr [rsp + 0x18], rbx
+147db55 push rdi
+147db56 sub rsp, 0x20
+147db5a mov rbx, rcx
+147db5d mov rdi, rdx
+147db60 mov rcx, qword ptr [rcx + 0x28]
+147db64 lea rdx, [rsp + 0x30]
+147db69 mov rax, qword ptr [rcx]
+147db6c call qword ptr [rax + 0x60]
+147db6f mov rcx, qword ptr [rbx + 0x30]
+147db73 lea rdx, [rsp + 0x38]
+147db78 mov rax, qword ptr [rcx]
+147db7b call qword ptr [rax + 0x60]
+147db7e mov rax, qword ptr [rsp + 0x30]
+147db83 mov rcx, qword ptr [rsp + 0x38]
+147db88 add rcx, rax
+147db8b test rcx, rcx
+147db8e jle 0x147dbe9
+147db90 movabs rdx, 0x7ffffffffffffffe
+147db9a add rdx, rax
+147db9d cmp rdx, -4
+147dba1 ja 0x147dbd4
+147dba3 imul rax, rax, 0x186a0
+147dbaa cqo 
+147dbac idiv rcx
+147dbaf mov qword ptr [rdi], rax
+147dbb2 test rax, rax
+147dbb5 jns 0x147dbcc
+147dbb7 mov qword ptr [rdi], 0
+147dbbe mov rax, rdi
+147dbc1 mov rbx, qword ptr [rsp + 0x40]
+147dbc6 add rsp, 0x20
+147dbca pop rdi
+147dbcb ret 
+147dbcc cmp rax, 0x186a0
+147dbd2 jle 0x147dbf0
+147dbd4 mov qword ptr [rdi], 0x186a0
+147dbdb mov rax, rdi
+147dbde mov rbx, qword ptr [rsp + 0x40]
+147dbe3 add rsp, 0x20
+147dbe7 pop rdi
+147dbe8 ret 
+147dbe9 mov qword ptr [rdi], 0xc350
+147dbf0 mov rbx, qword ptr [rsp + 0x40]
+147dbf5 mov rax, rdi
+147dbf8 add rsp, 0x20
+147dbfc pop rdi
+147dbfd ret 

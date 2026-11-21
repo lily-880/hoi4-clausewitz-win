@@ -1,0 +1,16 @@
+2344230 mov r8, rcx
+2344233 mov rcx, qword ptr [rcx + 0x10]
+2344237 test rcx, rcx
+234423a je 0x2344266
+234423c mov r8, qword ptr [r8 + 8]
+2344240 mov rax, rdx
+2344243 mov r10, qword ptr [rcx]
+2344246 movabs r11, 0xffffffff00000000
+2344250 mov r9, r8
+2344253 and rax, r11
+2344256 and r9, r11
+2344259 add edx, r8d
+234425c add r9, rax
+234425f or rdx, r9
+2344262 jmp qword ptr [r10 + 0x30]
+2344266 ret 

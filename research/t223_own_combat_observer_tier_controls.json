@@ -1,0 +1,207 @@
+{
+  "at_est": "2026-11-20T10:46:57.062756-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "scope": "only actual own-combat participants; raw observer tier table only, NOT visible_units feed or final getter claim",
+  "combats": [
+    {
+      "combat_id": 3096,
+      "own_participant_count": 1
+    },
+    {
+      "combat_id": 3097,
+      "own_participant_count": 1
+    },
+    {
+      "combat_id": 3072,
+      "own_participant_count": 1
+    }
+  ],
+  "observer_index": 3,
+  "rows": [
+    {
+      "unit_id": 504,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 3,
+      "side": "attacker",
+      "own": true,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 391,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 443,
+      "side": "defender",
+      "own": false,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 472,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 3,
+      "side": "attacker",
+      "own": true,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 477,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 443,
+      "side": "defender",
+      "own": false,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 490,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 3,
+      "side": "attacker",
+      "own": true,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 1101,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 16,
+      "side": "attacker",
+      "own": false,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 18,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 1,
+      "side": "attacker",
+      "own": false,
+      "entries": [],
+      "observer3_matches": []
+    },
+    {
+      "unit_id": 399,
+      "handle_type": 51,
+      "kind": 0,
+      "owner_tag": 443,
+      "side": "defender",
+      "own": false,
+      "entries": [],
+      "observer3_matches": []
+    }
+  ],
+  "rejected": [
+    {
+      "unit_id": 4652,
+      "handle_type": 4713,
+      "reason": "unsupported identity, no observer table read"
+    }
+  ],
+  "stable_dependencies": 247,
+  "functions": {
+    "0x748490": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x748490",
+      "window_size": 896,
+      "reachable_instruction_count": 34,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x7484c7",
+          "operand": "0xc08790"
+        },
+        {
+          "site": "0x7484df",
+          "operand": "0x748500"
+        }
+      ],
+      "asm": [
+        "748490 mov qword ptr [rsp + 8], rbx",
+        "748495 mov qword ptr [rsp + 0x10], rbp",
+        "74849a mov qword ptr [rsp + 0x18], rsi",
+        "74849f push rdi",
+        "7484a0 sub rsp, 0x20",
+        "7484a4 mov eax, dword ptr [rcx + 8]",
+        "7484a7 mov rdi, rcx",
+        "7484aa add rcx, 8",
+        "7484ae mov rbx, rdx",
+        "7484b1 mov edx, dword ptr [rdx]",
+        "7484b3 movzx esi, r9b",
+        "7484b7 movzx ebp, r8b",
+        "7484bb cmp edx, eax",
+        "7484bd je 0x7484e6",
+        "7484bf test edx, edx",
+        "7484c1 je 0x7484d1",
+        "7484c3 test eax, eax",
+        "7484c5 je 0x7484d1",
+        "7484c7 call 0xc08790",
+        "7484cc cmp dword ptr [rbx + 4], eax",
+        "7484cf je 0x7484e6",
+        "7484d1 movzx r9d, sil",
+        "7484d5 movzx r8d, bpl",
+        "7484d9 mov rdx, rbx",
+        "7484dc mov rcx, rdi",
+        "7484df call 0x748500",
+        "7484e4 jmp 0x7484e8",
+        "7484e6 mov al, 1",
+        "7484e8 mov rbx, qword ptr [rsp + 0x30]",
+        "7484ed mov rbp, qword ptr [rsp + 0x38]",
+        "7484f2 mov rsi, qword ptr [rsp + 0x40]",
+        "7484f7 add rsp, 0x20",
+        "7484fb pop rdi",
+        "7484fc ret "
+      ],
+      "raw_hex": "48895c240848896c24104889742418574883ec208b4108488bf94883c108488bda8b12410fb6f1410fb6e83bd0742785d2740e85c0740ae8c4024c003943047415440fb6ce440fb6c5488bd3488bcfe81c000000eb02b001488b5c2430488b6c2438488b7424404883c4205fc3cccccc48895c24084889742410574883ec20488b81880f0000488bf24c635a04488bf94c8b50084b8b1cda488b83e80200004885c0741880784900751232c0488b5c2430488b7424384883c4205fc34584c0741b4883bba00200000075714584c9740c488bcbe878d9630084c07560488b87880f00004883b8d8020000007426488bcee86bf64b00488b97880f0000488b80880f0000488b80d8020000483982d80200007429488bcbe8b5eb630084c0751d488bcbe8f9eb630084c00f95c0488b5c2430488b7424384883c4205fc3488b5c2430b001488b7424384883c4205fc3cccc40574883ec30803d2470f40200488bf90f84eb000000803d334bc90200754f48833da950c902007545488d05204bc902c6442440004889442428488d15fcc00402488d44244041b10141b8640400004889442420488d0dfdc10402e80025e001807c2440008805e54ac9027401cc803dbc6ff402000f8486000000803dcf4ac90200757d65488b0425580000008b0d25b4f40248895c2448488b1cc8b8e8200000803c18007505e8447ee501b810000000833c1800488b5c24487445488d058e4ac902c6442440004889442428488d1569c00402488d44244041b10141b8650400004889442420488d0d92c10402e86d24e001807c2440008805534ac9027401cc488b0dc84fc902488d5708e8af01abff84c00f95c04883c4305fc3cccccccc40534883ec20488b81880f0000488bd94883b8d802000000742e488bcae8cef44b00488b8b880f0000488b80880f0000488b80d8020000483981d80200007508b0014883c4205bc332c04883c4205bc3488bc44889501048894808555356574154415541564157488da8c8f9ffff4881ecf80600000f2970a8488bfa33db895c2440895c2430b91d000000e8c0f1a6ff88442468b926000000e8b2f1a6ff88442469889d58060000488d8d38010000e81c719dff90488d8d18010000e80f719dff90488d8dd8000000e802719dff90488d8db8000000e8f5709dff90e8df19a2ff488b888000000048894d104863808c000000488d04c1488985c0010000483bc80f84300600000fb6b550060000440f",
+      "sha256": "0d8ff672e9bfbb58ea63290feac2a76519300ea372851080857693d7be0d563c"
+    }
+  },
+  "native_calls": 0,
+  "prior_attempt": "fail-closed assertion before capture seal; now unsupported identities explicitly rejected, no gate relaxed"
+}

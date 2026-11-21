@@ -1,0 +1,66 @@
+{
+  "promoted": [],
+  "reason_not_promoted": "Official player plans are COrderInstance hanging off COrdersGroup (CTheatre+0x80 / group+0x98). Live ETH and the whole world have 0 orders_groups and 0 COrderInstance. The 6 ETH CFronts (and 910 world CFronts) are theatre border structures (writer tokens dirty/provinces/enemies/section/area), not player-drawn plans. Empty tables and border fronts must not be promoted.",
+  "COrderInstance": {
+    "writer": "0x10d1450",
+    "writer_vtable_plus_10": "0x2a026e8",
+    "type": "dword +0x30, token type 0xe1 via 0x25459e0",
+    "GetOrderType_proven": {
+      "1": "ORDER_MOVE (assert 0x10b2c8a / 0x2a02d50)",
+      "3": "ORDER_INVASION (assert 0x10b038e / 0x2a02c18)"
+    },
+    "GetOrderType_candidates": {
+      "4": "compared at 0x10bc966 and tooltip 0xfcae58 near ORDER_PARADROP loc",
+      "5": "compared at 0x10bc7d8, not named"
+    },
+    "instance_id": "dword +0x244, token 0x30af",
+    "path": "array +0x70, token path 0x174 (not proven as schema vertex_province_ids without a live plan)",
+    "states": "array +0xe0, token states 0x2e3b (area-defense states candidate)",
+    "can_execute": "token 0x30b2; this is not plans.executing",
+    "other_tokens": [
+      "order_children",
+      "fallback",
+      "midpoints",
+      "root_front",
+      "root_section",
+      "area_defense_settings",
+      "area_defense_state_assignment",
+      "blitz",
+      "withdraw",
+      "invasion_source"
+    ],
+    "clips": [
+      "research/_t188_clip_orderinstance_writer_0x10d1450.txt",
+      "research/_t188_clip_orderinstance_writer_tail.txt",
+      "research/_t184_clip_front_writer_0xf809b0.txt",
+      "research/_t188_clip_ordersgroup_writer_0xc4d030.txt"
+    ]
+  },
+  "COrdersGroup": {
+    "writer": "0xc4d030",
+    "order_instance_array": "+0x98 / size +0xa4, token 0x35f7",
+    "fallback": "token 0x33d8",
+    "virtual_fallback": "token 0x35f3",
+    "execution_type": "token 0x36aa at 0xc4d619, group-level, not proven as plans.executing"
+  },
+  "CTheatre": {
+    "front": "token 0x29e0, data +0x50 / size +0x5c, live elems are CFront only",
+    "orders_group": "token 0x30ae, data +0x80 / size +0x8c, live size 0 worldwide"
+  },
+  "CFront": {
+    "writer": "0xf809b0",
+    "tokens": [
+      "dirty",
+      "provinces",
+      "enemies",
+      "id_counter",
+      "section",
+      "area"
+    ],
+    "not": "player plan; no type/instance_id/path/executing"
+  },
+  "not_land_fow": {
+    "already_spotted_0x3bb3": "naval-mission writer around 0x104353b (mission/radar/navy_engagement_rule/spotting_target); not world.visible_units.visibility.spotted"
+  },
+  "live": "research/t188_live_plans.json"
+}

@@ -1,0 +1,37 @@
+0xc5c430  mov edx, esi
+0xc5c432  mov rcx, r12
+0xc5c435  mov rax, qword ptr [rip + 0x24a0bc4]
+0xc5c43c  call qword ptr [rax + 0x10]
+0xc5c43f  cmp dword ptr [rdi + 0x2bc], 0
+0xc5c446  je 0xc5c4aa
+0xc5c448  mov edx, 0xcb  ; TOKEN commandlist
+0xc5c44d  mov rcx, rbx
+0xc5c450  call 0x2546ce0
+0xc5c455  mov rcx, rbx
+0xc5c458  call 0x2546ed0
+0xc5c45d  mov rsi, qword ptr [rdi + 0x2b0]
+0xc5c464  movsxd rax, dword ptr [rdi + 0x2bc]
+0xc5c46b  lea rbp, [rsi + rax*8]
+0xc5c46f  cmp rsi, rbp
+0xc5c472  je 0xc5c4a2
+0xc5c474  nop dword ptr [rax]
+0xc5c478  nop dword ptr [rax + rax]
+0xc5c480  mov rdx, qword ptr [rsi]
+0xc5c483  mov edx, dword ptr [rdx + 8]
+0xc5c486  mov rcx, rbx
+0xc5c489  call 0x2546ce0
+0xc5c48e  mov rdx, qword ptr [rsi]
+0xc5c491  mov rcx, rbx
+0xc5c494  call 0x2544f80
+0xc5c499  add rsi, 8
+0xc5c49d  cmp rsi, rbp
+0xc5c4a0  jne 0xc5c480
+0xc5c4a2  mov rcx, rbx
+0xc5c4a5  call 0x25464e0
+0xc5c4aa  cmp dword ptr [rdi + 0x21c], 0
+0xc5c4b1  je 0xc5c4c7
+0xc5c4b3  lea r8, [rdi + 0x210]
+0xc5c4ba  mov edx, 0x362c  ; TOKEN full_path
+0xc5c4bf  mov rcx, rbx
+0xc5c4c2  call 0x1d2bf0
+0xc5c4c7  mov r8d, dword ptr [rdi + 0x2a8]

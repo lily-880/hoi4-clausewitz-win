@@ -1,0 +1,34 @@
+0xf84770  push rbx
+0xf84772  sub rsp, 0x20
+0xf84776  mov rbx, rcx
+0xf84779  mov ecx, 0x30  ; TOKEN fullScreen
+0xf8477e  call 0x25a01dc
+0xf84783  mov qword ptr [rsp + 0x30], rax
+0xf84788  mov rdx, rax
+0xf8478b  test rax, rax
+0xf8478e  je 0xf847e7
+0xf84790  mov byte ptr [rdx + 8], 0
+0xf84794  lea rax, [rip + 0x181ad05]
+0xf8479b  mov qword ptr [rdx], rax
+0xf8479e  mov eax, dword ptr [rbx + 0xc]
+0xf847a1  mov dword ptr [rdx + 0xc], eax
+0xf847a4  mov rax, qword ptr [rbx + 0x10]
+0xf847a8  mov qword ptr [rdx + 0x10], rax
+0xf847ac  lea rax, [rip + 0x1a6f2cd]
+0xf847b3  movzx ecx, word ptr [rbx + 0x18]
+0xf847b7  mov word ptr [rdx + 0x18], cx
+0xf847bb  movzx ecx, byte ptr [rbx + 0x1a]
+0xf847bf  mov byte ptr [rdx + 0x1a], cl
+0xf847c2  movzx ecx, byte ptr [rbx + 0x1b]
+0xf847c6  mov byte ptr [rdx + 0x1b], cl
+0xf847c9  mov ecx, dword ptr [rbx + 0x1c]
+0xf847cc  mov dword ptr [rdx + 0x1c], ecx
+0xf847cf  mov ecx, dword ptr [rbx + 0x20]
+0xf847d2  mov qword ptr [rdx], rax
+0xf847d5  mov rax, rdx
+0xf847d8  mov dword ptr [rdx + 0x20], ecx
+0xf847db  mov ecx, dword ptr [rbx + 0x28]
+0xf847de  mov dword ptr [rdx + 0x28], ecx
+0xf847e1  add rsp, 0x20
+0xf847e5  pop rbx
+0xf847e6  ret 

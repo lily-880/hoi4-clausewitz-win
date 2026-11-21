@@ -1,0 +1,21 @@
+0x19eebc0  mov qword ptr [rsp + 8], rbx
+0x19eebc5  push rdi
+0x19eebc6  sub rsp, 0x20
+0x19eebca  mov r8d, dword ptr [rcx + 8]
+0x19eebce  mov rdi, rdx
+0x19eebd1  mov rbx, rcx
+0x19eebd4  test r8d, r8d
+0x19eebd7  je 0x19eebe6
+0x19eebd9  mov edx, 0x2916  ; TOKEN combat
+0x19eebde  mov rcx, rdi
+0x19eebe1  call 0x25459e0
+0x19eebe6  mov r8d, dword ptr [rbx + 0xc]
+0x19eebea  test r8d, r8d
+0x19eebed  je 0x19eebfc
+0x19eebef  mov edx, 0x2fba  ; TOKEN training
+0x19eebf4  mov rcx, rdi
+0x19eebf7  call 0x25459e0
+0x19eebfc  mov rbx, qword ptr [rsp + 0x30]
+0x19eec01  add rsp, 0x20
+0x19eec05  pop rdi
+0x19eec06  ret 

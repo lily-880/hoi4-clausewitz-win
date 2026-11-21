@@ -1,0 +1,55 @@
+e653f0 mov qword ptr [rsp + 8], rbx
+e653f5 mov qword ptr [rsp + 0x10], rbp
+e653fa mov qword ptr [rsp + 0x18], rsi
+e653ff push rdi
+e65400 sub rsp, 0x20
+e65404 cmp byte ptr [rcx + 0x2e], 0
+e65408 mov rdx, rcx
+e6540b jne 0xe654ae
+e65411 mov rax, qword ptr [rcx + 0x1f0]
+e65418 mov ecx, 0x1dc
+e6541d cmp dword ptr [rdx + 0x1dc], 0
+e65424 mov rdi, qword ptr [rax + 0xd0]
+e6542b mov eax, 0x1d8
+e65430 cmovle ecx, eax
+e65433 add rcx, rdx
+e65436 call 0xc07bf0
+e6543b xor edx, edx
+e6543d mov rcx, rax
+e65440 mov rbx, rax
+e65443 call 0x737f50
+e65448 cmp rdi, rax
+e6544b je 0xe654ae
+e6544d test rdi, rdi
+e65450 je 0xe654aa
+e65452 mov rcx, rbx
+e65455 call 0x7362c0
+e6545a mov rbx, qword ptr [rdi + 0xb0]
+e65461 mov rbp, qword ptr [rax + 0x80]
+e65468 movsxd rax, dword ptr [rdi + 0xbc]
+e6546f lea rsi, [rbx + rax*8]
+e65473 cmp rbx, rsi
+e65476 je 0xe654aa
+e65478 nop dword ptr [rax + rax]
+e65480 mov rdi, qword ptr [rbx]
+e65483 mov rcx, rdi
+e65486 call 0xeef530
+e6548b test al, al
+e6548d je 0xe654a1
+e6548f mov edx, dword ptr [rdi + 0xa4]
+e65495 mov rcx, rbp
+e65498 call 0x12b6690
+e6549d test eax, eax
+e6549f jns 0xe654ae
+e654a1 add rbx, 8
+e654a5 cmp rbx, rsi
+e654a8 jne 0xe65480
+e654aa xor al, al
+e654ac jmp 0xe654b0
+e654ae mov al, 1
+e654b0 mov rbx, qword ptr [rsp + 0x30]
+e654b5 mov rbp, qword ptr [rsp + 0x38]
+e654ba mov rsi, qword ptr [rsp + 0x40]
+e654bf add rsp, 0x20
+e654c3 pop rdi
+e654c4 ret 

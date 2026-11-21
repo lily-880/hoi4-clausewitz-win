@@ -1,0 +1,174 @@
+{
+  "promoted_fields": [
+    "world.crises.kind",
+    "world.crises.unit_ids",
+    "world.crises.province_ids"
+  ],
+  "scope": "Current own CTheaterGroup with actual cached native alert4; type51 sampled causal bucket0 witness that independently satisfies CE4F10 out-of-supply; schema kind is a transparent composition, not raw native Crisis enum; no severity/notes/complete record/feed/Input.",
+  "original_target_correction": {
+    "B58150": "CFleet->CTaskForce source+40 with demand+30, and CStrategicAir->CAirBase per-country supply consumer source+30 with demand+20",
+    "mapping": "B867B0 maps bucket1 to base alert5, otherwise base alert6; names are alert_base_low_supply/alert_base_very_low_supply, NOT land3/4",
+    "rejected_inference": "class alone or threshold names do not establish schema crisis or severity"
+  },
+  "independent_land_chain": "B6B9E0 selected caller path: current country+168 CTheatre ->D3CB00 returns+C8 ->CTheaterGroup; B79D00->D73190 returns+48 COrdersGroup* ->+50 member array; vf20=C4F050 subtractsB8 to CArmy; vf40=20F350 identity; actualsource+40, effectiveCE4CD0, special+2F8; min native buckets then group min;0 activatesalert4 and removes3. Partial generic dispatcher is NOT globally closed.",
+  "independent_kind": "CE4F10 independently confirms actual witness out-of-supply, using threshold99000 rather than confusing native alert cutoffs50000/20000; existing BAD/OK unit tooltip semantics are retained. Numeric alert4/0 is not mapped to schema severity.",
+  "actual_cached_alert": "Fresh idler+7A8 manager; native constructorE4B6CC stores it and updaterE435DB loads same member; activealert4 one entry key0=0/key_group=currentCTheaterGroup/key3=0; alert3 absent for group; exact names3/4/5/6 read from master and active objects.",
+  "live_controls": {
+    "inspected": 3,
+    "limit": 64,
+    "orders_group_member_count": 25,
+    "positive": {
+      "unit_id": 479,
+      "province_id": 1780,
+      "source_raw": 11335,
+      "effective_raw": 11335,
+      "native_bucket": 0,
+      "out_of_supply": true
+    },
+    "negative": {
+      "unit_id": 374,
+      "province_id": 1790,
+      "source_raw": 100000,
+      "effective_raw": 100000,
+      "native_bucket": 2,
+      "out_of_supply": false
+    },
+    "intermediate_not_emitted": {
+      "unit_id": 500,
+      "source_raw": 38271,
+      "effective_raw": 38451,
+      "native_bucket": 1,
+      "out_of_supply": true
+    },
+    "dominance": "bucket0 is minimum possible, so current sampled witness proves group minimum0 regardless of unread members; not a complete affected-unit census",
+    "unit_dependencies": 59,
+    "active_alert_dependencies": 20
+  },
+  "replay_result": {
+    "qualified_evidence": [
+      {
+        "kind": "out_of_supply",
+        "unit_ids": [
+          479
+        ],
+        "province_ids": [
+          1780
+        ]
+      }
+    ],
+    "control_audit": [
+      {
+        "unit_id": 500,
+        "province_id": 1369,
+        "source": 38271,
+        "effective": 38451,
+        "native_bucket": 1,
+        "out_of_supply": true,
+        "special": false
+      },
+      {
+        "unit_id": 374,
+        "province_id": 1790,
+        "source": 100000,
+        "effective": 100000,
+        "native_bucket": 2,
+        "out_of_supply": false,
+        "special": false
+      },
+      {
+        "unit_id": 479,
+        "province_id": 1780,
+        "source": 11335,
+        "effective": 11335,
+        "native_bucket": 0,
+        "out_of_supply": true,
+        "special": false
+      }
+    ],
+    "native_group_alert_id": 4,
+    "native_group_minimum": 0,
+    "kind_is_composed_schema_annotation_not_raw_Crisis_enum": true,
+    "severity_exported": false,
+    "notes_exported": false,
+    "complete_crisis_record": false,
+    "complete_crisis_feed": false,
+    "complete_input": false,
+    "scope": "current own TheaterGroup, actual cached alert4; sampled type51 causal bucket0/out-of-supply witness only; not every group member or complete input"
+  },
+  "inventory": {
+    "before_verified": 83,
+    "before_unverified": 33,
+    "verified": 86,
+    "unverified": 30,
+    "memory_unverified": 18,
+    "nonmemory_unverified": 12,
+    "tables": 14,
+    "fields": 116,
+    "columns": 3,
+    "before_sha256": "ebd57b52a517d88e51e39b10f3c3b529e2ce2b542e9fde5ebd9f9d2cb1871ae5",
+    "after_sha256": "8c51a0318d5d72dc3b0d2a67325462c16c42629abffddb1438f18b774e636740"
+  },
+  "tests": {
+    "method_names": [
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_01_original_domain_is_taskforce_airbase",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_02_base5_6_not_land3_4",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_03_actual_cached_alert4_group",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_04_theatergroup_not_theatre_plus48",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_05_actual479_dual_semantic_witness",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_06_genuine374_negative_excluded",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_07_intermediate500_not_whole_group_export",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_08_zero_minimum_dominates_unread_members",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_09_synthetic_grace_alert_not_outof_supply",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_10_cached_group_key_must_match",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_11_named_active_alert_mandatory",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_12_absent_actual_alert4_rejected",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_13_out_predicate_threshold_raw_not_name",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_14_actual_positive_required",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_15_sample_roles_cannot_be_swapped",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_16_actual_membership_backlink_mandatory",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_17_member_adjustment_static_proof_required",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_18_primary_identity_static_proof_required",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_19_synthetic_special_exemption",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_20_no_severity_from_threshold_or_alert_id",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_21_not_complete_crisis_or_Input",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_22_current_province_join_required",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_23_source_effective_independent_raw_replay",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_24_schema_kind_is_composed_not_raw_enum",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_25_dispatcher_not_claimed_globally_closed",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_26_witness_only_not_complete_crisis_feed",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_27_native_land_alert4_mapping_not_reversed",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_28_shared_inventory_shape_exact_three_rows",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_29_shared_native_code_hash",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_30_shared_session_guard",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_31_shared_no_game_backend",
+      "test_t227_qualified_crisis_replay.CrisisWitnessTests.test_32_shared_type51_gate"
+    ],
+    "unique_test_methods": 32,
+    "task_specific_and_scope_scenarios": 27,
+    "shared_gate_integrity_preservation_scenarios": 5,
+    "suite_runs": 2,
+    "total_invocations_including_failed_run": 64,
+    "final_run_invocations": 32,
+    "final_failures": 0,
+    "final_errors": 0,
+    "final_elapsed_seconds": 0.04639822400349658,
+    "prior_run": {
+      "invocations": 32,
+      "failures": 0,
+      "errors": 10,
+      "cause": "research assertion mistyped b79e64 instead of actual b79e65 callB6A2B0; no native/game/production change"
+    },
+    "windows_replay": 0,
+    "old_suites": 0,
+    "synthetic_only_cases": [
+      9,
+      19
+    ],
+    "real_alert_positive_unit": 479,
+    "real_alert_negative_unit": 374,
+    "intermediate_control": 500,
+    "actual_units_inspected": 3,
+    "successful": true
+  },
+  "next_target": "world.crises.notes: independently trace already-cached native alert4 tooltip text through B79D00 post-format/active-entry data, never invoke formatter or label a localization key/placeholder as text; if no productive cached text pivot another remaining18memory field, no severity inference"
+}

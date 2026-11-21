@@ -1,0 +1,70 @@
+f46c80 mov qword ptr [rsp + 8], rbx
+f46c85 mov qword ptr [rsp + 0x10], rsi
+f46c8a push rdi
+f46c8b sub rsp, 0x30
+f46c8f cmp byte ptr [rip + 0x274897b], 0
+f46c96 mov esi, edx
+f46c98 mov rdi, rcx
+f46c9b je 0xf46d7e
+f46ca1 cmp byte ptr [rip + 0x2496488], 0
+f46ca8 jne 0xf46cf9
+f46caa cmp qword ptr [rip + 0x24969fe], 0
+f46cb2 jne 0xf46cf9
+f46cb4 lea rax, [rip + 0x2496475]
+f46cbb mov byte ptr [rsp + 0x50], 0
+f46cc0 mov qword ptr [rsp + 0x28], rax
+f46cc5 lea rdx, [rip + 0x184da51]
+f46ccc lea rax, [rsp + 0x50]
+f46cd1 mov r9b, 1
+f46cd4 mov r8d, 0x464
+f46cda mov qword ptr [rsp + 0x20], rax
+f46cdf lea rcx, [rip + 0x184db52]
+f46ce6 call 0x254ab40
+f46ceb cmp byte ptr [rsp + 0x50], 0
+f46cf0 mov byte ptr [rip + 0x249643a], al
+f46cf6 je 0xf46cf9
+f46cf8 int3 
+f46cf9 cmp byte ptr [rip + 0x2748911], 0
+f46d00 je 0xf46d7e
+f46d02 cmp byte ptr [rip + 0x2496428], 0
+f46d09 jne 0xf46d7e
+f46d0b mov rax, qword ptr gs:[0x58]
+f46d14 mov ecx, dword ptr [rip + 0x274cd7e]
+f46d1a mov rbx, qword ptr [rax + rcx*8]
+f46d1e mov eax, 0x20e8
+f46d23 cmp byte ptr [rax + rbx], 0
+f46d27 jne 0xf46d2e
+f46d29 call 0x25a04d0
+f46d2e mov eax, 0x10
+f46d33 cmp dword ptr [rax + rbx], 0
+f46d37 je 0xf46d7e
+f46d39 lea rax, [rip + 0x24963f1]
+f46d40 mov byte ptr [rsp + 0x50], 0
+f46d45 mov qword ptr [rsp + 0x28], rax
+f46d4a lea rdx, [rip + 0x184d9cc]
+f46d51 lea rax, [rsp + 0x50]
+f46d56 mov r9b, 1
+f46d59 mov r8d, 0x465
+f46d5f mov qword ptr [rsp + 0x20], rax
+f46d64 lea rcx, [rip + 0x184daf5]
+f46d6b call 0x254ab40
+f46d70 cmp byte ptr [rsp + 0x50], 0
+f46d75 mov byte ptr [rip + 0x24963b6], al
+f46d7b je 0xf46d7e
+f46d7d int3 
+f46d7e mov rcx, qword ptr [rip + 0x249692b]
+f46d85 mov edx, esi
+f46d87 add rcx, 8
+f46d8b mov rax, qword ptr [rcx]
+f46d8e call qword ptr [rax]
+f46d90 mov rdx, rax
+f46d93 mov rcx, rdi
+f46d96 mov rbx, rax
+f46d99 call 0xf41950
+f46d9e mov rdx, rbx
+f46da1 mov rcx, rdi
+f46da4 mov rbx, qword ptr [rsp + 0x40]
+f46da9 mov rsi, qword ptr [rsp + 0x48]
+f46dae add rsp, 0x30
+f46db2 pop rdi
+f46db3 jmp 0xf41ae0

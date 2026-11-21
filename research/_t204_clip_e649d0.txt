@@ -1,0 +1,46 @@
+e649d0 mov qword ptr [rsp + 0x10], rbx
+e649d5 push rdi
+e649d6 sub rsp, 0x70
+e649da mov rbx, rcx
+e649dd mov rdi, qword ptr [rdx]
+e649e0 cmp rdi, qword ptr [rcx + 8]
+e649e4 je 0xe64a8a
+e649ea lea rdx, [rdi + 8]
+e649ee mov r8b, 1
+e649f1 mov rcx, qword ptr [rcx + 0x10]
+e649f5 call 0x581970
+e649fa mov rdx, qword ptr [rbx + 0x10]
+e649fe mov rcx, qword ptr [rbx + 0x18]
+e64a02 call 0x2f3ba0
+e64a07 mov rcx, qword ptr [rbx + 0x18]
+e64a0b add rcx, 0x6d8
+e64a12 mov rax, qword ptr [rcx]
+e64a15 mov rdx, qword ptr [rbx + 0x10]
+e64a19 call qword ptr [rax + 0x60]
+e64a1c mov rcx, qword ptr [rbx + 0x18]
+e64a20 add rcx, 0x408
+e64a27 mov rax, qword ptr [rcx]
+e64a2a mov rdx, qword ptr [rbx + 0x10]
+e64a2e call qword ptr [rax + 0x60]
+e64a31 mov dword ptr [rsp + 0x20], 1
+e64a39 xorps xmm0, xmm0
+e64a3c movups xmmword ptr [rsp + 0x28], xmm0
+e64a41 movdqa xmm2, xmmword ptr [rip + 0x1930f47]
+e64a49 mov byte ptr [rsp + 0x28], 0
+e64a4e mov dword ptr [rsp + 0x48], 1
+e64a56 movups xmm1, xmmword ptr [rsp + 0x28]
+e64a5b movups xmmword ptr [rsp + 0x50], xmm1
+e64a60 movups xmmword ptr [rsp + 0x60], xmm2
+e64a65 movdqu xmmword ptr [rsp + 0x38], xmm2
+e64a6b mov byte ptr [rsp + 0x28], 0
+e64a70 mov r8, qword ptr [rbx + 8]
+e64a74 add r8, 8
+e64a78 lea r9, [rsp + 0x48]
+e64a7d mov rdx, qword ptr [rbx + 0x18]
+e64a81 mov rcx, rdi
+e64a84 call 0x72c6d0
+e64a89 nop 
+e64a8a mov rbx, qword ptr [rsp + 0x88]
+e64a92 add rsp, 0x70
+e64a96 pop rdi
+e64a97 ret 

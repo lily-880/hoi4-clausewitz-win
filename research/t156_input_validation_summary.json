@@ -1,0 +1,160 @@
+{
+  "recorded_at": "2026-11-18T07:32:32.960453-05:00",
+  "timezone": "America/New_York (EST)",
+  "pid": 29000,
+  "version": "1.19.5.0.7c6c",
+  "sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "capture_time": "2026-11-18T07:32:26.661398-05:00",
+  "game_time": {
+    "year": 1936,
+    "month": 1,
+    "day": 1,
+    "hour": 12
+  },
+  "current_player_index": 44,
+  "country_tag": "not emitted; previous helper maps 44 to ETH but new active-mod table not independently verified",
+  "observations_equal_across_final_two_runs": true,
+  "units": 21,
+  "provinces": 12,
+  "templates": 4,
+  "registered_controlled_and_owned_provinces": {
+    "controller": 34,
+    "owner": 34
+  },
+  "speed": "UI setting 1x, observed clock stable; official pause flag unresolved, no speed field emitted",
+  "newly_accepted_fields": [
+    "Unit.template.template_id",
+    "Unit.template.battalions (non-null main battalions)",
+    "Province.terrain (loaded engine definition)",
+    "Province.controller (registered self country only)",
+    "Province.owner (registered self country only)"
+  ],
+  "reverified_existing": [
+    "unit id/handle/class",
+    "unit name",
+    "province id cross-check",
+    "owner index / self relation only",
+    "organization",
+    "max HP against loaded battalions (21/21)",
+    "opening org against 95% loaded mean org (21/21)",
+    "equipment ratio opening sample",
+    "direct unit officer id"
+  ],
+  "invalidated_baseline": [
+    "1.19.4 fingerprint no longer current",
+    "CArmy vtable moved 0x29D6D68 -> 0x29D6D98",
+    "GS human flag pair changed from (1,1) to (1,0)",
+    "CA+4F0 sometimes 100, not a reliable manpower read",
+    "template legacy army handle resolver returns object-0x10; typed correction verified against all 5 country templates"
+  ],
+  "unproven": [
+    "current manpower versus maximum",
+    "current HP",
+    "supply",
+    "in_combat",
+    "order semantics",
+    "official pause flag",
+    "combat_width",
+    "non-self relations and visibility",
+    "army/army group instances and leadership skills/traits",
+    "player-drawn plans versus 6 auto CFront border objects",
+    "infrastructure and fort levels",
+    "victory points",
+    "land adjacency / rivers / passability",
+    "war relation states and shortages",
+    "feedback ledger"
+  ],
+  "adjacency_research": {
+    "own_provinces": 34,
+    "candidate_stride": 48,
+    "candidate_target_offset": 8,
+    "candidate_total_edges": 203,
+    "internal_edges": 154,
+    "internal_reciprocal": 154,
+    "accepted": false,
+    "reason": "layout reciprocity only; no independent land/strait/river/passability acceptance"
+  },
+  "schema_validation": {
+    "schema": "calling/tables/generalissimo_input.schema.json",
+    "valid": false,
+    "errors": 80,
+    "error_path_counts": {
+      "meta": 3,
+      "world": 75,
+      "": 2
+    },
+    "comment": "Full-snapshot shape, not cadence-delta transport or semantic completeness. has_river_crossing edge-map shape unspecified in original Canvas."
+  },
+  "tests": {
+    "passed": 21,
+    "synthetic_and_saved_live_fixture_tests": true,
+    "live_capture_runs_final": 2,
+    "compilation_passed": true
+  },
+  "table": {
+    "path": "research/态势信息读取能力清单_1.19.5修订.md",
+    "tables": 14,
+    "rows": 119,
+    "verified_rows": 18,
+    "format": "three columns only",
+    "original_D_document_changed": false,
+    "note": "Rebuilt from Canvas input contract, not an exact in-place diff against inaccessible old 116 rows."
+  },
+  "restrictions_observed": [
+    "read-only process access",
+    "no memory write/Post/injection",
+    "no speed/pause changes",
+    "no save reading/writing",
+    "no game restart/new game",
+    "no commit or push",
+    "existing user dirty files untouched"
+  ],
+  "access_limits": [
+    "Original D-drive document refused on previous turn; no bypass or update attempted.",
+    "Static common/units/infantry.txt Read refused by allowed-root policy this turn; no Shell fallback attempted for that file.",
+    "Terrain/battalion data therefore taken directly from live loaded definitions, not static base files."
+  ],
+  "next_minimum_conditions": [
+    {
+      "need": "current manpower/HP/in_combat/combat structure",
+      "condition": "a known division with battle damage and a known active battle, plus UI values for independent comparison",
+      "operations_not_yet_authorized_or_done": "on disposable test only, enter one battle at 1x, pause at a damaged state; current campaign untouched"
+    },
+    {
+      "need": "order/path/ETA",
+      "condition": "known unit with an accepted nonempty movement path, then optionally strategic redeploy and retreat contrasts",
+      "operations_not_yet_authorized_or_done": "issue test movement only after permission in disposable test"
+    },
+    {
+      "need": "supply",
+      "condition": "known supplied versus starved/isolated unit, with independent UI tooltip comparison",
+      "operations_not_yet_authorized_or_done": "provide existing contrasting state or authorize isolated test scenario"
+    },
+    {
+      "need": "formation/leader/plan fields",
+      "condition": "one army, one army group, assigned general and nonempty drawn frontline/offensive order",
+      "operations_not_yet_authorized_or_done": "create these only in approved disposable test or let user prepare"
+    },
+    {
+      "need": "visibility",
+      "condition": "one independently known visible enemy and one hidden enemy without including hidden data in exported visible_units",
+      "operations_not_yet_authorized_or_done": "no fog bypass or hidden unit export"
+    },
+    {
+      "need": "static independent map/unit confirmation or original table update",
+      "condition": "sanctioned local-tool permission for exact paths, or user-provided copies inside allowed workspace",
+      "operations_not_yet_authorized_or_done": "no alternate route around allowed-root refusal"
+    }
+  ],
+  "complete_input": false,
+  "artifact_sha256": {
+    "calling/input_observation.py": "d6bb04ff77faf99620e135e0d8aac72621c37288d1f557508622f06f312e91f1",
+    "calling/input_capture_live.py": "025a805716bbeb8c30a39af6bdb9e17e3cf6939c64d6385a67d3465bd2a2bd43",
+    "calling/tables/offsets_input_windows_1.19.5.json": "4384d382baab40a3d8e673ae531bd03330dbe9e1bf7363c931604d801ebf224a",
+    "calling/tables/generalissimo_input.schema.json": "9a941dd3931b635591582b0d2ba3fe7ab1ceb3554a2d30af54154e61071b45ee",
+    "research/t156_live_capture.json": "10467a740ce423f7d792b677ccbcf2b2d6ea0c926d9b1e9a46a4e81bb7db4b6f",
+    "research/t156_live_capture_repeat.json": "ca88ae3278a02886341c18ea9f080865ce4a015a70af5d9a52d0005ab452387e",
+    "research/t156_schema_validation.json": "e8cacb7449771f91c121f87a97f8163d5b28e177d2c74ca03b134065f79232de",
+    "research/态势信息读取能力清单_1.19.5修订.md": "3a5cc4b3289e7459f277491bcc8f192e294aad8434f496edef7e2bef4cf440ab"
+  }
+}

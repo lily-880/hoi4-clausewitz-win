@@ -1,0 +1,56 @@
+{
+  "game": "HOI4 1.19.5.0.7c6c",
+  "pid": 26976,
+  "read_only": true,
+  "token_is_assigned": "0x385b",
+  "registrar_0x26940": {
+    "role": "string-token registrar, not a field reader",
+    "pattern": "same family as is_field_marshal 0x26c40 and is_leading_army_group 0x26e80; jmp 0x597c00",
+    "clip": "research/_t183_clip_is_assigned_0x26940.txt"
+  },
+  "writer_0x14a8ec0": {
+    "rtti": ".?AVCScientist@@",
+    "vtable": "0x29fb128",
+    "slot": "0x29fb138 = vtable+0x10",
+    "field": "byte at CScientist+0x130, written iff nonzero via 0x2546250",
+    "neighbors": "skills +0x108, is_scientist_injured +0x134",
+    "clip": "research/_t183_clip_is_assigned_0x14a8ec0.txt",
+    "not": "world.leaders.assigned_to"
+  },
+  "carmy_leader": {
+    "writer": "0xc7e8c0",
+    "deployed": {
+      "token": "0x41c7",
+      "ca": "CArmyLeader+0x1068",
+      "type": "byte",
+      "written_iff_nonzero": true,
+      "live": 0,
+      "units": 20
+    },
+    "deploy_army_hq": {
+      "token": "0x282b",
+      "ca": "CArmyLeader+0x1058",
+      "live": 0,
+      "units": 20
+    },
+    "pending_reassign_target": {
+      "token": "0x283d",
+      "ca": "CArmyLeader+0x1050"
+    },
+    "location_only_if_captured": true,
+    "not_assigned_to_shape": "schema is {kind: army|army_group|unit, id}; deployed is a boolean and is 0 for all 20 ETH generals"
+  },
+  "id_spaces": {
+    "world.leaders.leader_id": "CArmyLeader handle id at +0xc; this scene 312-331 (20 ETH generals)",
+    "world.own_units.leader_id": "already verified at CArmy+0x564; this scene 5 units have 70392-70396, 16 have -1; SUnitOfficerData at CArmy+0x568 copies the same id at +0x54 or -1. Different space from the 20 generals (inventory already notes this)."
+  },
+  "live": {
+    "player_characters": 52,
+    "army_leaders": 20,
+    "deployed_all_zero": true,
+    "no_CArmy_back_pointer": true,
+    "handle_ids_do_not_match_unit_leader_ids": true
+  },
+  "promoted": false,
+  "why": "no official {kind,id} reader; all 20 generals unassigned; unit.leader_id is a different officer space and must not be inverted into assigned_to"
+}

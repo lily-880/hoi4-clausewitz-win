@@ -1,0 +1,759 @@
+{
+  "game_version": "1.19.5.0.7c6c",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "status": "partial_input_live_verified_not_complete",
+  "pid_observed": 29000,
+  "globals": {
+    "G_GAMESTATE": 54384304,
+    "G_IDLER": 54385416
+  },
+  "vtable_rvas": {
+    "CArmy": 43871640,
+    "CCurrentGameState": 41546088
+  },
+  "fields": {
+    "division_template": "CArmy+0x3B8 CReferencedDivisionTemplate*",
+    "template_handle": "type@+0x08=0x34, id@+0x0C; registry raw object pointer equals template (legacy army resolver return+0x10)",
+    "template_name": "MSVC string+0x20",
+    "battalion_slots": "CPdxArray<CSubUnitDefinition*>+0x68; skip RTTI TNullObject, do not count slot count as battalion count",
+    "support_slots": "CPdxArray<CSubUnitDefinition*>+0x88; no support on the 21 deployed divisions observed",
+    "subunit_type": "MSVC string CSubUnitDefinition+0x18",
+    "subunit_max_org": "FIXED signed qword+0x280; opening org=0.95*battalion mean for21/21",
+    "subunit_max_hp": "FIXED signed qword+0x288; actual aggregated army stats used by independent max getter; deployed base sums match21/21",
+    "province_terrain": "CArmy+0x1F0 -> CProvince+0xB8 -> loaded definition+0xA8 CTerrainType -> MSVC string+0x18",
+    "province_controller_self": "CCountry+0x548 -> CControllerArea -> province members+0x30; CProvince+0xD0 reverse pointer verified for 34/34",
+    "province_owner_self": "CCountry+0x560 -> COwnerArea -> province members+0x30; CProvince+0xD8 reverse pointer verified for 34/34",
+    "subunit_combat_width": "FIXED signed qword CSubUnitDefinition+0x58 /100000; named parser proof; accepted used no-support templates",
+    "country_characters": "CCountry+0xFF0 -> CCountryCharacters, backlink+8",
+    "own_army_leaders": "CCountryCharacters+0x70 CPdxArray<CArmyLeader*>",
+    "own_character_entries": "CCountryCharacters+0x10 CPdxArray stride16 pointer+flags",
+    "character_army_leader": "CCharacter+0xA8 exact CArmyLeader pointer; all20 matched",
+    "character_display_name": "CCharacter MSVC UTF-8+0x28; key+0x48 equals CArmyLeader+0x20",
+    "army_leader_id": "CArmyLeader CId id.i32+0x0C type.i32+0x08; NOT division direct officer namespace",
+    "army_leader_skill": "CArmyLeader+0xE60 CUnitLeaderSkill -> i32+0x1B8",
+    "army_leader_four_skills": "i32 attack+0xF58 defense+0xF68 planning+0xF78 logistics+0xF88; named serializer",
+    "army_leader_traits": "CPdxArray<CUnitLeaderTrait*>+0xDC8; full MSVC string trait+0x10",
+    "state_buildings": "CProvince+0xC0 CState -> CPdxArray<CBuilding*>+0x158",
+    "infrastructure_present": "CBuilding i32+8 token0x2FAB; level.i16+0x40 healthy_levels.i16+0x42; only present undamaged sample emitted",
+    "country_tag_live": "GS+0x358 CPdxArray<MSVCstring> stride32 indexed by country; named CountryTag::text0xc08223, reverse country-index checked",
+    "province_victory_points": "CProvince+0x38 i32; named token0x2F7C in writer0xEF2ADC; optional renamed MSVC name+0x40",
+    "army_manpower_current": "CArmy+0x3D0 CArmyManpower: value table+8 -> header+0x10, stride8(i32 country,i32 persons); sum engine0xCC6570; current-only bounded extraction0xCC6BF0->0xCC6C40 proven, army backlink+0x48",
+    "army_manpower_need": "CArmyManpower+0x28 table; engine0xCC6480 missing=max(sum(need)-sum(value),0); NOT a stock of available people",
+    "country_available_manpower": "Exact engine0xD5DAE0: CCountryManpower inline+0x328 current.i32+0x0C + sum(CCountry+0x460 registered CState* -> CStateManpower+0x838 available.i32+0x10); integer persons, NOT ratio+0x10",
+    "state_manpower_available": "CStateManpower+0x10 available, +0x14 locked, +0x18 total, state backlink+8; named writer0x14874B0; actual decrement0x1487163/0x14872B4",
+    "army_hp_current": "signed qword CArmy+0x420 /100000; actually subtracted at CEC4AD/CEC6AF, nonnegative clamp; NOT maxHP",
+    "army_hp_max": "Primary vtable RVA29D6D98+0x108 -> CDF460: stats=*(CA+0x138) CSubUnitDefinition; max_raw=max(100,qword(stats+0x288)); /100000; independent of current"
+  },
+  "invalidated_or_unproven": {
+    "CA_MANPOWER_4F0": "not reliable on this build/sample: some opening divisions read 100 instead of 4000/5000/6000; not emitted",
+    "CA_PATH_200": "empty only, does not prove idle",
+    "CO_HUMAN_FLAGS_538_53C": "ETH now (1,0), old pair-of-ones evidence not portable",
+    "CArmy_vtable_1_19_4": "old RVA 0x29D6D68 no longer resolves CArmy; new 0x29D6D98",
+    "supply_currentHP_inCombat_order_visibility": "Current HP now resolved atCA+420 with independent max getter; supply/in_combat/order/visibility still unproved.",
+    "adjacency": "definition+0x70 array stride0x30 target+8 candidate: 154/154 internal directed edges reciprocal; land/strait/river/passability semantics not independently accepted, not emitted",
+    "country_manpower_ratio": "CCountry+0x328 CCountryManpower+0x10 FIXED450000 is named ratio, not available manpower",
+    "army_supply_ratio_610": "Named army_current_supply_ratio but current raw/100000=72 for21/21; not accepted ratio, not emitted",
+    "army_manpower_tables": "Current value semantics now proven through current-only bounded removal, independent need-value missing getter and setter; no live casualty manufactured. CA+4F0 remains rejected.",
+    "CA_STRENGTH_420_SEMANTICS": "Resolved on1.19.5: CA+420 is damage-mutated CURRENT. Prior full-HP equality did NOT prove max. Max now read through independently traced getter data, not current.",
+    "production_equipment_pool": "CProductionStatus+200 CEquipmentVariantPool variants+20 stride16(pointer,FIXED quantity); by_type+8 is NOT amounts. One5-train variant found; free stockpile consumption and typed bucket semantics pending, not exported."
+  },
+  "evidence": [
+    "research/t156_current_probe.json",
+    "research/t156_template_map_links.json",
+    "research/t156_terrain_handle.json",
+    "research/t156_battalion_scalars.json",
+    "research/t156_country_areas.json",
+    "research/t156_adjacency_stride_comparison.json",
+    "research/t165_semantic_proofs.json",
+    "research/t167_manpower_semantic_proofs.json",
+    "research/t167_hp_semantic_proofs.json"
+  ],
+  "equipment_stockpile_t168": {
+    "country_production": 3944,
+    "production_pool": 512,
+    "type_array": 8,
+    "type_stride": 24,
+    "type_begin": 8,
+    "type_count": 12,
+    "type_total_fixed": 16,
+    "variant_array": 32,
+    "variant_stride": 16,
+    "variant_amount_fixed": 8,
+    "variant_definition": 1008,
+    "definition_group_type": 1336,
+    "type_name_msvc": 24,
+    "fixed_scale": 100000,
+    "typed_actual_delete_command": "1A3A240",
+    "set_current_amount": "10980E0",
+    "coverage": "present own types only; fractional integer policy unverified; absent types not zero",
+    "proof": "research/t168_equipment_semantic_proofs.json"
+  },
+  "building_roots_t168": {
+    "database_global_rva": 54383208,
+    "database_type_array": 64,
+    "building_template_runtime_index": 736,
+    "province_buildings_inline": 400,
+    "building_template_ptr": 480,
+    "base_level_i16": 64,
+    "healthy_level_i16": 66,
+    "nonadditive_overlays": 16,
+    "additive_overlays": 40,
+    "raw_level_getter": "1201750 entry; specific type165 branch12017E0 ->1162FE0",
+    "proof_status": "Named lookup6CE380/6CE430 ->6C6970 proved hash+name and matching j ->template[j+1]. Fort absent/native0 and present undamaged no-overlay states accepted; damaged/overlays still omitted.",
+    "proof_files": [
+      "research/t168_building_database_creation_callers.json",
+      "research/t168_province_building_serialization.json",
+      "research/t168_building_level_modifier_getters.json"
+    ],
+    "description_string_formatter": "1552CF0; NOT numeric effective getter, corrected t169"
+  },
+  "fort_collection_t169": {
+    "lookup_names": [
+      "bunker",
+      "coastal_bunker"
+    ],
+    "name_hash_algorithm": "ASCII lowercase FNV1a32",
+    "name_array_offset": 88,
+    "name_stride": 40,
+    "name_hash_offset": 32,
+    "lookup_return_index_bias": 1,
+    "specific_type_tag_offset": 708,
+    "specific_type_tag": 357,
+    "type_map_offset": 32,
+    "type_map_stride": 4,
+    "actual_building_ptr_array": 56,
+    "native_absent_value": 0,
+    "coverage": "Only own observed provinces; absent explicit native branch; present damaged or nonempty overlays omitted",
+    "proof": "research/t169_building_semantic_proofs.json"
+  },
+  "infrastructure_collection_t169": {
+    "status_root": "CProvince+C0 ->CState+120 CBuildingStatus",
+    "definition_lookup": "infrastructure via6C6970 exact loaded name+hash andj+1 mapping",
+    "native_level_getter": "1201750 specific tag165 branch",
+    "accepted_states": "Actual observed own provinces only; registered absent type returns native0; present level=healthy and empty overlays",
+    "current_acceptance": "12 own observed provinces;5010 level2, other11 native absent0; no worldwide inference",
+    "legacy_two_argument_reader": "preserved narrower present-undamaged fallback for old tests; production capture explicitly supplies resolved loaded template",
+    "proof": "research/t169_building_semantic_proofs.json"
+  },
+  "reinforcement_requests_t170": {
+    "country_status": 3960,
+    "status_country_backlink": 56,
+    "group_array": 32,
+    "group_army": 32,
+    "group_requests": 40,
+    "request_produced_pool": 56,
+    "request_need_pool": 120,
+    "unit_equipment_pool": 840,
+    "template_need_pool": 288,
+    "named_writer": "15AB830",
+    "army_accessor": "15A8790 -> CDB4B0 uses CArmy+3B8",
+    "coverage": "Active own-army requests only; not national demanded/deficit/affected list",
+    "proof": "research/t170_reinforcement_semantic_proofs.json"
+  },
+  "country_need_1409810_t171": {
+    "entry": "1409810 = 1409890 + 14080c0",
+    "deployment_status": 3952,
+    "deployment_array": "CDeploymentStatus+0x60 via b2cb40, NOT +0x20 CSubUnitDefinition catalog",
+    "deploy_item_current": "item+0x20 CEquipmentVariantPool (31f8b0)",
+    "deploy_item_need": "d498a0: item+0xb8 -> +0x38 -> +0x20 CReferencedDivisionTemplate+0x120",
+    "reinforcement_status": "717400 returns country+0xf78",
+    "request_contribution": "need (request+0x78) minus produced (request+0x38); 2574ba0 is neg",
+    "resources": "14080c0 uses country+0x11f8 CCountryResources array +0x758 / count +0x764; pools +0x198 and +0x1d8; not request deficits",
+    "occupation": {
+      "status": 4048,
+      "adder": "140a400",
+      "array": 40
+    },
+    "logistics": {
+      "status": 3992,
+      "adder": "1409e50",
+      "array": 40
+    },
+    "operations": {
+      "status": 5544,
+      "adder": "140a600",
+      "array": 16
+    },
+    "infantry_specials_off": {
+      "cf5620": "type+0x5a0=0x20 -> 100f620 returns 0x20, bit31 clear",
+      "cf5660": "type+0x44b=0"
+    },
+    "army_requests": "CArmy+0x478 CArmyRequests, army backlink +8; stamp +0xe0; CArmyReinforcementRequests at +0x10",
+    "proof": "research/t171_country_need_semantics.json"
+  },
+  "reinforcement_hour_stagger_t172": {
+    "army_update_virtual": "CArmy vtable +0x90 (slot 18) = 0xce4fc0; no direct E8 callers",
+    "gate": "call 15ab390 iff (GS+0x468 hour_tick - 0x29C55C0) % 24 == (CArmy+0x1c unit_id) % 24",
+    "constant_0x29C55C0": 43800000,
+    "math": "signed 0x2AAAAAAB imul /24 for the hour; unsigned 0xAAAAAAAB /24 for unit_id",
+    "then": "15ab390 date-gates on CArmyRequests+0xe0 + 24*setting vs current tick; 15aa9c0 stamps +0xe0 only on the non-empty work path",
+    "other_15aa9c0_entries": [
+      "ce82d0 (callers 74c330,758a10,75e480)",
+      "ceb320 (many callers)"
+    ],
+    "live": "tick 60759371 residue 11; only ETH unit 1835 matches and is stamped",
+    "proof": "research/t172_stagger_semantics.json"
+  },
+  "reinforcement_worklist_t173": {
+    "cdb4b0": "returns CReferencedDivisionTemplate+0x18 (null if no template)",
+    "15aa9c0_r8": "lea [cdb4b0()+0x108] = template+0x120 CEquipmentArcheTypePool (need pool), not a distinct +0x108 list",
+    "15a26f0_need": "for each need-pool row, deficit = max(0, template_need - unit_current - existing_request_need); 1092850 accumulates that into the work list / request+0x78",
+    "717350": "mov rax,[rcx+0xf98]; ret  -> CLogisticsStatus (country)",
+    "CLogisticsStatus_country": 32,
+    "c07690": "army+0x1d8 owner-index handle -> country via GS+0x310",
+    "140b9c0": "wrapper on CLogisticsStatus+8; three 14075c0 modes 1,0,6. See reinforcement_alloc_t174: 15b1da0 is a capped add into a logistics dense array, not the produced writer",
+    "1409810_this": "callers pass CLogisticsStatus from 717350; [this+0x20] is country",
+    "ui_cache_1e1f6a0": "+0x648 is a UI/view cache written by 1e1f6a0 from 1409810; not a campaign-stored field. CEquipmentType+0x648 is not 77*100000",
+    "stored_crosscheck": "no 7700000 in bounded country/status/type roots this scene",
+    "proof": "research/t173_worklist_and_stored_need.json"
+  },
+  "reinforcement_alloc_t174": {
+    "15b1d90": "return [obj+0x10]+0x30. Live: obj is CLoopHistory, +0x10 is CLoopHistoryContainer, +0x30 is an untyped dense qword array",
+    "15b1da0": "array[type+0x598] += amount, capped to [0xffffac1d29df04c0, 0x53e2d620fb40] (same caps as 1409810). Not a stock-to-produced allocator and it does not return a produced amount",
+    "14075c0": "pool=15b1d90([logistics+8][mode]); for each 16-byte work-list row, 15b1da0(pool, amount, type+0x598)",
+    "140b9c0": "modes 1, 0, 6",
+    "140b810": "sibling used on the 15a2a20 path; modes 4, 0, 6",
+    "type_plus598": "infantry_equipment live index 15",
+    "15a26f0_produced": "10925a0 inits request+0x38 produced pool empty; only need at +0x78 is written here",
+    "ee1250": "transfers FROM dest variant pool TO CProductionStatus+0x200 (1098700 then 1092b70). Return-to-stock, not allocate-from-stock",
+    "15a5c80": "after 140b9c0: may reduce request need by a list amount (1098540) and return excess produced via ee1250; does not add to produced",
+    "15a55e0": "registers CArmyRequests+0x70 in a parent list and sets +0x60; not an allocator",
+    "15a92f0": "give=min(max(0,need-produced), offered); 1092b70 adds give to request+0x38. No E8 callers found this batch; offered-amount source (stock) not yet bound",
+    "live_stock": "production+0x200 present types this scene: train_equipment=5 only; infantry_equipment absent after the already-completed hour allocation",
+    "proof": "research/t174_alloc_semantics.json"
+  },
+  "reinforcement_offered_t175": {
+    "image_base": "0x140000000; vtable slots are preferred-base pointers, not raw RVAs (why t174 found no E8/abs-RVA to 15a92f0)",
+    "CReinforcementRequest_vtable": "0x2a4b768; slot1 +8=15a8c20 need-query (0 or 1.0 FIXED); slot2 +0x10=15a92f0 accept",
+    "CArmyReinforcementRequests_vtable": "0x2a4b7f0; slot1 +8=15a8790 want-weight; slot2 +0x10=15a8cd0 wrapper to 15a9440(out, group+0x28, type, offered)",
+    "CReinforcementStatus_vtable": "0x2a4b878; slot2 +0x10=15a93d0",
+    "CReinforcementStatus_plus20": "list of CArmyReinforcementRequests (live count 1 = group of 1835)",
+    "CReinforcementStatus_plus38": "CCountry (live)",
+    "15a93d0": "offered=*cb8e80(717410(status+0x38), type, ...); 15a16a0(out, type, offered, status+0x20)",
+    "15a16a0": "share offered across a list: slot1 query then slot2 accept; remaining offered written back",
+    "15a9440": "same accept loop on a CReinforcementRequest pointer list; calls request vtable+0x10 (15a92f0)",
+    "cb8e80": "computes offered from country equipment sources (cf4e10 gate, 10948a0, fe84d0/fe86c0); writes to out; not raw production+0x200 stockpile. Not a closed formula this batch",
+    "717410": "looks up an object from global+0x690 table via handle at arg+8 (c08790) or index 0",
+    "occupation_garrison": "CCountryOccupationStatus and CGarrisonStatus slot2=15a92c0 offer-dispatch without cb8e80 (r9 is the offered amount)",
+    "top_level_15a93d0_caller": "not bound this batch (virtual; only ctor/dtor lea of the status vtable found)",
+    "proof": "research/t175_offered_callers.json"
+  },
+  "reinforcement_offered_t176": {
+    "cf4e10": "IsAir on [CEquipmentType+0x3f0] (parent via +0x538; flags +0x5a0/+0x5a8; mask 0x1f0037fc00 after 100f620)",
+    "cb8e80_non_air": "*out = r9 (15a93d0 incoming offered). Source walk / fe84d0 / fe86c0 are air-only.",
+    "cb8e80_air": "*out = leftover after fe84d0/fe86c0 take*FIXED from pVariant lists under [717410_result+0x58]",
+    "fe84d0_fe86c0": "*out = incoming - take*0x186a0; take capped by variant availability; fdf340 may 1092b70(variant+0x1d8). Do not call live.",
+    "717400": "[CCountry+0xf78] -> CReinforcementStatus (live identity confirmed)",
+    "717410_handle": "[arg+8] is country index (live ETH 44) via c08790 into global+0x690 table",
+    "15a8f00": "CArmyUpgradesStatus slot 2; not the reinforcement hourly driver",
+    "15a93d0_hourly_caller": "unbound (virtual only)",
+    "proof": "research/t176_offered_semantics.json"
+  },
+  "reinforcement_slot2_daily_t177": {
+    "gamestate_daily": "0x1eae60; loops [GS+0x310] countries -> 72f220",
+    "country_daily": "0x72f220",
+    "deployment_daily": "0xd71810(CDeploymentStatus=country+0xf70, CReinforcementStatus=+0xf78, CArmyUpgradesStatus=+0xf80, CCountryOccupationStatus=+0xfd0)",
+    "slot2_caller": "0xd71b60 at 0xd723b6 call [vtable+0x10] (15a93d0 for reinforcement)",
+    "r9": "initial offered = production+0x200 present-row qty (FIXED) from 1095760; remaining after earlier acceptors in the d6f140 list",
+    "d6f140": "append object if slot1 want>0; want stored at object+0x10",
+    "country_offsets": {
+      "0xf68": "CProductionStatus (pool at +0x200)",
+      "0xf70": "CDeploymentStatus",
+      "0xf78": "CReinforcementStatus",
+      "0xf80": "CArmyUpgradesStatus",
+      "0xfd0": "CCountryOccupationStatus",
+      "0x11f8": "CCountryResources"
+    },
+    "hourly_path": "not identified; 140b9c0 remains logistics modes",
+    "proof": "research/t177_slot2_daily_caller.json"
+  },
+  "reinforcement_accept_daily_only_t178": {
+    "only_live_accept": "deployment.daily d71b60 via d71810 / 72f220 / 1eae60",
+    "d724e0": "sibling that calls d71b60 with rdx=r8=r9=0 (skips CReinforcementStatus)",
+    "gamestate.hourly": "0x1f5230; does not reach slot 2 accept",
+    "hourly_request_path": "CArmy slot 18 ce4fc0 -> 15ab390 -> 15aa9c0 (15a26f0 request init + 140b9c0 logistics); not accept",
+    "produced_prediction": "pre-daily remaining share of production+0x200 present-row qty, after earlier acceptors; not min(need, current stock) once the type has left the pool",
+    "proof": "research/t178_hourly_vs_daily_accept.json"
+  },
+  "need_produced_formulas_t179": {
+    "unit_need": "template+0x120 minus CArmy+0x348",
+    "official_1409810": "1409890 + 14080c0, capped",
+    "produced_prediction": "pre-daily remaining share of production+0x200 after earlier acceptors; give=min(max(0,need-produced),offered)",
+    "no_stored_official_77": true,
+    "proof": "research/t179_need_produced_formulas.json"
+  },
+  "province_adjacency_array_t179": {
+    "location": "CProvince+0xb8, pdx array +0x70",
+    "empirical_stride": 48,
+    "empirical_target_offset": 8,
+    "promoted": false,
+    "reason": "stride is empirical; land/sea/river not code-bound",
+    "proof": "research/t179_adjacency_stride48_empirical.json"
+  },
+  "province_adjacency_reader_t180": {
+    "location": "[CProvince+0xb8]+0x70 data, +0x78 cap, +0x7c size",
+    "stride": 48,
+    "target_offset": 8,
+    "type_offset": 16,
+    "types": {
+      "0": "land",
+      "1": "sea",
+      "2": "river",
+      "3": "river_large",
+      "4": "impassable"
+    },
+    "reader": "0xe90560",
+    "writer": "0x14a6540",
+    "parser": "0xab3660 adjacencies.csv",
+    "pathfinding_sea": "0xd55250 CMap+0x238 i32, -1=sea",
+    "emitted": "world.provinces.neighbors = ids with type in {0,2,3} for currently observed own-unit provinces",
+    "not_emitted": "has_river_crossing (bool vs per-edge contract unconfirmed); sea=1 and impassable=4 excluded",
+    "promoted": true,
+    "proofs": [
+      "research/t180_neighbor_reader.json",
+      "research/t180_adjacency_type_enum.json",
+      "research/t180_landindex_and_edges.json"
+    ]
+  },
+  "has_river_crossing_t181": {
+    "location": "same [CProvince+0xb8]+0x70 record as neighbors; type at +0x10",
+    "predicate": "type in {2,3}: sub al,2; cmp al,1 at 0x1297bc1 in 0x12971a0 family",
+    "shape": "object mapping land-neighbor id (decimal string) to bool; not a province-level bool",
+    "consumer": "supply/infra pathfinding 0x12971a0 (extra edge cost); five clones 0x1297f10..0x129a760",
+    "not": "CProvince scalar; definition +0x28/+0x40 are SRiverPath/SProvinceRiverPoint geometry arrays",
+    "token_registrar": "0x83760 / slot 0x346D188 is not a reader",
+    "promoted": true,
+    "proofs": [
+      "research/t181_has_river_crossing_contract.json",
+      "research/t181_no_stored_province_bool.json",
+      "research/_t181_clip_river_type_range_0x12971a0.txt"
+    ]
+  },
+  "combat_order_supply_t182": {
+    "secondary_interface": "CArmy+0x10",
+    "writers": [
+      "0xced2e0",
+      "0xc5c0a0"
+    ],
+    "path_serializer": "0x1d2bf0",
+    "commandlist": "CArmy+0x2c0 data, +0x2cc size, stride 8; token 0xcb omitted when size==0",
+    "path": "CArmy+0x200 data, +0x20c size; token 0x174",
+    "full_path": "CArmy+0x220 data, +0x22c size; token 0x362c",
+    "location": "CArmy+0x1f0 CProvince* (writer +0x1e0)",
+    "retreat": "CArmy+0x24c byte, written iff nonzero",
+    "withdraw": "CArmy+0x24d",
+    "strategic_redeployment": "CArmy+0x2af",
+    "out_of_supply_days": "CArmy+0x498, skipped if <=0",
+    "max_supply": "token 0x3a43 at CArmy+0x600",
+    "army_current_supply_ratio": "token 0x4ced at CArmy+0x610; live 72.0 /100000, not a 0..1 ratio",
+    "supply_gain": "token 0x4cec at CArmy+0x608",
+    "not": "GetOrderType +0x30 is COrderInstance (ORDER_MOVE/INVASION); land_combat_id 0x34a6 is [obj+0x748] in 0x208f90, not CArmy",
+    "promoted": false,
+    "proofs": [
+      "research/t182_carmy_writers.json",
+      "research/t182_empty_not_idle.json",
+      "research/t182_carmy_order_supply_live.json"
+    ]
+  },
+  "assigned_combat_command_t183": {
+    "is_assigned_0x385b": "CScientist+0x130 byte, writer 0x14a8ec0; 0x26940 is only the token registrar",
+    "carmy_leader_deployed": "token 0x41c7 at CArmyLeader+0x1068, written iff nonzero; live 0 for 20 ETH generals",
+    "commandlist_element": "stride-8 pointer; type token at +8; object serializer 0x2544f80",
+    "InCombat": "GetNavy()->InCombat() assert only; no land-unit reader",
+    "formation_roots": "CCountry+0x168 theatres; CTheatre +0x80/+0x98/+0xc8 group arrays empty this scene",
+    "character_country_index": "CCharacter+0x68; CArmyLeader at CCharacter+0xa8",
+    "promoted": false,
+    "proofs": [
+      "research/t183_assigned_to_contract.json",
+      "research/t183_commandlist_element.json",
+      "research/t183_combat_reader.json",
+      "research/t183_formation_empty.json",
+      "research/t183_live_assigned_to.json"
+    ]
+  },
+  "formation_combat_writers_t184": {
+    "handle": "type +0x8 id +0xc (0x22858a0); CArmy unit handle at +0x18 (0x22857c0)",
+    "CTheatre_writer": "0xf81510",
+    "CTheatre_unit": "+0x68 data +0x74 size; live ETH size 21, ids 1829-1849; not formation.army_id",
+    "COrdersGroup_writer": "0xc4d030 (world.armies)",
+    "CArmyGroup_writer": "0xc4cfa0 then jmp 0xc4d030; child orders_groups at +0x230/+0x23c",
+    "CTheaterGroup_writer": "0x16d9e10; child orders_groups at +0x48/+0x54",
+    "CLandCombat_writer": "0x147fe80; location [+0x28]+0xa4; attacker +0x18; defender +0x20",
+    "CLandCombatant": "front +0xe8/+0xf4, reserves +0x100/+0x10c, retreat +0x118/+0x124; unit handle +0x18",
+    "promoted": false,
+    "proofs": [
+      "research/t184_formation_writers.json",
+      "research/t184_combat_writers.json",
+      "research/t184_live_theatre.json"
+    ]
+  },
+  "land_combatant_activity_t185": {
+    "CCombatant_writer": "0x147ff20 (vtable 0x2a367d0 +0x10)",
+    "CCombatant_unit": "data +0x20 size +0x2c; handle elem+0x18 via 0x22857c0; token 0x28a3; official combined attacker/defender unit-id list",
+    "CLandCombatant_writer": "0x134d5f0 calls 0x147ff20 then front/reserves/retreat (t184)",
+    "SArmyUnitActivityData": "vtable 0x29d7098 writer 0x19eeaa0; combat dword +8 iff nonzero; training +0xc; not embedded in CArmy; CA+0x340 is CNameGroupMember*",
+    "CCombatManager": "embedded GS+0x260; array GS+0x268 still size 0; do not promote false",
+    "COrderInstance_type": "dword +0x30 token type 0xe1; battle-plan, not commandlist+8 / own_units.order",
+    "CSupplyConsumer_writer": "0xf4ca30; disrupted_supply / motorization_level; no in_supply or isolated token",
+    "promoted": false,
+    "proofs": [
+      "research/t185_combatant_unit_shape.json",
+      "research/t185_activity_combat_slot.json",
+      "research/t185_orderinstance_type.json",
+      "research/t185_supply_consumer.json"
+    ]
+  },
+  "war_relation_t186": {
+    "CWarRelation_writer": "0xd8f900",
+    "CRelation_writer": "0xd8f520",
+    "first": "+0x10 country index",
+    "second": "+0x14 country index",
+    "cancel": "byte +0x48",
+    "end_date_gate": "[+0x38] > [+0x20]",
+    "CRelationStatus_war_slot": "+0x2e8",
+    "CDiplomacyStatus": "CCountry+0xf88; active_relations +0x8/+0x14",
+    "live": "one world war first=ITA/16 second=ETH/44 state=at_war",
+    "promoted": [
+      "world.wars.a",
+      "world.wars.b",
+      "world.wars.state"
+    ],
+    "promoted_front_invalidated": false,
+    "proofs": [
+      "research/t186_war_writers.json",
+      "research/t186_war_contract.json",
+      "research/t186_live_warrelation.json",
+      "research/t186_world_warrelations.json"
+    ]
+  },
+  "pause_flag_t187": {
+    "CInGameIdler_pause_flag": "+0x6c1",
+    "getter": "vtable +0x2f0 = 0xe46300",
+    "setter": "vtable +0x298 = 0xe487f0",
+    "CPauseGame_execute": "0xe55060",
+    "G_IDLER": "0x33ddb08",
+    "live": "1 (pause)",
+    "not_pause": [
+      "GS+0x4B8 hour progress",
+      "GS+0x4BC speed index",
+      "token paused 0x3691 focus",
+      "unit_controller_pause"
+    ],
+    "promoted": [
+      "meta.speed"
+    ],
+    "proofs": [
+      "research/t187_pause_flag.json",
+      "research/t187_live_pause.json"
+    ]
+  },
+  "plan_orderinstance_t188": {
+    "COrderInstance_writer": "0x10d1450",
+    "type": "+0x30 token type 0xe1",
+    "instance_id": "+0x244 token 0x30af",
+    "path": "+0x70 token 0x174",
+    "states": "+0xe0 token 0x2e3b",
+    "can_execute_token": "0x30b2 (not plans.executing)",
+    "COrdersGroup_order_instance": "+0x98 / +0xa4 token 0x35f7",
+    "CTheatre_orders_group": "+0x80 / +0x8c token 0x30ae",
+    "CFront_not_plan": "CTheatre+0x50 writer 0xf809b0 tokens dirty/provinces/enemies/section/area",
+    "GetOrderType": {
+      "1": "ORDER_MOVE",
+      "3": "ORDER_INVASION"
+    },
+    "live": "0 COrderInstance worldwide in official theatre/group containers; ETH 6 CFronts only",
+    "promoted": false,
+    "proofs": [
+      "research/t188_plan_writers.json",
+      "research/t188_live_plans.json"
+    ]
+  },
+  "crisis_fow_buildings_t189": {
+    "encirclement_computer": "0x1571ef0",
+    "encirclement_points": "result+0x148",
+    "visible_token_0x2d2a": "map/gfx, not land FoW",
+    "intel_token_0x30ec": "national intel pools at writer 0xd689d0, not unit confidence",
+    "already_spotted_0x3bb3": "naval mission, not land spotted",
+    "CBuilding_level_healthy": "+0x40 / +0x42",
+    "CBuilding_overlays": "+0x10 / +0x28",
+    "live_damaged": 0,
+    "live_overlays": 0,
+    "promoted": false,
+    "proofs": [
+      "research/t189_crisis_fow_buildings.json",
+      "research/t189_live_buildings.json"
+    ]
+  },
+  "unverified_triage_t190": {
+    "promoted": false,
+    "unverified": 69,
+    "not_memory": 12,
+    "blocked_or_boundary": 57,
+    "independently_pursuable_on_this_snapshot": [],
+    "manpower_gap_live": "21 units current=need=105000, CC6480 gap 0; not promoted as country needed",
+    "proofs": [
+      "research/t190_unverified_triage.json",
+      "research/t190_live_manpower_gap.json"
+    ]
+  },
+  "move_path_t191": {
+    "CArmy_path": "+0x200 data / +0x20c size (CPdxArray<u32>)",
+    "CArmy_full_path": "+0x220 data / +0x22c size; still empty after this adjacent Move; not promoted as path or target",
+    "CArmy_commandlist": "+0x2c0 data / +0x2cc size; still empty; +8 OrderType still unmapped",
+    "CArmy_movement_progress": "+0x240; still 0 while paused after Post; eta not promoted",
+    "live": {
+      "unit_id": 1829,
+      "from": 5010,
+      "to": 8036,
+      "path_after": [
+        8036
+      ],
+      "province_after": 5010,
+      "paused": true
+    },
+    "post": {
+      "factory_idx": 1402,
+      "factory_rva_1_19_5": "0x13fb070",
+      "FN_CMD_QUEUE_POST_1_19_5": "0x22c4250",
+      "province_buf_kind": "ucrt_malloc",
+      "result": "PATH_CONTAINS_DEST"
+    },
+    "promoted": [
+      "world.own_units.order.path_province_ids"
+    ],
+    "not_promoted": [
+      "world.own_units.order.type",
+      "world.own_units.order.target_province_ids",
+      "world.own_units.order.eta"
+    ],
+    "proofs": [
+      "research/t191_move_post.json",
+      "research/t191_live_path.json",
+      "research/t191_factory_slots.json",
+      "research/t191_post_rva.json"
+    ]
+  },
+  "army_leader_t192": {
+    "COrderGroupCommand": {
+      "factory_idx": 2983,
+      "factory_rva_1_19_5": "0x18d0140",
+      "vt": "0x2a84560",
+      "isvalid": "0x18df050",
+      "execute": "0x18d6560",
+      "create_call": "0xc417a0",
+      "size": "0x60",
+      "pack": "flag +0x28=0; ucrt unit-handle vector +0x30; theatre handle +0x48 (type 67 id 43); +0x50/+0x58 empty"
+    },
+    "CSetArmyLeaderCommand": {
+      "factory_idx": 3369,
+      "factory_rva_1_19_5": "0x18d0c10",
+      "vt": "0x2a85e20",
+      "isvalid": "0x18e0540",
+      "execute": "0x18db330",
+      "size": "0x40",
+      "pack": "leader handle +0x28 (type 4713); orders_group handle +0x30 (type 53); deploy_hq +0x38=0"
+    },
+    "COrdersGroup_writer": "0xc4d030 still on 1.19.5",
+    "COrdersGroup_id": "handle type 53 at +0x8, id at +0xc",
+    "COrdersGroup_name": "+0x160",
+    "COrdersGroup_members": "+0x50 / +0x5c; vt+0x20 then unit handle at +0x18; live this-adjust 0xB8",
+    "COrdersGroup_leader": "+0x88, official token 0x28b7 handle at leader+8; omit if null",
+    "CArmy_orders_group": "+0xC0 COrdersGroup*; only the assigned division is non-null; do not use +0x750",
+    "CArmyLeader_assigned_handle": "+0x1048 {type,id}; type 53 = army. Not in writer 0xc7e8c0 token list; live contrast plus official group.leader inverse",
+    "CArmyLeader_deployed": "+0x1068 token 0x41c7 stayed 0 after a successful appoint; not assigned_to",
+    "live": {
+      "theatre_type": 67,
+      "theatre_id": 43,
+      "new_army_id": 1,
+      "new_army_name": "第1集团军",
+      "member_unit_id": 1838,
+      "leader_id": 312,
+      "leader_handle_type": 4713,
+      "leader_key": "ETH_haile_selassie",
+      "paused": true,
+      "keep_unit_1829_path": [
+        8036
+      ]
+    },
+    "promoted": [
+      "world.own_units.formation.army_id",
+      "world.armies.army_id",
+      "world.armies.name",
+      "world.armies.leader_id",
+      "world.armies.unit_ids",
+      "world.leaders.assigned_to"
+    ],
+    "not_promoted": [
+      "world.own_units.formation.army_group_id",
+      "world.army_groups.army_group_id",
+      "world.army_groups.name",
+      "world.army_groups.leader_id",
+      "world.army_groups.army_ids",
+      "world.armies.plan_id"
+    ],
+    "proofs": [
+      "research/t192_post.json",
+      "research/t192_readback.json",
+      "research/t192_contrast.json",
+      "research/t192_army_leader.json",
+      "research/t192_live_fields.json"
+    ]
+  },
+  "army_group_plan_t193": {
+    "CArmyGroupCommand": {
+      "factory_idx": 5433,
+      "factory_rva_1_19_5": "0x18cf780",
+      "vt": "0x2a846e0",
+      "isvalid": "0x18ddfe0",
+      "execute": "0x18d2640",
+      "create_call": "0xf70110",
+      "size": "0x80",
+      "pack": "theatre handle +0x28 (type 67 id 43); ucrt COrdersGroup-handle vector +0x30; +0x48/+0x60 empty"
+    },
+    "COrderNewRootCommand": {
+      "factory_idx": 4096,
+      "factory_rva_1_19_5": "0x18d0440",
+      "vt": "0x2a856a0",
+      "isvalid": "0x18df5e0",
+      "execute": "0x18d9a30",
+      "create_call": "0xc41720 edx=2",
+      "size": "0x70",
+      "pack": "group handle +0x28 (type 53 id 1); province pair +0x48/+0x4c (13237,13238)",
+      "note": "COrderNewFrontCommand is not the first-plan command; it requires an existing instance id at +0x68 via 0xc402a0"
+    },
+    "CArmyGroup_writer": "0xc4cfa0 then jmp 0xc4d030",
+    "CArmyGroup_id": "handle type 53 at +0x8, id at +0xc (same type as COrdersGroup; distinguish by RTTI / +0x39 flag / theatre array)",
+    "CArmyGroup_name": "+0x160",
+    "CArmyGroup_leader": "+0x88",
+    "CArmyGroup_children": "+0x230 / +0x23c COrdersGroup*",
+    "COrdersGroup_parent_army_group": "+0x1B8 CArmyGroup*",
+    "COrderInstance_type": "+0x30 token 0xe1; live 2 after NewRoot; 1 and 3 still the only named GetOrderType values",
+    "COrderInstance_id": "+0x244 token 0x30af; live 1",
+    "COrderInstance_path": "+0x70 token 0x174 still empty after this NewRoot",
+    "COrderInstance_can_execute": "+0x248 token 0x30b2 iff nonzero; live 0; not plans.executing",
+    "live": {
+      "army_group_id": 2,
+      "army_group_name": "第1集团军群",
+      "ag_leader_id": 313,
+      "army_ids": [
+        1
+      ],
+      "plan_id": 1,
+      "assigned_army_ids": [
+        1
+      ],
+      "member_unit_id": 1838,
+      "paused": true,
+      "keep_unit_1829_path": [
+        8036
+      ]
+    },
+    "promoted": [
+      "world.own_units.formation.army_group_id",
+      "world.army_groups.army_group_id",
+      "world.army_groups.name",
+      "world.army_groups.leader_id",
+      "world.army_groups.army_ids",
+      "world.armies.plan_id",
+      "world.plans.plan_id",
+      "world.plans.assigned_army_ids"
+    ],
+    "not_promoted": [
+      "world.plans.type",
+      "world.plans.vertex_province_ids",
+      "world.plans.assigned_unit_ids",
+      "world.plans.executing",
+      "world.plans.axis_province_ids",
+      "world.plans.status"
+    ],
+    "proofs": [
+      "research/t193_ag_post.json",
+      "research/t193_plan_post.json",
+      "research/t193_ag_contrast.json",
+      "research/t193_live_fields.json",
+      "research/t193_army_group_plan.json"
+    ]
+  },
+  "plan_execute_assign_t196": {
+    "authorized_by": [
+      "pt182u",
+      "pt180u"
+    ],
+    "promoted": [
+      "world.plans.assigned_unit_ids",
+      "world.plans.executing"
+    ],
+    "COrderInstance_scheduled_member": "+0x210 token 0x30b1; writer 0x10d1450 vt+0x20 then +0x18; live this-adjust +0xB8; unit 1838 after COrderAssignCommand",
+    "COrderInstance_can_execute": "+0x248 token 0x30b2 iff nonzero; COrderExecuteCommand Execute writes this byte; live 0->1 while officially paused",
+    "COrderInstance_path": "+0x70 token 0x174 still empty after COrderNewFrontCommand; +0x258/+0x25c not official vertex/path",
+    "COrderInstance_type": "+0x30 still 2; GetOrderType still only names 1=ORDER_MOVE and 3=ORDER_INVASION; not promoted",
+    "live": {
+      "pid": 12948,
+      "plan_id": 1,
+      "assigned_army_ids": [
+        1
+      ],
+      "assigned_unit_ids": [
+        1838
+      ],
+      "executing": true
+    }
+  },
+  "plan_vertex_t198": {
+    "promoted": [
+      "world.plans.vertex_province_ids"
+    ],
+    "path": "+0x70 token 0x174; COrderNewFallbackCommand -> 0x18d1150 -> 0x10b0d90",
+    "instance_lists": [
+      "+0x98",
+      "+0xb0",
+      "+0xc8"
+    ],
+    "factory": "0x18d0330",
+    "vt": "0x2a85520",
+    "isvalid": "0x18df520",
+    "live_path": [
+      2072,
+      7944
+    ],
+    "pid": 12948
+  },
+  "own_active_combat_t198": {
+    "promoted": [
+      "world.own_units.in_combat",
+      "world.own_units.combat_id",
+      "world.combats.combat_id",
+      "world.combats.province_id",
+      "world.combats.attacker_unit_ids",
+      "world.combats.defender_unit_ids"
+    ],
+    "manager_array": "GS+0x268",
+    "serialization_interface": "CLandCombat primary+0x10",
+    "writer": "0x147fe80",
+    "handle": "primary+0x18 {62,id}",
+    "province_ptr": "primary+0x38",
+    "attacker_ptr": "primary+0x28",
+    "defender_ptr": "primary+0x30",
+    "side_combined_unit_array": "+0x20 / +0x2c",
+    "visibility_scope": "only actual own-involved current combats, not general visible_units",
+    "negative_in_combat": "omitted, not false"
+  },
+  "equipment_affected_units_t199": {
+    "promoted": [
+      "world.shortages.equipment.affected_unit_ids"
+    ],
+    "accepted_type": "infantry_equipment",
+    "criterion": "matching canonical type: template need raw > fielded current raw",
+    "template_need": "CArmy+0x3B8 -> CReferencedDivisionTemplate+0x120 CEquipmentArcheTypePool",
+    "current": "CArmy+0x348 CEquipmentVariantPool",
+    "coverage": "all 21 own units, not requests only",
+    "live_positive_count": 20,
+    "negative_unit": 1843,
+    "absent_bucket": "omit type; never infer zero",
+    "not_promoted": [
+      "demanded",
+      "deficit",
+      "affected_plan_ids"
+    ]
+  }
+}

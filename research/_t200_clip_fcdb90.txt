@@ -1,0 +1,66 @@
+fcdb90 push rbx
+fcdb92 sub rsp, 0x20
+fcdb96 cmp qword ptr [rcx + 0x10], 0
+fcdb9b mov rbx, rcx
+fcdb9e jne 0xfcdbae
+fcdba0 cmp qword ptr [rcx + 0x2d0], 0
+fcdba8 je 0xfcdc91
+fcdbae cmp dword ptr [rcx + 0x224], 1
+fcdbb5 jne 0xfcdc91
+fcdbbb cmp dword ptr [rcx + 0x90], 2
+fcdbc2 je 0xfcdc7b
+fcdbc8 cmp byte ptr [rcx + 0x270], 0
+fcdbcf jne 0xfcdc7b
+fcdbd5 cmp qword ptr [rcx + 0x1e8], 0
+fcdbdd je 0xfcdbfb
+fcdbdf mov eax, dword ptr [rcx + 0x284]
+fcdbe5 test eax, eax
+fcdbe7 je 0xfcdbfb
+fcdbe9 mov ecx, dword ptr [rcx + 0x290]
+fcdbef test ecx, ecx
+fcdbf1 js 0xfcdbfb
+fcdbf3 cmp ecx, eax
+fcdbf5 jl 0xfcdc7b
+fcdbfb cmp dword ptr [rbx + 0x2a8], 0
+fcdc02 jg 0xfcdc7b
+fcdc04 mov rax, qword ptr [rip + 0x240fefd]
+fcdc0b mov rcx, qword ptr [rax + 0x508]
+fcdc12 mov rax, qword ptr [rcx]
+fcdc15 call qword ptr [rax + 0x30]
+fcdc18 test al, al
+fcdc1a je 0xfcdc91
+fcdc1c cmp byte ptr [rbx + 0x220], 0
+fcdc23 jne 0xfcdc91
+fcdc25 call 0xe81890
+fcdc2a cmp dword ptr [rax], 1
+fcdc2d je 0xfcdc91
+fcdc2f cmp dword ptr [rbx + 0x90], 0
+fcdc36 jne 0xfcdc91
+fcdc38 cmp byte ptr [rbx + 0x260], 0
+fcdc3f jne 0xfcdc91
+fcdc41 cmp byte ptr [rbx + 0x220], 0
+fcdc48 jne 0xfcdc7b
+fcdc4a mov rax, qword ptr [rip + 0x240feb7]
+fcdc51 mov rcx, qword ptr [rax + 0x508]
+fcdc58 mov rax, qword ptr [rcx]
+fcdc5b call qword ptr [rax + 0x38]
+fcdc5e test al, al
+fcdc60 je 0xfcdc7b
+fcdc62 cmp dword ptr [rbx + 0x90], 0
+fcdc69 jne 0xfcdc7b
+fcdc6b mov rcx, qword ptr [rip + 0x240fe9e]
+fcdc72 call 0xefe060
+fcdc77 test al, al
+fcdc79 je 0xfcdc91
+fcdc7b mov eax, dword ptr [rbx + 0x224]
+fcdc81 sub eax, 2
+fcdc84 cmp eax, 1
+fcdc87 jbe 0xfcdc91
+fcdc89 mov al, 1
+fcdc8b add rsp, 0x20
+fcdc8f pop rbx
+fcdc90 ret 
+fcdc91 xor al, al
+fcdc93 add rsp, 0x20
+fcdc97 pop rbx
+fcdc98 ret 

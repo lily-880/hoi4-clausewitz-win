@@ -1,0 +1,72 @@
+d39310 mov qword ptr [rsp + 0x10], rbx
+d39315 mov qword ptr [rsp + 0x18], rbp
+d3931a mov qword ptr [rsp + 0x20], rsi
+d3931f push rdi
+d39320 push r14
+d39322 push r15
+d39324 sub rsp, 0x30
+d39328 mov r15, rdx
+d3932b mov rbp, rcx
+d3932e xor ebx, ebx
+d39330 cmp dword ptr [rcx + 0x14], ebx
+d39333 jle 0xd39368
+d39335 xor edi, edi
+d39337 nop word ptr [rax + rax]
+d39340 mov rax, qword ptr [rbp + 8]
+d39344 mov rsi, qword ptr [rdi + rax]
+d39348 lea rcx, [rsi + 0xe0]
+d3934f call 0x2284870
+d39354 cmp rax, r15
+d39357 je 0xd393f9
+d3935d inc ebx
+d3935f add rdi, 8
+d39363 cmp ebx, dword ptr [rbp + 0x14]
+d39366 jl 0xd39340
+d39368 mov ecx, 0xe8
+d3936d call 0x25a01dc
+d39372 mov rbx, rax
+d39375 mov qword ptr [rsp + 0x50], rax
+d3937a test rax, rax
+d3937d je 0xd39407
+d39383 lea rax, [rip + 0x1ca0e86]
+d3938a mov qword ptr [rbx], rax
+d3938d lea rcx, [rbx + 8]
+d39391 call 0x11f6f0
+d39396 nop 
+d39397 lea rcx, [rbx + 0x20]
+d3939b call 0x11f6f0
+d393a0 nop 
+d393a1 lea rcx, [rbx + 0x38]
+d393a5 lea rax, [rip - 0xc1909c]
+d393ac mov qword ptr [rsp + 0x20], rax
+d393b1 lea r9, [rip - 0xc19cc8]
+d393b8 mov edx, 0x18
+d393bd mov r8d, 4
+d393c3 call 0x25a0600
+d393c8 lea rcx, [rbx + 0x98]
+d393cf call 0x11f6f0
+d393d4 lea rcx, [rbx + 0xb0]
+d393db call 0x11f6f0
+d393e0 lea rcx, [rbx + 0xc8]
+d393e7 call 0x11f6f0
+d393ec mov rax, qword ptr [r15 + 8]
+d393f0 mov qword ptr [rbx + 0xe0], rax
+d393f7 jmp 0xd39409
+d393f9 test rsi, rsi
+d393fc je 0xd39368
+d39402 mov rax, rsi
+d39405 jmp 0xd3941f
+d39407 xor ebx, ebx
+d39409 mov qword ptr [rsp + 0x50], rbx
+d3940e lea rdx, [rsp + 0x50]
+d39413 lea rcx, [rbp + 8]
+d39417 call 0x121d60
+d3941c mov rax, rbx
+d3941f mov rbx, qword ptr [rsp + 0x58]
+d39424 mov rbp, qword ptr [rsp + 0x60]
+d39429 mov rsi, qword ptr [rsp + 0x68]
+d3942e add rsp, 0x30
+d39432 pop r15
+d39434 pop r14
+d39436 pop rdi
+d39437 ret 

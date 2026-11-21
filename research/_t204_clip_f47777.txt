@@ -1,0 +1,47 @@
+f47777 mov qword ptr [rsp + 0x40], rbx
+f4777c mov qword ptr [rsp + 0x48], rdi
+f47781 mov qword ptr [rsp + 0x50], r14
+f47786 mov qword ptr [rsp + 0x20], r15
+f4778b test r8d, r8d
+f4778e je 0xf477aa
+f47790 movd xmm0, eax
+f47794 cvtdq2ps xmm0, xmm0
+f47797 mulss xmm0, dword ptr [rip + 0x184e1e9]
+f4779f cvttss2si eax, xmm0
+f477a3 cmp edx, eax
+f477a5 cmovg eax, edx
+f477a8 mov ebp, eax
+f477aa mov rcx, qword ptr [rcx + 0x10]
+f477ae mov r8d, 8
+f477b4 mov rax, qword ptr [rcx]
+f477b7 mov r9, qword ptr [rax + 8]
+f477bb mov eax, ebp
+f477bd imul rdx, rax, 0x320
+f477c4 call r9
+f477c7 mov rbx, qword ptr [rsi]
+f477ca mov r15, rax
+f477cd movsxd rcx, dword ptr [rsi + 0xc]
+f477d1 mov rdi, rax
+f477d4 imul r14, rcx, 0x320
+f477db add r14, rbx
+f477de cmp rbx, r14
+f477e1 je 0xf47809
+f477e3 mov rcx, rdi
+f477e6 mov rdx, rbx
+f477e9 add rdi, 0x320
+f477f0 call 0xf3c760
+f477f5 mov rcx, rbx
+f477f8 call 0xf3da20
+f477fd add rbx, 0x320
+f47804 cmp rbx, r14
+f47807 jne 0xf477e3
+f47809 mov rcx, qword ptr [rsi + 0x10]
+f4780d mov rdx, qword ptr [rsi]
+f47810 mov rax, qword ptr [rcx]
+f47813 call qword ptr [rax + 0x10]
+f47816 mov r14, qword ptr [rsp + 0x50]
+f4781b mov rdi, qword ptr [rsp + 0x48]
+f47820 mov rbx, qword ptr [rsp + 0x40]
+f47825 mov qword ptr [rsi], r15
+f47828 mov r15, qword ptr [rsp + 0x20]
+f4782d mov dword ptr [rsi + 8], ebp

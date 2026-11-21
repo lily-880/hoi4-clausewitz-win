@@ -1,0 +1,113 @@
+{
+  "at_est": "2026-11-21T01:00:34.458899-05:00",
+  "target": "world.wars.front_invalidated",
+  "verdict": "not promoted; diagnostic predicate independently decoded, no native schema war-change bridge or positive event sample",
+  "chain": [
+    "F6A071 assertion in F69F30",
+    "F78600 iterates CTheatre+198 dictionary at stride C0 and calls F69F30",
+    "F70F40 rebuild-scope processor includes F78600",
+    "F71ED0 independently names g_OccupationBundleConquer/g_OccupationBundleRelation and theatremanager.endbundle",
+    "F7B940 forwards province/controller bookkeeping to F6FC70 before scope processing",
+    "EF1860 contains independently named NotifyControllerChanged log and direct call EF24F7->F7B940"
+  ],
+  "predicate": "direct key first qword nonnull OR enemy key nonnull with count+2C>0 and first controller pointer from+20 nonnull; debug assertion switches separate",
+  "constructor_proof": [
+    "allocates88 only if entry+10 null",
+    "constructs CFront kind42 hex",
+    "stores theatre backpointer+18 and initial controller area+70",
+    "F6A071 diagnoses invalid key, not a stored boolean field"
+  ],
+  "membership": {
+    "current_own_theatre_count": 1,
+    "own_front_count": 5,
+    "front_ids": [
+      1278,
+      76,
+      70,
+      1734,
+      1735
+    ],
+    "dictionary_entries": 5,
+    "all_dict_front_pointers_exact_own_members": true,
+    "valid_direct_keys": 3,
+    "valid_enemy_keys": 2,
+    "invalid_key_live_samples": 0,
+    "schema_war_change_positive_samples": 0,
+    "schema_war_change_negative_samples": 0,
+    "enemy_key_counts": [
+      8,
+      9
+    ],
+    "enemy_key_RTTI": "unproved; not CControllerArea; do not assume polymorphic",
+    "resolved_controller_RTTI": "CControllerArea for all5",
+    "resolved_first_controller_equals_retained_front70": {
+      "true": 3,
+      "false": 2
+    },
+    "retained_front70_not_key_identity": "Existing fronts need not equal current enemy-key first controller; use exact dictionary value membership instead."
+  },
+  "rejected_substitutions": [
+    "assertion string -> war invalidation flag",
+    "all-valid dictionary -> schema false",
+    "CFront+7C or+7D -> wars.front_invalidated",
+    "empty event scopes -> absence of prior/current war invalidation",
+    "NotifyControllerChanged -> diplomatic war change",
+    "Conquer/Relation expression order -> exact per-global name mapping without constructor proof",
+    "unknown120B/120C/120D numeric values -> token names; all empty lookup results unproductive"
+  ],
+  "native_flags": {
+    "all_own_7c": 0,
+    "all_own_7d": 0,
+    "7d_shared_write": "F6AF50 province membership insertion writes1; not war-specific semantics",
+    "7c_unqualified": true
+  },
+  "current_named_bundle_scopes": [
+    {
+      "named_consumer_site": "0xf71f81",
+      "rva": "0x33eb020",
+      "country_count": 0,
+      "secondary_count": 0,
+      "active_nesting": 0,
+      "mode_byte": 0,
+      "locked": 0
+    },
+    {
+      "named_consumer_site": "0xf71f8d",
+      "rva": "0x33eb090",
+      "country_count": 0,
+      "secondary_count": 0,
+      "active_nesting": 0,
+      "mode_byte": 1,
+      "locked": 0
+    }
+  ],
+  "tests": {
+    "at_est": "2026-11-21T00:59:25.778462-05:00",
+    "unique_methods": 20,
+    "suite_starts": 1,
+    "completed_suite_runs": 1,
+    "total_test_invocations": 20,
+    "failures": 0,
+    "errors": 0,
+    "collection_failures": 0,
+    "successful": true,
+    "synthetic_mutations_are_live_samples": false,
+    "windows_suite_runs": 0,
+    "old_suite_runs": 0
+  },
+  "research_attempts": {
+    "launches": 6,
+    "successful_artifacts": 4,
+    "failed_starts": 2,
+    "failures": [
+      "builder attempt1 expected pdata for leaf; corrected exact 512-byte bounded leaf CFG",
+      "builder attempt2 assumed enemy key RTTI; corrected report unknown/nonpolymorphic instead; original source preserved"
+    ],
+    "initial_channel_guard_launches": 1,
+    "final_seal_launches_pending": 2,
+    "final_seal_failed_starts": 1,
+    "final_seal_failure": "Windows GBK decode of UTF-8 parent manifest; before Runtime/game reads; corrected explicit UTF-8"
+  },
+  "closed_target_this_block": "F6A071 invalid-entry diagnostic is not a native war invalidation flag",
+  "next_target": "Independently identify diplomatic relation-change enqueue into second EndBundle scope (RVA33EB090) via existing F6F9B0/F7BCE0/F7E1C0 callers; exact named war/peace cause then retained own-front bridge. If no causal witness, pivot visible_units.visibility.confidence via genuinely named intel consumer, never opacity/tier."
+}

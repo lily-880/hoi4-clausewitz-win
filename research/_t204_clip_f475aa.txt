@@ -1,0 +1,38 @@
+f475aa mov qword ptr [rsp + 0x30], rsi
+f475af test r8d, r8d
+f475b2 je 0xf475ce
+f475b4 movd xmm0, eax
+f475b8 cvtdq2ps xmm0, xmm0
+f475bb mulss xmm0, dword ptr [rip + 0x184e3c5]
+f475c3 cvttss2si eax, xmm0
+f475c7 cmp edx, eax
+f475c9 cmovg eax, edx
+f475cc mov edi, eax
+f475ce mov rcx, qword ptr [rcx + 0x10]
+f475d2 mov r8d, 4
+f475d8 mov edx, edi
+f475da shl rdx, 2
+f475de mov rax, qword ptr [rcx]
+f475e1 call qword ptr [rax + 8]
+f475e4 mov rdx, qword ptr [rbx]
+f475e7 mov rsi, rax
+f475ea movsxd rcx, dword ptr [rbx + 0xc]
+f475ee mov r8, rax
+f475f1 lea r9, [rdx + rcx*4]
+f475f5 cmp rdx, r9
+f475f8 je 0xf47612
+f475fa xor eax, eax
+f475fc nop dword ptr [rax]
+f47600 mov rcx, r8
+f47603 add rdx, 4
+f47607 add r8, 4
+f4760b mov dword ptr [rcx], eax
+f4760d cmp rdx, r9
+f47610 jne 0xf47600
+f47612 mov rcx, qword ptr [rbx + 0x10]
+f47616 mov rdx, qword ptr [rbx]
+f47619 mov rax, qword ptr [rcx]
+f4761c call qword ptr [rax + 0x10]
+f4761f mov qword ptr [rbx], rsi
+f47622 mov rsi, qword ptr [rsp + 0x30]
+f47627 mov dword ptr [rbx + 8], edi

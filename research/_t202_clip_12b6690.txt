@@ -1,0 +1,41 @@
+12b6690 mov r11, qword ptr [rcx + 0x28]
+12b6694 mov r9, rcx
+12b6697 movsxd r10, dword ptr [rcx + 0x34]
+12b669b mov eax, edx
+12b669d shr eax, 0x10
+12b66a0 xor eax, edx
+12b66a2 mov dword ptr [rsp + 0x10], 0xffffffff
+12b66aa imul r8d, eax, 0x45d9f3b
+12b66b1 mov eax, r8d
+12b66b4 shr eax, 0x10
+12b66b7 xor eax, r8d
+12b66ba imul r8d, eax, 0x45d9f3b
+12b66c1 movsxd rax, r8d
+12b66c4 mov ecx, r8d
+12b66c7 shr rcx, 0x10
+12b66cb xor rcx, rax
+12b66ce and rcx, r10
+12b66d1 lea rax, [rcx + rcx*2]
+12b66d5 mov cl, 1
+12b66d7 cmp byte ptr [r11 + rax*4], cl
+12b66db lea rax, [r11 + rax*4]
+12b66df jb 0x12b66f0
+12b66e1 cmp edx, dword ptr [rax + 4]
+12b66e4 je 0x12b66f8
+12b66e6 add rax, 0xc
+12b66ea inc cl
+12b66ec cmp cl, byte ptr [rax]
+12b66ee jbe 0x12b66e1
+12b66f0 lea rax, [rsp + 0x10]
+12b66f5 mov eax, dword ptr [rax]
+12b66f7 ret 
+12b66f8 movzx edx, byte ptr [r9 + 0x38]
+12b66fd inc edx
+12b66ff add edx, r10d
+12b6702 movsxd rcx, edx
+12b6705 lea rdx, [rcx + rcx*2]
+12b6709 lea rcx, [r11 + rdx*4]
+12b670d cmp rax, rcx
+12b6710 je 0x12b66f0
+12b6712 mov eax, dword ptr [rax + 8]
+12b6715 ret 

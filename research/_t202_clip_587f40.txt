@@ -1,0 +1,224 @@
+587f40 mov qword ptr [rsp + 0x10], rbx
+587f45 mov qword ptr [rsp + 0x18], rsi
+587f4a mov qword ptr [rsp + 0x20], rdi
+587f4f push rbp
+587f50 push r12
+587f52 push r13
+587f54 push r14
+587f56 push r15
+587f58 lea rbp, [rsp - 0x37]
+587f5d sub rsp, 0xe0
+587f64 mov r15d, r8d
+587f67 mov rsi, rdx
+587f6a mov r14, rcx
+587f6d lea rdx, [rbp + 0x67]
+587f71 mov rcx, rsi
+587f74 call 0x2542050
+587f79 mov r9, qword ptr [rax]
+587f7c mov qword ptr [r14 + 0x2c], r9
+587f80 mov byte ptr [r14 + 0x34], 1
+587f85 mov rcx, rsi
+587f88 call 0x2542640
+587f8d mov r12d, eax
+587f90 test dword ptr [r14 + 0x24], 0x800
+587f98 jne 0x588060
+587f9e cmp dword ptr [rsi + 0xc0], 3
+587fa5 je 0x588060
+587fab xorps xmm0, xmm0
+587fae movups xmmword ptr [rbp - 0x39], xmm0
+587fb2 xorps xmm1, xmm1
+587fb5 movdqu xmmword ptr [rbp - 0x29], xmm1
+587fba mov ecx, 0x30
+587fbf call 0x25a01dc
+587fc4 mov rdx, rax
+587fc7 mov qword ptr [rbp - 0x39], rax
+587fcb movdqa xmm0, xmmword ptr [rip + 0x223715d]
+587fd3 movdqu xmmword ptr [rbp - 0x29], xmm0
+587fd8 movups xmm0, xmmword ptr [rip + 0x22caa51]
+587fdf movups xmmword ptr [rax], xmm0
+587fe2 movups xmm1, xmmword ptr [rip + 0x22caa57]
+587fe9 movups xmmword ptr [rax + 0x10], xmm1
+587fed mov ecx, dword ptr [rip + 0x22caa5d]
+587ff3 mov dword ptr [rax + 0x20], ecx
+587ff6 movzx eax, word ptr [rip + 0x22caa57]
+587ffd mov word ptr [rdx + 0x24], ax
+588001 movzx eax, byte ptr [rip + 0x22caa4e]
+588008 mov byte ptr [rdx + 0x26], al
+58800b mov byte ptr [rdx + 0x27], 0
+58800f lea rdx, [rbp - 0x39]
+588013 mov rcx, rsi
+588016 call 0x2544980
+58801b nop 
+58801c mov rdx, qword ptr [rbp - 0x21]
+588020 cmp rdx, 0xf
+588024 jbe 0x58825f
+58802a inc rdx
+58802d mov rcx, qword ptr [rbp - 0x39]
+588031 mov rax, rcx
+588034 cmp rdx, 0x1000
+58803b jb 0x588056
+58803d add rdx, 0x27
+588041 mov rcx, qword ptr [rcx - 8]
+588045 sub rax, rcx
+588048 add rax, -8
+58804c cmp rax, 0x1f
+588050 ja 0x588280
+588056 call 0x25a0218
+58805b jmp 0x58825f
+588060 xor r13d, r13d
+588063 nop dword ptr [rax]
+588067 nop word ptr [rax + rax]
+588070 mov rbx, qword ptr [rsi + 0x28]
+588074 lea rdi, [rbx + 0x18]
+588078 cmp byte ptr [rbx + 0x64], r13b
+58807c jne 0x588098
+58807e mov rax, qword ptr [rbx]
+588081 mov rcx, rbx
+588084 call qword ptr [rax + 8]
+588087 mov dword ptr [rbx + 0x10], eax
+58808a test eax, eax
+58808c jne 0x588094
+58808e mov dword ptr [rdi], 0x13
+588094 mov byte ptr [rbx + 0x64], 1
+588098 mov eax, dword ptr [rdi]
+58809a mov dword ptr [rbp - 0x19], eax
+58809d movzx eax, byte ptr [rdi + 4]
+5880a1 mov byte ptr [rbp - 0x15], al
+5880a4 mov ebx, dword ptr [rdi + 0x14]
+5880a7 mov rdi, qword ptr [rdi + 8]
+5880ab lea rcx, [rbp - 0x11]
+5880af call 0x14d6f0
+5880b4 mov r9d, ebx
+5880b7 mov r8, rdi
+5880ba mov edx, dword ptr [rbp - 5]
+5880bd lea rcx, [rbp - 0x11]
+5880c1 call 0x18e430
+5880c6 mov eax, dword ptr [rbp - 0x19]
+5880c9 cmp eax, 4
+5880cc je 0x5880d7
+5880ce cmp eax, 0x13
+5880d1 je 0x5880d7
+5880d3 xor bl, bl
+5880d5 jmp 0x5880d9
+5880d7 mov bl, 1
+5880d9 mov rdx, qword ptr [rbp - 0x11]
+5880dd test rdx, rdx
+5880e0 je 0x5880f0
+5880e2 mov dword ptr [rbp - 5], r13d
+5880e6 mov rcx, qword ptr [rbp - 1]
+5880ea mov rax, qword ptr [rcx]
+5880ed call qword ptr [rax + 0x10]
+5880f0 test bl, bl
+5880f2 jne 0x588116
+5880f4 mov dl, 1
+5880f6 mov rcx, rsi
+5880f9 call 0x2543fd0
+5880fe mov rax, qword ptr [r14]
+588101 mov r9d, r15d
+588104 mov r8d, dword ptr [rsi + 0x30]
+588108 mov rdx, rsi
+58810b mov rcx, r14
+58810e call qword ptr [rax + 0x20]
+588111 jmp 0x588070
+588116 mov rcx, qword ptr [rsi + 0x28]
+58811a mov rax, qword ptr [rcx]
+58811d call qword ptr [rax + 8]
+588120 mov rcx, qword ptr [rsi + 0x28]
+588124 call 0x1b6be0
+588129 mov ecx, dword ptr [rax]
+58812b mov dword ptr [rsp + 0x20], ecx
+58812f movzx ecx, byte ptr [rax + 4]
+588133 mov byte ptr [rsp + 0x24], cl
+588137 mov ebx, dword ptr [rax + 0x14]
+58813a mov rdi, qword ptr [rax + 8]
+58813e lea rcx, [rsp + 0x28]
+588143 call 0x14d6f0
+588148 mov r9d, ebx
+58814b mov r8, rdi
+58814e mov edx, dword ptr [rbp - 0x75]
+588151 lea rcx, [rsp + 0x28]
+588156 call 0x18e430
+58815b nop 
+58815c cmp dword ptr [rbp - 0x75], 0
+588160 je 0x5881ff
+588166 mov rdx, qword ptr [rsp + 0x28]
+58816b cmp byte ptr [rdx], 0x40
+58816e jne 0x588204
+588174 lea rdx, [rbp - 0x19]
+588178 mov rcx, rsi
+58817b call 0x2542f40
+588180 nop 
+588181 mov ecx, dword ptr [rax]
+588183 mov dword ptr [rsp + 0x20], ecx
+588187 movzx ecx, byte ptr [rax + 4]
+58818b mov byte ptr [rsp + 0x24], cl
+58818f lea rdx, [rax + 8]
+588193 lea rcx, [rsp + 0x28]
+588198 call 0x1608b0
+58819d nop 
+58819e mov rdx, qword ptr [rbp - 0x11]
+5881a2 test rdx, rdx
+5881a5 je 0x5881b5
+5881a7 mov dword ptr [rbp - 5], r13d
+5881ab mov rcx, qword ptr [rbp - 1]
+5881af mov rax, qword ptr [rcx]
+5881b2 call qword ptr [rax + 0x10]
+5881b5 mov rcx, qword ptr [rsi + 0x28]
+5881b9 call 0x1b6be0
+5881be mov ecx, dword ptr [rsp + 0x20]
+5881c2 mov dword ptr [rax], ecx
+5881c4 movzx ecx, byte ptr [rsp + 0x24]
+5881c9 mov byte ptr [rax + 4], cl
+5881cc lea r15, [rax + 8]
+5881d0 lea rax, [rsp + 0x28]
+5881d5 cmp r15, rax
+5881d8 je 0x5881ff
+5881da movsxd rbx, dword ptr [rbp - 0x75]
+5881de mov rdi, qword ptr [rsp + 0x28]
+5881e3 mov dword ptr [r15 + 0xc], r13d
+5881e7 mov edx, ebx
+5881e9 mov rcx, r15
+5881ec call 0x1b1530
+5881f1 mov r8, rbx
+5881f4 mov rdx, rdi
+5881f7 mov rcx, qword ptr [r15]
+5881fa call 0x26079d0
+5881ff mov rdx, qword ptr [rsp + 0x28]
+588204 test rdx, rdx
+588207 je 0x588217
+588209 mov dword ptr [rbp - 0x75], r13d
+58820d mov rcx, qword ptr [rbp - 0x71]
+588211 mov rax, qword ptr [rcx]
+588214 call qword ptr [rax + 0x10]
+588217 mov rcx, rsi
+58821a call 0x2542af0
+58821f test al, al
+588221 je 0x58824a
+588223 mov rax, qword ptr [r14]
+588226 mov rcx, r14
+588229 call qword ptr [rax + 0x28]
+58822c test al, al
+58822e jne 0x58825f
+588230 mov r9d, 0x161
+588236 lea r8, [rip + 0x220c4e0]
+58823d mov edx, r12d
+588240 mov rcx, rsi
+588243 call 0x2542e30
+588248 jmp 0x58825f
+58824a mov r8d, 0x166
+588250 lea rdx, [rip + 0x220c4c6]
+588257 mov rcx, rsi
+58825a call 0x2542b00
+58825f lea r11, [rsp + 0xe0]
+588267 mov rbx, qword ptr [r11 + 0x38]
+58826b mov rsi, qword ptr [r11 + 0x40]
+58826f mov rdi, qword ptr [r11 + 0x48]
+588273 mov rsp, r11
+588276 pop r15
+588278 pop r14
+58827a pop r13
+58827c pop r12
+58827e pop rbp
+58827f ret 
+588280 call 0x25c7db4
+588285 int3 

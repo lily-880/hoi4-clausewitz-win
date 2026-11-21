@@ -1,0 +1,53 @@
+f46b86 mov qword ptr [rsp + 0x30], rbp
+f46b8b call 0xf41950
+f46b90 xor ebp, ebp
+f46b92 cmp dword ptr [rdi], ebp
+f46b94 jne 0xf46b9a
+f46b96 mov eax, ebp
+f46b98 jmp 0xf46ba2
+f46b9a mov rcx, rdi
+f46b9d call 0xc08790
+f46ba2 cdqe 
+f46ba4 imul rcx, rax, 0x78
+f46ba8 add rcx, qword ptr [rbx + 0x40]
+f46bac movzx eax, byte ptr [rcx + 0x70]
+f46bb0 test al, 4
+f46bb2 jne 0xf46bc8
+f46bb4 or al, 4
+f46bb6 mov rdx, rdi
+f46bb9 mov byte ptr [rcx + 0x70], al
+f46bbc lea rcx, [rbx + 0xb8]
+f46bc3 call 0x12e040
+f46bc8 movsxd rcx, dword ptr [rsi + 0xa4]
+f46bcf mov rax, qword ptr [rbx + 0x10]
+f46bd3 shl rcx, 5
+f46bd7 test byte ptr [rcx + rax + 0x18], 2
+f46bdc je 0xf46c1e
+f46bde mov rdx, rsi
+f46be1 mov rcx, rbx
+f46be4 call 0xf41ae0
+f46be9 cmp dword ptr [rdi], ebp
+f46beb je 0xf46bf7
+f46bed mov rcx, rdi
+f46bf0 call 0xc08790
+f46bf5 mov ebp, eax
+f46bf7 movsxd rax, ebp
+f46bfa imul rcx, rax, 0x78
+f46bfe add rcx, qword ptr [rbx + 0x40]
+f46c02 movzx eax, byte ptr [rcx + 0x70]
+f46c06 test al, 8
+f46c08 jne 0xf46c1e
+f46c0a or al, 8
+f46c0c mov rdx, rdi
+f46c0f mov byte ptr [rcx + 0x70], al
+f46c12 lea rcx, [rbx + 0xd0]
+f46c19 call 0x12e040
+f46c1e mov rdx, qword ptr [rsi + 0xc0]
+f46c25 mov rbp, qword ptr [rsp + 0x30]
+f46c2a movsxd rax, dword ptr [rdx + 0x58]
+f46c2e lea rcx, [rax + rax*4]
+f46c32 mov rax, qword ptr [rbx + 0x28]
+f46c36 lea r8, [rax + rcx*8]
+f46c3a movzx eax, byte ptr [rax + rcx*8 + 0x24]
+f46c3f test al, 1
+f46c41 jne 0xf46c61

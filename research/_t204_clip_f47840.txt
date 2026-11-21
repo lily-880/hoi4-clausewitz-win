@@ -1,0 +1,39 @@
+f47840 mov qword ptr [rsp + 0x10], rbx
+f47845 push rdi
+f47846 sub rsp, 0x20
+f4784a movsxd rax, dword ptr [rdx + 0xa4]
+f47851 mov rbx, rdx
+f47854 shl rax, 5
+f47858 mov rdi, rcx
+f4785b add rax, qword ptr [rcx + 0x10]
+f4785f movzx r8d, byte ptr [rax + 0x18]
+f47864 test r8b, 4
+f47868 jne 0xf4788a
+f4786a or r8b, 4
+f4786e add rcx, 0x58
+f47872 mov byte ptr [rax + 0x18], r8b
+f47876 mov eax, dword ptr [rdx + 0xa4]
+f4787c lea rdx, [rsp + 0x30]
+f47881 mov dword ptr [rsp + 0x30], eax
+f47885 call 0x12e040
+f4788a cmp dword ptr [rbx + 0x188], 0
+f47891 jne 0xf47897
+f47893 xor eax, eax
+f47895 jmp 0xf478a3
+f47897 lea rcx, [rbx + 0x188]
+f4789e call 0xc08790
+f478a3 cdqe 
+f478a5 imul rcx, rax, 0x78
+f478a9 add rcx, qword ptr [rdi + 0x40]
+f478ad movzx eax, byte ptr [rcx + 0x70]
+f478b1 test al, 4
+f478b3 jne 0xf478cd
+f478b5 or al, 4
+f478b7 lea rdx, [rbx + 0x188]
+f478be mov byte ptr [rcx + 0x70], al
+f478c1 lea rcx, [rdi + 0xb8]
+f478c8 call 0x12e040
+f478cd mov rbx, qword ptr [rsp + 0x38]
+f478d2 add rsp, 0x20
+f478d6 pop rdi
+f478d7 ret 

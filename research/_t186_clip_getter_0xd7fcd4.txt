@@ -1,0 +1,33 @@
+0xd7fcd4  mov qword ptr [rsp + 0x38], r14
+0xd7fcd9  xor ebx, ebx
+0xd7fcdb  nop dword ptr [rax + rax]
+0xd7fce0  mov rax, qword ptr [r15 + 0x58]
+0xd7fce4  mov rcx, qword ptr [rax + rbx*8]
+0xd7fce8  mov rax, qword ptr [r13 + 0x1f0]
+0xd7fcef  mov r14, qword ptr [rcx + 0xf88]
+0xd7fcf6  mov rcx, qword ptr [rax + 0x2d0]
+0xd7fcfd  add rcx, 8
+0xd7fd01  cmp dword ptr [rcx], 0
+0xd7fd04  jne 0xd7fd0a
+0xd7fd06  xor eax, eax
+0xd7fd08  jmp 0xd7fd0f
+0xd7fd0a  call 0xc08790
+0xd7fd0f  movsxd rcx, eax
+0xd7fd12  mov rax, qword ptr [r14 + 8]
+0xd7fd16  mov rcx, qword ptr [rax + rcx*8]
+0xd7fd1a  mov rax, qword ptr [rcx + 0x2e8]
+0xd7fd21  test rax, rax
+0xd7fd24  je 0xd7fd2e
+0xd7fd26  cmp byte ptr [rax + 0x49], 0
+0xd7fd2a  jne 0xd7fd2e
+0xd7fd2c  inc ebp
+0xd7fd2e  cmp dword ptr [r13 + 0x50], 0
+0xd7fd33  mov rax, qword ptr [r15 + 0x58]
+0xd7fd37  mov rcx, qword ptr [rax + rbx*8]
+0xd7fd3b  mov r14, qword ptr [rcx + 0xf88]
+0xd7fd42  jne 0xd7fd48
+0xd7fd44  xor eax, eax
+0xd7fd46  jmp 0xd7fd51
+0xd7fd48  lea rcx, [r13 + 0x50]
+0xd7fd4c  call 0xc08790
+0xd7fd51  movsxd rcx, eax

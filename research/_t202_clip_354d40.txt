@@ -1,0 +1,36 @@
+354d40 push rbx
+354d42 sub rsp, 0x20
+354d46 mov ecx, 0x190
+354d4b call 0x25a01dc
+354d50 mov rbx, rax
+354d53 mov qword ptr [rsp + 0x38], rax
+354d58 test rax, rax
+354d5b je 0x354dd7
+354d5d mov rcx, rax
+354d60 call 0x584380
+354d65 lea rax, [rip + 0x247207c]
+354d6c mov qword ptr [rbx], rax
+354d6f lea rcx, [rbx + 0x58]
+354d73 call 0x1529d0
+354d78 lea rax, [rip + 0x2491aa9]
+354d7f mov qword ptr [rbx], rax
+354d82 xorps xmm0, xmm0
+354d85 movups xmmword ptr [rbx + 0x128], xmm0
+354d8c mov qword ptr [rbx + 0x138], 0
+354d97 mov qword ptr [rbx + 0x140], 0xf
+354da2 mov byte ptr [rbx + 0x128], 0
+354da9 lea rcx, [rbx + 0x148]
+354db0 call 0x11f6f0
+354db5 lea rcx, [rbx + 0x160]
+354dbc call 0x11f6f0
+354dc1 lea rcx, [rbx + 0x178]
+354dc8 call 0x11f6f0
+354dcd nop 
+354dce mov rax, rbx
+354dd1 add rsp, 0x20
+354dd5 pop rbx
+354dd6 ret 
+354dd7 xor eax, eax
+354dd9 add rsp, 0x20
+354ddd pop rbx
+354dde ret 

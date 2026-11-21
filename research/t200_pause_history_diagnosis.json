@@ -1,0 +1,118 @@
+{
+  "repause_prepared": {
+    "factory": {
+      "wait": 0,
+      "rax": 2244794626640,
+      "stub_freed": true,
+      "vt": "0x29e6e10",
+      "cmd": "0x20aa82fb250",
+      "zeroed": false
+    },
+    "dry": {
+      "wait": 0,
+      "rax": 140701672443137,
+      "isvalid": 1
+    }
+  },
+  "unpause_prepared": {
+    "factory": {
+      "wait": 0,
+      "rax": 2244031270592,
+      "stub_freed": true,
+      "vt": "0x29e6e10",
+      "cmd": "0x20a7aafcec0",
+      "zeroed": false
+    },
+    "dry": {
+      "wait": 0,
+      "rax": 140701672443137,
+      "isvalid": 1
+    }
+  },
+  "posts": [
+    {
+      "note": "t198 plan1 execute_order=0 pt183u",
+      "wait": 0,
+      "rax": 1,
+      "post_rax": 1,
+      "elapsed_ms": 500,
+      "stub_freed": true,
+      "allow_post_at_post": true
+    },
+    {
+      "note": "t198 official 1x short move contrast pt183u",
+      "wait": 0,
+      "rax": 1,
+      "post_rax": 1,
+      "elapsed_ms": 500,
+      "stub_freed": true,
+      "allow_post_at_post": true
+    },
+    {
+      "note": "t198 restore official pause immediately pt183u",
+      "wait": 0,
+      "rax": 1,
+      "post_rax": 1,
+      "elapsed_ms": 500,
+      "stub_freed": true,
+      "allow_post_at_post": true
+    }
+  ],
+  "pause": 0,
+  "exception": "Traceback (most recent call last):\n  File \"C:\\Users\\Lenovo\\Documents\\Paradox Interactive\\Hearts of Iron IV\\clausewitz_win\\research\\_t198_order_sample.py\", line 43, in <module>\n    out['polls']=polls;out['after']=snap();out['date_after']=date();out['pause']=p.read(idler+0x6c1,1)[0];assert out['pause']==1\n                                                                                                                 ^^^^^^^^^^^^^^^\nAssertionError\n",
+  "poll_count": 138,
+  "poll_clock_changed": false,
+  "success": {
+    "before": 0,
+    "factory": {
+      "wait": 0,
+      "rax": 2247437872336,
+      "stub_freed": true,
+      "vt": "0x29e6e10",
+      "cmd": "0x20b45bc6cd0",
+      "zeroed": false
+    },
+    "raw": "106ebaabf77f000000e4ba8effffffff0000000000000000ffff00000000000000000000b61121e50000000000000000000000000000000000000000000000000f00000000000000010020000a000000",
+    "dry": {
+      "wait": 0,
+      "rax": 140701672443137,
+      "isvalid": 1
+    },
+    "post": {
+      "wait": 0,
+      "rax": 1,
+      "post_rax": 1,
+      "elapsed_ms": 500,
+      "stub_freed": true,
+      "allow_post_at_post": true
+    },
+    "health": {
+      "alive": true,
+      "exit_code": 259
+    },
+    "after": 1,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "allow_post": false
+  },
+  "missing_evidence": [
+    "failed precreated object bytes immediately before Post",
+    "serialized bool/name payload at sink",
+    "drained clone pointer/bytes",
+    "Execute entry trace and actual time",
+    "state setter result/competing pause events"
+  ],
+  "ruled_out_static": [
+    "factory has no creation timestamp/sequence assignment: +1c/+20 initialized0",
+    "sink assigns sequence at Post, not factory",
+    "Clone explicitly copies +48/+49 flags and string+28",
+    "Post RAX1 means sink invoked; is not Execute status"
+  ],
+  "proven_harness_bug": "unpaused=False is set after posting requested pause, before verifying official pause. Assertion fails after false assignment, so exception handler suppresses emergency branch. This is a confirmed containment bug, not proof of why the underlying command failed."
+}

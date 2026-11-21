@@ -1,0 +1,144 @@
+e67c60 mov qword ptr [rsp + 0x10], rbx
+e67c65 mov qword ptr [rsp + 0x18], rsi
+e67c6a push rbp
+e67c6b push rdi
+e67c6c push r14
+e67c6e mov rbp, rsp
+e67c71 sub rsp, 0x40
+e67c75 mov rbx, rcx
+e67c78 movsxd r14, r8d
+e67c7b movsxd rcx, dword ptr [rcx + 0x14]
+e67c7f mov rsi, r9
+e67c82 mov r10, rcx
+e67c85 mov r9b, 1
+e67c88 and r10, r14
+e67c8b mov rdi, rdx
+e67c8e shl r10, 4
+e67c92 add r10, qword ptr [rbx + 8]
+e67c96 cmp byte ptr [r10 + 4], r9b
+e67c9a jb 0xe67cb3
+e67c9c mov rax, qword ptr [rsi]
+e67c9f nop 
+e67ca0 cmp rax, qword ptr [r10 + 8]
+e67ca4 je 0xe67d25
+e67ca6 add r10, 0x10
+e67caa inc r9b
+e67cad cmp r9b, byte ptr [r10 + 4]
+e67cb1 jbe 0xe67ca0
+e67cb3 cmp r9b, byte ptr [rbx + 0x18]
+e67cb7 ja 0xe67e12
+e67cbd mov eax, dword ptr [rbx + 0x10]
+e67cc0 inc eax
+e67cc2 movd xmm0, ecx
+e67cc6 cvtdq2ps xmm0, xmm0
+e67cc9 movd xmm1, eax
+e67ccd cvtdq2ps xmm1, xmm1
+e67cd0 divss xmm1, xmm0
+e67cd4 comiss xmm1, dword ptr [rbx + 0x1c]
+e67cd8 ja 0xe67e12
+e67cde movzx eax, byte ptr [r10 + 4]
+e67ce3 lea r8, [r10 + 4]
+e67ce7 lea rdx, [r10 + 8]
+e67ceb test al, al
+e67ced je 0xe67d0a
+e67cef mov ecx, dword ptr [r10]
+e67cf2 inc al
+e67cf4 cmp byte ptr [r10 + 0x14], 0
+e67cf9 jne 0xe67d31
+e67cfb mov dword ptr [r10 + 0x10], ecx
+e67cff mov byte ptr [r10 + 0x14], al
+e67d03 mov rax, qword ptr [rdx]
+e67d06 mov qword ptr [r10 + 0x18], rax
+e67d0a mov dword ptr [r10], r14d
+e67d0d mov byte ptr [r8], r9b
+e67d10 mov rax, qword ptr [rsi]
+e67d13 mov qword ptr [rdx], rax
+e67d16 inc dword ptr [rbx + 0x10]
+e67d19 mov qword ptr [rdi], r10
+e67d1c mov byte ptr [rdi + 8], 1
+e67d20 jmp 0xe67e2b
+e67d25 mov qword ptr [rdx], r10
+e67d28 mov byte ptr [rdx + 8], 0
+e67d2c jmp 0xe67e2b
+e67d31 mov byte ptr [rbp - 0x1c], al
+e67d34 mov dword ptr [rbp - 0x20], ecx
+e67d37 mov rax, qword ptr [rdx]
+e67d3a mov qword ptr [rbp - 0x18], rax
+e67d3e mov byte ptr [r8], r9b
+e67d41 mov r9, r10
+e67d44 mov dword ptr [r10], r14d
+e67d47 mov rax, qword ptr [rsi]
+e67d4a mov qword ptr [rdx], rax
+e67d4d movzx ecx, byte ptr [rbp - 0x1c]
+e67d51 movzx eax, byte ptr [r10 + 0x14]
+e67d56 lea r10, [r10 + 0x10]
+e67d5a test al, al
+e67d5c je 0xe67df4
+e67d62 cmp al, cl
+e67d64 jae 0xe67d9d
+e67d66 mov eax, dword ptr [r10]
+e67d69 mov ecx, dword ptr [rbp - 0x20]
+e67d6c mov dword ptr [rbp - 0x20], eax
+e67d6f movzx eax, byte ptr [r10 + 4]
+e67d74 mov dword ptr [r10], ecx
+e67d77 movzx ecx, byte ptr [rbp - 0x1c]
+e67d7b mov byte ptr [rbp - 0x1c], al
+e67d7e mov rax, qword ptr [r10 + 8]
+e67d82 mov byte ptr [r10 + 4], cl
+e67d86 mov rcx, qword ptr [rbp - 0x18]
+e67d8a mov qword ptr [rbp - 0x18], rax
+e67d8e mov qword ptr [r10 + 8], rcx
+e67d92 movzx ecx, byte ptr [rbp - 0x1c]
+e67d96 inc cl
+e67d98 mov byte ptr [rbp - 0x1c], cl
+e67d9b jmp 0xe67d51
+e67d9d inc cl
+e67d9f mov byte ptr [rbp - 0x1c], cl
+e67da2 cmp cl, byte ptr [rbx + 0x18]
+e67da5 jbe 0xe67d51
+e67da7 mov ecx, dword ptr [rbp - 0x20]
+e67daa mov eax, dword ptr [r9]
+e67dad mov dword ptr [rbp - 0x20], eax
+e67db0 movzx eax, byte ptr [r8]
+e67db4 mov dword ptr [r9], ecx
+e67db7 movzx ecx, byte ptr [rbp - 0x1c]
+e67dbb mov byte ptr [rbp - 0x1c], al
+e67dbe mov rax, qword ptr [rdx]
+e67dc1 mov byte ptr [r8], cl
+e67dc4 mov rcx, qword ptr [rbp - 0x18]
+e67dc8 mov qword ptr [rbp - 0x18], rax
+e67dcc mov qword ptr [rdx], rcx
+e67dcf mov rcx, rbx
+e67dd2 call 0xe80d80
+e67dd7 mov r8d, dword ptr [rbp - 0x20]
+e67ddb lea r9, [rbp - 0x18]
+e67ddf lea rdx, [rbp - 0x10]
+e67de3 mov rcx, rbx
+e67de6 call 0xe67c60
+e67deb movups xmm0, xmmword ptr [rbp - 0x10]
+e67def movups xmmword ptr [rdi], xmm0
+e67df2 jmp 0xe67e2b
+e67df4 mov eax, dword ptr [rbp - 0x20]
+e67df7 mov dword ptr [r10], eax
+e67dfa mov byte ptr [r10 + 4], cl
+e67dfe mov rax, qword ptr [rbp - 0x18]
+e67e02 mov qword ptr [r10 + 8], rax
+e67e06 inc dword ptr [rbx + 0x10]
+e67e09 mov qword ptr [rdi], r9
+e67e0c mov byte ptr [rdi + 8], 1
+e67e10 jmp 0xe67e2b
+e67e12 mov rcx, rbx
+e67e15 call 0xe80d80
+e67e1a mov r9, rsi
+e67e1d mov r8d, r14d
+e67e20 mov rdx, rdi
+e67e23 mov rcx, rbx
+e67e26 call 0xe67c60
+e67e2b mov rbx, qword ptr [rsp + 0x68]
+e67e30 mov rax, rdi
+e67e33 mov rsi, qword ptr [rsp + 0x70]
+e67e38 add rsp, 0x40
+e67e3c pop r14
+e67e3e pop rdi
+e67e3f pop rbp
+e67e40 ret 

@@ -1,0 +1,300 @@
+1391250 mov qword ptr [rsp + 0x10], rdx
+1391255 mov qword ptr [rsp + 8], rcx
+139125a push rbx
+139125b push rbp
+139125c push rsi
+139125d push rdi
+139125e push r12
+1391260 push r13
+1391262 push r14
+1391264 push r15
+1391266 sub rsp, 0x78
+139126a movaps xmmword ptr [rsp + 0x60], xmm6
+139126f mov rbp, rdx
+1391272 mov rdi, rcx
+1391275 mov dword ptr [rsp + 0x20], 0
+139127d mov rcx, qword ptr [rcx + 8]
+1391281 mov rax, qword ptr [rcx]
+1391284 call qword ptr [rax + 8]
+1391287 mov rcx, rax
+139128a call 0x2c0320
+139128f mov rbx, rax
+1391292 mov rcx, qword ptr [rax + 0xf70]
+1391299 call 0xd73070
+139129e mov qword ptr [rsp + 0x30], rax
+13912a3 mov rcx, rbx
+13912a6 call 0x716c40
+13912ab mov rbx, rax
+13912ae mov dword ptr [rsp + 0xd0], 0
+13912b9 lea rdx, [rsp + 0xd0]
+13912c1 mov rcx, rdi
+13912c4 call 0x1391e80
+13912c9 mov esi, eax
+13912cb mov dword ptr [rsp + 0xd8], eax
+13912d2 mov rcx, rbp
+13912d5 call 0x11f6f0
+13912da mov dword ptr [rsp + 0x20], 1
+13912e2 mov r12, qword ptr [rbx]
+13912e5 movsxd rcx, dword ptr [rbx + 0xc]
+13912e9 lea rax, [r12 + rcx*8]
+13912ed mov qword ptr [rsp + 0x38], rax
+13912f2 cmp r12, rax
+13912f5 je 0x1391704
+13912fb movss xmm6, dword ptr [rip + 0x1404685]
+1391303 mov r15, qword ptr [r12]
+1391307 mov rcx, r15
+139130a call 0xce6060
+139130f test al, al
+1391311 jne 0x13916f5
+1391317 mov rax, qword ptr [r15]
+139131a mov rcx, r15
+139131d call qword ptr [rax + 0x158]
+1391323 test al, al
+1391325 jne 0x13916f5
+139132b mov rcx, r15
+139132e call 0xc55aa0
+1391333 test al, al
+1391335 jne 0x13916f5
+139133b cmp dword ptr [r15 + 0x1dc], 0
+1391343 jg 0x13916f5
+1391349 mov rcx, r15
+139134c call 0xe64c50
+1391351 test al, al
+1391353 je 0x13916f5
+1391359 mov rcx, r15
+139135c call 0xcdb4b0
+1391361 mov rbx, rax
+1391364 mov dword ptr [rsp + 0xd0], 0
+139136f lea rcx, [rdi + 0x98]
+1391376 lea r8, [rsp + 0xd0]
+139137e lea rdx, [rsp + 0x50]
+1391383 call 0x1389eb0
+1391388 mov rcx, qword ptr [rax]
+139138b mov r14, qword ptr [rcx + 0x18]
+139138f movsxd rcx, dword ptr [rcx + 0x24]
+1391393 lea rdx, [rcx + rcx*2]
+1391397 shl rdx, 4
+139139b add rdx, r14
+139139e cmp r14, rdx
+13913a1 je 0x13916f5
+13913a7 nop word ptr [rax + rax]
+13913b0 mov rax, qword ptr [r14]
+13913b3 add rax, 0x18
+13913b7 cmp rbx, rax
+13913ba je 0x13913ca
+13913bc add r14, 0x30
+13913c0 cmp r14, rdx
+13913c3 jne 0x13913b0
+13913c5 jmp 0x13916f5
+13913ca mov r13, qword ptr [r14 + 8]
+13913ce test r13, r13
+13913d1 je 0x13916f5
+13913d7 test r14, r14
+13913da je 0x13916f5
+13913e0 lea r8, [r13 + 0x18]
+13913e4 cmp rbx, r8
+13913e7 je 0x13916f5
+13913ed mov qword ptr [rsp + 0xd0], r15
+13913f5 lea rax, [rsp + 0xd0]
+13913fd mov qword ptr [rsp + 0x40], rax
+1391402 lea rax, [rsp + 0xd8]
+139140a mov qword ptr [rsp + 0x48], rax
+139140f xor r9d, r9d
+1391412 lea rdx, [rsp + 0x40]
+1391417 mov rcx, qword ptr [rsp + 0x30]
+139141c call 0x1a12840
+1391421 test al, al
+1391423 jne 0x13916f5
+1391429 mov eax, dword ptr [r14 + 0x28]
+139142d cmp esi, eax
+139142f jle 0x13916f5
+1391435 mov ebx, 0x64
+139143a test eax, eax
+139143c jns 0x13914ed
+1391442 mov rax, qword ptr [r14 + 8]
+1391446 movsxd rdx, dword ptr [rax + 0x190]
+139144d imul r9, rdx, 0x186a0
+1391454 mov rax, qword ptr [r14]
+1391457 movsxd rcx, dword ptr [rax + 0x190]
+139145e imul r8, rcx, 0x186a0
+1391465 test r8, r8
+1391468 je 0x139148e
+139146a movabs rax, 0x8000000000000001
+1391474 cmp r9, rax
+1391477 jle 0x139148e
+1391479 movabs rax, 0x2540be400
+1391483 imul rax, rdx
+1391487 cqo 
+1391489 idiv r8
+139148c jmp 0x1391493
+139148e mov eax, 0xffffffff
+1391493 mov ecx, 0x186a0
+1391498 sub rcx, rax
+139149b imul rdx, rcx, 0x989680
+13914a2 movabs r8, 0x29f16b11c6d1e109
+13914ac mov rax, r8
+13914af imul rdx
+13914b2 mov rcx, rdx
+13914b5 sar rcx, 0xe
+13914b9 mov rax, rcx
+13914bc shr rax, 0x3f
+13914c0 add rcx, rax
+13914c3 mov rax, r8
+13914c6 imul rcx
+13914c9 mov rbx, rdx
+13914cc sar rbx, 0xe
+13914d0 mov rax, rbx
+13914d3 shr rax, 0x3f
+13914d7 add rbx, rax
+13914da imul rax, rbx, -0x186a0
+13914e1 add rax, rcx
+13914e4 shr rax, 0x3f
+13914e8 sub ebx, eax
+13914ea add ebx, 0x64
+13914ed mov rax, qword ptr [r15]
+13914f0 lea rdx, [rsp + 0x28]
+13914f5 mov rcx, r15
+13914f8 call qword ptr [rax + 0x110]
+13914fe mov rcx, r15
+1391501 call 0xcdb4b0
+1391506 movsxd rcx, dword ptr [rax + 0x18c]
+139150d imul rcx, qword ptr [rsp + 0x28]
+1391513 imul rdx, rcx, 0x186a0
+139151a movabs rax, 0x29f16b11c6d1e109
+1391524 imul rdx
+1391527 sar rdx, 0xe
+139152b mov rax, rdx
+139152e shr rax, 0x3f
+1391532 add rdx, rax
+1391535 movsxd rax, ebx
+1391538 imul rdx, rax
+139153c mov qword ptr [rsp + 0x28], rdx
+1391541 test rdx, rdx
+1391544 jle 0x13916f5
+139154a mov rcx, r15
+139154d call 0xcdb4b0
+1391552 mov rcx, rax
+1391555 call 0xbf1dd0
+139155a cmp eax, 3
+139155d jne 0x1391588
+139155f imul rcx, qword ptr [rsp + 0x28], 0x1e848
+1391568 movabs rax, 0x29f16b11c6d1e109
+1391572 imul rcx
+1391575 sar rdx, 0xe
+1391579 mov rax, rdx
+139157c shr rax, 0x3f
+1391580 add rdx, rax
+1391583 mov qword ptr [rsp + 0x28], rdx
+1391588 mov rcx, qword ptr [rdi + 8]
+139158c mov rax, qword ptr [rcx]
+139158f call qword ptr [rax + 8]
+1391592 mov r9, rax
+1391595 mov r8d, dword ptr [rax + 0x38]
+1391599 imul ecx, r8d, 0x4ad685b3
+13915a0 mov edx, dword ptr [rax + 0x3c]
+13915a3 sub edx, ecx
+13915a5 mov ecx, edx
+13915a7 shr ecx, 8
+13915aa xor ecx, edx
+13915ac add ecx, 0x68e31da4
+13915b2 mov eax, ecx
+13915b4 shl eax, 8
+13915b7 xor eax, ecx
+13915b9 imul ecx, eax, 0x1b56c4e9
+13915bf mov eax, ecx
+13915c1 shr eax, 8
+13915c4 xor eax, ecx
+13915c6 imul ecx, eax, 0x92d68ca2
+13915cc lea eax, [r8 + 1]
+13915d0 mov dword ptr [r9 + 0x38], eax
+13915d4 mov r9d, ecx
+13915d7 shr r9d, 8
+13915db xor r9d, ecx
+13915de btr r9d, 0x1f
+13915e3 mov rbx, qword ptr [rsp + 0x28]
+13915e8 movabs rax, 0x29f16b11c6d1e109
+13915f2 imul rbx
+13915f5 sar rdx, 0xe
+13915f9 mov rcx, rdx
+13915fc shr rcx, 0x3f
+1391600 add rdx, rcx
+1391603 mov eax, 0x66666667
+1391608 imul edx
+139160a sar edx, 2
+139160d mov r8d, edx
+1391610 shr r8d, 0x1f
+1391614 inc edx
+1391616 add r8d, edx
+1391619 mov eax, r9d
+139161c cdq 
+139161d idiv r8d
+1391620 movsxd rax, edx
+1391623 imul rcx, rax, 0x186a0
+139162a add rbx, rcx
+139162d mov qword ptr [rsp + 0x28], rbx
+1391632 movsxd rax, dword ptr [rbp + 0xc]
+1391636 mov ecx, dword ptr [rbp + 8]
+1391639 cmp eax, ecx
+139163b jne 0x13916d4
+1391641 inc eax
+1391643 movd xmm0, ecx
+1391647 cvtdq2ps xmm0, xmm0
+139164a mulss xmm0, xmm6
+139164e cvttss2si esi, xmm0
+1391652 cmp eax, esi
+1391654 cmovg esi, eax
+1391657 mov rcx, qword ptr [rbp + 0x10]
+139165b mov rax, qword ptr [rcx]
+139165e mov edx, esi
+1391660 shl rdx, 5
+1391664 mov r8d, 8
+139166a call qword ptr [rax + 8]
+139166d mov rdi, rax
+1391670 movsxd rcx, dword ptr [rbp + 0xc]
+1391674 shl rcx, 5
+1391678 mov qword ptr [rcx + rax], r15
+139167c mov qword ptr [rcx + rax + 8], r13
+1391681 mov qword ptr [rcx + rax + 0x10], r14
+1391686 mov qword ptr [rcx + rax + 0x18], rbx
+139168b movsxd r8, dword ptr [rbp + 0xc]
+139168f shl r8, 5
+1391693 mov rdx, qword ptr [rbp]
+1391697 mov rcx, rax
+139169a call 0x26079d0
+139169f mov ebx, dword ptr [rbp + 0xc]
+13916a2 inc ebx
+13916a4 mov dword ptr [rbp + 0xc], 0
+13916ab mov rcx, qword ptr [rbp + 0x10]
+13916af mov rax, qword ptr [rcx]
+13916b2 mov rdx, qword ptr [rbp]
+13916b6 call qword ptr [rax + 0x10]
+13916b9 mov qword ptr [rbp], rdi
+13916bd mov dword ptr [rbp + 8], esi
+13916c0 mov dword ptr [rbp + 0xc], ebx
+13916c3 mov rdi, qword ptr [rsp + 0xc0]
+13916cb mov esi, dword ptr [rsp + 0xd8]
+13916d2 jmp 0x13916f5
+13916d4 mov rcx, rax
+13916d7 shl rcx, 5
+13916db mov rax, qword ptr [rbp]
+13916df mov qword ptr [rcx + rax], r15
+13916e3 mov qword ptr [rcx + rax + 8], r13
+13916e8 mov qword ptr [rcx + rax + 0x10], r14
+13916ed mov qword ptr [rcx + rax + 0x18], rbx
+13916f2 inc dword ptr [rbp + 0xc]
+13916f5 add r12, 8
+13916f9 cmp r12, qword ptr [rsp + 0x38]
+13916fe jne 0x1391303
+1391704 mov rax, rbp
+1391707 movaps xmm6, xmmword ptr [rsp + 0x60]
+139170c add rsp, 0x78
+1391710 pop r15
+1391712 pop r14
+1391714 pop r13
+1391716 pop r12
+1391718 pop rdi
+1391719 pop rsi
+139171a pop rbp
+139171b pop rbx
+139171c ret 
+139171d int3 

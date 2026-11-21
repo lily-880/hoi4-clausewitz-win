@@ -1,0 +1,22 @@
+ff47d2 mov qword ptr [rsp + 0x38], rbx
+ff47d7 lea rbx, [rax - 0x10]
+ff47db test rbx, rbx
+ff47de je 0xff4826
+ff47e0 cmp qword ptr [rbx + 0x2f8], 0
+ff47e8 jne 0xff4826
+ff47ea mov rax, qword ptr [rbx + 0x1f0]
+ff47f1 mov rcx, qword ptr [rax + 0xb8]
+ff47f8 test byte ptr [rcx + 0xd2], 3
+ff47ff je 0xff4826
+ff4801 mov rcx, rbx
+ff4804 call 0xe64c50
+ff4809 test al, al
+ff480b je 0xff4826
+ff480d mov rax, qword ptr [rdi]
+ff4810 lea rdx, [rsp + 0x30]
+ff4815 mov rcx, rdi
+ff4818 call qword ptr [rax + 0x70]
+ff481b mov rcx, rbx
+ff481e mov rdx, qword ptr [rax]
+ff4821 call 0xefae10
+ff4826 mov rbx, qword ptr [rsp + 0x38]

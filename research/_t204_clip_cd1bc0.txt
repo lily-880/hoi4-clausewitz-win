@@ -1,0 +1,55 @@
+cd1bc0 mov qword ptr [rsp + 0x18], rbx
+cd1bc5 mov qword ptr [rsp + 0x20], rdi
+cd1bca push r14
+cd1bcc sub rsp, 0x20
+cd1bd0 mov rax, qword ptr [rcx + 0x1e0]
+cd1bd7 mov r14, r8
+cd1bda mov rbx, rdx
+cd1bdd mov rdi, rcx
+cd1be0 test rax, rax
+cd1be3 je 0xcd1c8d
+cd1be9 mov rax, qword ptr [rax + 0xb8]
+cd1bf0 test byte ptr [rax + 0xd2], 1
+cd1bf7 je 0xcd1c8d
+cd1bfd add rcx, -0x10
+cd1c01 mov qword ptr [rsp + 0x38], rsi
+cd1c06 call 0xc56f40
+cd1c0b test al, al
+cd1c0d jne 0xcd1c84
+cd1c0f lea rcx, [rdi - 0x10]
+cd1c13 call 0xc574c0
+cd1c18 test al, al
+cd1c1a jne 0xcd1c84
+cd1c1c mov rax, qword ptr [rdi - 0x10]
+cd1c20 lea rdx, [rsp + 0x30]
+cd1c25 lea rcx, [rdi - 0x10]
+cd1c29 call qword ptr [rax + 0x1b0]
+cd1c2f mov rcx, qword ptr [rsp + 0x30]
+cd1c34 movabs rax, 0x29f16b11c6d1e109
+cd1c3e mov rdx, rcx
+cd1c41 imul rdx, qword ptr [rip + 0x2710407]
+cd1c49 imul rdx
+cd1c4c sar rdx, 0xe
+cd1c50 mov rax, rdx
+cd1c53 shr rax, 0x3f
+cd1c57 add rdx, rax
+cd1c5a mov qword ptr [r14], rdx
+cd1c5d mov dword ptr [rdi + 0x70], 1
+cd1c64 mov qword ptr [rdi + 0x78], rcx
+cd1c68 mov qword ptr [rbx], rcx
+cd1c6b mov rsi, qword ptr [rsp + 0x38]
+cd1c70 mov rax, rbx
+cd1c73 mov rbx, qword ptr [rsp + 0x40]
+cd1c78 mov rdi, qword ptr [rsp + 0x48]
+cd1c7d add rsp, 0x20
+cd1c81 pop r14
+cd1c83 ret 
+cd1c84 mov qword ptr [rbx], 0
+cd1c8b jmp 0xcd1c6b
+cd1c8d mov rdi, qword ptr [rsp + 0x48]
+cd1c92 mov rax, rbx
+cd1c95 mov rbx, qword ptr [rsp + 0x40]
+cd1c9a mov qword ptr [rdx], 0
+cd1ca1 add rsp, 0x20
+cd1ca5 pop r14
+cd1ca7 ret 

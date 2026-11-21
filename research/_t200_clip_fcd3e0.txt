@@ -1,0 +1,29 @@
+fcd3e0 sub rsp, 0x28
+fcd3e4 cmp qword ptr [rcx + 0x10], 0
+fcd3e9 jne 0xfcd3f5
+fcd3eb cmp qword ptr [rcx + 0x2d0], 0
+fcd3f3 je 0xfcd441
+fcd3f5 cmp qword ptr [rcx + 0x1e8], 0
+fcd3fd jne 0xfcd441
+fcd3ff mov eax, dword ptr [rcx + 0x224]
+fcd405 sub eax, 2
+fcd408 cmp eax, 1
+fcd40b ja 0xfcd441
+fcd40d cmp dword ptr [rcx + 0x2a8], 0
+fcd414 jg 0xfcd441
+fcd416 mov eax, dword ptr [rcx + 0x2b8]
+fcd41c cmp eax, -1
+fcd41f jne 0xfcd428
+fcd421 mov eax, 0xfffffffe
+fcd426 jmp 0xfcd42a
+fcd428 inc eax
+fcd42a xor r8d, r8d
+fcd42d mov dword ptr [rcx + 0x2b8], eax
+fcd433 xor edx, edx
+fcd435 call 0xfd5730
+fcd43a mov al, 1
+fcd43c add rsp, 0x28
+fcd440 ret 
+fcd441 xor al, al
+fcd443 add rsp, 0x28
+fcd447 ret 

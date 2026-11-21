@@ -1,0 +1,85 @@
+1a152c0 mov qword ptr [rsp + 0x10], rbx
+1a152c5 mov qword ptr [rsp + 0x18], rsi
+1a152ca push rdi
+1a152cb sub rsp, 0x30
+1a152cf mov rbx, qword ptr [rcx + 0x20]
+1a152d3 movsxd rax, dword ptr [rcx + 0x2c]
+1a152d7 lea rdi, [rbx + rax*8]
+1a152db cmp rbx, rdi
+1a152de je 0x1a153ca
+1a152e4 xor esi, esi
+1a152e6 nop word ptr [rax + rax]
+1a152f0 mov rax, qword ptr [rbx]
+1a152f3 mov qword ptr [rsp + 0x40], rax
+1a152f8 call 0x2348c60
+1a152fd test al, al
+1a152ff je 0x1a15327
+1a15301 cmp dword ptr [rsp + 0x40], esi
+1a15305 jne 0x1a1530d
+1a15307 cmp dword ptr [rsp + 0x44], esi
+1a1530b je 0x1a15322
+1a1530d lea rcx, [rsp + 0x40]
+1a15312 call 0x2284870
+1a15317 test rax, rax
+1a1531a je 0x1a15322
+1a1531c add rax, -0x10
+1a15320 jmp 0x1a1535d
+1a15322 mov rax, rsi
+1a15325 jmp 0x1a1535d
+1a15327 cmp dword ptr [rsp + 0x40], esi
+1a1532b jne 0x1a15337
+1a1532d cmp dword ptr [rsp + 0x44], esi
+1a15331 je 0x1a153bd
+1a15337 lea rcx, [rsp + 0x40]
+1a1533c call 0x2284870
+1a15341 mov rcx, rax
+1a15344 mov dword ptr [rsp + 0x20], esi
+1a15348 lea r9, [rip + 0x1730f89]
+1a1534f xor edx, edx
+1a15351 lea r8, [rip + 0x172ea28]
+1a15358 call 0x25c38b0
+1a1535d test rax, rax
+1a15360 setne al
+1a15363 test al, al
+1a15365 je 0x1a153bd
+1a15367 cmp dword ptr [rsp + 0x40], esi
+1a1536b jne 0x1a15373
+1a1536d cmp dword ptr [rsp + 0x44], esi
+1a15371 je 0x1a15386
+1a15373 lea rcx, [rsp + 0x40]
+1a15378 call 0x2284870
+1a1537d lea rcx, [rax - 0x10]
+1a15381 test rax, rax
+1a15384 jne 0x1a15389
+1a15386 mov rcx, rsi
+1a15389 call 0xc57480
+1a1538e test al, al
+1a15390 je 0x1a153bd
+1a15392 cmp dword ptr [rsp + 0x40], esi
+1a15396 jne 0x1a1539e
+1a15398 cmp dword ptr [rsp + 0x44], esi
+1a1539c je 0x1a153b1
+1a1539e lea rcx, [rsp + 0x40]
+1a153a3 call 0x2284870
+1a153a8 lea rcx, [rax - 0x10]
+1a153ac test rax, rax
+1a153af jne 0x1a153b4
+1a153b1 mov rcx, rsi
+1a153b4 call 0xe64c50
+1a153b9 test al, al
+1a153bb je 0x1a153dc
+1a153bd add rbx, 8
+1a153c1 cmp rbx, rdi
+1a153c4 jne 0x1a152f0
+1a153ca xor al, al
+1a153cc mov rbx, qword ptr [rsp + 0x48]
+1a153d1 mov rsi, qword ptr [rsp + 0x50]
+1a153d6 add rsp, 0x30
+1a153da pop rdi
+1a153db ret 
+1a153dc mov rbx, qword ptr [rsp + 0x48]
+1a153e1 mov al, 1
+1a153e3 mov rsi, qword ptr [rsp + 0x50]
+1a153e8 add rsp, 0x30
+1a153ec pop rdi
+1a153ed ret 

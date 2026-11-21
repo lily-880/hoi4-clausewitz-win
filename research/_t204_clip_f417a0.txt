@@ -1,0 +1,54 @@
+f417a0 mov qword ptr [rsp + 8], rbx
+f417a5 mov qword ptr [rsp + 0x10], rsi
+f417aa push rdi
+f417ab sub rsp, 0x20
+f417af mov edi, edx
+f417b1 xor esi, esi
+f417b3 mov rdx, qword ptr [rcx + 0x58]
+f417b7 mov rbx, rcx
+f417ba test rdx, rdx
+f417bd je 0xf417d3
+f417bf mov dword ptr [rcx + 0x64], esi
+f417c2 mov rcx, qword ptr [rcx + 0x68]
+f417c6 mov rax, qword ptr [rcx]
+f417c9 call qword ptr [rax + 0x10]
+f417cc mov qword ptr [rbx + 0x58], rsi
+f417d0 mov dword ptr [rbx + 0x60], esi
+f417d3 mov rdx, qword ptr [rbx + 0x40]
+f417d7 test rdx, rdx
+f417da je 0xf417f0
+f417dc mov rcx, qword ptr [rbx + 0x50]
+f417e0 mov dword ptr [rbx + 0x4c], esi
+f417e3 mov rax, qword ptr [rcx]
+f417e6 call qword ptr [rax + 0x10]
+f417e9 mov qword ptr [rbx + 0x40], rsi
+f417ed mov dword ptr [rbx + 0x48], esi
+f417f0 mov rdx, qword ptr [rbx + 0x28]
+f417f4 test rdx, rdx
+f417f7 je 0xf4180d
+f417f9 mov rcx, qword ptr [rbx + 0x38]
+f417fd mov dword ptr [rbx + 0x34], esi
+f41800 mov rax, qword ptr [rcx]
+f41803 call qword ptr [rax + 0x10]
+f41806 mov qword ptr [rbx + 0x28], rsi
+f4180a mov dword ptr [rbx + 0x30], esi
+f4180d mov rdx, qword ptr [rbx + 8]
+f41811 test rdx, rdx
+f41814 je 0xf4182a
+f41816 mov rcx, qword ptr [rbx + 0x18]
+f4181a mov dword ptr [rbx + 0x14], esi
+f4181d mov rax, qword ptr [rcx]
+f41820 call qword ptr [rax + 0x10]
+f41823 mov qword ptr [rbx + 8], rsi
+f41827 mov dword ptr [rbx + 0x10], esi
+f4182a test dil, 1
+f4182e je 0xf4183d
+f41830 mov edx, 0x78
+f41835 mov rcx, rbx
+f41838 call 0x25a0218
+f4183d mov rsi, qword ptr [rsp + 0x38]
+f41842 mov rax, rbx
+f41845 mov rbx, qword ptr [rsp + 0x30]
+f4184a add rsp, 0x20
+f4184e pop rdi
+f4184f ret 

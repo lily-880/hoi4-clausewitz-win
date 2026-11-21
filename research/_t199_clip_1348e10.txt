@@ -1,0 +1,21 @@
+1348e10 push rbx
+1348e12 sub rsp, 0x20
+1348e16 mov rbx, rcx
+1348e19 call 0x147e8e0
+1348e1e test al, al
+1348e20 je 0x1348e47
+1348e22 mov rcx, qword ptr [rbx + 0x28]
+1348e26 call 0x31f8b0
+1348e2b cmp dword ptr [rax + 0xc], 0
+1348e2f je 0x1348e47
+1348e31 mov rcx, qword ptr [rbx + 0x30]
+1348e35 call 0x31f8b0
+1348e3a cmp dword ptr [rax + 0xc], 0
+1348e3e setne al
+1348e41 add rsp, 0x20
+1348e45 pop rbx
+1348e46 ret 
+1348e47 xor al, al
+1348e49 add rsp, 0x20
+1348e4d pop rbx
+1348e4e ret 

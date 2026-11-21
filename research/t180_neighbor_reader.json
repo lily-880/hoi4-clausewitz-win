@@ -1,0 +1,54 @@
+{
+  "build": "HOI4 1.19.5.0.7c6c",
+  "pid": 26976,
+  "read_only": true,
+  "promoted": "world.provinces.neighbors",
+  "not_promoted": [
+    "world.provinces.has_river_crossing",
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ],
+  "array": {
+    "object": "[CProvince+0xb8]",
+    "data": "+0x70",
+    "capacity": "+0x78",
+    "size": "+0x7c",
+    "stride": 48,
+    "target_offset": 8,
+    "type_offset": 16
+  },
+  "reader": {
+    "func": "0xe90560",
+    "clip": "research/_t180_clip_NeighborAdjs_size_0xe90560.txt",
+    "data_load": "0xe90a44 mov rax, qword ptr [rdi + 0x70]",
+    "target_load": "0xe90a48 mov edx, dword ptr [r12 + rax + 8]",
+    "loop_stride": "0xe90e3c add r12, 0x30",
+    "size_cmp": "0xe90e40 cmp eax, dword ptr [rdi + 0x7c]",
+    "index_scale": "lea rbx, [rax+rax*2]; shl rbx, 4  (*48)",
+    "note": "rdi is the CProvince+0xb8 object; only recorded E8 caller 0x1f6610"
+  },
+  "writer": {
+    "func": "0x14a6540",
+    "clip": "research/_t180_clip_0x14a6540.txt",
+    "index_scale": "lea r10, [rax+rax*2]; add r10, r10; then [base + r10*8 + off] = index*48",
+    "type_store": "0x14a6557 mov byte ptr [rax + r10*8 + 0x10], r8b",
+    "other_stores": [
+      "dword [..+0xc] = r9d",
+      "qword [..+0x28] from [rsp+0x28]",
+      "qword [..+0] from [rsp+0x30]"
+    ],
+    "rcx": "the +0xb8 adjacency object (call site mov rcx, rdi / r15)",
+    "r8b": "type byte from parser r12b"
+  },
+  "emission": {
+    "field": "world.provinces.neighbors",
+    "value": "neighbor province ids with type in {0, 2, 3} in engine array order",
+    "excluded_types": {
+      "1": "sea",
+      "4": "impassable"
+    },
+    "scope": "currently observed own-unit provinces only; no world sweep",
+    "not_emitted": "has_river_crossing: schema is bool or object; type 2/3 is per-edge and does not by itself fix the contract"
+  }
+}

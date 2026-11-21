@@ -1,0 +1,33 @@
+f45960 mov qword ptr [rsp + 0x10], rbx
+f45965 mov qword ptr [rsp + 0x18], rsi
+f4596a push rdi
+f4596b sub rsp, 0x20
+f4596f mov rsi, rdx
+f45972 mov rbx, rcx
+f45975 mov rdx, 0xfffffffffffe7960
+f4597c lea rcx, [rsp + 0x30]
+f45981 mov rdi, r9
+f45984 call 0x157b670
+f45989 mov rax, qword ptr [rbx + 0x10]
+f4598d movsxd r10, dword ptr [rdi]
+f45990 mov r8, qword ptr [rdi + 8]
+f45994 sub r8, qword ptr [rsp + 0x30]
+f45999 mov rbx, qword ptr [rsp + 0x38]
+f4599e shl r10, 5
+f459a2 imul r8, qword ptr [r10 + rax]
+f459a7 movabs rax, 0x29f16b11c6d1e109
+f459b1 imul r8
+f459b4 sar rdx, 0xe
+f459b8 mov rax, rdx
+f459bb shr rax, 0x3f
+f459bf add rdx, rax
+f459c2 xor eax, eax
+f459c4 add rdx, qword ptr [rsp + 0x30]
+f459c9 test rdx, rdx
+f459cc cmovg rax, rdx
+f459d0 mov qword ptr [rsi], rax
+f459d3 mov rax, rsi
+f459d6 mov rsi, qword ptr [rsp + 0x40]
+f459db add rsp, 0x20
+f459df pop rdi
+f459e0 ret 

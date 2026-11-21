@@ -1,0 +1,103 @@
+e68100 mov qword ptr [rsp + 0x18], rbx
+e68105 push rsi
+e68106 push rdi
+e68107 push r14
+e68109 sub rsp, 0x30
+e6810d mov rsi, qword ptr [rip + 0x25759f4]
+e68114 mov r14, rcx
+e68117 movaps xmmword ptr [rsp + 0x20], xmm6
+e6811c lea rcx, [rsi + 0x538]
+e68123 call 0x773470
+e68128 mov ecx, dword ptr [r14 + 8]
+e6812c movss xmm6, dword ptr [rip + 0x192d854]
+e68134 cmp eax, ecx
+e68136 jle 0xe6818d
+e68138 movd xmm0, ecx
+e6813c mov r8d, 8
+e68142 mov rcx, qword ptr [r14 + 0x10]
+e68146 cvtdq2ps xmm0, xmm0
+e68149 mulss xmm0, xmm6
+e6814d cvttss2si edi, xmm0
+e68151 cmp eax, edi
+e68153 cmovg edi, eax
+e68156 mov rax, qword ptr [rcx]
+e68159 mov edx, edi
+e6815b shl rdx, 3
+e6815f call qword ptr [rax + 8]
+e68162 movsxd r8, dword ptr [r14 + 0xc]
+e68166 mov rcx, rax
+e68169 mov rdx, qword ptr [r14]
+e6816c mov rbx, rax
+e6816f shl r8, 3
+e68173 call 0x26079d0
+e68178 mov rcx, qword ptr [r14 + 0x10]
+e6817c mov rdx, qword ptr [r14]
+e6817f mov r8, qword ptr [rcx]
+e68182 call qword ptr [r8 + 0x10]
+e68186 mov qword ptr [r14], rbx
+e68189 mov dword ptr [r14 + 8], edi
+e6818d lea rdx, [rsp + 0x50]
+e68192 lea rcx, [rsi + 0x538]
+e68199 call 0xc17400
+e6819e mov rax, qword ptr [rsp + 0x50]
+e681a3 test rax, rax
+e681a6 je 0xe68266
+e681ac mov qword ptr [rsp + 0x58], rbp
+e681b1 xor ebp, ebp
+e681b3 mov rbx, qword ptr [rax]
+e681b6 cmp dword ptr [rbx + 8], ebp
+e681b9 jne 0xe6824c
+e681bf movsxd rax, dword ptr [r14 + 0xc]
+e681c3 mov ecx, dword ptr [r14 + 8]
+e681c7 cmp eax, ecx
+e681c9 jne 0xe68239
+e681cb inc eax
+e681cd movd xmm0, ecx
+e681d1 mov rcx, qword ptr [r14 + 0x10]
+e681d5 mov r8d, 8
+e681db cvtdq2ps xmm0, xmm0
+e681de mulss xmm0, xmm6
+e681e2 cvttss2si esi, xmm0
+e681e6 cmp eax, esi
+e681e8 cmovg esi, eax
+e681eb mov rax, qword ptr [rcx]
+e681ee mov edx, esi
+e681f0 shl rdx, 3
+e681f4 call qword ptr [rax + 8]
+e681f7 mov rdi, rax
+e681fa movsxd rax, dword ptr [r14 + 0xc]
+e681fe mov rcx, rdi
+e68201 mov qword ptr [rdi + rax*8], rbx
+e68205 movsxd r8, dword ptr [r14 + 0xc]
+e68209 mov rdx, qword ptr [r14]
+e6820c shl r8, 3
+e68210 call 0x26079d0
+e68215 mov ebx, dword ptr [r14 + 0xc]
+e68219 mov rcx, qword ptr [r14 + 0x10]
+e6821d inc ebx
+e6821f mov rdx, qword ptr [r14]
+e68222 mov dword ptr [r14 + 0xc], ebp
+e68226 mov rax, qword ptr [rcx]
+e68229 call qword ptr [rax + 0x10]
+e6822c mov qword ptr [r14], rdi
+e6822f mov dword ptr [r14 + 8], esi
+e68233 mov dword ptr [r14 + 0xc], ebx
+e68237 jmp 0xe68247
+e68239 mov rcx, rax
+e6823c mov rax, qword ptr [r14]
+e6823f mov qword ptr [rax + rcx*8], rbx
+e68243 inc dword ptr [r14 + 0xc]
+e68247 mov rax, qword ptr [rsp + 0x50]
+e6824c mov rcx, qword ptr [rax + 0x10]
+e68250 mov qword ptr [rsp + 0x50], rcx
+e68255 mov rax, rcx
+e68258 test rcx, rcx
+e6825b jne 0xe681b3
+e68261 mov rbp, qword ptr [rsp + 0x58]
+e68266 mov rbx, qword ptr [rsp + 0x60]
+e6826b movaps xmm6, xmmword ptr [rsp + 0x20]
+e68270 add rsp, 0x30
+e68274 pop r14
+e68276 pop rdi
+e68277 pop rsi
+e68278 ret 

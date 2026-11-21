@@ -1,0 +1,18 @@
+f40b3c mov qword ptr [rsp + 0x30], rsi
+f40b41 mov qword ptr [rsp + 0x38], r14
+f40b46 nop word ptr [rax + rax]
+f40b50 mov rsi, qword ptr [r15]
+f40b53 movsxd r14, ebx
+f40b56 mov rax, qword ptr [rsi + 0x10]
+f40b5a mov rcx, qword ptr [rsi + 8]
+f40b5e mov rdx, qword ptr [rax]
+f40b61 mov rdx, qword ptr [rdx + r14*8]
+f40b65 call 0xf45020
+f40b6a mov rcx, qword ptr [rsi]
+f40b6d inc ebx
+f40b6f mov rdx, qword ptr [rcx]
+f40b72 mov byte ptr [r14 + rdx], al
+f40b76 cmp ebx, edi
+f40b78 jne 0xf40b50
+f40b7a mov r14, qword ptr [rsp + 0x38]
+f40b7f mov rsi, qword ptr [rsp + 0x30]

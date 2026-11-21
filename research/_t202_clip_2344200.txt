@@ -1,0 +1,12 @@
+2344200 push rbx
+2344202 sub rsp, 0x20
+2344206 mov rbx, rcx
+2344209 mov rcx, qword ptr [rcx + 0x10]
+234420d test rcx, rcx
+2344210 je 0x2344223
+2344212 mov rax, qword ptr [rcx]
+2344215 call qword ptr [rax + 0xc8]
+234421b mov qword ptr [rbx + 0x10], 0
+2344223 add rsp, 0x20
+2344227 pop rbx
+2344228 ret 

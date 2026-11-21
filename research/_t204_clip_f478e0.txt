@@ -1,0 +1,42 @@
+f478e0 mov qword ptr [rsp + 8], rbx
+f478e5 mov qword ptr [rsp + 0x10], rbp
+f478ea mov qword ptr [rsp + 0x18], rsi
+f478ef push rdi
+f478f0 push r14
+f478f2 push r15
+f478f4 sub rsp, 0x20
+f478f8 mov rbx, qword ptr [rcx]
+f478fb mov r15d, r8d
+f478fe movsxd rax, dword ptr [rcx + 0xc]
+f47902 mov r14, rdx
+f47905 imul rbp, rax, 0xe8
+f4790c mov rsi, rcx
+f4790f mov rdi, rdx
+f47912 add rbp, rbx
+f47915 cmp rbx, rbp
+f47918 je 0xf47948
+f4791a nop word ptr [rax + rax]
+f47920 mov rcx, rdi
+f47923 mov rdx, rbx
+f47926 add rdi, 0xe8
+f4792d call 0xf3d440
+f47932 xor edx, edx
+f47934 mov rcx, rbx
+f47937 call 0xf41850
+f4793c add rbx, 0xe8
+f47943 cmp rbx, rbp
+f47946 jne 0xf47920
+f47948 mov rcx, qword ptr [rsi + 0x10]
+f4794c mov rdx, qword ptr [rsi]
+f4794f mov rax, qword ptr [rcx]
+f47952 call qword ptr [rax + 0x10]
+f47955 mov rbx, qword ptr [rsp + 0x40]
+f4795a mov rbp, qword ptr [rsp + 0x48]
+f4795f mov qword ptr [rsi], r14
+f47962 mov dword ptr [rsi + 8], r15d
+f47966 mov rsi, qword ptr [rsp + 0x50]
+f4796b add rsp, 0x20
+f4796f pop r15
+f47971 pop r14
+f47973 pop rdi
+f47974 ret 

@@ -1,0 +1,46 @@
+1446b30 push rbx
+1446b32 sub rsp, 0x40
+1446b36 mov rbx, rdx
+1446b39 mov rax, qword ptr [rcx]
+1446b3c add rdx, 0xc0
+1446b43 call qword ptr [rax + 0x20]
+1446b46 test al, al
+1446b48 jne 0x1446bdb
+1446b4e xorps xmm0, xmm0
+1446b51 movups xmmword ptr [rsp + 0x20], xmm0
+1446b56 xorps xmm1, xmm1
+1446b59 movdqu xmmword ptr [rsp + 0x30], xmm1
+1446b5f mov ecx, 0x20
+1446b64 call 0x25a01dc
+1446b69 mov qword ptr [rsp + 0x20], rax
+1446b6e movdqa xmm0, xmmword ptr [rip + 0x134ee9a]
+1446b76 movdqu xmmword ptr [rsp + 0x30], xmm0
+1446b7c movups xmm0, xmmword ptr [rip + 0x15ed2ed]
+1446b83 movups xmmword ptr [rax], xmm0
+1446b86 movzx ecx, byte ptr [rip + 0x15ed2f3]
+1446b8d mov byte ptr [rax + 0x10], cl
+1446b90 mov byte ptr [rax + 0x11], 0
+1446b94 lea rdx, [rsp + 0x20]
+1446b99 mov rcx, rbx
+1446b9c call 0x2544730
+1446ba1 nop 
+1446ba2 mov rdx, qword ptr [rsp + 0x38]
+1446ba7 cmp rdx, 0xf
+1446bab jbe 0x1446bdb
+1446bad inc rdx
+1446bb0 mov rcx, qword ptr [rsp + 0x20]
+1446bb5 mov rax, rcx
+1446bb8 cmp rdx, 0x1000
+1446bbf jb 0x1446bd6
+1446bc1 add rdx, 0x27
+1446bc5 mov rcx, qword ptr [rcx - 8]
+1446bc9 sub rax, rcx
+1446bcc add rax, -8
+1446bd0 cmp rax, 0x1f
+1446bd4 ja 0x1446be1
+1446bd6 call 0x25a0218
+1446bdb add rsp, 0x40
+1446bdf pop rbx
+1446be0 ret 
+1446be1 call 0x25c7db4
+1446be6 int3 

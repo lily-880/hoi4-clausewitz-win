@@ -1,0 +1,33 @@
+e6b7c4 mov qword ptr [rsp + 0x40], r12
+e6b7c9 lea r15, [rbx + rdx]
+e6b7cd cmp rdx, r15
+e6b7d0 je 0xe6b802
+e6b7d2 nop dword ptr [rax]
+e6b7d6 nop word ptr [rax + rax]
+e6b7e0 movups xmm0, xmmword ptr [rsi + 0x10]
+e6b7e4 mov rax, rbp
+e6b7e7 xor edx, edx
+e6b7e9 mov rcx, rsi
+e6b7ec add rbp, 0x20
+e6b7f0 movups xmmword ptr [rax + 0x10], xmm0
+e6b7f4 mov rax, qword ptr [rsi]
+e6b7f7 call qword ptr [rax]
+e6b7f9 add rsi, 0x20
+e6b7fd cmp rsi, r15
+e6b800 jne 0xe6b7e0
+e6b802 movsxd rsi, dword ptr [rdi + 0xc]
+e6b806 cmp r14, rsi
+e6b809 jge 0xe6b827
+e6b80b sub rsi, r14
+e6b80e nop 
+e6b810 mov rcx, qword ptr [rdi]
+e6b813 xor edx, edx
+e6b815 add rcx, rbx
+e6b818 mov rax, qword ptr [rcx]
+e6b81b call qword ptr [rax]
+e6b81d add rbx, 0x20
+e6b821 sub rsi, 1
+e6b825 jne 0xe6b810
+e6b827 mov r12, qword ptr [rsp + 0x40]
+e6b82c mov dword ptr [rdi + 0xc], r14d
+e6b830 jmp 0xe6b941

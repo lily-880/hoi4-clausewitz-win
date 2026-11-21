@@ -1,0 +1,93 @@
+e64790 mov qword ptr [rsp + 8], rbx
+e64795 mov qword ptr [rsp + 0x10], rsi
+e6479a push rdi
+e6479b sub rsp, 0x80
+e647a2 mov rbx, rdx
+e647a5 mov rdi, rcx
+e647a8 call 0x2f3e30
+e647ad test al, al
+e647af je 0xe647b8
+e647b1 mov al, 1
+e647b3 jmp 0xe64939
+e647b8 lea rcx, [rbx + 8]
+e647bc call 0xc07bf0
+e647c1 mov rsi, rax
+e647c4 mov byte ptr [rsp + 0xa8], 0
+e647cc cmp byte ptr [rip + 0x282ae3e], 0
+e647d3 je 0xe648cc
+e647d9 cmp byte ptr [rip + 0x2578a59], 0
+e647e0 jne 0xe6483a
+e647e2 cmp qword ptr [rip + 0x2578ec6], 0
+e647ea jne 0xe6483a
+e647ec mov byte ptr [rsp + 0xa0], 0
+e647f4 lea rax, [rip + 0x2578a3e]
+e647fb mov qword ptr [rsp + 0x28], rax
+e64800 lea rax, [rsp + 0xa0]
+e64808 mov qword ptr [rsp + 0x20], rax
+e6480d mov r9b, 1
+e64810 mov r8d, 0x45b
+e64816 lea rdx, [rip + 0x192ff00]
+e6481d lea rcx, [rip + 0x1930014]
+e64824 call 0x254ab40
+e64829 mov byte ptr [rip + 0x2578a0a], al
+e6482f cmp byte ptr [rsp + 0xa0], 0
+e64837 je 0xe6483a
+e64839 int3 
+e6483a cmp byte ptr [rip + 0x282add0], 0
+e64841 je 0xe648cc
+e64847 cmp byte ptr [rip + 0x25789ec], 0
+e6484e jne 0xe648cc
+e64850 mov ecx, dword ptr [rip + 0x282f242]
+e64856 mov rax, qword ptr gs:[0x58]
+e6485f mov rbx, qword ptr [rax + rcx*8]
+e64863 mov eax, 0x20e8
+e64868 cmp byte ptr [rax + rbx], 0
+e6486c jne 0xe64873
+e6486e call 0x25a04d0
+e64873 mov eax, 0x10
+e64878 cmp dword ptr [rax + rbx], 0
+e6487c je 0xe648cc
+e6487e mov byte ptr [rsp + 0xa0], 0
+e64886 lea rax, [rip + 0x25789ad]
+e6488d mov qword ptr [rsp + 0x28], rax
+e64892 lea rax, [rsp + 0xa0]
+e6489a mov qword ptr [rsp + 0x20], rax
+e6489f mov r9b, 1
+e648a2 mov r8d, 0x45c
+e648a8 lea rdx, [rip + 0x192fe6e]
+e648af lea rcx, [rip + 0x192ffaa]
+e648b6 call 0x254ab40
+e648bb mov byte ptr [rip + 0x2578979], al
+e648c1 cmp byte ptr [rsp + 0xa0], 0
+e648c9 je 0xe648cc
+e648cb int3 
+e648cc mov qword ptr [rsp + 0x30], rdi
+e648d1 lea rax, [rsp + 0xa8]
+e648d9 mov qword ptr [rsp + 0x38], rax
+e648de lea rax, [rip + 0x1b83d83]
+e648e5 mov qword ptr [rsp + 0x40], rax
+e648ea movups xmm0, xmmword ptr [rsp + 0x30]
+e648ef movups xmmword ptr [rsp + 0x48], xmm0
+e648f4 lea rax, [rsp + 0x40]
+e648f9 mov qword ptr [rsp + 0x78], rax
+e648fe lea r9, [rsp + 0x40]
+e64903 mov r8, rdi
+e64906 mov rdx, rsi
+e64909 mov rcx, qword ptr [rip + 0x2578da0]
+e64910 call 0x208220
+e64915 nop 
+e64916 mov rcx, qword ptr [rsp + 0x78]
+e6491b test rcx, rcx
+e6491e je 0xe64931
+e64920 mov rax, qword ptr [rcx]
+e64923 lea rdx, [rsp + 0x40]
+e64928 cmp rcx, rdx
+e6492b setne dl
+e6492e call qword ptr [rax + 0x20]
+e64931 movzx eax, byte ptr [rsp + 0xa8]
+e64939 lea r11, [rsp + 0x80]
+e64941 mov rbx, qword ptr [r11 + 0x10]
+e64945 mov rsi, qword ptr [r11 + 0x18]
+e64949 mov rsp, r11
+e6494c pop rdi
+e6494d ret 

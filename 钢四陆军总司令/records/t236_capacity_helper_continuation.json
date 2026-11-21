@@ -1,0 +1,106 @@
+{
+  "at_est": "2026-11-21T01:21:52.723828-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "functions": {
+    "0x133e570": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x133e570",
+      "window_size": 60,
+      "reachable_instruction_count": 14,
+      "unresolved_edges": [
+        {
+          "address": "0x133e5ac",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x133e596",
+          "operand": "qword ptr [rax + 0x170]"
+        }
+      ],
+      "asm": [
+        "133e570 mov qword ptr [rsp + 0x50], rdi",
+        "133e575 mov edi, ebx",
+        "133e577 nop word ptr [rax + rax]",
+        "133e580 mov rax, qword ptr [rsi + 0xe8]",
+        "133e587 lea rdx, [rsp + 0x48]",
+        "133e58c xor r8d, r8d",
+        "133e58f mov rcx, qword ptr [rax + rdi*8]",
+        "133e593 mov rax, qword ptr [rcx]",
+        "133e596 call qword ptr [rax + 0x170]",
+        "133e59c inc rdi",
+        "133e59f add rbx, qword ptr [rax]",
+        "133e5a2 cmp rdi, rbp",
+        "133e5a5 jl 0x133e580",
+        "133e5a7 mov rdi, qword ptr [rsp + 0x50]"
+      ],
+      "raw_hex": "48897c24508bfb660f1f840000000000488b86e8000000488d5424484533c0488b0cf8488b01ff907001000048ffc7480318483bfd7cd9488b7c2450",
+      "sha256": "415d796e7603f389394175855d702c63bdad635659bfcab93256118f950103d1",
+      "pdata": [
+        "0x133e570",
+        "0x133e5ac",
+        "0x2fa2dcc"
+      ],
+      "literals": []
+    },
+    "0x20e9e0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x20e9e0",
+      "window_size": 512,
+      "reachable_instruction_count": 2,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "20e9e0 mov rax, qword ptr [rcx + 0x18]",
+        "20e9e4 ret "
+      ],
+      "raw_hex": "488b4118c3cccccccccccccccccccccc48895c240848896c2410488974241848897c242041564883ec60410fb6f0488bea488bd94533f64c8971404c89710844897114c741180102000048c74120060000004c8971284c8971304c89713833d2e87bfdffffb910000000e88d173902488bf84885c0740db101e8e630390248894708eb03498bfe48897b4048896b484c897350488b7f0848897c2428488b07488bcfff500890488d4c2420e8500bf1ff488b104c8b4240b220488bc841ffd00fb6e84885ff741c488b17488bcfff52104885c0740e4c8b00ba01000000488bc841ff1040886b5848837b480075118b431083e01383c80489431023431475284084f67408488bcbe8bc3639024c8d5c2460498b5b10498b6b18498b7320498b7b28498be3415ec3a8047409488d1d965c5802eb14a802488d1da35c5802488d05b45c5802480f44d8ba01000000488d4c2420e809cdf1ff4c8bc0488bd3488d4c2430e8e914f1ff488d15a280ee02488d4c2430e8083a3b02cccccccccccccccc48895c2408574883ec20488bd9e8ee493902488bf8e81600f6014c8bc84881ff809698007515496bc164488903488bc3488b5c24304883c4205fc34881ff00366e01756549baf38c909407fcf4b2498bc249f7e9498bc24d8d041149c1f818498bc848c1e93f4c03c14969c800366e014c2bc94969c900ca9a3b48f7e94803d1",
+      "sha256": "654c3a4d62bf69e354333189bb98dc938977d5d19db6af7ba634cfd94ae268d4",
+      "pdata": null,
+      "literals": []
+    }
+  },
+  "stable_dependencies": 5,
+  "promotions": [],
+  "scope": "Explicit continuation133E570 after truncated48byte pdata plus subject getter20E9E0. No manpower or strategic-front substitution."
+}

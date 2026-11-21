@@ -1,0 +1,81 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "pid": 26976,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "receiver": "CArmyReinforcementRequests+20 is the receiving CArmy. 15A8790 loads this pointer and calls CDB4B0, which reads CArmy+3B8 (already proven CReferencedDivisionTemplate). Live unit 1835, owner index 44, present in own CO_ARMIES list. No reverse pointer inside the 0x690 CArmy object.",
+  "named_fields": {
+    "produced": "serializer 15AB830 secondary this=request+18; lea r8,[rbx+20] token produced 2FAC -> request+38 CEquipmentVariantPool",
+    "need": "same writer lea r8,[rbx+60] token need 2F4F -> request+78 CEquipmentArcheTypePool",
+    "status_progress_unemitted": "writer also names status/progress/total_progress/date; not used for this shortage decision"
+  },
+  "unit_crosscheck": "Template need pool is CReferencedDivisionTemplate+120 CEquipmentArcheTypePool, the same 10948A0 source 15A88BE uses after CDB4B0 (rax+108). Unit current is CArmy+348 CEquipmentVariantPool, also used by 15A889A. For 1835 / template 588 Mehal: need 400, current 320, deficit 80, equipment_ratio 0.8. Request need 80 equals this unit deficit. Request produced 3 is NOT the unit current 320.",
+  "not_national_demand": "19 of 21 own divisions have infantry_equipment deficits; only 1835 has an active request. Own-unit deficit sum is 2520, not 80 or 77. 1829 and 1843 are full. Occupation+28, logistics+28 and operations+10 currently empty are scene facts only. Deployment and other 1409890 terms not fully reproduced. Do not emit requested 80/77 as world.shortages.equipment.demanded or deficit, and do not treat [1835] as complete affected_unit_ids.",
+  "live_request": {
+    "unit_id": 1835,
+    "request_ptr": "0x26cb1969530",
+    "group_ptr": "0x26cb01e6fa0",
+    "army_ptr": "0x26cb1c30c30",
+    "produced": [
+      {
+        "equipment_type": "infantry_equipment",
+        "amount_raw": 300000,
+        "amount": 3
+      }
+    ],
+    "need": [
+      {
+        "equipment_type": "infantry_equipment",
+        "amount_raw": 8000000,
+        "amount": 80
+      }
+    ],
+    "unit_template_need": [
+      {
+        "equipment_type": "infantry_equipment",
+        "amount_raw": 40000000,
+        "amount": 400
+      }
+    ],
+    "unit_current": [
+      {
+        "equipment_type": "infantry_equipment",
+        "amount_raw": 32000000,
+        "amount": 320
+      }
+    ]
+  },
+  "own_unit_deficit_sum": {
+    "infantry_equipment": 2520
+  },
+  "affected_candidate_not_accepted": [
+    1830,
+    1831,
+    1832,
+    1833,
+    1834,
+    1835,
+    1836,
+    1837,
+    1838,
+    1839,
+    1840,
+    1841,
+    1842,
+    1844,
+    1845,
+    1846,
+    1847,
+    1848,
+    1849
+  ],
+  "proof_files": [
+    "t170_request_named_writers_and_processing.json",
+    "t170_group_army_accessor.json",
+    "t170_group_need_getter_tail.json",
+    "t170_request_owner_live.json",
+    "t170_template_equipment_need.json",
+    "t170_own_unit_equipment_deficits.json"
+  ]
+}

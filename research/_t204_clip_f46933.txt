@@ -1,0 +1,38 @@
+f46933 mov qword ptr [rsp + 0x30], rbx
+f46938 mov rsi, r9
+f4693b mov qword ptr [rsp + 0x38], rbp
+f46940 lea rbx, [rdx + 0x40]
+f46944 xor ebp, ebp
+f46946 mov rdi, r8
+f46949 nop dword ptr [rax]
+f46950 mov rcx, rsi
+f46953 lea rdx, [rbx - 0x40]
+f46957 add rsi, 0xd8
+f4695e call 0xf3d320
+f46963 mov rdx, qword ptr [rbx - 0x10]
+f46967 test rdx, rdx
+f4696a je 0xf4697f
+f4696c mov rcx, qword ptr [rbx]
+f4696f mov dword ptr [rbx - 4], ebp
+f46972 mov rax, qword ptr [rcx]
+f46975 call qword ptr [rax + 0x10]
+f46978 mov qword ptr [rbx - 0x10], rbp
+f4697c mov dword ptr [rbx - 8], ebp
+f4697f mov rdx, qword ptr [rbx - 0x28]
+f46983 test rdx, rdx
+f46986 je 0xf4699c
+f46988 mov rcx, qword ptr [rbx - 0x18]
+f4698c mov dword ptr [rbx - 0x1c], ebp
+f4698f mov rax, qword ptr [rcx]
+f46992 call qword ptr [rax + 0x10]
+f46995 mov qword ptr [rbx - 0x28], rbp
+f46999 mov dword ptr [rbx - 0x20], ebp
+f4699c add rbx, 0xd8
+f469a3 lea rax, [rbx - 0x40]
+f469a7 cmp rax, rdi
+f469aa jne 0xf46950
+f469ac mov rbp, qword ptr [rsp + 0x38]
+f469b1 mov rbx, qword ptr [rsp + 0x30]
+f469b6 mov rsi, qword ptr [rsp + 0x40]
+f469bb add rsp, 0x20
+f469bf pop rdi

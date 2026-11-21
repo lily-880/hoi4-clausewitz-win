@@ -1,0 +1,193 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "accepted_fields": [
+    "world.provinces.fort_level",
+    "world.provinces.coastal_fort_level"
+  ],
+  "existing_field_scope_expanded": "infrastructure, now actual native absent0 branch checked for all12 own observed provinces; NOT worldwide extrapolation from5010",
+  "type_lookup": {
+    "named_functions": "6CE380 bunker;6CE430 coastal_bunker",
+    "lookup": "6C6970 checks count(names)+1=count(ptrs), lowercase FNV1a hash atname+20 then string equality; matchedj returnsptrs[j+1] at6C6A54",
+    "hash_initializer": "C1F080",
+    "runtime_index_guard": "CBuildingTemplate+2E0 matcheslookup index; +2C4 tag165 specific type; +20 active1",
+    "dynamic_tokens": "577A/577B current loaded only, not hardcoded"
+  },
+  "status_roots": {
+    "province": "CProvince+190 named buildings atEF2C54..5B",
+    "state": "CState+120 typedCBuildingStatus, existing named serialization proof"
+  },
+  "native_numeric_getter": {
+    "entry": "1201750",
+    "specific_type_branch": "12017E0",
+    "empty_or_missing_slot": "120182A..36 returns0 explicitly; not unknown->0 inference",
+    "lookup": "status+20 array i32 attemplate+2E0 ->status+38 CBuilding ptr; actual map/list and template+1E0 backlinks checked",
+    "present": "word+40 plus1162FE0 active overlay max/sum",
+    "acceptance_scope": "Absent registered type OR present level==healthy+42 and BOTH overlay arrays empty. Damaged/nonempty overlay states omitted."
+  },
+  "baseline_correction": "1552CF0 is a DESCRIPTION STRING formatter, NOT a numeric effective getter. Country argument affects description/bonus formatting; no proof numeric level country-modified. Actual native entry1201750 not cold branch12017E0. See t169_building_getter_errata.json.",
+  "live_own_levels": [
+    {
+      "province_id": 5010,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 2
+    },
+    {
+      "province_id": 1984,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 13237,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 13238,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 2072,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 5097,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 7980,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 7944,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 12812,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 12757,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 4995,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    },
+    {
+      "province_id": 8062,
+      "fort": 0,
+      "coastal_fort": 0,
+      "infrastructure": 0
+    }
+  ],
+  "foreign_nonzero_acceptance": {
+    "scope": "Foreign structural acceptance only; NOT exported to Input or visible_units",
+    "samples": [
+      {
+        "province_id": 549,
+        "building_type": "bunker",
+        "collector_value": 10,
+        "evidence": {
+          "status_ptr": "0x1b04f025ce0",
+          "template_index": 9,
+          "source": "province+190 named buildings; native1201750 specific-type branch",
+          "building_ptr": "0x1b0bcbbaab0",
+          "level": 10,
+          "healthy_levels": 10,
+          "overlay_counts": [
+            0,
+            0
+          ],
+          "status": "present undamaged no-overlay fort"
+        }
+      },
+      {
+        "province_id": 678,
+        "building_type": "bunker",
+        "collector_value": 10,
+        "evidence": {
+          "status_ptr": "0x1b04f036b10",
+          "template_index": 9,
+          "source": "province+190 named buildings; native1201750 specific-type branch",
+          "building_ptr": "0x1b0bcbc68b0",
+          "level": 10,
+          "healthy_levels": 10,
+          "overlay_counts": [
+            0,
+            0
+          ],
+          "status": "present undamaged no-overlay fort"
+        }
+      },
+      {
+        "province_id": 911,
+        "building_type": "coastal_bunker",
+        "collector_value": 1,
+        "evidence": {
+          "status_ptr": "0x1b04f071ea0",
+          "template_index": 10,
+          "source": "province+190 named buildings; native1201750 specific-type branch",
+          "building_ptr": "0x1b0bcbd3eb0",
+          "level": 1,
+          "healthy_levels": 1,
+          "overlay_counts": [
+            0,
+            0
+          ],
+          "status": "present undamaged no-overlay fort"
+        }
+      },
+      {
+        "province_id": 3552,
+        "building_type": "coastal_bunker",
+        "collector_value": 1,
+        "evidence": {
+          "status_ptr": "0x1b04f2305c0",
+          "template_index": 10,
+          "source": "province+190 named buildings; native1201750 specific-type branch",
+          "building_ptr": "0x1b0bd2c88b0",
+          "level": 1,
+          "healthy_levels": 1,
+          "overlay_counts": [
+            0,
+            0
+          ],
+          "status": "present undamaged no-overlay fort"
+        }
+      }
+    ],
+    "stable_reads": 181
+  },
+  "foreign_scope": "Four research-only samples2xland10 and2xcoastal1. NOT exported to observation or visible_units. Searched59 France provinces, bounded220 cap, stoppedat4.",
+  "proof_files": [
+    "t169_bunker_name_lookup_xrefs.json",
+    "t169_building_named_lookup.json",
+    "t169_named_lookup_success_and_level.json",
+    "t169_total_level_entry_branches.json",
+    "t168_province_building_serialization.json",
+    "t169_buildings_typed_live_proof.json",
+    "t169_foreign_collector_acceptance.json"
+  ],
+  "read_only": true,
+  "no_game_method_execution": true
+}

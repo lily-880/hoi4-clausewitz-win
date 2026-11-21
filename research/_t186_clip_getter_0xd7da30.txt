@@ -1,0 +1,28 @@
+0xd7da30  mov qword ptr [rsp + 8], rbx
+0xd7da35  mov qword ptr [rsp + 0x10], rsi
+0xd7da3a  push rdi
+0xd7da3b  sub rsp, 0x40
+0xd7da3f  mov rbx, rcx
+0xd7da42  lea rsi, [rcx + 0x10]
+0xd7da46  mov rcx, rsi
+0xd7da49  call 0xc07bf0
+0xd7da4e  mov rdi, qword ptr [rax + 0xf88]
+0xd7da55  add rbx, 0x14
+0xd7da59  cmp dword ptr [rbx], 0
+0xd7da5c  jne 0xd7da62
+0xd7da5e  xor eax, eax
+0xd7da60  jmp 0xd7da6a
+0xd7da62  mov rcx, rbx
+0xd7da65  call 0xc08790
+0xd7da6a  movsxd rcx, eax
+0xd7da6d  mov rax, qword ptr [rdi + 8]
+0xd7da71  mov rcx, qword ptr [rax + rcx*8]
+0xd7da75  mov rax, qword ptr [rcx + 0x2e8]
+0xd7da7c  test rax, rax
+0xd7da7f  je 0xd7da8b
+0xd7da81  cmp byte ptr [rax + 0x49], 0
+0xd7da85  je 0xd7db26
+0xd7da8b  mov qword ptr [rsp + 0x20], 0
+0xd7da94  mov qword ptr [rsp + 0x28], 0
+0xd7da9d  mov ecx, dword ptr [rip + 0x2915ff5]
+0xd7daa3  mov rax, qword ptr gs:[0x58]

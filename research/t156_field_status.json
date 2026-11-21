@@ -1,0 +1,602 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "table_count": 14,
+  "source": "reconstructed from input Canvas; original D-drive table unavailable, not an in-place 116-row diff",
+  "fields": [
+    {
+      "field": "meta.game_time",
+      "status": "已验证",
+      "description": "游戏内年月日小时。"
+    },
+    {
+      "field": "meta.player_country",
+      "status": "已验证",
+      "description": "当前玩家控制的国家编号。"
+    },
+    {
+      "field": "meta.speed",
+      "status": "未验证",
+      "description": "当前暂停或1x状态，暂停标志尚未证明。"
+    },
+    {
+      "field": "meta.allow_write",
+      "status": "未验证",
+      "description": "由配置提供的写入许可，默认false，非内存发现。"
+    },
+    {
+      "field": "meta.geography_scope",
+      "status": "未验证",
+      "description": "由配置提供的指挥范围，默认null，非内存发现。"
+    },
+    {
+      "field": "policy.stance",
+      "status": "未验证",
+      "description": "由玩家方针或接口默认值提供，非内存发现。"
+    },
+    {
+      "field": "policy.instructions",
+      "status": "未验证",
+      "description": "由玩家提供的方针原文，非内存发现。"
+    },
+    {
+      "field": "world.own_units[].unit_id",
+      "status": "已验证",
+      "description": "师的内部编号。"
+    },
+    {
+      "field": "world.own_units[].name",
+      "status": "已验证",
+      "description": "师的显示名称。"
+    },
+    {
+      "field": "world.own_units[].province_id",
+      "status": "已验证",
+      "description": "师当前所在省份编号。"
+    },
+    {
+      "field": "world.own_units[].owner",
+      "status": "已验证",
+      "description": "师所属国家编号。"
+    },
+    {
+      "field": "world.own_units[].relation_to_player",
+      "status": "已验证",
+      "description": "仅已证所属国与玩家相同的self关系。"
+    },
+    {
+      "field": "world.own_units[].template.template_id",
+      "status": "已验证",
+      "description": "当前师模板的内部编号。"
+    },
+    {
+      "field": "world.own_units[].template.name",
+      "status": "已验证",
+      "description": "当前师模板名称。"
+    },
+    {
+      "field": "world.own_units[].template.battalions",
+      "status": "已验证",
+      "description": "模板内非空营的类型和数量。"
+    },
+    {
+      "field": "world.own_units[].template.combat_width",
+      "status": "未验证",
+      "description": "模板的战斗宽度。"
+    },
+    {
+      "field": "world.own_units[].organization",
+      "status": "已验证",
+      "description": "师当前原始组织度。"
+    },
+    {
+      "field": "world.own_units[].strength.manpower",
+      "status": "未验证",
+      "description": "师当前人力，尚未与满编人力区分。"
+    },
+    {
+      "field": "world.own_units[].strength.current",
+      "status": "未验证",
+      "description": "师当前生命值。"
+    },
+    {
+      "field": "world.own_units[].strength.max",
+      "status": "已验证",
+      "description": "师编制生命值上限。"
+    },
+    {
+      "field": "world.own_units[].strength.equipment_ratio",
+      "status": "已验证",
+      "description": "师装备配齐比例，当前开局样本已重验。"
+    },
+    {
+      "field": "world.own_units[].supply.in_supply",
+      "status": "未验证",
+      "description": "师是否获得补给。"
+    },
+    {
+      "field": "world.own_units[].supply.ratio",
+      "status": "未验证",
+      "description": "师的补给满足比例。"
+    },
+    {
+      "field": "world.own_units[].supply.isolated",
+      "status": "未验证",
+      "description": "师是否与补给来源隔绝。"
+    },
+    {
+      "field": "world.own_units[].in_combat",
+      "status": "未验证",
+      "description": "师是否正在作战。"
+    },
+    {
+      "field": "world.own_units[].combat_id",
+      "status": "未验证",
+      "description": "师当前参加的战斗编号。"
+    },
+    {
+      "field": "world.own_units[].order.type",
+      "status": "未验证",
+      "description": "师当前任务类型，空路径不能证明待机。"
+    },
+    {
+      "field": "world.own_units[].order.target_province_ids",
+      "status": "未验证",
+      "description": "师当前任务的目标省份。"
+    },
+    {
+      "field": "world.own_units[].order.path_province_ids",
+      "status": "未验证",
+      "description": "师有序行军路径，尚无非空路径验收。"
+    },
+    {
+      "field": "world.own_units[].order.eta.hours",
+      "status": "未验证",
+      "description": "师预计抵达还需多少游戏小时。"
+    },
+    {
+      "field": "world.own_units[].order.eta.progress",
+      "status": "未验证",
+      "description": "师当前行军进度。"
+    },
+    {
+      "field": "world.own_units[].formation.army_id",
+      "status": "未验证",
+      "description": "师所属集团军编号。"
+    },
+    {
+      "field": "world.own_units[].formation.army_group_id",
+      "status": "未验证",
+      "description": "师所属集团军群编号。"
+    },
+    {
+      "field": "world.own_units[].leader_id",
+      "status": "已验证",
+      "description": "直接挂在师上的军官编号。"
+    },
+    {
+      "field": "world.visible_units[].relation_to_player",
+      "status": "未验证",
+      "description": "可见其他部队与玩家的关系。"
+    },
+    {
+      "field": "world.visible_units[].visibility.spotted",
+      "status": "未验证",
+      "description": "该部队是否确实处于玩家可见范围。"
+    },
+    {
+      "field": "world.visible_units[].visibility.confidence",
+      "status": "未验证",
+      "description": "对该可见部队情报的置信度。"
+    },
+    {
+      "field": "world.army_groups[].army_group_id",
+      "status": "未验证",
+      "description": "集团军群编号。"
+    },
+    {
+      "field": "world.army_groups[].name",
+      "status": "未验证",
+      "description": "集团军群名称。"
+    },
+    {
+      "field": "world.army_groups[].leader_id",
+      "status": "未验证",
+      "description": "集团军群司令编号。"
+    },
+    {
+      "field": "world.army_groups[].army_ids",
+      "status": "未验证",
+      "description": "集团军群下属集团军编号。"
+    },
+    {
+      "field": "world.armies[].army_id",
+      "status": "未验证",
+      "description": "集团军编号。"
+    },
+    {
+      "field": "world.armies[].name",
+      "status": "未验证",
+      "description": "集团军名称。"
+    },
+    {
+      "field": "world.armies[].leader_id",
+      "status": "未验证",
+      "description": "集团军司令编号。"
+    },
+    {
+      "field": "world.armies[].unit_ids",
+      "status": "未验证",
+      "description": "编入集团军的师编号。"
+    },
+    {
+      "field": "world.armies[].plan_id",
+      "status": "未验证",
+      "description": "集团军绑定的计划编号。"
+    },
+    {
+      "field": "world.leaders[].leader_id",
+      "status": "未验证",
+      "description": "将领档案的内部编号。"
+    },
+    {
+      "field": "world.leaders[].name",
+      "status": "未验证",
+      "description": "将领完整姓名，短军官名仍缺首字母。"
+    },
+    {
+      "field": "world.leaders[].skill",
+      "status": "未验证",
+      "description": "将领总等级。"
+    },
+    {
+      "field": "world.leaders[].attack",
+      "status": "未验证",
+      "description": "将领进攻属性。"
+    },
+    {
+      "field": "world.leaders[].defense",
+      "status": "未验证",
+      "description": "将领防御属性。"
+    },
+    {
+      "field": "world.leaders[].planning",
+      "status": "未验证",
+      "description": "将领计划属性。"
+    },
+    {
+      "field": "world.leaders[].logistics",
+      "status": "未验证",
+      "description": "将领后勤属性。"
+    },
+    {
+      "field": "world.leaders[].traits",
+      "status": "未验证",
+      "description": "将领特性名称。"
+    },
+    {
+      "field": "world.leaders[].assigned_to.kind",
+      "status": "未验证",
+      "description": "将领当前岗位类型。"
+    },
+    {
+      "field": "world.leaders[].assigned_to.id",
+      "status": "未验证",
+      "description": "将领当前岗位对象编号。"
+    },
+    {
+      "field": "world.provinces[].province_id",
+      "status": "已验证",
+      "description": "己方师所在省份编号。"
+    },
+    {
+      "field": "world.provinces[].controller",
+      "status": "已验证",
+      "description": "当前己方登记占领区域对应的国家。"
+    },
+    {
+      "field": "world.provinces[].owner",
+      "status": "已验证",
+      "description": "当前己方登记归属区域对应的国家。"
+    },
+    {
+      "field": "world.provinces[].terrain",
+      "status": "已验证",
+      "description": "当前引擎已加载的地形内部名称。"
+    },
+    {
+      "field": "world.provinces[].infrastructure",
+      "status": "未验证",
+      "description": "省份所属州的当前基础设施等级。"
+    },
+    {
+      "field": "world.provinces[].fort_level",
+      "status": "未验证",
+      "description": "省份当前陆地要塞等级。"
+    },
+    {
+      "field": "world.provinces[].coastal_fort_level",
+      "status": "未验证",
+      "description": "省份当前海岸要塞等级。"
+    },
+    {
+      "field": "world.provinces[].victory_points.value",
+      "status": "未验证",
+      "description": "省份当前胜利点数值。"
+    },
+    {
+      "field": "world.provinces[].victory_points.name",
+      "status": "未验证",
+      "description": "省份胜利点名称。"
+    },
+    {
+      "field": "world.provinces[].neighbors",
+      "status": "未验证",
+      "description": "省份真实陆地邻接编号。"
+    },
+    {
+      "field": "world.provinces[].has_river_crossing",
+      "status": "未验证",
+      "description": "省份相邻边是否需要渡河。"
+    },
+    {
+      "field": "world.plans[].plan_id",
+      "status": "未验证",
+      "description": "玩家计划对象编号。"
+    },
+    {
+      "field": "world.plans[].type",
+      "status": "未验证",
+      "description": "前线、进攻线、驻防或区域防御类型。"
+    },
+    {
+      "field": "world.plans[].vertex_province_ids",
+      "status": "未验证",
+      "description": "计划有序折线控制点。"
+    },
+    {
+      "field": "world.plans[].assigned_army_ids",
+      "status": "未验证",
+      "description": "计划绑定的集团军编号。"
+    },
+    {
+      "field": "world.plans[].assigned_unit_ids",
+      "status": "未验证",
+      "description": "计划绑定的师编号。"
+    },
+    {
+      "field": "world.plans[].executing",
+      "status": "未验证",
+      "description": "计划是否正在执行。"
+    },
+    {
+      "field": "world.plans[].axis_province_ids",
+      "status": "未验证",
+      "description": "计划推进方向或进攻轴。"
+    },
+    {
+      "field": "world.plans[].status",
+      "status": "未验证",
+      "description": "计划可执行、受阻、停滞或失效状态。"
+    },
+    {
+      "field": "world.combats[].combat_id",
+      "status": "未验证",
+      "description": "陆战内部编号。"
+    },
+    {
+      "field": "world.combats[].province_id",
+      "status": "未验证",
+      "description": "陆战所在省份。"
+    },
+    {
+      "field": "world.combats[].attacker_unit_ids",
+      "status": "未验证",
+      "description": "陆战攻击方师编号。"
+    },
+    {
+      "field": "world.combats[].defender_unit_ids",
+      "status": "未验证",
+      "description": "陆战防守方师编号。"
+    },
+    {
+      "field": "world.combats[].phase",
+      "status": "未验证",
+      "description": "陆战进行或结束状态。"
+    },
+    {
+      "field": "world.combats[].result",
+      "status": "未验证",
+      "description": "陆战胜负结果。"
+    },
+    {
+      "field": "world.combats[].casualties.our_manpower",
+      "status": "未验证",
+      "description": "己方人力伤亡。"
+    },
+    {
+      "field": "world.combats[].casualties.enemy_manpower",
+      "status": "未验证",
+      "description": "敌方人力伤亡。"
+    },
+    {
+      "field": "world.combats[].casualties.our_org_loss",
+      "status": "未验证",
+      "description": "己方组织度损失。"
+    },
+    {
+      "field": "world.combats[].casualties.enemy_org_loss",
+      "status": "未验证",
+      "description": "敌方组织度损失。"
+    },
+    {
+      "field": "world.combats[].started_at",
+      "status": "未验证",
+      "description": "陆战开始时间。"
+    },
+    {
+      "field": "world.combats[].ended_at",
+      "status": "未验证",
+      "description": "陆战结束时间。"
+    },
+    {
+      "field": "world.crises[].kind",
+      "status": "未验证",
+      "description": "被包围、断补给或计划失败等危机类型。"
+    },
+    {
+      "field": "world.crises[].unit_ids",
+      "status": "未验证",
+      "description": "危机涉及的师编号。"
+    },
+    {
+      "field": "world.crises[].province_ids",
+      "status": "未验证",
+      "description": "危机涉及的省份编号。"
+    },
+    {
+      "field": "world.crises[].severity",
+      "status": "未验证",
+      "description": "危机严重程度。"
+    },
+    {
+      "field": "world.crises[].notes",
+      "status": "未验证",
+      "description": "危机补充说明。"
+    },
+    {
+      "field": "world.wars[].a",
+      "status": "未验证",
+      "description": "战争关系一方国家。"
+    },
+    {
+      "field": "world.wars[].b",
+      "status": "未验证",
+      "description": "战争关系另一方国家。"
+    },
+    {
+      "field": "world.wars[].state",
+      "status": "未验证",
+      "description": "交战、停火、投降、傀儡或未交战状态。"
+    },
+    {
+      "field": "world.wars[].front_invalidated",
+      "status": "未验证",
+      "description": "战争关系变化是否使前线失效。"
+    },
+    {
+      "field": "world.shortages.equipment[].equipment_type",
+      "status": "未验证",
+      "description": "缺口装备的内部类型名。"
+    },
+    {
+      "field": "world.shortages.equipment[].stockpile",
+      "status": "未验证",
+      "description": "该类装备当前库存。"
+    },
+    {
+      "field": "world.shortages.equipment[].demanded",
+      "status": "未验证",
+      "description": "该类装备当前需求量。"
+    },
+    {
+      "field": "world.shortages.equipment[].deficit",
+      "status": "未验证",
+      "description": "该类装备当前缺口数量。"
+    },
+    {
+      "field": "world.shortages.equipment[].affected_unit_ids",
+      "status": "未验证",
+      "description": "缺装备影响的师编号。"
+    },
+    {
+      "field": "world.shortages.equipment[].affected_plan_ids",
+      "status": "未验证",
+      "description": "缺装备影响的计划编号。"
+    },
+    {
+      "field": "world.shortages.manpower.available",
+      "status": "未验证",
+      "description": "当前可用人力。"
+    },
+    {
+      "field": "world.shortages.manpower.needed",
+      "status": "未验证",
+      "description": "当前所需补充人力。"
+    },
+    {
+      "field": "world.shortages.manpower.deficit",
+      "status": "未验证",
+      "description": "当前人力缺口数量。"
+    },
+    {
+      "field": "world.shortages.manpower.affected_unit_ids",
+      "status": "未验证",
+      "description": "缺人力影响的师编号。"
+    },
+    {
+      "field": "world.shortages.manpower.front_cannot_hold",
+      "status": "未验证",
+      "description": "缺人是否导致战线无法维持。"
+    },
+    {
+      "field": "world.shortages.missing_divisions.plan_id",
+      "status": "未验证",
+      "description": "缺师相关计划编号。"
+    },
+    {
+      "field": "world.shortages.missing_divisions.province_ids",
+      "status": "未验证",
+      "description": "缺师相关省份编号。"
+    },
+    {
+      "field": "world.shortages.missing_divisions.needed_estimate",
+      "status": "未验证",
+      "description": "维持战线所需的额外师数估计。"
+    },
+    {
+      "field": "world.shortages.missing_divisions.reason",
+      "status": "未验证",
+      "description": "现有兵力不足的原因。"
+    },
+    {
+      "field": "feedback.last_orders[].order_seq",
+      "status": "未验证",
+      "description": "上一拍已发命令的序号，由回执账本提供。"
+    },
+    {
+      "field": "feedback.last_orders[].type",
+      "status": "未验证",
+      "description": "上一拍命令类型，由回执账本提供。"
+    },
+    {
+      "field": "feedback.last_orders[].subject_ids",
+      "status": "未验证",
+      "description": "上一拍命令作用对象编号。"
+    },
+    {
+      "field": "feedback.last_orders[].target_province_ids",
+      "status": "未验证",
+      "description": "上一拍命令目标省份。"
+    },
+    {
+      "field": "feedback.last_orders[].plan_id",
+      "status": "未验证",
+      "description": "上一拍命令相关计划编号。"
+    },
+    {
+      "field": "feedback.last_orders[].accepted",
+      "status": "未验证",
+      "description": "上一拍命令实际落地结果。"
+    },
+    {
+      "field": "feedback.last_orders[].error",
+      "status": "未验证",
+      "description": "上一拍命令失败原因。"
+    },
+    {
+      "field": "feedback.ticks_since_issue",
+      "status": "未验证",
+      "description": "命令发出后经过的节拍数。"
+    }
+  ]
+}

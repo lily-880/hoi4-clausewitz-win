@@ -1,0 +1,53 @@
+13f9740 mov qword ptr [rsp + 0x18], rsi
+13f9745 push rdi
+13f9746 sub rsp, 0x20
+13f974a mov rsi, rcx
+13f974d mov ecx, 0x48
+13f9752 call 0x25a01dc
+13f9757 mov qword ptr [rsp + 0x30], rax
+13f975c mov rdi, rax
+13f975f test rax, rax
+13f9762 je 0x13f97fa
+13f9768 mov byte ptr [rdi + 8], 0
+13f976c lea rax, [rip + 0x13a5d2d]
+13f9773 mov qword ptr [rdi], rax
+13f9776 lea rcx, [rdi + 0x28]
+13f977a mov eax, dword ptr [rsi + 0xc]
+13f977d xorps xmm0, xmm0
+13f9780 mov dword ptr [rdi + 0xc], eax
+13f9783 mov rax, qword ptr [rsi + 0x10]
+13f9787 mov qword ptr [rdi + 0x10], rax
+13f978b movzx eax, word ptr [rsi + 0x18]
+13f978f mov word ptr [rdi + 0x18], ax
+13f9793 movzx eax, byte ptr [rsi + 0x1a]
+13f9797 mov byte ptr [rdi + 0x1a], al
+13f979a movzx eax, byte ptr [rsi + 0x1b]
+13f979e mov byte ptr [rdi + 0x1b], al
+13f97a1 mov eax, dword ptr [rsi + 0x1c]
+13f97a4 mov dword ptr [rdi + 0x1c], eax
+13f97a7 mov eax, dword ptr [rsi + 0x20]
+13f97aa mov dword ptr [rdi + 0x20], eax
+13f97ad lea rax, [rip + 0x1633fec]
+13f97b4 mov qword ptr [rdi], rax
+13f97b7 xor eax, eax
+13f97b9 movups xmmword ptr [rdi + 0x28], xmm0
+13f97bd mov qword ptr [rdi + 0x38], rax
+13f97c1 mov qword ptr [rsp + 0x38], rbx
+13f97c6 call 0x11f6f0
+13f97cb mov r9d, dword ptr [rsi + 0x34]
+13f97cf lea rcx, [rdi + 0x28]
+13f97d3 mov r8, qword ptr [rsi + 0x28]
+13f97d7 mov edx, dword ptr [rdi + 0x34]
+13f97da call 0x2d59c0
+13f97df mov rcx, qword ptr [rsi + 0x40]
+13f97e3 mov rax, rdi
+13f97e6 mov rbx, qword ptr [rsp + 0x38]
+13f97eb mov qword ptr [rdi + 0x40], rcx
+13f97ef mov rsi, qword ptr [rsp + 0x40]
+13f97f4 add rsp, 0x20
+13f97f8 pop rdi
+13f97f9 ret 
+13f97fa mov rsi, qword ptr [rsp + 0x40]
+13f97ff add rsp, 0x20
+13f9803 pop rdi
+13f9804 ret 

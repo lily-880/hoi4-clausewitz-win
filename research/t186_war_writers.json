@@ -1,0 +1,53 @@
+{
+  "promoted": [
+    "world.wars.a",
+    "world.wars.b",
+    "world.wars.state"
+  ],
+  "not_promoted": [
+    "world.wars.front_invalidated"
+  ],
+  "CRelation": {
+    "rtti": ".?AVCRelation@@",
+    "vtable": "0x29dcb48",
+    "writer": "0xd8f520",
+    "first": "country index at +0x10, token 0x28de, via 0xc08170",
+    "second": "country index at +0x14, token 0x28df, via 0xc08170",
+    "cancel": "byte +0x48 token 0x28e5, written iff nonzero",
+    "start_date": "CGameDate secondary at +0x28 (primary at +0x18, hour tick at +0x20) token 0x28e0, written when cancel==0",
+    "end_date": "CGameDate at +0x40, token 0x28e1, written iff dword[+0x38] > dword[+0x20]",
+    "start_date_live_note": "live tick at +0x20 equals current campaign hour 60759371 (1936-01-01 12); historical outbreak date is not proven on this snapshot"
+  },
+  "CWarRelation": {
+    "rtti": ".?AVCWarRelation@@",
+    "vtable": "0x29dcc08",
+    "writer": "0xd8f900 (calls 0xd8f520 first)",
+    "first_was_instigator": "byte +0x158 token 0x3af7",
+    "hostility_reason_instigator": "dword +0x160 token 0x381d; 0=war 1=puppet 2=ally 3=asked_to_join 4=guarantee 5=not_applicable",
+    "hostility_reason_defender": "dword +0x15c token 0x381e, same enum",
+    "plus_0x49": "official getters 0xd82c10 / 0xd7e050 skip the war if byte +0x49 is nonzero"
+  },
+  "CRelationStatus": {
+    "war_relation_slot": "+0x2e8 CWarRelation*",
+    "official_getters": [
+      "0xd7db8b",
+      "0xd7deb0",
+      "0xd7da30"
+    ],
+    "note": "GetWarRelation: resolve first country +0xf88 CDiplomacyStatus, index second in active_relations, return [status+0x2e8]"
+  },
+  "CDiplomacyStatus": {
+    "rtti": ".?AVCDiplomacyStatus@@",
+    "country_offset": "CCountry+0xf88",
+    "writer": "0xdad1a0",
+    "active_relations": "token 0x2e43, data +0x8, size +0x14, 440 CRelationStatus* (index 0 is the null slot; index is country index)",
+    "capitulated": "byte +0x328 token 0x3549, country-level, not proven as War.state"
+  },
+  "clips": [
+    "research/_t186_clip_warrelation_writer_0xd8f900.txt",
+    "research/_t186_clip_relation_base_0xd8f520.txt",
+    "research/_t186_clip_diplomacystatus_writer_0xdad1a0.txt",
+    "research/_t186_clip_getter_0xd7db8b.txt",
+    "research/_t186_clip_use_0xd82c10.txt"
+  ]
+}

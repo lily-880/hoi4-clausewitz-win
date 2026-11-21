@@ -1,0 +1,20 @@
+e6bd70 sub rsp, 0x28
+e6bd74 mov eax, dword ptr [rcx]
+e6bd76 cmp eax, 0x14
+e6bd79 je 0xe6bdb0
+e6bd7b cmp eax, 0x1b
+e6bd7e je 0xe6bd87
+e6bd80 xor al, al
+e6bd82 add rsp, 0x28
+e6bd86 ret 
+e6bd87 mov rcx, qword ptr [rip + 0x2571d7a]
+e6bd8e mov rax, qword ptr [rcx]
+e6bd91 call qword ptr [rax + 0xb8]
+e6bd97 mov rcx, qword ptr [rax + 0x400]
+e6bd9e cmp dword ptr [rcx + 0x2b8], 0
+e6bda5 jg 0xe6bdb0
+e6bda7 cmp dword ptr [rcx + 0x2bc], 0
+e6bdae jg 0xe6bd80
+e6bdb0 mov al, 1
+e6bdb2 add rsp, 0x28
+e6bdb6 ret 

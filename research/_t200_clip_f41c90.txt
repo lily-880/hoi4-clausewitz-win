@@ -1,0 +1,24 @@
+f41c90 push rbx
+f41c92 push rbp
+f41c93 push rdi
+f41c94 sub rsp, 0x40
+f41c98 movsxd rax, dword ptr [rdx + 0x58]
+f41c9c mov rbx, rdx
+f41c9f movzx edi, r8b
+f41ca3 mov rbp, rcx
+f41ca6 lea r9, [rax + rax*4]
+f41caa mov rax, qword ptr [rcx + 0x28]
+f41cae lea rdx, [rax + r9*8]
+f41cb2 movzx eax, byte ptr [rax + r9*8 + 0x24]
+f41cb8 test al, 1
+f41cba jne 0xf41cd9
+f41cbc or al, 1
+f41cbe add rcx, 0x88
+f41cc5 mov byte ptr [rdx + 0x24], al
+f41cc8 lea rdx, [rsp + 0x70]
+f41ccd mov eax, dword ptr [rbx + 0x58]
+f41cd0 mov dword ptr [rsp + 0x70], eax
+f41cd4 call 0x12e040
+f41cd9 test dil, dil
+f41cdc je 0xf41e52
+f41ce2 mov rax, qword ptr [rbx + 0x30]

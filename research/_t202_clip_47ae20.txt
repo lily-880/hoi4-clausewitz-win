@@ -1,0 +1,50 @@
+47ae20 mov qword ptr [rsp + 8], rbx
+47ae25 mov qword ptr [rsp + 0x10], rsi
+47ae2a push rdi
+47ae2b sub rsp, 0x50
+47ae2f mov rdi, rcx
+47ae32 mov rax, qword ptr [rcx + 0x58]
+47ae36 movzx ebx, byte ptr [rax + 0x10]
+47ae3a test bl, bl
+47ae3c jne 0x47aec6
+47ae42 mov r9d, 0x1000
+47ae48 mov r8d, 0x145
+47ae4e lea rdx, [rip + 0x23198c8]
+47ae55 lea rcx, [rsp + 0x20]
+47ae5a call 0x254b3f0
+47ae5f mov rsi, rax
+47ae62 lea rdx, [rsp + 0x30]
+47ae67 mov rcx, rdi
+47ae6a call 0x595960
+47ae6f nop 
+47ae70 cmp qword ptr [rax + 0x18], 0xf
+47ae75 jbe 0x47ae7a
+47ae77 mov rax, qword ptr [rax]
+47ae7a mov r8, rax
+47ae7d lea rdx, [rip + 0x23ae82c]
+47ae84 mov rcx, rsi
+47ae87 call 0x254b900
+47ae8c nop 
+47ae8d mov rdx, qword ptr [rsp + 0x48]
+47ae92 cmp rdx, 0xf
+47ae96 jbe 0x47aec6
+47ae98 inc rdx
+47ae9b mov rcx, qword ptr [rsp + 0x30]
+47aea0 mov rax, rcx
+47aea3 cmp rdx, 0x1000
+47aeaa jb 0x47aec1
+47aeac add rdx, 0x27
+47aeb0 mov rcx, qword ptr [rcx - 8]
+47aeb4 sub rax, rcx
+47aeb7 add rax, -8
+47aebb cmp rax, 0x1f
+47aebf ja 0x47aed9
+47aec1 call 0x25a0218
+47aec6 movzx eax, bl
+47aec9 mov rbx, qword ptr [rsp + 0x60]
+47aece mov rsi, qword ptr [rsp + 0x68]
+47aed3 add rsp, 0x50
+47aed7 pop rdi
+47aed8 ret 
+47aed9 call 0x25c7db4
+47aede int3 

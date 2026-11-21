@@ -1,0 +1,429 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "names": {
+    "0x3749": "ground_damage_str",
+    "0x374a": "ground_damage_org",
+    "0x28a6": "strength",
+    "0x2ecb": "organisation",
+    "0x3750": "manpower_lost"
+  },
+  "flows": {
+    "0x147ff20": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x147ff20",
+      "window_size": 4096,
+      "reachable_instruction_count": 101,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0x148009f",
+          "target": "0x126a4c0"
+        }
+      ],
+      "calls": [
+        {
+          "site": "0x147ff64",
+          "operand": "0x22857c0"
+        },
+        {
+          "site": "0x147ff85",
+          "operand": "0x2545f90"
+        },
+        {
+          "site": "0x147ff9f",
+          "operand": "0x2546ce0"
+        },
+        {
+          "site": "0x147ffa7",
+          "operand": "0x2546ed0"
+        },
+        {
+          "site": "0x147ffaf",
+          "operand": "0x2546920"
+        },
+        {
+          "site": "0x147ffd1",
+          "operand": "0x25463a0"
+        },
+        {
+          "site": "0x147ffe1",
+          "operand": "0x253ecd0"
+        },
+        {
+          "site": "0x147fff1",
+          "operand": "0x25429c0"
+        },
+        {
+          "site": "0x1480008",
+          "operand": "0x20b1d0"
+        },
+        {
+          "site": "0x1480010",
+          "operand": "0x25464e0"
+        },
+        {
+          "site": "0x148002f",
+          "operand": "0x2546250"
+        },
+        {
+          "site": "0x1480040",
+          "operand": "0xc08170"
+        },
+        {
+          "site": "0x1480053",
+          "operand": "0x2545940"
+        },
+        {
+          "site": "0x1480069",
+          "operand": "0x2545f90"
+        },
+        {
+          "site": "0x148007f",
+          "operand": "0x2546ce0"
+        }
+      ],
+      "asm": [
+        "147ff20 push rbx",
+        "147ff22 push rdi",
+        "147ff23 sub rsp, 0x28",
+        "147ff27 mov qword ptr [rsp + 0x50], rsi",
+        "147ff2c mov rdi, rdx",
+        "147ff2f mov qword ptr [rsp + 0x20], r14",
+        "147ff34 xor esi, esi",
+        "147ff36 movsxd r14, dword ptr [rcx + 0x2c]",
+        "147ff3a mov rbx, rcx",
+        "147ff3d test r14, r14",
+        "147ff40 jle 0x147ff76",
+        "147ff42 mov qword ptr [rsp + 0x48], rbp",
+        "147ff47 mov ebp, esi",
+        "147ff49 nop dword ptr [rax]",
+        "147ff50 mov rax, qword ptr [rbx + 0x20]",
+        "147ff54 mov edx, 0x28a3",
+        "147ff59 mov rcx, rdi",
+        "147ff5c mov r8, qword ptr [rax + rbp*8]",
+        "147ff60 add r8, 0x18",
+        "147ff64 call 0x22857c0",
+        "147ff69 inc rbp",
+        "147ff6c cmp rbp, r14",
+        "147ff6f jl 0x147ff50",
+        "147ff71 mov rbp, qword ptr [rsp + 0x48]",
+        "147ff76 mov r8, qword ptr [rbx + 0xb8]",
+        "147ff7d mov edx, 0x28f8",
+        "147ff82 mov rcx, rdi",
+        "147ff85 call 0x2545f90",
+        "147ff8a mov r14, qword ptr [rsp + 0x20]",
+        "147ff8f cmp dword ptr [rbx + 0xac], esi",
+        "147ff95 je 0x1480015",
+        "147ff97 mov edx, 0x2f",
+        "147ff9c mov rcx, rdi",
+        "147ff9f call 0x2546ce0",
+        "147ffa4 mov rcx, rdi",
+        "147ffa7 call 0x2546ed0",
+        "147ffac mov rcx, rdi",
+        "147ffaf call 0x2546920",
+        "147ffb4 cmp dword ptr [rbx + 0xac], esi",
+        "147ffba jle 0x1480000",
+        "147ffbc nop dword ptr [rax]",
+        "147ffc0 mov rdx, qword ptr [rbx + 0xa0]",
+        "147ffc7 mov rcx, rdi",
+        "147ffca movsxd rax, esi",
+        "147ffcd mov rdx, qword ptr [rdx + rax*8]",
+        "147ffd1 call 0x25463a0",
+        "147ffd6 cmp byte ptr [rdi + 0x18], 0",
+        "147ffda jne 0x147fff6",
+        "147ffdc mov ecx, 0x12",
+        "147ffe1 call 0x253ecd0",
+        "147ffe6 mov r8, rax",
+        "147ffe9 mov edx, 0x12",
+        "147ffee mov rcx, rdi",
+        "147fff1 call 0x25429c0",
+        "147fff6 inc esi",
+        "147fff8 cmp esi, dword ptr [rbx + 0xac]",
+        "147fffe jl 0x147ffc0",
+        "1480000 mov edx, 0x10",
+        "1480005 mov rcx, rdi",
+        "1480008 call 0x20b1d0",
+        "148000d mov rcx, rdi",
+        "1480010 call 0x25464e0",
+        "1480015 movzx r8d, byte ptr [rbx + 0xdb]",
+        "148001d mov rsi, qword ptr [rsp + 0x50]",
+        "1480022 test r8b, r8b",
+        "1480025 je 0x1480034",
+        "1480027 mov edx, 0x3517",
+        "148002c mov rcx, rdi",
+        "148002f call 0x2546250",
+        "1480034 lea rcx, [rbx + 0xe0]",
+        "148003b cmp dword ptr [rcx], 0",
+        "148003e jle 0x1480058",
+        "1480040 call 0xc08170",
+        "1480045 xor r9d, r9d",
+        "1480048 mov r8, rax",
+        "148004b mov edx, 0x30ac",
+        "1480050 mov rcx, rdi",
+        "1480053 call 0x2545940",
+        "1480058 mov r8, qword ptr [rbx + 0x10]",
+        "148005c test r8, r8",
+        "148005f jle 0x148006e",
+        "1480061 mov edx, 0x288d",
+        "1480066 mov rcx, rdi",
+        "1480069 call 0x2545f90",
+        "148006e cmp dword ptr [rbx + 0x90], 0",
+        "1480075 je 0x14800a4",
+        "1480077 mov edx, 0x2a03",
+        "148007c mov rcx, rdi",
+        "148007f call 0x2546ce0",
+        "1480084 movzx r9d, byte ptr [rsp + 0x40]",
+        "148008a lea r8, [rbx + 0x80]",
+        "1480091 mov rdx, rdi",
+        "1480094 lea rcx, [rsp + 0x40]",
+        "1480099 add rsp, 0x28",
+        "148009d pop rdi",
+        "148009e pop rbx",
+        "148009f jmp 0x126a4c0",
+        "14800a4 add rsp, 0x28",
+        "14800a8 pop rdi",
+        "14800a9 pop rbx",
+        "14800aa ret "
+      ],
+      "code_window_sha256": "c929ec6d6d11cea3e36d00c0a6fefb167f5f3d5278de3d6632759eabb010193e"
+    },
+    "0x147f0d0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x147f0d0",
+      "window_size": 4096,
+      "reachable_instruction_count": 114,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0x147f244",
+          "target": "0x25416b0"
+        },
+        {
+          "site": "0x147f1e3",
+          "target": "0x2543500"
+        },
+        {
+          "site": "0x147f1fc",
+          "target": "0x134a6c0"
+        },
+        {
+          "site": "0x147f217",
+          "target": "0x128bed0"
+        },
+        {
+          "site": "0x147f27a",
+          "target": "0xc08860"
+        }
+      ],
+      "calls": [
+        {
+          "site": "0x147f125",
+          "operand": "0x2547930"
+        },
+        {
+          "site": "0x147f15a",
+          "operand": "0x2284ed0"
+        },
+        {
+          "site": "0x147f19d",
+          "operand": "0x2284870"
+        },
+        {
+          "site": "0x147f1c4",
+          "operand": "qword ptr [rax + 0x78]"
+        },
+        {
+          "site": "0x147f250",
+          "operand": "0x25478f0"
+        },
+        {
+          "site": "0x147f28b",
+          "operand": "0x2544b90"
+        }
+      ],
+      "asm": [
+        "147f0d0 mov qword ptr [rsp + 8], rbx",
+        "147f0d5 push rdi",
+        "147f0d6 sub rsp, 0x30",
+        "147f0da mov rbx, rdx",
+        "147f0dd mov rdi, rcx",
+        "147f0e0 cmp r8d, 0x2a03",
+        "147f0e7 jg 0x147f21c",
+        "147f0ed je 0x147f201",
+        "147f0f3 mov edx, r8d",
+        "147f0f6 sub edx, 0x2f",
+        "147f0f9 je 0x147f1e8",
+        "147f0ff sub edx, 0x285e",
+        "147f105 je 0x147f1d2",
+        "147f10b sub edx, 0x16",
+        "147f10e je 0x147f13f",
+        "147f110 cmp edx, 0x55",
+        "147f113 jne 0x147f237",
+        "147f119 lea rcx, [rbx + 0xc0]",
+        "147f120 lea rdx, [rsp + 0x58]",
+        "147f125 call 0x2547930",
+        "147f12a mov rcx, qword ptr [rax]",
+        "147f12d mov qword ptr [rdi + 0xb8], rcx",
+        "147f134 mov rbx, qword ptr [rsp + 0x40]",
+        "147f139 add rsp, 0x30",
+        "147f13d pop rdi",
+        "147f13e ret ",
+        "147f13f mov rax, qword ptr [rip + 0x1f6c15a]",
+        "147f146 lea rdx, [rsp + 0x58]",
+        "147f14b mov qword ptr [rsp + 0x20], rax",
+        "147f150 mov rcx, rbx",
+        "147f153 xor eax, eax",
+        "147f155 mov qword ptr [rsp + 0x58], rax",
+        "147f15a call 0x2284ed0",
+        "147f15f mov rax, qword ptr [rbx + 0x128]",
+        "147f166 test rax, rax",
+        "147f169 je 0x147f17e",
+        "147f16b cmp byte ptr [rax + 8], 0",
+        "147f16f je 0x147f17e",
+        "147f171 cmp byte ptr [rax + 9], 0",
+        "147f175 je 0x147f17e",
+        "147f177 mov rax, qword ptr [rsp + 0x20]",
+        "147f17c jmp 0x147f188",
+        "147f17e mov rax, qword ptr [rsp + 0x58]",
+        "147f183 mov qword ptr [rsp + 0x20], rax",
+        "147f188 test eax, eax",
+        "147f18a jne 0x147f198",
+        "147f18c shr rax, 0x20",
+        "147f190 test eax, eax",
+        "147f192 je 0x147f290",
+        "147f198 lea rcx, [rsp + 0x20]",
+        "147f19d call 0x2284870",
+        "147f1a2 test rax, rax",
+        "147f1a5 je 0x147f290",
+        "147f1ab lea rdx, [rax - 0x10]",
+        "147f1af test rdx, rdx",
+        "147f1b2 je 0x147f290",
+        "147f1b8 mov rax, qword ptr [rdi]",
+        "147f1bb mov r8d, 0x186a0",
+        "147f1c1 mov rcx, rdi",
+        "147f1c4 call qword ptr [rax + 0x78]",
+        "147f1c7 mov rbx, qword ptr [rsp + 0x40]",
+        "147f1cc add rsp, 0x30",
+        "147f1d0 pop rdi",
+        "147f1d1 ret ",
+        "147f1d2 lea rdx, [rcx + 0x10]",
+        "147f1d6 mov rcx, rbx",
+        "147f1d9 mov rbx, qword ptr [rsp + 0x40]",
+        "147f1de add rsp, 0x30",
+        "147f1e2 pop rdi",
+        "147f1e3 jmp 0x2543500",
+        "147f1e8 lea rdx, [rcx + 0xa0]",
+        "147f1ef mov rcx, rbx",
+        "147f1f2 mov rbx, qword ptr [rsp + 0x40]",
+        "147f1f7 add rsp, 0x30",
+        "147f1fb pop rdi",
+        "147f1fc jmp 0x134a6c0",
+        "147f201 lea r8, [rcx + 0x80]",
+        "147f208 lea rcx, [rsp + 0x50]",
+        "147f20d mov rbx, qword ptr [rsp + 0x40]",
+        "147f212 add rsp, 0x30",
+        "147f216 pop rdi",
+        "147f217 jmp 0x128bed0",
+        "147f21c cmp r8d, 0x2d2a",
+        "147f223 je 0x147f27f",
+        "147f225 cmp r8d, 0x30ac",
+        "147f22c je 0x147f266",
+        "147f22e cmp r8d, 0x3517",
+        "147f235 je 0x147f249",
+        "147f237 mov rdx, rbx",
+        "147f23a mov rbx, qword ptr [rsp + 0x40]",
+        "147f23f add rsp, 0x30",
+        "147f243 pop rdi",
+        "147f244 jmp 0x25416b0",
+        "147f249 lea rcx, [rdx + 0xc0]",
+        "147f250 call 0x25478f0",
+        "147f255 mov byte ptr [rdi + 0xdb], al",
+        "147f25b mov rbx, qword ptr [rsp + 0x40]",
+        "147f260 add rsp, 0x30",
+        "147f264 pop rdi",
+        "147f265 ret ",
+        "147f266 lea rdx, [rcx + 0xe0]",
+        "147f26d mov rcx, rbx",
+        "147f270 mov rbx, qword ptr [rsp + 0x40]",
+        "147f275 add rsp, 0x30",
+        "147f279 pop rdi",
+        "147f27a jmp 0xc08860",
+        "147f27f cmp dword ptr [rdx + 0xc0], 3",
+        "147f286 jne 0x147f290",
+        "147f288 mov rcx, rbx",
+        "147f28b call 0x2544b90",
+        "147f290 mov rbx, qword ptr [rsp + 0x40]",
+        "147f295 add rsp, 0x30",
+        "147f299 pop rdi",
+        "147f29a ret "
+      ],
+      "code_window_sha256": "a0cd6c93569efe77f2258bc518faf348921e7987bfe93fa1dec521db1e1ed016"
+    }
+  },
+  "parents": [
+    {
+      "combat_id": 3096,
+      "combat": "0x219dddd7d10",
+      "side": "0x219c1131ac0",
+      "parent_plus18": "0x219dddd7d10"
+    },
+    {
+      "combat_id": 3096,
+      "combat": "0x219dddd7d10",
+      "side": "0x219c112e100",
+      "parent_plus18": "0x219dddd7d10"
+    },
+    {
+      "combat_id": 3097,
+      "combat": "0x219dddd7370",
+      "side": "0x219c1131f90",
+      "parent_plus18": "0x219dddd7370"
+    },
+    {
+      "combat_id": 3097,
+      "combat": "0x219dddd7370",
+      "side": "0x219c112e5d0",
+      "parent_plus18": "0x219dddd7370"
+    }
+  ],
+  "stable_dependencies": 66,
+  "source": "CCombatant constructor147C360 stores incomingRDXat18; freshsideforwardpointer matchesbackpointer; no priorassertionassumed",
+  "pending_t216_checkpoint_C_records_sha256": "cd42f0492cdee8978e85db6300a9b9e479fbc249ce0e79df3fc0e614498ecb65"
+}

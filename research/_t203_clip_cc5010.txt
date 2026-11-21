@@ -1,0 +1,133 @@
+cc5010 mov qword ptr [rsp + 8], rbx
+cc5015 mov qword ptr [rsp + 0x10], rbp
+cc501a mov qword ptr [rsp + 0x20], rsi
+cc501f mov qword ptr [rsp + 0x18], r8
+cc5024 push rdi
+cc5025 push r12
+cc5027 push r13
+cc5029 push r14
+cc502b push r15
+cc502d sub rsp, 0x20
+cc5031 mov ebx, dword ptr [rdx]
+cc5033 xor r15d, r15d
+cc5036 mov r12, rdx
+cc5039 mov rbp, rcx
+cc503c test ebx, ebx
+cc503e jne 0xcc5045
+cc5040 mov r14d, r15d
+cc5043 jmp 0xcc5050
+cc5045 mov rcx, r12
+cc5048 call 0xc08790
+cc504d mov r14d, eax
+cc5050 mov rdi, qword ptr [rbp + 0x10]
+cc5054 movsxd rcx, dword ptr [rbp + 0x1c]
+cc5058 lea rsi, [rdi + rcx*8]
+cc505c cmp rdi, rsi
+cc505f je 0xcc5085
+cc5061 mov eax, dword ptr [rdi]
+cc5063 cmp ebx, eax
+cc5065 je 0xcc5095
+cc5067 test ebx, ebx
+cc5069 je 0xcc507c
+cc506b test eax, eax
+cc506d je 0xcc507c
+cc506f mov rcx, rdi
+cc5072 call 0xc08790
+cc5077 cmp r14d, eax
+cc507a je 0xcc5095
+cc507c add rdi, 8
+cc5080 cmp rdi, rsi
+cc5083 jne 0xcc5061
+cc5085 mov r13d, r15d
+cc5088 mov ebx, dword ptr [r12]
+cc508c test ebx, ebx
+cc508e jne 0xcc509b
+cc5090 mov r12d, r15d
+cc5093 jmp 0xcc50a6
+cc5095 mov r13d, dword ptr [rdi + 4]
+cc5099 jmp 0xcc5088
+cc509b mov rcx, r12
+cc509e call 0xc08790
+cc50a3 mov r12d, eax
+cc50a6 movsxd r14, dword ptr [rbp + 0x1c]
+cc50aa mov esi, r15d
+cc50ad test r14, r14
+cc50b0 jle 0xcc5115
+cc50b2 mov rdi, r15
+cc50b5 nop word ptr [rax + rax]
+cc50c0 mov rcx, qword ptr [rbp + 0x10]
+cc50c4 mov edx, dword ptr [rcx + rdi*8]
+cc50c7 lea rcx, [rcx + rdi*8]
+cc50cb cmp ebx, edx
+cc50cd je 0xcc50ed
+cc50cf test ebx, ebx
+cc50d1 je 0xcc50e1
+cc50d3 test edx, edx
+cc50d5 je 0xcc50e1
+cc50d7 call 0xc08790
+cc50dc cmp r12d, eax
+cc50df je 0xcc50ed
+cc50e1 inc esi
+cc50e3 inc rdi
+cc50e6 cmp rdi, r14
+cc50e9 jl 0xcc50c0
+cc50eb jmp 0xcc5115
+cc50ed mov r9, qword ptr [rbp + 0x10]
+cc50f1 movsxd rax, esi
+cc50f4 lea rcx, [r9 + rax*8]
+cc50f8 movsxd rax, dword ptr [rbp + 0x1c]
+cc50fc lea r8, [r9 + rax*8]
+cc5100 lea eax, [rsi + 1]
+cc5103 movsxd rdx, eax
+cc5106 lea rdx, [r9 + rdx*8]
+cc510a sub r8, rdx
+cc510d call 0x26079d0
+cc5112 dec dword ptr [rbp + 0x1c]
+cc5115 mov rax, qword ptr [rsp + 0x60]
+cc511a lea r14, [rbp + 8]
+cc511e mov ebx, dword ptr [rax]
+cc5120 mov dword ptr [rsp + 0x60], ebx
+cc5124 test ebx, ebx
+cc5126 jne 0xcc512d
+cc5128 mov esi, r15d
+cc512b jmp 0xcc5137
+cc512d mov rcx, rax
+cc5130 call 0xc08790
+cc5135 mov esi, eax
+cc5137 mov rdi, qword ptr [r14 + 8]
+cc513b movsxd rcx, dword ptr [r14 + 0x14]
+cc513f mov dword ptr [rsp + 0x64], esi
+cc5143 lea rbp, [rdi + rcx*8]
+cc5147 cmp rdi, rbp
+cc514a je 0xcc5179
+cc514c nop dword ptr [rax]
+cc5150 mov ecx, dword ptr [rdi]
+cc5152 cmp ebx, ecx
+cc5154 je 0xcc5175
+cc5156 test ebx, ebx
+cc5158 je 0xcc516a
+cc515a test ecx, ecx
+cc515c je 0xcc516a
+cc515e mov rcx, rdi
+cc5161 call 0xc08790
+cc5166 cmp esi, eax
+cc5168 je 0xcc5175
+cc516a add rdi, 8
+cc516e cmp rdi, rbp
+cc5171 jne 0xcc5150
+cc5173 jmp 0xcc5179
+cc5175 mov r15d, dword ptr [rdi + 4]
+cc5179 lea r8d, [r15 + r13]
+cc517d mov rcx, r14
+cc5180 lea rdx, [rsp + 0x60]
+cc5185 call 0xcc7550
+cc518a mov rbx, qword ptr [rsp + 0x50]
+cc518f mov rbp, qword ptr [rsp + 0x58]
+cc5194 mov rsi, qword ptr [rsp + 0x68]
+cc5199 add rsp, 0x20
+cc519d pop r15
+cc519f pop r14
+cc51a1 pop r13
+cc51a3 pop r12
+cc51a5 pop rdi
+cc51a6 ret 

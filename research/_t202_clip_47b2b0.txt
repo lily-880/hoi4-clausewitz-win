@@ -1,0 +1,25 @@
+47b2b0 push rbx
+47b2b2 sub rsp, 0x20
+47b2b6 mov ecx, 0x78
+47b2bb call 0x25a01dc
+47b2c0 mov rbx, rax
+47b2c3 mov qword ptr [rsp + 0x38], rax
+47b2c8 test rax, rax
+47b2cb je 0x47b303
+47b2cd mov rcx, rax
+47b2d0 call 0x584380
+47b2d5 lea rax, [rip + 0x23affc4]
+47b2dc mov qword ptr [rbx], rax
+47b2df xorps xmm0, xmm0
+47b2e2 movups xmmword ptr [rbx + 0x58], xmm0
+47b2e6 mov qword ptr [rbx + 0x68], 0
+47b2ee mov qword ptr [rbx + 0x70], 0xf
+47b2f6 mov byte ptr [rbx + 0x58], 0
+47b2fa mov rax, rbx
+47b2fd add rsp, 0x20
+47b301 pop rbx
+47b302 ret 
+47b303 xor eax, eax
+47b305 add rsp, 0x20
+47b309 pop rbx
+47b30a ret 

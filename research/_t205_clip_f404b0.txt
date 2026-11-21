@@ -1,0 +1,42 @@
+f404b0 mov qword ptr [rsp + 8], rbx
+f404b5 mov qword ptr [rsp + 0x10], rbp
+f404ba mov qword ptr [rsp + 0x18], rsi
+f404bf mov qword ptr [rsp + 0x20], rdi
+f404c4 push r14
+f404c6 sub rsp, 0x20
+f404ca mov eax, dword ptr [rdx]
+f404cc lea rbp, [rip + 0x21e985d]
+f404d3 mov dword ptr [rcx], eax
+f404d5 mov rdi, rdx
+f404d8 mov rdx, qword ptr [rcx + 0x10]
+f404dc mov r14, rcx
+f404df cmp rdx, rbp
+f404e2 je 0xf404fa
+f404e4 mov r8d, dword ptr [rcx + 0x18]
+f404e8 add rcx, 8
+f404ec call 0xf45670
+f404f1 mov rcx, qword ptr [r14 + 0x10]
+f404f5 call 0x25a0218
+f404fa mov rax, qword ptr [rdi + 0x10]
+f404fe xor ecx, ecx
+f40500 mov rbx, qword ptr [rsp + 0x30]
+f40505 mov rsi, qword ptr [rsp + 0x40]
+f4050a mov qword ptr [r14 + 0x10], rax
+f4050e mov eax, dword ptr [rdi + 0x18]
+f40511 mov qword ptr [rdi + 0x10], rbp
+f40515 mov rbp, qword ptr [rsp + 0x38]
+f4051a mov dword ptr [r14 + 0x18], eax
+f4051e mov eax, dword ptr [rdi + 0x1c]
+f40521 mov dword ptr [rdi + 0x18], ecx
+f40524 mov dword ptr [r14 + 0x1c], eax
+f40528 movzx eax, byte ptr [rdi + 0x20]
+f4052c mov dword ptr [rdi + 0x1c], ecx
+f4052f mov byte ptr [r14 + 0x20], al
+f40533 mov eax, dword ptr [rdi + 0x24]
+f40536 mov byte ptr [rdi + 0x20], cl
+f40539 mov rdi, qword ptr [rsp + 0x48]
+f4053e mov dword ptr [r14 + 0x24], eax
+f40542 mov rax, r14
+f40545 add rsp, 0x20
+f40549 pop r14
+f4054b ret 

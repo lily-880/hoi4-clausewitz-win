@@ -1,0 +1,777 @@
+"""Fingerprint-gated live loaded-definition and own-character readers.
+
+Only invoked by the version-gated caller. No game methods are executed.
+Named serializer/parser evidence: t165 proofs; further1.19.5 getter/dataflow
+proofs and corrections: research/t167,t168,t169_*semantic_proofs.json; adjacency reader t180; has_river_crossing t181.
+"""
+import struct
+from input_observation import ObservationError
+
+class LoadedReader:
+    def __init__(self, read, class_name):
+        self.read = read
+        self.class_name = class_name
+        self.samples = {}
+    def exact(self, address, size):
+        b = self.read(address, size)
+        if len(b) != size:
+            raise ObservationError('short loaded-field read')
+        key = (address, size)
+        if key in self.samples and self.samples[key] != b:
+            raise ObservationError('loaded field changed during capture')
+        self.samples[key] = b
+        return b
+    def q(self,a): return struct.unpack('<Q',self.exact(a,8))[0]
+    def i(self,a): return struct.unpack('<i',self.exact(a,4))[0]
+    def require(self,a,name):
+        self.q(a)  # Track vtable identity along with data.
+        if self.class_name(a) not in ('.?AV'+name+'@@','.?AU'+name+'@@'):
+            raise ObservationError('unexpected loaded '+name+' RTTI')
+    def string(self,a):
+        b=self.exact(a,32); n,cap=struct.unpack_from('<QQ',b,16)
+        if not 0<=n<=1024 or n>cap:
+            raise ObservationError('invalid loaded string header')
+        raw=b[:n] if cap<=15 else self.exact(struct.unpack_from('<Q',b)[0],n)
+        try:s=raw.decode('utf-8')
+        except UnicodeError as e:raise ObservationError('invalid loaded UTF-8') from e
+        if not all(c.isprintable() for c in s):raise ObservationError('invalid loaded name')
+        return s
+    def array(self,a,bound,stride=8):
+        data,cap,n=struct.unpack('<QII',self.exact(a,16))
+        if not 0<=n<=cap<=max(bound,100) or n>bound or (n and data<0x10000):
+            raise ObservationError('invalid loaded bounded array')
+        raw=self.exact(data,n*stride) if n else b''
+        return [struct.unpack_from('<Q',raw,j*stride)[0] for j in range(n)]
+    def stable(self):
+        for (a,n),before in self.samples.items():
+            if self.read(a,n)!=before:raise ObservationError('loaded dependent object changed')
+        return len(self.samples)
+
+def battalion_width(r,subunit):
+    r.require(subunit,'CSubUnitDefinition')
+    # Named combat_width token 0x2ccf is parsed at subunit+0x40+0x18.
+    # Same fixed-point parser as other engine FIXED values; signed qword.
+    raw=struct.unpack('<q',r.exact(subunit+0x58,8))[0]
+    if not 0<=raw<=1000*100000:raise ObservationError('invalid combat width')
+    return raw/100000
+
+def own_leaders(r,country):
+    cc=r.q(country+0xff0);r.require(cc,'CCountryCharacters')
+    if r.q(cc+8)!=country:raise ObservationError('character-country backlink mismatch')
+    leaders=r.array(cc+0x70,512)
+    if len(set(leaders))!=len(leaders):raise ObservationError('duplicate army leader')
+    wanted=set(leaders);names={};keys={};links=[]
+    # CCountryCharacters character entries are POINTER + flags, stride 16,
+    # not the pointer-only leader list. 52 actual entries checked on live build.
+    characters=r.array(cc+0x10,2048,stride=16)
+    for cp in characters:
+        r.require(cp,'CCharacter')
+        lp=r.q(cp+0xa8)
+        if lp in wanted:
+            if lp in names:raise ObservationError('duplicate character-leader backlink')
+            names[lp]=r.string(cp+0x28);keys[lp]=r.string(cp+0x48)
+            links.append({'leader_ptr':hex(lp),'character_ptr':hex(cp),'name_source':'CCharacter+0x28; exact +0xA8 leader pointer'})
+    result=[];ids=set();types=set()
+    for lp in leaders:
+        r.require(lp,'CArmyLeader')
+        # CIdObject writer 0x22858a0: nested id.id <- +0x0c;
+        # id.type <- +0x08. This is NOT the division-officer id namespace.
+        idtype=r.i(lp+8);lid=r.i(lp+0xc)
+        if lid<0 or lid in ids:raise ObservationError('invalid/duplicate leader ID')
+        ids.add(lid);types.add(idtype)
+        item={'leader_id':lid}
+        if lp in names:
+            if not names[lp] or keys[lp]!=r.string(lp+0x20):
+                raise ObservationError('character-leader name key mismatch')
+            item['name']=names[lp]
+        skill=r.q(lp+0xe60);r.require(skill,'CUnitLeaderSkill')
+        item['skill']=r.i(skill+0x1b8)
+        for key,off in [('attack',0xf58),('defense',0xf68),('planning',0xf78),('logistics',0xf88)]:
+            item[key]=r.i(lp+off)
+        if any(not 0<=item[k]<=100 for k in ('skill','attack','defense','planning','logistics')):
+            raise ObservationError('invalid leader attribute')
+        item['traits']=[]
+        for tp in r.array(lp+0xdc8,128):
+            r.require(tp,'CUnitLeaderTrait');name=r.string(tp+0x10)
+            if not name:raise ObservationError('empty trait name')
+            item['traits'].append(name)
+        # assigned_to is the handle at +0x1048, not deployed +0x1068 and not +0xf10.
+        typ = r.i(lp + 0x1048)
+        aid = r.i(lp + 0x104C)
+        if typ or aid:
+            item['assigned_to'] = assigned_to_from_handle(r, country, typ, aid)
+        result.append(item)
+    return result,{'own_character_count':len(characters),'own_army_leader_count':len(leaders),
+        'display_name_pointer_links':len(names),'serialized_id_types':sorted(types),'links':links,
+        'namespace':'CArmyLeader serialized CId, not CArmy direct officer ID'}
+
+def infrastructure(r,province,template=None):
+    if template is not None:
+        state=r.q(province+0xc0);r.require(state,'CState')
+        value,evidence=building_status_level(r,state+0x120,template)
+        evidence.update(state_id=r.i(state+0x58),source='CState+120 named building status; verified specific-type getter')
+        return value,evidence
+    state=r.q(province+0xc0);r.require(state,'CState')
+    found=[]
+    for bp in r.array(state+0x158,128):
+        r.require(bp,'CBuilding')
+        if r.i(bp+8)==0x2fab:  # Executable named registration: infrastructure.
+            level,healthy=struct.unpack('<hh',r.exact(bp+0x40,4))
+            if not 0<=healthy<=level<=100:raise ObservationError('invalid building level')
+            found.append((level,healthy,bp))
+    if len(found)>1:raise ObservationError('duplicate infrastructure building')
+    evidence={'state_id':r.i(state+0x58),'infrastructure_objects':len(found)}
+    if not found:return None,dict(evidence,status='absent building is NOT inferred as zero')
+    level,healthy,bp=found[0]
+    evidence.update(level=level,healthy_levels=healthy,building_ptr=hex(bp))
+    if level!=healthy:return None,dict(evidence,status='damaged infrastructure semantics unaccepted')
+    # Actual level getter12017E0 adds1162FE0: max active non-additive
+    # overlay levels plus active additive levels. Base+40 alone is not
+    # portable proof when those arrays are nonempty. Fail closed until
+    # typed overlay semantics and effective country modifiers are accepted.
+    overlays=[len(r.array(bp+0x10,256)),len(r.array(bp+0x28,256))]
+    evidence['level_overlay_counts']=overlays
+    if any(overlays):return None,dict(evidence,status='nonempty level overlays not yet accepted')
+    return level,dict(evidence,status='present undamaged infrastructure only')
+
+def country_tag(r,gs,index,country):
+    # CCountryTag::text 0xc08223: GS+0x358 + index*0x20.
+    # This table is the CURRENT loaded campaign, not a shipped tag JSON.
+    data,cap,n=struct.unpack('<QII',r.exact(gs+0x358,16))
+    if not 0<=index<n<=cap<=2048 or data<0x10000:
+        raise ObservationError('invalid live country tag table')
+    countries=r.array(gs+0x310,2048)
+    if index>=len(countries) or countries[index]!=country or r.i(country+8)!=index:
+        raise ObservationError('country tag/index reverse check failed')
+    tag=r.string(data+index*32)
+    if len(tag)!=3 or not all(c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789' for c in tag):
+        raise ObservationError('invalid current country tag')
+    return tag
+
+
+# Adjacency types from adjacencies.csv parser 0xab3660, stored by 0x14a6540 at record+0x10.
+# 0 land, 1 sea, 2 river, 3 river_large, 4 impassable.
+# Reader 0xe90560 walks stride 0x30 and loads the neighbor id at record+8.
+LAND_ADJACENCY_TYPES = frozenset({0, 2, 3})
+KNOWN_ADJACENCY_TYPES = frozenset({0, 1, 2, 3, 4})
+ADJACENCY_STRIDE = 0x30
+MAX_ADJACENCIES = 255  # engine assert: NeighbourAdjs size > UCHAR_MAX
+
+
+def province_adjacencies(r, province):
+    r.require(province, 'CProvince')
+    pid = struct.unpack('<I', r.exact(province + 0xa4, 4))[0]
+    if pid == 0:
+        raise ObservationError('invalid province id for adjacency')
+    definition = r.q(province + 0xb8)
+    if definition < 0x10000:
+        raise ObservationError('invalid province definition pointer')
+    data, cap, n = struct.unpack('<QII', r.exact(definition + 0x70, 16))
+    if not 0 <= n <= cap <= MAX_ADJACENCIES or (n and data < 0x10000):
+        raise ObservationError('invalid province adjacency array')
+    raw = r.exact(data, n * ADJACENCY_STRIDE) if n else b''
+    ids = []
+    crossings = {}
+    hist = {}
+    for j in range(n):
+        rec = raw[j * ADJACENCY_STRIDE:(j + 1) * ADJACENCY_STRIDE]
+        tgt = struct.unpack_from('<I', rec, 8)[0]
+        typ = rec[0x10]
+        hist[typ] = hist.get(typ, 0) + 1
+        if typ not in KNOWN_ADJACENCY_TYPES:
+            raise ObservationError('unknown adjacency type')
+        if typ in LAND_ADJACENCY_TYPES:
+            if not 1 <= tgt <= 65535 or tgt == pid:
+                raise ObservationError('invalid land neighbor id')
+            if tgt in ids:
+                raise ObservationError('duplicate land neighbor id')
+            ids.append(tgt)
+            crossings[str(tgt)] = typ in (2, 3)
+    evidence = {
+        'province_id': pid,
+        'adjacency_count': n,
+        'type_hist': {str(k): v for k, v in sorted(hist.items())},
+        'land_neighbors': len(ids),
+        'river_crossings': sum(1 for v in crossings.values() if v),
+        'source': 'e90560 stride 48 target +8; 0x12971a0 type in {2,3} is per-edge river crossing',
+    }
+    return {'neighbors': ids, 'has_river_crossing': crossings, 'evidence': evidence}
+
+
+def unit_movement_path(r, army):
+    """Official CArmy+0x200 u32 path; empty is not idle. Promoted t191 after a live Move."""
+    r.require(army, 'CArmy')
+    data, cap, n = struct.unpack('<QII', r.exact(army + 0x200, 16))
+    if not 0 <= n <= cap <= 64:
+        raise ObservationError('invalid movement path array')
+    if n and data < 0x10000:
+        raise ObservationError('invalid movement path data')
+    if n == 0:
+        return []
+    raw = r.exact(data, n * 4)
+    vals = list(struct.unpack('<' + 'I' * n, raw))
+    if not all(1 <= v <= 65535 for v in vals):
+        raise ObservationError('invalid path province id')
+    return vals
+
+
+HANDLE_TYPE_ORDERS_GROUP = 53
+ORDERS_GROUP_MEMBER_THISADJ = 0xB8
+
+
+def own_armies(r, country):
+    """world.armies from CTheatre+0x80 COrdersGroup*; official writer 0xc4d030. Promoted t192."""
+    armies = []
+    ev = {'theatre_count': 0, 'orders_group_count': 0}
+    for tp in r.array(country + 0x168, 64):
+        r.require(tp, 'CTheatre')
+        ev['theatre_count'] += 1
+        for gp in r.array(tp + 0x80, 256):
+            r.require(gp, 'COrdersGroup')
+            ev['orders_group_count'] += 1
+            typ = r.i(gp + 8)
+            aid = r.i(gp + 0xc)
+            if typ != HANDLE_TYPE_ORDERS_GROUP:
+                raise ObservationError('unexpected COrdersGroup handle type')
+            item = {'army_id': aid}
+            name = r.string(gp + 0x160)
+            if name:
+                item['name'] = name
+            leader = r.q(gp + 0x88)
+            if leader:
+                r.require(leader, 'CArmyLeader')
+                item['leader_id'] = r.i(leader + 0xc)
+            unit_ids = []
+            for mp in r.array(gp + 0x50, 256):
+                # official writer: call vt+0x20 then handle at +0x18; live this-adjust is +0xB8
+                primary = mp - ORDERS_GROUP_MEMBER_THISADJ
+                r.require(primary, 'CArmy')
+                uid = r.i(primary + 0x1c)
+                if r.q(primary + 0xc0) != gp:
+                    raise ObservationError('orders-group member backlink mismatch')
+                unit_ids.append(uid)
+            item['unit_ids'] = unit_ids
+            insts = r.array(gp + 0x98, 256)
+            if insts:
+                # singular plan_id: official hang-off; one live instance in t193
+                r.require(insts[0], 'COrderInstance')
+                item['plan_id'] = r.i(insts[0] + 0x244)
+            armies.append(item)
+    return armies, ev
+
+
+def unit_formation_army_id(r, army):
+    """formation.army_id from CArmy+0xC0 COrdersGroup*; empty is unaffiliated, not a theatre id."""
+    gp = r.q(army + 0xc0)
+    if not gp:
+        return None, {'present': False}
+    r.require(gp, 'COrdersGroup')
+    typ = r.i(gp + 8)
+    aid = r.i(gp + 0xc)
+    if typ != HANDLE_TYPE_ORDERS_GROUP:
+        raise ObservationError('formation.army_id is not a COrdersGroup handle')
+    return aid, {'present': True, 'group': hex(gp)}
+
+
+
+def assigned_to_from_handle(r, country, typ, iid):
+    """Map CArmyLeader+0x1048 handle to {kind,id}. Type 53 is shared by army and army_group; resolve RTTI."""
+    if typ != HANDLE_TYPE_ORDERS_GROUP:
+        raise ObservationError('unknown assigned_to handle type')
+    for tp in r.array(country + 0x168, 64):
+        r.require(tp, 'CTheatre')
+        for gp in r.array(tp + 0x80, 256):
+            if r.i(gp + 8) == typ and r.i(gp + 0xc) == iid:
+                name = r.class_name(gp) if hasattr(r, 'class_name') else None
+                # LoadedReader stores class_name as callable
+                cls = r.class_name(gp)
+                if cls == '.?AVCOrdersGroup@@':
+                    return {'kind': 'army', 'id': iid}
+                if cls == '.?AVCArmyGroup@@':
+                    return {'kind': 'army_group', 'id': iid}
+                raise ObservationError('assigned_to type 53 resolved to unexpected class')
+        for gp in r.array(tp + 0x98, 256):
+            if r.i(gp + 8) == typ and r.i(gp + 0xc) == iid:
+                r.require(gp, 'CArmyGroup')
+                return {'kind': 'army_group', 'id': iid}
+    raise ObservationError('assigned_to handle did not resolve')
+
+
+def own_army_groups(r, country):
+    """world.army_groups from CTheatre+0x98 CArmyGroup*; official writer 0xc4cfa0 then jmp 0xc4d030."""
+    groups = []
+    ev = {'theatre_count': 0, 'army_group_count': 0}
+    for tp in r.array(country + 0x168, 64):
+        r.require(tp, 'CTheatre')
+        ev['theatre_count'] += 1
+        for gp in r.array(tp + 0x98, 256):
+            r.require(gp, 'CArmyGroup')
+            ev['army_group_count'] += 1
+            typ = r.i(gp + 8)
+            gid = r.i(gp + 0xc)
+            if typ != HANDLE_TYPE_ORDERS_GROUP:
+                raise ObservationError('unexpected CArmyGroup handle type')
+            item = {'army_group_id': gid}
+            name = r.string(gp + 0x160)
+            if name:
+                item['name'] = name
+            leader = r.q(gp + 0x88)
+            if leader:
+                r.require(leader, 'CArmyLeader')
+                item['leader_id'] = r.i(leader + 0xc)
+            army_ids = []
+            for child in r.array(gp + 0x230, 256):
+                r.require(child, 'COrdersGroup')
+                if r.i(child + 8) != HANDLE_TYPE_ORDERS_GROUP:
+                    raise ObservationError('unexpected child orders_group handle type')
+                aid = r.i(child + 0xc)
+                back = r.q(child + 0x1b8)
+                if back != gp:
+                    raise ObservationError('army-group child backlink mismatch')
+                army_ids.append(aid)
+            item['army_ids'] = army_ids
+            groups.append(item)
+    return groups, ev
+
+
+def unit_formation_army_group_id(r, army):
+    """formation.army_group_id via CArmy+0xC0 orders group then COrdersGroup+0x1B8 CArmyGroup*."""
+    gp = r.q(army + 0xc0)
+    if not gp:
+        return None, {'present': False}
+    r.require(gp, 'COrdersGroup')
+    parent = r.q(gp + 0x1b8)
+    if not parent:
+        return None, {'present': False, 'army_id': r.i(gp + 0xc)}
+    r.require(parent, 'CArmyGroup')
+    typ = r.i(parent + 8)
+    gid = r.i(parent + 0xc)
+    if typ != HANDLE_TYPE_ORDERS_GROUP:
+        raise ObservationError('formation.army_group_id is not a CArmyGroup handle')
+    return gid, {'present': True, 'group': hex(parent), 'army_id': r.i(gp + 0xc)}
+
+
+def own_plans(r, country):
+    """Own COrderInstance objects across root/front/fallback lists; t198 official path contrast."""
+    plans = []
+    ev = {'instance_count': 0}
+    seen = set()
+    for tp in r.array(country + 0x168, 64):
+        r.require(tp, 'CTheatre')
+        for gp in r.array(tp + 0x80, 256):
+            r.require(gp, 'COrdersGroup')
+            army_id = r.i(gp + 0xc)
+            for list_off in (0x98, 0xb0, 0xc8):
+                for ip in r.array(gp + list_off, 256):
+                    if ip in seen:
+                        continue
+                    seen.add(ip)
+                    r.require(ip, 'COrderInstance')
+                    ev['instance_count'] += 1
+                    unit_ids = []
+                    for mp in r.array(ip + 0x210, 256):
+                        primary = mp - ORDERS_GROUP_MEMBER_THISADJ
+                        r.require(primary, 'CArmy')
+                        unit_ids.append(r.i(primary + 0x1c))
+                    data, cap, n = struct.unpack('<QII', r.exact(ip + 0x70, 16))
+                    if not 0 <= n <= cap <= 65536 or (n and data < 0x10000):
+                        raise ObservationError('invalid plan path')
+                    path = list(struct.unpack('<' + 'I' * n, r.exact(data, n * 4))) if n else []
+                    if any(not 1 <= v <= 65535 for v in path):
+                        raise ObservationError('invalid plan vertex province')
+                    item = {
+                        'plan_id': r.i(ip + 0x244),
+                        'assigned_army_ids': [army_id],
+                        'assigned_unit_ids': unit_ids,
+                        'executing': bool(r.exact(ip + 0x248, 1)[0]),
+                        'vertex_province_ids': path,
+                    }
+                    # type / axis / status omitted: no official named mapping or nonempty contrast yet
+                    plans.append(item)
+    return plans, ev
+
+
+
+def province_land_neighbors(r, province):
+    adj = province_adjacencies(r, province)
+    return adj['neighbors'], adj['evidence']
+
+
+def victory_points(r,province):
+    r.require(province,'CProvince')
+    # Province writer0xef2adc -> named victory_points0x2f7c; integer.
+    value=r.i(province+0x38)
+    if not 0<=value<=100000:raise ObservationError('invalid victory points')
+    result={'value':value}
+    # Optional engine-stored renamed name; no guess of localized default name.
+    name=r.string(province+0x40)
+    if name:result['name']=name
+    return result
+
+def manpower_amounts(r,table):
+    # Engine sum0xcc6570 and writer0xcc7a90 use stride8 i32 country + i32 count.
+    data,cap,n=struct.unpack('<QII',r.exact(table+8,16))
+    if not 0<=n<=cap<=256 or (n and data<0x10000):
+        raise ObservationError('invalid country manpower amounts')
+    raw=r.exact(data,n*8) if n else b''
+    pairs=[{'country_index':ci,'amount':count} for ci,count in struct.iter_unpack('<ii',raw)]
+    if any(x['country_index']<0 or x['amount']<0 for x in pairs):
+        raise ObservationError('invalid manpower count')
+    if len({x['country_index'] for x in pairs})!=len(pairs):
+        raise ObservationError('duplicate manpower nationality')
+    return pairs
+
+def unit_current_manpower(r,army):
+    mp=army+0x3d0;r.require(mp,'CArmyManpower')
+    if r.q(mp+0x48)!=army:raise ObservationError('army manpower backlink mismatch')
+    values=manpower_amounts(r,mp+8);needs=manpower_amounts(r,mp+0x28)
+    current=sum(x['amount'] for x in values);need=sum(x['amount'] for x in needs)
+    # NOT inferred from full-strength equality. cc6bf0->cc6c40 removes only
+    # table+8, clamps removal to its available rows, and returns actual removed.
+    # cc6480 computes max(sum(table+28)-sum(table+8),0) independently.
+    return current,{'current_by_country':values,'engine_need_by_country':needs,
+        'engine_need_total':need,'engine_missing_formula':max(need-current,0),
+        'proof':'real current-table decrement and bounded extraction; not CA+4f0'}
+
+def country_available_manpower(r,country,index):
+    mp=country+0x328;r.require(mp,'CCountryManpower')
+    if r.i(mp+8)!=index:raise ObservationError('country manpower country mismatch')
+    central=r.i(mp+0xc);states=r.array(country+0x460,1024)
+    if len(states)!=len(set(states)):raise ObservationError('duplicate manpower state')
+    parts=[]
+    for st in states:
+        r.require(st,'CState');pool=st+0x838;r.require(pool,'CStateManpower')
+        if r.q(pool+8)!=st:raise ObservationError('state manpower backlink mismatch')
+        available=r.i(pool+0x10)
+        if available<0:raise ObservationError('negative state available manpower')
+        parts.append({'state_id':r.i(st+0x58),'available':available})
+    value=central+sum(x['available'] for x in parts)
+    if not -(2**31)<=value<2**31:raise ObservationError('available manpower integer overflow')
+    # Reproduce actual d5dae0 integer getter, no FIXED multiplier or ratio usage.
+    return value,{'central_current':central,'state_available_components':parts,
+        'formula':'CCountryManpower+0x0c + sum(registered CState+0x848)',
+        'proof':'d5dae0 exact integer sum; CStateManpower writer token available+0x10'}
+
+def unit_hp(r,army):
+    # Actual primary vtable+0x108 -> CDF460 returns max(100, stat+0x288),
+    # with stat=*(CArmy+0x138). CArmy+0x420 is independently DAMAGE-MUTATED.
+    stats=r.q(army+0x138);r.require(stats,'CSubUnitDefinition')
+    current_raw=struct.unpack('<q',r.exact(army+0x420,8))[0]
+    max_stat=struct.unpack('<q',r.exact(stats+0x288,8))[0]
+    maximum_raw=max(100,max_stat)
+    if current_raw<0 or current_raw>maximum_raw or maximum_raw>100000*100000:
+        raise ObservationError('invalid/nonstable current versus max HP')
+    return current_raw/100000,maximum_raw/100000,{
+        'current_source':'CA+0x420; subtracted at CEC4AD/CEC6AF, clamped to0',
+        'max_source':'primary vtable+0x108 CDF460 -> max(100,qword(CA+0x138 ->+0x288))',
+        'raw_current':current_raw,'raw_max_stat':max_stat,'minimum_max_raw':100}
+
+
+def own_equipment_stockpile(r,country):
+    """Present own-country stock only; no absent-type zero or demand inference.
+
+    1.19.5: typed delete command 1A3A240 resolves country+F68, obtains
+    production+200 via C53170 and sets selected variant CURRENT amount to0
+    through10980E0. Setter subtracts old and adds new into type bucket total.
+    Type rows stride24 {ptr,begin_i32,count_i32,total_FIXED_qword};
+    variant rows stride16 {ptr,quantity_FIXED_qword}. See t168 proofs.
+    """
+    production=r.q(country+0xf68);r.require(production,'CProductionStatus')
+    pool=production+0x200;r.require(pool,'CEquipmentVariantPool')
+    types=r.array(pool+8,1024,stride=24)
+    variants=r.array(pool+0x20,8192,stride=16)
+    tdata=r.q(pool+8);vdata=r.q(pool+0x20)
+    result=[];evidence=[];covered=set();names=set()
+    for j,tp in enumerate(types):
+        r.require(tp,'CEquipmentType');name=r.string(tp+0x18)
+        if not name or name in names:raise ObservationError('empty/duplicate equipment type')
+        names.add(name)
+        begin,count,raw=struct.unpack('<iiq',r.exact(tdata+j*24+8,16))
+        if begin<0 or count<0 or begin+count>len(variants) or raw<0:
+            raise ObservationError('invalid equipment type range/quantity')
+        summed=0
+        for k in range(begin,begin+count):
+            if k in covered:raise ObservationError('overlapping equipment type ranges')
+            covered.add(k);vp=variants[k];r.require(vp,'CEquipmentVariant')
+            definition=r.q(vp+0x3f0);r.require(definition,'CEquipmentType')
+            if r.q(definition+0x538)!=tp:
+                raise ObservationError('equipment variant-type backlink mismatch')
+            quantity=struct.unpack('<q',r.exact(vdata+k*16+8,8))[0]
+            if quantity<0:raise ObservationError('negative stockpile quantity')
+            summed+=quantity
+        if raw!=summed:raise ObservationError('stockpile type/variant total mismatch')
+        row={'equipment_type':name}
+        # FIXED scale proven by one-item constructor186A0 and truncation
+        #1098860. Do not invent an integer rounding policy for fractions.
+        if raw%100000==0:row['stockpile']=raw//100000
+        result.append(row)
+        evidence.append({'equipment_type':name,'begin':begin,'variant_count':count,
+            'amount_raw':raw,'variant_sum_raw':summed,'integral_items':raw%100000==0})
+    if covered!=set(range(len(variants))):
+        raise ObservationError('uncovered equipment variant entries')
+    return result,{'production_ptr':hex(production),'pool_ptr':hex(pool),
+        'type_count':len(types),'variant_count':len(variants),'buckets':evidence,
+        'coverage':'present own-country stockpile types only; not a complete shortages list; absent types NOT zero; demand/deficit unknown',
+        'semantic_proof':'t168_equipment_semantic_proofs.json'}
+
+
+def building_name_hash(name):
+    # C1F080: ASCII-lowercase FNV1a, stored beside32-byte MSVC name.
+    v=0x811c9dc5
+    for c in name.lower().encode('ascii'):v=((v^c)*0x1000193)&0xffffffff
+    return v
+
+def resolve_building_templates(r,module_base):
+    """Reproduce named DB lookup6CE380/6CE430 ->6C6970, not a guessed order."""
+    db=r.q(module_base+0x33dd268);r.require(db,'CBuildingDatabase')
+    templates=r.array(db+0x40,256)
+    data,cap,n=struct.unpack('<QII',r.exact(db+0x58,16))
+    if not 0<n<=cap<=512 or len(templates)!=n+1:
+        raise ObservationError('building name/template count mismatch')
+    wanted={'infrastructure','bunker','coastal_bunker'};result={};proof=[]
+    for j in range(n):
+        name=r.string(data+j*40)
+        if name not in wanted:continue
+        if name in result:raise ObservationError('duplicate building name')
+        stored=struct.unpack('<I',r.exact(data+j*40+32,4))[0]
+        if stored!=building_name_hash(name):raise ObservationError('building name hash mismatch')
+        # Actual lookup6C6A54: matching name indexj returns ptrarray[j+1].
+        tp=templates[j+1];r.require(tp,'CBuildingTemplate')
+        if r.i(tp+0x2e0)!=j+1 or r.i(tp+0x2c4)!=0x165:
+            raise ObservationError('building definition runtime index/category mismatch')
+        if r.exact(tp+0x20,1)!=b'\x01':raise ObservationError('inactive building definition unaccepted')
+        result[name]=tp;proof.append({'name':name,'template_ptr':hex(tp),
+            'runtime_index':j+1,'name_hash':hex(stored),'script_token':r.i(tp+8)})
+    if set(result)!=wanted:raise ObservationError('required loaded building definition missing')
+    return result,{'database_ptr':hex(db),'loaded_template_count':len(templates),
+        'lookup_source':'6CE380/6CE430 ->6C6970 hash+string compare; matchj ->ptrarray[j+1]',
+        'definitions':proof}
+
+def province_fort_level(r,province,template):
+    """Reproduce specific-type branch1201750/12017E0, limited accepted states.
+
+    Missing registered slot explicitly returns0 in actual getter. Present
+    damaged or overlay-bearing buildings remain unaccepted rather than
+    guess combat-effective/damage semantics.1552CF0 is a DESCRIPTION STRING
+    formatter, NOT an effective-level numeric getter (t169 correction).
+    """
+    r.require(province,'CProvince')
+    value,evidence=building_status_level(r,province+0x190,template)
+    evidence['source']='province+190 named buildings; native1201750 specific-type branch'
+    return value,evidence
+
+def building_status_level(r,st,template):
+    r.require(template,'CBuildingTemplate')
+    if r.i(template+0x2c4)!=0x165 or r.exact(template+0x20,1)!=b'\x01':
+        raise ObservationError('unsupported building category')
+    r.require(st,'CBuildingStatus')
+    data,cap,n=struct.unpack('<QII',r.exact(st+0x20,16));index=r.i(template+0x2e0)
+    if not 0<=index<256 or not 0<=n<=cap<=512 or (n and not index<n):
+        raise ObservationError('invalid province building type map')
+    buildings=r.array(st+0x38,128)
+    evidence={'status_ptr':hex(st),'template_index':index,
+        'source':'native1201750 specific-type branch'}
+    slot=struct.unpack('<i',r.exact(data+index*4,4))[0] if n else -1
+    # Cross-check cache absence/identity against actual serialized pointers.
+    matching=[]
+    for bp in buildings:
+        r.require(bp,'CBuilding')
+        if r.q(bp+0x1e0)==template:matching.append(bp)
+    if slot==-1:
+        if matching:raise ObservationError('building map/list absence contradiction')
+        return 0,dict(evidence,status='native getter explicitly returns0 for absent registered type')
+    if not 0<=slot<len(buildings):raise ObservationError('invalid province building slot')
+    bp=buildings[slot]
+    if matching!=[bp] or r.i(bp+8)!=r.i(template+8):
+        raise ObservationError('province building/template identity mismatch')
+    level,healthy=struct.unpack('<hh',r.exact(bp+0x40,4))
+    if not 0<=healthy<=level<=100:raise ObservationError('invalid building level/health')
+    evidence.update(building_ptr=hex(bp),level=level,healthy_levels=healthy)
+    if level!=healthy:return None,dict(evidence,status='damaged building not accepted')
+    overlays=[len(r.array(bp+0x10,256)),len(r.array(bp+0x28,256))]
+    evidence['overlay_counts']=overlays
+    if any(overlays):return None,dict(evidence,status='nonempty level overlays not accepted')
+    return level,dict(evidence,status='present undamaged no-overlay building')
+
+
+def _typed_equipment_amounts(r,pool,expected,stride,amount_off):
+    r.require(pool,expected)
+    types=r.array(pool+8,64,stride);data=r.q(pool+8);rows=[];names=set()
+    for j,tp in enumerate(types):
+        r.require(tp,'CEquipmentType');name=r.string(tp+0x18)
+        if not name or name in names:raise ObservationError('empty/duplicate equipment type')
+        names.add(name)
+        raw=struct.unpack('<q',r.exact(data+j*stride+amount_off,8))[0]
+        if raw<0:raise ObservationError('negative equipment quantity')
+        item={'equipment_type':name,'amount_raw':raw}
+        if raw%100000==0:item['amount']=raw//100000
+        rows.append(item)
+    return rows
+
+def own_reinforcement_requests(r,country,army_ids):
+    """Active army reinforcement requests only; not national demand.
+
+    Serializer 15AB830 (secondary this = request+18) names request+38
+    'produced' and request+78 'need'. 15A8790 loads group+20 as CArmy
+    and immediately calls CDB4B0 which reads CArmy+3B8, the already
+    proven division-template pointer. See t170 proofs.
+    """
+    status=r.q(country+0xf78);r.require(status,'CReinforcementStatus')
+    if r.q(status+0x38)!=country:raise ObservationError('reinforcement-status country backlink mismatch')
+    result=[];evidence=[]
+    for gp in r.array(status+0x20,64):
+        r.require(gp,'CArmyReinforcementRequests')
+        army=r.q(gp+0x20);r.require(army,'CArmy')
+        if army not in army_ids:raise ObservationError('reinforcement request army is not an own division')
+        uid=army_ids[army]
+        if r.i(army+0x1c)!=uid:raise ObservationError('reinforcement request army identity changed')
+        for ep in r.array(gp+0x28,256):
+            r.require(ep,'CReinforcementRequest')
+            produced=_typed_equipment_amounts(r,ep+0x38,'CEquipmentVariantPool',24,16)
+            need=_typed_equipment_amounts(r,ep+0x78,'CEquipmentArcheTypePool',16,8)
+            result.append({'unit_id':uid,'produced':produced,'need':need})
+            # Independent unit deficit from official template need pool and unit stock.
+            # Used only as a cross-check; not exported as country demand.
+            template=r.q(army+0x3b8);r.require(template,'CReferencedDivisionTemplate')
+            unit_need=_typed_equipment_amounts(r,template+0x120,'CEquipmentArcheTypePool',16,8)
+            unit_cur=_typed_equipment_amounts(r,army+0x348,'CEquipmentVariantPool',24,16)
+            evidence.append({'unit_id':uid,'request_ptr':hex(ep),'group_ptr':hex(gp),'army_ptr':hex(army),
+                'produced':produced,'need':need,'unit_template_need':unit_need,'unit_current':unit_cur})
+    return result,{'status_ptr':hex(status),'request_count':len(result),'requests':evidence,
+        'coverage':'Active CArmyReinforcementRequests only. Request need is not national demanded; other under-equipped own units may have no request.',
+        'semantic_proof':'t170_reinforcement_semantic_proofs.json'}
+
+
+def official_country_equipment_need_components(r,country,army_ids):
+    """Reimplementation of 1409810/1409890 components. Not national inventory demanded.
+
+    Deployment walks CDeploymentStatus+0x60 (b2cb40), not the +0x20 catalog.
+    Reinforcement adds request need minus produced (2574ba0 is neg).
+    14080c0 walks CCountryResources+0x758, not request deficits.
+    Infantry specials (cf5620/cf5660) are omitted here because this type's
+    live flags do not take those branches; other types must be re-checked.
+    """
+    dep=r.q(country+0xf70);r.require(dep,'CDeploymentStatus')
+    deploy_rows=[];deploy_ids=[]
+    for ip in r.array(dep+0x60,256):
+        current=_typed_equipment_amounts(r,ip+0x20,'CEquipmentVariantPool',24,16)
+        holder=r.q(ip+0xb8);inner=r.q(holder+0x38);tmpl=r.q(inner+0x20)
+        r.require(tmpl,'CReferencedDivisionTemplate')
+        need=_typed_equipment_amounts(r,tmpl+0x120,'CEquipmentArcheTypePool',16,8)
+        cmap={x['equipment_type']:x.get('amount',0) or 0 for x in current}
+        rec={'current':current,'need':need,'deficit':{}}
+        for row in need:
+            typ=row['equipment_type'];nv=row.get('amount',0) or 0;cv=cmap.get(typ,0);d=nv-cv
+            rec['deficit'][typ]={'need':nv,'current':cv,'deficit':d if d>0 else 0}
+        deploy_rows.append(rec)
+    requests,req_ev=own_reinforcement_requests(r,country,army_ids)
+    req_contrib=[]
+    for ev in req_ev['requests']:
+        cmap={x['equipment_type']:x.get('amount',0) or 0 for x in ev['produced']}
+        item={'unit_id':ev['unit_id'],'need_minus_produced':{}}
+        for row in ev['need']:
+            typ=row['equipment_type'];nv=row.get('amount',0) or 0;pv=cmap.get(typ,0)
+            item['need_minus_produced'][typ]={'need':nv,'produced':pv,'amount':nv-pv}
+        req_contrib.append(item)
+    res=r.q(country+0x11f8);r.require(res,'CCountryResources')
+    res_begin=r.q(res+0x758);res_n=r.i(res+0x764)
+    if res_n<0 or res_n>512:raise ObservationError('bad country-resources request array')
+    if res_n and not res_begin:raise ObservationError('country-resources array pointer missing')
+    other={}
+    for name,off,arr_off,clsname in (('occupation',0xfd0,0x28,'CCountryOccupationStatus'),('logistics',0xf98,0x28,'CLogisticsStatus'),('operations',0x15a8,0x10,'CCountryOperationManager')):
+        obj=r.q(country+off);r.require(obj,clsname)
+        r.array(obj+arr_off,256)
+        other[name]={'ptr':hex(obj),'array_size':struct.unpack('<I',r.exact(obj+arr_off+12,4))[0]}
+    totals={}
+    for rec in deploy_rows:
+        for typ,d in rec['deficit'].items():
+            totals[typ]=totals.get(typ,0)+d['deficit']
+    for item in req_contrib:
+        for typ,d in item['need_minus_produced'].items():
+            totals[typ]=totals.get(typ,0)+d['amount']
+    contributors=sorted({item['unit_id'] for item in req_contrib})
+    evidence={'deployment_plus60_count':len(deploy_rows),'deployment_rows':deploy_rows,
+        'reinforcement_need_minus_produced':req_contrib,
+        'country_resources_11f8_count':res_n,
+        'other_component_array_sizes':other,
+        'infantry_specials_omitted':'cf5620/cf5660 live flags off for infantry_equipment; not a general rule for every type',
+        'totals_by_type':totals,
+        'official_contributors_from_these_components':contributors,
+        'not_fielded_deficit_sum':True,
+        'coverage':'1409810 = 1409890 (deploy+requests+gated specials+occupation+logistics+operations) + 14080c0 (CCountryResources). This collector includes the empty/live-zero components and request/deploy sums; specials only omitted for infantry as proven. Do not emit totals as world.shortages.equipment.demanded without an independent stored-value cross-check and type-gate coverage.'}
+    return totals,evidence
+
+
+def own_active_combats(r, gs, country):
+    """Official active manager list, restricted to combats involving own units (not a FoW unit feed)."""
+    own_ids = set()
+    for up in r.array(country + 0x290, 4096):
+        r.require(up, 'CArmy')
+        own_ids.add(r.i(up + 0x1c))
+    result = []
+    for cp in r.array(gs + 0x268, 4096):
+        r.require(cp, 'CLandCombat')
+        sp = cp + 0x10  # secondary serialization interface; writer 0x147fe80 offsets relative to it
+        sides = {}
+        for name, off in (('attacker_unit_ids', 0x18), ('defender_unit_ids', 0x20)):
+            bp = r.q(sp + off)
+            r.require(bp, 'CLandCombatant')
+            ids = []
+            for up in r.array(bp + 0x20, 4096):
+                r.require(up, 'CArmy')
+                if r.i(up + 0x18) != 51:
+                    raise ObservationError('unexpected combat unit handle')
+                ids.append(r.i(up + 0x1c))
+            sides[name] = ids
+        if not own_ids.intersection(sides['attacker_unit_ids'] + sides['defender_unit_ids']):
+            continue
+        province = r.q(sp + 0x28)
+        r.require(province, 'CProvince')
+        if r.i(sp + 8) != 62:
+            raise ObservationError('unexpected land combat handle')
+        result.append({'combat_id': r.i(sp + 0xc), 'province_id': r.i(province + 0xa4), **sides})
+    return result
+
+
+def own_unit_current_combat(r, gs, country, unit_id):
+    """Positive official active-membership proof only; absence is not fabricated as false."""
+    for combat in own_active_combats(r, gs, country):
+        if unit_id in combat['attacker_unit_ids'] or unit_id in combat['defender_unit_ids']:
+            return {'in_combat': True, 'combat_id': combat['combat_id']}
+    return {}
+
+
+def own_equipment_affected_units(r, country):
+    """Physical fielded shortage membership, not national demand or request-queue coverage.
+
+    t199 proves matching canonical infantry_equipment buckets for all 21 own
+    divisions, including full-strength 1843 and requestless under-equipped units.
+    Unknown/absent buckets are NOT fabricated as zero; omit that whole type.
+    """
+    affected = {}
+    incomplete = set()
+    evidence = []
+    for up in r.array(country + 0x290, 4096):
+        r.require(up, 'CArmy')
+        uid = r.i(up + 0x1c)
+        template = r.q(up + 0x3b8)
+        r.require(template, 'CReferencedDivisionTemplate')
+        need = _typed_equipment_amounts(r, template + 0x120, 'CEquipmentArcheTypePool', 16, 8)
+        current = _typed_equipment_amounts(r, up + 0x348, 'CEquipmentVariantPool', 24, 16)
+        cur = {x['equipment_type']: x['amount_raw'] for x in current}
+        for row in need:
+            name = row['equipment_type']
+            if name != 'infantry_equipment':
+                continue  # no semantic acceptance for other equipment families yet
+            affected.setdefault(name, [])
+            if name not in cur:
+                incomplete.add(name)
+                continue
+            short = row['amount_raw'] > cur[name]
+            evidence.append({'unit_id': uid, 'equipment_type': name,
+                'template_need_raw': row['amount_raw'], 'current_raw': cur[name], 'short': short})
+            if short:
+                affected[name].append(uid)
+    return {k: sorted(set(v)) for k, v in affected.items() if k not in incomplete}, {
+        'scope': 'physical template need versus fielded amount; not national demanded/deficit',
+        'incomplete_types_omitted': sorted(incomplete), 'unit_comparisons': evidence}

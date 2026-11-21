@@ -1,0 +1,40 @@
+{
+  "schema": "War requires a, b (CountryRef index, optional tag) and state enum at_war|ceasefire|capitulated|puppeted|not_at_war; front_invalidated optional",
+  "mapping": {
+    "a": "CWarRelation.first +0x10 -> CountryRef",
+    "b": "CWarRelation.second +0x14 -> CountryRef",
+    "state": "at_war when a CWarRelation is present at both sides' CRelationStatus+0x2e8, cancel==0, byte +0x49==0, and official end_date key is omitted; other enum values not proven",
+    "front_invalidated": "no named token; not promoted"
+  },
+  "live": {
+    "unique_world_wars": 1,
+    "first": {
+      "index": 16,
+      "tag": "ITA"
+    },
+    "second": {
+      "index": 44,
+      "tag": "ETH"
+    },
+    "state": "at_war",
+    "cancel": 0,
+    "plus_0x49": 0,
+    "first_was_instigator": 1,
+    "hostility_reasons": 0,
+    "shared_object": "0x26c70b635d0",
+    "pairs": [
+      [
+        "ITA",
+        "ETH"
+      ],
+      [
+        "ETH",
+        "ITA"
+      ]
+    ],
+    "player_visible": "player ETH is second; this is the only war in the world snapshot; not a fog-hidden third-party war"
+  },
+  "do_not_invent_from_diplomacy_status_alone": true,
+  "do_not_map_hostility_reason_to_state": true,
+  "do_not_map_country_capitulated_byte_to_war_state": true
+}

@@ -1,0 +1,80 @@
+15a99b0 mov qword ptr [rsp + 8], rcx
+15a99b5 push rbx
+15a99b6 push rsi
+15a99b7 push rdi
+15a99b8 push r13
+15a99ba sub rsp, 0x68
+15a99be mov rdi, rcx
+15a99c1 mov rcx, qword ptr [rcx + 0x20]
+15a99c5 lea r13, [rcx + 0x3d0]
+15a99cc call 0xce5fc0
+15a99d1 cmp byte ptr [rip + 0x20e5c39], 0
+15a99d8 mov byte ptr [rsp + 0xa0], al
+15a99df je 0x15a9ad8
+15a99e5 cmp byte ptr [rip + 0x1e3384d], 0
+15a99ec jne 0x15a9a46
+15a99ee cmp qword ptr [rip + 0x1e33cba], 0
+15a99f6 jne 0x15a9a46
+15a99f8 lea rax, [rip + 0x1e3383a]
+15a99ff mov byte ptr [rsp + 0x98], 0
+15a9a07 mov qword ptr [rsp + 0x28], rax
+15a9a0c lea rdx, [rip + 0x11ead0a]
+15a9a13 lea rax, [rsp + 0x98]
+15a9a1b mov r9b, 1
+15a9a1e mov r8d, 0x45b
+15a9a24 mov qword ptr [rsp + 0x20], rax
+15a9a29 lea rcx, [rip + 0x11eae08]
+15a9a30 call 0x254ab40
+15a9a35 cmp byte ptr [rsp + 0x98], 0
+15a9a3d mov byte ptr [rip + 0x1e337f6], al
+15a9a43 je 0x15a9a46
+15a9a45 int3 
+15a9a46 cmp byte ptr [rip + 0x20e5bc4], 0
+15a9a4d je 0x15a9ad8
+15a9a53 cmp byte ptr [rip + 0x1e337e0], 0
+15a9a5a jne 0x15a9ad8
+15a9a5c mov rax, qword ptr gs:[0x58]
+15a9a65 mov ecx, dword ptr [rip + 0x20ea02d]
+15a9a6b mov rbx, qword ptr [rax + rcx*8]
+15a9a6f mov eax, 0x20e8
+15a9a74 cmp byte ptr [rax + rbx], 0
+15a9a78 jne 0x15a9a7f
+15a9a7a call 0x25a04d0
+15a9a7f mov eax, 0x10
+15a9a84 cmp dword ptr [rax + rbx], 0
+15a9a88 je 0x15a9ad8
+15a9a8a lea rax, [rip + 0x1e337a9]
+15a9a91 mov byte ptr [rsp + 0x98], 0
+15a9a99 mov qword ptr [rsp + 0x28], rax
+15a9a9e lea rdx, [rip + 0x11eac78]
+15a9aa5 lea rax, [rsp + 0x98]
+15a9aad mov r9b, 1
+15a9ab0 mov r8d, 0x45c
+15a9ab6 mov qword ptr [rsp + 0x20], rax
+15a9abb lea rcx, [rip + 0x11ead9e]
+15a9ac2 call 0x254ab40
+15a9ac7 cmp byte ptr [rsp + 0x98], 0
+15a9acf mov byte ptr [rip + 0x1e33765], al
+15a9ad5 je 0x15a9ad8
+15a9ad7 int3 
+15a9ad8 mov rsi, qword ptr [rip + 0x1e33bd1]
+15a9adf mov rcx, qword ptr [rdi + 0x20]
+15a9ae3 mov qword ptr [rsp + 0xa8], rsi
+15a9aeb call 0xe653f0
+15a9af0 movabs rcx, 0x2540be400
+15a9afa test al, al
+15a9afc jne 0x15a9b02
+15a9afe xor eax, eax
+15a9b00 jmp 0x15a9b17
+15a9b02 mov rax, qword ptr [rdi + 0x20]
+15a9b06 mov rax, qword ptr [rax + 0x40]
+15a9b0a imul rax, qword ptr [rip + 0x1e38206]
+15a9b12 cqo 
+15a9b14 idiv rcx
+15a9b17 mov qword ptr [rsp + 0x30], rax
+15a9b1c test eax, eax
+15a9b1e je 0x15a9cf7
+15a9b24 mov qword ptr [rsp + 0x48], r15
+15a9b29 xor r15d, r15d
+15a9b2c cmp dword ptr [r13 + 0x3c], r15d
+15a9b30 jle 0x15a9cf2

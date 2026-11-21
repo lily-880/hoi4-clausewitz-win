@@ -1,0 +1,52 @@
+0xc0eae0  push rbp
+0xc0eae2  push rsi
+0xc0eae3  push r14
+0xc0eae5  sub rsp, 0x20
+0xc0eae9  movsxd rbp, dword ptr [rcx + 0x14]
+0xc0eaed  mov r14, rdx
+0xc0eaf0  mov rsi, rcx
+0xc0eaf3  test rbp, rbp
+0xc0eaf6  jle 0xc0eb52
+0xc0eaf8  mov qword ptr [rsp + 0x48], rbx
+0xc0eafd  mov qword ptr [rsp + 0x50], rdi
+0xc0eb02  mov qword ptr [rsp + 0x58], r15
+0xc0eb07  xor r15d, r15d
+0xc0eb0a  mov edi, r15d
+0xc0eb0d  nop dword ptr [rax]
+0xc0eb10  mov rax, qword ptr [rsi + 8]
+0xc0eb14  lea rdx, [rsp + 0x40]
+0xc0eb19  mov rbx, qword ptr [rax + rdi*8]
+0xc0eb1d  mov rcx, rbx
+0xc0eb20  mov rax, qword ptr [rbx]
+0xc0eb23  call qword ptr [rax + 0x50]
+0xc0eb26  test rbx, rbx
+0xc0eb29  lea r8, [rbx + 0x10]
+0xc0eb2d  mov rcx, r14
+0xc0eb30  cmove r8, r15
+0xc0eb34  mov edx, dword ptr [rax]
+0xc0eb36  call 0x25458c0
+0xc0eb3b  inc rdi
+0xc0eb3e  cmp rdi, rbp
+0xc0eb41  jl 0xc0eb10
+0xc0eb43  mov r15, qword ptr [rsp + 0x58]
+0xc0eb48  mov rdi, qword ptr [rsp + 0x50]
+0xc0eb4d  mov rbx, qword ptr [rsp + 0x48]
+0xc0eb52  lea r8, [rsi + 0x28]
+0xc0eb56  mov edx, 0x2835  ; TOKEN history
+0xc0eb5b  mov rcx, r14
+0xc0eb5e  add rsp, 0x20
+0xc0eb62  pop r14
+0xc0eb64  pop rsi
+0xc0eb65  pop rbp
+0xc0eb66  jmp 0x25458c0
+0xc0eb6b  int3 
+0xc0eb6c  int3 
+0xc0eb6d  int3 
+0xc0eb6e  int3 
+0xc0eb6f  int3 
+0xc0eb70  lea rax, [rip + 0x1dbea59]
+0xc0eb77  mov qword ptr [rdx], rax
+0xc0eb7a  mov rax, qword ptr [rcx + 8]
+0xc0eb7e  mov qword ptr [rdx + 8], rax
+0xc0eb82  mov rax, rdx
+0xc0eb85  ret 

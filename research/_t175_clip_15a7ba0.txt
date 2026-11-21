@@ -1,0 +1,41 @@
+0x15a7ba0  mov qword ptr [rsp + 8], rbx
+0x15a7ba5  movsxd rax, dword ptr [rcx + 0x8c]
+0x15a7bac  xor r9d, r9d
+0x15a7baf  mov rbx, rdx
+0x15a7bb2  mov r11, rcx
+0x15a7bb5  test eax, eax
+0x15a7bb7  jle 0x15a7be5
+0x15a7bb9  mov rcx, qword ptr [rcx + 0x80]
+0x15a7bc0  mov r10, rax
+0x15a7bc3  mov r8d, r9d
+0x15a7bc6  lea rax, [rcx + 8]
+0x15a7bca  nop word ptr [rax + rax]
+0x15a7bd0  cmp qword ptr [rax], 0
+0x15a7bd4  jg 0x15a7c1a
+0x15a7bd6  inc r9d
+0x15a7bd9  inc r8
+0x15a7bdc  add rax, 0x10
+0x15a7be0  cmp r8, r10
+0x15a7be3  jl 0x15a7bd0
+0x15a7be5  mov eax, 0xffffffff
+0x15a7bea  mov ecx, dword ptr [r11 + 0xa0]
+0x15a7bf1  mov dword ptr [rdx], eax
+0x15a7bf3  sub ecx, 0x29c55c0
+0x15a7bf9  mov eax, 0x2aaaaaab
+0x15a7bfe  mov byte ptr [rbx + 8], 1
+0x15a7c02  imul ecx
+0x15a7c04  sar edx, 2
+0x15a7c07  mov eax, edx
+0x15a7c09  shr eax, 0x1f
+0x15a7c0c  add edx, eax
+0x15a7c0e  mov rax, rbx
+0x15a7c11  mov dword ptr [rbx + 4], edx
+0x15a7c14  mov rbx, qword ptr [rsp + 8]
+0x15a7c19  ret 
+0x15a7c1a  movsxd rax, r9d
+0x15a7c1d  add rax, rax
+0x15a7c20  mov rcx, qword ptr [rcx + rax*8]
+0x15a7c24  test rcx, rcx
+0x15a7c27  je 0x15a7be5
+0x15a7c29  mov eax, dword ptr [rcx + 0x598]
+0x15a7c2f  jmp 0x15a7bea

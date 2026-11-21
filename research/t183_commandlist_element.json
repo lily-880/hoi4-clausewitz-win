@@ -1,0 +1,41 @@
+{
+  "commandlist": {
+    "token": "0xcb",
+    "ca": "CArmy+0x2c0 data, +0x2cc size (writer +0x2b0/+0x2bc on CArmy+0x10)",
+    "empty_omits_key": true,
+    "element": {
+      "stride": 8,
+      "pointer": true,
+      "type_token_at": "+8",
+      "serialize": "0xc5c480 mov rdx,[rsi]; mov edx,[rdx+8]; call 0x2546ce0 (write key); mov rdx,[rsi]; call 0x2544f80 (serialize object)",
+      "clip": "research/_t183_clip_commandlist_loop_0xc5c43f.txt"
+    }
+  },
+  "schema_order": {
+    "required": [
+      "type",
+      "target_province_ids",
+      "path_province_ids"
+    ],
+    "type_enum": [
+      "idle",
+      "move",
+      "strategic_redeploy",
+      "attack",
+      "support_attack",
+      "retreat",
+      "garrison",
+      "training",
+      "exercise",
+      "unknown"
+    ]
+  },
+  "live": {
+    "units": 21,
+    "commandlist_size": 0,
+    "path_size": 0,
+    "full_path_size": 0
+  },
+  "promoted": false,
+  "why": "element ABI is official, but this scene has no command object so +8 tokens cannot be mapped onto OrderType; empty list still must not be written as type=idle"
+}

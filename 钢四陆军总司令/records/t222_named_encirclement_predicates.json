@@ -1,0 +1,171 @@
+{
+  "at_est": "2026-11-20T10:37:38.726855-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "functions": {
+    "0xc47c40": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc47c40",
+      "window_size": 384,
+      "reachable_instruction_count": 24,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc47c63",
+          "operand": "qword ptr [rax + 0x20]"
+        },
+        {
+          "site": "0xc47c74",
+          "operand": "0xe64c50"
+        }
+      ],
+      "asm": [
+        "c47c40 sub rsp, 0x28",
+        "c47c44 cmp byte ptr [rcx + 0x19b], 0",
+        "c47c4b je 0xc47c84",
+        "c47c4d cmp qword ptr [rcx + 0x88], 0",
+        "c47c55 je 0xc47c84",
+        "c47c57 mov rcx, qword ptr [rcx + 0x68]",
+        "c47c5b test rcx, rcx",
+        "c47c5e je 0xc47c84",
+        "c47c60 mov rax, qword ptr [rcx]",
+        "c47c63 call qword ptr [rax + 0x20]",
+        "c47c66 test rax, rax",
+        "c47c69 je 0xc47c84",
+        "c47c6b cmp dword ptr [rax + 8], 0",
+        "c47c6f jne 0xc47c84",
+        "c47c71 mov rcx, rax",
+        "c47c74 call 0xe64c50",
+        "c47c79 test al, al",
+        "c47c7b jne 0xc47c84",
+        "c47c7d mov al, 1",
+        "c47c7f add rsp, 0x28",
+        "c47c83 ret ",
+        "c47c84 xor al, al",
+        "c47c86 add rsp, 0x28",
+        "c47c8a ret "
+      ],
+      "raw_hex": "4883ec2880b99b0100000074374883b98800000000742d488b49684885c97424488b01ff50204885c07419837808007513488bc8e8d7cf210084c07507b0014883c428c332c04883c428c3cccccccccc48895c241048896c241848897424205741544155415641574883ec604c8bf24c8bf94532e4458b87a40000004585c00f8e2202000033c941bd0100000048898c24900000006666660f1f840000000000498b8798000000488b3c01418bc04d85f6743233d233c94d634e0c4585c97e1d498b06483938746fffc248ffc14883c008493bc97ced418b87a4000000488b8c2490000000418bed448bc0443be80f8d8e010000488d71080f1f840000000000498b8798000000488b1c064d85f6744d33d233c94963460c85c07e414c8bc0498b06483918742dffc248ffc14883c008493bc87cedeb26458b87a4000000418bc0488b8c249000000083faff0f8530010000eb9183faff0f8507010000483bfb0f84fe0000008b473083f8030f84f20000008b4b3083f9030f84e600000083f8",
+      "sha256": "ba4ee2272097031cb87141eba0422ee2a7b50ae24247dfd571d0da3685afcf27"
+    },
+    "0xc47880": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc47880",
+      "window_size": 640,
+      "reachable_instruction_count": 34,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc478aa",
+          "operand": "qword ptr [rax + 0x20]"
+        },
+        {
+          "site": "0xc478bb",
+          "operand": "0xe64c50"
+        }
+      ],
+      "asm": [
+        "c47880 mov qword ptr [rsp + 8], rbx",
+        "c47885 push rdi",
+        "c47886 sub rsp, 0x20",
+        "c4788a cmp byte ptr [rcx + 0x199], 0",
+        "c47891 je 0xc478da",
+        "c47893 mov rbx, qword ptr [rcx + 0x50]",
+        "c47897 movsxd rax, dword ptr [rcx + 0x5c]",
+        "c4789b lea rdi, [rbx + rax*8]",
+        "c4789f cmp rbx, rdi",
+        "c478a2 je 0xc478cd",
+        "c478a4 mov rcx, qword ptr [rbx]",
+        "c478a7 mov rax, qword ptr [rcx]",
+        "c478aa call qword ptr [rax + 0x20]",
+        "c478ad test rax, rax",
+        "c478b0 je 0xc478c4",
+        "c478b2 cmp dword ptr [rax + 8], 0",
+        "c478b6 jne 0xc478c4",
+        "c478b8 mov rcx, rax",
+        "c478bb call 0xe64c50",
+        "c478c0 test al, al",
+        "c478c2 jne 0xc478da",
+        "c478c4 add rbx, 8",
+        "c478c8 cmp rbx, rdi",
+        "c478cb jne 0xc478a4",
+        "c478cd mov al, 1",
+        "c478cf mov rbx, qword ptr [rsp + 0x30]",
+        "c478d4 add rsp, 0x20",
+        "c478d8 pop rdi",
+        "c478d9 ret ",
+        "c478da mov rbx, qword ptr [rsp + 0x30]",
+        "c478df xor al, al",
+        "c478e1 add rsp, 0x20",
+        "c478e5 pop rdi",
+        "c478e6 ret "
+      ],
+      "raw_hex": "48895c2408574883ec2080b999010000007447488b59504863415c488d3cc3483bdf7429488b0b488b01ff50204885c0741283780800750c488bc8e890d3210084c075164883c308483bdf75d7b001488b5c24304883c4205fc3488b5c243032c04883c4205fc3cccccccccccccccccc48895c2408574883ec20488b99300200004863813c020000488d3cc3483bdf741e488b0b4885c9740a488b01ff506084c074094883c308483bdf75e5483bdf488b5c24300f94c04883c4205fc3cccccc40534883ec2080793900488bd9753783795c007429488b01ff505885c0752748837b68007518388399010000751038839a010000750838839b0100007408b0014883c4205bc332c04883c4205bc3cccc40534883ec204883b98800000000743e488b49684885c97435488b01ff50204885c0742a488d98b8000000488bcbe84dd9ffff4885c07416488bcbe840d9ffff837830027508b0014883c4205bc332c04883c4205bc3cccccccccccccccccccc4883b98800000000750332c0c348837968000f95c0c3cccccccccccccccccccc8b058e387a0239815c02000075118b057c387a02398158020000750332c0c3b001c3cccccccccccccccccccccccccccc48895c240848896c24104889742418574883ec204863415c488bf185c07e52488be833ff0f1f40000f1f840000000000488b5e50488b1cfb4885db742c488b03488bcbff50204885c0741e488b03488bcbff502083780800750f488b03488bcbff502080780c00743b48ffc7483bfd7cbf488b0d50607902488b01ff90c8000000488bc8e847033800483bc60f94c0488b5c2430488b6c2438488b7424404883c4205fc332c0ebe7cccccccccccccccc40534883ec30488bd9e8621170018b0b",
+      "sha256": "2eb25a387fd7d71ff5807c508bf9fb752bac7114214445233efb54fdfcaae335"
+    },
+    "0x219350": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x219350",
+      "window_size": 96,
+      "reachable_instruction_count": 8,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0x219365",
+          "target": "0x2284870"
+        }
+      ],
+      "calls": [],
+      "asm": [
+        "219350 add rcx, 0x1048",
+        "219357 cmp dword ptr [rcx], 0",
+        "21935a jne 0x219365",
+        "21935c cmp dword ptr [rcx + 4], 0",
+        "219360 jne 0x219365",
+        "219362 xor eax, eax",
+        "219364 ret ",
+        "219365 jmp 0x2284870"
+      ],
+      "raw_hex": "4881c148100000833900750983790400750333c0c3e906b50602cccccccccccc833900750983790400750333c0c3e9edb40602cccccccccccccccccccccccccc4883ec28488d0df5441c03e82c733b02488b15e1441c03488b0de2441c03e869",
+      "sha256": "e3e3d17bc084270cd312c6735717ce689e4bc59b0753c0d28232e7d684752a3d"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+c56020 mov qword ptr [rsp + 0x18], r8
+c56025 push rbp
+c56026 push rdi
+c56027 push r12
+c56029 push r13
+c5602b push r14
+c5602d sub rsp, 0x80
+c56034 cmp qword ptr [rdx + 0xc0], 0
+c5603c mov r14, r8
+c5603f mov rax, qword ptr [rcx + 0x1f0]
+c56046 mov r13, rdx
+c56049 mov qword ptr [rsp + 0x40], rax
+c5604e mov rdi, rcx
+c56051 je 0xc56600
+c56057 cmp qword ptr [rax + 0xc0], 0
+c5605f je 0xc56600
+c56065 mov eax, dword ptr [rcx + 8]
+c56068 test eax, eax
+c5606a je 0xc56075
+c5606c cmp eax, 0xd
+c5606f jne 0xc56600
+c56075 cmp qword ptr [rcx + 0x2f8], 0
+c5607d jne 0xc56600
+c56083 test r8, r8
+c56086 jle 0xc56600
+c5608c mov rax, qword ptr [rcx + 0x40]
+c56090 mov rbp, qword ptr [rcx + 0x38]
+c56094 add rcx, 0x1d8
+c5609b mov qword ptr [rsp + 0x58], rax
+c560a0 mov eax, dword ptr [rdx + 0xa4]

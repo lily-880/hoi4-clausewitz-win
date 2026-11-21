@@ -1,0 +1,26 @@
+f40ba0 mov qword ptr [rsp + 8], rbx
+f40ba5 mov qword ptr [rsp + 0x10], rsi
+f40baa push rdi
+f40bab sub rsp, 0x20
+f40baf mov ebx, dword ptr [rdx]
+f40bb1 mov rsi, rcx
+f40bb4 mov edi, dword ptr [rdx + 4]
+f40bb7 cmp ebx, edi
+f40bb9 je 0xf40be7
+f40bbb nop dword ptr [rax + rax]
+f40bc0 mov rax, qword ptr [rsi]
+f40bc3 movsxd rdx, ebx
+f40bc6 mov rax, qword ptr [rax]
+f40bc9 mov rax, qword ptr [rax + 0x108]
+f40bd0 lea rcx, [rax + rdx*8]
+f40bd4 call 0xf40550
+f40bd9 mov rcx, rax
+f40bdc call 0x12a9860
+f40be1 inc ebx
+f40be3 cmp ebx, edi
+f40be5 jne 0xf40bc0
+f40be7 mov rbx, qword ptr [rsp + 0x30]
+f40bec mov rsi, qword ptr [rsp + 0x38]
+f40bf1 add rsp, 0x20
+f40bf5 pop rdi
+f40bf6 ret 

@@ -1,0 +1,16 @@
+bd50f0 push rbx
+bd50f2 sub rsp, 0x20
+bd50f6 mov rax, qword ptr [rcx]
+bd50f9 mov rbx, rcx
+bd50fc call qword ptr [rax + 8]
+bd50ff mov rcx, qword ptr [rbx + 0x5f0]
+bd5106 test rcx, rcx
+bd5109 je 0xbd511c
+bd510b mov rax, qword ptr [rcx + 0x30]
+bd510f add rcx, 0x30
+bd5113 add rsp, 0x20
+bd5117 pop rbx
+bd5118 jmp qword ptr [rax + 0x78]
+bd511c add rsp, 0x20
+bd5120 pop rbx
+bd5121 ret 

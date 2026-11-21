@@ -1,0 +1,68 @@
+0x15a57b0  mov qword ptr [rsp + 0x10], rbx
+0x15a57b5  mov qword ptr [rsp + 0x18], rsi
+0x15a57ba  push rdi
+0x15a57bb  sub rsp, 0x30
+0x15a57bf  mov rax, qword ptr [rip + 0x1e3dc1a]
+0x15a57c6  mov rsi, rdx
+0x15a57c9  mov qword ptr [rdx], rax
+0x15a57cc  mov rax, qword ptr [rcx + 0x20]
+0x15a57d0  mov rcx, qword ptr [rcx + 0x40]
+0x15a57d4  mov r8, qword ptr [rax + 0x50]
+0x15a57d8  mov rcx, qword ptr [rcx + 0x20]
+0x15a57dc  mov edi, dword ptr [r8 + 0x58]
+0x15a57e0  call 0x7362c0
+0x15a57e5  mov edx, 0x186a0
+0x15a57ea  lea rcx, [rsp + 0x40]
+0x15a57ef  mov rbx, qword ptr [rax + 0x80]
+0x15a57f6  call 0x2574ba0
+0x15a57fb  mov r9, qword ptr [rbx + 0x1e8]
+0x15a5802  mov rcx, qword ptr [rax]
+0x15a5805  movsxd rax, dword ptr [rbx + 0x1f4]
+0x15a580c  mov r10, rax
+0x15a580f  mov qword ptr [rsp + 0x20], rcx
+0x15a5814  shl r10, 4
+0x15a5818  add r10, r9
+0x15a581b  test rax, rax
+0x15a581e  jle 0x15a584d
+0x15a5820  mov r8, rax
+0x15a5823  shr rax, 1
+0x15a5826  and r8d, 1
+0x15a582a  mov rcx, rax
+0x15a582d  add rcx, rcx
+0x15a5830  mov edx, dword ptr [r9 + rcx*8]
+0x15a5834  lea rcx, [r8 + rax]
+0x15a5838  xor r8d, r8d
+0x15a583b  cmp edx, edi
+0x15a583d  cmovl r8, rcx
+0x15a5841  shl r8, 4
+0x15a5845  add r9, r8
+0x15a5848  test rax, rax
+0x15a584b  jne 0x15a5820
+0x15a584d  cmp r9, r10
+0x15a5850  je 0x15a585b
+0x15a5852  lea rbx, [r9 + 8]
+0x15a5856  cmp edi, dword ptr [r9]
+0x15a5859  jge 0x15a5860
+0x15a585b  lea rbx, [rsp + 0x20]
+0x15a5860  mov rbx, qword ptr [rbx]
+0x15a5863  lea rcx, [rsp + 0x40]
+0x15a5868  mov edx, 0x186a0
+0x15a586d  call 0x2574ba0
+0x15a5872  cmp rbx, qword ptr [rax]
+0x15a5875  je 0x15a589a
+0x15a5877  mov rax, qword ptr [rip + 0x1e3db62]
+0x15a587e  cmp rbx, rax
+0x15a5881  cmovl rax, rbx
+0x15a5885  mov qword ptr [rsi], rax
+0x15a5888  mov al, 1
+0x15a588a  mov rbx, qword ptr [rsp + 0x48]
+0x15a588f  mov rsi, qword ptr [rsp + 0x50]
+0x15a5894  add rsp, 0x30
+0x15a5898  pop rdi
+0x15a5899  ret
+0x15a589a  mov rbx, qword ptr [rsp + 0x48]
+0x15a589f  xor al, al
+0x15a58a1  mov rsi, qword ptr [rsp + 0x50]
+0x15a58a6  add rsp, 0x30
+0x15a58aa  pop rdi
+0x15a58ab  ret

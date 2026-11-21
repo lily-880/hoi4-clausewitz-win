@@ -1,0 +1,28 @@
+e60360 mov qword ptr [rsp + 8], rbx
+e60365 push rdi
+e60366 sub rsp, 0x20
+e6036a mov rdx, qword ptr [rcx + 0xa0]
+e60371 xor edi, edi
+e60373 mov rbx, rcx
+e60376 test rdx, rdx
+e60379 je 0xe6039b
+e6037b mov dword ptr [rcx + 0xac], edi
+e60381 mov rcx, qword ptr [rcx + 0xb0]
+e60388 mov rax, qword ptr [rcx]
+e6038b call qword ptr [rax + 0x10]
+e6038e mov qword ptr [rbx + 0xa0], rdi
+e60395 mov dword ptr [rbx + 0xa8], edi
+e6039b mov rdx, qword ptr [rbx + 0x88]
+e603a2 test rdx, rdx
+e603a5 je 0xe603c7
+e603a7 mov rcx, qword ptr [rbx + 0x98]
+e603ae mov dword ptr [rbx + 0x94], edi
+e603b4 mov rax, qword ptr [rcx]
+e603b7 call qword ptr [rax + 0x10]
+e603ba mov qword ptr [rbx + 0x88], rdi
+e603c1 mov dword ptr [rbx + 0x90], edi
+e603c7 mov rcx, rbx
+e603ca mov rbx, qword ptr [rsp + 0x30]
+e603cf add rsp, 0x20
+e603d3 pop rdi
+e603d4 jmp 0xd046c0

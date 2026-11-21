@@ -1,0 +1,49 @@
+======= 0x1571ef0 head =====
+0x1571ef0  mov rax, rsp
+0x1571ef3  mov qword ptr [rax + 0x10], rdx
+0x1571ef7  mov qword ptr [rax + 8], rcx
+0x1571efb  push rbp
+0x1571efc  push rbx
+0x1571efd  push rsi
+0x1571efe  push rdi
+0x1571eff  push r12
+0x1571f01  push r13
+0x1571f03  push r14
+0x1571f05  push r15
+0x1571f07  lea rbp, [rax - 0x118]
+0x1571f0e  sub rsp, 0x1d8
+0x1571f15  movaps xmmword ptr [rax - 0x58], xmm6
+0x1571f19  mov r15, rdx
+0x1571f1c  mov r13, rcx
+0x1571f1f  xor ebx, ebx
+0x1571f21  mov rcx, qword ptr [rcx]
+0x1571f24  add rcx, 0x3c
+0x1571f28  mov eax, dword ptr [rcx]
+0x1571f2a  mov dword ptr [rbp - 0x70], eax
+0x1571f2d  cmp dword ptr [rcx], ebx
+======= 0x1572bf0 EncirclementPoints =====
+0x1572bf0  mov rcx, qword ptr [rip + 0x1e6aab9]
+0x1572bf7  add rcx, 8
+0x1572bfb  mov rax, qword ptr [rcx]
+0x1572bfe  mov r8, qword ptr [rax]
+0x1572c01  mov rax, qword ptr [r13 + 0x148]
+0x1572c08  mov edx, dword ptr [rax + r14*4]
+0x1572c0c  call r8
+0x1572c0f  mov rcx, qword ptr [rax + 0xb8]
+0x1572c16  test byte ptr [rcx + 0xd2], 3
+0x1572c1d  jne 0x1572c64
+0x1572c1f  mov byte ptr [rsp + 0x30], 0
+0x1572c24  lea rax, [rip + 0x1ec58c8]
+0x1572c2b  mov qword ptr [rsp + 0x28], rax
+0x1572c30  lea rax, [rsp + 0x30]
+0x1572c35  mov qword ptr [rsp + 0x20], rax
+0x1572c3a  mov r9b, 1
+0x1572c3d  mov r8d, 0x149a
+0x1572c43  lea rdx, [rip + 0x1221ad3]
+0x1572c4a  lea rcx, [rip + 0x14d344f]
+0x1572c51  call 0x254ab40
+0x1572c56  mov byte ptr [rip + 0x1ec5897], al
+0x1572c5c  cmp byte ptr [rsp + 0x30], 0
+0x1572c61  je 0x1572c64
+0x1572c63  int3 
+0x1572c64  mov r8, qword ptr [r13 + 0x148]

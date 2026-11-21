@@ -1,0 +1,35 @@
+0xc4f950  mov qword ptr [rsp + 8], rbx
+0xc4f955  mov qword ptr [rsp + 0x10], rbp
+0xc4f95a  mov qword ptr [rsp + 0x18], rsi
+0xc4f95f  push rdi
+0xc4f960  sub rsp, 0x20
+0xc4f964  cmp byte ptr [rcx + 0x24c], 0
+0xc4f96b  mov rbx, rcx
+0xc4f96e  jne 0xc4f9f7
+0xc4f974  cmp byte ptr [rcx + 0x2ae], 0
+0xc4f97b  jne 0xc4f9f7
+0xc4f97d  mov rax, qword ptr [rcx + 0x2f8]
+0xc4f984  test rax, rax
+0xc4f987  je 0xc4f98f
+0xc4f989  cmp dword ptr [rax + 0x24], 0
+0xc4f98d  jne 0xc4f9f7
+0xc4f98f  movsxd rax, dword ptr [rcx + 0x1b4]
+0xc4f996  test eax, eax
+0xc4f998  jle 0xc4f9f3
+0xc4f99a  mov rbp, rax
+0xc4f99d  xor edi, edi
+0xc4f99f  nop 
+0xc4f9a0  mov rax, qword ptr [rbx + 0x1a8]
+0xc4f9a7  mov rsi, qword ptr [rax + rdi*8]
+0xc4f9ab  mov rcx, qword ptr [rsi + 0x28]
+0xc4f9af  call 0x31f8b0
+0xc4f9b4  xor edx, edx
+0xc4f9b6  xor ecx, ecx
+0xc4f9b8  movsxd r8, dword ptr [rax + 0xc]
+0xc4f9bc  test r8d, r8d
+0xc4f9bf  jle 0xc4f9eb
+0xc4f9c1  mov rax, qword ptr [rax]
+0xc4f9c4  cmp qword ptr [rax], rbx
+0xc4f9c7  je 0xc4f9d9
+0xc4f9c9  inc edx
+0xc4f9cb  inc rcx

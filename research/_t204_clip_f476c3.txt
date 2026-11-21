@@ -1,0 +1,25 @@
+f476c3 mov qword ptr [rsp + 0x50], rbx
+f476c8 lea rbx, [rdi + 0x18]
+f476cc mov qword ptr [rsp + 0x28], r13
+f476d1 xor r13d, r13d
+f476d4 nop dword ptr [rax]
+f476d8 nop dword ptr [rax + rax]
+f476e0 mov rcx, rsi
+f476e3 mov rdx, rdi
+f476e6 add rsi, 0x28
+f476ea call 0xf3d3c0
+f476ef mov rdx, qword ptr [rbx - 0x10]
+f476f3 test rdx, rdx
+f476f6 je 0xf4770d
+f476f8 mov rcx, qword ptr [rbx]
+f476fb mov dword ptr [rbx - 4], r13d
+f476ff mov rax, qword ptr [rcx]
+f47702 call qword ptr [rax + 0x10]
+f47705 mov qword ptr [rbx - 0x10], r13
+f47709 mov dword ptr [rbx - 8], r13d
+f4770d add rdi, 0x28
+f47711 add rbx, 0x28
+f47715 cmp rdi, r15
+f47718 jne 0xf476e0
+f4771a mov r13, qword ptr [rsp + 0x28]
+f4771f mov rbx, qword ptr [rsp + 0x50]

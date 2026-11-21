@@ -1,0 +1,15 @@
+ce4c20 cmp qword ptr [rcx + 0x600], 0
+ce4c28 mov r8, rdx
+ce4c2b mov rdx, rcx
+ce4c2e jg 0xce4c39
+ce4c30 xor ecx, ecx
+ce4c32 mov rax, r8
+ce4c35 mov qword ptr [r8], rcx
+ce4c38 ret 
+ce4c39 movsxd rax, dword ptr [rip + 0x26fea38]
+ce4c40 imul rcx, rax, 0x186a0
+ce4c47 test rcx, rcx
+ce4c4a je 0xce4c82
+ce4c4c mov r9, qword ptr [rdx + 0x610]
+ce4c53 movabs rax, 0x7ffffffffffffffe
+ce4c5d add rax, r9

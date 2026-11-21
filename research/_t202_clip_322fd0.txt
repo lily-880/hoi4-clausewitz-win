@@ -1,0 +1,37 @@
+322fd0 mov qword ptr [rsp + 8], rbx
+322fd5 push rdi
+322fd6 sub rsp, 0x20
+322fda mov edi, edx
+322fdc mov rbx, rcx
+322fdf mov rdx, qword ptr [rcx + 0x70]
+322fe3 cmp rdx, 0xf
+322fe7 jbe 0x323016
+322fe9 mov rcx, qword ptr [rcx + 0x58]
+322fed inc rdx
+322ff0 cmp rdx, 0x1000
+322ff7 jb 0x323011
+322ff9 mov r8, qword ptr [rcx - 8]
+322ffd add rdx, 0x27
+323001 sub rcx, r8
+323004 lea rax, [rcx - 8]
+323008 cmp rax, 0x1f
+32300c ja 0x323053
+32300e mov rcx, r8
+323011 call 0x25a0218
+323016 mov rcx, rbx
+323019 mov qword ptr [rbx + 0x68], 0
+323021 mov qword ptr [rbx + 0x70], 0xf
+323029 mov byte ptr [rbx + 0x58], 0
+32302d call 0x584540
+323032 test dil, 1
+323036 je 0x323045
+323038 mov edx, 0x80
+32303d mov rcx, rbx
+323040 call 0x25a0218
+323045 mov rax, rbx
+323048 mov rbx, qword ptr [rsp + 0x30]
+32304d add rsp, 0x20
+323051 pop rdi
+323052 ret 
+323053 call 0x25c7db4
+323058 int3 

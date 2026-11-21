@@ -1,0 +1,37 @@
+e6bce0 push rbx
+e6bce2 sub rsp, 0x20
+e6bce6 movsxd rax, dword ptr [rcx]
+e6bce9 mov rbx, rcx
+e6bcec cmp eax, 0x26
+e6bcef ja 0xe6bd2d
+e6bcf1 movabs rcx, 0x400001000f
+e6bcfb bt rcx, rax
+e6bcff jae 0xe6bd2d
+e6bd01 mov rcx, qword ptr [rip + 0x2571e08]
+e6bd08 mov rax, qword ptr [rcx]
+e6bd0b call qword ptr [rax + 0xb8]
+e6bd11 mov rcx, rax
+e6bd14 call 0x1693e0
+e6bd19 mov rcx, rax
+e6bd1c call 0x1329090
+e6bd21 test al, al
+e6bd23 je 0xe6bd2d
+e6bd25 mov al, 1
+e6bd27 add rsp, 0x20
+e6bd2b pop rbx
+e6bd2c ret 
+e6bd2d cmp dword ptr [rbx], 0x1b
+e6bd30 je 0xe6bd3a
+e6bd32 xor al, al
+e6bd34 add rsp, 0x20
+e6bd38 pop rbx
+e6bd39 ret 
+e6bd3a mov rcx, qword ptr [rip + 0x2571dc7]
+e6bd41 mov rax, qword ptr [rcx]
+e6bd44 call qword ptr [rax + 0xb8]
+e6bd4a mov rcx, qword ptr [rax + 0x400]
+e6bd51 cmp dword ptr [rcx + 0x2bc], 0
+e6bd58 setg al
+e6bd5b add rsp, 0x20
+e6bd5f pop rbx
+e6bd60 ret 

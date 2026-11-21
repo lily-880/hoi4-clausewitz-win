@@ -1,0 +1,203 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "flows": {
+    "0x147e8e0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x147e8e0",
+      "window_size": 512,
+      "reachable_instruction_count": 62,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x147e932",
+          "operand": "0x1ac4120"
+        },
+        {
+          "site": "0x147e943",
+          "operand": "0x1ac4120"
+        },
+        {
+          "site": "0x147e972",
+          "operand": "0x1ac4120"
+        },
+        {
+          "site": "0x147e983",
+          "operand": "0x1ac4120"
+        }
+      ],
+      "asm": [
+        "147e8e0 mov qword ptr [rsp + 0x10], rbx",
+        "147e8e5 mov qword ptr [rsp + 0x18], rsi",
+        "147e8ea push rdi",
+        "147e8eb sub rsp, 0x20",
+        "147e8ef mov rax, qword ptr [rcx + 0x28]",
+        "147e8f3 mov rdx, qword ptr [rcx + 0x30]",
+        "147e8f7 cmp dword ptr [rax + 0x48], 0",
+        "147e8fb lea rdi, [rax + 0x38]",
+        "147e8ff lea rsi, [rdx + 0x38]",
+        "147e903 je 0x147e9a3",
+        "147e909 cmp dword ptr [rdx + 0x48], 0",
+        "147e90d je 0x147e9a3",
+        "147e913 mov rbx, qword ptr [rdi]",
+        "147e916 test rbx, rbx",
+        "147e919 je 0x147e951",
+        "147e91b nop dword ptr [rax + rax]",
+        "147e920 mov ecx, dword ptr [rbx]",
+        "147e922 lea rdx, [rsp + 0x30]",
+        "147e927 mov rbx, qword ptr [rbx + 0x10]",
+        "147e92b mov dword ptr [rsp + 0x30], ecx",
+        "147e92f mov rcx, rdi",
+        "147e932 call 0x1ac4120",
+        "147e937 test al, al",
+        "147e939 jne 0x147e9a3",
+        "147e93b lea rdx, [rsp + 0x30]",
+        "147e940 mov rcx, rsi",
+        "147e943 call 0x1ac4120",
+        "147e948 test al, al",
+        "147e94a je 0x147e9a3",
+        "147e94c test rbx, rbx",
+        "147e94f jne 0x147e920",
+        "147e951 mov rbx, qword ptr [rsi]",
+        "147e954 test rbx, rbx",
+        "147e957 je 0x147e991",
+        "147e959 nop dword ptr [rax]",
+        "147e960 mov ecx, dword ptr [rbx]",
+        "147e962 lea rdx, [rsp + 0x30]",
+        "147e967 mov rbx, qword ptr [rbx + 0x10]",
+        "147e96b mov dword ptr [rsp + 0x30], ecx",
+        "147e96f mov rcx, rsi",
+        "147e972 call 0x1ac4120",
+        "147e977 test al, al",
+        "147e979 jne 0x147e9a3",
+        "147e97b lea rdx, [rsp + 0x30]",
+        "147e980 mov rcx, rdi",
+        "147e983 call 0x1ac4120",
+        "147e988 test al, al",
+        "147e98a je 0x147e9a3",
+        "147e98c test rbx, rbx",
+        "147e98f jne 0x147e960",
+        "147e991 mov al, 1",
+        "147e993 mov rbx, qword ptr [rsp + 0x38]",
+        "147e998 mov rsi, qword ptr [rsp + 0x40]",
+        "147e99d add rsp, 0x20",
+        "147e9a1 pop rdi",
+        "147e9a2 ret ",
+        "147e9a3 mov rbx, qword ptr [rsp + 0x38]",
+        "147e9a8 xor al, al",
+        "147e9aa mov rsi, qword ptr [rsp + 0x40]",
+        "147e9af add rsp, 0x20",
+        "147e9b3 pop rdi",
+        "147e9b4 ret "
+      ]
+    },
+    "0x31f8b0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x31f8b0",
+      "window_size": 32,
+      "reachable_instruction_count": 2,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "31f8b0 lea rax, [rcx + 0x20]",
+        "31f8b4 ret "
+      ]
+    },
+    "0x1348d30": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x1348d30",
+      "window_size": 224,
+      "reachable_instruction_count": 40,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x1348d40",
+          "operand": "qword ptr [rax + 0xa0]"
+        },
+        {
+          "site": "0x1348d58",
+          "operand": "qword ptr [rax + 0xc0]"
+        },
+        {
+          "site": "0x1348d62",
+          "operand": "0x147f690"
+        },
+        {
+          "site": "0x1348d76",
+          "operand": "qword ptr [rax + 0xa0]"
+        },
+        {
+          "site": "0x1348d8e",
+          "operand": "qword ptr [rax + 0xc0]"
+        },
+        {
+          "site": "0x1348d98",
+          "operand": "0x147f690"
+        }
+      ],
+      "asm": [
+        "1348d30 push rbx",
+        "1348d32 sub rsp, 0x20",
+        "1348d36 mov rbx, rcx",
+        "1348d39 mov rcx, qword ptr [rcx + 0x28]",
+        "1348d3d mov rax, qword ptr [rcx]",
+        "1348d40 call qword ptr [rax + 0xa0]",
+        "1348d46 test al, al",
+        "1348d48 je 0x1348d6f",
+        "1348d4a mov rax, qword ptr [rbx]",
+        "1348d4d mov rcx, rbx",
+        "1348d50 mov r8, qword ptr [rbx + 0x30]",
+        "1348d54 mov rdx, qword ptr [rbx + 0x28]",
+        "1348d58 call qword ptr [rax + 0xc0]",
+        "1348d5e mov rcx, qword ptr [rbx + 0x28]",
+        "1348d62 call 0x147f690",
+        "1348d67 mov al, 1",
+        "1348d69 add rsp, 0x20",
+        "1348d6d pop rbx",
+        "1348d6e ret ",
+        "1348d6f mov rcx, qword ptr [rbx + 0x30]",
+        "1348d73 mov rax, qword ptr [rcx]",
+        "1348d76 call qword ptr [rax + 0xa0]",
+        "1348d7c test al, al",
+        "1348d7e je 0x1348da5",
+        "1348d80 mov rax, qword ptr [rbx]",
+        "1348d83 mov rcx, rbx",
+        "1348d86 mov r8, qword ptr [rbx + 0x28]",
+        "1348d8a mov rdx, qword ptr [rbx + 0x30]",
+        "1348d8e call qword ptr [rax + 0xc0]",
+        "1348d94 mov rcx, qword ptr [rbx + 0x30]",
+        "1348d98 call 0x147f690",
+        "1348d9d mov al, 1",
+        "1348d9f add rsp, 0x20",
+        "1348da3 pop rbx",
+        "1348da4 ret ",
+        "1348da5 inc dword ptr [rbx + 0x40]",
+        "1348da8 xor al, al",
+        "1348daa add rsp, 0x20",
+        "1348dae pop rbx",
+        "1348daf ret "
+      ]
+    }
+  },
+  "scope": "exact eligibility/end return semantics from static branches; no function invoked or counter changed"
+}

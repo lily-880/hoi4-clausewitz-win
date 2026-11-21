@@ -1,0 +1,15 @@
+0x1096a40  movsxd rax, dword ptr [rcx + 0x14]
+0x1096a44  test eax, eax
+0x1096a46  jle 0x1096a67
+0x1096a48  mov r8, rax
+0x1096a4b  xor edx, edx
+0x1096a4d  mov rax, qword ptr [rcx + 8]
+0x1096a51  add rax, 8
+0x1096a55  cmp qword ptr [rax], 0
+0x1096a59  jne 0x1096a6a
+0x1096a5b  inc rdx
+0x1096a5e  add rax, 0x10
+0x1096a62  cmp rdx, r8
+0x1096a65  jl 0x1096a55
+0x1096a67  mov al, 1
+0x1096a69  ret

@@ -1,0 +1,57 @@
+f48840 mov qword ptr [rsp + 8], rbx
+f48845 mov qword ptr [rsp + 0x10], rbp
+f4884a mov qword ptr [rsp + 0x18], rsi
+f4884f mov qword ptr [rsp + 0x20], rdi
+f48854 push r12
+f48856 push r14
+f48858 push r15
+f4885a sub rsp, 0x30
+f4885e mov eax, dword ptr [rdx]
+f48860 lea rdi, [rdx + 8]
+f48864 mov r8d, dword ptr [rcx]
+f48867 lea r12, [rip + 0x21e14c2]
+f4886e mov r9, rcx
+f48871 mov dword ptr [rcx], eax
+f48873 movzx eax, byte ptr [rdx + 4]
+f48877 mov dword ptr [rdx], r8d
+f4887a movzx r8d, byte ptr [rcx + 4]
+f4887f mov byte ptr [rcx + 4], al
+f48882 add rcx, 8
+f48886 mov byte ptr [rdx + 4], r8b
+f4888a xor eax, eax
+f4888c mov rsi, qword ptr [r9 + 0x18]
+f48890 mov rdx, rdi
+f48893 mov ebp, dword ptr [r9 + 0x20]
+f48897 mov ebx, dword ptr [rcx]
+f48899 mov r14d, dword ptr [r9 + 0x24]
+f4889d movzx r15d, byte ptr [r9 + 0x28]
+f488a2 movaps xmmword ptr [rsp + 0x20], xmm6
+f488a7 movss xmm6, dword ptr [r9 + 0x2c]
+f488ad mov qword ptr [r9 + 0x18], r12
+f488b1 mov qword ptr [r9 + 0x20], rax
+f488b5 mov byte ptr [r9 + 0x28], al
+f488b9 call 0xf404b0
+f488be mov dword ptr [rdi], ebx
+f488c0 mov rdx, qword ptr [rdi + 0x10]
+f488c4 cmp rdx, r12
+f488c7 je 0xf488df
+f488c9 mov r8d, dword ptr [rdi + 0x18]
+f488cd lea rcx, [rdi + 8]
+f488d1 call 0xf45670
+f488d6 mov rcx, qword ptr [rdi + 0x10]
+f488da call 0x25a0218
+f488df mov rbx, qword ptr [rsp + 0x50]
+f488e4 movss dword ptr [rdi + 0x24], xmm6
+f488e9 movaps xmm6, xmmword ptr [rsp + 0x20]
+f488ee mov qword ptr [rdi + 0x10], rsi
+f488f2 mov rsi, qword ptr [rsp + 0x60]
+f488f7 mov dword ptr [rdi + 0x18], ebp
+f488fa mov rbp, qword ptr [rsp + 0x58]
+f488ff mov dword ptr [rdi + 0x1c], r14d
+f48903 mov byte ptr [rdi + 0x20], r15b
+f48907 mov rdi, qword ptr [rsp + 0x68]
+f4890c add rsp, 0x30
+f48910 pop r15
+f48912 pop r14
+f48914 pop r12
+f48916 ret 

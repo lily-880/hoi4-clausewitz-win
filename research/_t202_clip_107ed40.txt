@@ -1,0 +1,46 @@
+107ed40 mov qword ptr [rsp + 0x18], rbx
+107ed45 mov qword ptr [rsp + 0x10], rdx
+107ed4a push rbp
+107ed4b push rsi
+107ed4c push rdi
+107ed4d sub rsp, 0x30
+107ed51 mov edi, r8d
+107ed54 mov rbx, rdx
+107ed57 mov rbp, rcx
+107ed5a xor esi, esi
+107ed5c mov dword ptr [rsp + 0x20], esi
+107ed60 add rcx, 0x90
+107ed67 call 0xcc6c40
+107ed6c mov dword ptr [rsp + 0x20], 1
+107ed74 mov rcx, rbx
+107ed77 call 0xcc6570
+107ed7c cmp eax, edi
+107ed7e jge 0x107edc6
+107ed80 sub edi, eax
+107ed82 mov rcx, qword ptr [rbp + 0x20]
+107ed86 add rcx, 0x328
+107ed8d xor r8d, r8d
+107ed90 mov edx, edi
+107ed92 call 0xd5ffa0
+107ed97 sub edi, eax
+107ed99 mov rcx, qword ptr [rbp + 0x20]
+107ed9d add rcx, 8
+107eda1 mov eax, dword ptr [rcx]
+107eda3 mov dword ptr [rsp + 0x50], eax
+107eda7 cmp dword ptr [rcx], esi
+107eda9 je 0x107edb2
+107edab call 0xc08790
+107edb0 mov esi, eax
+107edb2 mov dword ptr [rsp + 0x54], esi
+107edb6 mov r8d, edi
+107edb9 lea rdx, [rsp + 0x50]
+107edbe mov rcx, rbx
+107edc1 call 0xcc4d40
+107edc6 mov rax, rbx
+107edc9 mov rbx, qword ptr [rsp + 0x60]
+107edce add rsp, 0x30
+107edd2 pop rdi
+107edd3 pop rsi
+107edd4 pop rbp
+107edd5 ret 
+107edd6 int3 

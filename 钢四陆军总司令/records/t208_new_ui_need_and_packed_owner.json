@@ -1,0 +1,596 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "manpower_ui_literals": [
+    {
+      "rva": "0x2809278",
+      "text": "TRIGGER_HAS_ARMY_MANPOWER_OF_TYPE_AT_LEAST"
+    },
+    {
+      "rva": "0x28092a8",
+      "text": "TRIGGER_HAS_ARMY_MANPOWER_OF_TYPE_AT_MOST"
+    },
+    {
+      "rva": "0x28092d8",
+      "text": "TRIGGER_HAS_ARMY_MANPOWER_AT_LEAST"
+    },
+    {
+      "rva": "0x2809300",
+      "text": "TRIGGER_HAS_ARMY_MANPOWER_AT_MOST"
+    },
+    {
+      "rva": "0x280e608",
+      "text": "TRIGGER_GARRISON_MANPOWER_NEED_LESS_THAN"
+    },
+    {
+      "rva": "0x280e638",
+      "text": "TRIGGER_GARRISON_MANPOWER_NEED_MORE_THAN"
+    },
+    {
+      "rva": "0x2818628",
+      "text": "TRIGGER_ARMY_MANPOWER_IN_STATE_OF_TYPE"
+    },
+    {
+      "rva": "0x2818650",
+      "text": "TRIGGER_ARMY_MANPOWER_IN_STATE"
+    },
+    {
+      "rva": "0x28c7118",
+      "text": "REINFORCEMENT_MANPOWER_DELIVERY_SPEED"
+    },
+    {
+      "rva": "0x28c714a",
+      "text": "REINFORCEMENT_MANPOWER_DELIVERY_SPEED"
+    },
+    {
+      "rva": "0x28c7230",
+      "text": "REINFORCEMENT_MANPOWER_CHUNK"
+    },
+    {
+      "rva": "0x28c725a",
+      "text": "REINFORCEMENT_MANPOWER_CHUNK"
+    },
+    {
+      "rva": "0x28ed880",
+      "text": "GARRISON_MANPOWER_REINFORCEMENT_SPEED"
+    },
+    {
+      "rva": "0x28ed8b5",
+      "text": "GARRISON_MANPOWER_REINFORCEMENT_SPEED"
+    },
+    {
+      "rva": "0x291fec0",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MIN"
+    },
+    {
+      "rva": "0x291fef8",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MIN"
+    },
+    {
+      "rva": "0x2920000",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MAX"
+    },
+    {
+      "rva": "0x2920038",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_MAX"
+    },
+    {
+      "rva": "0x2920160",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL"
+    },
+    {
+      "rva": "0x29201a8",
+      "text": "ARMY_DEPLOYED_MANPOWER_COUNT_RANGE_INTEL_RANGE_AT_LOWEST_INTEL"
+    },
+    {
+      "rva": "0x2a0eec0",
+      "text": "FOREIGN_MANPOWER_REASON_NO_NEED"
+    },
+    {
+      "rva": "0x2a3f790",
+      "text": "REQUEST_FACTION_MANPOWER_BUTTON_NO_GARRISON_NEEDED"
+    },
+    {
+      "rva": "0x2a4bce0",
+      "text": "NOT_ENOUGH_MANPOWER_TO_REINFORCE"
+    },
+    {
+      "rva": "0x2a64ab0",
+      "text": "LEADER_DEPLOY_NEED_MANPOWER"
+    },
+    {
+      "rva": "0x2aeaad8",
+      "text": "CONVEYOR_MANPOWER_NEED"
+    },
+    {
+      "rva": "0x2b02c38",
+      "text": "ARMY_LEDGER_THRESHOLD_FUZZY_DEPLOYED_MANPOWER"
+    },
+    {
+      "rva": "0x2b02c68",
+      "text": "ARMY_LEDGER_THRESHOLD_DEPLOYED_MANPOWER"
+    },
+    {
+      "rva": "0x2b04cd8",
+      "text": "INTEL_LEDGER_FIELDED_ARMY_MANPOWER_TOOLTIP"
+    },
+    {
+      "rva": "0x2b04d08",
+      "text": "INTEL_LEDGER_FIELDED_ARMY_MANPOWER_TOOLTIP_WITH_CAP"
+    }
+  ],
+  "flows": {
+    "0xf472fe": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xf472fe",
+      "window_size": 576,
+      "reachable_instruction_count": 30,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xf47326",
+          "operand": "0xa41a50"
+        },
+        {
+          "site": "0xf47339",
+          "operand": "qword ptr [rax + 0x10]"
+        }
+      ],
+      "asm": [
+        "f472fe mov qword ptr [rsp + 0x30], rbx",
+        "f47303 mov qword ptr [rsp + 0x38], rdi",
+        "f47308 mov edi, ebp",
+        "f4730a nop word ptr [rax + rax]",
+        "f47310 mov rbx, qword ptr [r14]",
+        "f47313 add rbx, rdi",
+        "f47316 cmp qword ptr [rbx + 0x10], rbp",
+        "f4731a je 0xf47343",
+        "f4731c mov r8d, dword ptr [rbx + 0x1c]",
+        "f47320 lea rcx, [rbx + 0x10]",
+        "f47324 xor edx, edx",
+        "f47326 call 0xa41a50",
+        "f4732b mov rcx, qword ptr [rbx + 0x20]",
+        "f4732f mov rdx, qword ptr [rbx + 0x10]",
+        "f47333 mov dword ptr [rbx + 0x1c], ebp",
+        "f47336 mov rax, qword ptr [rcx]",
+        "f47339 call qword ptr [rax + 0x10]",
+        "f4733c mov qword ptr [rbx + 0x10], rbp",
+        "f47340 mov dword ptr [rbx + 0x18], ebp",
+        "f47343 add rdi, 0x28",
+        "f47347 sub rsi, 1",
+        "f4734b jne 0xf47310",
+        "f4734d mov rdi, qword ptr [rsp + 0x38]",
+        "f47352 mov rbx, qword ptr [rsp + 0x30]",
+        "f47357 mov dword ptr [r14 + 0xc], ebp",
+        "f4735b mov rbp, qword ptr [rsp + 0x40]",
+        "f47360 mov rsi, qword ptr [rsp + 0x48]",
+        "f47365 add rsp, 0x20",
+        "f47369 pop r14",
+        "f4736b ret "
+      ]
+    },
+    "0xf47a50": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xf47a50",
+      "window_size": 1024,
+      "reachable_instruction_count": 239,
+      "unresolved_edges": [
+        {
+          "address": "0xf47e4f",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xf47e4f",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xf47e4f",
+          "reason": "decode/end failure"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xf47aca",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47b0f",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xf47b43",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47ba8",
+          "operand": "qword ptr [rax + 8]"
+        },
+        {
+          "site": "0xf47bbd",
+          "operand": "0x26079d0"
+        },
+        {
+          "site": "0xf47bd1",
+          "operand": "r8"
+        },
+        {
+          "site": "0xf47c69",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47ca8",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xf47ce1",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47d17",
+          "operand": "0xf47640"
+        },
+        {
+          "site": "0xf47d48",
+          "operand": "0x11f6f0"
+        },
+        {
+          "site": "0xf47db1",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47df4",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xf47e34",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xf47d60",
+          "operand": "0xf457a0"
+        }
+      ],
+      "asm": [
+        "f47a50 push rbp",
+        "f47a52 push rbx",
+        "f47a53 push rsi",
+        "f47a54 push rdi",
+        "f47a55 push r12",
+        "f47a57 push r13",
+        "f47a59 push r14",
+        "f47a5b push r15",
+        "f47a5d mov rbp, rsp",
+        "f47a60 sub rsp, 0x58",
+        "f47a64 mov r15, rcx",
+        "f47a67 xor r13d, r13d",
+        "f47a6a mov edx, 0x20e8",
+        "f47a6f mov esi, 0x10",
+        "f47a74 lea rdi, [rip + 0x24956b6]",
+        "f47a7b lea r12, [rip + 0x24956ae]",
+        "f47a82 cmp byte ptr [rip + 0x2747b88], r13b",
+        "f47a89 je 0xf47b57",
+        "f47a8f cmp byte ptr [rip + 0x249569a], r13b",
+        "f47a96 jne 0xf47ae1",
+        "f47a98 cmp qword ptr [rip + 0x2495c11], r13",
+        "f47a9f jne 0xf47ae1",
+        "f47aa1 mov byte ptr [rbp + 0x48], r13b",
+        "f47aa5 mov qword ptr [rsp + 0x28], r12",
+        "f47aaa lea rax, [rbp + 0x48]",
+        "f47aae mov qword ptr [rsp + 0x20], rax",
+        "f47ab3 mov r9b, 1",
+        "f47ab6 mov r8d, 0x464",
+        "f47abc lea rdx, [rip + 0x184cc5a]",
+        "f47ac3 lea rcx, [rip + 0x184cd6e]",
+        "f47aca call 0x254ab40",
+        "f47acf mov byte ptr [rip + 0x249565b], al",
+        "f47ad5 cmp byte ptr [rbp + 0x48], r13b",
+        "f47ad9 je 0xf47adc",
+        "f47adb int3 ",
+        "f47adc mov edx, 0x20e8",
+        "f47ae1 cmp byte ptr [rip + 0x2747b29], r13b",
+        "f47ae8 je 0xf47b57",
+        "f47aea cmp byte ptr [rip + 0x2495640], r13b",
+        "f47af1 jne 0xf47b57",
+        "f47af3 mov r14d, dword ptr [rip + 0x274bf9e]",
+        "f47afa mov rax, qword ptr gs:[0x58]",
+        "f47b03 mov rbx, qword ptr [rax + r14*8]",
+        "f47b07 mov eax, edx",
+        "f47b09 cmp byte ptr [rax + rbx], r13b",
+        "f47b0d jne 0xf47b14",
+        "f47b0f call 0x25a04d0",
+        "f47b14 cmp dword ptr [rsi + rbx], r13d",
+        "f47b18 je 0xf47b5e",
+        "f47b1a mov byte ptr [rbp + 0x50], r13b",
+        "f47b1e mov qword ptr [rsp + 0x28], rdi",
+        "f47b23 lea rax, [rbp + 0x50]",
+        "f47b27 mov qword ptr [rsp + 0x20], rax",
+        "f47b2c mov r9b, 1",
+        "f47b2f mov r8d, 0x465",
+        "f47b35 lea rdx, [rip + 0x184cbe1]",
+        "f47b3c lea rcx, [rip + 0x184cd1d]",
+        "f47b43 call 0x254ab40",
+        "f47b48 mov byte ptr [rip + 0x24955e3], al",
+        "f47b4e cmp byte ptr [rbp + 0x50], r13b",
+        "f47b52 je 0xf47b5e",
+        "f47b54 int3 ",
+        "f47b57 mov r14d, dword ptr [rip + 0x274bf3a]",
+        "f47b5e mov rax, qword ptr [rip + 0x2495b4b]",
+        "f47b65 mov esi, dword ptr [rax + 0x2bc]",
+        "f47b6b cmp esi, dword ptr [r15 + 0x1c]",
+        "f47b6f jle 0xf47c1d",
+        "f47b75 mov eax, dword ptr [r15 + 0x18]",
+        "f47b79 cmp esi, eax",
+        "f47b7b jle 0xf47be3",
+        "f47b7d movd xmm0, eax",
+        "f47b81 cvtdq2ps xmm0, xmm0",
+        "f47b84 mulss xmm0, dword ptr [rip + 0x184ddfc]",
+        "f47b8c cvttss2si edi, xmm0",
+        "f47b90 cmp esi, edi",
+        "f47b92 cmovg edi, esi",
+        "f47b95 mov rcx, qword ptr [r15 + 0x20]",
+        "f47b99 mov rax, qword ptr [rcx]",
+        "f47b9c mov edx, edi",
+        "f47b9e shl rdx, 5",
+        "f47ba2 mov r8d, 8",
+        "f47ba8 call qword ptr [rax + 8]",
+        "f47bab mov rbx, rax",
+        "f47bae movsxd r8, dword ptr [r15 + 0x1c]",
+        "f47bb2 shl r8, 5",
+        "f47bb6 mov rdx, qword ptr [r15 + 0x10]",
+        "f47bba mov rcx, rax",
+        "f47bbd call 0x26079d0",
+        "f47bc2 mov rcx, qword ptr [r15 + 0x20]",
+        "f47bc6 mov rdx, qword ptr [rcx]",
+        "f47bc9 mov r8, qword ptr [rdx + 0x10]",
+        "f47bcd mov rdx, qword ptr [r15 + 0x10]",
+        "f47bd1 call r8",
+        "f47bd4 mov qword ptr [r15 + 0x10], rbx",
+        "f47bd8 mov dword ptr [r15 + 0x18], edi",
+        "f47bdc lea rdi, [rip + 0x249554e]",
+        "f47be3 movsxd rax, dword ptr [r15 + 0x1c]",
+        "f47be7 mov ecx, esi",
+        "f47be9 sub ecx, eax",
+        "f47beb shl rax, 5",
+        "f47bef add rax, 0x10",
+        "f47bf3 test ecx, ecx",
+        "f47bf5 jle 0xf47c1d",
+        "f47bf7 add rax, qword ptr [r15 + 0x10]",
+        "f47bfb nop dword ptr [rax + rax]",
+        "f47c00 mov qword ptr [rax - 0x10], 0x186a0",
+        "f47c08 mov qword ptr [rax - 8], r13",
+        "f47c0c mov qword ptr [rax], r13",
+        "f47c0f and byte ptr [rax + 8], 0xf0",
+        "f47c13 lea rax, [rax + 0x20]",
+        "f47c17 dec ecx",
+        "f47c19 test ecx, ecx",
+        "f47c1b jg 0xf47c00",
+        "f47c1d mov dword ptr [r15 + 0x1c], esi",
+        "f47c21 cmp byte ptr [rip + 0x27479e9], r13b",
+        "f47c28 je 0xf47cf3",
+        "f47c2e cmp byte ptr [rip + 0x24954fb], r13b",
+        "f47c35 jne 0xf47c7b",
+        "f47c37 cmp qword ptr [rip + 0x2495a72], r13",
+        "f47c3e jne 0xf47c7b",
+        "f47c40 mov byte ptr [rbp + 0x58], r13b",
+        "f47c44 mov qword ptr [rsp + 0x28], r12",
+        "f47c49 lea rax, [rbp + 0x58]",
+        "f47c4d mov qword ptr [rsp + 0x20], rax",
+        "f47c52 mov r9b, 1",
+        "f47c55 mov r8d, 0x464",
+        "f47c5b lea rdx, [rip + 0x184cabb]",
+        "f47c62 lea rcx, [rip + 0x184cbcf]",
+        "f47c69 call 0x254ab40",
+        "f47c6e mov byte ptr [rip + 0x24954bc], al",
+        "f47c74 cmp byte ptr [rbp + 0x58], r13b",
+        "f47c78 je 0xf47c7b",
+        "f47c7a int3 ",
+        "f47c7b cmp byte ptr [rip + 0x274798f], r13b",
+        "f47c82 je 0xf47cf3",
+        "f47c84 cmp byte ptr [rip + 0x24954a6], r13b",
+        "f47c8b jne 0xf47cf3",
+        "f47c8d mov ecx, r14d",
+        "f47c90 mov rax, qword ptr gs:[0x58]",
+        "f47c99 mov rbx, qword ptr [rax + rcx*8]",
+        "f47c9d mov eax, 0x20e8",
+        "f47ca2 cmp byte ptr [rax + rbx], r13b",
+        "f47ca6 jne 0xf47cad",
+        "f47ca8 call 0x25a04d0",
+        "f47cad mov eax, 0x10",
+        "f47cb2 cmp dword ptr [rax + rbx], r13d",
+        "f47cb6 je 0xf47cf3",
+        "f47cb8 mov byte ptr [rbp + 0x60], r13b",
+        "f47cbc mov qword ptr [rsp + 0x28], rdi",
+        "f47cc1 lea rax, [rbp + 0x60]",
+        "f47cc5 mov qword ptr [rsp + 0x20], rax",
+        "f47cca mov r9b, 1",
+        "f47ccd mov r8d, 0x465",
+        "f47cd3 lea rdx, [rip + 0x184ca43]",
+        "f47cda lea rcx, [rip + 0x184cb7f]",
+        "f47ce1 call 0x254ab40",
+        "f47ce6 mov byte ptr [rip + 0x2495445], al",
+        "f47cec cmp byte ptr [rbp + 0x60], r13b",
+        "f47cf0 je 0xf47cf3",
+        "f47cf2 int3 ",
+        "f47cf3 mov rax, qword ptr [rip + 0x24959b6]",
+        "f47cfa mov r14d, dword ptr [rax + 0x2d4]",
+        "f47d01 mov r8d, dword ptr [r15 + 0x34]",
+        "f47d05 mov edx, r14d",
+        "f47d08 lea rcx, [r15 + 0x28]",
+        "f47d0c cmp r14d, r8d",
+        "f47d0f jle 0xf47d60",
+        "f47d11 mov r8d, 1",
+        "f47d17 call 0xf47640",
+        "f47d1c movsxd rax, dword ptr [r15 + 0x34]",
+        "f47d20 mov edi, r14d",
+        "f47d23 sub edi, eax",
+        "f47d25 lea rcx, [rax + rax*4]",
+        "f47d29 mov rax, qword ptr [r15 + 0x28]",
+        "f47d2d test edi, edi",
+        "f47d2f jle 0xf47d65",
+        "f47d31 lea rbx, [rax + 0x24]",
+        "f47d35 lea rbx, [rbx + rcx*8]",
+        "f47d39 nop dword ptr [rax]",
+        "f47d40 mov qword ptr [rbx - 0x24], r13",
+        "f47d44 lea rcx, [rbx - 0x1c]",
+        "f47d48 call 0x11f6f0",
+        "f47d4d and byte ptr [rbx], 0xfe",
+        "f47d50 mov dword ptr [rbx - 4], r13d",
+        "f47d54 lea rbx, [rbx + 0x28]",
+        "f47d58 dec edi",
+        "f47d5a test edi, edi",
+        "f47d5c jg 0xf47d40",
+        "f47d5e jmp 0xf47d65",
+        "f47d60 call 0xf457a0",
+        "f47d65 mov dword ptr [r15 + 0x34], r14d",
+        "f47d69 cmp byte ptr [rip + 0x27478a1], r13b",
+        "f47d70 je 0xf47e48",
+        "f47d76 cmp byte ptr [rip + 0x24953b3], r13b",
+        "f47d7d jne 0xf47dc3",
+        "f47d7f cmp qword ptr [rip + 0x249592a], r13",
+        "f47d86 jne 0xf47dc3",
+        "f47d88 mov byte ptr [rbp - 0x28], r13b",
+        "f47d8c mov qword ptr [rsp + 0x28], r12",
+        "f47d91 lea rax, [rbp - 0x28]",
+        "f47d95 mov qword ptr [rsp + 0x20], rax",
+        "f47d9a mov r9b, 1",
+        "f47d9d mov r8d, 0x464",
+        "f47da3 lea rdx, [rip + 0x184c973]",
+        "f47daa lea rcx, [rip + 0x184ca87]",
+        "f47db1 call 0x254ab40",
+        "f47db6 mov byte ptr [rip + 0x2495374], al",
+        "f47dbc cmp byte ptr [rbp - 0x28], r13b",
+        "f47dc0 je 0xf47dc3",
+        "f47dc2 int3 ",
+        "f47dc3 cmp byte ptr [rip + 0x2747847], r13b",
+        "f47dca je 0xf47e48",
+        "f47dcc cmp byte ptr [rip + 0x249535e], r13b",
+        "f47dd3 jne 0xf47e48",
+        "f47dd5 mov r12d, dword ptr [rip + 0x274bcbc]",
+        "f47ddc mov rax, qword ptr gs:[0x58]",
+        "f47de5 mov rbx, qword ptr [rax + r12*8]",
+        "f47de9 mov eax, 0x20e8",
+        "f47dee cmp byte ptr [rax + rbx], r13b",
+        "f47df2 jne 0xf47df9",
+        "f47df4 call 0x25a04d0",
+        "f47df9 mov eax, 0x10",
+        "f47dfe cmp dword ptr [rax + rbx], r13d",
+        "f47e02 je 0xf47e4f",
+        "f47e04 mov byte ptr [rbp - 0x27], r13b",
+        "f47e08 lea rax, [rip + 0x2495322]",
+        "f47e0f mov qword ptr [rsp + 0x28], rax",
+        "f47e14 lea rax, [rbp - 0x27]",
+        "f47e18 mov qword ptr [rsp + 0x20], rax",
+        "f47e1d mov r9b, 1",
+        "f47e20 mov r8d, 0x465",
+        "f47e26 lea rdx, [rip + 0x184c8f0]",
+        "f47e2d lea rcx, [rip + 0x184ca2c]",
+        "f47e34 call 0x254ab40",
+        "f47e39 mov byte ptr [rip + 0x24952f2], al",
+        "f47e3f cmp byte ptr [rbp - 0x27], r13b",
+        "f47e43 je 0xf47e4f",
+        "f47e45 int3 ",
+        "f47e48 mov r12d, dword ptr [rip + 0x274bc49]"
+      ]
+    },
+    "0xf48840": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xf48840",
+      "window_size": 384,
+      "reachable_instruction_count": 57,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xf488b9",
+          "operand": "0xf404b0"
+        },
+        {
+          "site": "0xf488d1",
+          "operand": "0xf45670"
+        },
+        {
+          "site": "0xf488da",
+          "operand": "0x25a0218"
+        }
+      ],
+      "asm": [
+        "f48840 mov qword ptr [rsp + 8], rbx",
+        "f48845 mov qword ptr [rsp + 0x10], rbp",
+        "f4884a mov qword ptr [rsp + 0x18], rsi",
+        "f4884f mov qword ptr [rsp + 0x20], rdi",
+        "f48854 push r12",
+        "f48856 push r14",
+        "f48858 push r15",
+        "f4885a sub rsp, 0x30",
+        "f4885e mov eax, dword ptr [rdx]",
+        "f48860 lea rdi, [rdx + 8]",
+        "f48864 mov r8d, dword ptr [rcx]",
+        "f48867 lea r12, [rip + 0x21e14c2]",
+        "f4886e mov r9, rcx",
+        "f48871 mov dword ptr [rcx], eax",
+        "f48873 movzx eax, byte ptr [rdx + 4]",
+        "f48877 mov dword ptr [rdx], r8d",
+        "f4887a movzx r8d, byte ptr [rcx + 4]",
+        "f4887f mov byte ptr [rcx + 4], al",
+        "f48882 add rcx, 8",
+        "f48886 mov byte ptr [rdx + 4], r8b",
+        "f4888a xor eax, eax",
+        "f4888c mov rsi, qword ptr [r9 + 0x18]",
+        "f48890 mov rdx, rdi",
+        "f48893 mov ebp, dword ptr [r9 + 0x20]",
+        "f48897 mov ebx, dword ptr [rcx]",
+        "f48899 mov r14d, dword ptr [r9 + 0x24]",
+        "f4889d movzx r15d, byte ptr [r9 + 0x28]",
+        "f488a2 movaps xmmword ptr [rsp + 0x20], xmm6",
+        "f488a7 movss xmm6, dword ptr [r9 + 0x2c]",
+        "f488ad mov qword ptr [r9 + 0x18], r12",
+        "f488b1 mov qword ptr [r9 + 0x20], rax",
+        "f488b5 mov byte ptr [r9 + 0x28], al",
+        "f488b9 call 0xf404b0",
+        "f488be mov dword ptr [rdi], ebx",
+        "f488c0 mov rdx, qword ptr [rdi + 0x10]",
+        "f488c4 cmp rdx, r12",
+        "f488c7 je 0xf488df",
+        "f488c9 mov r8d, dword ptr [rdi + 0x18]",
+        "f488cd lea rcx, [rdi + 8]",
+        "f488d1 call 0xf45670",
+        "f488d6 mov rcx, qword ptr [rdi + 0x10]",
+        "f488da call 0x25a0218",
+        "f488df mov rbx, qword ptr [rsp + 0x50]",
+        "f488e4 movss dword ptr [rdi + 0x24], xmm6",
+        "f488e9 movaps xmm6, xmmword ptr [rsp + 0x20]",
+        "f488ee mov qword ptr [rdi + 0x10], rsi",
+        "f488f2 mov rsi, qword ptr [rsp + 0x60]",
+        "f488f7 mov dword ptr [rdi + 0x18], ebp",
+        "f488fa mov rbp, qword ptr [rsp + 0x58]",
+        "f488ff mov dword ptr [rdi + 0x1c], r14d",
+        "f48903 mov byte ptr [rdi + 0x20], r15b",
+        "f48907 mov rdi, qword ptr [rsp + 0x68]",
+        "f4890c add rsp, 0x30",
+        "f48910 pop r15",
+        "f48912 pop r14",
+        "f48914 pop r12",
+        "f48916 ret "
+      ]
+    }
+  }
+}

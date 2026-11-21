@@ -1,0 +1,63 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "accepted_fields": [
+    "world.shortages.equipment.equipment_type",
+    "world.shortages.equipment.stockpile"
+  ],
+  "scope": "Own currently present integral stockpile buckets; live accepted type train_equipment only. No absent type zero, demand, deficit or full shortages coverage. Fractional integer policy unverified; stockpile omitted for fractional raw.",
+  "typed_execution": {
+    "rtti": "CStockpiledEquipmentDeleteCommand",
+    "vtable_rva": "2A9D8B0",
+    "method": "1A3A240",
+    "country_production": "1A3A277 country resolution;1A3A285 [country+F68] CProductionStatus",
+    "pool": "1A3A28F ->C53170 leaf production+200, live CEquipmentVariantPool",
+    "actual_current_quantity_clear": "1A3A319..32A same typed pool; r8=0; calls10980E0 for selected variant. Ordinary branch, never executed by this research."
+  },
+  "dataflow": {
+    "setter": "10980E0",
+    "variant_group_type": "variant+3F0 ->definition+538 CEquipmentType; matches bucket pointer",
+    "type_stride": 24,
+    "type_fields": "ptr+0, i32 begin+8, i32 count+C, qword FIXED total+10",
+    "variant_stride": 16,
+    "variant_fields": "ptr+0, qword FIXED current amount+8",
+    "range_construction": "10981A1 begin=previous variant count;10981A9 count=1;10981E4 increments count;1098200 shifts later begins",
+    "aggregate_update": "1098233 old variant amount ->2574BA0 NEG;1098257 subtract old from bucket;1098288 add new;10982A3 store new variant amount",
+    "scale": "C8A39E r8d=186A0 before10980E0 sets one item;1098860 explicitly truncates signed qword quantities /100000 then multiplies100000",
+    "collector_policy": "Only exactly divisible raw quantities emitted as integer stockpile; fractional raw retained evidence and stockpile omitted"
+  },
+  "alias_warning": "C53170 LEA+200 is folded/shared with unrelated classes such as CArmy path. Not typed alone. Only actual CC+F68 chain plus CProductionStatus/CEquipmentVariantPool RTTI accepted.",
+  "live_rows": [
+    {
+      "equipment_type": "train_equipment",
+      "stockpile": 5
+    }
+  ],
+  "live_bucket_checks": {
+    "production_ptr": "0x1b0533d5c40",
+    "pool_ptr": "0x1b0533d5e40",
+    "type_count": 1,
+    "variant_count": 1,
+    "buckets": [
+      {
+        "equipment_type": "train_equipment",
+        "begin": 0,
+        "variant_count": 1,
+        "amount_raw": 500000,
+        "variant_sum_raw": 500000,
+        "integral_items": true
+      }
+    ],
+    "coverage": "present own-country stockpile types only; not a complete shortages list; absent types NOT zero; demand/deficit unknown",
+    "semantic_proof": "t168_equipment_semantic_proofs.json"
+  },
+  "proof_files": [
+    "t168_typed_effect_vtables.json",
+    "t168_stockpile_typed_execution.json",
+    "t168_equipment_adjacent_methods.json",
+    "t168_pool_negative_old_amount.json",
+    "t168_equipment_typed_live.json"
+  ],
+  "read_only": true,
+  "no_game_method_execution": true
+}

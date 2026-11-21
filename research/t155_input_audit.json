@@ -1,0 +1,605 @@
+{
+  "audited_at": "2026-11-18T07:09:17.087556-05:00",
+  "time_zone": "America/New_York (EST)",
+  "mode": "offline_existing_evidence_only",
+  "live_fields_newly_verified": [],
+  "complete_input": false,
+  "full_schema_validated": false,
+  "environment": {
+    "process_check": "Get-Process filter hoi|heart returned 0 matches",
+    "target_machine": "a849f760-4114-424f-af9c-d10eef8ca3e8",
+    "game_started_or_modified": false,
+    "document_read": "refused: outside allowed local-exec root; no alternative route attempted",
+    "static_map_check": "not attempted: game not running; active mod/map identity not established"
+  },
+  "historical_recheck": {
+    "unit_count": 21,
+    "organization_matches": 21,
+    "max_hp_matches": 21,
+    "equipment_matches": 21,
+    "experience_matches": 21,
+    "caveat": "Recomputed assertions from previous evidence; not independent live verification."
+  },
+  "corrections": [
+    {
+      "field": "strength.manpower",
+      "status": "unverified",
+      "reason": "4F0 matches full template manpower only; current versus max unresolved"
+    },
+    {
+      "field": "relation_to_player",
+      "status": "self_only",
+      "reason": "same owner index proves self; no ally/enemy/subject relation resolver"
+    },
+    {
+      "field": "meta.allow_write",
+      "status": "configuration_not_memory",
+      "default": false
+    },
+    {
+      "field": "meta.geography_scope",
+      "status": "configuration_not_memory",
+      "default": null
+    },
+    {
+      "field": "policy",
+      "status": "configuration_not_memory",
+      "reason": "player instructions or documented default, not engine discovery"
+    },
+    {
+      "field": "meta.speed",
+      "status": "unverified_official_pause",
+      "reason": "4BC is setting only; a frozen sample does not prove pause"
+    },
+    {
+      "field": "order.path_province_ids",
+      "status": "empty_example_only",
+      "reason": "no proof of nonempty path serialization"
+    },
+    {
+      "field": "template",
+      "status": "required_template_id_unresolved",
+      "reason": "name-only nested object is not a valid complete template"
+    },
+    {
+      "field": "in_combat/order",
+      "status": "required_and_missing",
+      "reason": "unit observation cannot be called complete Input"
+    },
+    {
+      "field": "supply/current_HP/visibility",
+      "status": "unverified",
+      "reason": "no positive semantic/live contrast proof"
+    }
+  ],
+  "sources": [
+    {
+      "path": "research/_t143_own_units.json",
+      "sha256": "b5bac7ba9981329f444574644ff4d4855fcc4045904940b6044432286aa20e05"
+    },
+    {
+      "path": "research/_t144_probe4.json",
+      "sha256": "17773d72073506654df1d54d2b3a362cffe4498d99c9108ce42428004894e029"
+    },
+    {
+      "path": "research/_t144_probe5.json",
+      "sha256": "41a16c2170df02a4b99925dd139bb086d6c69c1df9c3ce1483d73b36bb748153"
+    },
+    {
+      "path": "research/_t144_fields.json",
+      "sha256": "d2659c870b3559a4b1f6418fc872b0a61b6f4a4b8d4c6db64b727c675cfe0df4"
+    }
+  ],
+  "historical_partial_observation": {
+    "meta": {
+      "game_time": {
+        "year": 1936,
+        "month": 1,
+        "day": 1,
+        "hour": 12
+      },
+      "player_country": {
+        "index": 44,
+        "tag": "ETH"
+      }
+    },
+    "world": {
+      "own_units": [
+        {
+          "unit_id": 1829,
+          "name": "Kebur Zabagna",
+          "province_id": 5010,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 58.9,
+          "strength": {
+            "max": 125.0,
+            "equipment_ratio": 1.0
+          }
+        },
+        {
+          "unit_id": 1830,
+          "name": "1 Gojjam Yekilili Sefari ",
+          "province_id": 1984,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1831,
+          "name": "1 Wolqayt Yekilili Sefari ",
+          "province_id": 13237,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 66.5,
+          "strength": {
+            "max": 80.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1832,
+          "name": "1 Semien Yekilili Sefari ",
+          "province_id": 13237,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 66.5,
+          "strength": {
+            "max": 80.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1833,
+          "name": "1 Amino Yekilili Sefari ",
+          "province_id": 13238,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1834,
+          "name": "1 Gubba Yekilili Sefari ",
+          "province_id": 13238,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1835,
+          "name": "1 Gurage Yekilili Sefari ",
+          "province_id": 2072,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1836,
+          "name": "1 Jimma Yekilili Sefari ",
+          "province_id": 5097,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1837,
+          "name": "1 Om Hajer Yekilili Sefari ",
+          "province_id": 5097,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1838,
+          "name": "1 Sela Yekilili Sefari ",
+          "province_id": 7980,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1839,
+          "name": "1 Welega Yekilili Sefari ",
+          "province_id": 5097,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 57.0,
+          "strength": {
+            "max": 100.0,
+            "equipment_ratio": 0.8
+          }
+        },
+        {
+          "unit_id": 1840,
+          "name": "1 Begemder Sefari ",
+          "province_id": 2072,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1841,
+          "name": "1 Tigray Sefari ",
+          "province_id": 13238,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1842,
+          "name": "1 Wag Sefari ",
+          "province_id": 7944,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.45
+          }
+        },
+        {
+          "unit_id": 1843,
+          "name": "1 Welega-Ardjo Sefari ",
+          "province_id": 7944,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 1.0
+          }
+        },
+        {
+          "unit_id": 1844,
+          "name": "1 Kaffa Sefari ",
+          "province_id": 1984,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1845,
+          "name": "1 Ogaden Sefari ",
+          "province_id": 12812,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1846,
+          "name": "1 Hararghe Sefari ",
+          "province_id": 12757,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1847,
+          "name": "1 Illubabor Sefari ",
+          "province_id": 4995,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1848,
+          "name": "1 Bale Sefari ",
+          "province_id": 4995,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.6
+          }
+        },
+        {
+          "unit_id": 1849,
+          "name": "1 Sidamo Sefari ",
+          "province_id": 8062,
+          "owner": {
+            "index": 44,
+            "tag": "ETH"
+          },
+          "relation_to_player": "self",
+          "organization": 42.75,
+          "strength": {
+            "max": 180.0,
+            "equipment_ratio": 0.9
+          }
+        }
+      ]
+    }
+  },
+  "unit_necessary_shape_blockers": [
+    {
+      "unit_id": 1829,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1830,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1831,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1832,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1833,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1834,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1835,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1836,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1837,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1838,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1839,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1840,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1841,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1842,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1843,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1844,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1845,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1846,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1847,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1848,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    },
+    {
+      "unit_id": 1849,
+      "errors": [
+        "in_combat: missing required field",
+        "order: missing required field"
+      ]
+    }
+  ],
+  "other_blockers": [
+    "meta.speed absent",
+    "policy/feedback not collected",
+    "other world domains not collected",
+    "no full schema validator",
+    "no live capture or active-mod/version fingerprint"
+  ],
+  "implementation": {
+    "module": "calling/input_observation.py",
+    "status": "implemented and synthetic-tested; not live-accepted",
+    "functions": [
+      "observe_own_divisions(read, country_ptr, player_index, carmy_vtable=..., version_verified=...)",
+      "unit_blockers(unit)"
+    ],
+    "limits": [
+      "no process attachment or automatic resolver",
+      "caller must independently verify executable version and fresh context",
+      "4096 row bound",
+      "no write methods",
+      "not full-schema validation",
+      "no atomic scalar snapshot"
+    ]
+  },
+  "next_conditions": [
+    "User starts HOI4 and loads a disposable test campaign manually, paused or 1x; do not exit/change the current session automatically.",
+    "Grant sanctioned local-exec access to the requested D-drive folder before reading/updating its original 116-row table.",
+    "First reverify executable fingerprint, active mods, GS/player and current arrays without issuing orders.",
+    "If nonempty states still absent, obtain approval for a disposable test: movement, damage, low supply, army/group, frontline and active battle.",
+    "Visibility needs one known-visible and one known-hidden enemy unit without exporting the hidden unit as visible."
+  ]
+}

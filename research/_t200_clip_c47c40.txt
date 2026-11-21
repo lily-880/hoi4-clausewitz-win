@@ -1,0 +1,24 @@
+c47c40 sub rsp, 0x28
+c47c44 cmp byte ptr [rcx + 0x19b], 0
+c47c4b je 0xc47c84
+c47c4d cmp qword ptr [rcx + 0x88], 0
+c47c55 je 0xc47c84
+c47c57 mov rcx, qword ptr [rcx + 0x68]
+c47c5b test rcx, rcx
+c47c5e je 0xc47c84
+c47c60 mov rax, qword ptr [rcx]
+c47c63 call qword ptr [rax + 0x20]
+c47c66 test rax, rax
+c47c69 je 0xc47c84
+c47c6b cmp dword ptr [rax + 8], 0
+c47c6f jne 0xc47c84
+c47c71 mov rcx, rax
+c47c74 call 0xe64c50
+c47c79 test al, al
+c47c7b jne 0xc47c84
+c47c7d mov al, 1
+c47c7f add rsp, 0x28
+c47c83 ret 
+c47c84 xor al, al
+c47c86 add rsp, 0x28
+c47c8a ret 

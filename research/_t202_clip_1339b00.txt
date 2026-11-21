@@ -1,0 +1,180 @@
+1339b00 mov qword ptr [rsp + 0x10], rbx
+1339b05 mov qword ptr [rsp + 0x18], rsi
+1339b0a push rbp
+1339b0b push rdi
+1339b0c push r12
+1339b0e push r14
+1339b10 push r15
+1339b12 mov rbp, rsp
+1339b15 sub rsp, 0x50
+1339b19 movsxd rax, dword ptr [rcx + 0x14]
+1339b1d mov dil, 1
+1339b20 movsxd r12, r8d
+1339b23 mov r15, r9
+1339b26 mov r10, r12
+1339b29 mov r14, rdx
+1339b2c and r10, rax
+1339b2f mov rsi, rcx
+1339b32 mov rax, qword ptr [rcx + 8]
+1339b36 lea r10, [r10 + r10*2]
+1339b3a cmp byte ptr [rax + r10*8], dil
+1339b3e lea rbx, [rax + r10*8]
+1339b42 jb 0x1339b6e
+1339b44 mov eax, dword ptr [r15]
+1339b47 mov edx, dword ptr [rbx + 4]
+1339b4a cmp eax, edx
+1339b4c je 0x1339bcd
+1339b4e test eax, eax
+1339b50 je 0x1339b62
+1339b52 test edx, edx
+1339b54 je 0x1339b62
+1339b56 mov rcx, r15
+1339b59 call 0xc085f0
+1339b5e test al, al
+1339b60 jne 0x1339bcd
+1339b62 add rbx, 0x18
+1339b66 inc dil
+1339b69 cmp dil, byte ptr [rbx]
+1339b6c jbe 0x1339b44
+1339b6e cmp dil, byte ptr [rsi + 0x18]
+1339b72 ja 0x1339d13
+1339b78 mov eax, dword ptr [rsi + 0x10]
+1339b7b movd xmm0, dword ptr [rsi + 0x14]
+1339b80 inc eax
+1339b82 cvtdq2ps xmm0, xmm0
+1339b85 movd xmm1, eax
+1339b89 cvtdq2ps xmm1, xmm1
+1339b8c divss xmm1, xmm0
+1339b90 comiss xmm1, dword ptr [rsi + 0x1c]
+1339b94 ja 0x1339d13
+1339b9a movzx eax, byte ptr [rbx]
+1339b9d lea rdx, [rbx + 4]
+1339ba1 test al, al
+1339ba3 jne 0x1339bda
+1339ba5 mov byte ptr [rbx], dil
+1339ba8 xorps xmm0, xmm0
+1339bab mov eax, dword ptr [r15]
+1339bae mov dword ptr [rdx], eax
+1339bb0 xor eax, eax
+1339bb2 movups xmmword ptr [rdx + 4], xmm0
+1339bb6 mov qword ptr [rdx + 8], rax
+1339bba mov dword ptr [rdx + 0x10], eax
+1339bbd inc dword ptr [rsi + 0x10]
+1339bc0 mov qword ptr [r14], rbx
+1339bc3 mov byte ptr [r14 + 8], 1
+1339bc8 jmp 0x1339d2c
+1339bcd mov qword ptr [r14], rbx
+1339bd0 mov byte ptr [r14 + 8], 0
+1339bd5 jmp 0x1339d2c
+1339bda xorps xmm1, xmm1
+1339bdd inc al
+1339bdf cmp byte ptr [rbx + 0x18], 0
+1339be3 movdqu xmmword ptr [rbp - 0x2c], xmm1
+1339be8 psrldq xmm1, 0xc
+1339bed jne 0x1339c24
+1339bef movups xmm0, xmmword ptr [rdx]
+1339bf2 mov byte ptr [rbx + 0x18], al
+1339bf5 movups xmmword ptr [rbx + 0x1c], xmm0
+1339bf9 mov eax, dword ptr [rdx + 0x10]
+1339bfc mov dword ptr [rbx + 0x2c], eax
+1339bff mov byte ptr [rbx], dil
+1339c02 mov eax, dword ptr [r15]
+1339c05 mov dword ptr [rbp - 0x30], eax
+1339c08 movups xmm0, xmmword ptr [rbp - 0x30]
+1339c0c movups xmmword ptr [rdx], xmm0
+1339c0f movd dword ptr [rdx + 0x10], xmm1
+1339c14 inc dword ptr [rsi + 0x10]
+1339c17 mov qword ptr [r14], rbx
+1339c1a mov byte ptr [r14 + 8], 1
+1339c1f jmp 0x1339d2c
+1339c24 mov byte ptr [rbp - 0x18], al
+1339c27 mov r8, rbx
+1339c2a movups xmm0, xmmword ptr [rdx]
+1339c2d movups xmmword ptr [rbp - 0x14], xmm0
+1339c31 mov eax, dword ptr [rdx + 0x10]
+1339c34 mov dword ptr [rbp - 4], eax
+1339c37 mov byte ptr [rbx], dil
+1339c3a mov eax, dword ptr [r15]
+1339c3d mov dword ptr [rbp - 0x30], eax
+1339c40 movups xmm0, xmmword ptr [rbp - 0x30]
+1339c44 movups xmmword ptr [rdx], xmm0
+1339c47 movd dword ptr [rdx + 0x10], xmm1
+1339c4c movzx ecx, byte ptr [rbp - 0x18]
+1339c50 movzx eax, byte ptr [rbx + 0x18]
+1339c54 lea rbx, [rbx + 0x18]
+1339c58 test al, al
+1339c5a je 0x1339cf6
+1339c60 cmp al, cl
+1339c62 jae 0x1339c90
+1339c64 mov byte ptr [rbp - 0x18], al
+1339c67 mov byte ptr [rbx], cl
+1339c69 movups xmm0, xmmword ptr [rbx + 4]
+1339c6d mov ecx, dword ptr [rbp - 4]
+1339c70 movups xmm1, xmmword ptr [rbp - 0x14]
+1339c74 movups xmmword ptr [rbp - 0x14], xmm0
+1339c78 mov eax, dword ptr [rbx + 0x14]
+1339c7b mov dword ptr [rbp - 4], eax
+1339c7e movups xmmword ptr [rbx + 4], xmm1
+1339c82 mov dword ptr [rbx + 0x14], ecx
+1339c85 movzx ecx, byte ptr [rbp - 0x18]
+1339c89 inc cl
+1339c8b mov byte ptr [rbp - 0x18], cl
+1339c8e jmp 0x1339c50
+1339c90 inc cl
+1339c92 mov byte ptr [rbp - 0x18], cl
+1339c95 cmp cl, byte ptr [rsi + 0x18]
+1339c98 jbe 0x1339c50
+1339c9a movzx eax, byte ptr [r8]
+1339c9e mov byte ptr [rbp - 0x18], al
+1339ca1 mov byte ptr [r8], cl
+1339ca4 movups xmm0, xmmword ptr [rdx]
+1339ca7 mov ecx, dword ptr [rbp - 4]
+1339caa movups xmm1, xmmword ptr [rbp - 0x14]
+1339cae movups xmmword ptr [rbp - 0x14], xmm0
+1339cb2 mov eax, dword ptr [rdx + 0x10]
+1339cb5 mov dword ptr [rbp - 4], eax
+1339cb8 movups xmmword ptr [rdx], xmm1
+1339cbb mov dword ptr [rdx + 0x10], ecx
+1339cbe mov rcx, rsi
+1339cc1 call 0x1347140
+1339cc6 cmp dword ptr [rbp - 0x14], 0
+1339cca jne 0x1339cd0
+1339ccc xor eax, eax
+1339cce jmp 0x1339cd9
+1339cd0 lea rcx, [rbp - 0x14]
+1339cd4 call 0xc08790
+1339cd9 lea r9, [rbp - 0x14]
+1339cdd mov r8d, eax
+1339ce0 lea rdx, [rbp - 0x30]
+1339ce4 mov rcx, rsi
+1339ce7 call 0x1339d50
+1339cec movups xmm0, xmmword ptr [rbp - 0x30]
+1339cf0 movups xmmword ptr [r14], xmm0
+1339cf4 jmp 0x1339d2c
+1339cf6 mov byte ptr [rbx], cl
+1339cf8 movups xmm0, xmmword ptr [rbp - 0x14]
+1339cfc movups xmmword ptr [rbx + 4], xmm0
+1339d00 mov eax, dword ptr [rbp - 4]
+1339d03 mov dword ptr [rbx + 0x14], eax
+1339d06 inc dword ptr [rsi + 0x10]
+1339d09 mov qword ptr [r14], r8
+1339d0c mov byte ptr [r14 + 8], 1
+1339d11 jmp 0x1339d2c
+1339d13 mov rcx, rsi
+1339d16 call 0x1347140
+1339d1b mov r9, r15
+1339d1e mov r8d, r12d
+1339d21 mov rdx, r14
+1339d24 mov rcx, rsi
+1339d27 call 0x1339b00
+1339d2c lea r11, [rsp + 0x50]
+1339d31 mov rax, r14
+1339d34 mov rbx, qword ptr [r11 + 0x38]
+1339d38 mov rsi, qword ptr [r11 + 0x40]
+1339d3c mov rsp, r11
+1339d3f pop r15
+1339d41 pop r14
+1339d43 pop r12
+1339d45 pop rdi
+1339d46 pop rbp
+1339d47 ret 

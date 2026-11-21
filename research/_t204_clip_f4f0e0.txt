@@ -1,0 +1,76 @@
+f4f0e0 mov rax, rsp
+f4f0e3 mov qword ptr [rax + 8], rbx
+f4f0e7 mov qword ptr [rax + 0x10], rsi
+f4f0eb mov qword ptr [rax + 0x18], rdi
+f4f0ef mov qword ptr [rax + 0x20], r14
+f4f0f3 push rbp
+f4f0f4 lea rbp, [rsp - 0x80]
+f4f0f9 sub rsp, 0x180
+f4f100 movaps xmmword ptr [rax - 0x18], xmm6
+f4f104 mov r14, rcx
+f4f107 mov rbx, qword ptr [rdx]
+f4f10a movsxd rax, dword ptr [rdx + 0xc]
+f4f10e lea rdx, [rax + rax*2]
+f4f112 lea rsi, [rbx + rdx*8]
+f4f116 mov qword ptr [rsp + 0x38], rsi
+f4f11b mov qword ptr [rsp + 0x40], rsi
+f4f120 mov byte ptr [rsp + 0x49], 0
+f4f125 mov qword ptr [rsp + 0x20], rbx
+f4f12a mov qword ptr [rsp + 0x28], rsi
+f4f12f mov byte ptr [rsp + 0x31], 1
+f4f134 cmp rbx, rsi
+f4f137 je 0xf4f177
+f4f139 nop dword ptr [rax]
+f4f140 lea rcx, [rbp - 0x40]
+f4f144 call 0x57bee0
+f4f149 nop 
+f4f14a mov rcx, qword ptr [rbx + 8]
+f4f14e mov rax, qword ptr [rcx]
+f4f151 lea rdx, [rbp - 0x40]
+f4f155 call qword ptr [rax + 0x18]
+f4f158 movzx edi, al
+f4f15b lea rcx, [rbp - 0x40]
+f4f15f call 0x57c5f0
+f4f164 test dil, dil
+f4f167 jne 0xf4f177
+f4f169 add rbx, 0x18
+f4f16d mov qword ptr [rsp + 0x20], rbx
+f4f172 cmp rbx, rsi
+f4f175 jne 0xf4f140
+f4f177 movups xmm1, xmmword ptr [rsp + 0x20]
+f4f17c movsd xmm2, qword ptr [rsp + 0x30]
+f4f182 movups xmm6, xmmword ptr [rsp + 0x38]
+f4f187 movups xmmword ptr [rsp + 0x68], xmm6
+f4f18c movsd xmm0, qword ptr [rsp + 0x48]
+f4f192 mov byte ptr [rbp - 0x7f], 1
+f4f196 movups xmmword ptr [rbp - 0x60], xmm6
+f4f19a movaps xmm5, xmm0
+f4f19d mov byte ptr [rbp - 0x47], 0
+f4f1a1 movups xmmword ptr [r14], xmm1
+f4f1a5 movups xmm0, xmmword ptr [rsp + 0x60]
+f4f1aa movsd xmm0, xmm2
+f4f1ae movups xmmword ptr [r14 + 0x10], xmm0
+f4f1b3 movups xmm1, xmmword ptr [rsp + 0x70]
+f4f1b8 unpcklpd xmm1, xmm5
+f4f1bc movups xmmword ptr [r14 + 0x20], xmm1
+f4f1c1 movsd xmm0, qword ptr [rbp - 0x80]
+f4f1c6 movsd qword ptr [r14 + 0x30], xmm0
+f4f1cc movups xmmword ptr [r14 + 0x38], xmm6
+f4f1d1 movups xmm0, xmmword ptr [rbp - 0x68]
+f4f1d5 movsd xmm0, xmm5
+f4f1d9 movups xmmword ptr [r14 + 0x48], xmm0
+f4f1de movups xmm1, xmmword ptr [rbp - 0x58]
+f4f1e2 unpcklpd xmm1, xmm5
+f4f1e6 movups xmmword ptr [r14 + 0x58], xmm1
+f4f1eb movsd xmm0, qword ptr [rbp - 0x48]
+f4f1f0 movsd qword ptr [r14 + 0x68], xmm0
+f4f1f6 mov rax, r14
+f4f1f9 lea r11, [rsp + 0x180]
+f4f201 mov rbx, qword ptr [r11 + 0x10]
+f4f205 mov rsi, qword ptr [r11 + 0x18]
+f4f209 mov rdi, qword ptr [r11 + 0x20]
+f4f20d mov r14, qword ptr [r11 + 0x28]
+f4f211 movaps xmm6, xmmword ptr [r11 - 0x10]
+f4f216 mov rsp, r11
+f4f219 pop rbp
+f4f21a ret 

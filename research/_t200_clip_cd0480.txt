@@ -1,0 +1,24 @@
+cd0480 sub rsp, 0x28
+cd0484 mov rdx, qword ptr [rcx + 0x610]
+cd048b movabs rax, 0x7ffffffffffffffe
+cd0495 add rax, rdx
+cd0498 cmp rax, -4
+cd049c ja 0xcd04d4
+cd049e imul rcx, rdx, 0x186a0
+cd04a5 movabs rax, 0xdfb23b0979b4b03
+cd04af imul rcx
+cd04b2 lea rcx, [rsp + 0x30]
+cd04b7 sar rdx, 0x11
+cd04bb mov rax, rdx
+cd04be shr rax, 0x3f
+cd04c2 add rdx, rax
+cd04c5 mov qword ptr [rsp + 0x30], rdx
+cd04ca call 0x2572ef0
+cd04cf add rsp, 0x28
+cd04d3 ret 
+cd04d4 mov edx, 0xffffffff
+cd04d9 lea rcx, [rsp + 0x30]
+cd04de mov qword ptr [rsp + 0x30], rdx
+cd04e3 call 0x2572ef0
+cd04e8 add rsp, 0x28
+cd04ec ret 

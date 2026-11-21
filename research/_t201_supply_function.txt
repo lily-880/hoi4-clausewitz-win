@@ -1,0 +1,32 @@
+
+def unit_supply(r, army, module_base):
+    """Official division tooltip effective supply; no game function execution.
+
+    CArmy+0x10 is CSupplyConsumer; consumer+0x30 == army+0x40.
+    1744D30 selects ARMY_UNIT_SUPPLY_DESC_BAD/OK via vslot158=CE4F10.
+    CE4CD0 supplies the effective ratio, including reserve grace. In_supply is
+    the inverse of that exact out-of-supply predicate, NOT geographic isolation.
+    Fingerprint 1.19.5 is enforced by the caller. Unsupported sentinel/overflow
+    cases are rejected instead of silently imitating invalid fixed-point math.
+    """
+    r.require(army, 'CArmy')
+    q = lambda a: struct.unpack('<q', r.exact(a, 8))[0]
+    hours = r.i(module_base + 0x33e3678)
+    threshold = q(module_base + 0x33e3e00)
+    source = q(army + 0x40)
+    capacity = q(army + 0x600)
+    reserve = q(army + 0x610)
+    special = bool(r.q(army + 0x2f8))
+    if not 0 < hours <= 100000 or not 0 <= threshold <= 100000:
+        raise ObservationError('unsupported supply global parameters')
+    # Official code multiplies reserve by 100000 in signed 64-bit arithmetic.
+    if not 0 <= reserve <= (2**63-1)//100000 or not -100000 <= source <= 10**9 or capacity < 0:
+        raise ObservationError('unsupported supply fixed-point input')
+    effective = max(0, min(100000, max(source, reserve // hours))) if capacity > 0 else 0
+    out_of_supply = False if special else effective < threshold
+    return {'ratio': effective / 100000, 'in_supply': not out_of_supply}, {
+        'source': 'CArmy CE4CD0 ratio; CE4F10 out-of-supply predicate; 1744D30 BAD/OK tooltip',
+        'consumer_ratio_raw': source, 'reserve_raw': reserve,
+        'capacity_raw': capacity, 'buffer_parameter': hours, 'threshold_raw': threshold,
+        'effective_ratio_raw': effective, 'special_case_present': special,
+        'isolated_omitted': True}

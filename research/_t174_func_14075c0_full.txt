@@ -1,0 +1,127 @@
+0x14075c0  mov qword ptr [rsp + 0x10], rbp
+0x14075c5  mov qword ptr [rsp + 0x18], rsi
+0x14075ca  push rdi
+0x14075cb  sub rsp, 0x20
+0x14075cf  mov rax, qword ptr [rcx]
+0x14075d2  mov rsi, r8
+0x14075d5  movsxd rcx, edx
+0x14075d8  mov rcx, qword ptr [rax + rcx*8]
+0x14075dc  call 0x15b1d90
+0x14075e1  movsxd rdi, dword ptr [rsi + 0x14]
+0x14075e5  mov rbp, rax
+0x14075e8  test rdi, rdi
+0x14075eb  jle 0x140762b
+0x14075ed  mov qword ptr [rsp + 0x30], rbx
+0x14075f2  xor ebx, ebx
+0x14075f4  nop dword ptr [rax]
+0x14075f8  nop dword ptr [rax + rax]
+0x1407600  mov rcx, qword ptr [rsi + 8]
+0x1407604  mov r8, qword ptr [rcx + rbx]
+0x1407608  mov rdx, qword ptr [rcx + rbx + 8]
+0x140760d  mov rcx, rbp
+0x1407610  mov r8d, dword ptr [r8 + 0x598]
+0x1407617  call 0x15b1da0
+0x140761c  lea rbx, [rbx + 0x10]
+0x1407620  sub rdi, 1
+0x1407624  jne 0x1407600
+0x1407626  mov rbx, qword ptr [rsp + 0x30]
+0x140762b  mov rbp, qword ptr [rsp + 0x38]
+0x1407630  mov rsi, qword ptr [rsp + 0x40]
+0x1407635  add rsp, 0x20
+0x1407639  pop rdi
+0x140763a  ret 
+0x140763b  int3 
+0x140763c  int3 
+0x140763d  int3 
+0x140763e  int3 
+0x140763f  int3 
+0x1407640  mov qword ptr [rsp + 0x18], rsi
+0x1407645  mov qword ptr [rsp + 0x20], rdi
+0x140764a  push r15
+0x140764c  sub rsp, 0x20
+0x1407650  movsxd rdi, dword ptr [r8 + 0x14]
+0x1407654  mov rsi, r8
+0x1407657  mov r15, rcx
+0x140765a  test rdi, rdi
+0x140765d  jle 0x14076bc
+0x140765f  mov qword ptr [rsp + 0x30], rbx
+0x1407664  xor ebx, ebx
+0x1407666  movsxd rax, edx
+0x1407669  mov qword ptr [rsp + 0x38], r14
+0x140766e  lea r14, [rax*8]
+0x1407676  nop word ptr [rax + rax]
+0x1407680  mov rax, qword ptr [r15]
+0x1407683  mov rcx, qword ptr [r14 + rax]
+0x1407687  call 0x15b1d90
+0x140768c  mov rcx, qword ptr [rsi + 8]
+0x1407690  mov r8, qword ptr [rcx + rbx]
+0x1407694  mov rdx, qword ptr [rcx + rbx + 0x10]
+0x1407699  mov rcx, rax
+0x140769c  mov r8d, dword ptr [r8 + 0x598]
+0x14076a3  call 0x15b1da0
+0x14076a8  lea rbx, [rbx + 0x18]
+0x14076ac  sub rdi, 1
+0x14076b0  jne 0x1407680
+0x14076b2  mov r14, qword ptr [rsp + 0x38]
+0x14076b7  mov rbx, qword ptr [rsp + 0x30]
+0x14076bc  mov rsi, qword ptr [rsp + 0x40]
+0x14076c1  mov rdi, qword ptr [rsp + 0x48]
+0x14076c6  add rsp, 0x20
+0x14076ca  pop r15
+0x14076cc  ret 
+0x14076cd  int3 
+0x14076ce  int3 
+0x14076cf  int3 
+0x14076d0  mov qword ptr [rsp + 8], rbx
+0x14076d5  mov qword ptr [rsp + 0x18], rsi
+0x14076da  push rdi
+0x14076db  sub rsp, 0x60
+0x14076df  cmp byte ptr [rip + 0x2287f2b], 0
+0x14076e6  mov rbx, r8
+0x14076e9  mov rsi, rdx
+0x14076ec  mov rdi, rcx
+0x14076ef  je 0x1407749
+0x14076f1  cmp byte ptr [rip + 0x20308a5], 0
+0x14076f8  jne 0x1407749
+0x14076fa  cmp byte ptr [r8 + 0x5b5], 0
+0x1407702  jne 0x1407749
+0x1407704  lea rax, [rip + 0x2030892]
+0x140770b  mov byte ptr [rsp + 0x78], 0
+0x1407710  mov qword ptr [rsp + 0x28], rax
+0x1407715  lea rdx, [rip + 0x138d001]
+0x140771c  lea rax, [rsp + 0x78]
+0x1407721  mov r9b, 1
+0x1407724  mov r8d, 0x459
+0x140772a  mov qword ptr [rsp + 0x20], rax
+0x140772f  lea rcx, [rip + 0x162782a]
+0x1407736  call 0x254ab40
+0x140773b  cmp byte ptr [rsp + 0x78], 0
+0x1407740  mov byte ptr [rip + 0x2030857], al
+0x1407746  je 0x1407749
+0x1407748  int3 
+0x1407749  mov r8, rbx
+0x140774c  lea rdx, [rsp + 0x78]
+0x1407751  mov rcx, rdi
+0x1407754  call 0x1407c30
+0x1407759  mov eax, dword ptr [rip + 0x1fd8225]
+0x140775f  lea rdx, [rsp + 0x50]
+0x1407764  mov r9, rbx
+0x1407767  mov dword ptr [rsp + 0x20], eax
+0x140776b  mov r8d, 1
+0x1407771  mov rcx, rdi
+0x1407774  call 0x1407e60
+0x1407779  mov eax, dword ptr [rip + 0x1fd8205]
+0x140777f  lea rdx, [rsp + 0x48]
+0x1407784  mov r9, rbx
+0x1407787  mov dword ptr [rsp + 0x20], eax
+0x140778b  mov r8d, 2
+0x1407791  mov rcx, rdi
+0x1407794  call 0x1407e60
+0x1407799  mov eax, dword ptr [rip + 0x1fd81e5]
+0x140779f  lea rdx, [rsp + 0x40]
+0x14077a4  mov r9, rbx
+0x14077a7  mov dword ptr [rsp + 0x20], eax
+0x14077ab  mov r8d, 3
+0x14077b1  mov rcx, rdi
+0x14077b4  call 0x1407e60
+0x14077b9  mov eax, dword ptr [rip + 0x1fd81c5]

@@ -1,0 +1,80 @@
+cc6570 mov qword ptr [rsp + 8], rbx
+cc6575 movsxd r10, dword ptr [rcx + 0x14]
+cc6579 xor edx, edx
+cc657b mov rbx, rcx
+cc657e mov r9d, edx
+cc6581 mov r11d, edx
+cc6584 test r10d, r10d
+cc6587 jle 0xcc6648
+cc658d cmp r10d, 8
+cc6591 jb 0xcc6648
+cc6597 mov r8, qword ptr [rcx + 8]
+cc659b xorps xmm5, xmm5
+cc659e mov ecx, r10d
+cc65a1 xorps xmm4, xmm4
+cc65a4 and ecx, 0x80000007
+cc65aa jge 0xcc65b3
+cc65ac dec ecx
+cc65ae or ecx, 0xfffffff8
+cc65b1 inc ecx
+cc65b3 mov eax, r10d
+cc65b6 sub eax, ecx
+cc65b8 movsxd rcx, eax
+cc65bb mov rax, rdx
+cc65be nop 
+cc65c0 movd xmm1, dword ptr [r8 + rax*8 + 0x1c]
+cc65c7 add r11d, 8
+cc65cb movd xmm0, dword ptr [r8 + rax*8 + 0xc]
+cc65d2 movd xmm2, dword ptr [r8 + rax*8 + 0x14]
+cc65d9 movd xmm3, dword ptr [r8 + rax*8 + 4]
+cc65e0 punpckldq xmm3, xmm0
+cc65e4 movd xmm0, dword ptr [r8 + rax*8 + 0x2c]
+cc65eb punpckldq xmm2, xmm1
+cc65ef movd xmm1, dword ptr [r8 + rax*8 + 0x3c]
+cc65f6 punpcklqdq xmm3, xmm2
+cc65fa movd xmm2, dword ptr [r8 + rax*8 + 0x34]
+cc6601 paddd xmm5, xmm3
+cc6605 movd xmm3, dword ptr [r8 + rax*8 + 0x24]
+cc660c add rax, 8
+cc6610 punpckldq xmm3, xmm0
+cc6614 punpckldq xmm2, xmm1
+cc6618 punpcklqdq xmm3, xmm2
+cc661c paddd xmm4, xmm3
+cc6620 cmp rax, rcx
+cc6623 jl 0xcc65c0
+cc6625 paddd xmm4, xmm5
+cc6629 movdqa xmm0, xmm4
+cc662d psrldq xmm0, 8
+cc6632 paddd xmm4, xmm0
+cc6636 movdqa xmm0, xmm4
+cc663a psrldq xmm0, 4
+cc663f paddd xmm4, xmm0
+cc6643 movd r9d, xmm4
+cc6648 movsxd rax, r11d
+cc664b mov r8d, edx
+cc664e mov r11, r10
+cc6651 cmp rax, r10
+cc6654 jge 0xcc66a2
+cc6656 mov rcx, r10
+cc6659 sub rcx, rax
+cc665c cmp rcx, 2
+cc6660 mov rcx, qword ptr [rbx + 8]
+cc6664 jl 0xcc6690
+cc6666 dec r10
+cc6669 nop dword ptr [rax]
+cc6670 add edx, dword ptr [rcx + rax*8 + 4]
+cc6674 add r8d, dword ptr [rcx + rax*8 + 0xc]
+cc6679 add rax, 2
+cc667d cmp rax, r10
+cc6680 jl 0xcc6670
+cc6682 cmp rax, r11
+cc6685 jge 0xcc6695
+cc6687 nop word ptr [rax + rax]
+cc6690 add r9d, dword ptr [rcx + rax*8 + 4]
+cc6695 lea eax, [r8 + rdx]
+cc6699 add eax, r9d
+cc669c mov rbx, qword ptr [rsp + 8]
+cc66a1 ret 
+cc66a2 mov rbx, qword ptr [rsp + 8]
+cc66a7 mov eax, r9d
+cc66aa ret 

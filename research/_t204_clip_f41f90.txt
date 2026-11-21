@@ -1,0 +1,102 @@
+f41f90 mov qword ptr [rsp + 0x18], rbp
+f41f95 mov qword ptr [rsp + 0x20], rsi
+f41f9a push r14
+f41f9c sub rsp, 0x20
+f41fa0 movsxd rbp, r8d
+f41fa3 mov r14, rdx
+f41fa6 movsxd r8, dword ptr [rcx + 0xc]
+f41faa mov rsi, rcx
+f41fad cmp ebp, r8d
+f41fb0 jg 0xf41fe6
+f41fb2 mov r9, qword ptr [rcx]
+f41fb5 mov r8, rbp
+f41fb8 shl r8, 5
+f41fbc add r8, rdx
+f41fbf call 0xf46610
+f41fc4 mov r8d, dword ptr [rsi + 0xc]
+f41fc8 mov edx, ebp
+f41fca mov rcx, rsi
+f41fcd call 0xa41a50
+f41fd2 mov dword ptr [rsi + 0xc], ebp
+f41fd5 mov rbp, qword ptr [rsp + 0x40]
+f41fda mov rsi, qword ptr [rsp + 0x48]
+f41fdf add rsp, 0x20
+f41fe3 pop r14
+f41fe5 ret 
+f41fe6 cmp ebp, dword ptr [rcx + 8]
+f41fe9 jg 0xf42032
+f41feb mov r9, qword ptr [rcx]
+f41fee shl r8, 5
+f41ff2 add r8, r14
+f41ff5 call 0xf46610
+f41ffa movsxd rcx, dword ptr [rsi + 0xc]
+f41ffe mov r8, rbp
+f42001 mov r9, qword ptr [rsi]
+f42004 shl rcx, 5
+f42008 shl r8, 5
+f4200c add r9, rcx
+f4200f add r8, r14
+f42012 lea rdx, [rcx + r14]
+f42016 mov rcx, rsi
+f42019 call 0xb01230
+f4201e mov dword ptr [rsi + 0xc], ebp
+f42021 mov rbp, qword ptr [rsp + 0x40]
+f42026 mov rsi, qword ptr [rsp + 0x48]
+f4202b add rsp, 0x20
+f4202f pop r14
+f42031 ret 
+f42032 xor edx, edx
+f42034 call 0xa41a50
+f42039 mov dword ptr [rsi + 0xc], 0
+f42040 test ebp, ebp
+f42042 jle 0xf420c3
+f42044 mov eax, dword ptr [rsi + 8]
+f42047 cmp ebp, eax
+f42049 jle 0xf420d0
+f4204f mov rcx, qword ptr [rsi + 0x10]
+f42053 mov r8d, 8
+f42059 movd xmm0, eax
+f4205d cvtdq2ps xmm0, xmm0
+f42060 mov qword ptr [rsp + 0x30], rbx
+f42065 mov rax, qword ptr [rcx]
+f42068 mov qword ptr [rsp + 0x38], rdi
+f4206d mulss xmm0, dword ptr [rip + 0x1853913]
+f42075 cvttss2si edi, xmm0
+f42079 cmp ebp, edi
+f4207b cmovg edi, ebp
+f4207e mov edx, edi
+f42080 shl rdx, 5
+f42084 call qword ptr [rax + 8]
+f42087 movsxd r8, dword ptr [rsi + 0xc]
+f4208b mov rcx, rsi
+f4208e mov rdx, qword ptr [rsi]
+f42091 mov r9, rax
+f42094 shl r8, 5
+f42098 mov rbx, rax
+f4209b add r8, rdx
+f4209e call 0xb01230
+f420a3 mov rcx, qword ptr [rsi + 0x10]
+f420a7 mov rdx, qword ptr [rsi]
+f420aa mov r8, qword ptr [rcx]
+f420ad call qword ptr [r8 + 0x10]
+f420b1 mov qword ptr [rsi], rbx
+f420b4 mov rbx, qword ptr [rsp + 0x30]
+f420b9 mov dword ptr [rsi + 8], edi
+f420bc mov rdi, qword ptr [rsp + 0x38]
+f420c1 jmp 0xf420d0
+f420c3 xor r8d, r8d
+f420c6 mov edx, ebp
+f420c8 mov rcx, rsi
+f420cb call 0xa41a50
+f420d0 mov dword ptr [rsi + 0xc], ebp
+f420d3 mov r8, rbp
+f420d6 mov r9, qword ptr [rsi]
+f420d9 mov rdx, r14
+f420dc shl r8, 5
+f420e0 mov rcx, rsi
+f420e3 add r8, r14
+f420e6 mov rbp, qword ptr [rsp + 0x40]
+f420eb mov rsi, qword ptr [rsp + 0x48]
+f420f0 add rsp, 0x20
+f420f4 pop r14
+f420f6 jmp 0xb01230

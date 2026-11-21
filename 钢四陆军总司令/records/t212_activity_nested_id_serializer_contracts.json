@@ -1,0 +1,208 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "flows": {
+    "0x7104b0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x7104b0",
+      "window_size": 1280,
+      "reachable_instruction_count": 32,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x7104cc",
+          "operand": "0x2546ce0"
+        },
+        {
+          "site": "0x7104d4",
+          "operand": "0x2546ed0"
+        },
+        {
+          "site": "0x7104f3",
+          "operand": "0x2546920"
+        },
+        {
+          "site": "0x7104fe",
+          "operand": "0x22856e0"
+        },
+        {
+          "site": "0x71050f",
+          "operand": "0x25464e0"
+        }
+      ],
+      "asm": [
+        "7104b0 mov qword ptr [rsp + 0x10], rsi",
+        "7104b5 push rdi",
+        "7104b6 sub rsp, 0x20",
+        "7104ba cmp dword ptr [r8 + 0xc], 0",
+        "7104bf mov rsi, r8",
+        "7104c2 mov rdi, rcx",
+        "7104c5 je 0x710519",
+        "7104c7 mov qword ptr [rsp + 0x30], rbx",
+        "7104cc call 0x2546ce0",
+        "7104d1 mov rcx, rdi",
+        "7104d4 call 0x2546ed0",
+        "7104d9 mov rbx, qword ptr [rsi]",
+        "7104dc movsxd rax, dword ptr [rsi + 0xc]",
+        "7104e0 lea rsi, [rbx + rax*8]",
+        "7104e4 cmp rbx, rsi",
+        "7104e7 je 0x71050c",
+        "7104e9 nop dword ptr [rax]",
+        "7104f0 mov rcx, rdi",
+        "7104f3 call 0x2546920",
+        "7104f8 mov rdx, rbx",
+        "7104fb mov rcx, rdi",
+        "7104fe call 0x22856e0",
+        "710503 add rbx, 8",
+        "710507 cmp rbx, rsi",
+        "71050a jne 0x7104f0",
+        "71050c mov rcx, rdi",
+        "71050f call 0x25464e0",
+        "710514 mov rbx, qword ptr [rsp + 0x30]",
+        "710519 mov rsi, qword ptr [rsp + 0x38]",
+        "71051e add rsp, 0x20",
+        "710522 pop rdi",
+        "710523 ret "
+      ]
+    },
+    "0x22856e0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x22856e0",
+      "window_size": 1280,
+      "reachable_instruction_count": 59,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0x22857b2",
+          "target": "0x2546550"
+        }
+      ],
+      "calls": [
+        {
+          "site": "0x22856f5",
+          "operand": "0x2546f40"
+        },
+        {
+          "site": "0x2285702",
+          "operand": "0x2546d50"
+        },
+        {
+          "site": "0x228570f",
+          "operand": "0x25474f0"
+        },
+        {
+          "site": "0x228571b",
+          "operand": "0x2545490"
+        },
+        {
+          "site": "0x2285739",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x228574d",
+          "operand": "0x20b1d0"
+        },
+        {
+          "site": "0x228575a",
+          "operand": "0x2546d50"
+        },
+        {
+          "site": "0x2285766",
+          "operand": "0x25474f0"
+        },
+        {
+          "site": "0x2285772",
+          "operand": "0x2545490"
+        },
+        {
+          "site": "0x228578e",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x2285799",
+          "operand": "0x20b1d0"
+        }
+      ],
+      "asm": [
+        "22856e0 mov qword ptr [rsp + 8], rbx",
+        "22856e5 mov qword ptr [rsp + 0x10], rsi",
+        "22856ea push rdi",
+        "22856eb sub rsp, 0x70",
+        "22856ef mov rdi, rdx",
+        "22856f2 mov rbx, rcx",
+        "22856f5 call 0x2546f40",
+        "22856fa mov edx, 0xb",
+        "22856ff mov rcx, rbx",
+        "2285702 call 0x2546d50",
+        "2285707 mov edx, dword ptr [rdi + 4]",
+        "228570a lea rcx, [rsp + 0x20]",
+        "228570f call 0x25474f0",
+        "2285714 nop ",
+        "2285715 mov rdx, rax",
+        "2285718 mov rcx, rbx",
+        "228571b call 0x2545490",
+        "2285720 nop ",
+        "2285721 mov rdx, qword ptr [rsp + 0x28]",
+        "2285726 xor esi, esi",
+        "2285728 test rdx, rdx",
+        "228572b je 0x2285745",
+        "228572d mov dword ptr [rsp + 0x34], esi",
+        "2285731 mov rcx, qword ptr [rsp + 0x38]",
+        "2285736 mov rax, qword ptr [rcx]",
+        "2285739 call qword ptr [rax + 0x10]",
+        "228573c mov qword ptr [rsp + 0x28], rsi",
+        "2285741 mov dword ptr [rsp + 0x30], esi",
+        "2285745 mov edx, 0x12",
+        "228574a mov rcx, rbx",
+        "228574d call 0x20b1d0",
+        "2285752 mov edx, 0xe1",
+        "2285757 mov rcx, rbx",
+        "228575a call 0x2546d50",
+        "228575f mov edx, dword ptr [rdi]",
+        "2285761 lea rcx, [rsp + 0x20]",
+        "2285766 call 0x25474f0",
+        "228576b nop ",
+        "228576c mov rdx, rax",
+        "228576f mov rcx, rbx",
+        "2285772 call 0x2545490",
+        "2285777 nop ",
+        "2285778 mov rdx, qword ptr [rsp + 0x28]",
+        "228577d test rdx, rdx",
+        "2285780 je 0x2285791",
+        "2285782 mov dword ptr [rsp + 0x34], esi",
+        "2285786 mov rcx, qword ptr [rsp + 0x38]",
+        "228578b mov rax, qword ptr [rcx]",
+        "228578e call qword ptr [rax + 0x10]",
+        "2285791 mov edx, 0x12",
+        "2285796 mov rcx, rbx",
+        "2285799 call 0x20b1d0",
+        "228579e mov rcx, rbx",
+        "22857a1 lea r11, [rsp + 0x70]",
+        "22857a6 mov rbx, qword ptr [r11 + 0x10]",
+        "22857aa mov rsi, qword ptr [r11 + 0x18]",
+        "22857ae mov rsp, r11",
+        "22857b1 pop rdi",
+        "22857b2 jmp 0x2546550"
+      ]
+    }
+  },
+  "scope": "targeted two new nested activity writer leaves only; no execution/save/ID substitution"
+}

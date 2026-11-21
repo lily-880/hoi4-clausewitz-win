@@ -1,0 +1,28 @@
+1761fb0 mov qword ptr [rsp + 8], rbx
+1761fb5 push rdi
+1761fb6 sub rsp, 0x20
+1761fba mov rdx, qword ptr [rcx + 8]
+1761fbe mov rbx, qword ptr [rdx + 0x600]
+1761fc5 lea rcx, [rdx + 0x608]
+1761fcc cmp dword ptr [rcx], 0
+1761fcf mov rax, qword ptr [rbx]
+1761fd2 mov rdi, qword ptr [rax]
+1761fd5 jne 0x1761ff4
+1761fd7 cmp dword ptr [rcx + 4], 0
+1761fdb jne 0x1761ff4
+1761fdd xor eax, eax
+1761fdf mov rcx, rbx
+1761fe2 mov edx, eax
+1761fe4 mov rax, rdi
+1761fe7 mov rbx, qword ptr [rsp + 0x30]
+1761fec add rsp, 0x20
+1761ff0 pop rdi
+1761ff1 jmp rax
+1761ff4 call 0x2284870
+1761ff9 mov rdx, rax
+1761ffc mov rcx, rbx
+1761fff mov rax, rdi
+1762002 mov rbx, qword ptr [rsp + 0x30]
+1762007 add rsp, 0x20
+176200b pop rdi
+176200c jmp rax

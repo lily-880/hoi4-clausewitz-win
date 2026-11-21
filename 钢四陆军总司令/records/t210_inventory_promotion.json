@@ -1,0 +1,37 @@
+{
+  "field": "world.own_units.order.type",
+  "before": "未验证",
+  "after": "已验证",
+  "scope": "ONLY current strategic_redeploy, noncombat unqueued land branch; other states omitted",
+  "positive_count": 9,
+  "positive_ids": [
+    462,
+    446,
+    2945,
+    453,
+    2791,
+    2947,
+    428,
+    2781,
+    2787
+  ],
+  "native_proof": "CUnitStrategicMoveAction vf48 ->12C1F80 ->CEBF90 stores Army2AF; C570E0 reads;19F5590 names strategic movement; t210 narrows current-route and conflict gates",
+  "evidence": "t210_current_order_live_proof.json",
+  "tests": "18 new offline methods plus5 subtests passed;9 OrderType enum validations;312 stable live dependencies",
+  "inventory_before_sha256": "dfb6473aeb0ad9781538799440264c368e4f29dd65d444af516ade9875499ef3",
+  "inventory_after_sha256": "1c058190f7df7ba76267dc558ffc7c579ff566efc9930a06db714ab52a834205",
+  "tables": 14,
+  "fields": 116,
+  "columns": 3,
+  "verified": 78,
+  "unverified": 38,
+  "unverified_memory": 26,
+  "unverified_nonmemory": 12,
+  "applied_C_authority": true,
+  "D": "permanently abandoned, not accessed",
+  "other_description_changes": {
+    "order.target": "stored current route target does not infer current type",
+    "order.eta": "native current-edge route progress may coexist with combat or strategic mode"
+  },
+  "complete_input": false
+}

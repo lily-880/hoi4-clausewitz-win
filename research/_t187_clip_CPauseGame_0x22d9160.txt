@@ -1,0 +1,71 @@
+0x22d9160  mov qword ptr [rsp + 8], rbx
+0x22d9165  mov qword ptr [rsp + 0x10], rsi
+0x22d916a  mov qword ptr [rsp + 0x18], rdi
+0x22d916f  push rbp
+0x22d9170  push r14
+0x22d9172  push r15
+0x22d9174  lea rbp, [rsp - 0x47]
+0x22d9179  sub rsp, 0xe0
+0x22d9180  mov rdi, rdx
+0x22d9183  mov r14, rcx
+0x22d9186  cmp r8d, 0x41  ; TOKEN object
+0x22d918a  je 0x22d91e9
+0x22d918c  cmp r8d, 0x1f3  ; TOKEN default_state
+0x22d9193  je 0x22d919f
+0x22d9195  call 0x25416b0
+0x22d919a  jmp 0x22d9352
+0x22d919f  xorps xmm0, xmm0
+0x22d91a2  movdqu xmmword ptr [rbp - 0x71], xmm0
+0x22d91a7  lea rax, [rip + 0x8dd41a]
+0x22d91ae  mov qword ptr [rbp - 0x79], rax
+0x22d91b2  lea rdx, [rbp - 0x79]
+0x22d91b6  mov rcx, rdi
+0x22d91b9  call 0x2543530
+0x22d91be  mov eax, dword ptr [rbp - 0x69]
+0x22d91c1  mov dword ptr [r14 + 0x1c], eax
+0x22d91c5  mov eax, dword ptr [rbp - 0x71]
+0x22d91c8  mov dword ptr [r14 + 0xc], eax
+0x22d91cc  movzx eax, byte ptr [rbp - 0x6b]
+0x22d91d0  mov byte ptr [r14 + 0x1a], al
+0x22d91d4  movzx eax, word ptr [rbp - 0x6d]
+0x22d91d8  mov word ptr [r14 + 0x18], ax
+0x22d91dd  mov eax, dword ptr [rbp - 0x65]
+0x22d91e0  mov dword ptr [r14 + 0x20], eax
+0x22d91e4  jmp 0x22d9352
+0x22d91e9  xor r15d, r15d
+0x22d91ec  nop dword ptr [rax]
+0x22d91f0  mov rbx, qword ptr [rdi + 0x28]
+0x22d91f4  cmp byte ptr [rbx + 0x64], r15b
+0x22d91f8  jne 0x22d9215
+0x22d91fa  mov rax, qword ptr [rbx]
+0x22d91fd  mov rcx, rbx
+0x22d9200  call qword ptr [rax + 8]
+0x22d9203  mov dword ptr [rbx + 0x10], eax
+0x22d9206  test eax, eax
+0x22d9208  jne 0x22d9211
+0x22d920a  mov dword ptr [rbx + 0x18], 0x13
+0x22d9211  mov byte ptr [rbx + 0x64], 1
+0x22d9215  lea rdx, [rbx + 0x18]
+0x22d9219  lea rcx, [rbp - 9]
+0x22d921d  call 0x152ee0
+0x22d9222  mov eax, dword ptr [rbp - 9]
+0x22d9225  cmp eax, 4
+0x22d9228  je 0x22d9233
+0x22d922a  cmp eax, 0x13
+0x22d922d  je 0x22d9233
+0x22d922f  xor bl, bl
+0x22d9231  jmp 0x22d9235
+0x22d9233  mov bl, 1
+0x22d9235  mov rdx, qword ptr [rbp - 1]
+0x22d9239  test rdx, rdx
+0x22d923c  je 0x22d924c
+0x22d923e  mov dword ptr [rbp + 0xb], r15d
+0x22d9242  mov rcx, qword ptr [rbp + 0xf]
+0x22d9246  mov rax, qword ptr [rcx]
+0x22d9249  call qword ptr [rax + 0x10]
+0x22d924c  test bl, bl
+0x22d924e  jne 0x22d9280
+0x22d9250  mov dl, 1
+0x22d9252  mov rcx, rdi
+0x22d9255  call 0x2543fd0
+0x22d925a  mov cl, 1

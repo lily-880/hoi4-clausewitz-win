@@ -1,0 +1,41 @@
+0xe531e0  mov qword ptr [rsp + 0x10], rbx
+0xe531e5  push rdi
+0xe531e6  sub rsp, 0x20
+0xe531ea  mov rdi, rcx
+0xe531ed  mov ecx, 0x50  ; TOKEN attenuation
+0xe531f2  call 0x25a01dc
+0xe531f7  mov rbx, rax
+0xe531fa  mov qword ptr [rsp + 0x30], rax
+0xe531ff  test rax, rax
+0xe53202  je 0xe53275
+0xe53204  lea rax, [rip + 0x194c295]
+0xe5320b  mov qword ptr [rbx], rax
+0xe5320e  mov byte ptr [rbx + 8], 0
+0xe53212  mov eax, dword ptr [rdi + 0xc]
+0xe53215  mov dword ptr [rbx + 0xc], eax
+0xe53218  mov rax, qword ptr [rdi + 0x10]
+0xe5321c  mov qword ptr [rbx + 0x10], rax
+0xe53220  movzx eax, word ptr [rdi + 0x18]
+0xe53224  mov word ptr [rbx + 0x18], ax
+0xe53228  movzx eax, byte ptr [rdi + 0x1a]
+0xe5322c  mov byte ptr [rbx + 0x1a], al
+0xe5322f  movzx eax, byte ptr [rdi + 0x1b]
+0xe53233  mov byte ptr [rbx + 0x1b], al
+0xe53236  mov eax, dword ptr [rdi + 0x1c]
+0xe53239  mov dword ptr [rbx + 0x1c], eax
+0xe5323c  mov eax, dword ptr [rdi + 0x20]
+0xe5323f  mov dword ptr [rbx + 0x20], eax
+0xe53242  lea rax, [rip + 0x1b93bc7]
+0xe53249  mov qword ptr [rbx], rax
+0xe5324c  lea rcx, [rbx + 0x28]
+0xe53250  lea rdx, [rdi + 0x28]
+0xe53254  call 0x11f770
+0xe53259  movzx ecx, byte ptr [rdi + 0x48]
+0xe5325d  mov byte ptr [rbx + 0x48], cl
+0xe53260  movzx ecx, byte ptr [rdi + 0x49]
+0xe53264  mov byte ptr [rbx + 0x49], cl
+0xe53267  mov rax, rbx
+0xe5326a  mov rbx, qword ptr [rsp + 0x38]
+0xe5326f  add rsp, 0x20
+0xe53273  pop rdi
+0xe53274  ret 

@@ -1,0 +1,16 @@
+e64aa0 mov qword ptr [rsp + 8], rbx
+e64aa5 push rdi
+e64aa6 sub rsp, 0x20
+e64aaa mov rdi, qword ptr [rdx]
+e64aad mov rbx, rcx
+e64ab0 mov rcx, rdi
+e64ab3 call 0x717010
+e64ab8 mov rdx, qword ptr [rbx + 8]
+e64abc cmp qword ptr [rax + 0x10], rdx
+e64ac0 jne 0xe64ac9
+e64ac2 mov rax, qword ptr [rbx + 0x10]
+e64ac6 mov qword ptr [rax], rdi
+e64ac9 mov rbx, qword ptr [rsp + 0x30]
+e64ace add rsp, 0x20
+e64ad2 pop rdi
+e64ad3 ret 

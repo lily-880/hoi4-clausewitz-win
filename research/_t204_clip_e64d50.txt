@@ -1,0 +1,40 @@
+e64d50 mov qword ptr [rsp + 8], rbx
+e64d55 push rdi
+e64d56 sub rsp, 0x30
+e64d5a mov ebx, ecx
+e64d5c mov rdi, rdx
+e64d5f mov rcx, qword ptr [rip + 0x2578da2]
+e64d66 lea rdx, [rsp + 0x50]
+e64d6b add rcx, 0x538
+e64d72 call 0xc17400
+e64d77 mov rax, qword ptr [rsp + 0x50]
+e64d7c test rax, rax
+e64d7f je 0xe64dbc
+e64d81 mov rcx, qword ptr [rax]
+e64d84 cmp dword ptr [rcx + 8], ebx
+e64d87 jne 0xe64dab
+e64d89 mov rax, qword ptr [rcx]
+e64d8c xor r9d, r9d
+e64d8f mov byte ptr [rsp + 0x28], 1
+e64d94 xor r8d, r8d
+e64d97 mov rdx, rdi
+e64d9a mov byte ptr [rsp + 0x20], 0
+e64d9f call qword ptr [rax + 0x70]
+e64da2 test al, al
+e64da4 jne 0xe64dc9
+e64da6 mov rax, qword ptr [rsp + 0x50]
+e64dab mov rcx, qword ptr [rax + 0x10]
+e64daf mov qword ptr [rsp + 0x50], rcx
+e64db4 mov rax, rcx
+e64db7 test rcx, rcx
+e64dba jne 0xe64d81
+e64dbc xor al, al
+e64dbe mov rbx, qword ptr [rsp + 0x40]
+e64dc3 add rsp, 0x30
+e64dc7 pop rdi
+e64dc8 ret 
+e64dc9 mov rbx, qword ptr [rsp + 0x40]
+e64dce mov al, 1
+e64dd0 add rsp, 0x30
+e64dd4 pop rdi
+e64dd5 ret 

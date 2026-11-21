@@ -1,0 +1,62 @@
+147e8e0 mov qword ptr [rsp + 0x10], rbx
+147e8e5 mov qword ptr [rsp + 0x18], rsi
+147e8ea push rdi
+147e8eb sub rsp, 0x20
+147e8ef mov rax, qword ptr [rcx + 0x28]
+147e8f3 mov rdx, qword ptr [rcx + 0x30]
+147e8f7 cmp dword ptr [rax + 0x48], 0
+147e8fb lea rdi, [rax + 0x38]
+147e8ff lea rsi, [rdx + 0x38]
+147e903 je 0x147e9a3
+147e909 cmp dword ptr [rdx + 0x48], 0
+147e90d je 0x147e9a3
+147e913 mov rbx, qword ptr [rdi]
+147e916 test rbx, rbx
+147e919 je 0x147e951
+147e91b nop dword ptr [rax + rax]
+147e920 mov ecx, dword ptr [rbx]
+147e922 lea rdx, [rsp + 0x30]
+147e927 mov rbx, qword ptr [rbx + 0x10]
+147e92b mov dword ptr [rsp + 0x30], ecx
+147e92f mov rcx, rdi
+147e932 call 0x1ac4120
+147e937 test al, al
+147e939 jne 0x147e9a3
+147e93b lea rdx, [rsp + 0x30]
+147e940 mov rcx, rsi
+147e943 call 0x1ac4120
+147e948 test al, al
+147e94a je 0x147e9a3
+147e94c test rbx, rbx
+147e94f jne 0x147e920
+147e951 mov rbx, qword ptr [rsi]
+147e954 test rbx, rbx
+147e957 je 0x147e991
+147e959 nop dword ptr [rax]
+147e960 mov ecx, dword ptr [rbx]
+147e962 lea rdx, [rsp + 0x30]
+147e967 mov rbx, qword ptr [rbx + 0x10]
+147e96b mov dword ptr [rsp + 0x30], ecx
+147e96f mov rcx, rsi
+147e972 call 0x1ac4120
+147e977 test al, al
+147e979 jne 0x147e9a3
+147e97b lea rdx, [rsp + 0x30]
+147e980 mov rcx, rdi
+147e983 call 0x1ac4120
+147e988 test al, al
+147e98a je 0x147e9a3
+147e98c test rbx, rbx
+147e98f jne 0x147e960
+147e991 mov al, 1
+147e993 mov rbx, qword ptr [rsp + 0x38]
+147e998 mov rsi, qword ptr [rsp + 0x40]
+147e99d add rsp, 0x20
+147e9a1 pop rdi
+147e9a2 ret 
+147e9a3 mov rbx, qword ptr [rsp + 0x38]
+147e9a8 xor al, al
+147e9aa mov rsi, qword ptr [rsp + 0x40]
+147e9af add rsp, 0x20
+147e9b3 pop rdi
+147e9b4 ret 

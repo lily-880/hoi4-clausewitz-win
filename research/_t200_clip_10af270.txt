@@ -1,0 +1,51 @@
+10af270 mov qword ptr [rsp + 0x20], rbx
+10af275 push rbp
+10af276 sub rsp, 0x20
+10af27a mov ebp, edx
+10af27c mov rbx, rcx
+10af27f cmp edx, dword ptr [rcx + 0x244]
+10af285 jne 0x10af295
+10af287 mov rax, rcx
+10af28a mov rbx, qword ptr [rsp + 0x48]
+10af28f add rsp, 0x20
+10af293 pop rbp
+10af294 ret 
+10af295 mov qword ptr [rsp + 0x30], rsi
+10af29a mov qword ptr [rsp + 0x38], rdi
+10af29f xor edi, edi
+10af2a1 mov esi, edi
+10af2a3 mov qword ptr [rsp + 0x40], r14
+10af2a8 cmp dword ptr [rcx + 0x204], edi
+10af2ae jle 0x10af2d8
+10af2b0 mov r14d, edi
+10af2b3 mov rax, qword ptr [rbx + 0x1f8]
+10af2ba mov edx, ebp
+10af2bc mov rcx, qword ptr [r14 + rax]
+10af2c0 call 0x10af270
+10af2c5 test rax, rax
+10af2c8 jne 0x10af30a
+10af2ca inc esi
+10af2cc add r14, 8
+10af2d0 cmp esi, dword ptr [rbx + 0x204]
+10af2d6 jl 0x10af2b3
+10af2d8 cmp dword ptr [rbx + 0x2dc], edi
+10af2de jle 0x10af308
+10af2e0 mov rsi, rdi
+10af2e3 mov rax, qword ptr [rbx + 0x2d0]
+10af2ea mov edx, ebp
+10af2ec mov rcx, qword ptr [rsi + rax]
+10af2f0 call 0x10af270
+10af2f5 test rax, rax
+10af2f8 jne 0x10af30a
+10af2fa inc edi
+10af2fc add rsi, 8
+10af300 cmp edi, dword ptr [rbx + 0x2dc]
+10af306 jl 0x10af2e3
+10af308 xor eax, eax
+10af30a mov rdi, qword ptr [rsp + 0x38]
+10af30f mov rsi, qword ptr [rsp + 0x30]
+10af314 mov r14, qword ptr [rsp + 0x40]
+10af319 mov rbx, qword ptr [rsp + 0x48]
+10af31e add rsp, 0x20
+10af322 pop rbp
+10af323 ret 

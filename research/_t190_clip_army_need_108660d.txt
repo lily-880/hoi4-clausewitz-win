@@ -1,0 +1,50 @@
+0x1086590  mov qword ptr [rsp + 8], rbx
+0x1086595  push rdi
+0x1086596  sub rsp, 0x20
+0x108659a  mov r8, qword ptr [rcx + 0xf0]
+0x10865a1  mov rdi, rdx
+0x10865a4  mov rbx, rcx
+0x10865a7  test r8, r8
+0x10865aa  je 0x10865b9
+0x10865ac  mov edx, 0x34ff  ; TOKEN strength_ratio
+0x10865b1  mov rcx, rdi
+0x10865b4  call 0x2545f90
+0x10865b9  mov r8, qword ptr [rbx + 0xf8]
+0x10865c0  test r8, r8
+0x10865c3  je 0x10865d2
+0x10865c5  mov edx, 0x4ad1  ; TOKEN garrison_required
+0x10865ca  mov rcx, rdi
+0x10865cd  call 0x2545f90
+0x10865d2  movzx r8d, byte ptr [rbx + 0x60]
+0x10865d7  test r8b, r8b
+0x10865da  je 0x10865e9
+0x10865dc  mov edx, 0x2eb7  ; TOKEN suppression
+0x10865e1  mov rcx, rdi
+0x10865e4  call 0x2546250
+0x10865e9  cmp dword ptr [rbx + 0x7c], 0
+0x10865ed  je 0x1086601
+0x10865ef  lea rcx, [rbx + 0x68]
+0x10865f3  mov r8d, 0x3635  ; TOKEN manpower_pool
+0x10865f9  mov rdx, rdi
+0x10865fc  call 0xcc7a90
+0x1086601  mov r8d, dword ptr [rbx + 0x88]
+0x1086608  test r8d, r8d
+0x108660b  je 0x108661a
+0x108660d  mov edx, 0x36fc  ; TOKEN army_manpower_need
+0x1086612  mov rcx, rdi
+0x1086615  call 0x25459e0
+0x108661a  lea r8, [rbx + 0x90]
+0x1086621  mov edx, 0x2f4e  ; TOKEN equipment
+0x1086626  mov rcx, rdi
+0x1086629  call 0x25458c0
+0x108662e  lea r8, [rbx + 0xd0]
+0x1086635  mov edx, 0x30fd  ; TOKEN equipment_need
+0x108663a  mov rcx, rdi
+0x108663d  call 0x25458c0
+0x1086642  lea r8, [rbx + 0x20]
+0x1086646  mov edx, 0x4ab6  ; TOKEN garrison_reinforcement_requests
+0x108664b  mov rcx, rdi
+0x108664e  mov rbx, qword ptr [rsp + 0x30]
+0x1086653  add rsp, 0x20
+0x1086657  pop rdi
+0x1086658  jmp 0x25458c0

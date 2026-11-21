@@ -1,0 +1,183 @@
+584870 mov qword ptr [rsp + 8], rbx
+584875 mov qword ptr [rsp + 0x10], rsi
+58487a push rdi
+58487b sub rsp, 0x60
+58487f mov rsi, rdx
+584882 mov rbx, rcx
+584885 mov eax, dword ptr [rdx]
+584887 mov r8d, dword ptr [rcx + 0x24]
+58488b bts r8d, 0xa
+584890 mov dword ptr [rcx + 0x24], r8d
+584894 cmp eax, 0x2c94
+584899 jne 0x5848b5
+58489b or r8d, 2
+58489f mov dword ptr [rcx + 0x24], r8d
+5848a3 mov al, 1
+5848a5 mov rbx, qword ptr [rsp + 0x70]
+5848aa mov rsi, qword ptr [rsp + 0x78]
+5848af add rsp, 0x60
+5848b3 pop rdi
+5848b4 ret 
+5848b5 cmp eax, 0x2c95
+5848ba jne 0x5848d6
+5848bc or r8d, 4
+5848c0 mov dword ptr [rcx + 0x24], r8d
+5848c4 mov al, 1
+5848c6 mov rbx, qword ptr [rsp + 0x70]
+5848cb mov rsi, qword ptr [rsp + 0x78]
+5848d0 add rsp, 0x60
+5848d4 pop rdi
+5848d5 ret 
+5848d6 cmp eax, 0x29c3
+5848db jne 0x5848f7
+5848dd or r8d, 1
+5848e1 mov dword ptr [rcx + 0x24], r8d
+5848e5 mov al, 1
+5848e7 mov rbx, qword ptr [rsp + 0x70]
+5848ec mov rsi, qword ptr [rsp + 0x78]
+5848f1 add rsp, 0x60
+5848f5 pop rdi
+5848f6 ret 
+5848f7 cmp eax, 0x298f
+5848fc jne 0x584918
+5848fe or r8d, 8
+584902 mov dword ptr [rcx + 0x24], r8d
+584906 mov al, 1
+584908 mov rbx, qword ptr [rsp + 0x70]
+58490d mov rsi, qword ptr [rsp + 0x78]
+584912 add rsp, 0x60
+584916 pop rdi
+584917 ret 
+584918 cmp eax, 0x283e
+58491d jne 0x584939
+58491f or r8d, 0x10
+584923 mov dword ptr [rcx + 0x24], r8d
+584927 mov al, 1
+584929 mov rbx, qword ptr [rsp + 0x70]
+58492e mov rsi, qword ptr [rsp + 0x78]
+584933 add rsp, 0x60
+584937 pop rdi
+584938 ret 
+584939 cmp eax, 0x3db1
+58493e jne 0x58495a
+584940 or r8d, 0x40
+584944 mov dword ptr [rcx + 0x24], r8d
+584948 mov al, 1
+58494a mov rbx, qword ptr [rsp + 0x70]
+58494f mov rsi, qword ptr [rsp + 0x78]
+584954 add rsp, 0x60
+584958 pop rdi
+584959 ret 
+58495a cmp eax, 0x283f
+58495f jne 0x58497b
+584961 or r8d, 0x20
+584965 mov dword ptr [rcx + 0x24], r8d
+584969 mov al, 1
+58496b mov rbx, qword ptr [rsp + 0x70]
+584970 mov rsi, qword ptr [rsp + 0x78]
+584975 add rsp, 0x60
+584979 pop rdi
+58497a ret 
+58497b cmp eax, 0x284b
+584980 jne 0x58499d
+584982 bts r8d, 7
+584987 mov dword ptr [rcx + 0x24], r8d
+58498b mov al, 1
+58498d mov rbx, qword ptr [rsp + 0x70]
+584992 mov rsi, qword ptr [rsp + 0x78]
+584997 add rsp, 0x60
+58499b pop rdi
+58499c ret 
+58499d cmp eax, 0x27bb
+5849a2 jne 0x5849bf
+5849a4 bts r8d, 8
+5849a9 mov dword ptr [rcx + 0x24], r8d
+5849ad mov al, 1
+5849af mov rbx, qword ptr [rsp + 0x70]
+5849b4 mov rsi, qword ptr [rsp + 0x78]
+5849b9 add rsp, 0x60
+5849bd pop rdi
+5849be ret 
+5849bf movsxd r8, dword ptr [rip + 0x2b7a1ca]
+5849c6 lea rdi, [rip + 0x220fd50]
+5849cd cmp dword ptr [rdx + 0x14], 0
+5849d1 mov rcx, rdi
+5849d4 je 0x5849da
+5849d6 mov rcx, qword ptr [rdx + 8]
+5849da lea rdx, [rip + 0x22ce107]
+5849e1 call 0x25ceb80
+5849e6 test eax, eax
+5849e8 jne 0x584adb
+5849ee cmp dword ptr [rsi + 0x14], eax
+5849f1 je 0x5849f7
+5849f3 mov rdi, qword ptr [rsi + 8]
+5849f7 xorps xmm0, xmm0
+5849fa movups xmmword ptr [rsp + 0x20], xmm0
+5849ff xorps xmm1, xmm1
+584a02 movdqu xmmword ptr [rsp + 0x30], xmm1
+584a08 mov r8, 0xffffffffffffffff
+584a0f nop 
+584a10 inc r8
+584a13 cmp byte ptr [rdi + r8], 0
+584a18 jne 0x584a10
+584a1a mov rdx, rdi
+584a1d lea rcx, [rsp + 0x20]
+584a22 call 0x11f030
+584a27 nop 
+584a28 mov r9d, dword ptr [rsp + 0x30]
+584a2d mov r8d, dword ptr [rip + 0x2b7a15c]
+584a34 lea rdx, [rsp + 0x40]
+584a39 lea rcx, [rsp + 0x20]
+584a3e call 0x254ed00
+584a43 nop 
+584a44 mov rcx, rax
+584a47 call 0xfdd370
+584a4c mov word ptr [rbx + 0x28], ax
+584a50 mov rdx, qword ptr [rsp + 0x58]
+584a55 cmp rdx, 0xf
+584a59 jbe 0x584a89
+584a5b inc rdx
+584a5e mov rcx, qword ptr [rsp + 0x40]
+584a63 mov rax, rcx
+584a66 cmp rdx, 0x1000
+584a6d jb 0x584a84
+584a6f add rdx, 0x27
+584a73 mov rcx, qword ptr [rcx - 8]
+584a77 sub rax, rcx
+584a7a add rax, -8
+584a7e cmp rax, 0x1f
+584a82 ja 0x584afa
+584a84 call 0x25a0218
+584a89 or dword ptr [rbx + 0x24], 0x200
+584a90 mov rdx, qword ptr [rsp + 0x38]
+584a95 cmp rdx, 0xf
+584a99 jbe 0x584ac9
+584a9b inc rdx
+584a9e mov rcx, qword ptr [rsp + 0x20]
+584aa3 mov rax, rcx
+584aa6 cmp rdx, 0x1000
+584aad jb 0x584ac4
+584aaf add rdx, 0x27
+584ab3 mov rcx, qword ptr [rcx - 8]
+584ab7 sub rax, rcx
+584aba add rax, -8
+584abe cmp rax, 0x1f
+584ac2 ja 0x584af4
+584ac4 call 0x25a0218
+584ac9 mov al, 1
+584acb mov rbx, qword ptr [rsp + 0x70]
+584ad0 mov rsi, qword ptr [rsp + 0x78]
+584ad5 add rsp, 0x60
+584ad9 pop rdi
+584ada ret 
+584adb and dword ptr [rbx + 0x24], 0xfffffbff
+584ae2 xor al, al
+584ae4 mov rbx, qword ptr [rsp + 0x70]
+584ae9 mov rsi, qword ptr [rsp + 0x78]
+584aee add rsp, 0x60
+584af2 pop rdi
+584af3 ret 
+584af4 call 0x25c7db4
+584af9 nop 
+584afa call 0x25c7db4
+584aff nop 

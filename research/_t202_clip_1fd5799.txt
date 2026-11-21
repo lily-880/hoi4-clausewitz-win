@@ -1,0 +1,86 @@
+1fd5799 add rsp, 0x20
+1fd579d pop r12
+1fd579f pop rdi
+1fd57a0 pop rsi
+1fd57a1 pop rbp
+1fd57a2 pop rbx
+1fd57a3 ret 
+1fd57a4 cmp eax, 1
+1fd57a7 jne 0x1fd583e
+1fd57ad mov rax, qword ptr [rdx]
+1fd57b0 mov rcx, rdi
+1fd57b3 call qword ptr [rax + 0x50]
+1fd57b6 mov rcx, rax
+1fd57b9 call 0xdcb400
+1fd57be movsxd r10, eax
+1fd57c1 movabs r11, 0x29f16b11c6d1e109
+1fd57cb mov rax, r11
+1fd57ce shl r10, 0xf
+1fd57d2 imul qword ptr [rip + 0x140e957]
+1fd57d9 mov r9, rdx
+1fd57dc sar r9, 0xe
+1fd57e0 mov rax, r9
+1fd57e3 shr rax, 0x3f
+1fd57e7 add r9, rax
+1fd57ea mov rax, r11
+1fd57ed imul r8, r9, 0x186a0
+1fd57f4 shl r9, 0xf
+1fd57f8 sub r8, qword ptr [rip + 0x140e931]
+1fd57ff shl r8, 0x1e
+1fd5803 imul r8
+1fd5806 sar rdx, 0x1d
+1fd580a mov rax, rdx
+1fd580d shr rax, 0x3f
+1fd5811 add rdx, rax
+1fd5814 sub rdx, r9
+1fd5817 add rdx, 0x8000
+1fd581e imul rdx, r10
+1fd5822 sar rdx, 0xf
+1fd5826 add rdx, 0x4000
+1fd582d sar rdx, 0xf
+1fd5831 add dword ptr [rsi], edx
+1fd5833 add rsp, 0x20
+1fd5837 pop r12
+1fd5839 pop rdi
+1fd583a pop rsi
+1fd583b pop rbp
+1fd583c pop rbx
+1fd583d ret 
+1fd583e cmp eax, 0xd
+1fd5841 jne 0x1fd5799
+1fd5847 mov ebx, 0x186a0
+1fd584c sub rbx, qword ptr [rip + 0x140dd0d]
+1fd5853 test rbp, rbp
+1fd5856 je 0x1fd5862
+1fd5858 imul rbx, qword ptr [rip + 0x140f138]
+1fd5860 jmp 0x1fd5876
+1fd5862 mov rcx, rdi
+1fd5865 call 0xe64c50
+1fd586a test al, al
+1fd586c jne 0x1fd5894
+1fd586e imul rbx, qword ptr [rip + 0x140ddb2]
+1fd5876 movabs rax, 0x29f16b11c6d1e109
+1fd5880 imul rbx
+1fd5883 mov rbx, rdx
+1fd5886 sar rbx, 0xe
+1fd588a mov rax, rbx
+1fd588d shr rax, 0x3f
+1fd5891 add rbx, rax
+1fd5894 mov rax, qword ptr [rdi]
+1fd5897 mov rcx, rdi
+1fd589a call qword ptr [rax + 0x60]
+1fd589d mov rcx, rax
+1fd58a0 call 0xefc650
+1fd58a5 movsxd rcx, eax
+1fd58a8 imul rcx, rbx
+1fd58ac mov qword ptr [rsp + 0x58], rcx
+1fd58b1 lea rcx, [rsp + 0x58]
+1fd58b6 call 0x2572ef0
+1fd58bb add dword ptr [rsi], eax
+1fd58bd add rsp, 0x20
+1fd58c1 pop r12
+1fd58c3 pop rdi
+1fd58c4 pop rsi
+1fd58c5 pop rbp
+1fd58c6 pop rbx
+1fd58c7 ret 

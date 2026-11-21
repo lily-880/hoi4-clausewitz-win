@@ -1,0 +1,20 @@
+f4ef58 mov qword ptr [rsp + 0x40], rsi
+f4ef5d mov rsi, rcx
+f4ef60 cmp rax, rcx
+f4ef63 jge 0xf4efa0
+f4ef65 mov qword ptr [rsp + 0x48], rdi
+f4ef6a lea rdi, [rax + rax*2]
+f4ef6e shl rdi, 3
+f4ef72 sub rsi, rax
+f4ef75 nop word ptr [rax + rax]
+f4ef80 mov rcx, qword ptr [rbx + 0xd8]
+f4ef87 xor edx, edx
+f4ef89 add rcx, rdi
+f4ef8c mov rax, qword ptr [rcx]
+f4ef8f call qword ptr [rax]
+f4ef91 add rdi, 0x18
+f4ef95 sub rsi, 1
+f4ef99 jne 0xf4ef80
+f4ef9b mov rdi, qword ptr [rsp + 0x48]
+f4efa0 sub dword ptr [rbx + 0xe4], ebp
+f4efa6 mov rsi, qword ptr [rsp + 0x40]

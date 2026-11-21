@@ -1,0 +1,55 @@
+{
+  "promoted": false,
+  "CCombatant": {
+    "rtti": ".?AVCCombatant@@",
+    "vtable": "0x2a367d0",
+    "serialize_slot": "+0x10",
+    "writer": "0x147ff20",
+    "note": ".pdata of 0x147ff20 is only 7 bytes; disassembled through ret / tail jmp 0x126a4c0",
+    "unit": {
+      "token": "0x28a3 unit",
+      "data": "+0x20",
+      "size": "+0x2c",
+      "omit_if_size_le_0": true,
+      "elem": "CArmy*; official handle at elem+0x18 via 0x22857c0",
+      "schema_role": "Combat.attacker_unit_ids / defender_unit_ids official combined list (not a guessed union of front/reserves/retreat)"
+    },
+    "other_official_fields": {
+      "losses": "+0xb8 token 0x28f8",
+      "size_list": "data +0xa0 size +0xac, written iff size!=0",
+      "has_flanked_opponent": "byte +0xdb token 0x3517, written iff nonzero",
+      "last_hit": "+0xe0 token 0x30ac, written iff size>0",
+      "shore_bombardment_collateral_damage_factor": "+0x10 token 0x288d, written iff >0",
+      "weighted_participants": "+0x80 token 0x2a03, written iff [+0x90]!=0"
+    }
+  },
+  "CLandCombatant": {
+    "rtti": ".?AVCLandCombatant@@",
+    "vtable": "0x2a236a0",
+    "serialize_slot": "+0x10",
+    "writer": "0x134d5f0",
+    "starts_with_call": "0x147ff20",
+    "sublists_already_bound_t184": {
+      "front": "+0xe8 / +0xf4 token 0x29e0",
+      "reserves": "+0x100 / +0x10c token 0x29e2",
+      "retreat": "+0x118 / +0x124 token 0x2920",
+      "unit_handle": "elem+0x18 via 0x22857c0"
+    },
+    "schema_note": "schema Combat has a single attacker_unit_ids / defender_unit_ids array; official combined shape is CCombatant unit +0x20/+0x2c, not a union invented from the three sublists"
+  },
+  "CCombatManager": {
+    "rtti": ".?AVCCombatManager@@",
+    "embedded_at": "GS+0x260",
+    "array": "GS+0x268 is manager+0x8 (already known); live size 0",
+    "history": "CCombatHistory vtable at GS+0x288",
+    "writer": "0xc0eae0 writes token history 0x2835",
+    "do_not_promote_empty_as_false": true
+  },
+  "no_carmy_current_combat_pointer_bound": true,
+  "gs_combats_size": 0,
+  "clips": [
+    "research/_t185_clip_combatant_base_0x147ff20.txt",
+    "research/_t184_clip_landcombatant_writer_0x134d5f0.txt",
+    "research/_t185_clip_combatmanager_writer_0xc0eae0.txt"
+  ]
+}

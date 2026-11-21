@@ -1,0 +1,46 @@
+e6b330 mov qword ptr [rsp + 8], rbx
+e6b335 push rdi
+e6b336 sub rsp, 0x20
+e6b33a mov rdi, rcx
+e6b33d mov rbx, rdx
+e6b340 mov rcx, r8
+e6b343 call 0x1a70210
+e6b348 cmp eax, 1
+e6b34b jne 0xe6b3be
+e6b34d mov rcx, rbx
+e6b350 call 0xc07bf0
+e6b355 cmp dword ptr [rdi], 0
+e6b358 mov rbx, qword ptr [rax + 0xf88]
+e6b35f jne 0xe6b365
+e6b361 xor eax, eax
+e6b363 jmp 0xe6b36d
+e6b365 mov rcx, rdi
+e6b368 call 0xc08790
+e6b36d movsxd rcx, eax
+e6b370 mov rax, qword ptr [rbx + 8]
+e6b374 mov rbx, qword ptr [rax + rcx*8]
+e6b378 test rbx, rbx
+e6b37b je 0xe6b3be
+e6b37d mov rcx, rbx
+e6b380 call 0xd86d40
+e6b385 test al, al
+e6b387 je 0xe6b39b
+e6b389 mov rax, qword ptr [rdi + 8]
+e6b38d mov byte ptr [rax], 0xff
+e6b390 mov rbx, qword ptr [rsp + 0x30]
+e6b395 add rsp, 0x20
+e6b399 pop rdi
+e6b39a ret 
+e6b39b mov rax, qword ptr [rbx + 0x2e8]
+e6b3a2 test rax, rax
+e6b3a5 je 0xe6b3ad
+e6b3a7 cmp byte ptr [rax + 0x49], 0
+e6b3ab je 0xe6b3b7
+e6b3ad cmp qword ptr [rbx + 0x260], 0
+e6b3b5 je 0xe6b3be
+e6b3b7 mov rax, qword ptr [rdi + 8]
+e6b3bb mov byte ptr [rax], 0x80
+e6b3be mov rbx, qword ptr [rsp + 0x30]
+e6b3c3 add rsp, 0x20
+e6b3c7 pop rdi
+e6b3c8 ret 

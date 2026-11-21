@@ -1,0 +1,51 @@
+{
+  "CLandCombat": {
+    "serialize_vtable": "0x2a23898 slot 0x10 → 0x134d5e0 jmp 0x147fe80",
+    "writer": "0x147fe80",
+    "id": "0x22858a0 type +0x8 id +0xc",
+    "location": "CProvince* at +0x28, id at +0xa4, token 0x286d",
+    "day": "+0x30",
+    "duration": "+0x34",
+    "attacker": {
+      "ptr": "+0x18",
+      "token": "0x28f5",
+      "via": "0x25458c0 virtual serialize, typically CLandCombatant"
+    },
+    "defender": {
+      "ptr": "+0x20",
+      "token": "0x28f6"
+    },
+    "terrain": "from [+0x38]+0x18 if byte [+0x38]+0x10",
+    "clip": "research/_t184_clip_landcombat_writer_0x147fe80.txt"
+  },
+  "CLandCombatant": {
+    "writer": "0x134d5f0",
+    "front": {
+      "token": "0x29e0",
+      "data": "+0xe8",
+      "size": "+0xf4",
+      "unit_handle_at_elem+0x18": true,
+      "omit_if_size_le_0": true
+    },
+    "reserves": {
+      "token": "0x29e2",
+      "data": "+0x100",
+      "size": "+0x10c",
+      "unit_handle_at_elem+0x18": true
+    },
+    "retreat": {
+      "token": "0x2920",
+      "data": "+0x118",
+      "size": "+0x124",
+      "unit_handle_at_elem+0x18": true
+    },
+    "clip": "research/_t184_clip_landcombatant_writer_0x134d5f0.txt"
+  },
+  "no_carmy_current_combat_pointer_bound": true,
+  "gs_combats": {
+    "location": "GS+0x268",
+    "size": 0
+  },
+  "promoted": false,
+  "why": "official combat/combatant membership ABI is bound, but GS+0x268 is empty and no CArmy IsInCombat / current CLandCombat* reader is bound; cannot write in_combat=false"
+}

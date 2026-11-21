@@ -1,0 +1,170 @@
+{
+  "game": "HOI4 1.19.5.0.7c6c",
+  "pid": 26976,
+  "read_only": true,
+  "secondary_interface": {
+    "location": "CArmy+0x10",
+    "vtable_rva": "0x29d6f78",
+    "writer": "0xced2e0",
+    "note": "rcx is already CArmy+0x10; writer offsets add 0x10 to get CArmy absolute slots"
+  },
+  "base_writer": "0xc5c0a0",
+  "path_serializer": {
+    "rva": "0x1d2bf0",
+    "header": "pdx i32 array: data = [r8], size = dword [r8+0xc]",
+    "empty_skip": "test ebx, ebx; jle 0x1d2c7f — size<=0 omits the key",
+    "clip": "research/_t182_clip_path_serializer_0x1d2bf0.txt"
+  },
+  "fields": {
+    "path": {
+      "token": "0x174",
+      "name": "path",
+      "writer_off": "0x1f0",
+      "ca_off": "0x200",
+      "size_ca": "0x20c",
+      "empty_omits_key": true
+    },
+    "full_path": {
+      "token": "0x362c",
+      "name": "full_path",
+      "writer_off": "0x210",
+      "ca_off": "0x220",
+      "size_ca": "0x22c",
+      "empty_omits_key": true
+    },
+    "commandlist": {
+      "token": "0xcb",
+      "name": "commandlist",
+      "writer_off": "0x2b0",
+      "ca_off": "0x2c0",
+      "size_ca": "0x2cc",
+      "stride": 8,
+      "element_token_at": "+8",
+      "empty_omits_key": true
+    },
+    "location": {
+      "token": "0x286d",
+      "name": "location",
+      "writer_off": "0x1e0",
+      "ca_off": "0x1f0",
+      "note": "CProvince*; id at +0xa4; already verified as current province"
+    },
+    "previous": {
+      "token": "0x29a3",
+      "name": "previous",
+      "writer_off": "0x1e8",
+      "ca_off": "0x1f8"
+    },
+    "support_attack": {
+      "token": "0x2eda",
+      "name": "support_attack",
+      "writer_off": "0x1d8",
+      "ca_off": "0x1e8"
+    },
+    "last_combat_date": {
+      "token": "0x2fdf",
+      "name": "last_combat_date",
+      "gate_writer": "0x1b8",
+      "gate_ca": "0x1c8",
+      "date_ca": "0x1d0",
+      "note": "historical date; not current in_combat"
+    },
+    "movement_progress": {
+      "token": "0x28a4",
+      "name": "movement_progress",
+      "writer_off": "0x230",
+      "ca_off": "0x240"
+    },
+    "move_priority": {
+      "token": "0x37bc",
+      "name": "move_priority",
+      "writer_off": "0x238",
+      "ca_off": "0x248",
+      "default_skipped": 1
+    },
+    "retreat": {
+      "token": "0x2920",
+      "name": "retreat",
+      "writer_off": "0x23c",
+      "ca_off": "0x24c",
+      "type": "byte",
+      "written_iff_nonzero": true
+    },
+    "withdraw": {
+      "token": "0x38ec",
+      "name": "withdraw",
+      "writer_off": "0x23d",
+      "ca_off": "0x24d",
+      "type": "byte",
+      "written_iff_nonzero": true
+    },
+    "strategic_redeployment": {
+      "token": "0x2edb",
+      "name": "strategic_redeployment",
+      "writer_off": "0x29f",
+      "ca_off": "0x2af",
+      "type": "byte",
+      "written_iff_nonzero": true
+    },
+    "out_of_supply_days": {
+      "token": "0x335f",
+      "name": "out_of_supply_days",
+      "writer_off": "0x488",
+      "ca_off": "0x498",
+      "written_iff_positive": true
+    },
+    "execute_order": {
+      "writer_off": "0x48c",
+      "ca_off": "0x49c"
+    },
+    "was_paradropped": {
+      "writer_off": "0x498",
+      "ca_off": "0x4a8"
+    },
+    "max_supply": {
+      "token": "0x3a43",
+      "name": "max_supply",
+      "writer_off": "0x5f0",
+      "ca_off": "0x600",
+      "live_fixed_div_100000": 108.0
+    },
+    "supply_gain": {
+      "token": "0x4cec",
+      "name": "supply_gain",
+      "writer_off": "0x5f8",
+      "ca_off": "0x608",
+      "live_fixed_div_100000": 0.0
+    },
+    "army_current_supply_ratio": {
+      "token": "0x4ced",
+      "name": "army_current_supply_ratio",
+      "writer_off": "0x600",
+      "ca_off": "0x610",
+      "live_fixed_div_100000": 72.0,
+      "not_a_0_to_1_ratio": true
+    }
+  },
+  "not_unit_fields": {
+    "GetOrderType": {
+      "funcs": [
+        "0x10b2c60",
+        "0x10b0380"
+      ],
+      "object": "COrderInstance-like +0x30",
+      "values": {
+        "1": "ORDER_MOVE",
+        "3": "ORDER_INVASION",
+        "4": "likely PARADROP"
+      },
+      "note": "battle-plan types, not world.own_units.order.type"
+    },
+    "land_combat_id": {
+      "token": "0x34a6",
+      "written_at": "0x2091bc",
+      "slot": "[obj+0x748] in 0x208f90",
+      "sibling": "navy_id 0x34a5 at +0x74c",
+      "note": "not a CArmy field; do not use as unit combat id"
+    }
+  },
+  "promoted": false
+}

@@ -1,0 +1,52 @@
+e621e0 mov qword ptr [rsp + 0x10], rbx
+e621e5 push rbp
+e621e6 push rsi
+e621e7 push r14
+e621e9 sub rsp, 0x40
+e621ed mov rcx, rdx
+e621f0 mov r14, r8
+e621f3 mov rsi, rdx
+e621f6 call 0x2546ed0
+e621fb mov edx, 0x3b01
+e62200 mov rcx, rsi
+e62203 call 0x2546ce0
+e62208 mov rcx, rsi
+e6220b call 0x2546ed0
+e62210 mov rbx, qword ptr [r14]
+e62213 movsxd rax, dword ptr [r14 + 0xc]
+e62217 lea rbp, [rbx + rax*8]
+e6221b cmp rbx, rbp
+e6221e je 0xe6225e
+e62220 mov qword ptr [rsp + 0x60], rdi
+e62225 nop word ptr [rax + rax]
+e62230 mov rdi, qword ptr [rbx]
+e62233 mov edx, 0x4d3d
+e62238 mov rcx, rsi
+e6223b call 0x2546ce0
+e62240 mov r8, rdi
+e62243 lea rcx, [rsp + 0x70]
+e62248 mov rdx, rsi
+e6224b call 0xe62460
+e62250 add rbx, 8
+e62254 cmp rbx, rbp
+e62257 jne 0xe62230
+e62259 mov rdi, qword ptr [rsp + 0x60]
+e6225e mov rcx, rsi
+e62261 call 0x25464e0
+e62266 lea rax, [rip + 0x1b8620b]
+e6226d mov edx, 0x33ae
+e62272 mov qword ptr [rsp + 0x20], rax
+e62277 lea r8, [rsp + 0x20]
+e6227c lea rax, [r14 + 0x60]
+e62280 mov rcx, rsi
+e62283 mov qword ptr [rsp + 0x28], rax
+e62288 lea rax, [rip - 0x1d3f]
+e6228f mov qword ptr [rsp + 0x30], rax
+e62294 call 0x25458c0
+e62299 mov rcx, rsi
+e6229c mov rbx, qword ptr [rsp + 0x68]
+e622a1 add rsp, 0x40
+e622a5 pop r14
+e622a7 pop rsi
+e622a8 pop rbp
+e622a9 jmp 0x25464e0

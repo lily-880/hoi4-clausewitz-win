@@ -1,0 +1,25 @@
+e53a00 sub rsp, 0x28
+e53a04 mov ecx, 0x50
+e53a09 call 0x25a01dc
+e53a0e xor ecx, ecx
+e53a10 mov qword ptr [rsp + 0x30], rax
+e53a15 test rax, rax
+e53a18 je 0xe53a5c
+e53a1a mov byte ptr [rax + 8], cl
+e53a1d lea rdx, [rip + 0x1b933ec]
+e53a24 mov dword ptr [rax + 0xc], 0xffffffff
+e53a2b xorps xmm0, xmm0
+e53a2e mov qword ptr [rax + 0x10], rcx
+e53a32 mov dword ptr [rax + 0x18], 0xffff
+e53a39 mov qword ptr [rax + 0x1c], rcx
+e53a3d mov qword ptr [rax], rdx
+e53a40 movups xmmword ptr [rax + 0x28], xmm0
+e53a44 mov qword ptr [rax + 0x38], rcx
+e53a48 mov qword ptr [rax + 0x40], 0xf
+e53a50 mov byte ptr [rax + 0x28], cl
+e53a53 mov word ptr [rax + 0x48], cx
+e53a57 add rsp, 0x28
+e53a5b ret 
+e53a5c mov rax, rcx
+e53a5f add rsp, 0x28
+e53a63 ret 

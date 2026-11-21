@@ -1,0 +1,40 @@
+1348d30 push rbx
+1348d32 sub rsp, 0x20
+1348d36 mov rbx, rcx
+1348d39 mov rcx, qword ptr [rcx + 0x28]
+1348d3d mov rax, qword ptr [rcx]
+1348d40 call qword ptr [rax + 0xa0]
+1348d46 test al, al
+1348d48 je 0x1348d6f
+1348d4a mov rax, qword ptr [rbx]
+1348d4d mov rcx, rbx
+1348d50 mov r8, qword ptr [rbx + 0x30]
+1348d54 mov rdx, qword ptr [rbx + 0x28]
+1348d58 call qword ptr [rax + 0xc0]
+1348d5e mov rcx, qword ptr [rbx + 0x28]
+1348d62 call 0x147f690
+1348d67 mov al, 1
+1348d69 add rsp, 0x20
+1348d6d pop rbx
+1348d6e ret 
+1348d6f mov rcx, qword ptr [rbx + 0x30]
+1348d73 mov rax, qword ptr [rcx]
+1348d76 call qword ptr [rax + 0xa0]
+1348d7c test al, al
+1348d7e je 0x1348da5
+1348d80 mov rax, qword ptr [rbx]
+1348d83 mov rcx, rbx
+1348d86 mov r8, qword ptr [rbx + 0x28]
+1348d8a mov rdx, qword ptr [rbx + 0x30]
+1348d8e call qword ptr [rax + 0xc0]
+1348d94 mov rcx, qword ptr [rbx + 0x30]
+1348d98 call 0x147f690
+1348d9d mov al, 1
+1348d9f add rsp, 0x20
+1348da3 pop rbx
+1348da4 ret 
+1348da5 inc dword ptr [rbx + 0x40]
+1348da8 xor al, al
+1348daa add rsp, 0x20
+1348dae pop rbx
+1348daf ret 

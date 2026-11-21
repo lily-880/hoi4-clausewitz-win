@@ -1,0 +1,101 @@
+e6b460 mov qword ptr [rsp + 0x18], rbx
+e6b465 mov qword ptr [rsp + 0x20], rsi
+e6b46a mov qword ptr [rsp + 0x10], rdx
+e6b46f push rdi
+e6b470 sub rsp, 0x30
+e6b474 mov rsi, rdx
+e6b477 mov rbx, rcx
+e6b47a xorps xmm0, xmm0
+e6b47d movdqu xmmword ptr [rsp + 0x20], xmm0
+e6b483 mov rdx, qword ptr [rcx + 0x18]
+e6b487 test rdx, rdx
+e6b48a je 0xe6b4a1
+e6b48c mov eax, dword ptr [rdx + 8]
+e6b48f test eax, eax
+e6b491 je 0xe6b4a1
+e6b493 lea ecx, [rax + 1]
+e6b496 lock cmpxchg dword ptr [rdx + 8], ecx
+e6b49b je 0xe6b511
+e6b49d test eax, eax
+e6b49f jne 0xe6b493
+e6b4a1 mov rax, qword ptr [rsp + 0x20]
+e6b4a6 mov rbx, qword ptr [rsp + 0x28]
+e6b4ab test rax, rax
+e6b4ae jne 0xe6b525
+e6b4b0 test rbx, rbx
+e6b4b3 je 0xe6b4e2
+e6b4b5 mov edi, 0xffffffff
+e6b4ba mov eax, edi
+e6b4bc lock xadd dword ptr [rbx + 8], eax
+e6b4c1 cmp eax, 1
+e6b4c4 jne 0xe6b4e2
+e6b4c6 mov rax, qword ptr [rbx]
+e6b4c9 mov rcx, rbx
+e6b4cc call qword ptr [rax]
+e6b4ce lock xadd dword ptr [rbx + 0xc], edi
+e6b4d3 cmp edi, 1
+e6b4d6 jne 0xe6b4e2
+e6b4d8 mov rax, qword ptr [rbx]
+e6b4db mov rcx, rbx
+e6b4de call qword ptr [rax + 8]
+e6b4e1 nop 
+e6b4e2 mov rcx, qword ptr [rsi + 0x38]
+e6b4e6 test rcx, rcx
+e6b4e9 je 0xe6b4ff
+e6b4eb mov rax, qword ptr [rcx]
+e6b4ee cmp rcx, rsi
+e6b4f1 setne dl
+e6b4f4 call qword ptr [rax + 0x20]
+e6b4f7 mov qword ptr [rsi + 0x38], 0
+e6b4ff xor al, al
+e6b501 mov rbx, qword ptr [rsp + 0x50]
+e6b506 mov rsi, qword ptr [rsp + 0x58]
+e6b50b add rsp, 0x30
+e6b50f pop rdi
+e6b510 ret 
+e6b511 mov rax, qword ptr [rbx + 0x10]
+e6b515 mov qword ptr [rsp + 0x20], rax
+e6b51a mov rbx, qword ptr [rbx + 0x18]
+e6b51e mov qword ptr [rsp + 0x28], rbx
+e6b523 jmp 0xe6b4ab
+e6b525 mov qword ptr [rsp + 0x40], rax
+e6b52a mov rcx, qword ptr [rsi + 0x38]
+e6b52e test rcx, rcx
+e6b531 je 0xe6b5a0
+e6b533 mov rax, qword ptr [rcx]
+e6b536 lea rdx, [rsp + 0x40]
+e6b53b call qword ptr [rax + 0x10]
+e6b53e nop 
+e6b53f test rbx, rbx
+e6b542 je 0xe6b571
+e6b544 mov edi, 0xffffffff
+e6b549 mov eax, edi
+e6b54b lock xadd dword ptr [rbx + 8], eax
+e6b550 cmp eax, 1
+e6b553 jne 0xe6b571
+e6b555 mov rax, qword ptr [rbx]
+e6b558 mov rcx, rbx
+e6b55b call qword ptr [rax]
+e6b55d lock xadd dword ptr [rbx + 0xc], edi
+e6b562 cmp edi, 1
+e6b565 jne 0xe6b571
+e6b567 mov rax, qword ptr [rbx]
+e6b56a mov rcx, rbx
+e6b56d call qword ptr [rax + 8]
+e6b570 nop 
+e6b571 mov rcx, qword ptr [rsi + 0x38]
+e6b575 test rcx, rcx
+e6b578 je 0xe6b58e
+e6b57a mov rax, qword ptr [rcx]
+e6b57d cmp rcx, rsi
+e6b580 setne dl
+e6b583 call qword ptr [rax + 0x20]
+e6b586 mov qword ptr [rsi + 0x38], 0
+e6b58e mov al, 1
+e6b590 mov rbx, qword ptr [rsp + 0x50]
+e6b595 mov rsi, qword ptr [rsp + 0x58]
+e6b59a add rsp, 0x30
+e6b59e pop rdi
+e6b59f ret 
+e6b5a0 call 0x25a189c
+e6b5a5 nop 

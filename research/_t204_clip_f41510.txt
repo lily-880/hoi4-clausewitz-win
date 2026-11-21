@@ -1,0 +1,53 @@
+f41510 push rbx
+f41512 push rdi
+f41513 push r15
+f41515 sub rsp, 0x20
+f41519 mov ebx, dword ptr [rdx]
+f4151b mov r15, rcx
+f4151e mov edi, dword ptr [rdx + 4]
+f41521 cmp ebx, edi
+f41523 je 0xf415cd
+f41529 mov qword ptr [rsp + 0x40], rbp
+f4152e mov qword ptr [rsp + 0x50], rsi
+f41533 mov qword ptr [rsp + 0x58], r14
+f41538 nop dword ptr [rax + rax]
+f41540 movsxd rax, ebx
+f41543 imul rbp, rax, 0xd8
+f4154a mov rax, qword ptr [r15]
+f4154d add rbp, qword ptr [rax]
+f41550 mov rsi, qword ptr [rbp + 0x30]
+f41554 movsxd r14, dword ptr [rbp + 0x3c]
+f41558 shl r14, 4
+f4155c add r14, rsi
+f4155f cmp rsi, r14
+f41562 je 0xf415b8
+f41564 mov r8, qword ptr [r15 + 8]
+f41568 movzx ecx, word ptr [rsi + 2]
+f4156c mov r9, qword ptr [rsi + 8]
+f41570 mov rax, qword ptr [r8 + 0x108]
+f41577 mov rcx, qword ptr [rax + rcx*8]
+f4157b movzx eax, word ptr [rsi]
+f4157e mov rdx, qword ptr [rcx + 0x80]
+f41585 imul rcx, rax, 0xe8
+f4158c add rcx, qword ptr [rdx + 0xb8]
+f41593 lea rdx, [rsp + 0x48]
+f41598 call 0x19d8eb0
+f4159d mov rax, qword ptr [rsp + 0x48]
+f415a2 add qword ptr [rbp + 8], rax
+f415a6 test rax, rax
+f415a9 jle 0xf415af
+f415ab inc word ptr [rbp + 0x14]
+f415af add rsi, 0x10
+f415b3 cmp rsi, r14
+f415b6 jne 0xf41564
+f415b8 inc ebx
+f415ba cmp ebx, edi
+f415bc jne 0xf41540
+f415be mov r14, qword ptr [rsp + 0x58]
+f415c3 mov rsi, qword ptr [rsp + 0x50]
+f415c8 mov rbp, qword ptr [rsp + 0x40]
+f415cd add rsp, 0x20
+f415d1 pop r15
+f415d3 pop rdi
+f415d4 pop rbx
+f415d5 ret 

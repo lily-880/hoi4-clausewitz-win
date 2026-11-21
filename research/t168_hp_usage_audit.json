@@ -1,0 +1,92 @@
+[
+  {
+    "file": "calling\\input_capture_live.py",
+    "line": 74,
+    "text": "                version_verified=True,strength420_semantics='current',layout_label='Windows HOI4 '+profile['game_version'])"
+  },
+  {
+    "file": "calling\\input_capture_live.py",
+    "line": 153,
+    "text": "                          'max_hp_matches_loaded_battalions':abs(u['strength']['max']-hp)<0.0001,"
+  },
+  {
+    "file": "calling\\input_capture_live.py",
+    "line": 171,
+    "text": "        if not all(e['max_hp_matches_loaded_battalions'] for e in extra):"
+  },
+  {
+    "file": "calling\\input_capture_live.py",
+    "line": 172,
+    "text": "            raise ObservationError('maxHP versus loaded battalions mismatch')"
+  },
+  {
+    "file": "calling\\input_loaded_fields.py",
+    "line": 191,
+    "text": "    # with stat=*(CArmy+0x138). CArmy+0x420 is independently DAMAGE-MUTATED."
+  },
+  {
+    "file": "calling\\input_loaded_fields.py",
+    "line": 193,
+    "text": "    current_raw=struct.unpack('<q',r.exact(army+0x420,8))[0]"
+  },
+  {
+    "file": "calling\\input_loaded_fields.py",
+    "line": 199,
+    "text": "        'current_source':'CA+0x420; subtracted at CEC4AD/CEC6AF, clamped to0',"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 23,
+    "text": "                          strength420_semantics=\"historical_max\"):"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 31,
+    "text": "    strength420_semantics=current is required by the fingerprinted1.19.5 caller;"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 42,
+    "text": "    if strength420_semantics not in (\"historical_max\", \"current\"):"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 43,
+    "text": "        raise ObservationError(\"unproved strength420 semantics\")"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 83,
+    "text": "        maximum = unpack('<q' if strength420_semantics == 'current' else '<i', blob, 0x420) / FIXED"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 84,
+    "text": "        org = unpack('<q' if strength420_semantics == 'current' else '<i', blob, 0x428) / FIXED"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 85,
+    "text": "        equipment = unpack('<q' if strength420_semantics == 'current' else '<i', blob, 0x468) / FIXED"
+  },
+  {
+    "file": "calling\\input_observation.py",
+    "line": 91,
+    "text": "               'strength': {('current' if strength420_semantics == 'current' else 'max'): maximum, 'equipment_ratio': equipment}}"
+  },
+  {
+    "file": "calling\\offsets.py",
+    "line": 97,
+    "text": "    \"CA_MAX_STRENGTH\": 0x420,  # FIXED; 21/21 = sum of battalion max_strength (Kebur 125, Mehal 100, Mountain 80, Chitet 180)"
+  },
+  {
+    "file": "calling\\tables\\offsets_input_windows_1.19.5.json",
+    "line": 22,
+    "text": "    \"subunit_max_hp\": \"FIXED signed qword+0x288; actual aggregated army stats used by independent max getter; deployed base sums match21/21\","
+  },
+  {
+    "file": "calling\\tables\\offsets_input_windows_1.19.5.json",
+    "line": 44,
+    "text": "    \"army_hp_current\": \"signed qword CArmy+0x420 /100000; actually subtracted at CEC4AD/CEC6AF, nonnegative clamp; NOT maxHP\","
+  }
+]

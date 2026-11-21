@@ -1,0 +1,28 @@
+{
+  "pid": 26976,
+  "hour_tick": 60759371,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "caller_chain": [
+    "1eae60 gamestate.daily loops [GS+0x310] countries and calls 72f220",
+    "72f220 country daily: d71810(CDeploymentStatus=country+0xf70, CReinforcementStatus=country+0xf78, CArmyUpgradesStatus=country+0xf80, CCountryOccupationStatus=country+0xfd0)",
+    "d71810 is profiled deployment.daily; first callee d71b60 gets those four arguments",
+    "d71b60 at 0xd723b6 is the non-ctor virtual caller of CReinforcementStatus slot 2 / 15a93d0"
+  ],
+  "r9_offered_for_non_air": "For each present type row in production+0x200 (1095760 copies {type, qty FIXED} stride 16, skipping qty==0), d71b60 sets rdi = row qty, builds an acceptor list with d6f140 (object.slot1 want>0, including CReinforcementStatus at [rbp+0x1008]=incoming rdx), sorts, then for each acceptor: call slot2(out, type, r9=rdi); rdi=*out remaining. So 15a93d0 r9 is the remaining share of that type's production+0x200 quantity after earlier acceptors (resources, occupation, upgrades, deployment lists, …).",
+  "d6f140": "slot1(object, out, type); store want at object+0x10; if want>0 append object to the list",
+  "live_classes": {
+    "country+0xf70": "CDeploymentStatus 0x26c4c4d41b0",
+    "country+0xf68": "CProductionStatus 0x26c46cebbf0 (stock at +0x200)",
+    "country+0xf78": "CReinforcementStatus 0x26c49c0c140",
+    "country+0xf80": "CArmyUpgradesStatus 0x26c49c0b970",
+    "country+0xfd0": "CCountryOccupationStatus 0x26c4c4d4410",
+    "country+0x11f8": "CCountryResources 0x26c5cc3da40"
+  },
+  "caveat": "This bound caller is the daily deployment tick, not an identified hourly path. The live scene is 1936-01-01 hour 12; production+0x200 currently has no infantry_equipment row, so this path would not offer infantry now. produced=3 is still the t170/t171 snapshot and is not shown to be min(need, current stock). An additional hourly accept path is not ruled out (140b9c0 remains logistics modes 1/0/6).",
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ]
+}

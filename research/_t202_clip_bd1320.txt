@@ -1,0 +1,29 @@
+bd1320 mov qword ptr [rsp + 8], rbx
+bd1325 mov qword ptr [rsp + 0x10], rsi
+bd132a push rdi
+bd132b sub rsp, 0x20
+bd132f mov rax, qword ptr [rcx - 0x10]
+bd1333 mov rdi, rcx
+bd1336 add rcx, -0x10
+bd133a call qword ptr [rax + 0x60]
+bd133d mov rcx, qword ptr [rdi + 0x5e0]
+bd1344 xor esi, esi
+bd1346 test rcx, rcx
+bd1349 je 0xbd135b
+bd134b mov rax, qword ptr [rcx]
+bd134e call qword ptr [rax + 0xc8]
+bd1354 mov qword ptr [rdi + 0x5e0], rsi
+bd135b mov dl, 1
+bd135d lea rcx, [rdi - 0x10]
+bd1361 call 0xbd14d0
+bd1366 mov rax, qword ptr [rdi + 0x5e0]
+bd136d test rax, rax
+bd1370 lea rcx, [rax + 0x30]
+bd1374 cmove rcx, rsi
+bd1378 call 0x22bc4d0
+bd137d mov rbx, qword ptr [rsp + 0x30]
+bd1382 xor al, 1
+bd1384 mov rsi, qword ptr [rsp + 0x38]
+bd1389 add rsp, 0x20
+bd138d pop rdi
+bd138e ret 

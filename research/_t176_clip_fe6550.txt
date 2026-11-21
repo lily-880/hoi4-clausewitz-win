@@ -1,0 +1,27 @@
+0xfe6550  mov qword ptr [rsp + 8], rbx
+0xfe6555  mov qword ptr [rsp + 0x10], rsi
+0xfe655a  push rdi
+0xfe655b  sub rsp, 0x20
+0xfe655f  mov ebx, dword ptr [rcx + 0xa0]
+0xfe6565  mov rsi, rdx
+0xfe6568  mov rdi, rcx
+0xfe656b  call 0xfe35d0
+0xfe6570  sub eax, dword ptr [rdi + 0x7c]
+0xfe6573  xor r8d, r8d
+0xfe6576  test eax, eax
+0xfe6578  cmovg r8d, eax
+0xfe657c  neg ebx
+0xfe657e  mov rbx, qword ptr [rsp + 0x30]
+0xfe6583  sbb eax, eax
+0xfe6585  and eax, 0x1f4
+0xfe658a  add r8d, eax
+0xfe658d  imul eax, dword ptr [rdi + 0x28], 0x3e8
+0xfe6594  add eax, r8d
+0xfe6597  cdqe 
+0xfe6599  imul rcx, rax, 0x186a0
+0xfe65a0  mov rax, rsi
+0xfe65a3  mov qword ptr [rsi], rcx
+0xfe65a6  mov rsi, qword ptr [rsp + 0x38]
+0xfe65ab  add rsp, 0x20
+0xfe65af  pop rdi
+0xfe65b0  ret 

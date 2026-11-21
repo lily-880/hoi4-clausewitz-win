@@ -1,0 +1,34 @@
+{
+  "pid": 26976,
+  "read_only": true,
+  "no_game_method_execution": true,
+  "worklist": {
+    "correction": "t172 read template+0x108 directly; that was the wrong address",
+    "cdb4b0": "lea rax, [template+0x18]",
+    "15aa9c0": "lea r8, [rax+0x108] => template+0x120, the proven CEquipmentArcheTypePool need pool",
+    "c44c40": "copies that pool as 16-byte {type, amount} rows, skipping zero amounts",
+    "15a26f0": "request need += max(0, template_need - 1094900(unit+0x348) - existing request need). For 1835 this is 400-320=80",
+    "predictable_need": "When a unit later hits its hour slot, request need can be predicted from official template+0x120 minus unit+0x348, without advancing the campaign"
+  },
+  "allocation": {
+    "c07690": "army+0x1d8 -> owner country via GS+0x310",
+    "717350": "country+0xf98 CLogisticsStatus; +0x20 is the country backlink (live-confirmed)",
+    "140b9c0": "CLogisticsStatus+8, calls 14075c0 with modes 1,0,6 over the work list; 14075c0 uses type+0x598 and 15b1da0",
+    "produced": "scene fact 3 is the allocated amount after this path; 15b1da0 is not fully reimplemented, so produced is not claimed as a predicted formula"
+  },
+  "stored_1409810": {
+    "callers_compute_on_demand": "UI functions (e.g. 1e1f6a0) call 1409810 and write the result to a view object at +0x648; +0x5e0 holds the equipment type",
+    "not_on_CEquipmentType": "infantry_equipment +0x648 is not 7700000",
+    "not_in_bounded_campaign_roots": {
+      "7700000": [],
+      "77": []
+    },
+    "conclusion": "No campaign-stored official total was found to cross-check 77. 1409810 remains a computed value. CLogisticsStatus+0x20=country confirms the 1409890 this-pointer shape when callers pass 717350(country)."
+  },
+  "affected_unit_ids": "Official 1409810 this hour only includes live requests (plus empty deploy queue). Requests appear when a unit_id%24 slot is processed. [1835] is this hour's official contributor set, not the complete short-fielded set (19 short units). Contract meaning still unconfirmed; not promoted.",
+  "not_promoted": [
+    "world.shortages.equipment.demanded",
+    "deficit",
+    "affected_unit_ids"
+  ]
+}

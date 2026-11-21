@@ -1,0 +1,21 @@
+e60500 mov qword ptr [rsp + 8], rbx
+e60505 mov qword ptr [rsp + 0x10], rsi
+e6050a push rdi
+e6050b sub rsp, 0x20
+e6050f mov rbx, qword ptr [rdx]
+e60512 mov rdi, rdx
+e60515 movsxd rax, dword ptr [rdx + 0xc]
+e60519 lea rsi, [rbx + rax*8]
+e6051d cmp rbx, rsi
+e60520 je 0xe60536
+e60522 mov rdx, qword ptr [rbx]
+e60525 mov rcx, rdi
+e60528 call 0xe5bbd0
+e6052d add rbx, 8
+e60531 cmp rbx, rsi
+e60534 jne 0xe60522
+e60536 mov rbx, qword ptr [rsp + 0x30]
+e6053b mov rsi, qword ptr [rsp + 0x38]
+e60540 add rsp, 0x20
+e60544 pop rdi
+e60545 ret 

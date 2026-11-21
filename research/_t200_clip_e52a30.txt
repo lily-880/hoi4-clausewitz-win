@@ -1,0 +1,39 @@
+e52a30 mov qword ptr [rsp + 8], rbx
+e52a35 push rdi
+e52a36 sub rsp, 0x20
+e52a3a lea rax, [rip + 0x1b943cf]
+e52a41 mov edi, edx
+e52a43 mov qword ptr [rcx], rax
+e52a46 mov rbx, rcx
+e52a49 mov rdx, qword ptr [rcx + 0x40]
+e52a4d cmp rdx, 0xf
+e52a51 jbe 0xe52a80
+e52a53 mov rcx, qword ptr [rcx + 0x28]
+e52a57 inc rdx
+e52a5a cmp rdx, 0x1000
+e52a61 jb 0xe52a7b
+e52a63 mov r8, qword ptr [rcx - 8]
+e52a67 add rdx, 0x27
+e52a6b sub rcx, r8
+e52a6e lea rax, [rcx - 8]
+e52a72 cmp rax, 0x1f
+e52a76 ja 0xe52abf
+e52a78 mov rcx, r8
+e52a7b call 0x25a0218
+e52a80 mov qword ptr [rbx + 0x38], 0
+e52a88 lea rax, [rip + 0x194ca11]
+e52a8f mov qword ptr [rbx + 0x40], 0xf
+e52a97 mov byte ptr [rbx + 0x28], 0
+e52a9b mov qword ptr [rbx], rax
+e52a9e test dil, 1
+e52aa2 je 0xe52ab1
+e52aa4 mov edx, 0x50
+e52aa9 mov rcx, rbx
+e52aac call 0x25a0218
+e52ab1 mov rax, rbx
+e52ab4 mov rbx, qword ptr [rsp + 0x30]
+e52ab9 add rsp, 0x20
+e52abd pop rdi
+e52abe ret 
+e52abf call 0x25c7db4
+e52ac4 int3 

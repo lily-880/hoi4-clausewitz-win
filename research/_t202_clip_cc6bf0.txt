@@ -1,0 +1,20 @@
+cc6bf0 push rbx
+cc6bf2 sub rsp, 0x40
+cc6bf6 mov r8d, edx
+cc6bf9 add rcx, 8
+cc6bfd lea rdx, [rsp + 0x20]
+cc6c02 call 0xcc6c40
+cc6c07 lea rcx, [rsp + 0x20]
+cc6c0c call 0xcc6570
+cc6c11 mov rdx, qword ptr [rsp + 0x28]
+cc6c16 mov ebx, eax
+cc6c18 test rdx, rdx
+cc6c1b je 0xcc6c33
+cc6c1d mov rcx, qword ptr [rsp + 0x38]
+cc6c22 mov dword ptr [rsp + 0x34], 0
+cc6c2a mov r8, qword ptr [rcx]
+cc6c2d call qword ptr [r8 + 0x10]
+cc6c31 mov eax, ebx
+cc6c33 add rsp, 0x40
+cc6c37 pop rbx
+cc6c38 ret 

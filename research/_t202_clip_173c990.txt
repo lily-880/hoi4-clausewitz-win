@@ -1,0 +1,540 @@
+173c990 mov qword ptr [rsp + 0x18], rbx
+173c995 mov qword ptr [rsp + 8], rcx
+173c99a push rbp
+173c99b push rsi
+173c99c push rdi
+173c99d push r12
+173c99f push r13
+173c9a1 push r14
+173c9a3 push r15
+173c9a5 mov rbp, rsp
+173c9a8 sub rsp, 0x60
+173c9ac movzx r13d, r9b
+173c9b0 movzx r12d, r8b
+173c9b4 mov rbx, rcx
+173c9b7 xor eax, eax
+173c9b9 mov dword ptr [rbp - 0x30], eax
+173c9bc xorps xmm0, xmm0
+173c9bf movups xmmword ptr [rcx], xmm0
+173c9c2 lea rdi, [rcx + 0x10]
+173c9c6 lea r14, [rcx + 0x18]
+173c9ca mov qword ptr [rdi], rax
+173c9cd mov qword ptr [r14], 0xf
+173c9d4 mov byte ptr [rcx], al
+173c9d6 mov dword ptr [rbp - 0x30], 1
+173c9dd xor r9d, r9d
+173c9e0 xor r8d, r8d
+173c9e3 lea rcx, [rbp - 0x28]
+173c9e7 test dl, dl
+173c9e9 je 0x173d062
+173c9ef lea rdx, [rip + 0x1328942]
+173c9f6 call 0x22aeab0
+173c9fb mov dword ptr [rbp - 0x30], 7
+173ca02 lea rdx, [rbp - 0x28]
+173ca06 cmp qword ptr [rbp - 0x10], 0xf
+173ca0b cmova rdx, qword ptr [rbp - 0x28]
+173ca10 mov r8, qword ptr [rbp - 0x18]
+173ca14 mov rcx, rbx
+173ca17 call 0x12b330
+173ca1c nop 
+173ca1d mov rdx, qword ptr [rbp - 0x10]
+173ca21 cmp rdx, 0xf
+173ca25 jbe 0x173ca58
+173ca27 inc rdx
+173ca2a mov rcx, qword ptr [rbp - 0x28]
+173ca2e mov rax, rcx
+173ca31 cmp rdx, 0x1000
+173ca38 jb 0x173ca53
+173ca3a add rdx, 0x27
+173ca3e mov rcx, qword ptr [rcx - 8]
+173ca42 sub rax, rcx
+173ca45 add rax, -8
+173ca49 cmp rax, 0x1f
+173ca4d ja 0x173d1b7
+173ca53 call 0x25a0218
+173ca58 mov rcx, qword ptr [rdi]
+173ca5b mov rdx, qword ptr [r14]
+173ca5e mov rax, rdx
+173ca61 sub rax, rcx
+173ca64 mov r15d, 0xa0a
+173ca6a cmp rax, 2
+173ca6e jb 0x173ca8f
+173ca70 lea rax, [rcx + 2]
+173ca74 mov qword ptr [rdi], rax
+173ca77 mov rax, rbx
+173ca7a cmp rdx, 0xf
+173ca7e jbe 0x173ca83
+173ca80 mov rax, qword ptr [rbx]
+173ca83 mov word ptr [rax + rcx], r15w
+173ca88 mov byte ptr [rax + rcx + 2], 0
+173ca8d jmp 0x173cab1
+173ca8f mov qword ptr [rsp + 0x20], 2
+173ca98 lea r9, [rip + 0x10714dd]
+173ca9f movzx r8d, byte ptr [rbp + 0x48]
+173caa4 mov edx, 2
+173caa9 mov rcx, rbx
+173caac call 0x11f240
+173cab1 xor r9d, r9d
+173cab4 xor r8d, r8d
+173cab7 lea rdx, [rip + 0x132889a]
+173cabe lea rcx, [rbp - 0x28]
+173cac2 call 0x22aeab0
+173cac7 mov esi, 0x1f
+173cacc mov dword ptr [rbp - 0x30], esi
+173cacf lea rdx, [rbp - 0x28]
+173cad3 cmp qword ptr [rbp - 0x10], 0xf
+173cad8 cmova rdx, qword ptr [rbp - 0x28]
+173cadd mov r8, qword ptr [rbp - 0x18]
+173cae1 mov rcx, rbx
+173cae4 call 0x12b330
+173cae9 nop 
+173caea mov rdx, qword ptr [rbp - 0x10]
+173caee cmp rdx, 0xf
+173caf2 jbe 0x173cb24
+173caf4 inc rdx
+173caf7 mov rcx, qword ptr [rbp - 0x28]
+173cafb mov rax, rcx
+173cafe cmp rdx, 0x1000
+173cb05 jb 0x173cb1f
+173cb07 add rdx, 0x27
+173cb0b mov rcx, qword ptr [rcx - 8]
+173cb0f sub rax, rcx
+173cb12 add rax, -8
+173cb16 cmp rax, rsi
+173cb19 ja 0x173d1bd
+173cb1f call 0x25a0218
+173cb24 mov rcx, qword ptr [rdi]
+173cb27 mov rdx, qword ptr [r14]
+173cb2a mov rax, rdx
+173cb2d sub rax, rcx
+173cb30 cmp rax, 2
+173cb34 jb 0x173cb55
+173cb36 lea rax, [rcx + 2]
+173cb3a mov qword ptr [rdi], rax
+173cb3d mov rax, rbx
+173cb40 cmp rdx, 0xf
+173cb44 jbe 0x173cb49
+173cb46 mov rax, qword ptr [rbx]
+173cb49 mov word ptr [rax + rcx], r15w
+173cb4e mov byte ptr [rax + rcx + 2], 0
+173cb53 jmp 0x173cb77
+173cb55 mov qword ptr [rsp + 0x20], 2
+173cb5e lea r9, [rip + 0x1071417]
+173cb65 movzx r8d, byte ptr [rbp + 0x48]
+173cb6a mov edx, 2
+173cb6f mov rcx, rbx
+173cb72 call 0x11f240
+173cb77 test r12b, r12b
+173cb7a je 0x173cc46
+173cb80 xor r9d, r9d
+173cb83 xor r8d, r8d
+173cb86 lea rdx, [rip + 0x13287f3]
+173cb8d lea rcx, [rbp - 0x28]
+173cb91 call 0x22aeab0
+173cb96 mov esi, 0x61f
+173cb9b mov dword ptr [rbp - 0x30], esi
+173cb9e lea rdx, [rbp - 0x28]
+173cba2 cmp qword ptr [rbp - 0x10], 0xf
+173cba7 cmova rdx, qword ptr [rbp - 0x28]
+173cbac mov r8, qword ptr [rbp - 0x18]
+173cbb0 mov rcx, rbx
+173cbb3 call 0x12b330
+173cbb8 nop 
+173cbb9 mov rdx, qword ptr [rbp - 0x10]
+173cbbd cmp rdx, 0xf
+173cbc1 jbe 0x173cbf4
+173cbc3 inc rdx
+173cbc6 mov rcx, qword ptr [rbp - 0x28]
+173cbca mov rax, rcx
+173cbcd cmp rdx, 0x1000
+173cbd4 jb 0x173cbef
+173cbd6 add rdx, 0x27
+173cbda mov rcx, qword ptr [rcx - 8]
+173cbde sub rax, rcx
+173cbe1 add rax, -8
+173cbe5 cmp rax, 0x1f
+173cbe9 ja 0x173d1c3
+173cbef call 0x25a0218
+173cbf4 mov rcx, qword ptr [rbx + 0x10]
+173cbf8 mov rdx, qword ptr [rbx + 0x18]
+173cbfc mov rax, rdx
+173cbff sub rax, rcx
+173cc02 cmp rax, 1
+173cc06 jb 0x173cc24
+173cc08 lea rax, [rcx + 1]
+173cc0c mov qword ptr [rbx + 0x10], rax
+173cc10 mov rax, rbx
+173cc13 cmp rdx, 0xf
+173cc17 jbe 0x173cc1c
+173cc19 mov rax, qword ptr [rbx]
+173cc1c mov word ptr [rax + rcx], 0xa
+173cc22 jmp 0x173cc46
+173cc24 mov qword ptr [rsp + 0x20], 1
+173cc2d lea r9, [rip + 0x105a1fc]
+173cc34 movzx r8d, byte ptr [rbp + 0x48]
+173cc39 mov edx, 1
+173cc3e mov rcx, rbx
+173cc41 call 0x11f240
+173cc46 test r13b, r13b
+173cc49 je 0x173cd16
+173cc4f xor r9d, r9d
+173cc52 xor r8d, r8d
+173cc55 lea rdx, [rip + 0x1328754]
+173cc5c lea rcx, [rbp - 0x28]
+173cc60 call 0x22aeab0
+173cc65 or esi, 0x1800
+173cc6b mov dword ptr [rbp - 0x30], esi
+173cc6e lea rdx, [rbp - 0x28]
+173cc72 cmp qword ptr [rbp - 0x10], 0xf
+173cc77 cmova rdx, qword ptr [rbp - 0x28]
+173cc7c mov r8, qword ptr [rbp - 0x18]
+173cc80 mov rcx, rbx
+173cc83 call 0x12b330
+173cc88 nop 
+173cc89 mov rdx, qword ptr [rbp - 0x10]
+173cc8d cmp rdx, 0xf
+173cc91 jbe 0x173ccc4
+173cc93 inc rdx
+173cc96 mov rcx, qword ptr [rbp - 0x28]
+173cc9a mov rax, rcx
+173cc9d cmp rdx, 0x1000
+173cca4 jb 0x173ccbf
+173cca6 add rdx, 0x27
+173ccaa mov rcx, qword ptr [rcx - 8]
+173ccae sub rax, rcx
+173ccb1 add rax, -8
+173ccb5 cmp rax, 0x1f
+173ccb9 ja 0x173d1c9
+173ccbf call 0x25a0218
+173ccc4 mov rcx, qword ptr [rbx + 0x10]
+173ccc8 mov rdx, qword ptr [rbx + 0x18]
+173cccc mov rax, rdx
+173cccf sub rax, rcx
+173ccd2 cmp rax, 1
+173ccd6 jb 0x173ccf4
+173ccd8 lea rax, [rcx + 1]
+173ccdc mov qword ptr [rbx + 0x10], rax
+173cce0 mov rax, rbx
+173cce3 cmp rdx, 0xf
+173cce7 jbe 0x173ccec
+173cce9 mov rax, qword ptr [rbx]
+173ccec mov word ptr [rax + rcx], 0xa
+173ccf2 jmp 0x173cd16
+173ccf4 mov qword ptr [rsp + 0x20], 1
+173ccfd lea r9, [rip + 0x105a12c]
+173cd04 movzx r8d, byte ptr [rbp + 0x48]
+173cd09 mov edx, 1
+173cd0e mov rcx, rbx
+173cd11 call 0x11f240
+173cd16 cmp byte ptr [rbp + 0x60], 0
+173cd1a je 0x173cde7
+173cd20 xor r9d, r9d
+173cd23 xor r8d, r8d
+173cd26 lea rdx, [rip + 0x13286ab]
+173cd2d lea rcx, [rbp - 0x28]
+173cd31 call 0x22aeab0
+173cd36 or esi, 0x6000
+173cd3c mov dword ptr [rbp - 0x30], esi
+173cd3f lea rdx, [rbp - 0x28]
+173cd43 cmp qword ptr [rbp - 0x10], 0xf
+173cd48 cmova rdx, qword ptr [rbp - 0x28]
+173cd4d mov r8, qword ptr [rbp - 0x18]
+173cd51 mov rcx, rbx
+173cd54 call 0x12b330
+173cd59 nop 
+173cd5a mov rdx, qword ptr [rbp - 0x10]
+173cd5e cmp rdx, 0xf
+173cd62 jbe 0x173cd95
+173cd64 inc rdx
+173cd67 mov rcx, qword ptr [rbp - 0x28]
+173cd6b mov rax, rcx
+173cd6e cmp rdx, 0x1000
+173cd75 jb 0x173cd90
+173cd77 add rdx, 0x27
+173cd7b mov rcx, qword ptr [rcx - 8]
+173cd7f sub rax, rcx
+173cd82 add rax, -8
+173cd86 cmp rax, 0x1f
+173cd8a ja 0x173d1cf
+173cd90 call 0x25a0218
+173cd95 mov rcx, qword ptr [rbx + 0x10]
+173cd99 mov rdx, qword ptr [rbx + 0x18]
+173cd9d mov rax, rdx
+173cda0 sub rax, rcx
+173cda3 cmp rax, 1
+173cda7 jb 0x173cdc5
+173cda9 lea rax, [rcx + 1]
+173cdad mov qword ptr [rbx + 0x10], rax
+173cdb1 mov rax, rbx
+173cdb4 cmp rdx, 0xf
+173cdb8 jbe 0x173cdbd
+173cdba mov rax, qword ptr [rbx]
+173cdbd mov word ptr [rax + rcx], 0xa
+173cdc3 jmp 0x173cde7
+173cdc5 mov qword ptr [rsp + 0x20], 1
+173cdce lea r9, [rip + 0x105a05b]
+173cdd5 movzx r8d, byte ptr [rbp + 0x48]
+173cdda mov edx, 1
+173cddf mov rcx, rbx
+173cde2 call 0x11f240
+173cde7 cmp byte ptr [rbp + 0x68], 0
+173cdeb je 0x173ceb8
+173cdf1 xor r9d, r9d
+173cdf4 xor r8d, r8d
+173cdf7 lea rdx, [rip + 0x132860a]
+173cdfe lea rcx, [rbp - 0x28]
+173ce02 call 0x22aeab0
+173ce07 or esi, 0x60000
+173ce0d mov dword ptr [rbp - 0x30], esi
+173ce10 lea rdx, [rbp - 0x28]
+173ce14 cmp qword ptr [rbp - 0x10], 0xf
+173ce19 cmova rdx, qword ptr [rbp - 0x28]
+173ce1e mov r8, qword ptr [rbp - 0x18]
+173ce22 mov rcx, rbx
+173ce25 call 0x12b330
+173ce2a nop 
+173ce2b mov rdx, qword ptr [rbp - 0x10]
+173ce2f cmp rdx, 0xf
+173ce33 jbe 0x173ce66
+173ce35 inc rdx
+173ce38 mov rcx, qword ptr [rbp - 0x28]
+173ce3c mov rax, rcx
+173ce3f cmp rdx, 0x1000
+173ce46 jb 0x173ce61
+173ce48 add rdx, 0x27
+173ce4c mov rcx, qword ptr [rcx - 8]
+173ce50 sub rax, rcx
+173ce53 add rax, -8
+173ce57 cmp rax, 0x1f
+173ce5b ja 0x173d1d5
+173ce61 call 0x25a0218
+173ce66 mov rcx, qword ptr [rbx + 0x10]
+173ce6a mov rdx, qword ptr [rbx + 0x18]
+173ce6e mov rax, rdx
+173ce71 sub rax, rcx
+173ce74 cmp rax, 1
+173ce78 jb 0x173ce96
+173ce7a lea rax, [rcx + 1]
+173ce7e mov qword ptr [rbx + 0x10], rax
+173ce82 mov rax, rbx
+173ce85 cmp rdx, 0xf
+173ce89 jbe 0x173ce8e
+173ce8b mov rax, qword ptr [rbx]
+173ce8e mov word ptr [rax + rcx], 0xa
+173ce94 jmp 0x173ceb8
+173ce96 mov qword ptr [rsp + 0x20], 1
+173ce9f lea r9, [rip + 0x1059f8a]
+173cea6 movzx r8d, byte ptr [rbp + 0x48]
+173ceab mov edx, 1
+173ceb0 mov rcx, rbx
+173ceb3 call 0x11f240
+173ceb8 cmp byte ptr [rbp + 0x70], 0
+173cebc je 0x173cf89
+173cec2 xor r9d, r9d
+173cec5 xor r8d, r8d
+173cec8 lea rdx, [rip + 0x1328561]
+173cecf lea rcx, [rbp - 0x28]
+173ced3 call 0x22aeab0
+173ced8 or esi, 0x180000
+173cede mov dword ptr [rbp - 0x30], esi
+173cee1 lea rdx, [rbp - 0x28]
+173cee5 cmp qword ptr [rbp - 0x10], 0xf
+173ceea cmova rdx, qword ptr [rbp - 0x28]
+173ceef mov r8, qword ptr [rbp - 0x18]
+173cef3 mov rcx, rbx
+173cef6 call 0x12b330
+173cefb nop 
+173cefc mov rdx, qword ptr [rbp - 0x10]
+173cf00 cmp rdx, 0xf
+173cf04 jbe 0x173cf37
+173cf06 inc rdx
+173cf09 mov rcx, qword ptr [rbp - 0x28]
+173cf0d mov rax, rcx
+173cf10 cmp rdx, 0x1000
+173cf17 jb 0x173cf32
+173cf19 add rdx, 0x27
+173cf1d mov rcx, qword ptr [rcx - 8]
+173cf21 sub rax, rcx
+173cf24 add rax, -8
+173cf28 cmp rax, 0x1f
+173cf2c ja 0x173d1db
+173cf32 call 0x25a0218
+173cf37 mov rcx, qword ptr [rbx + 0x10]
+173cf3b mov rdx, qword ptr [rbx + 0x18]
+173cf3f mov rax, rdx
+173cf42 sub rax, rcx
+173cf45 cmp rax, 1
+173cf49 jb 0x173cf67
+173cf4b lea rax, [rcx + 1]
+173cf4f mov qword ptr [rbx + 0x10], rax
+173cf53 mov rax, rbx
+173cf56 cmp rdx, 0xf
+173cf5a jbe 0x173cf5f
+173cf5c mov rax, qword ptr [rbx]
+173cf5f mov word ptr [rax + rcx], 0xa
+173cf65 jmp 0x173cf89
+173cf67 mov qword ptr [rsp + 0x20], 1
+173cf70 lea r9, [rip + 0x1059eb9]
+173cf77 movzx r8d, byte ptr [rbp + 0x48]
+173cf7c mov edx, 1
+173cf81 mov rcx, rbx
+173cf84 call 0x11f240
+173cf89 cmp byte ptr [rbp + 0x78], 0
+173cf8d je 0x173d196
+173cf93 xor r9d, r9d
+173cf96 xor r8d, r8d
+173cf99 lea rdx, [rip + 0x13284c0]
+173cfa0 lea rcx, [rbp - 0x28]
+173cfa4 call 0x22aeab0
+173cfa9 or esi, 0x18000
+173cfaf mov dword ptr [rbp - 0x30], esi
+173cfb2 lea rdx, [rbp - 0x28]
+173cfb6 cmp qword ptr [rbp - 0x10], 0xf
+173cfbb cmova rdx, qword ptr [rbp - 0x28]
+173cfc0 mov r8, qword ptr [rbp - 0x18]
+173cfc4 mov rcx, rbx
+173cfc7 call 0x12b330
+173cfcc nop 
+173cfcd mov rdx, qword ptr [rbp - 0x10]
+173cfd1 cmp rdx, 0xf
+173cfd5 jbe 0x173d008
+173cfd7 inc rdx
+173cfda mov rcx, qword ptr [rbp - 0x28]
+173cfde mov rax, rcx
+173cfe1 cmp rdx, 0x1000
+173cfe8 jb 0x173d003
+173cfea add rdx, 0x27
+173cfee mov rcx, qword ptr [rcx - 8]
+173cff2 sub rax, rcx
+173cff5 add rax, -8
+173cff9 cmp rax, 0x1f
+173cffd ja 0x173d1e1
+173d003 call 0x25a0218
+173d008 mov rcx, qword ptr [rbx + 0x10]
+173d00c mov rdx, qword ptr [rbx + 0x18]
+173d010 mov rax, rdx
+173d013 sub rax, rcx
+173d016 cmp rax, 1
+173d01a jb 0x173d03b
+173d01c lea rax, [rcx + 1]
+173d020 mov qword ptr [rbx + 0x10], rax
+173d024 mov rax, rbx
+173d027 cmp rdx, 0xf
+173d02b jbe 0x173d030
+173d02d mov rax, qword ptr [rbx]
+173d030 mov word ptr [rax + rcx], 0xa
+173d036 jmp 0x173d196
+173d03b mov qword ptr [rsp + 0x20], 1
+173d044 lea r9, [rip + 0x1059de5]
+173d04b movzx r8d, byte ptr [rbp + 0x48]
+173d050 mov edx, 1
+173d055 mov rcx, rbx
+173d058 call 0x11f240
+173d05d jmp 0x173d196
+173d062 lea rdx, [rip + 0x132841f]
+173d069 call 0x22aeab0
+173d06e mov dword ptr [rbp - 0x30], 0x181
+173d075 lea rdx, [rbp - 0x28]
+173d079 cmp qword ptr [rbp - 0x10], 0xf
+173d07e cmova rdx, qword ptr [rbp - 0x28]
+173d083 mov r8, qword ptr [rbp - 0x18]
+173d087 mov rcx, rbx
+173d08a call 0x12b330
+173d08f nop 
+173d090 mov rdx, qword ptr [rbp - 0x10]
+173d094 cmp rdx, 0xf
+173d098 jbe 0x173d0d3
+173d09a inc rdx
+173d09d mov rcx, qword ptr [rbp - 0x28]
+173d0a1 mov rax, rcx
+173d0a4 cmp rdx, 0x1000
+173d0ab jb 0x173d0ce
+173d0ad add rdx, 0x27
+173d0b1 mov rcx, qword ptr [rcx - 8]
+173d0b5 sub rax, rcx
+173d0b8 add rax, -8
+173d0bc cmp rax, 0x1f
+173d0c0 ja 0x173d1e7
+173d0c6 lea rdi, [rbx + 0x10]
+173d0ca lea r14, [rbx + 0x18]
+173d0ce call 0x25a0218
+173d0d3 mov rcx, qword ptr [rdi]
+173d0d6 mov rdx, qword ptr [r14]
+173d0d9 mov rax, rdx
+173d0dc sub rax, rcx
+173d0df cmp rax, 2
+173d0e3 jb 0x173d105
+173d0e5 lea rax, [rcx + 2]
+173d0e9 mov qword ptr [rdi], rax
+173d0ec mov rax, rbx
+173d0ef cmp rdx, 0xf
+173d0f3 jbe 0x173d0f8
+173d0f5 mov rax, qword ptr [rbx]
+173d0f8 mov word ptr [rax + rcx], 0xa0a
+173d0fe mov byte ptr [rax + rcx + 2], 0
+173d103 jmp 0x173d127
+173d105 mov qword ptr [rsp + 0x20], 2
+173d10e lea r9, [rip + 0x1070e67]
+173d115 movzx r8d, byte ptr [rbp + 0x48]
+173d11a mov edx, 2
+173d11f mov rcx, rbx
+173d122 call 0x11f240
+173d127 xor r9d, r9d
+173d12a xor r8d, r8d
+173d12d lea rdx, [rip + 0x1328364]
+173d134 lea rcx, [rbp - 0x28]
+173d138 call 0x22aeab0
+173d13d mov dword ptr [rbp - 0x30], 0x1e1
+173d144 lea rdx, [rbp - 0x28]
+173d148 cmp qword ptr [rbp - 0x10], 0xf
+173d14d cmova rdx, qword ptr [rbp - 0x28]
+173d152 mov r8, qword ptr [rbp - 0x18]
+173d156 mov rcx, rbx
+173d159 call 0x12b330
+173d15e nop 
+173d15f mov rdx, qword ptr [rbp - 0x10]
+173d163 cmp rdx, 0xf
+173d167 jbe 0x173d196
+173d169 inc rdx
+173d16c mov rcx, qword ptr [rbp - 0x28]
+173d170 mov rax, rcx
+173d173 cmp rdx, 0x1000
+173d17a jb 0x173d191
+173d17c add rdx, 0x27
+173d180 mov rcx, qword ptr [rcx - 8]
+173d184 sub rax, rcx
+173d187 add rax, -8
+173d18b cmp rax, 0x1f
+173d18f ja 0x173d1b1
+173d191 call 0x25a0218
+173d196 mov rax, rbx
+173d199 mov rbx, qword ptr [rsp + 0xb0]
+173d1a1 add rsp, 0x60
+173d1a5 pop r15
+173d1a7 pop r14
+173d1a9 pop r13
+173d1ab pop r12
+173d1ad pop rdi
+173d1ae pop rsi
+173d1af pop rbp
+173d1b0 ret 
+173d1b1 call 0x25c7db4
+173d1b6 int3 
+173d1b7 call 0x25c7db4
+173d1bc int3 
+173d1bd call 0x25c7db4
+173d1c2 int3 
+173d1c3 call 0x25c7db4
+173d1c8 int3 
+173d1c9 call 0x25c7db4
+173d1ce int3 
+173d1cf call 0x25c7db4
+173d1d4 int3 
+173d1d5 call 0x25c7db4
+173d1da int3 
+173d1db call 0x25c7db4
+173d1e0 int3 
+173d1e1 call 0x25c7db4
+173d1e6 int3 
+173d1e7 call 0x25c7db4
+173d1ec int3 

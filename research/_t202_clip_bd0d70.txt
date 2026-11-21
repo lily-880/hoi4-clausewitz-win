@@ -1,0 +1,22 @@
+bd0d70 push rbx
+bd0d72 sub rsp, 0x20
+bd0d76 mov rbx, rcx
+bd0d79 mov rcx, qword ptr [rcx + 0x5f0]
+bd0d80 test rcx, rcx
+bd0d83 je 0xbd0db7
+bd0d85 mov rax, qword ptr [rcx]
+bd0d88 call qword ptr [rax + 0x248]
+bd0d8e mov rcx, qword ptr [rbx + 0x5f0]
+bd0d95 test al, al
+bd0d97 je 0xbd0da3
+bd0d99 add rsp, 0x20
+bd0d9d pop rbx
+bd0d9e jmp 0x233a470
+bd0da3 mov rax, qword ptr [rcx + 0x30]
+bd0da7 add rcx, 0x30
+bd0dab add rsp, 0x20
+bd0daf pop rbx
+bd0db0 jmp qword ptr [rax + 0x80]
+bd0db7 add rsp, 0x20
+bd0dbb pop rbx
+bd0dbc ret 

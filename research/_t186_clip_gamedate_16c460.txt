@@ -1,0 +1,36 @@
+0x16c460  mov qword ptr [rsp + 8], rbx
+0x16c465  mov qword ptr [rsp + 0x10], rsi
+0x16c46a  push rdi
+0x16c46b  sub rsp, 0x20
+0x16c46f  mov edi, edx
+0x16c471  mov rsi, rcx
+0x16c474  call 0x17f7f0
+0x16c479  add edi, eax
+0x16c47b  mov eax, 0x2aaaaaab
+0x16c480  imul edi
+0x16c482  mov r10d, edx
+0x16c485  sar r10d, 1
+0x16c488  mov eax, r10d
+0x16c48b  shr eax, 0x1f  ; TOKEN height
+0x16c48e  add r10d, eax
+0x16c491  jne 0x16c4b2
+0x16c493  cmp edi, -1
+0x16c496  jg 0x16c56d
+0x16c49c  mov rax, qword ptr [rsi]
+0x16c49f  mov edx, 0xffffffff
+0x16c4a4  mov rcx, rsi
+0x16c4a7  call qword ptr [rax + 0x20]
+0x16c4aa  add edi, 0xc
+0x16c4ad  jmp 0x16c56d
+0x16c4b2  mov r11d, dword ptr [rsi + 8]
+0x16c4b6  mov eax, 0x2aaaaaab
+0x16c4bb  lea ecx, [r11 - 0x29c55c0]
+0x16c4c2  imul ecx
+0x16c4c4  mov r9d, edx
+0x16c4c7  sar r9d, 2
+0x16c4cb  mov eax, r9d
+0x16c4ce  shr eax, 0x1f  ; TOKEN height
+0x16c4d1  add r9d, eax
+0x16c4d4  mov eax, 0xb38cf9b1
+0x16c4d9  imul r9d
+0x16c4dc  add edx, r9d

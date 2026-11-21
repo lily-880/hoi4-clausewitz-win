@@ -1,0 +1,61 @@
+{
+  "mapping": [
+    {
+      "offset": "0x8",
+      "token": "0x298f",
+      "name": "from",
+      "representation": "country tag via C08170/GS358"
+    },
+    {
+      "offset": "0xc",
+      "token": "0xc6",
+      "name": "receiver",
+      "representation": "country tag via C08170/GS358"
+    },
+    {
+      "offset": "0x10",
+      "token": "0x2990",
+      "name": "to",
+      "representation": "country tag via C08170/GS358"
+    },
+    {
+      "offset": "0x18",
+      "token": "0x308",
+      "name": "value",
+      "representation": "qword through2545F90; measurement unit and accumulation scope NOT established"
+    }
+  ],
+  "matched_writer_instructions": [
+    "d41060 add rcx, 8",
+    "d41064 call 0xc08170",
+    "d4106f mov edx, 0x298f",
+    "d4107c lea rcx, [rbx + 0xc]",
+    "d4108b mov edx, 0xc6",
+    "d41098 lea rcx, [rbx + 0x10]",
+    "d410a7 mov edx, 0x2990",
+    "d410b4 mov r8, qword ptr [rbx + 0x18]",
+    "d410b8 mov edx, 0x308"
+  ],
+  "recognized_parser_branches": "D3EE20 uses C08860 forfrom/receiver/to and2543500forvalue; unknownexternaldefault25416B0 remains outsideboundedwindow",
+  "parser_unresolved_edges": [
+    {
+      "address": "0xd3ee45",
+      "target": "0x25416b0",
+      "reason": "conditional target outside window"
+    }
+  ],
+  "source_sha256": {
+    "t211_observer_activity_damage_nested_contracts.json": "a8196e37f1a9ca0fae15cbc76368a09dc3528e931efb516eccdd0c6797a17d0c",
+    "t211_activity_group_handle_and_country_fields.json": "b2b639b8d59911f147991451a3523697059ce992bf3f924b812a0bd5382c9b0c",
+    "t214_damage_field_token_controls.json": "f6ee4da9869522a2d4e263c58f299aa57d5b077654d7449e71696cbc670874a3"
+  },
+  "semantic_boundaries": [
+    "from/receiver/to are3distinctnamedcountry-tagfields,notautomaticallyattacker/defender",
+    "value isnotindependentlymanpower_lost,HP,org,cumulativecasualtiesorprovenkillcount",
+    "Noactualdamageamountorpeoplecounterread;0newfieldpromotions",
+    "Noactive/historyIDbridgeorended/resultproof",
+    "Namesandstorage-onlybindingdonotprovelifetime,scale,ownershipattributionorfrom-to-directionrules"
+  ],
+  "new_unittest_methods_run": 0,
+  "old_test_suites_rerun": false
+}

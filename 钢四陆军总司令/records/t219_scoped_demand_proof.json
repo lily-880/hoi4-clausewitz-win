@@ -1,0 +1,91 @@
+{
+  "at_est": "2026-11-20T10:12:50.007882-05:00",
+  "field": "world.shortages.equipment.demanded",
+  "promotion_scope": {
+    "types": [
+      "artillery_equipment",
+      "infantry_equipment",
+      "support_equipment",
+      "light_tank_chassis"
+    ],
+    "required_empty_components": [
+      "deployment",
+      "occupation",
+      "logistics",
+      "operations",
+      "countryresources"
+    ],
+    "requires_current_component_total_equals_independent_daily_cache": true,
+    "excludes": [
+      "other equipment types",
+      "nonempty extra components",
+      "fractional or negative demand",
+      "stale daily cache",
+      "recursive derived type scope",
+      "manpower casualties",
+      "deficit field",
+      "stockpile parser acceptance",
+      "complete production capture"
+    ]
+  },
+  "proof_chain": [
+    "1409890: deployment + reinforcement need at request+78 minus produced at+38, then type-gated country specials, occupation, logistics and operations; 1409810 adds14080c0 resources; all additions saturate to native bound",
+    "Current snapshot extras zero; four archetype self roots satisfy cf4fe0 mask0x408000003c, normalized bit31=0 and44b=0; cf2e70 lowbit=0. Calls only disassembled, never invoked.",
+    "140ba10 independent postdaily writer: native current1409630 minus cap(1409890+14080c0) -> logistics slot16 -> row+10 -> holder+30 -> dense[type+598]*8 via15b3220",
+    "1407e60/15b1d90/15b2ab0 reader closes slot15 current-source path for these four nonspecial types; 1409630 clamps stored current to max(0,raw). Native1407e60 convoy path contains lazy cache writes; never call it.",
+    "Stable actual113 requests across49 own groups and81 catalog types; 2104 read dependencies rechecked; four independent cache equalities positive, FIXED=100000. No absence-as-zero export."
+  ],
+  "positive_results": {
+    "artillery_equipment": {
+      "demanded": 147,
+      "demand_raw": 14700000,
+      "native_current_raw": 0,
+      "stored_balance_raw": -14700000
+    },
+    "infantry_equipment": {
+      "demanded": 10015,
+      "demand_raw": 1001500000,
+      "native_current_raw": 0,
+      "stored_balance_raw": -1001500000
+    },
+    "support_equipment": {
+      "demanded": 121,
+      "demand_raw": 12100000,
+      "native_current_raw": 0,
+      "stored_balance_raw": -12100000
+    },
+    "light_tank_chassis": {
+      "demanded": 2324,
+      "demand_raw": 232400000,
+      "native_current_raw": 0,
+      "stored_balance_raw": -232400000
+    }
+  },
+  "raw_dependency_files_sha256": {
+    "t219_equipment_type_and_cache_flows.json": "97c97be006caf91c5e5e3d000872c55b7d08b5190ec488d660111c8d688664fd",
+    "t219_cache_reader_and_component_flows.json": "b5181e5002159608e845961eb8d866498b6052d4d6eb35e25f5e6fd73d555b11",
+    "t219_scoped_demand_leaf_controls.json": "af9767443ee98791055bc19aaef92fbbdce26bb8a648a774856798746a198c91",
+    "t219_cache_reader_closed_windows.json": "d550170b35747fa72565f9b9a393f766a1e86590c959516a9ec2f20fad78d6c8",
+    "t219_live_equipment_cache_and_types.json": "a2c45bb1c823f5af1d9e9a1eeb1c4b8a6bd8a7d88bf43b6b9f878d1189a75adf"
+  },
+  "unique_new_offline_tests": 35,
+  "windows_replay_tests": 0,
+  "production_capture_run": false,
+  "complete_input": false,
+  "inventory_before_sha256": "711d38a84a26929f89ecbaa0781a66e8b2061da7364da7ea9e6379b662b8fabd",
+  "inventory_after_sha256": "7e25b2f0dce3b4ff69f0ad258bf90daa94f7d8b22c72e16ce2bfe9d6738d4ee2",
+  "inventory_after_counts": {
+    "tables": 14,
+    "fields": 116,
+    "columns": 3,
+    "verified": 81,
+    "unverified": 35,
+    "memory_unverified": 23,
+    "nonmemory_unverified": 12
+  },
+  "rejection": {
+    "production_stockpile_parser": "unchanged; rejects three raw negative buckets (-40000 artillery, -75000 infantry/support). This is not a gate bypass or accepted stockpile output.",
+    "initial_unwind_attempt": "leaf functions have no unwind entries; split1409890 prologue not complete bound. No game gate was weakened; exact bounded CFG capture retains then closes truncation edges."
+  },
+  "next_target": "train special positive slot15=8300000/slot16=6800000: bind7362c0 country mapping, train fields +80->140 and+110, then native_current correction and demand correction. Motorized44b1/rawflag8 still excluded despite request/cache numeric match. Air/convoy mismatch is held-out scope, not a failed four-type proof."
+}

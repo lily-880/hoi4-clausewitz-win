@@ -1,0 +1,322 @@
+593ac0 mov byte ptr [rsp + 0x20], r9b
+593ac5 mov qword ptr [rsp + 0x18], r8
+593aca mov qword ptr [rsp + 0x10], rdx
+593acf mov qword ptr [rsp + 8], rcx
+593ad4 push rbp
+593ad5 push rbx
+593ad6 push rsi
+593ad7 push rdi
+593ad8 push r12
+593ada push r13
+593adc push r14
+593ade push r15
+593ae0 lea rbp, [rsp - 0xf]
+593ae5 sub rsp, 0xa8
+593aec movzx edi, r9b
+593af0 mov r15, rdx
+593af3 xor edx, edx
+593af5 mov dword ptr [rbp - 0x69], edx
+593af8 xorps xmm0, xmm0
+593afb movups xmmword ptr [r15], xmm0
+593aff mov qword ptr [r15 + 0x10], rdx
+593b03 mov qword ptr [r15 + 0x18], 0xf
+593b0b mov byte ptr [r15], dl
+593b0e mov dword ptr [rbp - 0x69], 1
+593b15 movsxd rax, dword ptr [rcx + 0x14]
+593b19 test eax, eax
+593b1b jle 0x593f41
+593b21 mov qword ptr [rbp - 0x61], rax
+593b25 mov r12d, edx
+593b28 mov r13d, dword ptr [rbp + 0x7f]
+593b2c mov r14d, dword ptr [rbp + 0x77]
+593b30 movzx ebx, byte ptr [rbp + 0x57]
+593b34 nop dword ptr [rax]
+593b38 nop dword ptr [rax + rax]
+593b40 mov rax, qword ptr [rcx + 8]
+593b44 mov rsi, qword ptr [rax + r12*8]
+593b48 mov rax, qword ptr [rsi]
+593b4b mov dword ptr [rsp + 0x20], r14d
+593b50 movzx r9d, dil
+593b54 lea rdx, [rbp - 0x59]
+593b58 mov rcx, rsi
+593b5b call qword ptr [rax + 0xa8]
+593b61 nop 
+593b62 mov r8, qword ptr [rbp - 0x49]
+593b66 test r8, r8
+593b69 je 0x593e0d
+593b6f lea rdx, [rbp - 0x59]
+593b73 mov r10, qword ptr [rbp - 0x59]
+593b77 mov r9, qword ptr [rbp - 0x41]
+593b7b cmp r9, 0xf
+593b7f cmova rdx, r10
+593b83 lea eax, [r8 - 1]
+593b87 movsxd rcx, eax
+593b8a cmp byte ptr [rcx + rdx], 0xa
+593b8e je 0x593bcb
+593b90 cmp r8, r9
+593b93 jae 0x593bb2
+593b95 lea rax, [r8 + 1]
+593b99 mov qword ptr [rbp - 0x49], rax
+593b9d lea rax, [rbp - 0x59]
+593ba1 cmp r9, 0xf
+593ba5 cmova rax, r10
+593ba9 mov word ptr [rax + r8], 0xa
+593bb0 jmp 0x593bc7
+593bb2 mov r9b, 0xa
+593bb5 movzx r8d, bl
+593bb9 mov edx, 1
+593bbe lea rcx, [rbp - 0x59]
+593bc2 call 0x1b8180
+593bc7 mov r8, qword ptr [rbp - 0x49]
+593bcb test r8, r8
+593bce je 0x593e0d
+593bd4 xorps xmm0, xmm0
+593bd7 movups xmmword ptr [rbp - 0x39], xmm0
+593bdb xor r8d, r8d
+593bde mov qword ptr [rbp - 0x29], r8
+593be2 mov eax, 0xf
+593be7 mov qword ptr [rbp - 0x21], rax
+593beb mov byte ptr [rbp - 0x39], r8b
+593bef xor edi, edi
+593bf1 test r14d, r14d
+593bf4 jle 0x593c91
+593bfa nop word ptr [rax + rax]
+593c00 xorps xmm0, xmm0
+593c03 movups xmmword ptr [rbp - 0x19], xmm0
+593c07 mov qword ptr [rbp - 9], 3
+593c0f mov qword ptr [rbp - 1], 0xf
+593c17 mov eax, dword ptr [rip + 0x2273beb]
+593c1d mov word ptr [rbp - 0x19], ax
+593c21 movzx eax, byte ptr [rip + 0x2273be2]
+593c28 mov byte ptr [rbp - 0x17], al
+593c2b mov byte ptr [rbp - 0x16], 0
+593c2f lea rdx, [rbp - 0x19]
+593c33 mov r8d, 3
+593c39 lea rcx, [rbp - 0x39]
+593c3d call 0x12b330
+593c42 nop 
+593c43 mov rdx, qword ptr [rbp - 1]
+593c47 cmp rdx, 0xf
+593c4b jbe 0x593c7e
+593c4d inc rdx
+593c50 mov rcx, qword ptr [rbp - 0x19]
+593c54 mov rax, rcx
+593c57 cmp rdx, 0x1000
+593c5e jb 0x593c79
+593c60 add rdx, 0x27
+593c64 mov rcx, qword ptr [rcx - 8]
+593c68 sub rax, rcx
+593c6b add rax, -8
+593c6f cmp rax, 0x1f
+593c73 ja 0x593f64
+593c79 call 0x25a0218
+593c7e inc edi
+593c80 cmp edi, r14d
+593c83 jl 0x593c00
+593c89 mov rax, qword ptr [rbp - 0x21]
+593c8d mov r8, qword ptr [rbp - 0x29]
+593c91 lea rdx, [rbp - 0x39]
+593c95 cmp rax, 0xf
+593c99 cmova rdx, qword ptr [rbp - 0x39]
+593c9e mov rcx, r15
+593ca1 call 0x12b330
+593ca6 test r14d, r14d
+593ca9 je 0x593cb5
+593cab cmp r13d, 1
+593caf jne 0x593db3
+593cb5 cmp r13d, 2
+593cb9 je 0x593db3
+593cbf mov rax, qword ptr [rsi]
+593cc2 mov rdx, qword ptr [rbp + 0x67]
+593cc6 mov rcx, rsi
+593cc9 call qword ptr [rax + 0x18]
+593ccc movzx edi, byte ptr [rbp + 0x6f]
+593cd0 xor r9d, r9d
+593cd3 xor r8d, r8d
+593cd6 lea rcx, [rbp - 0x19]
+593cda cmp al, dil
+593cdd jne 0x593d4b
+593cdf lea rdx, [rip + 0x225aeb2]
+593ce6 call 0x22aeab0
+593ceb or dword ptr [rbp - 0x69], 0xe
+593cef lea rdx, [rbp - 0x19]
+593cf3 cmp qword ptr [rbp - 1], 0xf
+593cf8 cmova rdx, qword ptr [rbp - 0x19]
+593cfd mov r8, qword ptr [rbp - 9]
+593d01 mov rcx, r15
+593d04 call 0x12b330
+593d09 nop 
+593d0a mov rdx, qword ptr [rbp - 1]
+593d0e cmp rdx, 0xf
+593d12 jbe 0x593db7
+593d18 inc rdx
+593d1b mov rcx, qword ptr [rbp - 0x19]
+593d1f mov rax, rcx
+593d22 cmp rdx, 0x1000
+593d29 jb 0x593d44
+593d2b add rdx, 0x27
+593d2f mov rcx, qword ptr [rcx - 8]
+593d33 sub rax, rcx
+593d36 add rax, -8
+593d3a cmp rax, 0x1f
+593d3e ja 0x593f6a
+593d44 call 0x25a0218
+593d49 jmp 0x593db7
+593d4b lea rdx, [rip + 0x225ae26]
+593d52 call 0x22aeab0
+593d57 or dword ptr [rbp - 0x69], 0x70
+593d5b lea rdx, [rbp - 0x19]
+593d5f cmp qword ptr [rbp - 1], 0xf
+593d64 cmova rdx, qword ptr [rbp - 0x19]
+593d69 mov r8, qword ptr [rbp - 9]
+593d6d mov rcx, r15
+593d70 call 0x12b330
+593d75 nop 
+593d76 mov rdx, qword ptr [rbp - 1]
+593d7a cmp rdx, 0xf
+593d7e jbe 0x593db7
+593d80 inc rdx
+593d83 mov rcx, qword ptr [rbp - 0x19]
+593d87 mov rax, rcx
+593d8a cmp rdx, 0x1000
+593d91 jb 0x593dac
+593d93 add rdx, 0x27
+593d97 mov rcx, qword ptr [rcx - 8]
+593d9b sub rax, rcx
+593d9e add rax, -8
+593da2 cmp rax, 0x1f
+593da6 ja 0x593f70
+593dac call 0x25a0218
+593db1 jmp 0x593db7
+593db3 movzx edi, byte ptr [rbp + 0x6f]
+593db7 lea rdx, [rbp - 0x59]
+593dbb cmp qword ptr [rbp - 0x41], 0xf
+593dc0 cmova rdx, qword ptr [rbp - 0x59]
+593dc5 mov r8, qword ptr [rbp - 0x49]
+593dc9 mov rcx, r15
+593dcc call 0x12b330
+593dd1 nop 
+593dd2 mov rdx, qword ptr [rbp - 0x21]
+593dd6 cmp rdx, 0xf
+593dda jbe 0x593e0d
+593ddc inc rdx
+593ddf mov rcx, qword ptr [rbp - 0x39]
+593de3 mov rax, rcx
+593de6 cmp rdx, 0x1000
+593ded jb 0x593e08
+593def add rdx, 0x27
+593df3 mov rcx, qword ptr [rcx - 8]
+593df7 sub rax, rcx
+593dfa add rax, -8
+593dfe cmp rax, 0x1f
+593e02 ja 0x593f76
+593e08 call 0x25a0218
+593e0d mov rax, qword ptr [rsi]
+593e10 mov r10, qword ptr [rax + 0x60]
+593e14 movzx r9d, dil
+593e18 mov r8, qword ptr [rbp + 0x67]
+593e1c lea rdx, [rbp - 0x19]
+593e20 mov rcx, rsi
+593e23 cmp r13d, 2
+593e27 jne 0x593e8d
+593e29 mov dword ptr [rsp + 0x28], r13d
+593e2e mov dword ptr [rsp + 0x20], r14d
+593e33 call r10
+593e36 nop 
+593e37 mov r8, qword ptr [rax + 0x10]
+593e3b cmp qword ptr [rax + 0x18], 0xf
+593e40 jbe 0x593e45
+593e42 mov rax, qword ptr [rax]
+593e45 mov rdx, rax
+593e48 mov rcx, r15
+593e4b call 0x12b330
+593e50 nop 
+593e51 mov rdx, qword ptr [rbp - 1]
+593e55 cmp rdx, 0xf
+593e59 jbe 0x593ef4
+593e5f inc rdx
+593e62 mov rcx, qword ptr [rbp - 0x19]
+593e66 mov rax, rcx
+593e69 cmp rdx, 0x1000
+593e70 jb 0x593eee
+593e72 add rdx, 0x27
+593e76 mov rcx, qword ptr [rcx - 8]
+593e7a sub rax, rcx
+593e7d add rax, -8
+593e81 cmp rax, 0x1f
+593e85 ja 0x593f5e
+593e8b jmp 0x593eee
+593e8d mov dword ptr [rsp + 0x28], 0
+593e95 mov dword ptr [rsp + 0x20], r14d
+593e9a call r10
+593e9d nop 
+593e9e mov r8, qword ptr [rax + 0x10]
+593ea2 cmp qword ptr [rax + 0x18], 0xf
+593ea7 jbe 0x593eac
+593ea9 mov rax, qword ptr [rax]
+593eac mov rdx, rax
+593eaf mov rcx, r15
+593eb2 call 0x12b330
+593eb7 nop 
+593eb8 mov rdx, qword ptr [rbp - 1]
+593ebc cmp rdx, 0xf
+593ec0 jbe 0x593ef4
+593ec2 inc rdx
+593ec5 mov rcx, qword ptr [rbp - 0x19]
+593ec9 mov rax, rcx
+593ecc cmp rdx, 0x1000
+593ed3 jb 0x593eee
+593ed5 add rdx, 0x27
+593ed9 mov rcx, qword ptr [rcx - 8]
+593edd sub rax, rcx
+593ee0 add rax, -8
+593ee4 cmp rax, 0x1f
+593ee8 ja 0x593f7c
+593eee call 0x25a0218
+593ef3 nop 
+593ef4 mov rdx, qword ptr [rbp - 0x41]
+593ef8 cmp rdx, 0xf
+593efc jbe 0x593f2b
+593efe inc rdx
+593f01 mov rcx, qword ptr [rbp - 0x59]
+593f05 mov rax, rcx
+593f08 cmp rdx, 0x1000
+593f0f jb 0x593f26
+593f11 add rdx, 0x27
+593f15 mov rcx, qword ptr [rcx - 8]
+593f19 sub rax, rcx
+593f1c add rax, -8
+593f20 cmp rax, 0x1f
+593f24 ja 0x593f58
+593f26 call 0x25a0218
+593f2b inc r12
+593f2e cmp r12, qword ptr [rbp - 0x61]
+593f32 jge 0x593f41
+593f34 mov r8, qword ptr [rbp + 0x67]
+593f38 mov rcx, qword ptr [rbp + 0x57]
+593f3c jmp 0x593b40
+593f41 mov rax, r15
+593f44 add rsp, 0xa8
+593f4b pop r15
+593f4d pop r14
+593f4f pop r13
+593f51 pop r12
+593f53 pop rdi
+593f54 pop rsi
+593f55 pop rbx
+593f56 pop rbp
+593f57 ret 
+593f58 call 0x25c7db4
+593f5d nop 
+593f5e call 0x25c7db4
+593f63 nop 
+593f64 call 0x25c7db4
+593f69 int3 
+593f6a call 0x25c7db4
+593f6f int3 
+593f70 call 0x25c7db4
+593f75 nop 
+593f76 call 0x25c7db4
+593f7b int3 
+593f7c call 0x25c7db4
+593f81 int3 

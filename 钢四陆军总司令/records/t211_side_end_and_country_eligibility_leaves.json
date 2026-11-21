@@ -1,0 +1,145 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "combat": "0x219dddd86b0",
+  "side": "0x219c11315f0",
+  "side_class": ".?AVCLandCombatant@@",
+  "side_vtable": "0x2a236a0",
+  "actual_side_vfA0": "0x147fe20",
+  "new_flows": {
+    "0x147fe20": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x147fe20",
+      "window_size": 768,
+      "reachable_instruction_count": 31,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x147fe3a",
+          "operand": "qword ptr [rax + 0xe0]"
+        },
+        {
+          "site": "0x147fe50",
+          "operand": "qword ptr [rax + 0x60]"
+        },
+        {
+          "site": "0x147fe5d",
+          "operand": "qword ptr [rax + 0xc8]"
+        }
+      ],
+      "asm": [
+        "147fe20 push rbx",
+        "147fe22 sub rsp, 0x20",
+        "147fe26 cmp byte ptr [rcx + 0xd9], 0",
+        "147fe2d mov rbx, rcx",
+        "147fe30 jne 0x147fe76",
+        "147fe32 mov rax, qword ptr [rcx]",
+        "147fe35 lea rdx, [rsp + 0x30]",
+        "147fe3a call qword ptr [rax + 0xe0]",
+        "147fe40 cmp qword ptr [rax], 0x3e8",
+        "147fe47 jl 0x147fe76",
+        "147fe49 mov rcx, qword ptr [rbx + 0x18]",
+        "147fe4d mov rax, qword ptr [rcx]",
+        "147fe50 call qword ptr [rax + 0x60]",
+        "147fe53 test al, al",
+        "147fe55 je 0x147fe6e",
+        "147fe57 mov rax, qword ptr [rbx]",
+        "147fe5a mov rcx, rbx",
+        "147fe5d call qword ptr [rax + 0xc8]",
+        "147fe63 test al, al",
+        "147fe65 setne al",
+        "147fe68 add rsp, 0x20",
+        "147fe6c pop rbx",
+        "147fe6d ret ",
+        "147fe6e xor al, al",
+        "147fe70 add rsp, 0x20",
+        "147fe74 pop rbx",
+        "147fe75 ret ",
+        "147fe76 mov al, 1",
+        "147fe78 add rsp, 0x20",
+        "147fe7c pop rbx",
+        "147fe7d ret "
+      ]
+    },
+    "0x1ac4120": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x1ac4120",
+      "window_size": 640,
+      "reachable_instruction_count": 37,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x1ac4130",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0x1ac4163",
+          "operand": "0x748400"
+        },
+        {
+          "site": "0x1ac4152",
+          "operand": "0xc08790"
+        }
+      ],
+      "asm": [
+        "1ac4120 mov qword ptr [rsp + 0x10], rbx",
+        "1ac4125 push rdi",
+        "1ac4126 sub rsp, 0x20",
+        "1ac412a mov rbx, rcx",
+        "1ac412d mov rcx, rdx",
+        "1ac4130 call 0xc07bf0",
+        "1ac4135 mov rbx, qword ptr [rbx]",
+        "1ac4138 mov rdi, rax",
+        "1ac413b test rbx, rbx",
+        "1ac413e je 0x1ac4175",
+        "1ac4140 mov ecx, dword ptr [rbx]",
+        "1ac4142 mov dword ptr [rsp + 0x30], ecx",
+        "1ac4146 cmp dword ptr [rbx], 0",
+        "1ac4149 jne 0x1ac414f",
+        "1ac414b xor eax, eax",
+        "1ac414d jmp 0x1ac4157",
+        "1ac414f mov rcx, rbx",
+        "1ac4152 call 0xc08790",
+        "1ac4157 lea rdx, [rsp + 0x30]",
+        "1ac415c mov dword ptr [rsp + 0x34], eax",
+        "1ac4160 mov rcx, rdi",
+        "1ac4163 call 0x748400",
+        "1ac4168 test al, al",
+        "1ac416a jne 0x1ac4182",
+        "1ac416c mov rbx, qword ptr [rbx + 0x10]",
+        "1ac4170 test rbx, rbx",
+        "1ac4173 jne 0x1ac4140",
+        "1ac4175 xor al, al",
+        "1ac4177 mov rbx, qword ptr [rsp + 0x38]",
+        "1ac417c add rsp, 0x20",
+        "1ac4180 pop rdi",
+        "1ac4181 ret ",
+        "1ac4182 mov rbx, qword ptr [rsp + 0x38]",
+        "1ac4187 mov al, 1",
+        "1ac4189 add rsp, 0x20",
+        "1ac418d pop rdi",
+        "1ac418e ret "
+      ]
+    }
+  },
+  "scope": "static endpoint/eligibility leaves only; native A0 NOT invoked; no phase promotion yet"
+}

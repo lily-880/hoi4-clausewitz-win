@@ -1,0 +1,35 @@
+d3ef90 mov qword ptr [rsp + 0x10], rbx
+d3ef95 push rdi
+d3ef96 sub rsp, 0x30
+d3ef9a cmp byte ptr [rip + 0x2950670], 0
+d3efa1 mov rbx, rdx
+d3efa4 mov rdi, rcx
+d3efa7 je 0xd3f00f
+d3efa9 cmp byte ptr [rip + 0x26ab91a], 0
+d3efb0 jne 0xd3f00f
+d3efb2 test byte ptr [rcx + 0x2e8], 4
+d3efb9 je 0xd3f00f
+d3efbb lea rax, [rip + 0x26ab908]
+d3efc2 mov byte ptr [rsp + 0x40], 0
+d3efc7 mov qword ptr [rsp + 0x28], rax
+d3efcc lea rdx, [rip + 0x1a5574a]
+d3efd3 lea rax, [rsp + 0x40]
+d3efd8 mov r9b, 1
+d3efdb mov r8d, 0x31e
+d3efe1 mov qword ptr [rsp + 0x20], rax
+d3efe6 lea rcx, [rip + 0x1c9b3b3]
+d3efed call 0x254ab40
+d3eff2 cmp byte ptr [rsp + 0x40], 0
+d3eff7 mov byte ptr [rip + 0x26ab8cd], al
+d3effd je 0xd3f000
+d3efff int3 
+d3f000 mov qword ptr [rdi + 0x68], rbx
+d3f004 mov rbx, qword ptr [rsp + 0x48]
+d3f009 add rsp, 0x30
+d3f00d pop rdi
+d3f00e ret 
+d3f00f mov qword ptr [rcx + 0x68], rbx
+d3f013 mov rbx, qword ptr [rsp + 0x48]
+d3f018 add rsp, 0x30
+d3f01c pop rdi
+d3f01d ret 

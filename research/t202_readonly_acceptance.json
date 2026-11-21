@@ -1,0 +1,252 @@
+{
+  "created_at_est": "2026-11-19T02:32:00.120589-05:00",
+  "before": {
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "pause": 1,
+    "speed_slot": 0,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "plans": [
+      {
+        "id": 1,
+        "executing": false
+      },
+      {
+        "id": 2,
+        "executing": false
+      },
+      {
+        "id": 6,
+        "executing": false
+      },
+      {
+        "id": 5,
+        "executing": false
+      },
+      {
+        "id": 4,
+        "executing": false
+      },
+      {
+        "id": 3,
+        "executing": false
+      }
+    ],
+    "gate_open": false
+  },
+  "after": {
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "pause": 1,
+    "speed_slot": 0,
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-02",
+      "day_index": 1,
+      "ui_hour": 15,
+      "hour_tick": 60759398,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "plans": [
+      {
+        "id": 1,
+        "executing": false
+      },
+      {
+        "id": 2,
+        "executing": false
+      },
+      {
+        "id": 6,
+        "executing": false
+      },
+      {
+        "id": 5,
+        "executing": false
+      },
+      {
+        "id": 4,
+        "executing": false
+      },
+      {
+        "id": 3,
+        "executing": false
+      }
+    ],
+    "gate_open": false
+  },
+  "official_pause": true,
+  "allow_post": false,
+  "allow_write": false,
+  "markers": {
+    "safe_land_tool_gate.OPEN": false,
+    "strategic_only_tool_gate.OPEN": false
+  },
+  "post_calls": 0,
+  "game_writes": 0,
+  "remote_calls": 0,
+  "D_file_accesses_this_block": 0,
+  "save_accesses": 0,
+  "commits_or_pushes": 0,
+  "fresh_research_plan_capture": {
+    "scope": "Narrow read-only research sampler, NOT production full input capture; file executable SHA not re-read and production fingerprint gate not bypassed",
+    "plans": [
+      {
+        "plan_id": 1,
+        "assigned_army_ids": [
+          1
+        ],
+        "assigned_unit_ids": [
+          1838
+        ],
+        "executing": false,
+        "vertex_province_ids": []
+      },
+      {
+        "plan_id": 2,
+        "assigned_army_ids": [
+          411
+        ],
+        "assigned_unit_ids": [],
+        "executing": false,
+        "vertex_province_ids": []
+      },
+      {
+        "plan_id": 6,
+        "assigned_army_ids": [
+          411
+        ],
+        "assigned_unit_ids": [],
+        "executing": false,
+        "vertex_province_ids": [
+          2072,
+          7944
+        ]
+      },
+      {
+        "plan_id": 5,
+        "assigned_army_ids": [
+          411
+        ],
+        "assigned_unit_ids": [],
+        "executing": false,
+        "vertex_province_ids": [
+          2072,
+          7944
+        ]
+      },
+      {
+        "plan_id": 4,
+        "assigned_army_ids": [
+          411
+        ],
+        "assigned_unit_ids": [],
+        "executing": false,
+        "vertex_province_ids": [
+          7944,
+          5097
+        ]
+      },
+      {
+        "plan_id": 3,
+        "assigned_army_ids": [
+          411
+        ],
+        "assigned_unit_ids": [],
+        "executing": false,
+        "vertex_province_ids": [
+          2072,
+          7944
+        ]
+      }
+    ],
+    "evidence": {
+      "instance_count": 6,
+      "root_instance_count": 4,
+      "recursive_child_count": 2,
+      "parent_instance_ids": {
+        "4": [
+          2
+        ],
+        "3": [
+          4
+        ]
+      },
+      "scope": "COrdersGroup roots and COrderInstance +1F8/+2D0 recursive lookup arrays"
+    }
+  },
+  "production_capture_rerun": false,
+  "production_capture_not_rerun_reason": "Its required disk executable SHA/PE read would touch D. No mocking or disabling that gate. Existing exports revalidated offline instead.",
+  "existing_full_exports_revalidated_offline": [
+    {
+      "path": "t201_full_capture_recursive_a.json",
+      "sha256": "88dff7111ab117a3d94c9d57a219c2e55b62c6108e6f62a20021c7f5d964147e",
+      "schema_error_count": 52,
+      "all_errors_required": true,
+      "complete_input": false,
+      "entity_list_counts": {
+        "own_units": 21,
+        "provinces": 12,
+        "leaders": 20,
+        "armies": 2,
+        "army_groups": 1,
+        "plans": 6,
+        "combats": 2
+      }
+    },
+    {
+      "path": "t201_full_capture_recursive_b.json",
+      "sha256": "8f6bad1187e8a0adb8782211417afee9bd0f505b61eb96d92a49f5223d75bda7",
+      "schema_error_count": 52,
+      "all_errors_required": true,
+      "complete_input": false,
+      "entity_list_counts": {
+        "own_units": 21,
+        "provinces": 12,
+        "leaders": 20,
+        "armies": 2,
+        "army_groups": 1,
+        "plans": 6,
+        "combats": 2
+      }
+    }
+  ],
+  "tests": {
+    "modules": [
+      "research.test_t202_boundaries",
+      "research.test_t201_recursive_plans",
+      "research.test_t201_supply_pause_regression",
+      "research.test_t200_static_supply_receipt",
+      "research.test_t199_readonly_e2e_equipment",
+      "research.test_t198_plan_path_active_combat",
+      "research.test_t193_input_army_group_plan",
+      "research.test_t185_input_combatant_activity"
+    ],
+    "returncode": 0,
+    "tests_run": 66,
+    "passed": true
+  },
+  "inventory": {
+    "tables": 14,
+    "fields": 116,
+    "columns": 3,
+    "local_proven": 74,
+    "local_unverified": 42,
+    "remaining_memory": 30,
+    "remaining_nonmemory": 12,
+    "new_promotions_t202": 0,
+    "D_last_verified": 72,
+    "D_last_unverified": 44,
+    "D_last_known_sha256": "4219d8b0fa9c800fdb34ce3f2b12256c0a28490b21cf12da411f8dbe73aba91a",
+    "D_current_sha256": null,
+    "synced": false
+  },
+  "reader_sha256": "1aecf151e7f221fa2f1a6b86b37a9d15bf2a44d0f7f649f552b2af8f808e65b5"
+}

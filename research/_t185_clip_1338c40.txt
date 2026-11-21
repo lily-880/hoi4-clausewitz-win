@@ -1,0 +1,82 @@
+0x1338c40  mov qword ptr [rsp + 0x18], rbx
+0x1338c45  mov qword ptr [rsp + 0x20], rbp
+0x1338c4a  push r14
+0x1338c4c  sub rsp, 0x20
+0x1338c50  lea r14, [rcx + 0x58]
+0x1338c54  xor ebx, ebx
+0x1338c56  mov rbp, rdx
+0x1338c59  cmp dword ptr [r14 + 0xc], ebx
+0x1338c5d  jle 0x1338c86
+0x1338c5f  nop 
+0x1338c60  movsxd rax, ebx
+0x1338c63  mov rdx, rbp
+0x1338c66  lea rcx, [rax + rax*2]
+0x1338c6a  mov rax, qword ptr [r14]
+0x1338c6d  lea rcx, [rax + rcx*8]
+0x1338c71  call 0x19ee700
+0x1338c76  test al, al
+0x1338c78  jne 0x1338d77
+0x1338c7e  inc ebx
+0x1338c80  cmp ebx, dword ptr [r14 + 0xc]
+0x1338c84  jl 0x1338c60
+0x1338c86  movsxd rax, dword ptr [r14 + 0xc]
+0x1338c8a  mov ecx, dword ptr [r14 + 8]
+0x1338c8e  cmp eax, ecx
+0x1338c90  jne 0x1338dae
+0x1338c96  movd xmm0, ecx
+0x1338c9a  inc eax
+0x1338c9c  mov rcx, qword ptr [r14 + 0x10]
+0x1338ca0  mov r8d, 8
+0x1338ca6  mov qword ptr [rsp + 0x30], rsi
+0x1338cab  cvtdq2ps xmm0, xmm0
+0x1338cae  mov qword ptr [rsp + 0x38], rdi
+0x1338cb3  mov r9, qword ptr [rcx]
+0x1338cb6  mulss xmm0, dword ptr [rip + 0x145ccca]
+0x1338cbe  cvttss2si esi, xmm0
+0x1338cc2  cmp eax, esi
+0x1338cc4  cmovg esi, eax
+0x1338cc7  lea rdx, [rsi + rsi*2]
+0x1338ccb  shl rdx, 3
+0x1338ccf  call qword ptr [r9 + 8]
+0x1338cd3  movsxd rcx, dword ptr [r14 + 0xc]
+0x1338cd7  mov rdi, rax
+0x1338cda  lea rax, [rip + 0x169bc67]
+0x1338ce1  mov r9, rdi
+0x1338ce4  lea rdx, [rcx + rcx*2]
+0x1338ce8  mov qword ptr [rdi + rdx*8], rax
+0x1338cec  lea rax, [rip + 0x169e3a5]
+0x1338cf3  mov ecx, dword ptr [rbp + 8]
+0x1338cf6  mov dword ptr [rdi + rdx*8 + 8], ecx
+0x1338cfa  mov ecx, dword ptr [rbp + 0xc]
+0x1338cfd  mov dword ptr [rdi + rdx*8 + 0xc], ecx
+0x1338d01  mov qword ptr [rdi + rdx*8], rax
+0x1338d05  mov rcx, qword ptr [rbp + 0x10]
+0x1338d09  mov qword ptr [rdi + rdx*8 + 0x10], rcx
+0x1338d0e  movsxd rax, dword ptr [r14 + 0xc]
+0x1338d12  mov rdx, qword ptr [r14]
+0x1338d15  lea rcx, [rax + rax*2]
+0x1338d19  lea r8, [rdx + rcx*8]
+0x1338d1d  mov rcx, r14
+0x1338d20  call 0xde6ce0
+0x1338d25  mov ebx, dword ptr [r14 + 0xc]
+0x1338d29  mov r9, rdi
+0x1338d2c  mov rdx, qword ptr [r14]
+0x1338d2f  mov rcx, r14
+0x1338d32  mov r8, rdx
+0x1338d35  mov dword ptr [r14 + 0xc], 0
+0x1338d3d  inc ebx
+0x1338d3f  call 0xde6ce0
+0x1338d44  mov rcx, qword ptr [r14 + 0x10]
+0x1338d48  mov rdx, qword ptr [r14]
+0x1338d4b  mov rax, qword ptr [rcx]
+0x1338d4e  call qword ptr [rax + 0x10]
+0x1338d51  mov qword ptr [r14], rdi
+0x1338d54  mov rdi, qword ptr [rsp + 0x38]
+0x1338d59  mov dword ptr [r14 + 8], esi
+0x1338d5d  mov rsi, qword ptr [rsp + 0x30]
+0x1338d62  mov dword ptr [r14 + 0xc], ebx
+0x1338d66  mov rbx, qword ptr [rsp + 0x40]
+0x1338d6b  mov rbp, qword ptr [rsp + 0x48]
+0x1338d70  add rsp, 0x20
+0x1338d74  pop r14
+0x1338d76  ret 

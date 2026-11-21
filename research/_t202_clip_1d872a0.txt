@@ -1,0 +1,96 @@
+1d872a0 mov qword ptr [rsp + 0x10], rbx
+1d872a5 mov qword ptr [rsp + 0x18], rbp
+1d872aa push rsi
+1d872ab push rdi
+1d872ac push r13
+1d872ae push r14
+1d872b0 push r15
+1d872b2 sub rsp, 0x20
+1d872b6 mov r13, rcx
+1d872b9 lea rdi, [rcx + 0x1190]
+1d872c0 xor r15d, r15d
+1d872c3 mov ebx, r15d
+1d872c6 cmp dword ptr [rdi + 0xc], ebx
+1d872c9 jle 0x1d872f5
+1d872cb mov esi, r15d
+1d872ce nop 
+1d872d0 mov rax, qword ptr [rdi]
+1d872d3 mov rcx, qword ptr [rsi + rax]
+1d872d7 mov qword ptr [rsp + 0x50], rcx
+1d872dc lea rcx, [rsp + 0x50]
+1d872e1 call 0x74ad90
+1d872e6 test al, al
+1d872e8 je 0x1d872f5
+1d872ea inc ebx
+1d872ec add rsi, 8
+1d872f0 cmp ebx, dword ptr [rdi + 0xc]
+1d872f3 jl 0x1d872d0
+1d872f5 movsxd rbp, ebx
+1d872f8 inc ebx
+1d872fa mov eax, dword ptr [rdi + 0xc]
+1d872fd mov ecx, eax
+1d872ff cmp ebx, eax
+1d87301 jge 0x1d8735a
+1d87303 movsxd rcx, ebx
+1d87306 lea r14, [rbp*8]
+1d8730e lea rsi, [rcx*8]
+1d87316 nop word ptr [rax + rax]
+1d87320 mov rax, qword ptr [rdi]
+1d87323 mov rcx, qword ptr [rsi + rax]
+1d87327 mov qword ptr [rsp + 0x50], rcx
+1d8732c lea rcx, [rsp + 0x50]
+1d87331 call 0x74ad90
+1d87336 test al, al
+1d87338 je 0x1d8734b
+1d8733a mov rcx, qword ptr [rdi]
+1d8733d mov rax, qword ptr [rsi + rcx]
+1d87341 mov qword ptr [r14 + rcx], rax
+1d87345 inc ebp
+1d87347 add r14, 8
+1d8734b inc ebx
+1d8734d add rsi, 8
+1d87351 mov eax, dword ptr [rdi + 0xc]
+1d87354 mov ecx, eax
+1d87356 cmp ebx, eax
+1d87358 jl 0x1d87320
+1d8735a sub eax, ebp
+1d8735c test eax, eax
+1d8735e jle 0x1d87365
+1d87360 sub ecx, eax
+1d87362 mov dword ptr [rdi + 0xc], ecx
+1d87365 mov rcx, qword ptr [r13 + 0x1180]
+1d8736c mov rax, qword ptr [rcx]
+1d8736f call qword ptr [rax + 0x88]
+1d87375 mov rsi, rax
+1d87378 mov ecx, 0x48
+1d8737d call 0x25a01dc
+1d87382 mov rbx, rax
+1d87385 mov qword ptr [rsp + 0x50], rax
+1d8738a test rax, rax
+1d8738d je 0x1d873ba
+1d8738f lea rcx, [r13 + 0x1188]
+1d87396 cmp dword ptr [rcx], 0
+1d87399 jne 0x1d873a1
+1d8739b cmp dword ptr [rcx + 4], 0
+1d8739f je 0x1d873a9
+1d873a1 call 0x2284870
+1d873a6 mov r15, rax
+1d873a9 mov r8, r15
+1d873ac mov rdx, rdi
+1d873af mov rcx, rbx
+1d873b2 call 0x13f7840
+1d873b7 mov r15, rax
+1d873ba xor r8d, r8d
+1d873bd mov rdx, r15
+1d873c0 mov rcx, rsi
+1d873c3 call 0x22c4250
+1d873c8 mov al, 1
+1d873ca mov rbx, qword ptr [rsp + 0x58]
+1d873cf mov rbp, qword ptr [rsp + 0x60]
+1d873d4 add rsp, 0x20
+1d873d8 pop r15
+1d873da pop r14
+1d873dc pop r13
+1d873de pop rdi
+1d873df pop rsi
+1d873e0 ret 

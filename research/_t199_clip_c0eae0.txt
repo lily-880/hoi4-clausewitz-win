@@ -1,0 +1,88 @@
+c0eae0 push rbp
+c0eae2 push rsi
+c0eae3 push r14
+c0eae5 sub rsp, 0x20
+c0eae9 movsxd rbp, dword ptr [rcx + 0x14]
+c0eaed mov r14, rdx
+c0eaf0 mov rsi, rcx
+c0eaf3 test rbp, rbp
+c0eaf6 jle 0xc0eb52
+c0eaf8 mov qword ptr [rsp + 0x48], rbx
+c0eafd mov qword ptr [rsp + 0x50], rdi
+c0eb02 mov qword ptr [rsp + 0x58], r15
+c0eb07 xor r15d, r15d
+c0eb0a mov edi, r15d
+c0eb0d nop dword ptr [rax]
+c0eb10 mov rax, qword ptr [rsi + 8]
+c0eb14 lea rdx, [rsp + 0x40]
+c0eb19 mov rbx, qword ptr [rax + rdi*8]
+c0eb1d mov rcx, rbx
+c0eb20 mov rax, qword ptr [rbx]
+c0eb23 call qword ptr [rax + 0x50]
+c0eb26 test rbx, rbx
+c0eb29 lea r8, [rbx + 0x10]
+c0eb2d mov rcx, r14
+c0eb30 cmove r8, r15
+c0eb34 mov edx, dword ptr [rax]
+c0eb36 call 0x25458c0
+c0eb3b inc rdi
+c0eb3e cmp rdi, rbp
+c0eb41 jl 0xc0eb10
+c0eb43 mov r15, qword ptr [rsp + 0x58]
+c0eb48 mov rdi, qword ptr [rsp + 0x50]
+c0eb4d mov rbx, qword ptr [rsp + 0x48]
+c0eb52 lea r8, [rsi + 0x28]
+c0eb56 mov edx, 0x2835
+c0eb5b mov rcx, r14
+c0eb5e add rsp, 0x20
+c0eb62 pop r14
+c0eb64 pop rsi
+c0eb65 pop rbp
+c0eb66 jmp 0x25458c0
+c0eb6b int3 
+c0eb6c int3 
+c0eb6d int3 
+c0eb6e int3 
+c0eb6f int3 
+c0eb70 lea rax, [rip + 0x1dbea59]
+c0eb77 mov qword ptr [rdx], rax
+c0eb7a mov rax, qword ptr [rcx + 8]
+c0eb7e mov qword ptr [rdx + 8], rax
+c0eb82 mov rax, rdx
+c0eb85 ret 
+c0eb86 int3 
+c0eb87 int3 
+c0eb88 int3 
+c0eb89 int3 
+c0eb8a int3 
+c0eb8b int3 
+c0eb8c int3 
+c0eb8d int3 
+c0eb8e int3 
+c0eb8f int3 
+c0eb90 mov qword ptr [rsp + 0x18], rbx
+c0eb95 push rbp
+c0eb96 push rsi
+c0eb97 push r15
+c0eb99 sub rsp, 0x20
+c0eb9d mov rsi, qword ptr [rcx + 8]
+c0eba1 mov r15d, dword ptr [rsi + 0x20]
+c0eba5 mov ebx, r15d
+c0eba8 mov ebp, dword ptr [rsi + 0x18]
+c0ebab lock xadd dword ptr [rsi], ebx
+c0ebaf cmp ebx, ebp
+c0ebb1 jge 0xc0ec06
+c0ebb3 mov qword ptr [rsp + 0x40], rdi
+c0ebb8 mov qword ptr [rsp + 0x48], r14
+c0ebbd nop dword ptr [rax]
+c0ebc0 lea eax, [rbx + r15]
+c0ebc4 mov edi, ebp
+c0ebc6 cmp eax, ebp
+c0ebc8 cmovl edi, eax
+c0ebcb cmp ebx, edi
+c0ebcd je 0xc0ebed
+c0ebcf nop 
+c0ebd0 mov rax, qword ptr [rsi + 0x28]
+c0ebd4 lea rcx, [rsi + 0x30]
+c0ebd8 movsxd rdx, ebx
+c0ebdb shl rdx, 5

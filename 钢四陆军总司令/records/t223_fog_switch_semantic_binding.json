@@ -1,0 +1,157 @@
+{
+  "at_est": "2026-11-20T10:47:45.309502-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "scope": "console handler STATIC read only; NEVER invoked or toggled",
+  "fog_status_refs": [
+    {
+      "site": "0x26ff63",
+      "literal_rva": "0x27ad1e0",
+      "pdata": [
+        "0x26ff10",
+        "0x26ffb7",
+        "0x2e90f98"
+      ]
+    },
+    {
+      "site": "0x26ff6a",
+      "literal_rva": "0x27ad1c8",
+      "pdata": [
+        "0x26ff10",
+        "0x26ffb7",
+        "0x2e90f98"
+      ]
+    }
+  ],
+  "overlay_interface_global_rva": "0x33ddb08",
+  "overlay_interface_class": ".?AVCInGameIdler@@",
+  "vf78_rva": "0x2b6270",
+  "functions": {
+    "0x26ff10": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x26ff10",
+      "window_size": 199,
+      "reachable_instruction_count": 40,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x26ff78",
+          "operand": "0x12b3c0"
+        },
+        {
+          "site": "0x26ff87",
+          "operand": "qword ptr [rax + 0x238]"
+        },
+        {
+          "site": "0x26ff97",
+          "operand": "qword ptr [rax + 0xb8]"
+        },
+        {
+          "site": "0x26ffa5",
+          "operand": "0xbc18b0"
+        }
+      ],
+      "asm": [
+        "26ff10 mov qword ptr [rsp + 8], rcx",
+        "26ff15 push rbx",
+        "26ff16 sub rsp, 0x30",
+        "26ff1a mov rbx, rcx",
+        "26ff1d xor eax, eax",
+        "26ff1f mov dword ptr [rsp + 0x20], eax",
+        "26ff23 mov byte ptr [rcx], al",
+        "26ff25 add rcx, 8",
+        "26ff29 xorps xmm0, xmm0",
+        "26ff2c movups xmmword ptr [rcx], xmm0",
+        "26ff2f mov qword ptr [rcx + 0x10], rax",
+        "26ff33 mov qword ptr [rcx + 0x18], 0xf",
+        "26ff3b mov byte ptr [rcx], al",
+        "26ff3d mov dword ptr [rsp + 0x20], 1",
+        "26ff45 cmp byte ptr [rip + 0x316db5f], al",
+        "26ff4b sete al",
+        "26ff4e movzx r9d, al",
+        "26ff52 mov byte ptr [rip + 0x316db52], al",
+        "26ff58 mov r8d, r9d",
+        "26ff5b xor r8, 1",
+        "26ff5f add r8, 0x15",
+        "26ff63 lea rax, [rip + 0x253d276]",
+        "26ff6a lea rdx, [rip + 0x253d257]",
+        "26ff71 test r9b, r9b",
+        "26ff74 cmove rdx, rax",
+        "26ff78 call 0x12b3c0",
+        "26ff7d mov rcx, qword ptr [rip + 0x316db84]",
+        "26ff84 mov rax, qword ptr [rcx]",
+        "26ff87 call qword ptr [rax + 0x238]",
+        "26ff8d mov rcx, qword ptr [rip + 0x316db74]",
+        "26ff94 mov rax, qword ptr [rcx]",
+        "26ff97 call qword ptr [rax + 0xb8]",
+        "26ff9d mov edx, 9",
+        "26ffa2 mov rcx, rax",
+        "26ffa5 call 0xbc18b0",
+        "26ffaa mov byte ptr [rbx], 1",
+        "26ffad mov rax, rbx",
+        "26ffb0 add rsp, 0x30",
+        "26ffb4 pop rbx",
+        "26ffb5 ret "
+      ],
+      "raw_hex": "48894c2408534883ec30488bd933c08944242088014883c1080f57c00f11014889411048c741180f0000008801c74424200100000038055fdb16030f94c0440fb6c8880552db1603458bc14983f0014983c015488d0576d25302488d1557d253024584c9480f44d0e843b4ebff488b0d84db1603488b01ff9038020000488b0d74db1603488b01ff90b8000000ba09000000488bc8e806199500c60301488bc34883c4305bc3cccccccccccccccccccc48895c24085556574154415541564157488d6c24804881",
+      "sha256": "af2bff3fcca3762981494cfedb4a66904edc7a2b0debe009c127b397ce87d4dc"
+    },
+    "0x2b6270": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x2b6270",
+      "window_size": 128,
+      "reachable_instruction_count": 2,
+      "unresolved_edges": [],
+      "external_tails": [
+        {
+          "site": "0x2b6277",
+          "target": "0x17f7e0"
+        }
+      ],
+      "calls": [],
+      "asm": [
+        "2b6270 mov rcx, qword ptr [rcx + 0x530]",
+        "2b6277 jmp 0x17f7e0"
+      ],
+      "raw_hex": "488b8930050000e96495ecffcccccccc4883ec48803d86933d0300744e803dac781203007545488d05a3781203c6442430004889442428488d156fe44d02488d44243041b10141b8430100004889442420488d0db8e24f02e873482902807c2430008805687812037401cc4883c448c340534883ec2048895108498bd8c70101",
+      "sha256": "4950114eecb120fbb07236cc084e132c40df1799b4a5112da538e405cedb98a7"
+    }
+  }
+}

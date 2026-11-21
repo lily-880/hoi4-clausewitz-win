@@ -1,0 +1,148 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "training_writer_flow": {
+    "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+    "window_start": "0xc4bd10",
+    "window_size": 1280,
+    "reachable_instruction_count": 37,
+    "unresolved_edges": [],
+    "external_tails": [],
+    "calls": [
+      {
+        "site": "0xc4bd77",
+        "operand": "0x254ab40"
+      }
+    ],
+    "asm": [
+      "c4bd10 mov qword ptr [rsp + 8], rbx",
+      "c4bd15 mov qword ptr [rsp + 0x18], rsi",
+      "c4bd1a push rdi",
+      "c4bd1b sub rsp, 0x30",
+      "c4bd1f cmp byte ptr [rip + 0x2a438eb], 0",
+      "c4bd26 movzx edi, r8b",
+      "c4bd2a movzx ebx, dl",
+      "c4bd2d mov rsi, rcx",
+      "c4bd30 je 0xc4bd8a",
+      "c4bd32 cmp byte ptr [rip + 0x279e8fd], 0",
+      "c4bd39 jne 0xc4bd8a",
+      "c4bd3b cmp dl, 1",
+      "c4bd3e je 0xc4bd8a",
+      "c4bd40 test r8b, r8b",
+      "c4bd43 je 0xc4bd8a",
+      "c4bd45 lea rax, [rip + 0x279e8ea]",
+      "c4bd4c mov byte ptr [rsp + 0x48], 0",
+      "c4bd51 mov qword ptr [rsp + 0x28], rax",
+      "c4bd56 lea rdx, [rip + 0x1b489c0]",
+      "c4bd5d lea rax, [rsp + 0x48]",
+      "c4bd62 mov r9b, 1",
+      "c4bd65 mov r8d, 0xad2",
+      "c4bd6b mov qword ptr [rsp + 0x20], rax",
+      "c4bd70 lea rcx, [rip + 0x1d83979]",
+      "c4bd77 call 0x254ab40",
+      "c4bd7c cmp byte ptr [rsp + 0x48], 0",
+      "c4bd81 mov byte ptr [rip + 0x279e8af], al",
+      "c4bd87 je 0xc4bd8a",
+      "c4bd89 int3 ",
+      "c4bd8a mov byte ptr [rsi + 0x19d], bl",
+      "c4bd90 and bl, dil",
+      "c4bd93 mov byte ptr [rsi + 0x1a0], bl",
+      "c4bd99 mov rbx, qword ptr [rsp + 0x40]",
+      "c4bd9e mov rsi, qword ptr [rsp + 0x50]",
+      "c4bda3 add rsp, 0x30",
+      "c4bda7 pop rdi",
+      "c4bda8 ret "
+    ]
+  },
+  "labels": {
+    "0x29db890": "TRAINING",
+    "0x29f3d38": "IS_TRAINING",
+    "0x2a22ba0": "support_attack",
+    "0x2a22bb0": "training",
+    "0x2ab4750": "Training",
+    "0x2aea720": "army_training",
+    "0x2b67978": "support_attack_order"
+  },
+  "rip_refs": {
+    "0x29db890": [
+      {
+        "site": "0xd5e66c",
+        "asm": "<CsInsn 0xd5e66c [488d051dd2c701]: lea rax, [rip + 0x1c7d21d]>"
+      },
+      {
+        "site": "0x103adbe",
+        "asm": "<CsInsn 0x103adbe [488d05cb0a9a01]: lea rax, [rip + 0x19a0acb]>"
+      },
+      {
+        "site": "0x1337634",
+        "asm": "<CsInsn 0x1337634 [4c8d0d55426a01]: lea r9, [rip + 0x16a4255]>"
+      }
+    ],
+    "0x29f3d38": [
+      {
+        "site": "0xf8eb6d",
+        "asm": "<CsInsn 0xf8eb6d [488d15c451a601]: lea rdx, [rip + 0x1a651c4]>"
+      }
+    ],
+    "0x2a22ba0": [
+      {
+        "site": "0xeab64",
+        "asm": "<CsInsn 0xeab64 [4c8d0535809302]: lea r8, [rip + 0x2938035]>"
+      }
+    ],
+    "0x2a22bb0": [
+      {
+        "site": "0xebe51",
+        "asm": "<CsInsn 0xebe51 [4c8d05586d9302]: lea r8, [rip + 0x2936d58]>"
+      },
+      {
+        "site": "0x1efb720",
+        "asm": "<CsInsn 0x1efb720 [488d0d8974b200]: lea rcx, [rip + 0xb27489]>"
+      }
+    ],
+    "0x2ab4750": [
+      {
+        "site": "0x1b8091f",
+        "asm": "<CsInsn 0x1b8091f [488d0d2a3ef300]: lea rcx, [rip + 0xf33e2a]>"
+      },
+      {
+        "site": "0x1ba4b49",
+        "asm": "<CsInsn 0x1ba4b49 [4c8d0500fcf000]: lea r8, [rip + 0xf0fc00]>"
+      },
+      {
+        "site": "0x1ba4d6f",
+        "asm": "<CsInsn 0x1ba4d6f [4c8d3ddaf9f000]: lea r15, [rip + 0xf0f9da]>"
+      }
+    ],
+    "0x2aea720": [
+      {
+        "site": "0x1e0e44a",
+        "asm": "<CsInsn 0x1e0e44a [488d05cfc2cd00]: lea rax, [rip + 0xcdc2cf]>"
+      }
+    ],
+    "0x2b67978": [
+      {
+        "site": "0xed5eb",
+        "asm": "<CsInsn 0xed5eb [4c8d0586a3a702]: lea r8, [rip + 0x2a7a386]>"
+      }
+    ]
+  },
+  "scope": "raw LEA candidates, not caller-bound proof; bounded static writer analysis only"
+}

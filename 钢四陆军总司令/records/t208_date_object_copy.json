@@ -1,0 +1,364 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "flows": {
+    "0x57a7a0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x57a7a0",
+      "window_size": 144,
+      "reachable_instruction_count": 3,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "57a7a0 mov eax, dword ptr [rcx + 8]",
+        "57a7a3 sub eax, 0x29c55c0",
+        "57a7a8 ret "
+      ]
+    },
+    "0x17f400": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x17f400",
+      "window_size": 1024,
+      "reachable_instruction_count": 19,
+      "unresolved_edges": [
+        {
+          "address": "0x17f40a",
+          "target": "0x17f3f0",
+          "reason": "conditional target outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x17f41f",
+          "operand": "qword ptr [rax + 0x10]"
+        }
+      ],
+      "asm": [
+        "17f400 sub edi, 1",
+        "17f403 mov r15, qword ptr [rbp + 0x520]",
+        "17f40a jne 0x17f3f0",
+        "17f40c mov dword ptr [rbp + 0x52c], esi",
+        "17f412 mov rcx, qword ptr [rbp + 0x530]",
+        "17f419 mov rax, qword ptr [rcx]",
+        "17f41c mov rdx, r15",
+        "17f41f call qword ptr [rax + 0x10]",
+        "17f422 lea r11, [rsp + 0xe50]",
+        "17f42a mov rbx, qword ptr [r11 + 0x30]",
+        "17f42e mov rsi, qword ptr [r11 + 0x38]",
+        "17f432 mov rdi, qword ptr [r11 + 0x40]",
+        "17f436 mov rsp, r11",
+        "17f439 pop r15",
+        "17f43b pop r14",
+        "17f43d pop r13",
+        "17f43f pop r12",
+        "17f441 pop rbp",
+        "17f442 ret "
+      ]
+    },
+    "0xd38080": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd38080",
+      "window_size": 384,
+      "reachable_instruction_count": 34,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd380a2",
+          "operand": "0xd38310"
+        },
+        {
+          "site": "0xd380b5",
+          "operand": "0xd38310"
+        }
+      ],
+      "asm": [
+        "d38080 mov qword ptr [rsp + 8], rbx",
+        "d38085 push rdi",
+        "d38086 sub rsp, 0x20",
+        "d3808a lea rax, [rip + 0x1ca208f]",
+        "d38091 mov rbx, rdx",
+        "d38094 mov qword ptr [rcx], rax",
+        "d38097 mov rdi, rcx",
+        "d3809a add rcx, 8",
+        "d3809e add rdx, 8",
+        "d380a2 call 0xd38310",
+        "d380a7 lea rdx, [rbx + 0x218]",
+        "d380ae lea rcx, [rdi + 0x218]",
+        "d380b5 call 0xd38310",
+        "d380ba mov eax, dword ptr [rbx + 0x430]",
+        "d380c0 mov dword ptr [rdi + 0x430], eax",
+        "d380c6 lea rax, [rip + 0x1a5e303]",
+        "d380cd mov qword ptr [rdi + 0x428], rax",
+        "d380d4 lea rax, [rip + 0x1a5e325]",
+        "d380db mov qword ptr [rdi + 0x438], rax",
+        "d380e2 mov eax, dword ptr [rbx + 0x440]",
+        "d380e8 mov dword ptr [rdi + 0x440], eax",
+        "d380ee movzx eax, byte ptr [rbx + 0x444]",
+        "d380f5 mov byte ptr [rdi + 0x444], al",
+        "d380fb movzx eax, byte ptr [rbx + 0x445]",
+        "d38102 mov byte ptr [rdi + 0x445], al",
+        "d38108 movzx eax, byte ptr [rbx + 0x446]",
+        "d3810f mov byte ptr [rdi + 0x446], al",
+        "d38115 movzx eax, byte ptr [rbx + 0x447]",
+        "d3811c mov rbx, qword ptr [rsp + 0x30]",
+        "d38121 mov byte ptr [rdi + 0x447], al",
+        "d38127 mov rax, rdi",
+        "d3812a add rsp, 0x20",
+        "d3812e pop rdi",
+        "d3812f ret "
+      ]
+    },
+    "0xd37fc0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd37fc0",
+      "window_size": 192,
+      "reachable_instruction_count": 36,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd37fe7",
+          "operand": "0xd381a0"
+        },
+        {
+          "site": "0xd37ffb",
+          "operand": "0xd381a0"
+        }
+      ],
+      "asm": [
+        "d37fc0 mov qword ptr [rsp + 0x10], rbx",
+        "d37fc5 mov qword ptr [rsp + 8], rcx",
+        "d37fca push rdi",
+        "d37fcb sub rsp, 0x20",
+        "d37fcf mov rbx, rdx",
+        "d37fd2 mov rdi, rcx",
+        "d37fd5 lea rax, [rip + 0x1ca2144]",
+        "d37fdc mov qword ptr [rcx], rax",
+        "d37fdf add rcx, 8",
+        "d37fe3 add rdx, 8",
+        "d37fe7 call 0xd381a0",
+        "d37fec nop ",
+        "d37fed lea rcx, [rdi + 0x218]",
+        "d37ff4 lea rdx, [rbx + 0x218]",
+        "d37ffb call 0xd381a0",
+        "d38000 mov eax, dword ptr [rbx + 0x430]",
+        "d38006 mov dword ptr [rdi + 0x430], eax",
+        "d3800c lea rax, [rip + 0x1a5e3bd]",
+        "d38013 mov qword ptr [rdi + 0x428], rax",
+        "d3801a lea rax, [rip + 0x1a5e3df]",
+        "d38021 mov qword ptr [rdi + 0x438], rax",
+        "d38028 mov eax, dword ptr [rbx + 0x440]",
+        "d3802e mov dword ptr [rdi + 0x440], eax",
+        "d38034 movzx eax, byte ptr [rbx + 0x444]",
+        "d3803b mov byte ptr [rdi + 0x444], al",
+        "d38041 movzx eax, byte ptr [rbx + 0x445]",
+        "d38048 mov byte ptr [rdi + 0x445], al",
+        "d3804e movzx eax, byte ptr [rbx + 0x446]",
+        "d38055 mov byte ptr [rdi + 0x446], al",
+        "d3805b movzx eax, byte ptr [rbx + 0x447]",
+        "d38062 mov byte ptr [rdi + 0x447], al",
+        "d38068 mov rax, rdi",
+        "d3806b mov rbx, qword ptr [rsp + 0x38]",
+        "d38070 add rsp, 0x20",
+        "d38074 pop rdi",
+        "d38075 ret "
+      ]
+    },
+    "0xd38c00": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd38c00",
+      "window_size": 1280,
+      "reachable_instruction_count": 28,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd38c18",
+          "operand": "0xd38c90"
+        },
+        {
+          "site": "0xd38c2b",
+          "operand": "0xd38c90"
+        }
+      ],
+      "asm": [
+        "d38c00 mov qword ptr [rsp + 8], rbx",
+        "d38c05 push rdi",
+        "d38c06 sub rsp, 0x20",
+        "d38c0a mov rbx, rdx",
+        "d38c0d mov rdi, rcx",
+        "d38c10 add rdx, 8",
+        "d38c14 add rcx, 8",
+        "d38c18 call 0xd38c90",
+        "d38c1d lea rdx, [rbx + 0x218]",
+        "d38c24 lea rcx, [rdi + 0x218]",
+        "d38c2b call 0xd38c90",
+        "d38c30 mov eax, dword ptr [rbx + 0x430]",
+        "d38c36 mov dword ptr [rdi + 0x430], eax",
+        "d38c3c mov eax, dword ptr [rbx + 0x440]",
+        "d38c42 mov dword ptr [rdi + 0x440], eax",
+        "d38c48 movzx eax, byte ptr [rbx + 0x444]",
+        "d38c4f mov byte ptr [rdi + 0x444], al",
+        "d38c55 movzx eax, byte ptr [rbx + 0x445]",
+        "d38c5c mov byte ptr [rdi + 0x445], al",
+        "d38c62 movzx eax, byte ptr [rbx + 0x446]",
+        "d38c69 mov byte ptr [rdi + 0x446], al",
+        "d38c6f movzx eax, byte ptr [rbx + 0x447]",
+        "d38c76 mov rbx, qword ptr [rsp + 0x30]",
+        "d38c7b mov byte ptr [rdi + 0x447], al",
+        "d38c81 mov rax, rdi",
+        "d38c84 add rsp, 0x20",
+        "d38c88 pop rdi",
+        "d38c89 ret "
+      ]
+    },
+    "0xd3cb10": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd3cb10",
+      "window_size": 256,
+      "reachable_instruction_count": 51,
+      "unresolved_edges": [
+        {
+          "address": "0xd3cc0c",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xd3cc0c",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xd3cc0c",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xd3cc0c",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xd3cc0c",
+          "reason": "decode/end failure"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd3cb66",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3cbb2",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3cbf9",
+          "operand": "0x254ab40"
+        }
+      ],
+      "asm": [
+        "d3cb10 sub rsp, 0x38",
+        "d3cb14 cmp byte ptr [rip + 0x2952af6], 0",
+        "d3cb1b je 0xd3cc0c",
+        "d3cb21 cmp byte ptr [rip + 0x26a0608], 0",
+        "d3cb28 jne 0xd3cb79",
+        "d3cb2a cmp qword ptr [rip + 0x26a0b7e], 0",
+        "d3cb32 jne 0xd3cb79",
+        "d3cb34 lea rax, [rip + 0x26a05f5]",
+        "d3cb3b mov byte ptr [rsp + 0x40], 0",
+        "d3cb40 mov qword ptr [rsp + 0x28], rax",
+        "d3cb45 lea rdx, [rip + 0x1a57bd1]",
+        "d3cb4c lea rax, [rsp + 0x40]",
+        "d3cb51 mov r9b, 1",
+        "d3cb54 mov r8d, 0x464",
+        "d3cb5a mov qword ptr [rsp + 0x20], rax",
+        "d3cb5f lea rcx, [rip + 0x1a57cd2]",
+        "d3cb66 call 0x254ab40",
+        "d3cb6b cmp byte ptr [rsp + 0x40], 0",
+        "d3cb70 mov byte ptr [rip + 0x26a05ba], al",
+        "d3cb76 je 0xd3cb79",
+        "d3cb78 int3 ",
+        "d3cb79 cmp byte ptr [rip + 0x2952a91], 0",
+        "d3cb80 je 0xd3cc0c",
+        "d3cb86 cmp byte ptr [rip + 0x26a05a4], 0",
+        "d3cb8d jne 0xd3cc0c",
+        "d3cb8f mov rax, qword ptr gs:[0x58]",
+        "d3cb98 mov ecx, dword ptr [rip + 0x2956efa]",
+        "d3cb9e mov qword ptr [rsp + 0x30], rbx",
+        "d3cba3 mov rbx, qword ptr [rax + rcx*8]",
+        "d3cba7 mov eax, 0x20e8",
+        "d3cbac cmp byte ptr [rax + rbx], 0",
+        "d3cbb0 jne 0xd3cbb7",
+        "d3cbb2 call 0x25a04d0",
+        "d3cbb7 mov eax, 0x10",
+        "d3cbbc cmp dword ptr [rax + rbx], 0",
+        "d3cbc0 mov rbx, qword ptr [rsp + 0x30]",
+        "d3cbc5 je 0xd3cc0c",
+        "d3cbc7 lea rax, [rip + 0x26a0563]",
+        "d3cbce mov byte ptr [rsp + 0x40], 0",
+        "d3cbd3 mov qword ptr [rsp + 0x28], rax",
+        "d3cbd8 lea rdx, [rip + 0x1a57b3e]",
+        "d3cbdf lea rax, [rsp + 0x40]",
+        "d3cbe4 mov r9b, 1",
+        "d3cbe7 mov r8d, 0x465",
+        "d3cbed mov qword ptr [rsp + 0x20], rax",
+        "d3cbf2 lea rcx, [rip + 0x1a57c67]",
+        "d3cbf9 call 0x254ab40",
+        "d3cbfe cmp byte ptr [rsp + 0x40], 0",
+        "d3cc03 mov byte ptr [rip + 0x26a0528], al",
+        "d3cc09 je 0xd3cc0c",
+        "d3cc0b int3 "
+      ]
+    }
+  },
+  "objects": [
+    {
+      "ptr": "0x2192f2a2e40",
+      "class": ".?AVCGameDate@@",
+      "raw": "d063755bf77f000031729f03616c5f66"
+    },
+    {
+      "ptr": "0x21a060f5738",
+      "class": ".?AVCGameDate@@",
+      "raw": "d063755bf77f0000f94f9f0300000000"
+    },
+    {
+      "ptr": "0x21a060f5748",
+      "class": ".?AVCGameDate@@",
+      "raw": "0064755bf77f00009e29000001010000"
+    }
+  ],
+  "native_month_days": [
+    31,
+    28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31
+  ],
+  "recovery_note": "first collection aborted before file save due LoadedReader.ptr typo; corrected to Runtime.q. No game writes or calls."
+}

@@ -1,0 +1,26 @@
+f012e0 mov qword ptr [rsp + 8], rbx
+f012e5 push rdi
+f012e6 sub rsp, 0x20
+f012ea mov edi, edx
+f012ec mov rbx, rcx
+f012ef mov rdx, qword ptr [rcx + 0x28]
+f012f3 test rdx, rdx
+f012f6 je 0xf01318
+f012f8 mov dword ptr [rcx + 0x34], 0
+f012ff mov rcx, qword ptr [rcx + 0x38]
+f01303 mov rax, qword ptr [rcx]
+f01306 call qword ptr [rax + 0x10]
+f01309 mov qword ptr [rbx + 0x28], 0
+f01311 mov dword ptr [rbx + 0x30], 0
+f01318 lea rax, [rip + 0x189e181]
+f0131f mov qword ptr [rbx], rax
+f01322 test dil, 1
+f01326 je 0xf01335
+f01328 mov edx, 0x48
+f0132d mov rcx, rbx
+f01330 call 0x25a0218
+f01335 mov rax, rbx
+f01338 mov rbx, qword ptr [rsp + 0x30]
+f0133d add rsp, 0x20
+f01341 pop rdi
+f01342 ret 

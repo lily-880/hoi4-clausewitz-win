@@ -1,0 +1,61 @@
+e63100 mov qword ptr [rsp + 8], rbx
+e63105 mov qword ptr [rsp + 0x10], rbp
+e6310a mov qword ptr [rsp + 0x18], rsi
+e6310f push rdi
+e63110 push r14
+e63112 push r15
+e63114 sub rsp, 0x20
+e63118 mov rsi, rdx
+e6311b mov rbx, rcx
+e6311e call 0x2e8880
+e63123 test al, al
+e63125 je 0xe631af
+e6312b mov rdx, rsi
+e6312e mov rcx, rbx
+e63131 call 0xe644e0
+e63136 test rax, rax
+e63139 je 0xe63140
+e6313b cmp rax, rsi
+e6313e jne 0xe631af
+e63140 mov r14, qword ptr [rbx + 0x588]
+e63147 movsxd rax, dword ptr [rbx + 0x594]
+e6314e lea r15, [r14 + rax*8]
+e63152 cmp r14, r15
+e63155 je 0xe631ab
+e63157 nop word ptr [rax + rax]
+e63160 mov rax, qword ptr [r14]
+e63163 mov rbx, qword ptr [rax + 8]
+e63167 movsxd rax, dword ptr [rax + 0x14]
+e6316b lea rbp, [rbx + rax*8]
+e6316f cmp rbx, rbp
+e63172 je 0xe631a2
+e63174 mov rdi, qword ptr [rbx]
+e63177 mov rcx, rdi
+e6317a mov rax, qword ptr [rdi]
+e6317d call qword ptr [rax + 0x70]
+e63180 test al, al
+e63182 je 0xe63199
+e63184 mov rdx, rsi
+e63187 mov rcx, rdi
+e6318a call 0xe644e0
+e6318f test rax, rax
+e63192 je 0xe63199
+e63194 cmp rax, rsi
+e63197 jne 0xe631af
+e63199 add rbx, 8
+e6319d cmp rbx, rbp
+e631a0 jne 0xe63174
+e631a2 add r14, 8
+e631a6 cmp r14, r15
+e631a9 jne 0xe63160
+e631ab mov al, 1
+e631ad jmp 0xe631b1
+e631af xor al, al
+e631b1 mov rbx, qword ptr [rsp + 0x40]
+e631b6 mov rbp, qword ptr [rsp + 0x48]
+e631bb mov rsi, qword ptr [rsp + 0x50]
+e631c0 add rsp, 0x20
+e631c4 pop r15
+e631c6 pop r14
+e631c8 pop rdi
+e631c9 ret 

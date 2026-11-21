@@ -1,0 +1,37 @@
+f47640 push rbp
+f47642 push r14
+f47644 sub rsp, 0x38
+f47648 mov eax, dword ptr [rcx + 8]
+f4764b mov ebp, edx
+f4764d mov r14, rcx
+f47650 cmp edx, eax
+f47652 jle 0xf4774c
+f47658 mov qword ptr [rsp + 0x58], rsi
+f4765d mov qword ptr [rsp + 0x60], rdi
+f47662 mov qword ptr [rsp + 0x30], r12
+f47667 mov qword ptr [rsp + 0x20], r15
+f4766c test r8d, r8d
+f4766f je 0xf4768b
+f47671 movd xmm0, eax
+f47675 cvtdq2ps xmm0, xmm0
+f47678 mulss xmm0, dword ptr [rip + 0x184e308]
+f47680 cvttss2si eax, xmm0
+f47684 cmp edx, eax
+f47686 cmovg eax, edx
+f47689 mov ebp, eax
+f4768b mov rcx, qword ptr [rcx + 0x10]
+f4768f mov r8d, 8
+f47695 mov rax, qword ptr [rcx]
+f47698 mov r9, qword ptr [rax + 8]
+f4769c mov eax, ebp
+f4769e lea rdx, [rax + rax*4]
+f476a2 shl rdx, 3
+f476a6 call r9
+f476a9 mov rdi, qword ptr [r14]
+f476ac mov r12, rax
+f476af movsxd rcx, dword ptr [r14 + 0xc]
+f476b3 mov rsi, rax
+f476b6 lea rdx, [rcx + rcx*4]
+f476ba lea r15, [rdi + rdx*8]
+f476be cmp rdi, r15
+f476c1 je 0xf47724

@@ -1,0 +1,152 @@
+0x134d5f0  mov qword ptr [rsp + 8], rbx
+0x134d5f5  mov qword ptr [rsp + 0x10], rbp
+0x134d5fa  mov qword ptr [rsp + 0x18], rsi
+0x134d5ff  mov qword ptr [rsp + 0x20], rdi
+0x134d604  push r14
+0x134d606  sub rsp, 0x20
+0x134d60a  mov rdi, rdx
+0x134d60d  mov rbx, rcx
+0x134d610  call 0x147ff20
+0x134d615  mov r8d, dword ptr [rbx + 0x160]
+0x134d61c  test r8d, r8d
+0x134d61f  jle 0x134d62e
+0x134d621  mov edx, 0x3535  ; TOKEN air_kills
+0x134d626  mov rcx, rdi
+0x134d629  call 0x25459e0
+0x134d62e  mov r8, qword ptr [rbx + 0x168]
+0x134d635  test r8, r8
+0x134d638  jle 0x134d647
+0x134d63a  mov edx, 0x3536  ; TOKEN air_damage_str
+0x134d63f  mov rcx, rdi
+0x134d642  call 0x2545f90
+0x134d647  mov r8, qword ptr [rbx + 0x170]
+0x134d64e  test r8, r8
+0x134d651  jle 0x134d660
+0x134d653  mov edx, 0x3537  ; TOKEN air_damage_org
+0x134d658  mov rcx, rdi
+0x134d65b  call 0x2545f90
+0x134d660  mov r8, qword ptr [rbx + 0x178]
+0x134d667  test r8, r8
+0x134d66a  jle 0x134d679
+0x134d66c  mov edx, 0x3749  ; TOKEN ground_damage_str
+0x134d671  mov rcx, rdi
+0x134d674  call 0x2545f90
+0x134d679  mov r8, qword ptr [rbx + 0x180]
+0x134d680  test r8, r8
+0x134d683  jle 0x134d692
+0x134d685  mov edx, 0x374a  ; TOKEN ground_damage_org
+0x134d68a  mov rcx, rdi
+0x134d68d  call 0x2545f90
+0x134d692  mov r8, qword ptr [rbx + 0x188]
+0x134d699  test r8, r8
+0x134d69c  jle 0x134d6ab
+0x134d69e  mov edx, 0x3af4  ; TOKEN prevented_damage_str
+0x134d6a3  mov rcx, rdi
+0x134d6a6  call 0x2545f90
+0x134d6ab  mov r8, qword ptr [rbx + 0x190]
+0x134d6b2  test r8, r8
+0x134d6b5  jle 0x134d6c4
+0x134d6b7  mov edx, 0x3af5  ; TOKEN prevented_damage_org
+0x134d6bc  mov rcx, rdi
+0x134d6bf  call 0x2545f90
+0x134d6c4  mov r8, qword ptr [rbx + 0x158]
+0x134d6cb  test r8, r8
+0x134d6ce  jle 0x134d6dd
+0x134d6d0  mov edx, 0x309a  ; TOKEN anti_air_attack
+0x134d6d5  mov rcx, rdi
+0x134d6d8  call 0x2545f90
+0x134d6dd  movsxd r14, dword ptr [rbx + 0xf4]
+0x134d6e4  xor esi, esi
+0x134d6e6  test r14, r14
+0x134d6e9  jle 0x134d714
+0x134d6eb  mov ebp, esi
+0x134d6ed  nop dword ptr [rax]
+0x134d6f0  mov rax, qword ptr [rbx + 0xe8]
+0x134d6f7  mov edx, 0x29e0  ; TOKEN front
+0x134d6fc  mov rcx, rdi
+0x134d6ff  mov r8, qword ptr [rax + rbp*8]
+0x134d703  add r8, 0x18
+0x134d707  call 0x22857c0
+0x134d70c  inc rbp
+0x134d70f  cmp rbp, r14
+0x134d712  jl 0x134d6f0
+0x134d714  movsxd r14, dword ptr [rbx + 0x10c]
+0x134d71b  test r14, r14
+0x134d71e  jle 0x134d754
+0x134d720  mov rbp, rsi
+0x134d723  nop dword ptr [rax]
+0x134d727  nop word ptr [rax + rax]
+0x134d730  mov rax, qword ptr [rbx + 0x100]
+0x134d737  mov edx, 0x29e2  ; TOKEN reserves
+0x134d73c  mov rcx, rdi
+0x134d73f  mov r8, qword ptr [rax + rbp*8]
+0x134d743  add r8, 0x18
+0x134d747  call 0x22857c0
+0x134d74c  inc rbp
+0x134d74f  cmp rbp, r14
+0x134d752  jl 0x134d730
+0x134d754  movsxd r14, dword ptr [rbx + 0x124]
+0x134d75b  test r14, r14
+0x134d75e  jle 0x134d794
+0x134d760  mov rbp, rsi
+0x134d763  nop dword ptr [rax]
+0x134d767  nop word ptr [rax + rax]
+0x134d770  mov rax, qword ptr [rbx + 0x118]
+0x134d777  mov edx, 0x2920  ; TOKEN retreat
+0x134d77c  mov rcx, rdi
+0x134d77f  mov r8, qword ptr [rax + rbp*8]
+0x134d783  add r8, 0x18
+0x134d787  call 0x22857c0
+0x134d78c  inc rbp
+0x134d78f  cmp rbp, r14
+0x134d792  jl 0x134d770
+0x134d794  movsxd rbp, dword ptr [rbx + 0x14c]
+0x134d79b  test rbp, rbp
+0x134d79e  jle 0x134d7c0
+0x134d7a0  mov r8, qword ptr [rbx + 0x140]
+0x134d7a7  mov edx, 0x336d  ; TOKEN air_plane
+0x134d7ac  mov rcx, rdi
+0x134d7af  mov r8, qword ptr [r8 + rsi*8]
+0x134d7b3  call 0x25458c0
+0x134d7b8  inc rsi
+0x134d7bb  cmp rsi, rbp
+0x134d7be  jl 0x134d7a0
+0x134d7c0  mov rcx, qword ptr [rbx + 0x130]
+0x134d7c7  test rcx, rcx
+0x134d7ca  je 0x134d7f2
+0x134d7cc  mov rax, qword ptr [rcx]
+0x134d7cf  call qword ptr [rax + 0x50]
+0x134d7d2  test al, al
+0x134d7d4  je 0x134d7f2
+0x134d7d6  mov rcx, qword ptr [rbx + 0x130]
+0x134d7dd  call 0x707c30
+0x134d7e2  mov r8d, eax
+0x134d7e5  mov edx, 0x2e97  ; TOKEN tactic
+0x134d7ea  mov rcx, rdi
+0x134d7ed  call 0x25459e0
+0x134d7f2  lea r8, [rbx + 0x198]
+0x134d7f9  mov edx, 0x360f  ; TOKEN org_loss_summary
+0x134d7fe  mov rcx, rdi
+0x134d801  call 0x659790
+0x134d806  lea r8, [rbx + 0x1b0]
+0x134d80d  mov edx, 0x3a90  ; TOKEN str_loss_summary
+0x134d812  mov rcx, rdi
+0x134d815  call 0x659790
+0x134d81a  mov r8d, dword ptr [rbx + 0x1c8]
+0x134d821  mov edx, 0x3610  ; TOKEN org_loss_summary_index
+0x134d826  mov rcx, rdi
+0x134d829  call 0x25459e0
+0x134d82e  mov r8d, dword ptr [rbx + 0x1cc]
+0x134d835  mov edx, 0x3611  ; TOKEN num_org_losses
+0x134d83a  mov rcx, rdi
+0x134d83d  call 0x25459e0
+0x134d842  lea r8, [rbx + 0x1d0]
+0x134d849  mov edx, 0x29b4  ; TOKEN log
+0x134d84e  mov rcx, rdi
+0x134d851  mov rbx, qword ptr [rsp + 0x30]
+0x134d856  mov rbp, qword ptr [rsp + 0x38]
+0x134d85b  mov rsi, qword ptr [rsp + 0x40]
+0x134d860  mov rdi, qword ptr [rsp + 0x48]
+0x134d865  add rsp, 0x20
+0x134d869  pop r14
+0x134d86b  jmp 0x25458c0

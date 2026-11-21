@@ -1,0 +1,70 @@
+e64b10 mov qword ptr [rsp + 0x18], rbx
+e64b15 push r14
+e64b17 sub rsp, 0x20
+e64b1b mov rbx, qword ptr [rdx]
+e64b1e mov r14, rcx
+e64b21 mov r8d, dword ptr [rbx + 8]
+e64b25 lea rcx, [rbx + 8]
+e64b29 mov rax, qword ptr [r14 + 8]
+e64b2d mov edx, dword ptr [rax]
+e64b2f cmp r8d, edx
+e64b32 je 0xe64c04
+e64b38 test r8d, r8d
+e64b3b je 0xe64b4e
+e64b3d test edx, edx
+e64b3f je 0xe64b4e
+e64b41 call 0xc085f0
+e64b46 test al, al
+e64b48 jne 0xe64c04
+e64b4e mov r14, qword ptr [r14 + 0x10]
+e64b52 movsxd rax, dword ptr [r14 + 0xc]
+e64b56 mov ecx, dword ptr [r14 + 8]
+e64b5a cmp eax, ecx
+e64b5c jne 0xe64bf6
+e64b62 inc eax
+e64b64 movd xmm0, ecx
+e64b68 mov rcx, qword ptr [r14 + 0x10]
+e64b6c mov r8d, 8
+e64b72 mov qword ptr [rsp + 0x30], rsi
+e64b77 cvtdq2ps xmm0, xmm0
+e64b7a mov qword ptr [rsp + 0x38], rdi
+e64b7f mulss xmm0, dword ptr [rip + 0x1930e01]
+e64b87 cvttss2si esi, xmm0
+e64b8b cmp eax, esi
+e64b8d cmovg esi, eax
+e64b90 mov rax, qword ptr [rcx]
+e64b93 mov edx, esi
+e64b95 shl rdx, 3
+e64b99 call qword ptr [rax + 8]
+e64b9c mov rdi, rax
+e64b9f movsxd rax, dword ptr [r14 + 0xc]
+e64ba3 mov rcx, rdi
+e64ba6 mov qword ptr [rdi + rax*8], rbx
+e64baa movsxd r8, dword ptr [r14 + 0xc]
+e64bae mov rdx, qword ptr [r14]
+e64bb1 shl r8, 3
+e64bb5 call 0x26079d0
+e64bba mov ebx, dword ptr [r14 + 0xc]
+e64bbe mov rcx, qword ptr [r14 + 0x10]
+e64bc2 inc ebx
+e64bc4 mov rdx, qword ptr [r14]
+e64bc7 mov dword ptr [r14 + 0xc], 0
+e64bcf mov rax, qword ptr [rcx]
+e64bd2 call qword ptr [rax + 0x10]
+e64bd5 mov qword ptr [r14], rdi
+e64bd8 mov rdi, qword ptr [rsp + 0x38]
+e64bdd mov dword ptr [r14 + 8], esi
+e64be1 mov rsi, qword ptr [rsp + 0x30]
+e64be6 mov dword ptr [r14 + 0xc], ebx
+e64bea mov rbx, qword ptr [rsp + 0x40]
+e64bef add rsp, 0x20
+e64bf3 pop r14
+e64bf5 ret 
+e64bf6 mov rcx, rax
+e64bf9 mov rax, qword ptr [r14]
+e64bfc mov qword ptr [rax + rcx*8], rbx
+e64c00 inc dword ptr [r14 + 0xc]
+e64c04 mov rbx, qword ptr [rsp + 0x40]
+e64c09 add rsp, 0x20
+e64c0d pop r14
+e64c0f ret 

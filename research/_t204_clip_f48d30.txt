@@ -1,0 +1,79 @@
+f48d30 mov qword ptr [rsp + 8], rbx
+f48d35 mov qword ptr [rsp + 0x10], rbp
+f48d3a mov qword ptr [rsp + 0x18], rsi
+f48d3f push rdi
+f48d40 push r14
+f48d42 push r15
+f48d44 sub rsp, 0x20
+f48d48 mov r14, r8
+f48d4b mov rsi, rdx
+f48d4e mov rbx, rcx
+f48d51 call 0xc07bf0
+f48d56 xor r15d, r15d
+f48d59 mov rbp, rax
+f48d5c cmp dword ptr [rbx], r15d
+f48d5f jne 0xf48d66
+f48d61 mov eax, r15d
+f48d64 jmp 0xf48d6e
+f48d66 mov rcx, rbx
+f48d69 call 0xc08790
+f48d6e cdqe 
+f48d70 lea rdx, [rsp + 0x60]
+f48d75 imul rdi, rax, 0x78
+f48d79 mov rax, qword ptr [rsp + 0x60]
+f48d7e mov r8d, 0x237
+f48d84 add rdi, qword ptr [rax]
+f48d87 cmp dword ptr [rbp + 0x484], r15d
+f48d8e setg cl
+f48d91 movzx eax, byte ptr [rdi + 0x70]
+f48d95 and al, 0xfe
+f48d97 or cl, al
+f48d99 mov byte ptr [rdi + 0x70], cl
+f48d9c lea rcx, [rbp + 0x5b8]
+f48da3 call 0x5a5210
+f48da8 mov rcx, qword ptr [rax]
+f48dab mov eax, 0x2710
+f48db0 add rcx, 0x186a0
+f48db7 cmp rcx, rax
+f48dba cmovl rcx, rax
+f48dbe mov qword ptr [rdi + 0x20], rcx
+f48dc2 mov rcx, rsi
+f48dc5 call 0x12acb50
+f48dca movsxd rsi, eax
+f48dcd cmp dword ptr [rdi], esi
+f48dcf je 0xf48e1d
+f48dd1 cmp dword ptr [rbx], r15d
+f48dd4 jne 0xf48ddb
+f48dd6 mov r8d, r15d
+f48dd9 jmp 0xf48de6
+f48ddb mov rcx, rbx
+f48dde call 0xc08790
+f48de3 mov r8d, eax
+f48de6 movsxd rax, dword ptr [rdi]
+f48de9 test eax, eax
+f48deb je 0xf48e07
+f48ded mov rdx, rax
+f48df0 mov rax, qword ptr [r14]
+f48df3 shl rdx, 5
+f48df7 movzx ecx, word ptr [rdx + rax + 0x12]
+f48dfc cmp ecx, r8d
+f48dff jne 0xf48e07
+f48e01 mov word ptr [rdx + rax + 0x12], r15w
+f48e07 mov dword ptr [rdi], esi
+f48e09 test esi, esi
+f48e0b je 0xf48e1d
+f48e0d mov rax, qword ptr [r14]
+f48e10 mov rcx, rsi
+f48e13 shl rcx, 5
+f48e17 mov word ptr [rcx + rax + 0x12], r8w
+f48e1d lea rdx, [rdi + 0x58]
+f48e21 mov dword ptr [rdi + 0x64], r15d
+f48e25 mov rcx, rbp
+f48e28 mov rbx, qword ptr [rsp + 0x40]
+f48e2d mov rbp, qword ptr [rsp + 0x48]
+f48e32 mov rsi, qword ptr [rsp + 0x50]
+f48e37 add rsp, 0x20
+f48e3b pop r15
+f48e3d pop r14
+f48e3f pop rdi
+f48e40 jmp 0xf2a4e0

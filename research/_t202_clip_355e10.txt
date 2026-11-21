@@ -1,0 +1,26 @@
+355e10 push rbx
+355e12 sub rsp, 0x20
+355e16 mov ecx, 0x80
+355e1b call 0x25a01dc
+355e20 mov rbx, rax
+355e23 mov qword ptr [rsp + 0x38], rax
+355e28 test rax, rax
+355e2b je 0x355e67
+355e2d mov rcx, rax
+355e30 call 0x584380
+355e35 lea rax, [rip + 0x249ed4c]
+355e3c mov qword ptr [rbx], rax
+355e3f xorps xmm0, xmm0
+355e42 movups xmmword ptr [rbx + 0x58], xmm0
+355e46 mov qword ptr [rbx + 0x68], 0
+355e4e mov qword ptr [rbx + 0x70], 0xf
+355e56 mov byte ptr [rbx + 0x58], 0
+355e5a mov byte ptr [rbx + 0x78], 0
+355e5e mov rax, rbx
+355e61 add rsp, 0x20
+355e65 pop rbx
+355e66 ret 
+355e67 xor eax, eax
+355e69 add rsp, 0x20
+355e6d pop rbx
+355e6e ret 

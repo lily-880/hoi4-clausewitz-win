@@ -1,0 +1,34 @@
+f4f01f mov qword ptr [rsp + 0x30], rbx
+f4f024 lea rbx, [rdi + 8]
+f4f028 nop dword ptr [rax + rax]
+f4f030 mov rax, qword ptr [rdi]
+f4f033 cmp qword ptr [rbp], rax
+f4f037 jne 0xf4f085
+f4f039 cmp qword ptr [rbx + 0x18], 0xf
+f4f03e lea rcx, [rbp + 8]
+f4f042 mov rdx, rbx
+f4f045 jbe 0xf4f04a
+f4f047 mov rdx, qword ptr [rbx]
+f4f04a cmp qword ptr [rcx + 0x18], 0xf
+f4f04f mov r8, qword ptr [rcx + 0x10]
+f4f053 jbe 0xf4f058
+f4f055 mov rcx, qword ptr [rcx]
+f4f058 cmp r8, qword ptr [rbx + 0x10]
+f4f05c jne 0xf4f085
+f4f05e test r8, r8
+f4f061 je 0xf4f06c
+f4f063 call 0x26078d0
+f4f068 test eax, eax
+f4f06a jne 0xf4f085
+f4f06c mov rax, qword ptr [rsi - 0x28]
+f4f070 sub rsi, 0x28
+f4f074 mov rcx, rbx
+f4f077 mov qword ptr [rdi], rax
+f4f07a lea rdx, [rsi + 8]
+f4f07e call 0x1216a0
+f4f083 jmp 0xf4f08d
+f4f085 add rdi, 0x28
+f4f089 add rbx, 0x28
+f4f08d cmp rdi, rsi
+f4f090 jne 0xf4f030
+f4f092 mov rbx, qword ptr [rsp + 0x30]

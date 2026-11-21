@@ -1,0 +1,767 @@
+{
+  "baseline_unverified": 95,
+  "config_is_not_memory_proof": true,
+  "empty_current_sample_is_not_global_blocker": true,
+  "items": [
+    {
+      "field": "meta.player_country.tag",
+      "baseline_status": "未验证",
+      "meaning": "玩家国家的三字母代号，当前版本未独立核验。",
+      "dependency_class": "接口配置/会话",
+      "next_independent_action": "核实当前国家tag来源与暂停位；allow_write/scope只按显式配置合成且标明来源。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "meta.speed",
+      "baseline_status": "未验证",
+      "meaning": "当前暂停或1x状态，暂停标志尚未证明。",
+      "dependency_class": "接口配置/会话",
+      "next_independent_action": "核实当前国家tag来源与暂停位；allow_write/scope只按显式配置合成且标明来源。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "meta.allow_write",
+      "baseline_status": "未验证",
+      "meaning": "由配置提供的写入许可，默认false，非内存发现。",
+      "dependency_class": "接口配置/会话",
+      "next_independent_action": "核实当前国家tag来源与暂停位；allow_write/scope只按显式配置合成且标明来源。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "meta.geography_scope",
+      "baseline_status": "未验证",
+      "meaning": "由配置提供的指挥范围，默认null，非内存发现。",
+      "dependency_class": "接口配置/会话",
+      "next_independent_action": "核实当前国家tag来源与暂停位；allow_write/scope只按显式配置合成且标明来源。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "policy.stance",
+      "baseline_status": "未验证",
+      "meaning": "由玩家方针或接口默认值提供，非内存发现。",
+      "dependency_class": "玩家配置",
+      "next_independent_action": "校验玩家方针或契约默认配置，不记为活内存证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "policy.instructions",
+      "baseline_status": "未验证",
+      "meaning": "由玩家提供的方针原文，非内存发现。",
+      "dependency_class": "玩家配置",
+      "next_independent_action": "校验玩家方针或契约默认配置，不记为活内存证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.owner.tag",
+      "baseline_status": "未验证",
+      "meaning": "师所属国家的三字母代号，当前版本未独立核验。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.template.combat_width",
+      "baseline_status": "未验证",
+      "meaning": "模板的战斗宽度。",
+      "dependency_class": "已加载营定义",
+      "next_independent_action": "用具名combat_width解析器定位FIXED字段，并对当前四模板逐营求和与复读。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.strength.manpower",
+      "baseline_status": "未验证",
+      "meaning": "师当前人力，尚未与满编人力区分。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.strength.current",
+      "baseline_status": "未验证",
+      "meaning": "师当前生命值。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.supply.in_supply",
+      "baseline_status": "未验证",
+      "meaning": "师是否获得补给。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.supply.ratio",
+      "baseline_status": "未验证",
+      "meaning": "师的补给满足比例。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.supply.isolated",
+      "baseline_status": "未验证",
+      "meaning": "师是否与补给来源隔绝。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.in_combat",
+      "baseline_status": "未验证",
+      "meaning": "师是否正在作战。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.combat_id",
+      "baseline_status": "未验证",
+      "meaning": "师当前参加的战斗编号。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.order.type",
+      "baseline_status": "未验证",
+      "meaning": "师当前任务类型，空路径不能证明待机。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.order.target_province_ids",
+      "baseline_status": "未验证",
+      "meaning": "师当前任务的目标省份。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.order.path_province_ids",
+      "baseline_status": "未验证",
+      "meaning": "师有序行军路径，尚无非空路径验收。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.order.eta",
+      "baseline_status": "未验证",
+      "meaning": "该师当前命令的预计到达时间或进度。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.formation.army_id",
+      "baseline_status": "未验证",
+      "meaning": "师所属集团军编号。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.own_units.formation.army_group_id",
+      "baseline_status": "未验证",
+      "meaning": "师所属集团军群编号。",
+      "dependency_class": "师动态状态",
+      "next_independent_action": "从CArmy具名序列化/调用点定位当前HP、人力、补给、任务和编成；需要语义与跨对象不变量，空路径不解释为待机。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.visible_units",
+      "baseline_status": "未验证",
+      "meaning": "战争迷雾下玩家实际可见的其他陆部队。",
+      "dependency_class": "可见性/情报",
+      "next_independent_action": "定位玩家侧spotted/intel查询和迷雾过滤，禁止把可扫描世界单位导入可见单位。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.visible_units.relation_to_player",
+      "baseline_status": "未验证",
+      "meaning": "可见其他部队与玩家的关系。",
+      "dependency_class": "可见性/情报",
+      "next_independent_action": "定位玩家侧spotted/intel查询和迷雾过滤，禁止把可扫描世界单位导入可见单位。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.visible_units.visibility.spotted",
+      "baseline_status": "未验证",
+      "meaning": "该部队是否确实处于玩家可见范围。",
+      "dependency_class": "可见性/情报",
+      "next_independent_action": "定位玩家侧spotted/intel查询和迷雾过滤，禁止把可扫描世界单位导入可见单位。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.visible_units.visibility.confidence",
+      "baseline_status": "未验证",
+      "meaning": "对该可见部队情报的置信度。",
+      "dependency_class": "可见性/情报",
+      "next_independent_action": "定位玩家侧spotted/intel查询和迷雾过滤，禁止把可扫描世界单位导入可见单位。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.army_groups.army_group_id",
+      "baseline_status": "未验证",
+      "meaning": "集团军群编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "审查各国非空CArmyGroup/上级组织实例及成员/司令双向关系，隐藏世界证据不进入玩家输出。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.army_groups.name",
+      "baseline_status": "未验证",
+      "meaning": "集团军群名称。",
+      "dependency_class": "编成",
+      "next_independent_action": "审查各国非空CArmyGroup/上级组织实例及成员/司令双向关系，隐藏世界证据不进入玩家输出。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.army_groups.leader_id",
+      "baseline_status": "未验证",
+      "meaning": "集团军群司令编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "审查各国非空CArmyGroup/上级组织实例及成员/司令双向关系，隐藏世界证据不进入玩家输出。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.army_groups.army_ids",
+      "baseline_status": "未验证",
+      "meaning": "集团军群下属集团军编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "审查各国非空CArmyGroup/上级组织实例及成员/司令双向关系，隐藏世界证据不进入玩家输出。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.armies.army_id",
+      "baseline_status": "未验证",
+      "meaning": "集团军编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "追踪CTheatre下正式军级组织和师成员反向引用，区分集团军与CArmy师。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.armies.name",
+      "baseline_status": "未验证",
+      "meaning": "集团军名称。",
+      "dependency_class": "编成",
+      "next_independent_action": "追踪CTheatre下正式军级组织和师成员反向引用，区分集团军与CArmy师。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.armies.leader_id",
+      "baseline_status": "未验证",
+      "meaning": "集团军司令编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "追踪CTheatre下正式军级组织和师成员反向引用，区分集团军与CArmy师。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.armies.unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "编入集团军的师编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "追踪CTheatre下正式军级组织和师成员反向引用，区分集团军与CArmy师。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.armies.plan_id",
+      "baseline_status": "未验证",
+      "meaning": "集团军绑定的计划编号。",
+      "dependency_class": "编成",
+      "next_independent_action": "追踪CTheatre下正式军级组织和师成员反向引用，区分集团军与CArmy师。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.leader_id",
+      "baseline_status": "未验证",
+      "meaning": "将领档案的内部编号。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.name",
+      "baseline_status": "未验证",
+      "meaning": "将领完整姓名，短军官名仍缺首字母。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.skill",
+      "baseline_status": "未验证",
+      "meaning": "将领总等级。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.attack",
+      "baseline_status": "未验证",
+      "meaning": "将领进攻属性。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.defense",
+      "baseline_status": "未验证",
+      "meaning": "将领防御属性。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.planning",
+      "baseline_status": "未验证",
+      "meaning": "将领计划属性。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.logistics",
+      "baseline_status": "未验证",
+      "meaning": "将领后勤属性。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.traits",
+      "baseline_status": "未验证",
+      "meaning": "将领特性名称。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.leaders.assigned_to",
+      "baseline_status": "未验证",
+      "meaning": "将领当前任职的集团军、集团军群或师。",
+      "dependency_class": "国家人物与将领名册",
+      "next_independent_action": "己方CCountryCharacters正式名册、CCharacter指针连接、具名序列化和跨20将领复读；任职另查组织反向链接。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.infrastructure",
+      "baseline_status": "未验证",
+      "meaning": "省份所属州的当前基础设施等级。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.fort_level",
+      "baseline_status": "未验证",
+      "meaning": "省份当前陆地要塞等级。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.coastal_fort_level",
+      "baseline_status": "未验证",
+      "meaning": "省份当前海岸要塞等级。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.victory_points",
+      "baseline_status": "未验证",
+      "meaning": "该省胜利点分值与名称。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.neighbors",
+      "baseline_status": "未验证",
+      "meaning": "省份真实陆地邻接编号。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.provinces.has_river_crossing",
+      "baseline_status": "未验证",
+      "meaning": "省份相邻边是否需要渡河。",
+      "dependency_class": "动态地图与已加载定义",
+      "next_independent_action": "以CProvince/CState/CBuilding当前实例及具名字段交叉证明，邻接需边类型/渡河语义，缺建筑不直接填0。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.plan_id",
+      "baseline_status": "未验证",
+      "meaning": "玩家计划对象编号。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.type",
+      "baseline_status": "未验证",
+      "meaning": "前线、进攻线、驻防或区域防御类型。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.vertex_province_ids",
+      "baseline_status": "未验证",
+      "meaning": "计划有序折线控制点。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.assigned_army_ids",
+      "baseline_status": "未验证",
+      "meaning": "计划绑定的集团军编号。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.assigned_unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "计划绑定的师编号。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.executing",
+      "baseline_status": "未验证",
+      "meaning": "计划是否正在执行。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.axis_province_ids",
+      "baseline_status": "未验证",
+      "meaning": "计划推进方向或进攻轴。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.plans.status",
+      "baseline_status": "未验证",
+      "meaning": "计划可执行、受阻、停滞或失效状态。",
+      "dependency_class": "计划",
+      "next_independent_action": "检查世界已有计划管理器和具体非空计划类；CFront不能自动当作玩家计划。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.combat_id",
+      "baseline_status": "未验证",
+      "meaning": "陆战内部编号。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.province_id",
+      "baseline_status": "未验证",
+      "meaning": "陆战所在省份。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.attacker_unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "陆战攻击方师编号。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.defender_unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "陆战防守方师编号。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.phase",
+      "baseline_status": "未验证",
+      "meaning": "陆战进行或结束状态。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.result",
+      "baseline_status": "未验证",
+      "meaning": "陆战胜负结果。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.casualties",
+      "baseline_status": "未验证",
+      "meaning": "双方人力或组织度损失。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.started_at",
+      "baseline_status": "未验证",
+      "meaning": "陆战开始时间。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.combats.ended_at",
+      "baseline_status": "未验证",
+      "meaning": "陆战结束时间。",
+      "dependency_class": "战斗",
+      "next_independent_action": "检查GS内CCombatManager全世界实例与具名字段，空表不证明师未作战；需要非空对象验收。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.crises.kind",
+      "baseline_status": "未验证",
+      "meaning": "被包围、断补给或计划失败等危机类型。",
+      "dependency_class": "派生态势",
+      "next_independent_action": "先验证补给/包围/任务失败等基础字段，再按可审计派生规则产生危机，不把未知变成false。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.crises.unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "危机涉及的师编号。",
+      "dependency_class": "派生态势",
+      "next_independent_action": "先验证补给/包围/任务失败等基础字段，再按可审计派生规则产生危机，不把未知变成false。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.crises.province_ids",
+      "baseline_status": "未验证",
+      "meaning": "危机涉及的省份编号。",
+      "dependency_class": "派生态势",
+      "next_independent_action": "先验证补给/包围/任务失败等基础字段，再按可审计派生规则产生危机，不把未知变成false。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.crises.severity",
+      "baseline_status": "未验证",
+      "meaning": "危机严重程度。",
+      "dependency_class": "派生态势",
+      "next_independent_action": "先验证补给/包围/任务失败等基础字段，再按可审计派生规则产生危机，不把未知变成false。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.crises.notes",
+      "baseline_status": "未验证",
+      "meaning": "危机补充说明。",
+      "dependency_class": "派生态势",
+      "next_independent_action": "先验证补给/包围/任务失败等基础字段，再按可审计派生规则产生危机，不把未知变成false。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.wars.a",
+      "baseline_status": "未验证",
+      "meaning": "战争关系一方国家。",
+      "dependency_class": "外交/战争",
+      "next_independent_action": "定位全局战争关系和参战方当前对象、状态枚举；停火/投降/傀儡分别证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.wars.b",
+      "baseline_status": "未验证",
+      "meaning": "战争关系另一方国家。",
+      "dependency_class": "外交/战争",
+      "next_independent_action": "定位全局战争关系和参战方当前对象、状态枚举；停火/投降/傀儡分别证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.wars.state",
+      "baseline_status": "未验证",
+      "meaning": "交战、停火、投降、傀儡或未交战状态。",
+      "dependency_class": "外交/战争",
+      "next_independent_action": "定位全局战争关系和参战方当前对象、状态枚举；停火/投降/傀儡分别证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.wars.front_invalidated",
+      "baseline_status": "未验证",
+      "meaning": "战争关系变化是否使前线失效。",
+      "dependency_class": "外交/战争",
+      "next_independent_action": "定位全局战争关系和参战方当前对象、状态枚举；停火/投降/傀儡分别证明。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.equipment_type",
+      "baseline_status": "未验证",
+      "meaning": "缺口装备的内部类型名。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.stockpile",
+      "baseline_status": "未验证",
+      "meaning": "该类装备当前库存。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.demanded",
+      "baseline_status": "未验证",
+      "meaning": "该类装备当前需求量。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.deficit",
+      "baseline_status": "未验证",
+      "meaning": "该类装备当前缺口数量。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.affected_unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "缺装备影响的师编号。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.equipment.affected_plan_ids",
+      "baseline_status": "未验证",
+      "meaning": "缺装备影响的计划编号。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.manpower.available",
+      "baseline_status": "未验证",
+      "meaning": "当前可用人力。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.manpower.needed",
+      "baseline_status": "未验证",
+      "meaning": "当前所需补充人力。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.manpower.deficit",
+      "baseline_status": "未验证",
+      "meaning": "当前人力缺口数量。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.manpower.affected_unit_ids",
+      "baseline_status": "未验证",
+      "meaning": "缺人力影响的师编号。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.manpower.front_cannot_hold",
+      "baseline_status": "未验证",
+      "meaning": "缺人是否导致战线无法维持。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "world.shortages.missing_divisions",
+      "baseline_status": "未验证",
+      "meaning": "某段战线现有兵力无法维持时缺少的师。",
+      "dependency_class": "资源/派生缺口",
+      "next_independent_action": "读取国家装备库存/需求和CCountryManpower，先证明available/needed含义，再推导缺口和受影响对象。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.order_seq",
+      "baseline_status": "未验证",
+      "meaning": "上一拍已发命令的序号，由回执账本提供。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.type",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令类型，由回执账本提供。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.subject_ids",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令作用对象编号。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.target_province_ids",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令目标省份。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.plan_id",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令相关计划编号。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.accepted",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令实际落地结果。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.last_orders.error",
+      "baseline_status": "未验证",
+      "meaning": "上一拍命令失败原因。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    },
+    {
+      "field": "feedback.ticks_since_issue",
+      "baseline_status": "未验证",
+      "meaning": "命令发出后经过的节拍数。",
+      "dependency_class": "接口命令回执账本",
+      "next_independent_action": "仅从本地真实命令回执/采集节拍计算；本任务无写入，不伪造命令或游戏接受结果。",
+      "user_participation_required_now": false
+    }
+  ]
+}

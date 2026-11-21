@@ -1,0 +1,15 @@
+19c9c80 sub rsp, 0x28
+19c9c84 mov eax, dword ptr [rcx + 0x8c]
+19c9c8a cmp dword ptr [rcx + 0x88], eax
+19c9c90 jge 0x19c9c99
+19c9c92 xor al, al
+19c9c94 add rsp, 0x28
+19c9c98 ret 
+19c9c99 lea r8, [rcx + 0x68]
+19c9c9d add rcx, 0x28
+19c9ca1 lea rdx, [rsp + 0x30]
+19c9ca6 call 0x1095ff0
+19c9cab cmp qword ptr [rax], 0x186a0
+19c9cb2 setge al
+19c9cb5 add rsp, 0x28
+19c9cb9 ret 

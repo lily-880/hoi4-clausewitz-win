@@ -1,0 +1,42 @@
+d3f4d0 push rdi
+d3f4d2 movsxd rax, dword ptr [rcx + 0x2c]
+d3f4d6 mov rdi, rcx
+d3f4d9 test eax, eax
+d3f4db je 0xd3f566
+d3f4e1 xor r9d, r9d
+d3f4e4 mov qword ptr [rsp + 0x20], rsi
+d3f4e9 mov r11d, 1
+d3f4ef mov rsi, rax
+d3f4f2 cmp rax, r11
+d3f4f5 jle 0xd3f54b
+d3f4f7 mov qword ptr [rsp + 0x10], rbx
+d3f4fc mov r8d, r11d
+d3f4ff mov qword ptr [rsp + 0x18], rbp
+d3f504 mov ebx, r9d
+d3f507 mov rbp, qword ptr [rcx + 0x20]
+d3f50b nop dword ptr [rax + rax]
+d3f510 lea rax, [r8 + r8*2]
+d3f514 mov edx, dword ptr [rbp + rax*4 + 8]
+d3f518 lea rax, [rbx + rbx*2]
+d3f51c mov ecx, dword ptr [rbp + rax*4 + 8]
+d3f520 cmp edx, ecx
+d3f522 mov rax, r8
+d3f525 cmovle rax, rbx
+d3f529 mov rbx, rax
+d3f52c mov eax, r11d
+d3f52f cmovle eax, r9d
+d3f533 inc r11d
+d3f536 inc r8
+d3f539 mov r9d, eax
+d3f53c cmp r8, rsi
+d3f53f jl 0xd3f510
+d3f541 mov rbp, qword ptr [rsp + 0x18]
+d3f546 mov rbx, qword ptr [rsp + 0x10]
+d3f54b mov rsi, qword ptr [rsp + 0x20]
+d3f550 movsxd rax, r9d
+d3f553 lea rcx, [rax + rax*2]
+d3f557 mov rax, qword ptr [rdi + 0x20]
+d3f55b mov rcx, qword ptr [rax + rcx*4]
+d3f55f mov qword ptr [rdi + 0x260], rcx
+d3f566 pop rdi
+d3f567 ret 

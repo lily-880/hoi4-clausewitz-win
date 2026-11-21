@@ -1,0 +1,80 @@
+{
+  "at_est": "2026-11-21T01:09:57.152923-05:00",
+  "target": "world.wars.front_invalidated",
+  "verdict": "not promoted; independently named war-join consumer calls a shared 33EB090 flush, not a stored war-invalidation flag; no live pending/war-join sample and no exact named own-front bridge",
+  "lea": {
+    "F7BB20/F7BCE0/F7E1C0_enqueue_and_process": "0x33eb090",
+    "F7B940_NotifyControllerChanged": "0x33eb020",
+    "derivation": "live 7-byte LEA rcx,[rip+disp] arithmetic, not scope-counter inference"
+  },
+  "named_war_join": {
+    "function": "0x118def0",
+    "literals": [
+      "DIPLOMACY_JOINED_WAR_ENEMY",
+      "DIPLOMACY_JOINED_WAR_ALLY",
+      "DIPLOMACY_JOINED_WAR_TITLE",
+      "pWarRelation && \"Missing War Relation\"",
+      "WAR"
+    ],
+    "type_gate": "[rcx+0x68]==2 else early out",
+    "enqueue": "xor ecx,ecx; call F7E1C0 at 0x118ee12 — null list, not the two war countries as explicit arguments"
+  },
+  "shared_not_unique": [
+    "118B810 REVOKE_GUARANTEE_ACTION_THREAT also xor ecx,ecx; call F7E1C0",
+    "EB10A0 peace-conference pWarRelation assertion then F6C7E0; xor ecx,ecx; call F7E1C0",
+    "11E20E0 event-FROM scope also null F7E1C0",
+    "DFD450 Removing factions that is not supposed to exist passes a local list to F7E1C0",
+    "15BC200 volunteer arrival/return messages call F7BCE0",
+    "74D0D0 Removing Theater %s from %s calls F7BB20",
+    "20 direct callers: 18 F7E1C0 + 1 F7BCE0 + 1 F7BB20"
+  ],
+  "flush_mechanics": {
+    "D56B10": "copies global pending country-pointer list {data@33EA908,count@33EA914} into the dest list, or no-ops if dest is that object; reallocates if needed",
+    "D59900": "afterwards flushes/clears related global pending state; not itself a named war-change consumer",
+    "F6F9B0": "PARTIAL pdata 295 then explicit tail to F6FC70; inserts each listed country into rcx scope (1BD5A0 already-present / 12E040 insert) and may insert additional countries via unnamed 748490/DA37F0 predicates — those predicates have no independent literals and are not assumed to be at-war",
+    "F70F40": "already proved to call F78600 only when scope country_count and related counts are nonzero; empty pending+empty scope does not rebuild fronts"
+  },
+  "live_samples": {
+    "pending_count": 0,
+    "pending_data": "0x0",
+    "player_listed": false,
+    "schema_positive": 0,
+    "schema_negative": 0,
+    "invalid_key_samples_not_reused": true,
+    "empty_endbundle_counters_not_reread_as_samples": true
+  },
+  "rejected_substitutions": [
+    "F6A071 invalid-key assertion -> stored front_invalidated",
+    "enemy-key first-controller != front+70 -> invalid entry",
+    "NotifyControllerChanged -> diplomatic war-change",
+    "empty pending list or empty EndBundle counters -> schema false",
+    "DIPLOMACY_JOINED_WAR consumer existence -> current live war-join sample",
+    "null F7E1C0 call -> explicit enqueue of the two war participants",
+    "shared 33EB090 rebuild flush -> official wars.front_invalidated field",
+    "unnamed 748490/DA37F0 -> at-war or front-membership predicate",
+    "NNavy INTEL_LEVEL_* defines or TRIGGER_INTEL_LEVEL_OVER -> visible_units.visibility.confidence",
+    "opacity/tier thresholds -> confidence"
+  ],
+  "intel_pivot_status": "Needle search budget saturated by INTEL_LEVEL (40 hits, all that needle): NNavy strength-estimate defines plus TRIGGER_INTEL_LEVEL_OVER. Not a unit-confidence consumer. Remaining needles were not independently exhausted this block because of that budget; next target must use a non-flooding named search and still reject opacity/tier.",
+  "tests": {
+    "at_est": "2026-11-21T01:09:19.256629-05:00",
+    "unique_methods": 17,
+    "suite_starts": 1,
+    "completed_suite_runs": 1,
+    "total_test_invocations": 17,
+    "failures": 0,
+    "errors": 0,
+    "collection_failures": 0,
+    "successful": true,
+    "synthetic_mutations_are_live_samples": false,
+    "windows_suite_runs": 0,
+    "old_suite_runs": 0
+  },
+  "research_attempts": {
+    "launches": 3,
+    "successful_artifacts": 3,
+    "failed_starts": 0,
+    "final_seal_pending": 1
+  },
+  "next_target": "visible_units.visibility.confidence via an independently named unit-intel confidence consumer; exclude NNavy INTEL_LEVEL_* strength-estimate defines, TRIGGER_INTEL_LEVEL_OVER unless separately proved, and all opacity/tier mappings. Do not resume 33EB090 empty-scope/pending-zero, F6A071, or unnamed 748490-as-war scans."
+}

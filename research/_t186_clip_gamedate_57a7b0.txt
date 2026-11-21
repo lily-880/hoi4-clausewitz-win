@@ -1,0 +1,31 @@
+0x57a7b0  mov qword ptr [rsp + 8], rbx
+0x57a7b5  mov qword ptr [rsp + 0x18], rdi
+0x57a7ba  push rbp
+0x57a7bb  lea rbp, [rsp - 0x57]
+0x57a7c0  sub rsp, 0x90
+0x57a7c7  mov rdi, rdx
+0x57a7ca  mov rbx, rcx
+0x57a7cd  mov dword ptr [rbp + 0x6f], 0
+0x57a7d4  mov rcx, qword ptr [rdx + 0x28]
+0x57a7d8  mov rax, qword ptr [rcx]
+0x57a7db  call qword ptr [rax + 0x10]
+0x57a7de  test al, al
+0x57a7e0  je 0x57a800
+0x57a7e2  mov dword ptr [rbp + 0x6f], 0
+0x57a7e9  lea rdx, [rbp + 0x6f]
+0x57a7ed  mov rcx, rdi
+0x57a7f0  call 0x2543360
+0x57a7f5  mov eax, dword ptr [rbp + 0x6f]
+0x57a7f8  mov dword ptr [rbx - 8], eax
+0x57a7fb  jmp 0x57a9fa
+0x57a800  xorps xmm0, xmm0
+0x57a803  movups xmmword ptr [rbp + 0x37], xmm0
+0x57a807  movdqa xmm1, xmmword ptr [rip + 0x221b181]
+0x57a80f  movdqu xmmword ptr [rbp + 0x47], xmm1
+0x57a814  mov byte ptr [rbp + 0x37], 0
+0x57a818  xor r8d, r8d
+0x57a81b  lea rdx, [rbp + 0x37]
+0x57a81f  mov rcx, rdi
+0x57a822  call 0x2543540
+0x57a827  lea rcx, [rbx - 0x10]
+0x57a82b  lea rdx, [rbp + 0x37]

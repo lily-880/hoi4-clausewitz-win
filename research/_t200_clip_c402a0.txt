@@ -1,0 +1,62 @@
+c402a0 mov qword ptr [rsp + 8], rbx
+c402a5 mov qword ptr [rsp + 0x10], rbp
+c402aa mov qword ptr [rsp + 0x18], rsi
+c402af push rdi
+c402b0 sub rsp, 0x20
+c402b4 mov ebp, edx
+c402b6 mov rbx, rcx
+c402b9 nop dword ptr [rax]
+c402c0 xor edi, edi
+c402c2 cmp dword ptr [rbx + 0xa4], edi
+c402c8 jle 0xc402f9
+c402ca xor esi, esi
+c402cc nop dword ptr [rax]
+c402d0 mov rax, qword ptr [rbx + 0x98]
+c402d7 mov edx, ebp
+c402d9 mov rcx, qword ptr [rsi + rax]
+c402dd call 0x10af270
+c402e2 test rax, rax
+c402e5 jne 0xc40378
+c402eb inc edi
+c402ed add rsi, 8
+c402f1 cmp edi, dword ptr [rbx + 0xa4]
+c402f7 jl 0xc402d0
+c402f9 xor edi, edi
+c402fb cmp dword ptr [rbx + 0xbc], edi
+c40301 jle 0xc40335
+c40303 xor esi, esi
+c40305 nop word ptr [rax + rax]
+c40310 mov rax, qword ptr [rbx + 0xb0]
+c40317 mov edx, ebp
+c40319 mov rcx, qword ptr [rsi + rax]
+c4031d call 0x10af270
+c40322 test rax, rax
+c40325 jne 0xc40378
+c40327 inc edi
+c40329 add rsi, 8
+c4032d cmp edi, dword ptr [rbx + 0xbc]
+c40333 jl 0xc40310
+c40335 xor edi, edi
+c40337 cmp dword ptr [rbx + 0xd4], edi
+c4033d jle 0xc40366
+c4033f xor esi, esi
+c40341 mov rax, qword ptr [rbx + 0xc8]
+c40348 mov edx, ebp
+c4034a mov rcx, qword ptr [rsi + rax]
+c4034e call 0x10af270
+c40353 test rax, rax
+c40356 jne 0xc40378
+c40358 inc edi
+c4035a add rsi, 8
+c4035e cmp edi, dword ptr [rbx + 0xd4]
+c40364 jl 0xc40341
+c40366 mov rbx, qword ptr [rbx + 0x1b8]
+c4036d test rbx, rbx
+c40370 jne 0xc402c0
+c40376 xor eax, eax
+c40378 mov rbx, qword ptr [rsp + 0x30]
+c4037d mov rbp, qword ptr [rsp + 0x38]
+c40382 mov rsi, qword ptr [rsp + 0x40]
+c40387 add rsp, 0x20
+c4038b pop rdi
+c4038c ret 

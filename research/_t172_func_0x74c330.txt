@@ -1,0 +1,62 @@
+0x74c330  mov qword ptr [rsp + 8], rbx
+0x74c335  mov qword ptr [rsp + 0x10], rbp
+0x74c33a  mov qword ptr [rsp + 0x18], rsi
+0x74c33f  mov qword ptr [rsp + 0x20], rdi
+0x74c344  push r14
+0x74c346  sub rsp, 0x40
+0x74c34a  mov rbp, rdx
+0x74c34d  mov rbx, rcx
+0x74c350  xor r14d, r14d
+0x74c353  mov qword ptr [rsp + 0x20], r14
+0x74c358  mov qword ptr [rsp + 0x28], r14
+0x74c35d  mov r8d, dword ptr [rip + 0x2f47734]
+0x74c364  mov rax, qword ptr gs:[0x58]
+0x74c36d  mov ecx, 0x20ec
+0x74c372  mov rax, qword ptr [rax + r8*8]
+0x74c376  mov eax, dword ptr [rcx + rax]
+0x74c379  cmp dword ptr [rip + 0x2c90da1], eax
+0x74c37f  jg 0x74c40e
+0x74c385  lea rax, [rip + 0x29b0c74]
+0x74c38c  mov qword ptr [rsp + 0x30], rax
+0x74c391  lea rdx, [rsp + 0x20]
+0x74c396  mov rcx, rbx
+0x74c399  call 0x733340
+0x74c39e  movsxd rsi, dword ptr [rsp + 0x2c]
+0x74c3a3  mov rdx, qword ptr [rsp + 0x20]
+0x74c3a8  test rsi, rsi
+0x74c3ab  jle 0x74c3de
+0x74c3ad  mov rbx, r14
+0x74c3b0  mov rdi, qword ptr [rdx + rbx*8]
+0x74c3b4  cmp qword ptr [rdi + 0x3b8], rbp
+0x74c3bb  jne 0x74c3d6
+0x74c3bd  mov rcx, rdi
+0x74c3c0  call 0xce82d0
+0x74c3c5  mov rax, qword ptr [rdi]
+0x74c3c8  mov rcx, rdi
+0x74c3cb  call qword ptr [rax + 0xb0]
+0x74c3d1  mov rdx, qword ptr [rsp + 0x20]
+0x74c3d6  inc rbx
+0x74c3d9  cmp rbx, rsi
+0x74c3dc  jl 0x74c3b0
+0x74c3de  test rdx, rdx
+0x74c3e1  je 0x74c3f3
+0x74c3e3  mov dword ptr [rsp + 0x2c], r14d
+0x74c3e8  mov rcx, qword ptr [rsp + 0x30]
+0x74c3ed  mov rax, qword ptr [rcx]
+0x74c3f0  call qword ptr [rax + 0x10]
+0x74c3f3  mov rbx, qword ptr [rsp + 0x50]
+0x74c3f8  mov rbp, qword ptr [rsp + 0x58]
+0x74c3fd  mov rsi, qword ptr [rsp + 0x60]
+0x74c402  mov rdi, qword ptr [rsp + 0x68]
+0x74c407  add rsp, 0x40
+0x74c40b  pop r14
+0x74c40d  ret
+0x74c40e  lea rcx, [rip + 0x2c90d0b]
+0x74c415  call 0x25a0588
+0x74c41a  cmp dword ptr [rip + 0x2c90cff], -1
+0x74c421  jne 0x74c385
+0x74c427  lea rcx, [rip + 0x20298d2]
+0x74c42e  call 0x25a0450
+0x74c433  lea rcx, [rip + 0x2c90ce6]
+0x74c43a  call 0x25a051c
+0x74c43f  jmp 0x74c385

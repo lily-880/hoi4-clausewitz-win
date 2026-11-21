@@ -1,0 +1,38 @@
+f46610 cmp rdx, r8
+f46613 je 0xf46694
+f46615 mov qword ptr [rsp + 0x18], rsi
+f4661a push rdi
+f4661b sub rsp, 0x20
+f4661f mov qword ptr [rsp + 0x30], rbx
+f46624 mov rdi, r9
+f46627 mov qword ptr [rsp + 0x38], rbp
+f4662c lea rbx, [rdx + 8]
+f46630 xor ebp, ebp
+f46632 mov rsi, r8
+f46635 nop word ptr [rax + rax]
+f46640 mov eax, dword ptr [rbx - 8]
+f46643 mov rcx, rdi
+f46646 mov rdx, rbx
+f46649 add rdi, 0x20
+f4664d mov dword ptr [rcx], eax
+f4664f add rcx, 8
+f46653 call 0x15d9e0
+f46658 mov rdx, qword ptr [rbx]
+f4665b test rdx, rdx
+f4665e je 0xf46673
+f46660 mov rcx, qword ptr [rbx + 0x10]
+f46664 mov dword ptr [rbx + 0xc], ebp
+f46667 mov rax, qword ptr [rcx]
+f4666a call qword ptr [rax + 0x10]
+f4666d mov qword ptr [rbx], rbp
+f46670 mov dword ptr [rbx + 8], ebp
+f46673 add rbx, 0x20
+f46677 lea rax, [rbx - 8]
+f4667b cmp rax, rsi
+f4667e jne 0xf46640
+f46680 mov rbp, qword ptr [rsp + 0x38]
+f46685 mov rbx, qword ptr [rsp + 0x30]
+f4668a mov rsi, qword ptr [rsp + 0x40]
+f4668f add rsp, 0x20
+f46693 pop rdi
+f46694 ret 

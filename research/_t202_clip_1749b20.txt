@@ -1,0 +1,90 @@
+1749b20 mov qword ptr [rsp + 0x20], rbx
+1749b25 push rsi
+1749b26 push r14
+1749b28 push r15
+1749b2a sub rsp, 0x40
+1749b2e mov r9d, dword ptr [rcx + 0x5f8]
+1749b35 xor esi, esi
+1749b37 mov r14, r8
+1749b3a mov r15, rdx
+1749b3d mov rbx, rcx
+1749b40 sub r9d, 1
+1749b44 je 0x1749bb2
+1749b46 cmp r9d, 1
+1749b4a jne 0x1749c0f
+1749b50 xor r9d, r9d
+1749b53 lea rdx, [rip + 0x131cbae]
+1749b5a xor r8d, r8d
+1749b5d lea rcx, [rsp + 0x20]
+1749b62 call 0x22aeab0
+1749b67 lea rdx, [rsp + 0x20]
+1749b6c mov rcx, r14
+1749b6f call 0x1216a0
+1749b74 mov rdx, qword ptr [rsp + 0x38]
+1749b79 cmp rdx, 0xf
+1749b7d jbe 0x1749c0f
+1749b83 mov rcx, qword ptr [rsp + 0x20]
+1749b88 inc rdx
+1749b8b mov rax, rcx
+1749b8e cmp rdx, 0x1000
+1749b95 jb 0x1749c0a
+1749b97 mov rcx, qword ptr [rcx - 8]
+1749b9b add rdx, 0x27
+1749b9f sub rax, rcx
+1749ba2 add rax, -8
+1749ba6 cmp rax, 0x1f
+1749baa ja 0x1749c6e
+1749bb0 jmp 0x1749c0a
+1749bb2 xor r9d, r9d
+1749bb5 lea rdx, [rip + 0x131cb24]
+1749bbc xor r8d, r8d
+1749bbf lea rcx, [rsp + 0x20]
+1749bc4 call 0x22aeab0
+1749bc9 lea rdx, [rsp + 0x20]
+1749bce mov rcx, r14
+1749bd1 call 0x1216a0
+1749bd6 mov rdx, qword ptr [rsp + 0x38]
+1749bdb cmp rdx, 0xf
+1749bdf jbe 0x1749c0f
+1749be1 mov rcx, qword ptr [rsp + 0x20]
+1749be6 inc rdx
+1749be9 mov rax, rcx
+1749bec cmp rdx, 0x1000
+1749bf3 jb 0x1749c0a
+1749bf5 mov rcx, qword ptr [rcx - 8]
+1749bf9 add rdx, 0x27
+1749bfd sub rax, rcx
+1749c00 add rax, -8
+1749c04 cmp rax, 0x1f
+1749c08 ja 0x1749c68
+1749c0a call 0x25a0218
+1749c0f mov qword ptr [rsp + 0x68], rbp
+1749c14 lea rcx, [rbx + 0x5f0]
+1749c1b mov qword ptr [rsp + 0x70], rdi
+1749c20 mov rdi, qword ptr [rbx + 0x5e8]
+1749c27 mov rax, qword ptr [rdi]
+1749c2a mov rbp, qword ptr [rax + 0x18]
+1749c2e cmp dword ptr [rcx], esi
+1749c30 jne 0x1749c37
+1749c32 cmp dword ptr [rcx + 4], esi
+1749c35 je 0x1749c3f
+1749c37 call 0x2284870
+1749c3c mov rsi, rax
+1749c3f mov r9, r14
+1749c42 mov r8, r15
+1749c45 mov rdx, rsi
+1749c48 mov rcx, rdi
+1749c4b call rbp
+1749c4d mov rdi, qword ptr [rsp + 0x70]
+1749c52 mov al, 1
+1749c54 mov rbp, qword ptr [rsp + 0x68]
+1749c59 mov rbx, qword ptr [rsp + 0x78]
+1749c5e add rsp, 0x40
+1749c62 pop r15
+1749c64 pop r14
+1749c66 pop rsi
+1749c67 ret 
+1749c68 call 0x25c7db4
+1749c6d int3 
+1749c6e call 0x25c7db4
+1749c73 int3 

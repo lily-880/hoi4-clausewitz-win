@@ -1,0 +1,776 @@
+{
+  "authorized_by": [
+    "pt183u",
+    "pt180u"
+  ],
+  "inventory": {
+    "sha256": "a159657f42fa0ec4ab65e7342473c7a4432a763d91d378ff07c37b2059f5a4d2",
+    "sha_ok": true,
+    "fields": 116,
+    "verified": 64,
+    "unverified": 52,
+    "unverified_names": [
+      "meta.allow_write",
+      "meta.geography_scope",
+      "policy.stance",
+      "policy.instructions",
+      "world.own_units.supply.in_supply",
+      "world.own_units.supply.ratio",
+      "world.own_units.supply.isolated",
+      "world.own_units.in_combat",
+      "world.own_units.combat_id",
+      "world.own_units.order.type",
+      "world.own_units.order.target_province_ids",
+      "world.own_units.order.eta",
+      "world.visible_units",
+      "world.visible_units.relation_to_player",
+      "world.visible_units.visibility.spotted",
+      "world.visible_units.visibility.confidence",
+      "world.plans.type",
+      "world.plans.vertex_province_ids",
+      "world.plans.axis_province_ids",
+      "world.plans.status",
+      "world.combats.combat_id",
+      "world.combats.province_id",
+      "world.combats.attacker_unit_ids",
+      "world.combats.defender_unit_ids",
+      "world.combats.phase",
+      "world.combats.result",
+      "world.combats.casualties",
+      "world.combats.started_at",
+      "world.combats.ended_at",
+      "world.crises.kind",
+      "world.crises.unit_ids",
+      "world.crises.province_ids",
+      "world.crises.severity",
+      "world.crises.notes",
+      "world.wars.front_invalidated",
+      "world.shortages.equipment.demanded",
+      "world.shortages.equipment.deficit",
+      "world.shortages.equipment.affected_unit_ids",
+      "world.shortages.equipment.affected_plan_ids",
+      "world.shortages.manpower.needed",
+      "world.shortages.manpower.deficit",
+      "world.shortages.manpower.affected_unit_ids",
+      "world.shortages.manpower.front_cannot_hold",
+      "world.shortages.missing_divisions",
+      "feedback.last_orders.order_seq",
+      "feedback.last_orders.type",
+      "feedback.last_orders.subject_ids",
+      "feedback.last_orders.target_province_ids",
+      "feedback.last_orders.plan_id",
+      "feedback.last_orders.accepted",
+      "feedback.last_orders.error",
+      "feedback.ticks_since_issue"
+    ],
+    "unverified_rows": [
+      {
+        "name": "meta.allow_write",
+        "status": "未验证",
+        "note": "由配置提供的写入许可，默认false，非内存发现。"
+      },
+      {
+        "name": "meta.geography_scope",
+        "status": "未验证",
+        "note": "由配置提供的指挥范围，默认null，非内存发现。"
+      },
+      {
+        "name": "policy.stance",
+        "status": "未验证",
+        "note": "由玩家方针或接口默认值提供，非内存发现。"
+      },
+      {
+        "name": "policy.instructions",
+        "status": "未验证",
+        "note": "由玩家提供的方针原文，非内存发现。"
+      },
+      {
+        "name": "world.own_units.supply.in_supply",
+        "status": "未验证",
+        "note": "师是否获得补给。"
+      },
+      {
+        "name": "world.own_units.supply.ratio",
+        "status": "未验证",
+        "note": "师的补给满足比例。"
+      },
+      {
+        "name": "world.own_units.supply.isolated",
+        "status": "未验证",
+        "note": "师是否与补给来源隔绝。"
+      },
+      {
+        "name": "world.own_units.in_combat",
+        "status": "未验证",
+        "note": "师是否正在作战。"
+      },
+      {
+        "name": "world.own_units.combat_id",
+        "status": "未验证",
+        "note": "师当前参加的战斗编号。"
+      },
+      {
+        "name": "world.own_units.order.type",
+        "status": "未验证",
+        "note": "师当前任务类型。空路径不能证明待机；非空路径也还不是 OrderType。邻省行军以及短时 1x 后 commandlist 仍为空，不把非空路径当成 OrderType。"
+      },
+      {
+        "name": "world.own_units.order.target_province_ids",
+        "status": "未验证",
+        "note": "师当前任务的目标省份。邻省行军以及短时 1x 后 CArmy+0x220 full_path 仍为空，不把路径末省推断成 target。"
+      },
+      {
+        "name": "world.own_units.order.eta",
+        "status": "未验证",
+        "note": "该师当前命令的预计到达时间或进度。邻省行军后 CArmy+0x240 在暂停下仍为 0；短时 1x 后该槽为 0x000041a0（16800），不是 0-1 进度，不升格。"
+      },
+      {
+        "name": "world.visible_units",
+        "status": "未验证",
+        "note": "战争迷雾下玩家实际可见的其他陆部队。"
+      },
+      {
+        "name": "world.visible_units.relation_to_player",
+        "status": "未验证",
+        "note": "可见其他部队与玩家的关系。"
+      },
+      {
+        "name": "world.visible_units.visibility.spotted",
+        "status": "未验证",
+        "note": "该部队是否确实处于玩家可见范围。"
+      },
+      {
+        "name": "world.visible_units.visibility.confidence",
+        "status": "未验证",
+        "note": "对该可见部队情报的置信度。"
+      },
+      {
+        "name": "world.plans.type",
+        "status": "未验证",
+        "note": "前线、进攻线、驻防或区域防御类型。"
+      },
+      {
+        "name": "world.plans.vertex_province_ids",
+        "status": "未验证",
+        "note": "计划有序折线控制点。官方 path 在 COrderInstance+0x70（token 0x174）。COrderNewFrontCommand Post 成功后该数组仍为空；+0x258/+0x25c 不是官方 vertex/path。"
+      },
+      {
+        "name": "world.plans.axis_province_ids",
+        "status": "未验证",
+        "note": "计划推进方向或进攻轴。"
+      },
+      {
+        "name": "world.plans.status",
+        "status": "未验证",
+        "note": "计划可执行、受阻、停滞或失效状态。"
+      },
+      {
+        "name": "world.combats.combat_id",
+        "status": "未验证",
+        "note": "陆战内部编号。"
+      },
+      {
+        "name": "world.combats.province_id",
+        "status": "未验证",
+        "note": "陆战所在省份。"
+      },
+      {
+        "name": "world.combats.attacker_unit_ids",
+        "status": "未验证",
+        "note": "陆战攻击方师编号。"
+      },
+      {
+        "name": "world.combats.defender_unit_ids",
+        "status": "未验证",
+        "note": "陆战防守方师编号。"
+      },
+      {
+        "name": "world.combats.phase",
+        "status": "未验证",
+        "note": "陆战进行或结束状态。"
+      },
+      {
+        "name": "world.combats.result",
+        "status": "未验证",
+        "note": "陆战胜负结果。"
+      },
+      {
+        "name": "world.combats.casualties",
+        "status": "未验证",
+        "note": "双方人力或组织度损失。"
+      },
+      {
+        "name": "world.combats.started_at",
+        "status": "未验证",
+        "note": "陆战开始时间。"
+      },
+      {
+        "name": "world.combats.ended_at",
+        "status": "未验证",
+        "note": "陆战结束时间。"
+      },
+      {
+        "name": "world.crises.kind",
+        "status": "未验证",
+        "note": "被包围、断补给或计划失败等危机类型。"
+      },
+      {
+        "name": "world.crises.unit_ids",
+        "status": "未验证",
+        "note": "危机涉及的师编号。"
+      },
+      {
+        "name": "world.crises.province_ids",
+        "status": "未验证",
+        "note": "危机涉及的省份编号。"
+      },
+      {
+        "name": "world.crises.severity",
+        "status": "未验证",
+        "note": "危机严重程度。"
+      },
+      {
+        "name": "world.crises.notes",
+        "status": "未验证",
+        "note": "危机补充说明。"
+      },
+      {
+        "name": "world.wars.front_invalidated",
+        "status": "未验证",
+        "note": "战争关系变化是否使前线失效。"
+      },
+      {
+        "name": "world.shortages.equipment.demanded",
+        "status": "未验证",
+        "note": "该类装备当前需求量。"
+      },
+      {
+        "name": "world.shortages.equipment.deficit",
+        "status": "未验证",
+        "note": "该类装备当前缺口数量。"
+      },
+      {
+        "name": "world.shortages.equipment.affected_unit_ids",
+        "status": "未验证",
+        "note": "缺装备影响的师编号。"
+      },
+      {
+        "name": "world.shortages.equipment.affected_plan_ids",
+        "status": "未验证",
+        "note": "缺装备影响的计划编号。"
+      },
+      {
+        "name": "world.shortages.manpower.needed",
+        "status": "未验证",
+        "note": "当前所需补充人力。"
+      },
+      {
+        "name": "world.shortages.manpower.deficit",
+        "status": "未验证",
+        "note": "当前人力缺口数量。"
+      },
+      {
+        "name": "world.shortages.manpower.affected_unit_ids",
+        "status": "未验证",
+        "note": "缺人力影响的师编号。"
+      },
+      {
+        "name": "world.shortages.manpower.front_cannot_hold",
+        "status": "未验证",
+        "note": "缺人是否导致战线无法维持。"
+      },
+      {
+        "name": "world.shortages.missing_divisions",
+        "status": "未验证",
+        "note": "某段战线现有兵力无法维持时缺少的师。"
+      },
+      {
+        "name": "feedback.last_orders.order_seq",
+        "status": "未验证",
+        "note": "上一拍已发命令的序号，由回执账本提供。"
+      },
+      {
+        "name": "feedback.last_orders.type",
+        "status": "未验证",
+        "note": "上一拍命令类型，由回执账本提供。"
+      },
+      {
+        "name": "feedback.last_orders.subject_ids",
+        "status": "未验证",
+        "note": "上一拍命令作用对象编号。"
+      },
+      {
+        "name": "feedback.last_orders.target_province_ids",
+        "status": "未验证",
+        "note": "上一拍命令目标省份。"
+      },
+      {
+        "name": "feedback.last_orders.plan_id",
+        "status": "未验证",
+        "note": "上一拍命令相关计划编号。"
+      },
+      {
+        "name": "feedback.last_orders.accepted",
+        "status": "未验证",
+        "note": "上一拍命令实际落地结果。"
+      },
+      {
+        "name": "feedback.last_orders.error",
+        "status": "未验证",
+        "note": "上一拍命令失败原因。"
+      },
+      {
+        "name": "feedback.ticks_since_issue",
+        "status": "未验证",
+        "note": "命令发出后经过的节拍数。"
+      }
+    ]
+  },
+  "found_pid": 12948,
+  "expected_pid": 12948,
+  "pid_ok": true,
+  "health": {
+    "alive": true,
+    "exit_code": 259
+  },
+  "allow_post": false,
+  "gate_open": false,
+  "exe_path": "D:\\STEAM\\steam\\steamapps\\common\\Hearts of Iron IV\\hoi4.exe",
+  "exe_sha256": "709F916AFBEBCFE64A26678702691AEB40945D206074C2A80DE8E9D601FCE148",
+  "exe_sha_ok": true,
+  "session_raw_keys": [
+    "session",
+    "in_game",
+    "frontend",
+    "G_IDLER",
+    "G_GAMESTATE",
+    "idler",
+    "gamestate_live",
+    "user_action",
+    "guidance",
+    "signals"
+  ],
+  "live": {
+    "in_game": true,
+    "pid": 12948,
+    "base": "0x7ff7a91c0000",
+    "gs": "0x208a22a1970",
+    "co": "0x20a4b2d9ae0",
+    "idler": "0x20af9412200",
+    "idler_class": ".?AVCInGameIdler@@",
+    "player": {
+      "ok": true,
+      "player_index": 44,
+      "country_ptr": "0x20a4b2d9ae0",
+      "source": "gs_0x520",
+      "legacy_gs_0x518": 15,
+      "observed_gs_0x520": 44,
+      "human_flag_indices": [],
+      "tag": "ETH",
+      "reason": null,
+      "human_flag_partial": [
+        {
+          "index": 44,
+          "flag_a": 1,
+          "flag_b": 0
+        }
+      ]
+    },
+    "date": {
+      "year": 1936,
+      "ui": "1936-01-01",
+      "day_index": 0,
+      "ui_hour": 13,
+      "hour_tick": 60759372,
+      "source": "G_GAMESTATE+0x478/+0x484 date; ui_hour=(u32(+0x468)%24)+1; +0x480 not hour"
+    },
+    "pause": 1,
+    "speed": 0,
+    "armies": [
+      {
+        "army_id": 1,
+        "name": "第1集团军",
+        "unit_ids": [
+          1838
+        ],
+        "plan_id": 1
+      }
+    ],
+    "army_groups": [
+      {
+        "army_group_id": 2,
+        "name": "第1集团军群",
+        "army_ids": [
+          1
+        ]
+      }
+    ],
+    "plans": [
+      {
+        "plan_id": 1,
+        "assigned_army_ids": [
+          1
+        ],
+        "assigned_unit_ids": [
+          1838
+        ],
+        "executing": true
+      }
+    ],
+    "assigned_leaders": [],
+    "n_leaders": 20,
+    "n_units": 21,
+    "units": [
+      {
+        "ptr": "0x20abcf24ff0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1829,
+        "province": 5010,
+        "path": [
+          8036
+        ],
+        "full_path": [],
+        "progress_f32": 2.3541814200656927e-41,
+        "progress_u32": 16800,
+        "progress_hex": "a0410000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf22200",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1830,
+        "province": 1984,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf28b00",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1831,
+        "province": 13237,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf263a0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1832,
+        "province": 13237,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf29820",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1833,
+        "province": 13238,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf2abd0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1834,
+        "province": 13238,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf27750",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1835,
+        "province": 2072,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf27de0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1836,
+        "province": 5097,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf28470",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1837,
+        "province": 5097,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf2d9c0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1838,
+        "province": 7980,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": "0x20b2d7052a0",
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf2cca0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1839,
+        "province": 5097,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf2e050",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1840,
+        "province": 2072,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf2fa90",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1841,
+        "province": 13238,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf2d330",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1842,
+        "province": 7944,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf30e40",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1843,
+        "province": 7944,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf31b60",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1844,
+        "province": 1984,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf32f10",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1845,
+        "province": 12812,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf342c0",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1846,
+        "province": 12757,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": false
+      },
+      {
+        "ptr": "0x20abcf34950",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1847,
+        "province": 4995,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf32880",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1848,
+        "province": 4995,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      },
+      {
+        "ptr": "0x20abcf36390",
+        "class": ".?AVCArmy@@",
+        "unit_id": 1849,
+        "province": 8062,
+        "path": [],
+        "full_path": [],
+        "progress_f32": 0.0,
+        "progress_u32": 0,
+        "progress_hex": "00000000",
+        "commandlist_size": 0,
+        "orders_group": null,
+        "ita_adjacent": true
+      }
+    ],
+    "theatres": [
+      {
+        "ptr": "0x20abea8cde0",
+        "class": ".?AVCTheatre@@",
+        "handle": [
+          67,
+          43
+        ],
+        "orders_groups": [
+          {
+            "ptr": "0x20b2d7052a0",
+            "class": ".?AVCOrdersGroup@@",
+            "handle": [
+              53,
+              1
+            ],
+            "leader_88": "0x0",
+            "instances": [
+              {
+                "ptr": "0x20b2d73e1f0",
+                "class": ".?AVCOrderInstance@@",
+                "type_30": 2,
+                "instance_id_244": 1,
+                "can_execute_248": 1,
+                "path_70": [],
+                "states_e0": [],
+                "field_258": 5097,
+                "field_25c": 7944,
+                "plus90": 0,
+                "plus224": 32759,
+                "scheduled_210": {
+                  "data": "0x20a9ee456a0",
+                  "cap": 1,
+                  "size": 1,
+                  "elem0": "0x20abcf2da78",
+                  "unit_id": 1838
+                }
+              }
+            ]
+          }
+        ],
+        "army_groups": [
+          {
+            "ptr": "0x20b426787a0",
+            "class": ".?AVCArmyGroup@@",
+            "handle": [
+              53,
+              2
+            ],
+            "leader_88": "0x0"
+          }
+        ]
+      }
+    ]
+  }
+}

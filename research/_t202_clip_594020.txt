@@ -1,0 +1,25 @@
+594020 mov qword ptr [rsp + 8], rbx
+594025 push rdi
+594026 sub rsp, 0x20
+59402a mov edi, edx
+59402c mov rbx, rcx
+59402f test edx, edx
+594031 je 0x594056
+594033 mov rax, qword ptr [rcx]
+594036 call qword ptr [rax + 0x70]
+594039 test eax, eax
+59403b je 0x594056
+59403d mov rax, qword ptr [rbx]
+594040 mov rcx, rbx
+594043 call qword ptr [rax + 0x70]
+594046 test edi, eax
+594048 setne al
+59404b mov rbx, qword ptr [rsp + 0x30]
+594050 add rsp, 0x20
+594054 pop rdi
+594055 ret 
+594056 mov rbx, qword ptr [rsp + 0x30]
+59405b mov al, 1
+59405d add rsp, 0x20
+594061 pop rdi
+594062 ret 

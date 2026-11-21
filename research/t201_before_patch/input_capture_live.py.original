@@ -1,0 +1,293 @@
+"""Read-only live partial input capture for one fingerprinted Windows build.
+
+No Post, writes, save access, GUI control, or heap sweeps. Not complete Input.
+Returns evidence separately from contract-shaped observations.
+"""
+from __future__ import annotations
+import hashlib
+import json
+import os
+import struct
+from collections import Counter
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+HERE=Path(__file__).resolve().parent
+
+def capture():
+    os.environ['CLAUSEWITZ_ALLOW_POST']='0'
+    os.environ['CLAUSEWITZ_ALLOW_WRITE']='0'
+    from mem import Proc,find_pid
+    from pe import PE
+    from gamestate import _rtti_name_from_vtable,_pdx_array,detect_session,resolve_player_country,read_campaign_summary
+    from handle import resolve_handle
+    from input_observation import observe_own_divisions,unit_blockers,ObservationError
+    from input_loaded_fields import LoadedReader,battalion_width,own_leaders,infrastructure,country_tag,victory_points,unit_current_manpower,country_available_manpower,unit_hp,own_equipment_stockpile,resolve_building_templates,province_fort_level,province_land_neighbors,province_adjacencies,own_reinforcement_requests,official_country_equipment_need_components
+    profile=json.loads((HERE/'tables/offsets_input_windows_1.19.5.json').read_text(encoding='utf-8-sig'))
+    p=Proc(find_pid('hoi4.exe'))
+    try:
+        h=hashlib.sha256()
+        with open(p.image_path,'rb') as f:
+            for block in iter(lambda:f.read(1024*1024),b''):h.update(block)
+        digest=h.hexdigest().upper()
+        if digest!=profile['exe_sha256']:
+            raise ObservationError('unknown executable fingerprint; no layout reads')
+        pe=PE(p.image_path)
+        def ptr(x):return type(x) is int and 0x10000<x<0x7fffffffffff
+        def q(a):return struct.unpack('<Q',p.read(a,8))[0]
+        def i(a):return struct.unpack('<i',p.read(a,4))[0]
+        def cls(a):
+            if not ptr(a):return None
+            vt=q(a)
+            if not p.base<=vt<p.base+p.image_size:return None
+            return _rtti_name_from_vtable(pe,vt-p.base)
+        def require_class(a,name):
+            if cls(a) not in ('.?AV'+name+'@@','.?AU'+name+'@@'):
+                raise ObservationError('unexpected '+name+' RTTI')
+        def string(a):
+            blob=p.read(a,32);size,cap=struct.unpack_from('<QQ',blob,16)
+            if not 0<=size<=1024 or cap<size:raise ObservationError('invalid string header')
+            data=blob[:size] if cap<=15 else p.read(struct.unpack_from('<Q',blob)[0],size)
+            s=data.decode('utf-8')
+            if not all(c.isprintable() for c in s):raise ObservationError('nonprintable name')
+            return s
+        def array(a,bound):
+            ar=_pdx_array(p,a)
+            if not ar or not 0<=ar['size']<=ar['capacity']<=max(bound,100):
+                raise ObservationError('invalid bounded array')
+            if ar['size']>bound or (ar['size'] and not ptr(ar['data'])):
+                raise ObservationError('array bound/data invalid')
+            return ar,[q(ar['data']+8*j) for j in range(ar['size'])]
+        gs=q(p.base+profile['globals']['G_GAMESTATE'])
+        require_class(gs,'CCurrentGameState')
+        session=detect_session(p,pe)
+        if not session['in_game']:raise ObservationError('not in campaign map')
+        res=resolve_player_country(p,gs)
+        if not res['ok'] or not res['source'].startswith('gs_0x520'):
+            raise ObservationError('current player unresolved')
+        co=int(res['country_ptr'],16);require_class(co,'CCountry')
+        speed=i(gs+0x4bc)
+        if speed!=0:raise ObservationError('speed setting not 1x; not changed')
+        idler = int(session['signals']['idler_ptr'], 16)
+        require_class(idler, 'CInGameIdler')
+        official_pause = p.read(idler + 0x6c1, 1)
+        if official_pause not in (b'\0', b'\1'):
+            raise ObservationError('invalid official pause flag')
+        header=p.read(gs+0x468,0xc0)
+        kw=dict(country_ptr=co,player_index=res['player_index'],
+                carmy_vtable=p.base+profile['vtable_rvas']['CArmy'],
+                version_verified=True,strength420_semantics='current',layout_label='Windows HOI4 '+profile['game_version'])
+        first=observe_own_divisions(p.read,**kw)
+        second=observe_own_divisions(p.read,**kw)
+        if first['world']!=second['world']:raise ObservationError('division scalar observations changed; retry later')
+        ar,army_ptrs=array(co+0x290,4096)
+        if len(army_ptrs)!=len(first['world']['own_units']):raise ObservationError('division membership changed')
+        template_cache={};province_cache={};extra=[]
+        loaded=LoadedReader(p.read,cls);infrastructure_evidence=[];neighbor_evidence=[]
+        live_tag=country_tag(loaded,gs,res['player_index'],co)
+        manpower_available,manpower_available_evidence=country_available_manpower(loaded,co,res['player_index'])
+        equipment_stockpile,equipment_stockpile_evidence=own_equipment_stockpile(loaded,co)
+        # Request collector needs army identities; filled after the own-army array is read.
+        building_templates,building_definition_evidence=resolve_building_templates(loaded,p.base)
+        fort_evidence=[]
+        manpower_evidence=[];hp_evidence=[]
+        leaders,leader_evidence=own_leaders(loaded,co)
+        # Restricted proof: only regions explicitly registered to this country.
+        # No inference of controller/owner from a division's nationality.
+        area_memberships={};area_headers=[];area_lists=[]
+        for field,offset,area_class,province_field in (
+            ('controller',0x548,'CControllerArea',0xd0),
+            ('owner',0x560,'COwnerArea',0xd8)):
+            country_area_header=p.read(co+offset,16)
+            _,areas=array(co+offset,100)
+            area_lists.append((co+offset,100,areas))
+            membership={}
+            for area in areas:
+                require_class(area,area_class)
+                member_header=p.read(area+0x30,16)
+                _,members=array(area+0x30,2000)
+                area_lists.append((area+0x30,2000,members))
+                for province in members:
+                    require_class(province,'CProvince')
+                    if q(province+province_field)!=area:
+                        raise ObservationError('province area reverse pointer mismatch')
+                    if province in membership:raise ObservationError('duplicate area membership')
+                    membership[province]=area
+                area_headers.append((area+0x30,member_header))
+            area_headers.append((co+offset,country_area_header))
+            area_memberships[field]=membership
+        class Adapter:
+            image_base=p.base
+            def read(self,a,n):return p.read(a,n)
+        for u,ap in zip(first['world']['own_units'],army_ptrs):
+            if p.u32(ap+0x1c)!=u['unit_id']:raise ObservationError('division slot changed')
+            u['owner']['tag']=live_tag
+            current_manpower,mp_evidence=unit_current_manpower(loaded,ap)
+            u['strength']['manpower']=current_manpower
+            hp_current,hp_max,hpe=unit_hp(loaded,ap)
+            if hp_current!=u['strength']['current']:raise ObservationError('current HP changed')
+            u['strength']['max']=hp_max
+            hp_evidence.append(dict(hpe,unit_id=u['unit_id']))
+            manpower_evidence.append(dict(mp_evidence,unit_id=u['unit_id']))
+            member=q(ap+0x340);require_class(member,'CNameGroupMember')
+            name=string(member+0x60)
+            if name:u['name']=name
+            tp=q(ap+0x3b8);require_class(tp,'CReferencedDivisionTemplate')
+            if tp not in template_cache:
+                ty,tid=struct.unpack('<II',p.read(tp+8,8))
+                # Legacy army resolver subtracts 0x10; this handle class's raw
+                # registry object pointer is the template itself (5/5 tested).
+                resolved=resolve_handle(Adapter(),ty,tid,p.base)
+                if ty!=0x34 or not resolved or resolved+0x10!=tp:
+                    raise ObservationError('template handle registry cross-check failed')
+                types=Counter();hp=0;org=[];width=0
+                _,slots=array(tp+0x68,25)
+                for sp in slots:
+                    cn=cls(sp)
+                    if cn and 'TNullObject@VCSubUnitDefinition' in cn:continue
+                    require_class(sp,'CSubUnitDefinition')
+                    typename=string(sp+0x18)
+                    if not typename:raise ObservationError('empty battalion name')
+                    types[typename]+=1;hp+=struct.unpack('<q',p.read(sp+0x288,8))[0]/100000;org.append(struct.unpack('<q',p.read(sp+0x280,8))[0]/100000)
+                    width+=battalion_width(loaded,sp)
+                _,supports=array(tp+0x88,5)
+                if supports:raise ObservationError('nonempty support-template semantics need separate acceptance')
+                item={'template_id':tid,'combat_width':width,'battalions':[{'type':k,'count':v} for k,v in sorted(types.items())]}
+                tn=string(tp+0x20)
+                if tn:item['name']=tn
+                template_cache[tp]=(item,hp,sum(org)/len(org) if org else None)
+            template,hp,mean_org=template_cache[tp]
+            u['template']=template
+            extra.append({'unit_id':u['unit_id'],'template_id':template['template_id'],
+                          'max_hp_matches_loaded_battalions':abs(u['strength']['max']-hp)<0.0001,
+                          'opening_org_matches_95pct_mean':mean_org is not None and abs(u['organization']-.95*mean_org)<.0001})
+            pp=q(ap+0x1f0);require_class(pp,'CProvince')
+            if pp not in province_cache:
+                pid=p.u32(pp+0xa4)
+                definition=q(pp+0xb8);terrain=q(definition+0xa8)
+                require_class(terrain,'CTerrainType')
+                terrain_name=string(terrain+0x18)
+                if not terrain_name:raise ObservationError('missing terrain name')
+                province_cache[pp]={'province_id':pid,'terrain':terrain_name,'victory_points':victory_points(loaded,pp)}
+                adj=province_adjacencies(loaded,pp)
+                neighbor_evidence.append(adj['evidence'])
+                province_cache[pp]['neighbors']=adj['neighbors']
+                province_cache[pp]['has_river_crossing']=adj['has_river_crossing']
+                for field,type_name in [('fort_level','bunker'),('coastal_fort_level','coastal_bunker')]:
+                    level,fe=province_fort_level(loaded,pp,building_templates[type_name])
+                    fort_evidence.append(dict(fe,province_id=pid,field=field))
+                    if level is not None:province_cache[pp][field]=level
+                infra,infra_evidence=infrastructure(loaded,pp,building_templates['infrastructure'])
+                infrastructure_evidence.append(dict(infra_evidence,province_id=pid))
+                if infra is not None:province_cache[pp]['infrastructure']=infra
+                for field,membership in area_memberships.items():
+                    if pp in membership:
+                        province_cache[pp][field]={'index':res['player_index']}
+            if province_cache[pp]['province_id']!=u['province_id']:
+                raise ObservationError('province identity changed')
+        if not all(e['max_hp_matches_loaded_battalions'] for e in extra):
+            raise ObservationError('maxHP versus loaded battalions mismatch')
+        if p.read(gs+0x468,0xc0)!=header:
+            raise ObservationError('clock/player header changed during capture')
+        # Recheck pointer membership after all dependent object reads.
+        _,end_ptrs=array(co+0x290,4096)
+        if army_ptrs!=end_ptrs:raise ObservationError('division membership changed at end')
+        for address,original in area_headers:
+            if p.read(address,16)!=original:
+                raise ObservationError('country/area membership header changed')
+        for address,bound,original in area_lists:
+            _,current=array(address,bound)
+            if current!=original:
+                raise ObservationError('area registration/membership changed in place')
+        army_ids={ap:u['unit_id'] for u,ap in zip(first['world']['own_units'],army_ptrs)}
+        reinforcement_requests,reinforcement_request_evidence=own_reinforcement_requests(loaded,co,army_ids)
+        official_need,official_need_evidence=official_country_equipment_need_components(loaded,co,army_ids)
+        from input_loaded_fields import (own_plans, own_active_combats, own_armies,
+            own_army_groups, unit_formation_army_id, unit_formation_army_group_id)
+        armies, army_evidence = own_armies(loaded, co)
+        army_groups, army_group_evidence = own_army_groups(loaded, co)
+        for unit, up in zip(first['world']['own_units'], army_ptrs):
+            army_id, _ = unit_formation_army_id(loaded, up)
+            group_id, _ = unit_formation_army_group_id(loaded, up)
+            formation = {}
+            if army_id is not None:
+                formation['army_id'] = army_id
+            if group_id is not None:
+                formation['army_group_id'] = group_id
+            if formation:
+                unit['formation'] = formation
+        plans, plan_evidence = own_plans(loaded, co)
+        combats = own_active_combats(loaded, gs, co)
+        for unit in first['world']['own_units']:
+            for combat in combats:
+                if unit['unit_id'] in combat['attacker_unit_ids'] + combat['defender_unit_ids']:
+                    unit.update(in_combat=True, combat_id=combat['combat_id'])
+                    break
+        from input_loaded_fields import own_equipment_affected_units
+        affected_equipment, affected_equipment_evidence = own_equipment_affected_units(loaded, co)
+        loaded_reads_checked=loaded.stable()
+        if p.read(idler + 0x6c1, 1) != official_pause:
+            raise ObservationError('official pause flag changed during capture')
+        summary=read_campaign_summary(p,gs)['fields'];d=summary['date_full']
+        y,m,day=map(int,d['ui'].split('-'))
+        player={'index':res['player_index'],'tag':live_tag}
+        # Tag comes from the live campaign table used by CountryTag::text.
+        observation={'meta':{'game_time':{'year':y,'month':m,'day':day,'hour':d['ui_hour']},'player_country':player},
+                     'world':{'own_units':first['world']['own_units'],'provinces':list(province_cache.values()),'leaders':leaders,'shortages':{'manpower':{'available':manpower_available}}}}
+        observation['meta']['speed'] = 'pause' if official_pause == b'\1' else '1x'
+        observation['world']['armies'] = armies
+        observation['world']['army_groups'] = army_groups
+        observation['world']['plans'] = plans
+        observation['world']['combats'] = combats
+        equipment_rows = {x['equipment_type']: dict(x) for x in equipment_stockpile}
+        for name, ids in affected_equipment.items():
+            equipment_rows.setdefault(name, {'equipment_type': name})['affected_unit_ids'] = ids
+        if equipment_rows:
+            observation['world']['shortages']['equipment'] = list(equipment_rows.values())
+        result = {'captured_at':datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=-5),'EST')).isoformat(),
+                'time_zone':'America/New_York (EST)','pid':p.pid,'exe_sha256':digest,
+                'game_version':profile['game_version'],'read_only':True,'complete_input':False,
+                'full_schema_validated':False,'observation':observation,
+                'evidence':{'session':session['session'],'player_source':res['source'],
+                            'speed_setting':speed+1,'pause_flag':official_pause[0],'pause_source':'CInGameIdler+0x6c1; before/after equal',
+                            'core_scalar_double_read_equal':True,'clock_player_header_stable':True,
+                            'terrain_source':'live loaded CTerrainType; no base map or history fallback',
+                            'country_tag_source':'live GS+0x358 indexed MSVC table; CountryTag::text 0xc08223',
+                            'victory_points_source':'live CProvince+0x38 named victory_points; optional rename+0x40',
+                            'neighbors_source':'live [CProvince+0xb8]+0x70 stride 48 target +8; types 0/2/3 only; 14a6540/ab3660',
+                            'has_river_crossing_source':'same adjacency records; type in {2,3} per 0x12971a0 range check; object neighbor_id->bool',
+                            'loaded_dependent_reads_rechecked':loaded_reads_checked,
+                            'army_collection':army_evidence,'army_group_collection':army_group_evidence,'plan_collection':plan_evidence,
+                            'affected_equipment_collection':affected_equipment_evidence,
+                            'hp_current_max_collection':hp_evidence,'unit_manpower_collection':manpower_evidence,'country_manpower_collection':manpower_available_evidence,'equipment_stockpile_collection':equipment_stockpile_evidence,'reinforcement_request_collection':reinforcement_request_evidence,'official_country_need_collection':official_need_evidence,
+                            'building_definition_collection':building_definition_evidence,'fort_collection':fort_evidence,'leader_collection':leader_evidence,'infrastructure_collection':infrastructure_evidence,'neighbor_collection':neighbor_evidence,
+                            'combat_width_source':'live loaded CSubUnitDefinition+0x58; named combat_width parser; supports empty',
+                            'template_handle_registry_checks':len(template_cache),'battalion_crosschecks':extra,
+                            'registered_self_provinces':{k:len(v) for k,v in area_memberships.items()},
+                            'province_relation_scope':'only current country registrations; no contested ownership contrast accepted',
+                            'combats_array':_pdx_array(p,gs+0x268),
+                            'coverage':'country CO_ARMIES only; no independent full handle-table sweep',
+                            'consistency_limit':'bounded non-atomic observation; template/terrain pointers not frozen'},
+                'blocking_checks':{'units':[{'unit_id':u['unit_id'],'errors':unit_blockers(u)} for u in first['world']['own_units']],
+                                   'provinces':'building levels omitted for damaged/overlay states unaccepted; absent registered type returns native0',
+                                   'meta':'policy/config allow_write/geography_scope not supplied by memory',
+                                   'other':'policy/config, feedback ledger, visibility, incomplete plans/combats, shortages, wars not completed'}}
+        from jsonschema import Draft202012Validator
+        schema=json.loads((Path(__file__).resolve().parent/'tables/generalissimo_input.schema.json').read_text(encoding='utf-8'))
+        schema_errors=list(Draft202012Validator(schema).iter_errors(observation))
+        result['full_schema_validated']=True
+        result['schema_validation']={'valid':not schema_errors,'error_count':len(schema_errors),
+            'errors':[{'path':list(e.path),'message':e.message} for e in schema_errors]}
+        # Schema shape alone cannot certify key nonempty-state semantic coverage.
+        # complete_input remains False until that independent acceptance exists.
+        return result
+    finally:p.close()
+
+if __name__=='__main__':
+    import argparse
+    ap=argparse.ArgumentParser();ap.add_argument('--out',required=True);args=ap.parse_args()
+    result=capture()
+    Path(args.out).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps({'pid':result['pid'],'version':result['game_version'],'units':len(result['observation']['world']['own_units']),
+                      'provinces':len(result['observation']['world']['provinces']),
+                      'templates':result['evidence']['template_handle_registry_checks'],'complete_input':False},ensure_ascii=False))

@@ -1,0 +1,141 @@
+1348e50 mov qword ptr [rsp + 8], rbx
+1348e55 mov qword ptr [rsp + 0x10], rbp
+1348e5a mov qword ptr [rsp + 0x20], rsi
+1348e5f push rdi
+1348e60 push r12
+1348e62 push r13
+1348e64 push r14
+1348e66 push r15
+1348e68 sub rsp, 0x70
+1348e6c mov rbx, rdx
+1348e6f call 0x31f8b0
+1348e74 mov r15, rax
+1348e77 cmp dword ptr [rax + 0xc], 0
+1348e7b je 0x1349091
+1348e81 mov rdx, rbx
+1348e84 lea rcx, [rsp + 0x30]
+1348e89 call 0x31a9a0
+1348e8e nop 
+1348e8f movsxd r14, dword ptr [r15 + 0xc]
+1348e93 imul rdx, r14, 0x186a0
+1348e9a lea rcx, [rsp + 0x30]
+1348e9f call 0x1093cf0
+1348ea4 xor r13d, r13d
+1348ea7 test r14, r14
+1348eaa jle 0x1349053
+1348eb0 mov esi, r13d
+1348eb3 lea r8, [rip + 0x209437f]
+1348eba mov edx, 0x20e8
+1348ebf mov edi, 0x10
+1348ec4 mov r12d, dword ptr [rip + 0x234abcd]
+1348ecb nop dword ptr [rax + rax]
+1348ed0 mov rax, qword ptr [r15]
+1348ed3 mov rcx, qword ptr [rax + rsi*8]
+1348ed7 test rcx, rcx
+1348eda je 0x1349047
+1348ee0 mov rbp, qword ptr [rcx + 0xc0]
+1348ee7 test rbp, rbp
+1348eea je 0x1349047
+1348ef0 cmp byte ptr [rip + 0x234671a], r13b
+1348ef7 je 0x1348fdd
+1348efd cmp byte ptr [rip + 0x2094335], r13b
+1348f04 jne 0x1348f5b
+1348f06 cmp qword ptr [rip + 0x20947a3], r13
+1348f0d jne 0x1348f5b
+1348f0f mov byte ptr [rsp + 0xb0], r13b
+1348f17 mov qword ptr [rsp + 0x28], r8
+1348f1c lea rax, [rsp + 0xb0]
+1348f24 mov qword ptr [rsp + 0x20], rax
+1348f29 mov r9b, 1
+1348f2c mov r8d, 0x45b
+1348f32 lea rdx, [rip + 0x144b7e4]
+1348f39 lea rcx, [rip + 0x144b8f8]
+1348f40 call 0x254ab40
+1348f45 mov byte ptr [rip + 0x20942ee], al
+1348f4b cmp byte ptr [rsp + 0xb0], r13b
+1348f53 je 0x1348f56
+1348f55 int3 
+1348f56 mov edx, 0x20e8
+1348f5b cmp byte ptr [rip + 0x23466af], r13b
+1348f62 je 0x1348fdd
+1348f64 cmp byte ptr [rip + 0x20942cf], r13b
+1348f6b jne 0x1348fdd
+1348f6d mov rax, qword ptr gs:[0x58]
+1348f76 mov rbx, qword ptr [rax + r12*8]
+1348f7a mov eax, edx
+1348f7c cmp byte ptr [rax + rbx], r13b
+1348f80 jne 0x1348f87
+1348f82 call 0x25a04d0
+1348f87 mov eax, edi
+1348f89 cmp dword ptr [rax + rbx], r13d
+1348f8d je 0x1348fdd
+1348f8f mov byte ptr [rsp + 0xb0], r13b
+1348f97 lea rax, [rip + 0x209429c]
+1348f9e mov qword ptr [rsp + 0x28], rax
+1348fa3 lea rax, [rsp + 0xb0]
+1348fab mov qword ptr [rsp + 0x20], rax
+1348fb0 mov r9b, 1
+1348fb3 mov r8d, 0x45c
+1348fb9 lea rdx, [rip + 0x144b75d]
+1348fc0 lea rcx, [rip + 0x144b899]
+1348fc7 call 0x254ab40
+1348fcc mov byte ptr [rip + 0x2094268], al
+1348fd2 cmp byte ptr [rsp + 0xb0], r13b
+1348fda je 0x1348fdd
+1348fdc int3 
+1348fdd mov rdi, qword ptr [rip + 0x20946cc]
+1348fe4 cmp dword ptr [rdi + 0x520], r13d
+1348feb jle 0x1348ffa
+1348fed lea rcx, [rbp + 0x3c]
+1348ff1 call 0xd3f770
+1348ff6 test al, al
+1348ff8 je 0x1349036
+1348ffa cmp dword ptr [rbp + 0x3c], r13d
+1348ffe jne 0x1349005
+1349000 mov eax, r13d
+1349003 jmp 0x134900e
+1349005 lea rcx, [rbp + 0x3c]
+1349009 call 0xc08790
+134900e movsxd rcx, eax
+1349011 mov rax, qword ptr [rdi + 0x880]
+1349018 mov rcx, qword ptr [rax + rcx*8]
+134901c test rcx, rcx
+134901f je 0x1349036
+1349021 mov rdx, rbp
+1349024 call 0xd39310
+1349029 lea rdx, [rsp + 0x30]
+134902e mov rcx, rax
+1349031 call 0xd39440
+1349036 mov edi, 0x10
+134903b mov edx, 0x20e8
+1349040 lea r8, [rip + 0x20941f2]
+1349047 inc rsi
+134904a cmp rsi, r14
+134904d jl 0x1348ed0
+1349053 mov rdx, qword ptr [rsp + 0x50]
+1349058 test rdx, rdx
+134905b je 0x1349077
+134905d mov dword ptr [rsp + 0x5c], r13d
+1349062 mov rcx, qword ptr [rsp + 0x60]
+1349067 mov rax, qword ptr [rcx]
+134906a call qword ptr [rax + 0x10]
+134906d mov qword ptr [rsp + 0x50], r13
+1349072 mov dword ptr [rsp + 0x58], r13d
+1349077 mov rdx, qword ptr [rsp + 0x38]
+134907c test rdx, rdx
+134907f je 0x1349091
+1349081 mov dword ptr [rsp + 0x44], r13d
+1349086 mov rcx, qword ptr [rsp + 0x48]
+134908b mov rax, qword ptr [rcx]
+134908e call qword ptr [rax + 0x10]
+1349091 lea r11, [rsp + 0x70]
+1349096 mov rbx, qword ptr [r11 + 0x30]
+134909a mov rbp, qword ptr [r11 + 0x38]
+134909e mov rsi, qword ptr [r11 + 0x48]
+13490a2 mov rsp, r11
+13490a5 pop r15
+13490a7 pop r14
+13490a9 pop r13
+13490ab pop r12
+13490ad pop rdi
+13490ae ret 

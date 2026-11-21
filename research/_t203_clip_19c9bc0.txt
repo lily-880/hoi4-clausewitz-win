@@ -1,0 +1,23 @@
+19c9bc0 movsxd rax, dword ptr [rcx + 0x88]
+19c9bc7 mov r8, rdx
+19c9bca imul rdx, rax, 0x186a0
+19c9bd1 movsxd rax, dword ptr [rcx + 0x8c]
+19c9bd8 imul rcx, rax, 0x186a0
+19c9bdf test rcx, rcx
+19c9be2 jne 0x19c9bef
+19c9be4 mov qword ptr [r8], 0x186a0
+19c9beb mov rax, r8
+19c9bee ret 
+19c9bef movabs rax, 0x8000000000000001
+19c9bf9 cmp rdx, rax
+19c9bfc jle 0x19c9c11
+19c9bfe imul rax, rdx, 0x186a0
+19c9c05 cqo 
+19c9c07 idiv rcx
+19c9c0a mov qword ptr [r8], rax
+19c9c0d mov rax, r8
+19c9c10 ret 
+19c9c11 mov eax, 0xffffffff
+19c9c16 mov qword ptr [r8], rax
+19c9c19 mov rax, r8
+19c9c1c ret 

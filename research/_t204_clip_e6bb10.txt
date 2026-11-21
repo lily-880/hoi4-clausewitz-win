@@ -1,0 +1,39 @@
+e6bb10 mov qword ptr [rsp + 0x10], rbx
+e6bb15 push rdi
+e6bb16 sub rsp, 0x30
+e6bb1a cmp byte ptr [rip + 0x2823af0], 0
+e6bb21 mov rbx, rcx
+e6bb24 je 0xe6bb74
+e6bb26 cmp byte ptr [rip + 0x257f1dc], 0
+e6bb2d jne 0xe6bb74
+e6bb2f lea rax, [rip + 0x257f1d3]
+e6bb36 mov byte ptr [rsp + 0x40], 0
+e6bb3b mov qword ptr [rsp + 0x28], rax
+e6bb40 lea rdx, [rip + 0x1928bd6]
+e6bb47 lea rax, [rsp + 0x40]
+e6bb4c mov r9b, 1
+e6bb4f mov r8d, 0x233
+e6bb55 mov qword ptr [rsp + 0x20], rax
+e6bb5a lea rcx, [rip + 0x1b7cd17]
+e6bb61 call 0x254ab40
+e6bb66 cmp byte ptr [rsp + 0x40], 0
+e6bb6b mov byte ptr [rip + 0x257f198], al
+e6bb71 je 0xe6bb74
+e6bb73 int3 
+e6bb74 mov rcx, qword ptr [rbx + 0x28]
+e6bb78 xor edi, edi
+e6bb7a mov qword ptr [rbx + 0x20], rdi
+e6bb7e mov qword ptr [rbx + 0x28], rdi
+e6bb82 test rcx, rcx
+e6bb85 je 0xe6bb9c
+e6bb87 mov eax, 0xffffffff
+e6bb8c lock xadd dword ptr [rcx + 0xc], eax
+e6bb91 cmp eax, 1
+e6bb94 jne 0xe6bb9c
+e6bb96 mov rax, qword ptr [rcx]
+e6bb99 call qword ptr [rax + 8]
+e6bb9c mov dword ptr [rbx + 8], edi
+e6bb9f mov rbx, qword ptr [rsp + 0x48]
+e6bba4 add rsp, 0x30
+e6bba8 pop rdi
+e6bba9 ret 

@@ -1,0 +1,15 @@
+2343fb0 sub rsp, 0x28
+2343fb4 mov rcx, qword ptr [rcx + 0x10]
+2343fb8 test rcx, rcx
+2343fbb je 0x2343fd6
+2343fbd mov rax, qword ptr [rcx + 0x30]
+2343fc1 add rcx, 0x30
+2343fc5 call qword ptr [rax + 0x158]
+2343fcb test al, al
+2343fcd je 0x2343fd6
+2343fcf mov al, 1
+2343fd1 add rsp, 0x28
+2343fd5 ret 
+2343fd6 xor al, al
+2343fd8 add rsp, 0x28
+2343fdc ret 

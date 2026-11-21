@@ -1,0 +1,32 @@
+e61bc0 push rdi
+e61bc2 sub rsp, 0x40
+e61bc6 mov rdi, rdx
+e61bc9 cmp r8d, 0x33ae
+e61bd0 je 0xe61bf5
+e61bd2 mov rcx, rdx
+e61bd5 cmp r8d, 0x3b01
+e61bdc je 0xe61be8
+e61bde add rsp, 0x40
+e61be2 pop rdi
+e61be3 jmp 0x2544af0
+e61be8 mov rdx, r9
+e61beb add rsp, 0x40
+e61bef pop rdi
+e61bf0 jmp 0xe5f030
+e61bf5 mov r8d, dword ptr [r9 + 0x6c]
+e61bf9 xor edx, edx
+e61bfb mov qword ptr [rsp + 0x50], rbx
+e61c00 lea rbx, [r9 + 0x60]
+e61c04 mov rcx, rbx
+e61c07 call 0xe5a9f0
+e61c0c lea rax, [rip + 0x1b86815]
+e61c13 mov dword ptr [rbx + 0xc], 0
+e61c1a mov rdx, rdi
+e61c1d mov qword ptr [rsp + 0x20], rax
+e61c22 lea rcx, [rsp + 0x20]
+e61c27 mov qword ptr [rsp + 0x28], rbx
+e61c2c call 0xe61050
+e61c31 mov rbx, qword ptr [rsp + 0x50]
+e61c36 add rsp, 0x40
+e61c3a pop rdi
+e61c3b ret 

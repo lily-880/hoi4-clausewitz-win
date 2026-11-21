@@ -1,0 +1,114 @@
+f452b0 mov qword ptr [rsp + 8], rbx
+f452b5 mov qword ptr [rsp + 0x10], rbp
+f452ba mov qword ptr [rsp + 0x18], rsi
+f452bf push rdi
+f452c0 sub rsp, 0x20
+f452c4 mov rdx, qword ptr [rcx + 0x58]
+f452c8 mov rbx, rcx
+f452cb movsxd rax, dword ptr [rcx + 0x64]
+f452cf lea r9, [rdx + rax*4]
+f452d3 cmp rdx, r9
+f452d6 je 0xf452f9
+f452d8 nop dword ptr [rax + rax]
+f452e0 movsxd rcx, dword ptr [rdx]
+f452e3 add rdx, 4
+f452e7 mov rax, qword ptr [rbx + 0x10]
+f452eb shl rcx, 5
+f452ef and byte ptr [rcx + rax + 0x18], 0xfb
+f452f4 cmp rdx, r9
+f452f7 jne 0xf452e0
+f452f9 xor ebp, ebp
+f452fb mov dword ptr [rbx + 0x64], ebp
+f452fe mov rdx, qword ptr [rbx + 0x70]
+f45302 movsxd rax, dword ptr [rbx + 0x7c]
+f45306 lea r9, [rdx + rax*4]
+f4530a cmp rdx, r9
+f4530d je 0xf45329
+f4530f nop 
+f45310 movsxd rcx, dword ptr [rdx]
+f45313 add rdx, 4
+f45317 mov rax, qword ptr [rbx + 0x10]
+f4531b shl rcx, 5
+f4531f and byte ptr [rcx + rax + 0x18], 0xf7
+f45324 cmp rdx, r9
+f45327 jne 0xf45310
+f45329 mov dword ptr [rbx + 0x7c], ebp
+f4532c mov rdx, qword ptr [rbx + 0x88]
+f45333 movsxd rax, dword ptr [rbx + 0x94]
+f4533a lea r8, [rdx + rax*4]
+f4533e cmp rdx, r8
+f45341 je 0xf45369
+f45343 nop dword ptr [rax]
+f45347 nop word ptr [rax + rax]
+f45350 movsxd rax, dword ptr [rdx]
+f45353 add rdx, 4
+f45357 lea rcx, [rax + rax*4]
+f4535b mov rax, qword ptr [rbx + 0x28]
+f4535f and byte ptr [rax + rcx*8 + 0x24], 0xfe
+f45364 cmp rdx, r8
+f45367 jne 0xf45350
+f45369 mov dword ptr [rbx + 0x94], ebp
+f4536f mov rdi, qword ptr [rbx + 0xa0]
+f45376 movsxd rax, dword ptr [rbx + 0xac]
+f4537d lea rsi, [rdi + rax*4]
+f45381 cmp rdi, rsi
+f45384 je 0xf453ae
+f45386 cmp dword ptr [rdi], ebp
+f45388 jne 0xf4538e
+f4538a mov eax, ebp
+f4538c jmp 0xf45396
+f4538e mov rcx, rdi
+f45391 call 0xc08790
+f45396 cdqe 
+f45398 add rdi, 4
+f4539c imul rcx, rax, 0x78
+f453a0 mov rax, qword ptr [rbx + 0x40]
+f453a4 and byte ptr [rcx + rax + 0x70], 0xfd
+f453a9 cmp rdi, rsi
+f453ac jne 0xf45386
+f453ae mov dword ptr [rbx + 0xac], ebp
+f453b4 mov rdi, qword ptr [rbx + 0xb8]
+f453bb movsxd rax, dword ptr [rbx + 0xc4]
+f453c2 lea rsi, [rdi + rax*4]
+f453c6 cmp rdi, rsi
+f453c9 je 0xf453f8
+f453cb nop dword ptr [rax + rax]
+f453d0 cmp dword ptr [rdi], ebp
+f453d2 jne 0xf453d8
+f453d4 mov eax, ebp
+f453d6 jmp 0xf453e0
+f453d8 mov rcx, rdi
+f453db call 0xc08790
+f453e0 cdqe 
+f453e2 add rdi, 4
+f453e6 imul rcx, rax, 0x78
+f453ea mov rax, qword ptr [rbx + 0x40]
+f453ee and byte ptr [rcx + rax + 0x70], 0xfb
+f453f3 cmp rdi, rsi
+f453f6 jne 0xf453d0
+f453f8 mov dword ptr [rbx + 0xc4], ebp
+f453fe mov rdi, qword ptr [rbx + 0xd0]
+f45405 movsxd rax, dword ptr [rbx + 0xdc]
+f4540c lea rsi, [rdi + rax*4]
+f45410 cmp rdi, rsi
+f45413 je 0xf4543d
+f45415 cmp dword ptr [rdi], ebp
+f45417 jne 0xf4541d
+f45419 mov eax, ebp
+f4541b jmp 0xf45425
+f4541d mov rcx, rdi
+f45420 call 0xc08790
+f45425 cdqe 
+f45427 add rdi, 4
+f4542b imul rcx, rax, 0x78
+f4542f mov rax, qword ptr [rbx + 0x40]
+f45433 and byte ptr [rcx + rax + 0x70], 0xf7
+f45438 cmp rdi, rsi
+f4543b jne 0xf45415
+f4543d mov rsi, qword ptr [rsp + 0x40]
+f45442 mov dword ptr [rbx + 0xdc], ebp
+f45448 mov rbx, qword ptr [rsp + 0x30]
+f4544d mov rbp, qword ptr [rsp + 0x38]
+f45452 add rsp, 0x20
+f45456 pop rdi
+f45457 ret 

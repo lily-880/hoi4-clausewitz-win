@@ -1,0 +1,114 @@
+587a40 mov qword ptr [rsp + 0x10], rbx
+587a45 mov qword ptr [rsp + 0x18], rbp
+587a4a push rsi
+587a4b push rdi
+587a4c push r12
+587a4e push r14
+587a50 push r15
+587a52 sub rsp, 0x40
+587a56 mov r14, rdx
+587a59 mov r15, rcx
+587a5c xor ebx, ebx
+587a5e mov dword ptr [rsp + 0x70], ebx
+587a62 movsxd rax, dword ptr [rcx + 0x14]
+587a66 cmp eax, 1
+587a69 jle 0x587b1d
+587a6f mov ebp, ebx
+587a71 mov r12, rax
+587a74 mov edi, ebx
+587a76 nop word ptr [rax + rax]
+587a80 mov rax, qword ptr [r15 + 8]
+587a84 mov rsi, qword ptr [rax + rdi*8]
+587a88 mov rax, qword ptr [rsi]
+587a8b mov r8, r14
+587a8e lea rdx, [rsp + 0x20]
+587a93 mov rcx, rsi
+587a96 call qword ptr [rax + 0x38]
+587a99 nop 
+587a9a or ebx, 1
+587a9d mov dword ptr [rsp + 0x70], ebx
+587aa1 cmp qword ptr [rax + 0x10], 0
+587aa6 jne 0x587abd
+587aa8 mov rax, qword ptr [rsi]
+587aab mov rdx, r14
+587aae mov rcx, rsi
+587ab1 call qword ptr [rax + 0x58]
+587ab4 test al, al
+587ab6 jne 0x587abd
+587ab8 xor sil, sil
+587abb jmp 0x587ac0
+587abd mov sil, 1
+587ac0 test bl, 1
+587ac3 je 0x587b05
+587ac5 and ebx, 0xfffffffe
+587ac8 mov rdx, qword ptr [rsp + 0x38]
+587acd cmp rdx, 0xf
+587ad1 jbe 0x587b05
+587ad3 inc rdx
+587ad6 mov rcx, qword ptr [rsp + 0x20]
+587adb mov rax, rcx
+587ade cmp rdx, 0x1000
+587ae5 jb 0x587b00
+587ae7 add rdx, 0x27
+587aeb mov rcx, qword ptr [rcx - 8]
+587aef sub rax, rcx
+587af2 add rax, -8
+587af6 cmp rax, 0x1f
+587afa ja 0x587bac
+587b00 call 0x25a0218
+587b05 test sil, sil
+587b08 je 0x587b0c
+587b0a inc ebp
+587b0c cmp ebp, 1
+587b0f jg 0x587b8c
+587b11 inc rdi
+587b14 cmp rdi, r12
+587b17 jl 0x587a80
+587b1d cmp dword ptr [r15 + 0x14], 1
+587b22 jne 0x587b90
+587b24 mov rax, qword ptr [r15 + 8]
+587b28 mov rbx, qword ptr [rax]
+587b2b mov rax, qword ptr [rbx]
+587b2e mov r8, r14
+587b31 lea rdx, [rsp + 0x20]
+587b36 mov rcx, rbx
+587b39 call qword ptr [rax + 0x38]
+587b3c mov rdi, qword ptr [rax + 0x10]
+587b40 mov rdx, qword ptr [rsp + 0x38]
+587b45 cmp rdx, 0xf
+587b49 jbe 0x587b79
+587b4b inc rdx
+587b4e mov rcx, qword ptr [rsp + 0x20]
+587b53 mov rax, rcx
+587b56 cmp rdx, 0x1000
+587b5d jb 0x587b74
+587b5f add rdx, 0x27
+587b63 mov rcx, qword ptr [rcx - 8]
+587b67 sub rax, rcx
+587b6a add rax, -8
+587b6e cmp rax, 0x1f
+587b72 ja 0x587bb2
+587b74 call 0x25a0218
+587b79 test rdi, rdi
+587b7c jne 0x587b90
+587b7e mov rax, qword ptr [rbx]
+587b81 mov rdx, r14
+587b84 mov rcx, rbx
+587b87 call qword ptr [rax + 0x58]
+587b8a jmp 0x587b92
+587b8c mov al, 1
+587b8e jmp 0x587b92
+587b90 xor al, al
+587b92 mov rbx, qword ptr [rsp + 0x78]
+587b97 mov rbp, qword ptr [rsp + 0x80]
+587b9f add rsp, 0x40
+587ba3 pop r15
+587ba5 pop r14
+587ba7 pop r12
+587ba9 pop rdi
+587baa pop rsi
+587bab ret 
+587bac call 0x25c7db4
+587bb1 int3 
+587bb2 call 0x25c7db4
+587bb7 int3 

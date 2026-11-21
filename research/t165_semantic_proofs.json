@@ -1,0 +1,105 @@
+{
+  "version": "1.19.5.0.7c6c",
+  "pid": 29000,
+  "read_only": true,
+  "complete_input": false,
+  "new_fields": {
+    "combat_width": {
+      "root": "CArmy template +0x3b8 -> sparse battalion ptrs +0x68",
+      "named_token": "combat_width = 0x2ccf",
+      "parser_chain": [
+        "CSubUnitDefinition parser 0x10a3fe0",
+        "0x10a5103 lea rcx,[r15+0x40]; call 0x14c9380",
+        "0x14c93af cmp eax,0x2ccf; je 0x14c9533",
+        "0x14c9533 lea rdx,[rcx+0x18]; call FIXED parser 0x2543500"
+      ],
+      "field": "signed qword CSubUnitDefinition+0x58 /100000",
+      "acceptance": "21 own divisions; four templates: 587=10,588=8,589=12,590=8; supports empty; two captures equal"
+    },
+    "leader_id": {
+      "root": "CCountry+0xff0 -> CCountryCharacters+0x70 pointer array",
+      "proof": "CUnitLeader writer calls 0x22858a0: named id=0xb reads +0x0c; named type=0xe1 reads +0x08",
+      "accepted": "20 unique IDs312..331, CId type4713; not division direct officer IDs"
+    },
+    "leader_name": {
+      "root": "CCountryCharacters+0x10 array stride16 pointer+flags -> CCharacter",
+      "proof": "20/20 exact CCharacter+0xa8 -> own CArmyLeader; CCharacter+0x48 key equals leader+0x20; full UTF-8 MSVC display string at CCharacter+0x28",
+      "accepted": "14 Chinese historical names and6 generated Latin names read directly from live character memory; no OOB/history substitution"
+    },
+    "leader_attributes": {
+      "writer": "0xc7e8c0 calls base0xc72db0",
+      "skill": "base writer token0x28d5 skill reads CArmyLeader+0xe60 -> CUnitLeaderSkill+0x1b8 i32",
+      "four_dimensions": {
+        "attack": {
+          "offset": "0xf58",
+          "token": "0x38c9 attack_skill"
+        },
+        "defense": {
+          "offset": "0xf68",
+          "token": "0x38ca defense_skill"
+        },
+        "planning": {
+          "offset": "0xf78",
+          "token": "0x38cb planning_skill"
+        },
+        "logistics": {
+          "offset": "0xf88",
+          "token": "0x38cc logistics_skill"
+        }
+      },
+      "accepted": "20 real own leaders with differing total/attack/defense/planning/logistics values; no numeric-only inference"
+    },
+    "leader_traits": {
+      "proof": "base writer0xc7301d uses traits token0x2ff6; pointer array +0xdc8, size+0xdd4, each CUnitLeaderTrait token+8",
+      "name": "MSVC string+0x10, not +0x18; SSO and heap read correctly",
+      "accepted": "20 own leader arrays incl empty traits and eleven distinct actual names; long infantry_officer/politically_connected/trait_mountaineer retained whole"
+    },
+    "infrastructure": {
+      "root": "CProvince+0xc0 CState -> building array+0x158 -> CBuilding",
+      "type": "CBuilding+8 i32 token0x2fab named infrastructure from executable registrations",
+      "level_proof": "writer0x11646e0 reads signed word+0x40 and writes named token0x286c level; word+0x42 writes0x4880 healthy_levels",
+      "accepted": "Province5010, state271, present object level=2 healthy_levels=2; absent building values in other11 occupied provinces omitted"
+    },
+    "country_tags": {
+      "proof": "CCountryTag serializer0xc08cc0 calls text0xc08170; active-campaign path0xc08223 reads G_GAMESTATE then GS+0x358 + index*32",
+      "source": "Actual loaded MSVC string table, CPdxArray size443 cap474; current country index44 returns ETH; country array GS+0x310 reverse-checked and CCountry+8=44",
+      "scope": "Current player and current21 own unit owner refs only; no shipped JSON map"
+    },
+    "victory_points": {
+      "proof": "CProvince writer0xef2adc reads i32+0x38; named token0x2f7c victory_points emitted0xef2ae5; nonempty MSVC+0x40 emitted as name0x1b at0xef2b0c",
+      "acceptance": "12 live occupied provinces, values include5/2/1/0; empty default names omitted, not invented"
+    }
+  },
+  "evidence_files": [
+    "t163_script_token_map.json",
+    "t163_subunit_delegate.json",
+    "t163_subunit_parser_code.json",
+    "t163_armyleader_code.json",
+    "t163_unitleader_base_writer.json",
+    "t163_leader_id_writer.json",
+    "t163_character_leader_links.json",
+    "t163_building_code.json",
+    "t165_live_capture.json",
+    "t165_live_capture_repeat.json",
+    "t165_validation_summary.json",
+    "t165_country_tag_code.json",
+    "t165_country_tag_body.json",
+    "t165_province_theatre_code.json",
+    "t165_world_formation_inventory.json",
+    "t165_army_secondary_writer.json",
+    "t165_manpower_table_writer_parts.json",
+    "t165_manpower_value_need_live.json",
+    "t165_foreign_manpower_contrasts.json"
+  ],
+  "rejections": {
+    "country_manpower_450000": "CCountryManpower+0x10 serializes ratio, not available manpower; never emitted.",
+    "country_manpower_current": "Named current+0x0c found, free-available semantics not yet accepted.",
+    "assignment": "CArmyLeader+0xf10 is self pointer, not proved army assignment.",
+    "infrastructure_absence": "No CBuilding of infrastructure type does not yet establish zero.",
+    "damaged_infrastructure": "level and healthy_levels differ; current contract value unaccepted, omitted.",
+    "visibility": "World-readable is not player-visible; no foreign-unit export.",
+    "supply_ratio_named_field": "Secondary CArmy writer named army_current_supply_ratio0x4ced -> CA+0x610, but all21 live values decode72.0, outside accepted0..1; NOT emitted or marked verified.",
+    "army_manpower_value_need": "Genuine CArmyManpower CA+0x3D0 found: value token0x36fb table+8 and need0x36fc table+0x28, entries(country_index i32,amount i32); own105000/105000 and402 bounded foreign samples all equal; mutable-current semantics/contrast still not promoted.",
+    "strength_current_vs_max": "Secondary writer names CA+0x420 strength, not enough alone to reclassify current/max; opening/full-HP equivalence retained as unresolved semantic caution; no current HP invented."
+  }
+}

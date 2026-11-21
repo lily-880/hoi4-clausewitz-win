@@ -1,0 +1,16 @@
+f44f8c movzx eax, byte ptr [rdi + 0x14]
+f44f90 jmp 0xf44f96
+f44f92 movzx eax, byte ptr [rdi + 0x15]
+f44f96 cmp r9d, eax
+f44f99 setne al
+f44f9c test al, al
+f44f9e je 0xf44f77
+f44fa0 mov rdx, rbp
+f44fa3 mov rcx, rsi
+f44fa6 call 0xf41950
+f44fab test byte ptr [rdi + 0x18], 2
+f44faf je 0xf44f77
+f44fb1 mov rdx, rbp
+f44fb4 mov rcx, rsi
+f44fb7 call 0xf41ae0
+f44fbc jmp 0xf44f77

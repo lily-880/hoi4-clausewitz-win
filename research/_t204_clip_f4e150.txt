@@ -1,0 +1,135 @@
+f4e150 mov qword ptr [rsp + 8], rbx
+f4e155 mov qword ptr [rsp + 0x10], rbp
+f4e15a mov qword ptr [rsp + 0x18], rsi
+f4e15f mov qword ptr [rsp + 0x20], rdi
+f4e164 push r14
+f4e166 sub rsp, 0x20
+f4e16a movsxd rax, dword ptr [rcx + 0xc]
+f4e16e mov rsi, rcx
+f4e171 mov ecx, dword ptr [rcx + 8]
+f4e174 mov rbp, r8
+f4e177 mov r14, rdx
+f4e17a cmp eax, ecx
+f4e17c jne 0xf4e217
+f4e182 movd xmm0, ecx
+f4e186 inc eax
+f4e188 mov rcx, qword ptr [rsi + 0x10]
+f4e18c mov r8d, 8
+f4e192 cvtdq2ps xmm0, xmm0
+f4e195 mov r9, qword ptr [rcx]
+f4e198 mulss xmm0, dword ptr [rip + 0x18477e8]
+f4e1a0 cvttss2si edi, xmm0
+f4e1a4 cmp eax, edi
+f4e1a6 cmovg edi, eax
+f4e1a9 lea rdx, [rdi + rdi*4]
+f4e1ad shl rdx, 3
+f4e1b1 call qword ptr [r9 + 8]
+f4e1b5 movsxd rcx, dword ptr [rsi + 0xc]
+f4e1b9 mov rbx, rax
+f4e1bc movups xmm0, xmmword ptr [rbp]
+f4e1c0 lea rdx, [rcx + rcx*4]
+f4e1c4 movups xmmword ptr [rax + rdx*8], xmm0
+f4e1c8 movups xmm1, xmmword ptr [rbp + 0x10]
+f4e1cc movups xmmword ptr [rax + rdx*8 + 0x10], xmm1
+f4e1d1 movsd xmm0, qword ptr [rbp + 0x20]
+f4e1d6 movsd qword ptr [rax + rdx*8 + 0x20], xmm0
+f4e1dc movsxd rcx, dword ptr [rsi + 0xc]
+f4e1e0 mov rdx, qword ptr [rsi]
+f4e1e3 lea r8, [rcx + rcx*4]
+f4e1e7 mov rcx, rax
+f4e1ea shl r8, 3
+f4e1ee call 0x26079d0
+f4e1f3 mov ebp, dword ptr [rsi + 0xc]
+f4e1f6 mov rcx, qword ptr [rsi + 0x10]
+f4e1fa inc ebp
+f4e1fc mov rdx, qword ptr [rsi]
+f4e1ff mov dword ptr [rsi + 0xc], 0
+f4e206 mov rax, qword ptr [rcx]
+f4e209 call qword ptr [rax + 0x10]
+f4e20c mov qword ptr [rsi], rbx
+f4e20f mov dword ptr [rsi + 8], edi
+f4e212 mov dword ptr [rsi + 0xc], ebp
+f4e215 jmp 0xf4e242
+f4e217 movups xmm0, xmmword ptr [r8]
+f4e21b lea rcx, [rax + rax*4]
+f4e21f mov rax, qword ptr [rsi]
+f4e222 movups xmmword ptr [rax + rcx*8], xmm0
+f4e226 movups xmm1, xmmword ptr [r8 + 0x10]
+f4e22b movups xmmword ptr [rax + rcx*8 + 0x10], xmm1
+f4e230 movsd xmm0, qword ptr [r8 + 0x20]
+f4e236 movsd qword ptr [rax + rcx*8 + 0x20], xmm0
+f4e23c inc dword ptr [rsi + 0xc]
+f4e23f mov ebp, dword ptr [rsi + 0xc]
+f4e242 mov rbx, qword ptr [rsi]
+f4e245 movsxd rcx, ebp
+f4e248 lea rax, [rcx + rcx*4]
+f4e24c dec rcx
+f4e24f lea r11, [rbx + rax*8]
+f4e253 lea rax, [rcx + rcx*4]
+f4e257 lea r9, [rbx + rax*8]
+f4e25b movabs rax, 0x6666666666666667
+f4e265 mov rcx, r9
+f4e268 sub rcx, rbx
+f4e26b imul rcx
+f4e26e mov r8, rdx
+f4e271 sar r8, 4
+f4e275 mov rax, r8
+f4e278 shr rax, 0x3f
+f4e27c add r8, rax
+f4e27f test r8, r8
+f4e282 jle 0xf4e2ba
+f4e284 mov r10d, dword ptr [r11 - 0x28]
+f4e288 nop dword ptr [rax + rax]
+f4e290 mov rdx, r8
+f4e293 shr r8, 1
+f4e296 and edx, 1
+f4e299 lea rax, [r8 + r8*4]
+f4e29d mov ecx, dword ptr [rbx + rax*8]
+f4e2a0 lea rax, [rdx + r8]
+f4e2a4 xor edx, edx
+f4e2a6 cmp ecx, r10d
+f4e2a9 cmovl rdx, rax
+f4e2ad lea rax, [rdx + rdx*4]
+f4e2b1 lea rbx, [rbx + rax*8]
+f4e2b5 test r8, r8
+f4e2b8 jne 0xf4e290
+f4e2ba mov r8, rbx
+f4e2bd cmp rbx, r9
+f4e2c0 je 0xf4e32d
+f4e2c2 mov eax, dword ptr [rbx]
+f4e2c4 cmp dword ptr [r11 - 0x28], eax
+f4e2c8 jl 0xf4e2f0
+f4e2ca mov r8d, dword ptr [rsi + 0xc]
+f4e2ce test r8d, r8d
+f4e2d1 je 0xf4e2de
+f4e2d3 lea edx, [rbp - 1]
+f4e2d6 mov rcx, rsi
+f4e2d9 call 0xf4ea40
+f4e2de mov byte ptr [r14 + 8], 0
+f4e2e3 jmp 0xf4e332
+f4e2e5 nop word ptr [rax + rax]
+f4e2f0 mov ecx, dword ptr [r8]
+f4e2f3 mov eax, dword ptr [r9]
+f4e2f6 mov dword ptr [r8], eax
+f4e2f9 mov dword ptr [r9], ecx
+f4e2fc movups xmm2, xmmword ptr [r8 + 8]
+f4e301 movups xmm3, xmmword ptr [r8 + 0x18]
+f4e306 movups xmm0, xmmword ptr [r9 + 8]
+f4e30b movups xmmword ptr [r8 + 8], xmm0
+f4e310 movups xmm1, xmmword ptr [r9 + 0x18]
+f4e315 movups xmmword ptr [r8 + 0x18], xmm1
+f4e31a add r8, 0x28
+f4e31e movups xmmword ptr [r9 + 8], xmm2
+f4e323 movups xmmword ptr [r9 + 0x18], xmm3
+f4e328 cmp r8, r9
+f4e32b jne 0xf4e2f0
+f4e32d mov byte ptr [r14 + 8], 1
+f4e332 mov rbp, qword ptr [rsp + 0x38]
+f4e337 mov rax, r14
+f4e33a mov rsi, qword ptr [rsp + 0x40]
+f4e33f mov rdi, qword ptr [rsp + 0x48]
+f4e344 mov qword ptr [r14], rbx
+f4e347 mov rbx, qword ptr [rsp + 0x30]
+f4e34c add rsp, 0x20
+f4e350 pop r14
+f4e352 ret 

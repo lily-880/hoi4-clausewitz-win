@@ -1,0 +1,21 @@
+bd0dd0 push rbx
+bd0dd2 sub rsp, 0x20
+bd0dd6 mov rbx, rcx
+bd0dd9 mov rcx, qword ptr [rcx + 0x5f0]
+bd0de0 test rcx, rcx
+bd0de3 je 0xbd0e0b
+bd0de5 mov rax, qword ptr [rcx]
+bd0de8 call qword ptr [rax + 0x248]
+bd0dee test al, al
+bd0df0 jne 0xbd0e0b
+bd0df2 mov rax, qword ptr [rbx + 0x5f0]
+bd0df9 movzx eax, byte ptr [rax + 0xa5]
+bd0e00 shr al, 3
+bd0e03 and al, 1
+bd0e05 add rsp, 0x20
+bd0e09 pop rbx
+bd0e0a ret 
+bd0e0b xor al, al
+bd0e0d add rsp, 0x20
+bd0e11 pop rbx
+bd0e12 ret 

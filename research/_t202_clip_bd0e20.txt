@@ -1,0 +1,10 @@
+bd0e20 mov qword ptr [rsp + 0x10], rdx
+bd0e25 sub rsp, 0x28
+bd0e29 mov rcx, qword ptr [rcx + 0x5f0]
+bd0e30 test rcx, rcx
+bd0e33 je 0xbd0e43
+bd0e35 mov rax, qword ptr [rcx]
+bd0e38 lea rdx, [rsp + 0x38]
+bd0e3d call qword ptr [rax + 0x1a0]
+bd0e43 add rsp, 0x28
+bd0e47 ret 

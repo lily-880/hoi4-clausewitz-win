@@ -1,0 +1,24 @@
+f41f0a mov qword ptr [rsp + 0x30], rbx
+f41f0f mov qword ptr [rsp + 0x38], rdi
+f41f14 mov rax, qword ptr [rcx]
+f41f17 mulss xmm0, dword ptr [rip + 0x1853a69]
+f41f1f cvttss2si edi, xmm0
+f41f23 cmp ebp, edi
+f41f25 cmovg edi, ebp
+f41f28 mov edx, edi
+f41f2a add rdx, rdx
+f41f2d call qword ptr [rax + 8]
+f41f30 movsxd r8, dword ptr [rsi + 0xc]
+f41f34 mov rcx, rax
+f41f37 mov rdx, qword ptr [rsi]
+f41f3a add r8, r8
+f41f3d mov rbx, rax
+f41f40 call 0x26079d0
+f41f45 mov rcx, qword ptr [rsi + 0x10]
+f41f49 mov rdx, qword ptr [rsi]
+f41f4c mov r8, qword ptr [rcx]
+f41f4f call qword ptr [r8 + 0x10]
+f41f53 mov qword ptr [rsi], rbx
+f41f56 mov rbx, qword ptr [rsp + 0x30]
+f41f5b mov dword ptr [rsi + 8], edi
+f41f5e mov rdi, qword ptr [rsp + 0x38]

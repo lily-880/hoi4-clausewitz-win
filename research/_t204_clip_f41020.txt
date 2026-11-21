@@ -1,0 +1,99 @@
+f41020 mov qword ptr [rsp + 8], rbx
+f41025 mov qword ptr [rsp + 0x18], rbp
+f4102a mov qword ptr [rsp + 0x20], rsi
+f4102f push rdi
+f41030 push r12
+f41032 push r13
+f41034 push r14
+f41036 push r15
+f41038 sub rsp, 0x60
+f4103c mov r15, rcx
+f4103f mov ebx, dword ptr [rdx]
+f41041 mov edi, dword ptr [rdx + 4]
+f41044 cmp ebx, edi
+f41046 je 0xf41174
+f4104c lea r13, [rip + 0x21e8cdd]
+f41053 xor r12d, r12d
+f41056 nop word ptr [rax + rax]
+f41060 mov rax, qword ptr [r15]
+f41063 movsxd rcx, ebx
+f41066 mov rax, qword ptr [rax]
+f41069 mov edx, dword ptr [rax + rcx*4]
+f4106c mov dword ptr [rsp + 0x98], edx
+f41073 mov rcx, qword ptr [r15 + 8]
+f41077 add rcx, 0xe8
+f4107e xorps xmm0, xmm0
+f41081 movups xmmword ptr [rsp + 0x40], xmm0
+f41086 movups xmmword ptr [rsp + 0x50], xmm0
+f4108b mov qword ptr [rsp + 0x48], r13
+f41090 mov qword ptr [rsp + 0x50], r12
+f41095 mov byte ptr [rsp + 0x58], 0
+f4109a mov dword ptr [rsp + 0x5c], 0x3f666666
+f410a2 mov eax, edx
+f410a4 shr eax, 0x10
+f410a7 xor eax, edx
+f410a9 imul edx, eax, 0x45d9f3b
+f410af mov eax, edx
+f410b1 shr eax, 0x10
+f410b4 xor eax, edx
+f410b6 imul edx, eax, 0x45d9f3b
+f410bc mov r8d, edx
+f410bf shr r8d, 0x10
+f410c3 xor r8d, edx
+f410c6 lea rax, [rsp + 0x40]
+f410cb mov qword ptr [rsp + 0x20], rax
+f410d0 lea r9, [rsp + 0x98]
+f410d8 lea rdx, [rsp + 0x30]
+f410dd call 0xf349d0
+f410e2 mov r14, qword ptr [rsp + 0x30]
+f410e7 mov rcx, qword ptr [rsp + 0x48]
+f410ec cmp rcx, r13
+f410ef je 0xf4115a
+f410f1 mov ebp, dword ptr [rsp + 0x50]
+f410f5 test ebp, ebp
+f410f7 jle 0xf41155
+f410f9 lea rsi, [rcx + 0x58]
+f410fd nop dword ptr [rax]
+f41100 cmp byte ptr [rsi - 0x54], 0
+f41104 je 0xf41145
+f41106 mov rdx, qword ptr [rsi - 0x10]
+f4110a test rdx, rdx
+f4110d je 0xf41124
+f4110f mov dword ptr [rsi - 4], r12d
+f41113 mov rcx, qword ptr [rsi]
+f41116 mov rax, qword ptr [rcx]
+f41119 call qword ptr [rax + 0x10]
+f4111c mov qword ptr [rsi - 0x10], r12
+f41120 mov dword ptr [rsi - 8], r12d
+f41124 mov rdx, qword ptr [rsi - 0x48]
+f41128 test rdx, rdx
+f4112b je 0xf41143
+f4112d mov dword ptr [rsi - 0x3c], r12d
+f41131 mov rcx, qword ptr [rsi - 0x38]
+f41135 mov rax, qword ptr [rcx]
+f41138 call qword ptr [rax + 0x10]
+f4113b mov qword ptr [rsi - 0x48], r12
+f4113f mov dword ptr [rsi - 0x40], r12d
+f41143 dec ebp
+f41145 add rsi, 0xa0
+f4114c test ebp, ebp
+f4114e jg 0xf41100
+f41150 mov rcx, qword ptr [rsp + 0x48]
+f41155 call 0x25a0218
+f4115a lea rdx, [r14 + 0x10]
+f4115e mov ecx, dword ptr [rsp + 0x98]
+f41165 call 0x1aa0f30
+f4116a inc ebx
+f4116c cmp ebx, edi
+f4116e jne 0xf41060
+f41174 lea r11, [rsp + 0x60]
+f41179 mov rbx, qword ptr [r11 + 0x30]
+f4117d mov rbp, qword ptr [r11 + 0x40]
+f41181 mov rsi, qword ptr [r11 + 0x48]
+f41185 mov rsp, r11
+f41188 pop r15
+f4118a pop r14
+f4118c pop r13
+f4118e pop r12
+f41190 pop rdi
+f41191 ret 

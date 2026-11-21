@@ -1,0 +1,24 @@
+0xe46300  movzx eax, byte ptr [rcx + 0x6c1]
+0xe46307  ret 
+0xe46308  int3 
+0xe46309  int3 
+0xe4630a  int3 
+0xe4630b  int3 
+0xe4630c  int3 
+0xe4630d  int3 
+0xe4630e  int3 
+0xe4630f  int3 
+0xe46310  push rbx
+0xe46312  sub rsp, 0x20
+0xe46316  mov rax, qword ptr [rcx + 8]
+0xe4631a  mov rbx, rcx
+0xe4631d  add rcx, 8
+0xe46321  call qword ptr [rax]
+0xe46323  movss xmm1, dword ptr [rip + 0x259a2cd]
+0xe4632b  cvtps2pd xmm1, xmm1
+0xe4632e  addsd xmm1, qword ptr [rbx + 0xa38]
+0xe46336  comisd xmm1, xmm0
+0xe4633a  seta al
+0xe4633d  add rsp, 0x20
+0xe46341  pop rbx
+0xe46342  ret 

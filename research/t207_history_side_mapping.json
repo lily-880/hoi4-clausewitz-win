@@ -1,0 +1,5705 @@
+{
+  "at_est": "2026-11-19T10:19:20.096746-05:00",
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "flows": {
+    "0x1bd5a0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x1bd5a0",
+      "window_size": 336,
+      "reachable_instruction_count": 39,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x1bd5e7",
+          "operand": "0xc085f0"
+        }
+      ],
+      "asm": [
+        "1bd5a0 mov qword ptr [rsp + 8], rbx",
+        "1bd5a5 mov qword ptr [rsp + 0x10], rsi",
+        "1bd5aa mov qword ptr [rsp + 0x18], rdi",
+        "1bd5af push r14",
+        "1bd5b1 sub rsp, 0x20",
+        "1bd5b5 xor ebx, ebx",
+        "1bd5b7 mov r14, rdx",
+        "1bd5ba mov rsi, rcx",
+        "1bd5bd cmp dword ptr [rcx + 0xc], ebx",
+        "1bd5c0 jle 0x1bd5fb",
+        "1bd5c2 mov edi, ebx",
+        "1bd5c4 nop dword ptr [rax]",
+        "1bd5c8 nop dword ptr [rax + rax]",
+        "1bd5d0 mov rcx, qword ptr [rsi]",
+        "1bd5d3 mov edx, dword ptr [r14]",
+        "1bd5d6 add rcx, rdi",
+        "1bd5d9 mov eax, dword ptr [rcx]",
+        "1bd5db cmp eax, edx",
+        "1bd5dd je 0x1bd600",
+        "1bd5df test eax, eax",
+        "1bd5e1 je 0x1bd5f0",
+        "1bd5e3 test edx, edx",
+        "1bd5e5 je 0x1bd5f0",
+        "1bd5e7 call 0xc085f0",
+        "1bd5ec test al, al",
+        "1bd5ee jne 0x1bd600",
+        "1bd5f0 inc ebx",
+        "1bd5f2 add rdi, 4",
+        "1bd5f6 cmp ebx, dword ptr [rsi + 0xc]",
+        "1bd5f9 jl 0x1bd5d0",
+        "1bd5fb mov ebx, 0xffffffff",
+        "1bd600 mov rsi, qword ptr [rsp + 0x38]",
+        "1bd605 cmp ebx, -1",
+        "1bd608 mov rbx, qword ptr [rsp + 0x30]",
+        "1bd60d mov rdi, qword ptr [rsp + 0x40]",
+        "1bd612 setne al",
+        "1bd615 add rsp, 0x20",
+        "1bd619 pop r14",
+        "1bd61b ret "
+      ],
+      "loaded_window_sha256": "b576e46594a532dd82dd7b4f779e97cbd147aa2a273d8a46f333df946f395e95"
+    },
+    "0xd3f8e0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd3f8e0",
+      "window_size": 512,
+      "reachable_instruction_count": 110,
+      "unresolved_edges": [
+        {
+          "address": "0xd3fa17",
+          "target": "0xd3fba3",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd3fa23",
+          "target": "0xd3faf0",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd3fa7f",
+          "target": "0xd3faf0",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd3fa88",
+          "target": "0xd3faf0",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd3faa8",
+          "target": "0xd3fae8",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd3fadf",
+          "reason": "decode/end failure"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd3f95c",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3f995",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3f9cc",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3fa10",
+          "operand": "0x1bd5a0"
+        },
+        {
+          "site": "0xd3fa65",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3fa9e",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3fad5",
+          "operand": "0x254ab40"
+        }
+      ],
+      "asm": [
+        "d3f8e0 push rbx",
+        "d3f8e2 push rbp",
+        "d3f8e3 push rsi",
+        "d3f8e4 push rdi",
+        "d3f8e5 push r12",
+        "d3f8e7 push r14",
+        "d3f8e9 push r15",
+        "d3f8eb sub rsp, 0x30",
+        "d3f8ef cmp byte ptr [rip + 0x294fd1b], 0",
+        "d3f8f6 lea r12, [rip + 0x269d834]",
+        "d3f8fd mov edi, dword ptr [rip + 0x2954195]",
+        "d3f903 lea r15, [rip + 0x269d826]",
+        "d3f90a mov rsi, rcx",
+        "d3f90d mov r14d, 0x20e8",
+        "d3f913 mov ebp, 0x10",
+        "d3f918 je 0xd3f9df",
+        "d3f91e cmp byte ptr [rip + 0x269d80b], 0",
+        "d3f925 jne 0xd3f96f",
+        "d3f927 cmp qword ptr [rip + 0x269dd81], 0",
+        "d3f92f jne 0xd3f96f",
+        "d3f931 lea rax, [rsp + 0x78]",
+        "d3f936 mov qword ptr [rsp + 0x28], r15",
+        "d3f93b mov r9b, 1",
+        "d3f93e mov qword ptr [rsp + 0x20], rax",
+        "d3f943 mov r8d, 0x464",
+        "d3f949 mov byte ptr [rsp + 0x78], 0",
+        "d3f94e lea rdx, [rip + 0x1a54dc8]",
+        "d3f955 lea rcx, [rip + 0x1a54edc]",
+        "d3f95c call 0x254ab40",
+        "d3f961 cmp byte ptr [rsp + 0x78], 0",
+        "d3f966 mov byte ptr [rip + 0x269d7c4], al",
+        "d3f96c je 0xd3f96f",
+        "d3f96e int3 ",
+        "d3f96f cmp byte ptr [rip + 0x294fc9b], 0",
+        "d3f976 je 0xd3f9df",
+        "d3f978 cmp byte ptr [rip + 0x269d7b2], 0",
+        "d3f97f jne 0xd3f9df",
+        "d3f981 mov rax, qword ptr gs:[0x58]",
+        "d3f98a mov rbx, qword ptr [rax + rdi*8]",
+        "d3f98e cmp byte ptr [r14 + rbx], 0",
+        "d3f993 jne 0xd3f99a",
+        "d3f995 call 0x25a04d0",
+        "d3f99a cmp dword ptr [rbp + rbx], 0",
+        "d3f99f je 0xd3f9df",
+        "d3f9a1 lea rax, [rsp + 0x78]",
+        "d3f9a6 mov qword ptr [rsp + 0x28], r12",
+        "d3f9ab mov r9b, 1",
+        "d3f9ae mov qword ptr [rsp + 0x20], rax",
+        "d3f9b3 mov r8d, 0x465",
+        "d3f9b9 mov byte ptr [rsp + 0x78], 0",
+        "d3f9be lea rdx, [rip + 0x1a54d58]",
+        "d3f9c5 lea rcx, [rip + 0x1a54e94]",
+        "d3f9cc call 0x254ab40",
+        "d3f9d1 cmp byte ptr [rsp + 0x78], 0",
+        "d3f9d6 mov byte ptr [rip + 0x269d755], al",
+        "d3f9dc je 0xd3f9df",
+        "d3f9de int3 ",
+        "d3f9df mov rax, qword ptr [rip + 0x269dcca]",
+        "d3f9e6 mov ecx, 0x520",
+        "d3f9eb mov ebx, 0x524",
+        "d3f9f0 mov qword ptr [rsp + 0x70], r13",
+        "d3f9f5 cmp dword ptr [rax + 0x520], 0",
+        "d3f9fc cmovg ebx, ecx",
+        "d3f9ff mov rcx, rsi",
+        "d3fa02 add rbx, rax",
+        "d3fa05 mov rdx, rbx",
+        "d3fa08 mov qword ptr [rsp + 0x80], rbx",
+        "d3fa10 call 0x1bd5a0",
+        "d3fa15 test al, al",
+        "d3fa17 jne 0xd3fba3",
+        "d3fa1d cmp byte ptr [rip + 0x294fbee], al",
+        "d3fa23 je 0xd3faf0",
+        "d3fa29 cmp byte ptr [rip + 0x269d701], al",
+        "d3fa2f jne 0xd3fa78",
+        "d3fa31 cmp qword ptr [rip + 0x269dc77], 0",
+        "d3fa39 jne 0xd3fa78",
+        "d3fa3b mov byte ptr [rsp + 0x78], al",
+        "d3fa3f lea rdx, [rip + 0x1a54cd7]",
+        "d3fa46 lea rax, [rsp + 0x78]",
+        "d3fa4b mov qword ptr [rsp + 0x28], r15",
+        "d3fa50 mov r9b, 1",
+        "d3fa53 mov qword ptr [rsp + 0x20], rax",
+        "d3fa58 mov r8d, 0x464",
+        "d3fa5e lea rcx, [rip + 0x1a54dd3]",
+        "d3fa65 call 0x254ab40",
+        "d3fa6a cmp byte ptr [rsp + 0x78], 0",
+        "d3fa6f mov byte ptr [rip + 0x269d6bb], al",
+        "d3fa75 je 0xd3fa78",
+        "d3fa77 int3 ",
+        "d3fa78 cmp byte ptr [rip + 0x294fb92], 0",
+        "d3fa7f je 0xd3faf0",
+        "d3fa81 cmp byte ptr [rip + 0x269d6a9], 0",
+        "d3fa88 jne 0xd3faf0",
+        "d3fa8a mov rax, qword ptr gs:[0x58]",
+        "d3fa93 mov rbx, qword ptr [rax + rdi*8]",
+        "d3fa97 cmp byte ptr [r14 + rbx], 0",
+        "d3fa9c jne 0xd3faa3",
+        "d3fa9e call 0x25a04d0",
+        "d3faa3 cmp dword ptr [rbp + rbx], 0",
+        "d3faa8 je 0xd3fae8",
+        "d3faaa lea rax, [rsp + 0x78]",
+        "d3faaf mov qword ptr [rsp + 0x28], r12",
+        "d3fab4 mov r9b, 1",
+        "d3fab7 mov qword ptr [rsp + 0x20], rax",
+        "d3fabc mov r8d, 0x465",
+        "d3fac2 mov byte ptr [rsp + 0x78], 0",
+        "d3fac7 lea rdx, [rip + 0x1a54c4f]",
+        "d3face lea rcx, [rip + 0x1a54d8b]",
+        "d3fad5 call 0x254ab40",
+        "d3fada cmp byte ptr [rsp + 0x78], 0"
+      ],
+      "loaded_window_sha256": "ba79825d4d8af404c3d9877fd84d37b98da72f191498cb61fed2a5f2c5272dd4"
+    },
+    "0xd3cb10": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd3cb10",
+      "window_size": 336,
+      "reachable_instruction_count": 55,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd3cb66",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3cbb2",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3cbf9",
+          "operand": "0x254ab40"
+        }
+      ],
+      "asm": [
+        "d3cb10 sub rsp, 0x38",
+        "d3cb14 cmp byte ptr [rip + 0x2952af6], 0",
+        "d3cb1b je 0xd3cc0c",
+        "d3cb21 cmp byte ptr [rip + 0x26a0608], 0",
+        "d3cb28 jne 0xd3cb79",
+        "d3cb2a cmp qword ptr [rip + 0x26a0b7e], 0",
+        "d3cb32 jne 0xd3cb79",
+        "d3cb34 lea rax, [rip + 0x26a05f5]",
+        "d3cb3b mov byte ptr [rsp + 0x40], 0",
+        "d3cb40 mov qword ptr [rsp + 0x28], rax",
+        "d3cb45 lea rdx, [rip + 0x1a57bd1]",
+        "d3cb4c lea rax, [rsp + 0x40]",
+        "d3cb51 mov r9b, 1",
+        "d3cb54 mov r8d, 0x464",
+        "d3cb5a mov qword ptr [rsp + 0x20], rax",
+        "d3cb5f lea rcx, [rip + 0x1a57cd2]",
+        "d3cb66 call 0x254ab40",
+        "d3cb6b cmp byte ptr [rsp + 0x40], 0",
+        "d3cb70 mov byte ptr [rip + 0x26a05ba], al",
+        "d3cb76 je 0xd3cb79",
+        "d3cb78 int3 ",
+        "d3cb79 cmp byte ptr [rip + 0x2952a91], 0",
+        "d3cb80 je 0xd3cc0c",
+        "d3cb86 cmp byte ptr [rip + 0x26a05a4], 0",
+        "d3cb8d jne 0xd3cc0c",
+        "d3cb8f mov rax, qword ptr gs:[0x58]",
+        "d3cb98 mov ecx, dword ptr [rip + 0x2956efa]",
+        "d3cb9e mov qword ptr [rsp + 0x30], rbx",
+        "d3cba3 mov rbx, qword ptr [rax + rcx*8]",
+        "d3cba7 mov eax, 0x20e8",
+        "d3cbac cmp byte ptr [rax + rbx], 0",
+        "d3cbb0 jne 0xd3cbb7",
+        "d3cbb2 call 0x25a04d0",
+        "d3cbb7 mov eax, 0x10",
+        "d3cbbc cmp dword ptr [rax + rbx], 0",
+        "d3cbc0 mov rbx, qword ptr [rsp + 0x30]",
+        "d3cbc5 je 0xd3cc0c",
+        "d3cbc7 lea rax, [rip + 0x26a0563]",
+        "d3cbce mov byte ptr [rsp + 0x40], 0",
+        "d3cbd3 mov qword ptr [rsp + 0x28], rax",
+        "d3cbd8 lea rdx, [rip + 0x1a57b3e]",
+        "d3cbdf lea rax, [rsp + 0x40]",
+        "d3cbe4 mov r9b, 1",
+        "d3cbe7 mov r8d, 0x465",
+        "d3cbed mov qword ptr [rsp + 0x20], rax",
+        "d3cbf2 lea rcx, [rip + 0x1a57c67]",
+        "d3cbf9 call 0x254ab40",
+        "d3cbfe cmp byte ptr [rsp + 0x40], 0",
+        "d3cc03 mov byte ptr [rip + 0x26a0528], al",
+        "d3cc09 je 0xd3cc0c",
+        "d3cc0b int3 ",
+        "d3cc0c mov rax, qword ptr [rip + 0x26a0a9d]",
+        "d3cc13 add rax, 0x460",
+        "d3cc19 add rsp, 0x38",
+        "d3cc1d ret "
+      ],
+      "loaded_window_sha256": "91a5ef81455a948918f555b8208873a38f884801d339b5c8bb820d8ad8bfbbea"
+    },
+    "0xce4fc0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xce4fc0",
+      "window_size": 1104,
+      "reachable_instruction_count": 275,
+      "unresolved_edges": [
+        {
+          "address": "0xce53c1",
+          "target": "0xce54a6",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xce53ce",
+          "target": "0xce5497",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xce53db",
+          "target": "0xce5422",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xce53e5",
+          "target": "0xce5422",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xce5410",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xce5001",
+          "operand": "0xcd6520"
+        },
+        {
+          "site": "0xce500f",
+          "operand": "0xc50f40"
+        },
+        {
+          "site": "0xce5017",
+          "operand": "0xc570e0"
+        },
+        {
+          "site": "0xce5025",
+          "operand": "0xce6070"
+        },
+        {
+          "site": "0xce5031",
+          "operand": "0xc51a90"
+        },
+        {
+          "site": "0xce503f",
+          "operand": "0xc55ec0"
+        },
+        {
+          "site": "0xce504b",
+          "operand": "0xc56f40"
+        },
+        {
+          "site": "0xce5057",
+          "operand": "0xc574c0"
+        },
+        {
+          "site": "0xce5063",
+          "operand": "0xc52e90"
+        },
+        {
+          "site": "0xce5079",
+          "operand": "0xcd6520"
+        },
+        {
+          "site": "0xce508a",
+          "operand": "qword ptr [rax + 0x1a8]"
+        },
+        {
+          "site": "0xce509b",
+          "operand": "0xc5ac40"
+        },
+        {
+          "site": "0xce50a9",
+          "operand": "0xc5ab70"
+        },
+        {
+          "site": "0xce50b1",
+          "operand": "0xc56f40"
+        },
+        {
+          "site": "0xce50c8",
+          "operand": "0xc5a740"
+        },
+        {
+          "site": "0xce50d0",
+          "operand": "0xc574c0"
+        },
+        {
+          "site": "0xce50e7",
+          "operand": "0xc5a8f0"
+        },
+        {
+          "site": "0xce50ff",
+          "operand": "0xcc6480"
+        },
+        {
+          "site": "0xce511f",
+          "operand": "0xc55aa0"
+        },
+        {
+          "site": "0xce512f",
+          "operand": "0xc55aa0"
+        },
+        {
+          "site": "0xce5142",
+          "operand": "0xceb180"
+        },
+        {
+          "site": "0xce514c",
+          "operand": "0xc50f40"
+        },
+        {
+          "site": "0xce5156",
+          "operand": "0xe65960"
+        },
+        {
+          "site": "0xce515e",
+          "operand": "0xccc2f0"
+        },
+        {
+          "site": "0xce5166",
+          "operand": "0xc4ef10"
+        },
+        {
+          "site": "0xce519b",
+          "operand": "0xc54a50"
+        },
+        {
+          "site": "0xce51ae",
+          "operand": "0xc55fb0"
+        },
+        {
+          "site": "0xce51be",
+          "operand": "0xc56f40"
+        },
+        {
+          "site": "0xce51de",
+          "operand": "0xc54a50"
+        },
+        {
+          "site": "0xce51ed",
+          "operand": "0xc50ce0"
+        },
+        {
+          "site": "0xce520c",
+          "operand": "0xda2b70"
+        },
+        {
+          "site": "0xce521a",
+          "operand": "0xce6370"
+        },
+        {
+          "site": "0xce5352",
+          "operand": "qword ptr [rax + 0x108]"
+        },
+        {
+          "site": "0xce538c",
+          "operand": "0x254b3f0"
+        },
+        {
+          "site": "0xce53a2",
+          "operand": "0x254b900"
+        },
+        {
+          "site": "0xce53b1",
+          "operand": "qword ptr [rax + 0x118]"
+        },
+        {
+          "site": "0xce5226",
+          "operand": "0xc5a740"
+        },
+        {
+          "site": "0xce52a8",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xce52e1",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xce531d",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xce5343",
+          "operand": "0xc0cd10"
+        },
+        {
+          "site": "0xce5235",
+          "operand": "qword ptr [rax + 0xa8]"
+        },
+        {
+          "site": "0xce5246",
+          "operand": "0xce4cd0"
+        }
+      ],
+      "asm": [
+        "ce4fc0 mov qword ptr [rsp + 0x20], rbx",
+        "ce4fc5 push rbp",
+        "ce4fc6 push rsi",
+        "ce4fc7 push rdi",
+        "ce4fc8 push r12",
+        "ce4fca push r13",
+        "ce4fcc push r14",
+        "ce4fce push r15",
+        "ce4fd0 mov rbp, rsp",
+        "ce4fd3 sub rsp, 0x40",
+        "ce4fd7 mov rax, qword ptr [rcx + 0x3b8]",
+        "ce4fde mov rbx, rcx",
+        "ce4fe1 test rax, rax",
+        "ce4fe4 je 0xce5014",
+        "ce4fe6 cmp byte ptr [rax + 0x234], 0",
+        "ce4fed je 0xce5014",
+        "ce4fef mov rax, qword ptr [rcx + 0x2f8]",
+        "ce4ff6 test rax, rax",
+        "ce4ff9 je 0xce5001",
+        "ce4ffb cmp byte ptr [rax + 0x5c], 0",
+        "ce4fff jne 0xce5014",
+        "ce5001 call 0xcd6520",
+        "ce5006 test al, al",
+        "ce5008 je 0xce5014",
+        "ce500a xor edx, edx",
+        "ce500c mov rcx, rbx",
+        "ce500f call 0xc50f40",
+        "ce5014 mov rcx, rbx",
+        "ce5017 call 0xc570e0",
+        "ce501c test al, al",
+        "ce501e je 0xce5090",
+        "ce5020 xor edx, edx",
+        "ce5022 mov rcx, rbx",
+        "ce5025 call 0xce6070",
+        "ce502a test al, al",
+        "ce502c jne 0xce5082",
+        "ce502e mov rcx, rbx",
+        "ce5031 call 0xc51a90",
+        "ce5036 cmp dword ptr [rax + 0xc], 0",
+        "ce503a jne 0xce5082",
+        "ce503c mov rcx, rbx",
+        "ce503f call 0xc55ec0",
+        "ce5044 test al, al",
+        "ce5046 jne 0xce5082",
+        "ce5048 mov rcx, rbx",
+        "ce504b call 0xc56f40",
+        "ce5050 test al, al",
+        "ce5052 jne 0xce5082",
+        "ce5054 mov rcx, rbx",
+        "ce5057 call 0xc574c0",
+        "ce505c test al, al",
+        "ce505e jne 0xce5082",
+        "ce5060 mov rcx, rbx",
+        "ce5063 call 0xc52e90",
+        "ce5068 test rax, rax",
+        "ce506b je 0xce5076",
+        "ce506d cmp dword ptr [rax + 0x17c], 0",
+        "ce5074 jne 0xce5082",
+        "ce5076 mov rcx, rbx",
+        "ce5079 call 0xcd6520",
+        "ce507e test al, al",
+        "ce5080 je 0xce5090",
+        "ce5082 mov rax, qword ptr [rbx]",
+        "ce5085 xor edx, edx",
+        "ce5087 mov rcx, rbx",
+        "ce508a call qword ptr [rax + 0x1a8]",
+        "ce5090 lea rdx, [rbp + 0x40]",
+        "ce5094 mov byte ptr [rbp + 0x40], 1",
+        "ce5098 mov rcx, rbx",
+        "ce509b call 0xc5ac40",
+        "ce50a0 cmp byte ptr [rbp + 0x40], 0",
+        "ce50a4 je 0xce50ae",
+        "ce50a6 mov rcx, rbx",
+        "ce50a9 call 0xc5ab70",
+        "ce50ae mov rcx, rbx",
+        "ce50b1 call 0xc56f40",
+        "ce50b6 test al, al",
+        "ce50b8 je 0xce50cd",
+        "ce50ba cmp dword ptr [rbx + 0x20c], 0",
+        "ce50c1 jg 0xce50cd",
+        "ce50c3 xor edx, edx",
+        "ce50c5 mov rcx, rbx",
+        "ce50c8 call 0xc5a740",
+        "ce50cd mov rcx, rbx",
+        "ce50d0 call 0xc574c0",
+        "ce50d5 test al, al",
+        "ce50d7 je 0xce50ec",
+        "ce50d9 cmp dword ptr [rbx + 0x20c], 0",
+        "ce50e0 jg 0xce50ec",
+        "ce50e2 xor edx, edx",
+        "ce50e4 mov rcx, rbx",
+        "ce50e7 call 0xc5a8f0",
+        "ce50ec mov rcx, qword ptr [rbx + 0x588]",
+        "ce50f3 test rcx, rcx",
+        "ce50f6 je 0xce5151",
+        "ce50f8 add rcx, 0x3d0",
+        "ce50ff call 0xcc6480",
+        "ce5104 test eax, eax",
+        "ce5106 jne 0xce511c",
+        "ce5108 mov rax, qword ptr [rbx + 0x588]",
+        "ce510f cmp qword ptr [rax + 0x468], 0x186a0",
+        "ce511a je 0xce513d",
+        "ce511c mov rcx, rbx",
+        "ce511f call 0xc55aa0",
+        "ce5124 test al, al",
+        "ce5126 jne 0xce513d",
+        "ce5128 mov rcx, qword ptr [rbx + 0x588]",
+        "ce512f call 0xc55aa0",
+        "ce5134 test al, al",
+        "ce5136 jne 0xce513d",
+        "ce5138 cmp byte ptr [rbp + 0x40], al",
+        "ce513b jne 0xce5151",
+        "ce513d xor edx, edx",
+        "ce513f mov rcx, rbx",
+        "ce5142 call 0xceb180",
+        "ce5147 xor edx, edx",
+        "ce5149 mov rcx, rbx",
+        "ce514c call 0xc50f40",
+        "ce5151 xor edx, edx",
+        "ce5153 mov rcx, rbx",
+        "ce5156 call 0xe65960",
+        "ce515b mov rcx, rbx",
+        "ce515e call 0xccc2f0",
+        "ce5163 mov rcx, rbx",
+        "ce5166 call 0xc4ef10",
+        "ce516b cmp dword ptr [rbx + 0x20c], 0",
+        "ce5172 lea r15, [rip + 0x26f80c0]",
+        "ce5179 mov r14d, dword ptr [rip + 0x29ae918]",
+        "ce5180 mov rsi, rax",
+        "ce5183 mov r13d, 0x20e8",
+        "ce5189 mov r12d, 0x10",
+        "ce518f jle 0xce5348",
+        "ce5195 mov rdx, rax",
+        "ce5198 mov rcx, rbx",
+        "ce519b call 0xc54a50",
+        "ce51a0 test al, al",
+        "ce51a2 je 0xce5348",
+        "ce51a8 mov rdx, rsi",
+        "ce51ab mov rcx, rbx",
+        "ce51ae call 0xc55fb0",
+        "ce51b3 test al, al",
+        "ce51b5 jne 0xce5348",
+        "ce51bb mov rcx, rbx",
+        "ce51be call 0xc56f40",
+        "ce51c3 test al, al",
+        "ce51c5 je 0xce522d",
+        "ce51c7 cmp qword ptr [rbx + 0x2f8], 0",
+        "ce51cf jne 0xce522d",
+        "ce51d1 mov rdi, qword ptr [rbx + 0x1f0]",
+        "ce51d8 mov rcx, rbx",
+        "ce51db mov rdx, rdi",
+        "ce51de call 0xc54a50",
+        "ce51e3 mov rcx, rbx",
+        "ce51e6 test al, al",
+        "ce51e8 je 0xce5224",
+        "ce51ea mov rdx, rsi",
+        "ce51ed call 0xc50ce0",
+        "ce51f2 test al, al",
+        "ce51f4 jne 0xce5348",
+        "ce51fa test rdi, rdi",
+        "ce51fd je 0xce5211",
+        "ce51ff lea rdx, [rbx + 0x1e0]",
+        "ce5206 mov r8, rbx",
+        "ce5209 mov rcx, rdi",
+        "ce520c call 0xda2b70",
+        "ce5211 mov r8, rsi",
+        "ce5214 mov rdx, rdi",
+        "ce5217 mov rcx, rbx",
+        "ce521a call 0xce6370",
+        "ce521f jmp 0xce5348",
+        "ce5224 xor edx, edx",
+        "ce5226 call 0xc5a740",
+        "ce522b jmp 0xce525f",
+        "ce522d mov rax, qword ptr [rbx]",
+        "ce5230 xor edx, edx",
+        "ce5232 mov rcx, rbx",
+        "ce5235 call qword ptr [rax + 0xa8]",
+        "ce523b test al, al",
+        "ce523d je 0xce5251",
+        "ce523f lea rdx, [rbp + 0x48]",
+        "ce5243 mov rcx, rbx",
+        "ce5246 call 0xce4cd0",
+        "ce524b cmp qword ptr [rax], 0",
+        "ce524f jg 0xce525f",
+        "ce5251 cmp qword ptr [rbx + 0x240], 0",
+        "ce5259 jle 0xce5348",
+        "ce525f cmp byte ptr [rip + 0x29aa3ab], 0",
+        "ce5266 je 0xce532f",
+        "ce526c cmp byte ptr [rip + 0x26f7fc6], 0",
+        "ce5273 jne 0xce52ba",
+        "ce5275 cmp qword ptr [rip + 0x26f8433], 0",
+        "ce527d jne 0xce52ba",
+        "ce527f lea rax, [rbp + 0x48]",
+        "ce5283 mov qword ptr [rsp + 0x28], r15",
+        "ce5288 mov r9b, 1",
+        "ce528b mov qword ptr [rsp + 0x20], rax",
+        "ce5290 mov r8d, 0x45b",
+        "ce5296 mov byte ptr [rbp + 0x48], 0",
+        "ce529a lea rdx, [rip + 0x1aaf47c]",
+        "ce52a1 lea rcx, [rip + 0x1aaf590]",
+        "ce52a8 call 0x254ab40",
+        "ce52ad cmp byte ptr [rbp + 0x48], 0",
+        "ce52b1 mov byte ptr [rip + 0x26f7f82], al",
+        "ce52b7 je 0xce52ba",
+        "ce52b9 int3 ",
+        "ce52ba cmp byte ptr [rip + 0x29aa350], 0",
+        "ce52c1 je 0xce532f",
+        "ce52c3 cmp byte ptr [rip + 0x26f7f70], 0",
+        "ce52ca jne 0xce532f",
+        "ce52cc mov rax, qword ptr gs:[0x58]",
+        "ce52d5 mov rdi, qword ptr [rax + r14*8]",
+        "ce52d9 cmp byte ptr [r13 + rdi], 0",
+        "ce52df jne 0xce52e6",
+        "ce52e1 call 0x25a04d0",
+        "ce52e6 cmp dword ptr [r12 + rdi], 0",
+        "ce52eb je 0xce532f",
+        "ce52ed lea rax, [rip + 0x26f7f46]",
+        "ce52f4 mov byte ptr [rbp + 0x48], 0",
+        "ce52f8 mov qword ptr [rsp + 0x28], rax",
+        "ce52fd lea rdx, [rip + 0x1aaf419]",
+        "ce5304 lea rax, [rbp + 0x48]",
+        "ce5308 mov r9b, 1",
+        "ce530b mov r8d, 0x45c",
+        "ce5311 mov qword ptr [rsp + 0x20], rax",
+        "ce5316 lea rcx, [rip + 0x1aaf543]",
+        "ce531d call 0x254ab40",
+        "ce5322 cmp byte ptr [rbp + 0x48], 0",
+        "ce5326 mov byte ptr [rip + 0x26f7f0e], al",
+        "ce532c je 0xce532f",
+        "ce532e int3 ",
+        "ce532f mov rcx, qword ptr [rip + 0x26f837a]",
+        "ce5336 mov r8, rsi",
+        "ce5339 add rcx, 0x260",
+        "ce5340 mov rdx, rbx",
+        "ce5343 call 0xc0cd10",
+        "ce5348 mov rax, qword ptr [rbx]",
+        "ce534b lea rdx, [rbp + 0x50]",
+        "ce534f mov rcx, rbx",
+        "ce5352 call qword ptr [rax + 0x108]",
+        "ce5358 mov rax, qword ptr [rbp + 0x50]",
+        "ce535c cmp qword ptr [rbx + 0x420], rax",
+        "ce5363 jle 0xce53a7",
+        "ce5365 mov qword ptr [rbx + 0x420], rax",
+        "ce536c cmp byte ptr [rip + 0x281aff7], 0",
+        "ce5373 je 0xce53a7",
+        "ce5375 mov r9d, 5",
+        "ce537b lea rdx, [rip + 0x1aaf39b]",
+        "ce5382 mov r8d, 0xbfb",
+        "ce5388 lea rcx, [rbp - 0x10]",
+        "ce538c call 0x254b3f0",
+        "ce5391 mov r8, qword ptr [rbx + 0x420]",
+        "ce5398 lea rdx, [rip + 0x1cf2089]",
+        "ce539f mov rcx, rax",
+        "ce53a2 call 0x254b900",
+        "ce53a7 mov rax, qword ptr [rbx]",
+        "ce53aa lea rdx, [rbp + 0x48]",
+        "ce53ae mov rcx, rbx",
+        "ce53b1 call qword ptr [rax + 0x118]",
+        "ce53b7 mov rcx, qword ptr [rip + 0x26ff632]",
+        "ce53be cmp qword ptr [rax], rcx",
+        "ce53c1 jge 0xce54a6",
+        "ce53c7 cmp byte ptr [rip + 0x29aa243], 0",
+        "ce53ce je 0xce5497",
+        "ce53d4 cmp byte ptr [rip + 0x26f7e5e], 0",
+        "ce53db jne 0xce5422",
+        "ce53dd cmp qword ptr [rip + 0x26f82cb], 0",
+        "ce53e5 jne 0xce5422",
+        "ce53e7 lea rax, [rbp + 0x48]",
+        "ce53eb mov qword ptr [rsp + 0x28], r15",
+        "ce53f0 mov r9b, 1",
+        "ce53f3 mov qword ptr [rsp + 0x20], rax",
+        "ce53f8 mov r8d, 0x45b",
+        "ce53fe mov byte ptr [rbp + 0x48], 0",
+        "ce5402 lea rdx, [rip + 0x1aaf314]",
+        "ce5409 lea rcx, [rip + 0x1aaf428]"
+      ],
+      "loaded_window_sha256": "07e3559ab4be56138bec8d078c4f196039eb12140ef9b01587da0d001cdb4753"
+    },
+    "0x15a96fe": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x15a96fe",
+      "window_size": 768,
+      "reachable_instruction_count": 118,
+      "unresolved_edges": [
+        {
+          "address": "0x15a9906",
+          "reason": "indirect jump",
+          "operand": "qword ptr [rax + 0xb0]"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x15a9758",
+          "operand": "0xc07690"
+        },
+        {
+          "site": "0x15a9760",
+          "operand": "0x717350"
+        },
+        {
+          "site": "0x15a97a5",
+          "operand": "0x15a1cd0"
+        },
+        {
+          "site": "0x15a97bb",
+          "operand": "0xcc6480"
+        },
+        {
+          "site": "0x15a97cb",
+          "operand": "0x15aa620"
+        },
+        {
+          "site": "0x15a97d3",
+          "operand": "0x15a99b0"
+        },
+        {
+          "site": "0x15a9889",
+          "operand": "0xcd5b60"
+        },
+        {
+          "site": "0x15a98c2",
+          "operand": "qword ptr [rax]"
+        }
+      ],
+      "asm": [
+        "15a96fe mov qword ptr [rsp + 0x98], rdi",
+        "15a9706 lea rdi, [rsi + 0x10]",
+        "15a970a mov qword ptr [rsp + 0x68], r14",
+        "15a970f mov qword ptr [rsp + 0x60], r15",
+        "15a9714 mov r15d, 0x186a0",
+        "15a971a mov qword ptr [rsp + 0x88], rbx",
+        "15a9722 mov byte ptr [rsp + 0x80], 0",
+        "15a972a je 0x15a97d0",
+        "15a9730 mov rcx, qword ptr [rdi + 0x20]",
+        "15a9734 mov rbx, qword ptr [rcx + 0x48]",
+        "15a9738 cmp rbx, r15",
+        "15a973b jge 0x15a9742",
+        "15a973d mov ebx, r15d",
+        "15a9740 jmp 0x15a9751",
+        "15a9742 cmp rbx, qword ptr [rip + 0x1e39c97]",
+        "15a9749 cmovg rbx, qword ptr [rip + 0x1e39c8f]",
+        "15a9751 add rcx, 0x1d8",
+        "15a9758 call 0xc07690",
+        "15a975d mov rcx, rax",
+        "15a9760 call 0x717350",
+        "15a9765 mov r8, qword ptr [rip + 0x1e3851c]",
+        "15a976c lea rdx, [rdi + 0x28]",
+        "15a9770 mov qword ptr [rsp + 0x20], rax",
+        "15a9775 lea r9, [rsp + 0x40]",
+        "15a977a lea rax, [rsp + 0x80]",
+        "15a9782 mov qword ptr [rsp + 0x28], rdi",
+        "15a9787 movups xmm0, xmmword ptr [rsp + 0x20]",
+        "15a978c mov qword ptr [rsp + 0x30], rax",
+        "15a9791 mov rcx, rbx",
+        "15a9794 movsd xmm1, qword ptr [rsp + 0x30]",
+        "15a979a movsd qword ptr [rsp + 0x50], xmm1",
+        "15a97a0 movaps xmmword ptr [rsp + 0x40], xmm0",
+        "15a97a5 call 0x15a1cd0",
+        "15a97aa cmp dword ptr [rdi + 0x34], 0",
+        "15a97ae jne 0x15a97d0",
+        "15a97b0 mov rcx, qword ptr [rdi + 0x20]",
+        "15a97b4 add rcx, 0x3d0",
+        "15a97bb call 0xcc6480",
+        "15a97c0 test eax, eax",
+        "15a97c2 jg 0x15a97d0",
+        "15a97c4 mov rcx, qword ptr [rdi + 0x40]",
+        "15a97c8 mov rdx, rdi",
+        "15a97cb call 0x15aa620",
+        "15a97d0 mov rcx, rdi",
+        "15a97d3 call 0x15a99b0",
+        "15a97d8 mov ecx, dword ptr [rsi + 0xc4]",
+        "15a97de xor r14b, r14b",
+        "15a97e1 test ecx, ecx",
+        "15a97e3 je 0x15a98d6",
+        "15a97e9 mov rbx, qword ptr [rsi + 0x90]",
+        "15a97f0 mov qword ptr [rsp + 0x90], rbp",
+        "15a97f8 mov rbx, qword ptr [rbx + 0x48]",
+        "15a97fc cmp rbx, r15",
+        "15a97ff jge 0x15a9806",
+        "15a9801 mov rbx, r15",
+        "15a9804 jmp 0x15a9815",
+        "15a9806 cmp rbx, qword ptr [rip + 0x1e39bd3]",
+        "15a980d cmovg rbx, qword ptr [rip + 0x1e39bcb]",
+        "15a9815 lea eax, [rcx - 1]",
+        "15a9818 movsxd rbp, eax",
+        "15a981b test eax, eax",
+        "15a981d js 0x15a98ce",
+        "15a9823 nop dword ptr [rax]",
+        "15a9827 nop word ptr [rax + rax]",
+        "15a9830 mov rdi, qword ptr [rsi + 0xb8]",
+        "15a9837 mov rdi, qword ptr [rdi + rbp*8]",
+        "15a983b mov eax, dword ptr [rdi + 8]",
+        "15a983e cmp eax, 1",
+        "15a9841 jne 0x15a9873",
+        "15a9843 cmp rbx, r15",
+        "15a9846 mov rax, rbx",
+        "15a9849 cmovl rax, r15",
+        "15a984d mov qword ptr [rdi + 0x18], rax",
+        "15a9851 mov rax, qword ptr [rip + 0x1e38430]",
+        "15a9858 add qword ptr [rdi + 0x10], rax",
+        "15a985c mov rax, qword ptr [rdi + 0x18]",
+        "15a9860 cmp qword ptr [rdi + 0x10], rax",
+        "15a9864 jl 0x15a98c4",
+        "15a9866 mov qword ptr [rdi + 0x10], rax",
+        "15a986a mov dword ptr [rdi + 8], 2",
+        "15a9871 jmp 0x15a98c4",
+        "15a9873 cmp eax, 2",
+        "15a9876 jne 0x15a98c4",
+        "15a9878 mov rcx, qword ptr [rsi + 0x90]",
+        "15a987f lea rdx, [rdi + 0x20]",
+        "15a9883 xor r8d, r8d",
+        "15a9886 mov r14b, 1",
+        "15a9889 call 0xcd5b60",
+        "15a988e movsxd rax, dword ptr [rsi + 0xc4]",
+        "15a9895 mov rdx, qword ptr [rsi + 0xb8]",
+        "15a989c mov rcx, qword ptr [rdx + rax*8 - 8]",
+        "15a98a1 mov qword ptr [rdx + rbp*8], rcx",
+        "15a98a5 mov eax, dword ptr [rsi + 0xc4]",
+        "15a98ab test eax, eax",
+        "15a98ad je 0x15a98b7",
+        "15a98af dec eax",
+        "15a98b1 mov dword ptr [rsi + 0xc4], eax",
+        "15a98b7 mov rax, qword ptr [rdi]",
+        "15a98ba mov edx, 1",
+        "15a98bf mov rcx, rdi",
+        "15a98c2 call qword ptr [rax]",
+        "15a98c4 sub rbp, 1",
+        "15a98c8 jns 0x15a9830",
+        "15a98ce mov rbp, qword ptr [rsp + 0x90]",
+        "15a98d6 or r14b, byte ptr [rsp + 0x80]",
+        "15a98de mov r14, qword ptr [rsp + 0x68]",
+        "15a98e3 mov r15, qword ptr [rsp + 0x60]",
+        "15a98e8 mov rdi, qword ptr [rsp + 0x98]",
+        "15a98f0 mov rbx, qword ptr [rsp + 0x88]",
+        "15a98f8 je 0x15a990d",
+        "15a98fa mov rcx, qword ptr [rsi + 8]",
+        "15a98fe mov rax, qword ptr [rcx]",
+        "15a9901 add rsp, 0x70",
+        "15a9905 pop rsi",
+        "15a9906 jmp qword ptr [rax + 0xb0]",
+        "15a990d add rsp, 0x70",
+        "15a9911 pop rsi",
+        "15a9912 ret "
+      ],
+      "loaded_window_sha256": "c7b0c5c020257fc3e0f8765c2a092df5bcb6924693f9a1bcafc33a23f28d323f"
+    },
+    "0xd3b6d0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd3b6d0",
+      "window_size": 1792,
+      "reachable_instruction_count": 375,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd3b70c",
+          "operand": "0x1096a70"
+        },
+        {
+          "site": "0xd3b722",
+          "operand": "0x1096a70"
+        },
+        {
+          "site": "0xd3b736",
+          "operand": "0xd3f8e0"
+        },
+        {
+          "site": "0xd3b747",
+          "operand": "0xd3f8e0"
+        },
+        {
+          "site": "0xd3b7b0",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3b7c8",
+          "operand": "0xd3f020"
+        },
+        {
+          "site": "0xd3b7d0",
+          "operand": "0xd3f020"
+        },
+        {
+          "site": "0xd3b7d8",
+          "operand": "0xd3f4d0"
+        },
+        {
+          "site": "0xd3b7e0",
+          "operand": "0xd3f4d0"
+        },
+        {
+          "site": "0xd3b809",
+          "operand": "0xd38460"
+        },
+        {
+          "site": "0xd3b816",
+          "operand": "0xd38460"
+        },
+        {
+          "site": "0xd3b8b9",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3b90c",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3b963",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3b9a5",
+          "operand": "0x1bd5a0"
+        },
+        {
+          "site": "0xd3b9b7",
+          "operand": "0xd38c90"
+        },
+        {
+          "site": "0xd3b9c7",
+          "operand": "0xd38c90"
+        },
+        {
+          "site": "0xd3b9cc",
+          "operand": "0xd3cb10"
+        },
+        {
+          "site": "0xd3ba68",
+          "operand": "0xd394e0"
+        },
+        {
+          "site": "0xd3bac2",
+          "operand": "0x2284870"
+        },
+        {
+          "site": "0xd3bb27",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3bb69",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3bba8",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3bc0a",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xd3bc50",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xd3bca3",
+          "operand": "0xc085f0"
+        },
+        {
+          "site": "0xd3bd2d",
+          "operand": "0xd388e0"
+        },
+        {
+          "site": "0xd3bd37",
+          "operand": "0xd388e0"
+        },
+        {
+          "site": "0xd3bd91",
+          "operand": "0xd39310"
+        },
+        {
+          "site": "0xd3bdb1",
+          "operand": "0xd3b290"
+        },
+        {
+          "site": "0xd3bd72",
+          "operand": "0xc08790"
+        }
+      ],
+      "asm": [
+        "d3b6d0 mov qword ptr [rsp + 0x18], rbx",
+        "d3b6d5 mov qword ptr [rsp + 0x10], rdx",
+        "d3b6da mov qword ptr [rsp + 8], rcx",
+        "d3b6df push rbp",
+        "d3b6e0 push rsi",
+        "d3b6e1 push rdi",
+        "d3b6e2 push r12",
+        "d3b6e4 push r13",
+        "d3b6e6 push r14",
+        "d3b6e8 push r15",
+        "d3b6ea lea rbp, [rsp - 0x3b0]",
+        "d3b6f2 sub rsp, 0x4b0",
+        "d3b6f9 mov r14, r8",
+        "d3b6fc mov r12, rdx",
+        "d3b6ff mov rsi, rcx",
+        "d3b702 cmp dword ptr [rcx + 0x60], 0",
+        "d3b706 jg 0xd3b72f",
+        "d3b708 add rcx, 0x70",
+        "d3b70c call 0x1096a70",
+        "d3b711 test al, al",
+        "d3b713 je 0xd3b72f",
+        "d3b715 cmp dword ptr [r12 + 0x60], 0",
+        "d3b71b jg 0xd3b72f",
+        "d3b71d lea rcx, [r12 + 0x70]",
+        "d3b722 call 0x1096a70",
+        "d3b727 test al, al",
+        "d3b729 jne 0xd3bd3c",
+        "d3b72f lea rcx, [rsi + 0x248]",
+        "d3b736 call 0xd3f8e0",
+        "d3b73b test al, al",
+        "d3b73d jne 0xd3b754",
+        "d3b73f lea rcx, [r12 + 0x248]",
+        "d3b747 call 0xd3f8e0",
+        "d3b74c test al, al",
+        "d3b74e je 0xd3bd3c",
+        "d3b754 cmp byte ptr [rip + 0x2953eb6], 0",
+        "d3b75b je 0xd3b7c5",
+        "d3b75d cmp byte ptr [rip + 0x26af168], 0",
+        "d3b764 jne 0xd3b7c5",
+        "d3b766 test byte ptr [rsi + 0x2e8], 4",
+        "d3b76d jne 0xd3b77a",
+        "d3b76f test byte ptr [r12 + 0x2e8], 4",
+        "d3b778 je 0xd3b7c5",
+        "d3b77a mov byte ptr [rbp + 0x408], 0",
+        "d3b781 lea rax, [rip + 0x26af144]",
+        "d3b788 mov qword ptr [rsp + 0x28], rax",
+        "d3b78d lea rax, [rbp + 0x408]",
+        "d3b794 mov qword ptr [rsp + 0x20], rax",
+        "d3b799 mov r9b, 1",
+        "d3b79c mov r8d, 0x3e4",
+        "d3b7a2 lea rdx, [rip + 0x1a58f74]",
+        "d3b7a9 lea rcx, [rip + 0x1c9ecb8]",
+        "d3b7b0 call 0x254ab40",
+        "d3b7b5 mov byte ptr [rip + 0x26af111], al",
+        "d3b7bb cmp byte ptr [rbp + 0x408], 0",
+        "d3b7c2 je 0xd3b7c5",
+        "d3b7c4 int3 ",
+        "d3b7c5 mov rcx, rsi",
+        "d3b7c8 call 0xd3f020",
+        "d3b7cd mov rcx, r12",
+        "d3b7d0 call 0xd3f020",
+        "d3b7d5 mov rcx, rsi",
+        "d3b7d8 call 0xd3f4d0",
+        "d3b7dd mov rcx, r12",
+        "d3b7e0 call 0xd3f4d0",
+        "d3b7e5 lea rdi, [rsi + 0x2e8]",
+        "d3b7ec or byte ptr [rdi], 4",
+        "d3b7ef or byte ptr [r12 + 0x2e8], 4",
+        "d3b7f8 lea rax, [rip + 0x1c9e921]",
+        "d3b7ff mov qword ptr [rsp + 0x60], rax",
+        "d3b804 lea rcx, [rsp + 0x68]",
+        "d3b809 call 0xd38460",
+        "d3b80e nop ",
+        "d3b80f lea rcx, [rbp + 0x178]",
+        "d3b816 call 0xd38460",
+        "d3b81b mov dword ptr [rbp + 0x390], 0x29c77f8",
+        "d3b825 lea rax, [rip + 0x1a5aba4]",
+        "d3b82c mov qword ptr [rbp + 0x388], rax",
+        "d3b833 lea rax, [rip + 0x1a5abc6]",
+        "d3b83a mov qword ptr [rbp + 0x398], rax",
+        "d3b841 mov dword ptr [rbp + 0x3a0], 0",
+        "d3b84b mov word ptr [rbp + 0x3a4], 0",
+        "d3b854 mov edx, 0x20e8",
+        "d3b859 mov r13d, dword ptr [rip + 0x2958238]",
+        "d3b860 cmp byte ptr [rip + 0x2953daa], 0",
+        "d3b867 je 0xd3b97f",
+        "d3b86d mov rbx, rdi",
+        "d3b870 cmp byte ptr [rip + 0x26a18b9], 0",
+        "d3b877 jne 0xd3b8da",
+        "d3b879 cmp qword ptr [rip + 0x26a1e2f], 0",
+        "d3b881 jne 0xd3b8da",
+        "d3b883 mov byte ptr [rbp + 0x408], 0",
+        "d3b88a lea rax, [rip + 0x26a189f]",
+        "d3b891 mov qword ptr [rsp + 0x28], rax",
+        "d3b896 lea rax, [rbp + 0x408]",
+        "d3b89d mov qword ptr [rsp + 0x20], rax",
+        "d3b8a2 mov r9b, 1",
+        "d3b8a5 mov r8d, 0x464",
+        "d3b8ab lea rdx, [rip + 0x1a58e6b]",
+        "d3b8b2 lea rcx, [rip + 0x1a58f7f]",
+        "d3b8b9 call 0x254ab40",
+        "d3b8be mov byte ptr [rip + 0x26a186c], al",
+        "d3b8c4 cmp byte ptr [rbp + 0x408], 0",
+        "d3b8cb je 0xd3b8d5",
+        "d3b8cd int3 ",
+        "d3b8d5 mov edx, 0x20e8",
+        "d3b8da mov rdi, rbx",
+        "d3b8dd cmp byte ptr [rip + 0x2953d2d], 0",
+        "d3b8e4 je 0xd3b97f",
+        "d3b8ea cmp byte ptr [rip + 0x26a1840], 0",
+        "d3b8f1 jne 0xd3b97f",
+        "d3b8f7 mov rax, qword ptr gs:[0x58]",
+        "d3b900 mov rsi, qword ptr [rax + r13*8]",
+        "d3b904 mov eax, edx",
+        "d3b906 cmp byte ptr [rax + rsi], 0",
+        "d3b90a jne 0xd3b91f",
+        "d3b90c call 0x25a04d0",
+        "d3b911 mov rbx, qword ptr [rbp + 0x3f0]",
+        "d3b918 add rbx, 0x2e8",
+        "d3b91f mov rdi, rbx",
+        "d3b922 mov eax, 0x10",
+        "d3b927 cmp dword ptr [rax + rsi], 0",
+        "d3b92b je 0xd3b978",
+        "d3b92d mov byte ptr [rbp + 0x408], 0",
+        "d3b934 lea rax, [rip + 0x26a17f6]",
+        "d3b93b mov qword ptr [rsp + 0x28], rax",
+        "d3b940 lea rax, [rbp + 0x408]",
+        "d3b947 mov qword ptr [rsp + 0x20], rax",
+        "d3b94c mov r9b, 1",
+        "d3b94f mov r8d, 0x465",
+        "d3b955 lea rdx, [rip + 0x1a58dc1]",
+        "d3b95c lea rcx, [rip + 0x1a58efd]",
+        "d3b963 call 0x254ab40",
+        "d3b968 mov byte ptr [rip + 0x26a17c3], al",
+        "d3b96e cmp byte ptr [rbp + 0x408], 0",
+        "d3b975 je 0xd3b978",
+        "d3b977 int3 ",
+        "d3b978 mov rsi, qword ptr [rbp + 0x3f0]",
+        "d3b97f mov rax, qword ptr [rip + 0x26a1d2a]",
+        "d3b986 mov edx, 0x524",
+        "d3b98b mov ecx, 0x520",
+        "d3b990 cmp dword ptr [rax + 0x520], 0",
+        "d3b997 cmovg edx, ecx",
+        "d3b99a add rdx, rax",
+        "d3b99d lea rcx, [r12 + 0x248]",
+        "d3b9a5 call 0x1bd5a0",
+        "d3b9aa movzx ebx, al",
+        "d3b9ad lea rdx, [r12 + 0x58]",
+        "d3b9b2 lea rcx, [rsp + 0x68]",
+        "d3b9b7 call 0xd38c90",
+        "d3b9bc lea rdx, [rsi + 0x58]",
+        "d3b9c0 lea rcx, [rbp + 0x178]",
+        "d3b9c7 call 0xd38c90",
+        "d3b9cc call 0xd3cb10",
+        "d3b9d1 mov ecx, dword ptr [rax + 8]",
+        "d3b9d4 mov dword ptr [rbp + 0x390], ecx",
+        "d3b9da mov ecx, dword ptr [r14 + 0xa4]",
+        "d3b9e1 mov dword ptr [rbp + 0x3a0], ecx",
+        "d3b9e7 movzx edx, byte ptr [rsi + 0x2e8]",
+        "d3b9ee movzx ecx, dl",
+        "d3b9f1 and cl, 1",
+        "d3b9f4 mov byte ptr [rbp + 0x3a5], cl",
+        "d3b9fa mov byte ptr [rbp + 0x3a6], 0",
+        "d3ba01 mov byte ptr [rbp + 0x3a7], bl",
+        "d3ba07 test dl, 2",
+        "d3ba0a jne 0xd3ba58",
+        "d3ba0c movzx ecx, byte ptr [r12 + 0x2e8]",
+        "d3ba15 test cl, 2",
+        "d3ba18 jne 0xd3ba58",
+        "d3ba1a xor edx, edx",
+        "d3ba1c mov r8d, 2",
+        "d3ba22 mov rax, qword ptr [rsi + 0x268]",
+        "d3ba29 cmp qword ptr [r12 + 0x268], rax",
+        "d3ba31 cmovg edx, r8d",
+        "d3ba35 and cl, 0xfd",
+        "d3ba38 or dl, cl",
+        "d3ba3a mov byte ptr [r12 + 0x2e8], dl",
+        "d3ba42 movzx eax, byte ptr [rsi + 0x2e8]",
+        "d3ba49 shr dl, 1",
+        "d3ba4b not dl",
+        "d3ba4d add dl, dl",
+        "d3ba4f xor dl, al",
+        "d3ba51 and dl, r8b",
+        "d3ba54 xor dl, al",
+        "d3ba56 mov byte ptr [rdi], dl",
+        "d3ba58 shr dl, 1",
+        "d3ba5a and dl, 1",
+        "d3ba5d mov byte ptr [rbp + 0x3a4], dl",
+        "d3ba63 lea rcx, [rsp + 0x60]",
+        "d3ba68 call 0xd394e0",
+        "d3ba6d mov dword ptr [rsp + 0x38], eax",
+        "d3ba71 xor eax, eax",
+        "d3ba73 mov dword ptr [rsp + 0x34], eax",
+        "d3ba77 lea rbx, [rip + 0x26a17bb]",
+        "d3ba7e lea r15, [rip + 0x26a17b5]",
+        "d3ba85 nop word ptr [rax + rax]",
+        "d3ba90 test eax, eax",
+        "d3ba92 cmove r12, rsi",
+        "d3ba96 xor edi, edi",
+        "d3ba98 mov dword ptr [rsp + 0x30], edi",
+        "d3ba9c cmp dword ptr [r12 + 0x14], edi",
+        "d3baa1 jle 0xd3bd02",
+        "d3baa7 xor ecx, ecx",
+        "d3baa9 mov qword ptr [rsp + 0x50], rcx",
+        "d3baae nop ",
+        "d3bab0 mov rax, qword ptr [r12 + 8]",
+        "d3bab5 mov r14, qword ptr [rcx + rax]",
+        "d3bab9 mov qword ptr [rsp + 0x48], r14",
+        "d3babe lea rcx, [r14 + 8]",
+        "d3bac2 call 0x2284870",
+        "d3bac7 mov rsi, rax",
+        "d3baca mov qword ptr [rsp + 0x40], rax",
+        "d3bacf test rax, rax",
+        "d3bad2 je 0xd3bcd8",
+        "d3bad8 cmp byte ptr [rip + 0x2953b32], 0",
+        "d3badf je 0xd3bbbd",
+        "d3bae5 cmp byte ptr [rip + 0x26a174d], 0",
+        "d3baec jne 0xd3bb3c",
+        "d3baee cmp qword ptr [rip + 0x26a1bba], 0",
+        "d3baf6 jne 0xd3bb3c",
+        "d3baf8 mov byte ptr [rbp + 0x408], 0",
+        "d3baff mov qword ptr [rsp + 0x28], rbx",
+        "d3bb04 lea rax, [rbp + 0x408]",
+        "d3bb0b mov qword ptr [rsp + 0x20], rax",
+        "d3bb10 mov r9b, 1",
+        "d3bb13 mov r8d, 0x45b",
+        "d3bb19 lea rdx, [rip + 0x1a58bfd]",
+        "d3bb20 lea rcx, [rip + 0x1a58d11]",
+        "d3bb27 call 0x254ab40",
+        "d3bb2c mov byte ptr [rip + 0x26a1707], al",
+        "d3bb32 cmp byte ptr [rbp + 0x408], 0",
+        "d3bb39 je 0xd3bb3c",
+        "d3bb3b int3 ",
+        "d3bb3c cmp byte ptr [rip + 0x2953ace], 0",
+        "d3bb43 je 0xd3bbbd",
+        "d3bb45 cmp byte ptr [rip + 0x26a16ee], 0",
+        "d3bb4c jne 0xd3bbbd",
+        "d3bb4e mov ecx, r13d",
+        "d3bb51 mov rax, qword ptr gs:[0x58]",
+        "d3bb5a mov rbx, qword ptr [rax + rcx*8]",
+        "d3bb5e mov eax, 0x20e8",
+        "d3bb63 cmp byte ptr [rax + rbx], 0",
+        "d3bb67 jne 0xd3bb6e",
+        "d3bb69 call 0x25a04d0",
+        "d3bb6e mov eax, 0x10",
+        "d3bb73 cmp dword ptr [rax + rbx], 0",
+        "d3bb77 je 0xd3bbbd",
+        "d3bb79 mov byte ptr [rbp + 0x408], 0",
+        "d3bb80 mov qword ptr [rsp + 0x28], r15",
+        "d3bb85 lea rax, [rbp + 0x408]",
+        "d3bb8c mov qword ptr [rsp + 0x20], rax",
+        "d3bb91 mov r9b, 1",
+        "d3bb94 mov r8d, 0x45c",
+        "d3bb9a lea rdx, [rip + 0x1a58b7c]",
+        "d3bba1 lea rcx, [rip + 0x1a58cb8]",
+        "d3bba8 call 0x254ab40",
+        "d3bbad mov byte ptr [rip + 0x26a1687], al",
+        "d3bbb3 cmp byte ptr [rbp + 0x408], 0",
+        "d3bbba je 0xd3bbbd",
+        "d3bbbc int3 ",
+        "d3bbbd mov r13, qword ptr [rip + 0x26a1aec]",
+        "d3bbc4 lea r15, [rsi + 0x3c]",
+        "d3bbc8 cmp dword ptr [r13 + 0x520], 0",
+        "d3bbd0 jle 0xd3bd65",
+        "d3bbd6 cmp byte ptr [rip + 0x2953a34], 0",
+        "d3bbdd je 0xd3bc65",
+        "d3bbe3 cmp byte ptr [rip + 0x26a1547], 0",
+        "d3bbea jne 0xd3bc65",
+        "d3bbec mov ecx, dword ptr [rip + 0x2957ea6]",
+        "d3bbf2 mov rax, qword ptr gs:[0x58]",
+        "d3bbfb mov rbx, qword ptr [rax + rcx*8]",
+        "d3bbff mov eax, 0x20e8",
+        "d3bc04 cmp byte ptr [rax + rbx], 0",
+        "d3bc08 jne 0xd3bc0f",
+        "d3bc0a call 0x25a04d0",
+        "d3bc0f mov eax, 0x10",
+        "d3bc14 cmp dword ptr [rax + rbx], 0",
+        "d3bc18 je 0xd3bc65",
+        "d3bc1a mov byte ptr [rbp + 0x408], 0",
+        "d3bc21 lea rax, [rip + 0x26a1509]",
+        "d3bc28 mov qword ptr [rsp + 0x28], rax",
+        "d3bc2d lea rax, [rbp + 0x408]",
+        "d3bc34 mov qword ptr [rsp + 0x20], rax",
+        "d3bc39 mov r9b, 1",
+        "d3bc3c mov r8d, 0x465",
+        "d3bc42 lea rdx, [rip + 0x1a58ad4]",
+        "d3bc49 lea rcx, [rip + 0x1a58c10]",
+        "d3bc50 call 0x254ab40",
+        "d3bc55 mov byte ptr [rip + 0x26a14d6], al",
+        "d3bc5b cmp byte ptr [rbp + 0x408], 0",
+        "d3bc62 je 0xd3bc65",
+        "d3bc64 int3 ",
+        "d3bc65 mov r14, qword ptr [rip + 0x26a1a44]",
+        "d3bc6c xor edi, edi",
+        "d3bc6e movsxd rsi, dword ptr [r14 + 0x104]",
+        "d3bc75 test rsi, rsi",
+        "d3bc78 jle 0xd3bcbf",
+        "d3bc7a xor ebx, ebx",
+        "d3bc7c nop dword ptr [rax]",
+        "d3bc80 mov rcx, qword ptr [r14 + 0xf8]",
+        "d3bc87 add rcx, 0x70",
+        "d3bc8b add rcx, rbx",
+        "d3bc8e mov eax, dword ptr [rcx]",
+        "d3bc90 mov edx, dword ptr [r15]",
+        "d3bc93 cmp eax, edx",
+        "d3bc95 je 0xd3bd57",
+        "d3bc9b test eax, eax",
+        "d3bc9d je 0xd3bcb0",
+        "d3bc9f test edx, edx",
+        "d3bca1 je 0xd3bcb0",
+        "d3bca3 call 0xc085f0",
+        "d3bca8 test al, al",
+        "d3bcaa jne 0xd3bd57",
+        "d3bcb0 inc rdi",
+        "d3bcb3 add rbx, 0xa0",
+        "d3bcba cmp rdi, rsi",
+        "d3bcbd jl 0xd3bc80",
+        "d3bcbf mov edi, dword ptr [rsp + 0x30]",
+        "d3bcc3 lea r15, [rip + 0x26a1570]",
+        "d3bcca lea rbx, [rip + 0x26a1568]",
+        "d3bcd1 mov r13d, dword ptr [rip + 0x2957dc0]",
+        "d3bcd8 inc edi",
+        "d3bcda mov dword ptr [rsp + 0x30], edi",
+        "d3bcde mov rcx, qword ptr [rsp + 0x50]",
+        "d3bce3 add rcx, 8",
+        "d3bce7 mov qword ptr [rsp + 0x50], rcx",
+        "d3bcec cmp edi, dword ptr [r12 + 0x14]",
+        "d3bcf1 jl 0xd3bab0",
+        "d3bcf7 mov eax, dword ptr [rsp + 0x34]",
+        "d3bcfb mov rsi, qword ptr [rbp + 0x3f0]",
+        "d3bd02 inc eax",
+        "d3bd04 mov dword ptr [rsp + 0x34], eax",
+        "d3bd08 cmp eax, 2",
+        "d3bd0b mov r12, qword ptr [rbp + 0x3f8]",
+        "d3bd12 jl 0xd3ba90",
+        "d3bd18 lea rax, [rip + 0x1a5a4b9]",
+        "d3bd1f mov qword ptr [rbp + 0x388], rax",
+        "d3bd26 lea rcx, [rbp + 0x178]",
+        "d3bd2d call 0xd388e0",
+        "d3bd32 lea rcx, [rsp + 0x68]",
+        "d3bd37 call 0xd388e0",
+        "d3bd3c mov rbx, qword ptr [rsp + 0x500]",
+        "d3bd44 add rsp, 0x4b0",
+        "d3bd4b pop r15",
+        "d3bd4d pop r14",
+        "d3bd4f pop r13",
+        "d3bd51 pop r12",
+        "d3bd53 pop rdi",
+        "d3bd54 pop rsi",
+        "d3bd55 pop rbp",
+        "d3bd56 ret ",
+        "d3bd57 mov r14, qword ptr [rsp + 0x48]",
+        "d3bd5c mov rsi, qword ptr [rsp + 0x40]",
+        "d3bd61 mov edi, dword ptr [rsp + 0x30]",
+        "d3bd65 cmp dword ptr [r15], 0",
+        "d3bd69 jne 0xd3bd6f",
+        "d3bd6b xor eax, eax",
+        "d3bd6d jmp 0xd3bd77",
+        "d3bd6f mov rcx, r15",
+        "d3bd72 call 0xc08790",
+        "d3bd77 movsxd rcx, eax",
+        "d3bd7a mov rax, qword ptr [r13 + 0x880]",
+        "d3bd81 mov rcx, qword ptr [rax + rcx*8]",
+        "d3bd85 test rcx, rcx",
+        "d3bd88 je 0xd3bcc3",
+        "d3bd8e mov rdx, rsi",
+        "d3bd91 call 0xd39310",
+        "d3bd96 movzx r9d, byte ptr [r12 + 0x2e8]",
+        "d3bd9f shr r9b, 1",
+        "d3bda2 and r9b, 1",
+        "d3bda6 mov r8d, dword ptr [rsp + 0x38]",
+        "d3bdab mov rdx, r14",
+        "d3bdae mov rcx, rax",
+        "d3bdb1 call 0xd3b290",
+        "d3bdb6 jmp 0xd3bcc3"
+      ],
+      "loaded_window_sha256": "9e4a12e14516bea26b0e0315efa4950556e28ac5a159f69fa81e958dcd3bd0f1"
+    },
+    "0x1349260": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x1349260",
+      "window_size": 2304,
+      "reachable_instruction_count": 345,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x13492e3",
+          "operand": "0x31f8b0"
+        },
+        {
+          "site": "0x1349342",
+          "operand": "0x18e580"
+        },
+        {
+          "site": "0x134934b",
+          "operand": "0x31f8b0"
+        },
+        {
+          "site": "0x134938f",
+          "operand": "0x18e580"
+        },
+        {
+          "site": "0x13493a7",
+          "operand": "0xd26800"
+        },
+        {
+          "site": "0x13493b3",
+          "operand": "0x20e9e0"
+        },
+        {
+          "site": "0x13493ca",
+          "operand": "0xd2aac0"
+        },
+        {
+          "site": "0x13493d2",
+          "operand": "0xd33430"
+        },
+        {
+          "site": "0x13493e0",
+          "operand": "0xd2e070"
+        },
+        {
+          "site": "0x13493f2",
+          "operand": "0xd2e250"
+        },
+        {
+          "site": "0x1349417",
+          "operand": "0xd26800"
+        },
+        {
+          "site": "0x1349423",
+          "operand": "0x20e9e0"
+        },
+        {
+          "site": "0x134943a",
+          "operand": "0xd2aac0"
+        },
+        {
+          "site": "0x1349442",
+          "operand": "0xd2f530"
+        },
+        {
+          "site": "0x134944f",
+          "operand": "0xd2f750"
+        },
+        {
+          "site": "0x134945e",
+          "operand": "0xd2e070"
+        },
+        {
+          "site": "0x134946f",
+          "operand": "0xd2e250"
+        },
+        {
+          "site": "0x134947f",
+          "operand": "0x13490b0"
+        },
+        {
+          "site": "0x1349487",
+          "operand": "0x13490b0"
+        },
+        {
+          "site": "0x1349490",
+          "operand": "0x10925a0"
+        },
+        {
+          "site": "0x13494ac",
+          "operand": "0xcd5d70"
+        },
+        {
+          "site": "0x13494b8",
+          "operand": "0xd39a60"
+        },
+        {
+          "site": "0x13494d7",
+          "operand": "0xd26800"
+        },
+        {
+          "site": "0x13494e3",
+          "operand": "0x20e9e0"
+        },
+        {
+          "site": "0x13494eb",
+          "operand": "0xd47370"
+        },
+        {
+          "site": "0x1349523",
+          "operand": "0x11630b0"
+        },
+        {
+          "site": "0x1349573",
+          "operand": "0xcd5d70"
+        },
+        {
+          "site": "0x134957f",
+          "operand": "0xd39a60"
+        },
+        {
+          "site": "0x13495a3",
+          "operand": "0x1339f90"
+        },
+        {
+          "site": "0x13495af",
+          "operand": "0x1349d20"
+        },
+        {
+          "site": "0x13495bb",
+          "operand": "0x1349d20"
+        },
+        {
+          "site": "0x1349609",
+          "operand": "0xd3ef90"
+        },
+        {
+          "site": "0x1349645",
+          "operand": "0xd3ef90"
+        },
+        {
+          "site": "0x134964f",
+          "operand": "0xd3cd30"
+        },
+        {
+          "site": "0x1349659",
+          "operand": "0xd3cd30"
+        },
+        {
+          "site": "0x1349662",
+          "operand": "0x147ea30"
+        },
+        {
+          "site": "0x134966a",
+          "operand": "0x20e9e0"
+        },
+        {
+          "site": "0x1349672",
+          "operand": "0xd47370"
+        },
+        {
+          "site": "0x1349680",
+          "operand": "0xd3b6d0"
+        },
+        {
+          "site": "0x134969a",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x13496b9",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x13496d8",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x13496f7",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x134953b",
+          "operand": "0xd30fc0"
+        },
+        {
+          "site": "0x1349715",
+          "operand": "0x25a0588"
+        },
+        {
+          "site": "0x134972e",
+          "operand": "0x25a0450"
+        },
+        {
+          "site": "0x134973a",
+          "operand": "0x25a051c"
+        },
+        {
+          "site": "0x134974b",
+          "operand": "0x25a0588"
+        },
+        {
+          "site": "0x1349764",
+          "operand": "0x25a0450"
+        },
+        {
+          "site": "0x1349770",
+          "operand": "0x25a051c"
+        }
+      ],
+      "asm": [
+        "1349260 mov qword ptr [rsp + 8], rcx",
+        "1349265 push rbp",
+        "1349266 push rbx",
+        "1349267 push rsi",
+        "1349268 push rdi",
+        "1349269 push r12",
+        "134926b push r13",
+        "134926d push r14",
+        "134926f push r15",
+        "1349271 lea rbp, [rsp - 0x1f]",
+        "1349276 sub rsp, 0x98",
+        "134927d mov rsi, qword ptr [rcx + 0x30]",
+        "1349281 mov qword ptr [rbp + 0x7f], rsi",
+        "1349285 mov r13, qword ptr [rcx + 0x28]",
+        "1349289 lea r12, [rsi + 0x1d0]",
+        "1349290 movzx r15d, byte ptr [r13 + 0x4b8]",
+        "1349298 shr r15b, 1",
+        "134929b and r15b, 1",
+        "134929f mov byte ptr [rbp + 0x6f], r15b",
+        "13492a3 movzx r14d, byte ptr [r12 + 0x2e8]",
+        "13492ac shr r14b, 1",
+        "13492af and r14b, 1",
+        "13492b3 mov byte ptr [rbp + 0x77], r14b",
+        "13492b7 test r15b, r15b",
+        "13492ba jne 0x13492e0",
+        "13492bc test r14b, r14b",
+        "13492bf jne 0x13492e0",
+        "13492c1 mov rcx, qword ptr [r13 + 0x438]",
+        "13492c8 cmp rcx, qword ptr [r12 + 0x268]",
+        "13492d0 setg r15b",
+        "13492d4 mov byte ptr [rbp + 0x6f], r15b",
+        "13492d8 setle r14b",
+        "13492dc mov byte ptr [rbp + 0x77], r14b",
+        "13492e0 mov rcx, r13",
+        "13492e3 call 0x31f8b0",
+        "13492e8 mov rbx, rax",
+        "13492eb xorps xmm0, xmm0",
+        "13492ee xor eax, eax",
+        "13492f0 movups xmmword ptr [rbp - 0x41], xmm0",
+        "13492f4 mov qword ptr [rbp - 0x31], rax",
+        "13492f8 mov qword ptr [rbp - 0x41], rax",
+        "13492fc mov qword ptr [rbp - 0x39], rax",
+        "1349300 mov edx, dword ptr [rip + 0x234a792]",
+        "1349306 mov rcx, qword ptr gs:[0x58]",
+        "134930f mov eax, 0x20ec",
+        "1349314 mov rdi, qword ptr [rcx + rdx*8]",
+        "1349318 add rdi, rax",
+        "134931b mov eax, dword ptr [rdi]",
+        "134931d cmp dword ptr [rip + 0x2093dfd], eax",
+        "1349323 jg 0x1349744",
+        "1349329 lea rax, [rip + 0x1db3cd0]",
+        "1349330 mov qword ptr [rbp - 0x31], rax",
+        "1349334 mov r9d, dword ptr [rbx + 0xc]",
+        "1349338 mov r8, qword ptr [rbx]",
+        "134933b mov edx, dword ptr [rbp - 0x35]",
+        "134933e lea rcx, [rbp - 0x41]",
+        "1349342 call 0x18e580",
+        "1349347 nop ",
+        "1349348 mov rcx, rsi",
+        "134934b call 0x31f8b0",
+        "1349350 mov rbx, rax",
+        "1349353 xorps xmm0, xmm0",
+        "1349356 xor eax, eax",
+        "1349358 movups xmmword ptr [rbp - 0x59], xmm0",
+        "134935c mov qword ptr [rbp - 0x49], rax",
+        "1349360 mov qword ptr [rbp - 0x59], rax",
+        "1349364 mov qword ptr [rbp - 0x51], rax",
+        "1349368 mov edx, dword ptr [rdi]",
+        "134936a cmp dword ptr [rip + 0x2093db0], edx",
+        "1349370 jg 0x134970e",
+        "1349376 lea rax, [rip + 0x1db3c83]",
+        "134937d mov qword ptr [rbp - 0x49], rax",
+        "1349381 mov r9d, dword ptr [rbx + 0xc]",
+        "1349385 mov r8, qword ptr [rbx]",
+        "1349388 mov edx, dword ptr [rbp - 0x4d]",
+        "134938b lea rcx, [rbp - 0x59]",
+        "134938f call 0x18e580",
+        "1349394 nop ",
+        "1349395 mov rbx, qword ptr [r13 + 0x38]",
+        "1349399 test rbx, rbx",
+        "134939c je 0x13493ff",
+        "134939e nop ",
+        "13493a0 mov rdi, qword ptr [rbx + 0x10]",
+        "13493a4 mov rcx, rbx",
+        "13493a7 call 0xd26800",
+        "13493ac test al, al",
+        "13493ae je 0x13493f7",
+        "13493b0 mov rcx, r13",
+        "13493b3 call 0x20e9e0",
+        "13493b8 mov ecx, dword ptr [rax + 0x44]",
+        "13493bb mov eax, 0xaaaaaaab",
+        "13493c0 mul ecx",
+        "13493c2 mov ecx, edx",
+        "13493c4 shr ecx, 4",
+        "13493c7 mov rdx, rbx",
+        "13493ca call 0xd2aac0",
+        "13493cf mov rcx, rbx",
+        "13493d2 call 0xd33430",
+        "13493d7 test byte ptr [rsi + 8], 4",
+        "13493db je 0x13493e5",
+        "13493dd mov rcx, rbx",
+        "13493e0 call 0xd2e070",
+        "13493e5 test dword ptr [r13 + 8], 0x8000",
+        "13493ed je 0x13493f7",
+        "13493ef mov rcx, rbx",
+        "13493f2 call 0xd2e250",
+        "13493f7 mov rbx, rdi",
+        "13493fa test rdi, rdi",
+        "13493fd jne 0x13493a0",
+        "13493ff mov rbx, qword ptr [rsi + 0x38]",
+        "1349403 test rbx, rbx",
+        "1349406 je 0x134947c",
+        "1349408 nop dword ptr [rax + rax]",
+        "1349410 mov rdi, qword ptr [rbx + 0x10]",
+        "1349414 mov rcx, rbx",
+        "1349417 call 0xd26800",
+        "134941c test al, al",
+        "134941e je 0x1349474",
+        "1349420 mov rcx, r13",
+        "1349423 call 0x20e9e0",
+        "1349428 mov ecx, dword ptr [rax + 0x44]",
+        "134942b mov eax, 0xaaaaaaab",
+        "1349430 mul ecx",
+        "1349432 mov ecx, edx",
+        "1349434 shr ecx, 4",
+        "1349437 mov rdx, rbx",
+        "134943a call 0xd2aac0",
+        "134943f mov rcx, rbx",
+        "1349442 call 0xd2f530",
+        "1349447 test r14b, r14b",
+        "134944a je 0x1349454",
+        "134944c mov rcx, rbx",
+        "134944f call 0xd2f750",
+        "1349454 test byte ptr [r13 + 8], 4",
+        "1349459 je 0x1349463",
+        "134945b mov rcx, rbx",
+        "134945e call 0xd2e070",
+        "1349463 test dword ptr [rsi + 8], 0x8000",
+        "134946a je 0x1349474",
+        "134946c mov rcx, rbx",
+        "134946f call 0xd2e250",
+        "1349474 mov rbx, rdi",
+        "1349477 test rdi, rdi",
+        "134947a jne 0x1349410",
+        "134947c mov rcx, r13",
+        "134947f call 0x13490b0",
+        "1349484 mov rcx, rsi",
+        "1349487 call 0x13490b0",
+        "134948c lea rcx, [rbp - 0x29]",
+        "1349490 call 0x10925a0",
+        "1349495 nop ",
+        "1349496 test r15b, r15b",
+        "1349499 je 0x1349558",
+        "134949f lea rdx, [r12 + 0x70]",
+        "13494a4 lea r8, [rbp - 0x29]",
+        "13494a8 lea rcx, [rbp - 0x41]",
+        "13494ac call 0xcd5d70",
+        "13494b1 lea rdx, [rbp - 0x29]",
+        "13494b5 mov rcx, r12",
+        "13494b8 call 0xd39a60",
+        "13494bd mov r15, qword ptr [r13 + 0x38]",
+        "13494c1 test r15, r15",
+        "13494c4 je 0x1349553",
+        "13494ca nop word ptr [rax + rax]",
+        "13494d0 mov r12, qword ptr [r15 + 0x10]",
+        "13494d4 mov rcx, r15",
+        "13494d7 call 0xd26800",
+        "13494dc test al, al",
+        "13494de je 0x1349544",
+        "13494e0 mov rcx, rsi",
+        "13494e3 call 0x20e9e0",
+        "13494e8 mov rcx, rax",
+        "13494eb call 0xd47370",
+        "13494f0 mov r14, rax",
+        "13494f3 xor ebx, ebx",
+        "13494f5 movsxd rax, dword ptr [rax + 0x1ec]",
+        "13494fc test eax, eax",
+        "13494fe jle 0x1349544",
+        "1349500 mov rsi, rax",
+        "1349503 mov rcx, qword ptr [r14 + 0x1e0]",
+        "134950a mov rdi, qword ptr [rcx + rbx*8]",
+        "134950e mov rcx, qword ptr [rdi + 0x1e0]",
+        "1349515 cmp dword ptr [rcx + 0x308], 0",
+        "134951c jle 0x134952e",
+        "134951e xor edx, edx",
+        "1349520 mov rcx, rdi",
+        "1349523 call 0x11630b0",
+        "1349528 cmp word ptr [rdi + 0x40], ax",
+        "134952c jge 0x1349538",
+        "134952e inc rbx",
+        "1349531 cmp rbx, rsi",
+        "1349534 jl 0x1349503",
+        "1349536 jmp 0x1349540",
+        "1349538 mov rcx, r15",
+        "134953b call 0xd30fc0",
+        "1349540 mov rsi, qword ptr [rbp + 0x7f]",
+        "1349544 mov r15, r12",
+        "1349547 test r12, r12",
+        "134954a jne 0x13494d0",
+        "134954c lea r12, [rsi + 0x1d0]",
+        "1349553 movzx r15d, byte ptr [rbp + 0x6f]",
+        "1349558 movzx ebx, byte ptr [rbp + 0x77]",
+        "134955c lea rdi, [r13 + 0x1d0]",
+        "1349563 test bl, bl",
+        "1349565 je 0x1349584",
+        "1349567 lea rdx, [rdi + 0x70]",
+        "134956b lea r8, [rbp - 0x29]",
+        "134956f lea rcx, [rbp - 0x59]",
+        "1349573 call 0xcd5d70",
+        "1349578 lea rdx, [rbp - 0x29]",
+        "134957c mov rcx, rdi",
+        "134957f call 0xd39a60",
+        "1349584 lea rax, [rbp - 0x29]",
+        "1349588 mov qword ptr [rbp + 0x6f], rax",
+        "134958c test r15b, r15b",
+        "134958f je 0x1349597",
+        "1349591 lea rcx, [r13 + 0x38]",
+        "1349595 jmp 0x134959f",
+        "1349597 test bl, bl",
+        "1349599 je 0x13495a8",
+        "134959b lea rcx, [rsi + 0x38]",
+        "134959f lea rdx, [rbp + 0x6f]",
+        "13495a3 call 0x1339f90",
+        "13495a8 mov rdx, rdi",
+        "13495ab lea rcx, [rbp - 0x41]",
+        "13495af call 0x1349d20",
+        "13495b4 mov rdx, r12",
+        "13495b7 lea rcx, [rbp - 0x59]",
+        "13495bb call 0x1349d20",
+        "13495c0 xor r15d, r15d",
+        "13495c3 mov eax, r15d",
+        "13495c6 mov rdx, qword ptr [rsi + 0x168]",
+        "13495cd mov ebx, 0xffffffff",
+        "13495d2 movabs r14, 0x7fffffffffffffff",
+        "13495dc test rdx, rdx",
+        "13495df jle 0x1349603",
+        "13495e1 mov rcx, qword ptr [rsi + 0x178]",
+        "13495e8 add rcx, rdx",
+        "13495eb je 0x1349600",
+        "13495ed cmp rdx, r14",
+        "13495f0 jge 0x1349600",
+        "13495f2 imul rax, rdx, 0x186a0",
+        "13495f9 cqo ",
+        "13495fb idiv rcx",
+        "13495fe jmp 0x1349603",
+        "1349600 mov rax, rbx",
+        "1349603 mov rdx, rax",
+        "1349606 mov rcx, r12",
+        "1349609 call 0xd3ef90",
+        "134960e mov rax, r15",
+        "1349611 mov rdx, qword ptr [r13 + 0x168]",
+        "1349618 test rdx, rdx",
+        "134961b jle 0x134963f",
+        "134961d mov rcx, qword ptr [r13 + 0x178]",
+        "1349624 add rcx, rdx",
+        "1349627 je 0x134963c",
+        "1349629 cmp rdx, r14",
+        "134962c jge 0x134963c",
+        "134962e imul rax, rdx, 0x186a0",
+        "1349635 cqo ",
+        "1349637 idiv rcx",
+        "134963a jmp 0x134963f",
+        "134963c mov rax, rbx",
+        "134963f mov rdx, rax",
+        "1349642 mov rcx, rdi",
+        "1349645 call 0xd3ef90",
+        "134964a xor edx, edx",
+        "134964c mov rcx, r12",
+        "134964f call 0xd3cd30",
+        "1349654 mov dl, 1",
+        "1349656 mov rcx, rdi",
+        "1349659 call 0xd3cd30",
+        "134965e mov rcx, qword ptr [rbp + 0x67]",
+        "1349662 call 0x147ea30",
+        "1349667 mov rcx, rsi",
+        "134966a call 0x20e9e0",
+        "134966f mov rcx, rax",
+        "1349672 call 0xd47370",
+        "1349677 mov r8, rax",
+        "134967a mov rdx, rdi",
+        "134967d mov rcx, r12",
+        "1349680 call 0xd3b6d0",
+        "1349685 nop ",
+        "1349686 mov rdx, qword ptr [rbp - 9]",
+        "134968a test rdx, rdx",
+        "134968d je 0x13496a5",
+        "134968f mov dword ptr [rbp + 3], r15d",
+        "1349693 mov rcx, qword ptr [rbp + 7]",
+        "1349697 mov rax, qword ptr [rcx]",
+        "134969a call qword ptr [rax + 0x10]",
+        "134969d mov qword ptr [rbp - 9], r15",
+        "13496a1 mov dword ptr [rbp - 1], r15d",
+        "13496a5 mov rdx, qword ptr [rbp - 0x21]",
+        "13496a9 test rdx, rdx",
+        "13496ac je 0x13496c4",
+        "13496ae mov dword ptr [rbp - 0x15], r15d",
+        "13496b2 mov rcx, qword ptr [rbp - 0x11]",
+        "13496b6 mov rax, qword ptr [rcx]",
+        "13496b9 call qword ptr [rax + 0x10]",
+        "13496bc mov qword ptr [rbp - 0x21], r15",
+        "13496c0 mov dword ptr [rbp - 0x19], r15d",
+        "13496c4 mov rdx, qword ptr [rbp - 0x59]",
+        "13496c8 test rdx, rdx",
+        "13496cb je 0x13496e3",
+        "13496cd mov dword ptr [rbp - 0x4d], r15d",
+        "13496d1 mov rcx, qword ptr [rbp - 0x49]",
+        "13496d5 mov rax, qword ptr [rcx]",
+        "13496d8 call qword ptr [rax + 0x10]",
+        "13496db mov qword ptr [rbp - 0x59], r15",
+        "13496df mov dword ptr [rbp - 0x51], r15d",
+        "13496e3 mov rdx, qword ptr [rbp - 0x41]",
+        "13496e7 test rdx, rdx",
+        "13496ea je 0x13496fa",
+        "13496ec mov dword ptr [rbp - 0x35], r15d",
+        "13496f0 mov rcx, qword ptr [rbp - 0x31]",
+        "13496f4 mov rax, qword ptr [rcx]",
+        "13496f7 call qword ptr [rax + 0x10]",
+        "13496fa add rsp, 0x98",
+        "1349701 pop r15",
+        "1349703 pop r14",
+        "1349705 pop r13",
+        "1349707 pop r12",
+        "1349709 pop rdi",
+        "134970a pop rsi",
+        "134970b pop rbx",
+        "134970c pop rbp",
+        "134970d ret ",
+        "134970e lea rcx, [rip + 0x2093a0b]",
+        "1349715 call 0x25a0588",
+        "134971a cmp dword ptr [rip + 0x20939ff], -1",
+        "1349721 jne 0x1349376",
+        "1349727 lea rcx, [rip + 0x142c5d2]",
+        "134972e call 0x25a0450",
+        "1349733 lea rcx, [rip + 0x20939e6]",
+        "134973a call 0x25a051c",
+        "134973f jmp 0x1349376",
+        "1349744 lea rcx, [rip + 0x20939d5]",
+        "134974b call 0x25a0588",
+        "1349750 cmp dword ptr [rip + 0x20939c9], -1",
+        "1349757 jne 0x1349329",
+        "134975d lea rcx, [rip + 0x142c59c]",
+        "1349764 call 0x25a0450",
+        "1349769 lea rcx, [rip + 0x20939b0]",
+        "1349770 call 0x25a051c",
+        "1349775 jmp 0x1349329"
+      ],
+      "loaded_window_sha256": "705b71b077d173f878975e117f8ad5954af553c0baa4792c5f6638276146f141"
+    }
+  },
+  "history_reference_audit": [
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 212,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 667,
+      "side1_people": 559,
+      "tentative_own_people": 559,
+      "tentative_enemy_people": 667
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 214,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 40,
+      "side1_people": 8515,
+      "tentative_own_people": 40,
+      "tentative_enemy_people": 8515
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 215,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 369,
+      "side1_people": 152,
+      "tentative_own_people": 369,
+      "tentative_enemy_people": 152
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 216,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 110,
+      "side1_people": 41,
+      "tentative_own_people": 110,
+      "tentative_enemy_people": 41
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 217,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 210,
+      "side1_people": 67,
+      "tentative_own_people": 67,
+      "tentative_enemy_people": 210
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 218,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 81,
+      "side1_people": 21,
+      "tentative_own_people": 81,
+      "tentative_enemy_people": 21
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 219,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 38,
+      "side1_people": 6,
+      "tentative_own_people": 38,
+      "tentative_enemy_people": 6
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 221,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 154,
+      "side1_people": 0,
+      "tentative_own_people": 0,
+      "tentative_enemy_people": 154
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 0,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 75,
+      "side1_people": 156,
+      "tentative_own_people": 75,
+      "tentative_enemy_people": 156
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 2,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 108,
+      "side1_people": 13,
+      "tentative_own_people": 108,
+      "tentative_enemy_people": 13
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 222,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 197,
+      "side1_people": 150,
+      "tentative_own_people": 197,
+      "tentative_enemy_people": 150
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 3,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 333,
+      "side1_people": 189,
+      "tentative_own_people": 333,
+      "tentative_enemy_people": 189
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 4,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 221,
+      "side1_people": 380,
+      "tentative_own_people": 380,
+      "tentative_enemy_people": 221
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 5,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 215,
+      "side1_people": 29,
+      "tentative_own_people": 215,
+      "tentative_enemy_people": 29
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 6,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 974,
+      "side1_people": 601,
+      "tentative_own_people": 601,
+      "tentative_enemy_people": 974
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 8,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 20,
+      "tentative_own_people": 20,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 9,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 142,
+      "side1_people": 6600,
+      "tentative_own_people": 142,
+      "tentative_enemy_people": 6600
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 224,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 482,
+      "side1_people": 17,
+      "tentative_own_people": 482,
+      "tentative_enemy_people": 17
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 11,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 630,
+      "side1_people": 22,
+      "tentative_own_people": 630,
+      "tentative_enemy_people": 22
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 225,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 188,
+      "side1_people": 38,
+      "tentative_own_people": 188,
+      "tentative_enemy_people": 38
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 12,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 782,
+      "side1_people": 413,
+      "tentative_own_people": 413,
+      "tentative_enemy_people": 782
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 13,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 112,
+      "side1_people": 39,
+      "tentative_own_people": 39,
+      "tentative_enemy_people": 112
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 14,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 289,
+      "side1_people": 122,
+      "tentative_own_people": 122,
+      "tentative_enemy_people": 289
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 15,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 242,
+      "side1_people": 160,
+      "tentative_own_people": 242,
+      "tentative_enemy_people": 160
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 16,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 37,
+      "side1_people": 167,
+      "tentative_own_people": 37,
+      "tentative_enemy_people": 167
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 17,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 292,
+      "side1_people": 146,
+      "tentative_own_people": 292,
+      "tentative_enemy_people": 146
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 18,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 42,
+      "tentative_own_people": 42,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 19,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 21,
+      "side1_people": 8688,
+      "tentative_own_people": 21,
+      "tentative_enemy_people": 8688
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 20,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 339,
+      "side1_people": 183,
+      "tentative_own_people": 339,
+      "tentative_enemy_people": 183
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 21,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 118,
+      "side1_people": 10,
+      "tentative_own_people": 10,
+      "tentative_enemy_people": 118
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 23,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 310,
+      "side1_people": 51,
+      "tentative_own_people": 310,
+      "tentative_enemy_people": 51
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 24,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 320,
+      "side1_people": 50,
+      "tentative_own_people": 320,
+      "tentative_enemy_people": 50
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 25,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 889,
+      "side1_people": 122,
+      "tentative_own_people": 122,
+      "tentative_enemy_people": 889
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 26,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 466,
+      "side1_people": 369,
+      "tentative_own_people": 369,
+      "tentative_enemy_people": 466
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 27,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2,
+      "side1_people": 4000,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 4000
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 28,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 231,
+      "side1_people": 158,
+      "tentative_own_people": 231,
+      "tentative_enemy_people": 158
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 29,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 120,
+      "side1_people": 68,
+      "tentative_own_people": 120,
+      "tentative_enemy_people": 68
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 30,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 348,
+      "side1_people": 257,
+      "tentative_own_people": 257,
+      "tentative_enemy_people": 348
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 31,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 556,
+      "side1_people": 159,
+      "tentative_own_people": 556,
+      "tentative_enemy_people": 159
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 32,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 119,
+      "side1_people": 36,
+      "tentative_own_people": 119,
+      "tentative_enemy_people": 36
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 33,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 41,
+      "side1_people": 0,
+      "tentative_own_people": 41,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 35,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 50,
+      "side1_people": 0,
+      "tentative_own_people": 50,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 36,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 142,
+      "side1_people": 91,
+      "tentative_own_people": 142,
+      "tentative_enemy_people": 91
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 37,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 25,
+      "side1_people": 0,
+      "tentative_own_people": 25,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 39,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 519,
+      "side1_people": 143,
+      "tentative_own_people": 519,
+      "tentative_enemy_people": 143
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 40,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 292,
+      "side1_people": 5,
+      "tentative_own_people": 292,
+      "tentative_enemy_people": 5
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 41,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 242,
+      "side1_people": 201,
+      "tentative_own_people": 242,
+      "tentative_enemy_people": 201
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 42,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 704,
+      "side1_people": 573,
+      "tentative_own_people": 573,
+      "tentative_enemy_people": 704
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 45,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 79,
+      "side1_people": 93,
+      "tentative_own_people": 93,
+      "tentative_enemy_people": 79
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 47,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 547,
+      "side1_people": 350,
+      "tentative_own_people": 350,
+      "tentative_enemy_people": 547
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 48,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 53,
+      "side1_people": 17,
+      "tentative_own_people": 53,
+      "tentative_enemy_people": 17
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 49,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 106,
+      "side1_people": 60,
+      "tentative_own_people": 106,
+      "tentative_enemy_people": 60
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 50,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 38,
+      "side1_people": 54,
+      "tentative_own_people": 54,
+      "tentative_enemy_people": 38
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 51,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 409,
+      "side1_people": 9300,
+      "tentative_own_people": 409,
+      "tentative_enemy_people": 9300
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 53,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 305,
+      "side1_people": 31,
+      "tentative_own_people": 305,
+      "tentative_enemy_people": 31
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 57,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2,
+      "side1_people": 8873,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 8873
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 59,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 117,
+      "side1_people": 5,
+      "tentative_own_people": 5,
+      "tentative_enemy_people": 117
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 60,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 75,
+      "side1_people": 125,
+      "tentative_own_people": 125,
+      "tentative_enemy_people": 75
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 61,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 53,
+      "side1_people": 14,
+      "tentative_own_people": 53,
+      "tentative_enemy_people": 14
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 62,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 5,
+      "side1_people": 0,
+      "tentative_own_people": 5,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 226,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 239,
+      "side1_people": 46,
+      "tentative_own_people": 239,
+      "tentative_enemy_people": 46
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 227,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 198,
+      "side1_people": 535,
+      "tentative_own_people": 535,
+      "tentative_enemy_people": 198
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 63,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 202,
+      "side1_people": 35,
+      "tentative_own_people": 202,
+      "tentative_enemy_people": 35
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 64,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 23,
+      "side1_people": 175,
+      "tentative_own_people": 175,
+      "tentative_enemy_people": 23
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 66,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 619,
+      "side1_people": 170,
+      "tentative_own_people": 170,
+      "tentative_enemy_people": 619
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 228,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 24,
+      "side1_people": 84,
+      "tentative_own_people": 84,
+      "tentative_enemy_people": 24
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 229,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 240,
+      "side1_people": 105,
+      "tentative_own_people": 240,
+      "tentative_enemy_people": 105
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 230,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 19,
+      "side1_people": 12,
+      "tentative_own_people": 19,
+      "tentative_enemy_people": 12
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 67,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1013,
+      "side1_people": 332,
+      "tentative_own_people": 332,
+      "tentative_enemy_people": 1013
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 233,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 94,
+      "side1_people": 34,
+      "tentative_own_people": 94,
+      "tentative_enemy_people": 34
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 234,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 88,
+      "side1_people": 2,
+      "tentative_own_people": 88,
+      "tentative_enemy_people": 2
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 236,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1577,
+      "side1_people": 428,
+      "tentative_own_people": 428,
+      "tentative_enemy_people": 1577
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 68,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1384,
+      "side1_people": 686,
+      "tentative_own_people": 686,
+      "tentative_enemy_people": 1384
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 69,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 155,
+      "side1_people": 37,
+      "tentative_own_people": 155,
+      "tentative_enemy_people": 37
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 237,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 272,
+      "side1_people": 105,
+      "tentative_own_people": 105,
+      "tentative_enemy_people": 272
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 70,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 88,
+      "side1_people": 88,
+      "tentative_own_people": 88,
+      "tentative_enemy_people": 88
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 71,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1312,
+      "side1_people": 364,
+      "tentative_own_people": 364,
+      "tentative_enemy_people": 1312
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 72,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 246,
+      "side1_people": 444,
+      "tentative_own_people": 246,
+      "tentative_enemy_people": 444
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 239,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 938,
+      "side1_people": 178,
+      "tentative_own_people": 178,
+      "tentative_enemy_people": 938
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 73,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 112,
+      "side1_people": 68,
+      "tentative_own_people": 112,
+      "tentative_enemy_people": 68
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 241,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 446,
+      "side1_people": 55,
+      "tentative_own_people": 55,
+      "tentative_enemy_people": 446
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 74,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 175,
+      "side1_people": 24,
+      "tentative_own_people": 175,
+      "tentative_enemy_people": 24
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 243,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 13,
+      "side1_people": 5582,
+      "tentative_own_people": 13,
+      "tentative_enemy_people": 5582
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 244,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 600,
+      "side1_people": 104,
+      "tentative_own_people": 104,
+      "tentative_enemy_people": 600
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 245,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 106,
+      "side1_people": 48,
+      "tentative_own_people": 106,
+      "tentative_enemy_people": 48
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 75,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 31,
+      "side1_people": 13,
+      "tentative_own_people": 31,
+      "tentative_enemy_people": 13
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 76,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2136,
+      "side1_people": 511,
+      "tentative_own_people": 511,
+      "tentative_enemy_people": 2136
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 78,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 181,
+      "side1_people": 174,
+      "tentative_own_people": 181,
+      "tentative_enemy_people": 174
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 79,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1290,
+      "side1_people": 762,
+      "tentative_own_people": 762,
+      "tentative_enemy_people": 1290
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 80,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 332,
+      "side1_people": 145,
+      "tentative_own_people": 332,
+      "tentative_enemy_people": 145
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 81,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 448,
+      "side1_people": 173,
+      "tentative_own_people": 448,
+      "tentative_enemy_people": 173
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 82,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 502,
+      "side1_people": 145,
+      "tentative_own_people": 145,
+      "tentative_enemy_people": 502
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 83,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 440,
+      "side1_people": 46,
+      "tentative_own_people": 46,
+      "tentative_enemy_people": 440
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 86,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 42,
+      "side1_people": 18105,
+      "tentative_own_people": 42,
+      "tentative_enemy_people": 18105
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 87,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 13,
+      "side1_people": 1,
+      "tentative_own_people": 13,
+      "tentative_enemy_people": 1
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 88,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 276,
+      "side1_people": 41,
+      "tentative_own_people": 276,
+      "tentative_enemy_people": 41
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 89,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 565,
+      "side1_people": 61,
+      "tentative_own_people": 61,
+      "tentative_enemy_people": 565
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 91,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 353,
+      "side1_people": 484,
+      "tentative_own_people": 484,
+      "tentative_enemy_people": 353
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 92,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 167,
+      "side1_people": 48,
+      "tentative_own_people": 48,
+      "tentative_enemy_people": 167
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 93,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 210,
+      "side1_people": 9300,
+      "tentative_own_people": 210,
+      "tentative_enemy_people": 9300
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 95,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 161,
+      "side1_people": 167,
+      "tentative_own_people": 161,
+      "tentative_enemy_people": 167
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 97,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 6,
+      "side1_people": 18,
+      "tentative_own_people": 6,
+      "tentative_enemy_people": 18
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 98,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 98,
+      "side1_people": 7,
+      "tentative_own_people": 98,
+      "tentative_enemy_people": 7
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 99,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 13,
+      "side1_people": 5,
+      "tentative_own_people": 13,
+      "tentative_enemy_people": 5
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 100,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 51,
+      "side1_people": 1115,
+      "tentative_own_people": 51,
+      "tentative_enemy_people": 1115
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 101,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 14,
+      "side1_people": 27,
+      "tentative_own_people": 14,
+      "tentative_enemy_people": 27
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 102,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 130,
+      "side1_people": 25,
+      "tentative_own_people": 25,
+      "tentative_enemy_people": 130
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 103,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2,
+      "side1_people": 3,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 3
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 104,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 36,
+      "side1_people": 2,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 36
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 105,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 254,
+      "side1_people": 12,
+      "tentative_own_people": 254,
+      "tentative_enemy_people": 12
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 106,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 127,
+      "side1_people": 1327,
+      "tentative_own_people": 127,
+      "tentative_enemy_people": 1327
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 107,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 173,
+      "side1_people": 6,
+      "tentative_own_people": 6,
+      "tentative_enemy_people": 173
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 108,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 16,
+      "side1_people": 132,
+      "tentative_own_people": 16,
+      "tentative_enemy_people": 132
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 109,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 52,
+      "side1_people": 2,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 52
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 110,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 34,
+      "side1_people": 6500,
+      "tentative_own_people": 34,
+      "tentative_enemy_people": 6500
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 111,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 21,
+      "side1_people": 8,
+      "tentative_own_people": 21,
+      "tentative_enemy_people": 8
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 112,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 200,
+      "side1_people": 227,
+      "tentative_own_people": 200,
+      "tentative_enemy_people": 227
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 114,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 25,
+      "side1_people": 0,
+      "tentative_own_people": 0,
+      "tentative_enemy_people": 25
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 115,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 170,
+      "side1_people": 583,
+      "tentative_own_people": 583,
+      "tentative_enemy_people": 170
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 116,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1440,
+      "side1_people": 688,
+      "tentative_own_people": 1440,
+      "tentative_enemy_people": 688
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 117,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 195,
+      "side1_people": 9300,
+      "tentative_own_people": 195,
+      "tentative_enemy_people": 9300
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 119,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 513,
+      "side1_people": 16173,
+      "tentative_own_people": 513,
+      "tentative_enemy_people": 16173
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 120,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1536,
+      "side1_people": 9266,
+      "tentative_own_people": 1536,
+      "tentative_enemy_people": 9266
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 121,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 133,
+      "side1_people": 0,
+      "tentative_own_people": 133,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 123,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 125,
+      "side1_people": 12,
+      "tentative_own_people": 12,
+      "tentative_enemy_people": 125
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 124,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 400,
+      "side1_people": 4,
+      "tentative_own_people": 4,
+      "tentative_enemy_people": 400
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 125,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 239,
+      "side1_people": 190,
+      "tentative_own_people": 239,
+      "tentative_enemy_people": 190
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 127,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 589,
+      "side1_people": 29,
+      "tentative_own_people": 589,
+      "tentative_enemy_people": 29
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 128,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 113,
+      "side1_people": 87,
+      "tentative_own_people": 87,
+      "tentative_enemy_people": 113
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 129,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 34,
+      "side1_people": 6,
+      "tentative_own_people": 34,
+      "tentative_enemy_people": 6
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 134,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 390,
+      "side1_people": 21,
+      "tentative_own_people": 21,
+      "tentative_enemy_people": 390
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 135,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 137,
+      "side1_people": 65,
+      "tentative_own_people": 137,
+      "tentative_enemy_people": 65
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 136,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 494,
+      "side1_people": 664,
+      "tentative_own_people": 494,
+      "tentative_enemy_people": 664
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 137,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 617,
+      "side1_people": 69,
+      "tentative_own_people": 617,
+      "tentative_enemy_people": 69
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 138,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 129,
+      "side1_people": 79,
+      "tentative_own_people": 79,
+      "tentative_enemy_people": 129
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 139,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 609,
+      "side1_people": 765,
+      "tentative_own_people": 609,
+      "tentative_enemy_people": 765
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 140,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 583,
+      "side1_people": 89,
+      "tentative_own_people": 583,
+      "tentative_enemy_people": 89
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 141,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 279,
+      "side1_people": 157,
+      "tentative_own_people": 157,
+      "tentative_enemy_people": 279
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 142,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 405,
+      "side1_people": 161,
+      "tentative_own_people": 161,
+      "tentative_enemy_people": 405
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 143,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 76,
+      "side1_people": 17,
+      "tentative_own_people": 17,
+      "tentative_enemy_people": 76
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 144,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 230,
+      "side1_people": 287,
+      "tentative_own_people": 230,
+      "tentative_enemy_people": 287
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 145,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 1,
+      "tentative_own_people": 1,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 146,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 19,
+      "side1_people": 19,
+      "tentative_own_people": 19,
+      "tentative_enemy_people": 19
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 147,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 146,
+      "side1_people": 466,
+      "tentative_own_people": 146,
+      "tentative_enemy_people": 466
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 148,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1283,
+      "side1_people": 17823,
+      "tentative_own_people": 1283,
+      "tentative_enemy_people": 17823
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 149,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 95,
+      "side1_people": 7125,
+      "tentative_own_people": 95,
+      "tentative_enemy_people": 7125
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 150,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 183,
+      "side1_people": 143,
+      "tentative_own_people": 143,
+      "tentative_enemy_people": 183
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 151,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 2,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 152,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 193,
+      "side1_people": 925,
+      "tentative_own_people": 193,
+      "tentative_enemy_people": 925
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 154,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 478,
+      "side1_people": 1396,
+      "tentative_own_people": 478,
+      "tentative_enemy_people": 1396
+    },
+    {
+      "orders_group_handle": "0x100000035",
+      "record_index": 155,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 11,
+      "tentative_own_people": 11,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 213,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 602,
+      "side1_people": 1073,
+      "tentative_own_people": 602,
+      "tentative_enemy_people": 1073
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 214,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 40,
+      "side1_people": 8515,
+      "tentative_own_people": 40,
+      "tentative_enemy_people": 8515
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 218,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 81,
+      "side1_people": 21,
+      "tentative_own_people": 81,
+      "tentative_enemy_people": 21
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 220,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 18,
+      "side1_people": 26,
+      "tentative_own_people": 18,
+      "tentative_enemy_people": 26
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 221,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 154,
+      "side1_people": 0,
+      "tentative_own_people": 0,
+      "tentative_enemy_people": 154
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 0,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 75,
+      "side1_people": 156,
+      "tentative_own_people": 75,
+      "tentative_enemy_people": 156
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 1,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 53,
+      "side1_people": 14,
+      "tentative_own_people": 53,
+      "tentative_enemy_people": 14
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 223,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 9,
+      "side1_people": 0,
+      "tentative_own_people": 9,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 7,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 207,
+      "side1_people": 49,
+      "tentative_own_people": 207,
+      "tentative_enemy_people": 49
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 9,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 142,
+      "side1_people": 6600,
+      "tentative_own_people": 142,
+      "tentative_enemy_people": 6600
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 10,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 89,
+      "tentative_own_people": 89,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 11,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 630,
+      "side1_people": 22,
+      "tentative_own_people": 630,
+      "tentative_enemy_people": 22
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 15,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 242,
+      "side1_people": 160,
+      "tentative_own_people": 242,
+      "tentative_enemy_people": 160
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 16,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 37,
+      "side1_people": 167,
+      "tentative_own_people": 37,
+      "tentative_enemy_people": 167
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 19,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 21,
+      "side1_people": 8688,
+      "tentative_own_people": 21,
+      "tentative_enemy_people": 8688
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 20,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 339,
+      "side1_people": 183,
+      "tentative_own_people": 339,
+      "tentative_enemy_people": 183
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 22,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 145,
+      "side1_people": 31,
+      "tentative_own_people": 31,
+      "tentative_enemy_people": 145
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 24,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 320,
+      "side1_people": 50,
+      "tentative_own_people": 320,
+      "tentative_enemy_people": 50
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 27,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2,
+      "side1_people": 4000,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 4000
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 28,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 231,
+      "side1_people": 158,
+      "tentative_own_people": 231,
+      "tentative_enemy_people": 158
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 31,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 556,
+      "side1_people": 159,
+      "tentative_own_people": 556,
+      "tentative_enemy_people": 159
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 34,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 36,
+      "side1_people": 4,
+      "tentative_own_people": 36,
+      "tentative_enemy_people": 4
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 38,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 71,
+      "side1_people": 0,
+      "tentative_own_people": 71,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 39,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 519,
+      "side1_people": 143,
+      "tentative_own_people": 519,
+      "tentative_enemy_people": 143
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 43,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 905,
+      "side1_people": 182,
+      "tentative_own_people": 182,
+      "tentative_enemy_people": 905
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 44,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 428,
+      "side1_people": 174,
+      "tentative_own_people": 428,
+      "tentative_enemy_people": 174
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 46,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 82,
+      "side1_people": 34,
+      "tentative_own_people": 82,
+      "tentative_enemy_people": 34
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 52,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 4,
+      "side1_people": 0,
+      "tentative_own_people": 4,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 54,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 469,
+      "side1_people": 284,
+      "tentative_own_people": 284,
+      "tentative_enemy_people": 469
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 55,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1,
+      "side1_people": 40,
+      "tentative_own_people": 40,
+      "tentative_enemy_people": 1
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 56,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 6,
+      "tentative_own_people": 0,
+      "tentative_enemy_people": 6
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 57,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 2,
+      "side1_people": 8873,
+      "tentative_own_people": 2,
+      "tentative_enemy_people": 8873
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 58,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 183,
+      "side1_people": 12,
+      "tentative_own_people": 183,
+      "tentative_enemy_people": 12
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 65,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 85,
+      "side1_people": 166,
+      "tentative_own_people": 166,
+      "tentative_enemy_people": 85
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 231,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 63,
+      "side1_people": 64,
+      "tentative_own_people": 64,
+      "tentative_enemy_people": 63
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 232,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 51,
+      "side1_people": 56,
+      "tentative_own_people": 56,
+      "tentative_enemy_people": 51
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 235,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 50,
+      "side1_people": 44,
+      "tentative_own_people": 44,
+      "tentative_enemy_people": 50
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 238,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 149,
+      "side1_people": 147,
+      "tentative_own_people": 147,
+      "tentative_enemy_people": 149
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 239,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 938,
+      "side1_people": 178,
+      "tentative_own_people": 178,
+      "tentative_enemy_people": 938
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 240,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 23,
+      "side1_people": 57,
+      "tentative_own_people": 57,
+      "tentative_enemy_people": 23
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 241,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 446,
+      "side1_people": 55,
+      "tentative_own_people": 55,
+      "tentative_enemy_people": 446
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 242,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 22,
+      "side1_people": 18,
+      "tentative_own_people": 18,
+      "tentative_enemy_people": 22
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 243,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 13,
+      "side1_people": 5582,
+      "tentative_own_people": 13,
+      "tentative_enemy_people": 5582
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 246,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 371,
+      "side1_people": 266,
+      "tentative_own_people": 266,
+      "tentative_enemy_people": 371
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 77,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 266,
+      "side1_people": 8565,
+      "tentative_own_people": 8565,
+      "tentative_enemy_people": 266
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 78,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 181,
+      "side1_people": 174,
+      "tentative_own_people": 181,
+      "tentative_enemy_people": 174
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 80,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 332,
+      "side1_people": 145,
+      "tentative_own_people": 332,
+      "tentative_enemy_people": 145
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 84,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 297,
+      "side1_people": 16,
+      "tentative_own_people": 297,
+      "tentative_enemy_people": 16
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 85,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 176,
+      "side1_people": 24,
+      "tentative_own_people": 24,
+      "tentative_enemy_people": 176
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 86,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 42,
+      "side1_people": 18105,
+      "tentative_own_people": 42,
+      "tentative_enemy_people": 18105
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 88,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 276,
+      "side1_people": 41,
+      "tentative_own_people": 276,
+      "tentative_enemy_people": 41
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 90,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 73,
+      "side1_people": 20,
+      "tentative_own_people": 73,
+      "tentative_enemy_people": 20
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 93,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 210,
+      "side1_people": 9300,
+      "tentative_own_people": 210,
+      "tentative_enemy_people": 9300
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 94,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 25,
+      "side1_people": 20,
+      "tentative_own_people": 25,
+      "tentative_enemy_people": 20
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 96,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 60,
+      "side1_people": 34,
+      "tentative_own_people": 60,
+      "tentative_enemy_people": 34
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 111,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 21,
+      "side1_people": 8,
+      "tentative_own_people": 21,
+      "tentative_enemy_people": 8
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 112,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 200,
+      "side1_people": 227,
+      "tentative_own_people": 200,
+      "tentative_enemy_people": 227
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 113,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 26,
+      "side1_people": 29,
+      "tentative_own_people": 29,
+      "tentative_enemy_people": 26
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 116,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1440,
+      "side1_people": 688,
+      "tentative_own_people": 1440,
+      "tentative_enemy_people": 688
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 118,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 0,
+      "side1_people": 24,
+      "tentative_own_people": 24,
+      "tentative_enemy_people": 0
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 119,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 513,
+      "side1_people": 16173,
+      "tentative_own_people": 513,
+      "tentative_enemy_people": 16173
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 120,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 1536,
+      "side1_people": 9266,
+      "tentative_own_people": 1536,
+      "tentative_enemy_people": 9266
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 122,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 238,
+      "side1_people": 38,
+      "tentative_own_people": 238,
+      "tentative_enemy_people": 38
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 125,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 239,
+      "side1_people": 190,
+      "tentative_own_people": 239,
+      "tentative_enemy_people": 190
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 126,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 513,
+      "side1_people": 165,
+      "tentative_own_people": 513,
+      "tentative_enemy_people": 165
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 130,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 40,
+      "side1_people": 3,
+      "tentative_own_people": 40,
+      "tentative_enemy_people": 3
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 131,
+      "selector": 0,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 163,
+      "side1_people": 28,
+      "tentative_own_people": 28,
+      "tentative_enemy_people": 163
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 132,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 148,
+      "side1_people": 7848,
+      "tentative_own_people": 148,
+      "tentative_enemy_people": 7848
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 133,
+      "selector": 1,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 81,
+      "side1_people": 6,
+      "tentative_own_people": 81,
+      "tentative_enemy_people": 6
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 137,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 617,
+      "side1_people": 69,
+      "tentative_own_people": 617,
+      "tentative_enemy_people": 69
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 139,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 609,
+      "side1_people": 765,
+      "tentative_own_people": 609,
+      "tentative_enemy_people": 765
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 144,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 230,
+      "side1_people": 287,
+      "tentative_own_people": 230,
+      "tentative_enemy_people": 287
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 146,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 19,
+      "side1_people": 19,
+      "tentative_own_people": 19,
+      "tentative_enemy_people": 19
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 152,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 193,
+      "side1_people": 925,
+      "tentative_own_people": 193,
+      "tentative_enemy_people": 925
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 153,
+      "selector": 0,
+      "record_flags_444_447": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selector_equals_447": true,
+      "side0_people": 4,
+      "side1_people": 0,
+      "tentative_own_people": 0,
+      "tentative_enemy_people": 4
+    },
+    {
+      "orders_group_handle": "0x27f00000035",
+      "record_index": 156,
+      "selector": 1,
+      "record_flags_444_447": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "selector_equals_447": true,
+      "side0_people": 51,
+      "side1_people": 211,
+      "tentative_own_people": 51,
+      "tentative_enemy_people": 211
+    }
+  ],
+  "crosscheck": {
+    "references": 227,
+    "unique_records": 192,
+    "selector_matches_447": 227
+  },
+  "mapping_not_promoted_yet": true
+}

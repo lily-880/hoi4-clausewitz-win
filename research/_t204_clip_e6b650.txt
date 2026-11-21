@@ -1,0 +1,86 @@
+e6b650 mov qword ptr [rsp + 8], rbx
+e6b655 mov qword ptr [rsp + 0x10], rbp
+e6b65a push rsi
+e6b65b push rdi
+e6b65c push r12
+e6b65e push r14
+e6b660 push r15
+e6b662 sub rsp, 0x50
+e6b666 mov rdi, rdx
+e6b669 mov r12d, ecx
+e6b66c mov r8b, 0xa
+e6b66f lea rdx, [rsp + 0x30]
+e6b674 mov rcx, rdi
+e6b677 call 0x254fb20
+e6b67c nop 
+e6b67d mov rcx, rdi
+e6b680 call 0x254e130
+e6b685 xor ebp, ebp
+e6b687 cmp dword ptr [rsp + 0x3c], ebp
+e6b68b jle 0xe6b73c
+e6b691 xor r14d, r14d
+e6b694 xor r15d, r15d
+e6b697 movzx ebx, byte ptr [rsp + 0x90]
+e6b69f nop 
+e6b6a0 mov rsi, qword ptr [rsp + 0x30]
+e6b6a5 add rsi, r15
+e6b6a8 test r14, r14
+e6b6ab jle 0xe6b6fe
+e6b6ad mov rcx, qword ptr [rdi + 0x10]
+e6b6b1 mov rdx, qword ptr [rdi + 0x18]
+e6b6b5 mov rax, rdx
+e6b6b8 sub rax, rcx
+e6b6bb cmp rax, 1
+e6b6bf jb 0xe6b6dd
+e6b6c1 lea rax, [rcx + 1]
+e6b6c5 mov qword ptr [rdi + 0x10], rax
+e6b6c9 mov rax, rdi
+e6b6cc cmp rdx, 0xf
+e6b6d0 jbe 0xe6b6d5
+e6b6d2 mov rax, qword ptr [rdi]
+e6b6d5 mov word ptr [rax + rcx], 0xa
+e6b6db jmp 0xe6b6fe
+e6b6dd mov qword ptr [rsp + 0x20], 1
+e6b6e6 lea r9, [rip + 0x192b743]
+e6b6ed movzx r8d, bl
+e6b6f1 mov edx, 1
+e6b6f6 mov rcx, rdi
+e6b6f9 call 0x11f240
+e6b6fe cmp qword ptr [rsi + 0x10], 0
+e6b703 je 0xe6b729
+e6b705 mov rdx, rdi
+e6b708 mov ecx, r12d
+e6b70b call 0xe6b5b0
+e6b710 mov r8, qword ptr [rsi + 0x10]
+e6b714 cmp qword ptr [rsi + 0x18], 0xf
+e6b719 jbe 0xe6b71e
+e6b71b mov rsi, qword ptr [rsi]
+e6b71e mov rdx, rsi
+e6b721 mov rcx, rdi
+e6b724 call 0x12b330
+e6b729 inc ebp
+e6b72b inc r14
+e6b72e add r15, 0x20
+e6b732 cmp ebp, dword ptr [rsp + 0x3c]
+e6b736 jl 0xe6b6a0
+e6b73c cmp qword ptr [rsp + 0x30], 0
+e6b742 je 0xe6b76d
+e6b744 mov r8d, dword ptr [rsp + 0x3c]
+e6b749 xor edx, edx
+e6b74b lea rcx, [rsp + 0x30]
+e6b750 call 0x122530
+e6b755 mov dword ptr [rsp + 0x3c], 0
+e6b75d mov rcx, qword ptr [rsp + 0x40]
+e6b762 mov rax, qword ptr [rcx]
+e6b765 mov rdx, qword ptr [rsp + 0x30]
+e6b76a call qword ptr [rax + 0x10]
+e6b76d lea r11, [rsp + 0x50]
+e6b772 mov rbx, qword ptr [r11 + 0x30]
+e6b776 mov rbp, qword ptr [r11 + 0x38]
+e6b77a mov rsp, r11
+e6b77d pop r15
+e6b77f pop r14
+e6b781 pop r12
+e6b783 pop rdi
+e6b784 pop rsi
+e6b785 ret 

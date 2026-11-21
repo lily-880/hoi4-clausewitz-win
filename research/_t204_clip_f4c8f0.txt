@@ -1,0 +1,71 @@
+f4c8f0 push rdi
+f4c8f2 sub rsp, 0x30
+f4c8f6 cmp byte ptr [rip + 0x2742d14], 0
+f4c8fd mov rdi, rcx
+f4c900 je 0xf4c9f1
+f4c906 cmp byte ptr [rip + 0x2490823], 0
+f4c90d jne 0xf4c95e
+f4c90f cmp qword ptr [rip + 0x2490d99], 0
+f4c917 jne 0xf4c95e
+f4c919 lea rax, [rip + 0x2490810]
+f4c920 mov byte ptr [rsp + 0x48], 0
+f4c925 mov qword ptr [rsp + 0x28], rax
+f4c92a lea rdx, [rip + 0x1847dec]
+f4c931 lea rax, [rsp + 0x48]
+f4c936 mov r9b, 1
+f4c939 mov r8d, 0x464
+f4c93f mov qword ptr [rsp + 0x20], rax
+f4c944 lea rcx, [rip + 0x1847eed]
+f4c94b call 0x254ab40
+f4c950 cmp byte ptr [rsp + 0x48], 0
+f4c955 mov byte ptr [rip + 0x24907d5], al
+f4c95b je 0xf4c95e
+f4c95d int3 
+f4c95e cmp byte ptr [rip + 0x2742cac], 0
+f4c965 je 0xf4c9f1
+f4c96b cmp byte ptr [rip + 0x24907bf], 0
+f4c972 jne 0xf4c9f1
+f4c974 mov rax, qword ptr gs:[0x58]
+f4c97d mov ecx, dword ptr [rip + 0x2747115]
+f4c983 mov qword ptr [rsp + 0x40], rbx
+f4c988 mov rbx, qword ptr [rax + rcx*8]
+f4c98c mov eax, 0x20e8
+f4c991 cmp byte ptr [rax + rbx], 0
+f4c995 jne 0xf4c99c
+f4c997 call 0x25a04d0
+f4c99c mov eax, 0x10
+f4c9a1 cmp dword ptr [rax + rbx], 0
+f4c9a5 mov rbx, qword ptr [rsp + 0x40]
+f4c9aa je 0xf4c9f1
+f4c9ac lea rax, [rip + 0x249077e]
+f4c9b3 mov byte ptr [rsp + 0x48], 0
+f4c9b8 mov qword ptr [rsp + 0x28], rax
+f4c9bd lea rdx, [rip + 0x1847d59]
+f4c9c4 lea rax, [rsp + 0x48]
+f4c9c9 mov r9b, 1
+f4c9cc mov r8d, 0x465
+f4c9d2 mov qword ptr [rsp + 0x20], rax
+f4c9d7 lea rcx, [rip + 0x1847e82]
+f4c9de call 0x254ab40
+f4c9e3 cmp byte ptr [rsp + 0x48], 0
+f4c9e8 mov byte ptr [rip + 0x2490743], al
+f4c9ee je 0xf4c9f1
+f4c9f0 int3 
+f4c9f1 mov rax, qword ptr [rip + 0x2490cb8]
+f4c9f8 test rax, rax
+f4c9fb je 0xf4ca29
+f4c9fd cmp byte ptr [rax + 0xa39], 0
+f4ca04 je 0xf4ca29
+f4ca06 mov rcx, qword ptr [rip + 0x24910fb]
+f4ca0d mov rax, qword ptr [rcx]
+f4ca10 call qword ptr [rax + 0x2f0]
+f4ca16 test al, al
+f4ca18 je 0xf4ca29
+f4ca1a xor edx, edx
+f4ca1c mov rcx, rdi
+f4ca1f add rsp, 0x30
+f4ca23 pop rdi
+f4ca24 jmp 0xf49f10
+f4ca29 add rsp, 0x30
+f4ca2d pop rdi
+f4ca2e ret 

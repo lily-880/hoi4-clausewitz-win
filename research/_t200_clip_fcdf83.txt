@@ -1,0 +1,16 @@
+fcdf83 and al, 2
+fcdf85 add byte ptr [rax], al
+fcdf87 sub eax, 2
+fcdf8a cmp eax, 1
+fcdf8d jbe 0xfcdfdc
+fcdf8f mov r8d, dword ptr [rcx + 0x200]
+fcdf96 cmp r8d, dword ptr [rip + 0x241d307]
+fcdf9d jne 0xfcdfad
+fcdf9f mov eax, dword ptr [rip + 0x241d2fb]
+fcdfa5 cmp dword ptr [rcx + 0x1fc], eax
+fcdfab je 0xfcdfdc
+fcdfad mov rdx, qword ptr [rcx + 0x1f0]
+fcdfb4 test rdx, rdx
+fcdfb7 je 0xfcdfdc
+fcdfb9 mov eax, dword ptr [rcx + 0x204]
+fcdfbf cmp dword ptr [rdx + 8], eax

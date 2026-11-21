@@ -1,0 +1,220 @@
+{
+  "at_est": "2026-11-20T11:15:33.573952-05:00",
+  "before": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 10288,
+    "base": "0x7ff758fc0000",
+    "gs": "0x23cae6ca7a0",
+    "idler": "0x23e4d037f30",
+    "country": "0x23cd2b71040",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "functions": {
+    "0xd5c3d0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd5c3d0",
+      "window_size": 83,
+      "reachable_instruction_count": 22,
+      "unresolved_edges": [
+        {
+          "address": "0xd5c401",
+          "target": "0xd5c46e",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd5c423",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd5c3e6",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0xd5c3ee",
+          "operand": "0x717210"
+        },
+        {
+          "site": "0xd5c413",
+          "operand": "0xd84a10"
+        }
+      ],
+      "asm": [
+        "d5c3d0 mov qword ptr [rsp + 0x18], rbx",
+        "d5c3d5 mov qword ptr [rsp + 0x20], rbp",
+        "d5c3da push r14",
+        "d5c3dc sub rsp, 0x20",
+        "d5c3e0 add rcx, 8",
+        "d5c3e4 xor ebx, ebx",
+        "d5c3e6 call 0xc07bf0",
+        "d5c3eb mov rcx, rax",
+        "d5c3ee call 0x717210",
+        "d5c3f3 mov r14, qword ptr [rax]",
+        "d5c3f6 movsxd rax, dword ptr [rax + 0xc]",
+        "d5c3fa lea rbp, [r14 + rax*8]",
+        "d5c3fe cmp r14, rbp",
+        "d5c401 je 0xd5c46e",
+        "d5c403 mov qword ptr [rsp + 0x30], rsi",
+        "d5c408 mov qword ptr [rsp + 0x38], rdi",
+        "d5c40d nop dword ptr [rax]",
+        "d5c410 mov rcx, qword ptr [r14]",
+        "d5c413 call 0xd84a10",
+        "d5c418 mov rdi, qword ptr [rax]",
+        "d5c41b movsxd rax, dword ptr [rax + 0xc]",
+        "d5c41f lea rsi, [rdi + rax*8]"
+      ],
+      "raw_hex": "48895c241848896c242041564883ec204883c10833dbe805b8eaff488bc8e81dae9bff4c8b304863400c498d2cc64c3bf5746b488974243048897c24380f1f00498b0ee8f8850200488b384863400c488d34c7",
+      "sha256": "09238abcbd63c8f6a5ba22f2b63df7a2f1f2793b9a9cbfa8caa9aab4f1c9224a"
+    },
+    "0xd5c490": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xd5c490",
+      "window_size": 82,
+      "reachable_instruction_count": 20,
+      "unresolved_edges": [
+        {
+          "address": "0xd5c4c0",
+          "target": "0xd5c4f7",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xd5c4e1",
+          "reason": "decode/end failure"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xd5c4a5",
+          "operand": "0xc07bf0"
+        },
+        {
+          "site": "0xd5c4d9",
+          "operand": "qword ptr [rdx + 0xc0]"
+        }
+      ],
+      "asm": [
+        "d5c490 mov qword ptr [rsp + 0x10], rbx",
+        "d5c495 mov qword ptr [rsp + 0x18], rbp",
+        "d5c49a push rsi",
+        "d5c49b sub rsp, 0x20",
+        "d5c49f add rcx, 8",
+        "d5c4a3 xor esi, esi",
+        "d5c4a5 call 0xc07bf0",
+        "d5c4aa mov rcx, qword ptr [rax + 0xf68]",
+        "d5c4b1 mov rbx, qword ptr [rcx + 0x58]",
+        "d5c4b5 movsxd rax, dword ptr [rcx + 0x64]",
+        "d5c4b9 lea rbp, [rbx + rax*8]",
+        "d5c4bd cmp rbx, rbp",
+        "d5c4c0 je 0xd5c4f7",
+        "d5c4c2 mov qword ptr [rsp + 0x30], rdi",
+        "d5c4c7 nop word ptr [rax + rax]",
+        "d5c4d0 mov rdi, qword ptr [rbx]",
+        "d5c4d3 mov rcx, rdi",
+        "d5c4d6 mov rdx, qword ptr [rdi]",
+        "d5c4d9 call qword ptr [rdx + 0xc0]",
+        "d5c4df test al, al"
+      ],
+      "raw_hex": "48895c241048896c2418564883ec204883c10833f6e846b7eaff488b88680f0000488b595848634164488d2cc3483bdd743548897c2430660f1f840000000000488b3b488bcf488b17ff92c000000084c074",
+      "sha256": "cc8b15b68432a0e69e00fac055496bdaaa2dc7752e83cd09859edad3db358fd7"
+    }
+  },
+  "ui_argument_names": [
+    {
+      "site": "0xd5e5f4",
+      "rva": "0x29db858",
+      "text": "GARRISON"
+    },
+    {
+      "site": "0xd5e60f",
+      "rva": "0x29db868",
+      "text": "NAVAL_TRAINING"
+    },
+    {
+      "site": "0xd5e62a",
+      "rva": "0x29db878",
+      "text": "NAVAL_FIELD"
+    },
+    {
+      "site": "0xd5e642",
+      "rva": "0x29db884",
+      "text": "NAVAL"
+    },
+    {
+      "site": "0xd5e657",
+      "rva": "0x2866574",
+      "text": "AIR"
+    },
+    {
+      "site": "0xd5e66c",
+      "rva": "0x29db890",
+      "text": "TRAINING"
+    },
+    {
+      "site": "0xd5e684",
+      "rva": "0x29db89c",
+      "text": "FIELD"
+    },
+    {
+      "site": "0xd5e699",
+      "rva": "0x2866580",
+      "text": "ARMY"
+    },
+    {
+      "site": "0xd5e6b1",
+      "rva": "0x2818840",
+      "text": "EXILE"
+    },
+    {
+      "site": "0xd5e6c1",
+      "rva": "0x29d0234",
+      "text": "FREE"
+    },
+    {
+      "site": "0xd5e6c8",
+      "rva": "0x29db8a8",
+      "text": "MANPOWER_USAGE"
+    }
+  ],
+  "army_manpower_need_refs": [
+    {
+      "site": "0x90bb2",
+      "pdata": [
+        "0x83760",
+        "0x119491",
+        "0x309285c"
+      ]
+    }
+  ]
+}

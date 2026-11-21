@@ -1,0 +1,20 @@
+e55060 push rbx
+e55062 sub rsp, 0x20
+e55066 cmp byte ptr [rcx + 0x49], 0
+e5506a mov rbx, rcx
+e5506d je 0xe55083
+e5506f mov rcx, qword ptr [rip + 0x2588a92]
+e55076 mov rax, qword ptr [rcx]
+e55079 call qword ptr [rax + 0x2f0]
+e5507f test al, al
+e55081 jne 0xe550a1
+e55083 mov rcx, qword ptr [rip + 0x2588a7e]
+e5508a lea r8, [rbx + 0x28]
+e5508e movzx edx, byte ptr [rbx + 0x48]
+e55092 mov rax, qword ptr [rcx]
+e55095 add rsp, 0x20
+e55099 pop rbx
+e5509a jmp qword ptr [rax + 0x298]
+e550a1 add rsp, 0x20
+e550a5 pop rbx
+e550a6 ret 

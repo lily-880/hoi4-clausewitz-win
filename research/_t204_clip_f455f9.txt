@@ -1,0 +1,32 @@
+f455f9 mov qword ptr [rsp + 0x30], rbx
+f455fe mov rbp, r9
+f45601 mov qword ptr [rsp + 0x38], rdi
+f45606 lea rbx, [r9 + 8]
+f4560a mov r14, r8
+f4560d mov rsi, rdx
+f45610 mov rcx, rbp
+f45613 mov rdi, rsi
+f45616 xorps xmm0, xmm0
+f45619 add rsi, 0x20
+f4561d add rbp, 0x20
+f45621 movzx eax, word ptr [rdi]
+f45624 mov word ptr [rcx], ax
+f45627 xor eax, eax
+f45629 movups xmmword ptr [rbx], xmm0
+f4562c mov rcx, rbx
+f4562f mov qword ptr [rbx + 0x10], rax
+f45633 call 0x11f6f0
+f45638 mov r9d, dword ptr [rdi + 0x14]
+f4563c mov rcx, rbx
+f4563f mov r8, qword ptr [rdi + 8]
+f45643 mov edx, dword ptr [rbx + 0xc]
+f45646 call 0x31fb70
+f4564b add rbx, 0x20
+f4564f cmp rsi, r14
+f45652 jne 0xf45610
+f45654 mov rdi, qword ptr [rsp + 0x38]
+f45659 mov rbx, qword ptr [rsp + 0x30]
+f4565e mov rbp, qword ptr [rsp + 0x40]
+f45663 mov rsi, qword ptr [rsp + 0x48]
+f45668 add rsp, 0x20
+f4566c pop r14

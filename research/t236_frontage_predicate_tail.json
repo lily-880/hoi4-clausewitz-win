@@ -1,0 +1,617 @@
+{
+  "at_est": "2026-11-21T01:20:36.604546-05:00",
+  "before": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "after": {
+    "pid": 31576,
+    "base": "0x7ff72fc80000",
+    "gs": "0x25c25a1a180",
+    "idler": "0x25cf6c3e430",
+    "country": "0x25c4a48e0d0",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "tail_slots": [
+    {
+      "index": 16,
+      "rva": "0x594020",
+      "in_text": true
+    },
+    {
+      "index": 17,
+      "rva": "0x593f90",
+      "in_text": true
+    },
+    {
+      "index": 18,
+      "rva": "0x154030",
+      "in_text": true
+    },
+    {
+      "index": 19,
+      "rva": "0x591f70",
+      "in_text": true
+    },
+    {
+      "index": 20,
+      "rva": "0x592050",
+      "in_text": true
+    },
+    {
+      "index": 21,
+      "rva": "0x4950d0",
+      "in_text": true
+    },
+    {
+      "index": 22,
+      "rva": "0x492740",
+      "in_text": true
+    },
+    {
+      "index": 23,
+      "rva": "0x5f51c55017815254",
+      "in_text": false
+    }
+  ],
+  "functions": {
+    "0x594020": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x594020",
+      "window_size": 67,
+      "reachable_instruction_count": 25,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x594036",
+          "operand": "qword ptr [rax + 0x70]"
+        },
+        {
+          "site": "0x594043",
+          "operand": "qword ptr [rax + 0x70]"
+        }
+      ],
+      "asm": [
+        "594020 mov qword ptr [rsp + 8], rbx",
+        "594025 push rdi",
+        "594026 sub rsp, 0x20",
+        "59402a mov edi, edx",
+        "59402c mov rbx, rcx",
+        "59402f test edx, edx",
+        "594031 je 0x594056",
+        "594033 mov rax, qword ptr [rcx]",
+        "594036 call qword ptr [rax + 0x70]",
+        "594039 test eax, eax",
+        "59403b je 0x594056",
+        "59403d mov rax, qword ptr [rbx]",
+        "594040 mov rcx, rbx",
+        "594043 call qword ptr [rax + 0x70]",
+        "594046 test edi, eax",
+        "594048 setne al",
+        "59404b mov rbx, qword ptr [rsp + 0x30]",
+        "594050 add rsp, 0x20",
+        "594054 pop rdi",
+        "594055 ret ",
+        "594056 mov rbx, qword ptr [rsp + 0x30]",
+        "59405b mov al, 1",
+        "59405d add rsp, 0x20",
+        "594061 pop rdi",
+        "594062 ret "
+      ],
+      "raw_hex": "48895c2408574883ec208bfa488bd985d27423488b01ff507085c07419488b03488bcbff507085c70f95c0488b5c24304883c4205fc3488b5c2430b0014883c4205fc3",
+      "sha256": "4821569eff8a68d8a7550491377d4f281195de606f4a8ac4443628e1652bffb8",
+      "pdata": [
+        "0x594020",
+        "0x594063",
+        "0x2e7a2fc"
+      ],
+      "literals": []
+    },
+    "0x593f90": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x593f90",
+      "window_size": 144,
+      "reachable_instruction_count": 59,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x593fa5",
+          "operand": "qword ptr [rax + 0x78]"
+        }
+      ],
+      "asm": [
+        "593f90 push rbx",
+        "593f92 sub rsp, 0x20",
+        "593f96 test dword ptr [rcx + 0x24], 0x400",
+        "593f9d mov rbx, rcx",
+        "593fa0 je 0x594018",
+        "593fa2 mov rax, qword ptr [rcx]",
+        "593fa5 call qword ptr [rax + 0x78]",
+        "593fa8 test eax, eax",
+        "593faa je 0x594018",
+        "593fac cmp eax, 2",
+        "593faf je 0x594010",
+        "593fb1 mov ecx, dword ptr [rbx + 0x24]",
+        "593fb4 test cl, 1",
+        "593fb7 je 0x593fbd",
+        "593fb9 test al, 4",
+        "593fbb je 0x594010",
+        "593fbd test cl, 2",
+        "593fc0 je 0x593fc6",
+        "593fc2 test al, 8",
+        "593fc4 je 0x594010",
+        "593fc6 test cl, 4",
+        "593fc9 je 0x593fcf",
+        "593fcb test al, 0x10",
+        "593fcd je 0x594010",
+        "593fcf test cl, 8",
+        "593fd2 je 0x593fd8",
+        "593fd4 test al, 0x20",
+        "593fd6 je 0x594010",
+        "593fd8 test cl, 0x10",
+        "593fdb je 0x593fe1",
+        "593fdd test al, 0x40",
+        "593fdf je 0x594010",
+        "593fe1 test cl, 0x20",
+        "593fe4 je 0x593fec",
+        "593fe6 bt eax, 0xa",
+        "593fea jae 0x594010",
+        "593fec test cl, 0x40",
+        "593fef je 0x593ff5",
+        "593ff1 test al, al",
+        "593ff3 jns 0x594010",
+        "593ff5 test cl, cl",
+        "593ff7 jns 0x593fff",
+        "593ff9 bt eax, 8",
+        "593ffd jae 0x594010",
+        "593fff bt ecx, 8",
+        "594003 jae 0x594018",
+        "594005 shr eax, 9",
+        "594008 and al, 1",
+        "59400a add rsp, 0x20",
+        "59400e pop rbx",
+        "59400f ret ",
+        "594010 xor al, al",
+        "594012 add rsp, 0x20",
+        "594016 pop rbx",
+        "594017 ret ",
+        "594018 mov al, 1",
+        "59401a add rsp, 0x20",
+        "59401e pop rbx",
+        "59401f ret "
+      ],
+      "raw_hex": "40534883ec20f7412400040000488bd97476488b01ff507885c0746c83f802745f8b4b24f6c1017404a8047453f6c1027404a808744af6c1047404a8107441f6c1087404a8207438f6c1107404a840742ff6c12074060fbae00a7324f6c140740484c0791b84c979060fbae00873110fbae1087313c1e80924014883c4205bc332c04883c4205bc3b0014883c4205bc3",
+      "sha256": "95ae82c8526b7c8e2babb4d8bce448fc9dce6dd36305c6a103bad1ff928cd0a1",
+      "pdata": [
+        "0x593f90",
+        "0x594020",
+        "0x2e7a2f4"
+      ],
+      "literals": []
+    },
+    "0x154030": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x154030",
+      "window_size": 512,
+      "reachable_instruction_count": 1,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "154030 ret 0"
+      ],
+      "raw_hex": "c20000cccccccccccccccccccccccccc40574883ec20488bf9488b094885c9742a48895c243066660f1f840000000000488b5910ba20000000e8aac14402488bcb4885db75ea488b5c243033c0488907488947088947104883c4205fc3cccccc40534883ec2048833900488bd9742d448b410c33d2e8a6950200488b4b10488b13c7430c00000000488b01ff501048c70300000000c74308000000004883c4205bc3cccccccccccccccccccccccccccc40574883ec3048833900488bf90f84b70000004863410c4c897c24204533ff48895c244048896c244848897424504c8974242885c07e62488be8418bf7458bf7488b1f498b541e184883fa0f762d498b0c1e48ffc24881fa0010000072184c8b41f84883c227492bc8488d41f84883f81f775d498bc8e8bdc044024d897c1e1048ffc649c7441e180f00000045883c1e4983c640483bf57ca7488b4f10488b1744897f0c488b01ff50104c8b742428488b742450488b6c2448488b5c24404c893f44897f084c8b7c24204883c4305fc3e8ff3b4702cccccccccccccccccccccc40534883ec2048833900488bd974648b410c85c07e3b48897424308bf048897c243833ff0f1f40000f1f840000000000488b0b33d24803cfe8934a01004883c7484883ee0175e9488b7c2438488b742430488b4b10488b13c7430c00000000488b01ff501048c70300000000c7430800",
+      "sha256": "bd2dc757a16ec7ecb73aca6b3e37a5f01b13dab067e719c25adbf183aae9054e",
+      "pdata": null,
+      "literals": []
+    },
+    "0x591f70": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x591f70",
+      "window_size": 216,
+      "reachable_instruction_count": 67,
+      "unresolved_edges": [
+        {
+          "address": "0x592048",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x591f9e",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x591ff0",
+          "operand": "qword ptr [rax]"
+        },
+        {
+          "site": "0x591fff",
+          "operand": "rbp"
+        },
+        {
+          "site": "0x592023",
+          "operand": "qword ptr [rax + 0x20]"
+        },
+        {
+          "site": "0x592042",
+          "operand": "0x25a189c"
+        }
+      ],
+      "asm": [
+        "591f70 mov qword ptr [rsp + 8], rbx",
+        "591f75 mov qword ptr [rsp + 0x10], rdx",
+        "591f7a push rbp",
+        "591f7b push rsi",
+        "591f7c push rdi",
+        "591f7d push r14",
+        "591f7f push r15",
+        "591f81 sub rsp, 0x60",
+        "591f85 mov rsi, rdx",
+        "591f88 mov rbp, rcx",
+        "591f8b mov rcx, qword ptr [rdx + 0x38]",
+        "591f8f test rcx, rcx",
+        "591f92 je 0x592042",
+        "591f98 mov rax, qword ptr [rcx]",
+        "591f9b mov rdx, rbp",
+        "591f9e call qword ptr [rax + 0x10]",
+        "591fa1 movzx edi, al",
+        "591fa4 xor r15d, r15d",
+        "591fa7 test al, al",
+        "591fa9 je 0x592011",
+        "591fab mov rbx, qword ptr [rbp + 8]",
+        "591faf movsxd rcx, dword ptr [rbp + 0x14]",
+        "591fb3 lea r14, [rbx + rcx*8]",
+        "591fb7 cmp rbx, r14",
+        "591fba je 0x592011",
+        "591fbc nop dword ptr [rax]",
+        "591fc0 mov rdi, qword ptr [rbx]",
+        "591fc3 mov rax, qword ptr [rdi]",
+        "591fc6 mov rbp, qword ptr [rax + 0x98]",
+        "591fcd lea rax, [rsp + 0x20]",
+        "591fd2 mov qword ptr [rsp + 0xa0], rax",
+        "591fda mov qword ptr [rsp + 0x58], r15",
+        "591fdf mov rcx, qword ptr [rsi + 0x38]",
+        "591fe3 test rcx, rcx",
+        "591fe6 je 0x591ff7",
+        "591fe8 mov rax, qword ptr [rcx]",
+        "591feb lea rdx, [rsp + 0x20]",
+        "591ff0 call qword ptr [rax]",
+        "591ff2 mov qword ptr [rsp + 0x58], rax",
+        "591ff7 lea rdx, [rsp + 0x20]",
+        "591ffc mov rcx, rdi",
+        "591fff call rbp",
+        "592001 movzx edi, al",
+        "592004 test al, al",
+        "592006 je 0x592011",
+        "592008 add rbx, 8",
+        "59200c cmp rbx, r14",
+        "59200f jne 0x591fc0",
+        "592011 mov rcx, qword ptr [rsi + 0x38]",
+        "592015 test rcx, rcx",
+        "592018 je 0x59202a",
+        "59201a mov rax, qword ptr [rcx]",
+        "59201d cmp rcx, rsi",
+        "592020 setne dl",
+        "592023 call qword ptr [rax + 0x20]",
+        "592026 mov qword ptr [rsi + 0x38], r15",
+        "59202a movzx eax, dil",
+        "59202e mov rbx, qword ptr [rsp + 0x90]",
+        "592036 add rsp, 0x60",
+        "59203a pop r15",
+        "59203c pop r14",
+        "59203e pop rdi",
+        "59203f pop rsi",
+        "592040 pop rbp",
+        "592041 ret ",
+        "592042 call 0x25a189c",
+        "592047 nop "
+      ],
+      "raw_hex": "48895c24084889542410555657415641574883ec60488bf2488be9488b4a384885c90f84aa000000488b01488bd5ff50100fb6f84533ff84c07466488b5d0848634d144c8d34cb493bde74550f1f4000488b3b488b07488ba898000000488d44242048898424a00000004c897c2458488b4e384885c9740f488b01488d542420ff104889442458488d542420488bcfffd50fb6f884c074094883c308493bde75af488b4e384885c97410488b01483bce0f95c2ff50204c897e38400fb6c7488b9c24900000004883c460415f415e5f5e5dc3e855f8000290",
+      "sha256": "5892c40c2e8396ebdcbe824a6b444cdbf2248488e7f743122f3fd3dca66a6d69",
+      "pdata": [
+        "0x591f70",
+        "0x592048",
+        "0x2eca9c4"
+      ],
+      "literals": []
+    },
+    "0x592050": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x592050",
+      "window_size": 216,
+      "reachable_instruction_count": 67,
+      "unresolved_edges": [
+        {
+          "address": "0x592128",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x59207e",
+          "operand": "qword ptr [rax + 0x10]"
+        },
+        {
+          "site": "0x5920d0",
+          "operand": "qword ptr [rax]"
+        },
+        {
+          "site": "0x5920df",
+          "operand": "rbp"
+        },
+        {
+          "site": "0x592103",
+          "operand": "qword ptr [rax + 0x20]"
+        },
+        {
+          "site": "0x592122",
+          "operand": "0x25a189c"
+        }
+      ],
+      "asm": [
+        "592050 mov qword ptr [rsp + 8], rbx",
+        "592055 mov qword ptr [rsp + 0x10], rdx",
+        "59205a push rbp",
+        "59205b push rsi",
+        "59205c push rdi",
+        "59205d push r14",
+        "59205f push r15",
+        "592061 sub rsp, 0x60",
+        "592065 mov rsi, rdx",
+        "592068 mov rbp, rcx",
+        "59206b mov rcx, qword ptr [rdx + 0x38]",
+        "59206f test rcx, rcx",
+        "592072 je 0x592122",
+        "592078 mov rax, qword ptr [rcx]",
+        "59207b mov rdx, rbp",
+        "59207e call qword ptr [rax + 0x10]",
+        "592081 movzx edi, al",
+        "592084 xor r15d, r15d",
+        "592087 test al, al",
+        "592089 je 0x5920f1",
+        "59208b mov rbx, qword ptr [rbp + 8]",
+        "59208f movsxd rcx, dword ptr [rbp + 0x14]",
+        "592093 lea r14, [rbx + rcx*8]",
+        "592097 cmp rbx, r14",
+        "59209a je 0x5920f1",
+        "59209c nop dword ptr [rax]",
+        "5920a0 mov rdi, qword ptr [rbx]",
+        "5920a3 mov rax, qword ptr [rdi]",
+        "5920a6 mov rbp, qword ptr [rax + 0xa0]",
+        "5920ad lea rax, [rsp + 0x20]",
+        "5920b2 mov qword ptr [rsp + 0xa0], rax",
+        "5920ba mov qword ptr [rsp + 0x58], r15",
+        "5920bf mov rcx, qword ptr [rsi + 0x38]",
+        "5920c3 test rcx, rcx",
+        "5920c6 je 0x5920d7",
+        "5920c8 mov rax, qword ptr [rcx]",
+        "5920cb lea rdx, [rsp + 0x20]",
+        "5920d0 call qword ptr [rax]",
+        "5920d2 mov qword ptr [rsp + 0x58], rax",
+        "5920d7 lea rdx, [rsp + 0x20]",
+        "5920dc mov rcx, rdi",
+        "5920df call rbp",
+        "5920e1 movzx edi, al",
+        "5920e4 test al, al",
+        "5920e6 je 0x5920f1",
+        "5920e8 add rbx, 8",
+        "5920ec cmp rbx, r14",
+        "5920ef jne 0x5920a0",
+        "5920f1 mov rcx, qword ptr [rsi + 0x38]",
+        "5920f5 test rcx, rcx",
+        "5920f8 je 0x59210a",
+        "5920fa mov rax, qword ptr [rcx]",
+        "5920fd cmp rcx, rsi",
+        "592100 setne dl",
+        "592103 call qword ptr [rax + 0x20]",
+        "592106 mov qword ptr [rsi + 0x38], r15",
+        "59210a movzx eax, dil",
+        "59210e mov rbx, qword ptr [rsp + 0x90]",
+        "592116 add rsp, 0x60",
+        "59211a pop r15",
+        "59211c pop r14",
+        "59211e pop rdi",
+        "59211f pop rsi",
+        "592120 pop rbp",
+        "592121 ret ",
+        "592122 call 0x25a189c",
+        "592127 nop "
+      ],
+      "raw_hex": "48895c24084889542410555657415641574883ec60488bf2488be9488b4a384885c90f84aa000000488b01488bd5ff50100fb6f84533ff84c07466488b5d0848634d144c8d34cb493bde74550f1f4000488b3b488b07488ba8a0000000488d44242048898424a00000004c897c2458488b4e384885c9740f488b01488d542420ff104889442458488d542420488bcfffd50fb6f884c074094883c308493bde75af488b4e384885c97410488b01483bce0f95c2ff50204c897e38400fb6c7488b9c24900000004883c460415f415e5f5e5dc3e875f7000290",
+      "sha256": "92bbbb7b425d051d05ed21b55779b40b651c3222e17b209466fb1ab4d06800b1",
+      "pdata": [
+        "0x592050",
+        "0x592128",
+        "0x2eca9c4"
+      ],
+      "literals": []
+    },
+    "0x4950d0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x4950d0",
+      "window_size": 279,
+      "reachable_instruction_count": 66,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x495106",
+          "operand": "0x22aeab0"
+        },
+        {
+          "site": "0x4951d3",
+          "operand": "0x25a0218"
+        },
+        {
+          "site": "0x4951e1",
+          "operand": "0x25c7db4"
+        },
+        {
+          "site": "0x495199",
+          "operand": "0x11f240"
+        }
+      ],
+      "asm": [
+        "4950d0 mov qword ptr [rsp + 0x10], rdx",
+        "4950d5 push rbx",
+        "4950d6 sub rsp, 0x60",
+        "4950da mov rbx, rdx",
+        "4950dd mov dword ptr [rsp + 0x30], 0",
+        "4950e5 lea rax, [rip + 0x239dd1c]",
+        "4950ec lea rdx, [rip + 0x239dd35]",
+        "4950f3 cmp r9b, byte ptr [rcx + 0x58]",
+        "4950f7 cmove rdx, rax",
+        "4950fb xor r9d, r9d",
+        "4950fe xor r8d, r8d",
+        "495101 lea rcx, [rsp + 0x38]",
+        "495106 call 0x22aeab0",
+        "49510b nop ",
+        "49510c mov qword ptr [rbx + 0x10], 0",
+        "495114 mov qword ptr [rbx + 0x18], 0",
+        "49511c movups xmm0, xmmword ptr [rsp + 0x38]",
+        "495121 movups xmmword ptr [rbx], xmm0",
+        "495124 movups xmm1, xmmword ptr [rsp + 0x48]",
+        "495129 movups xmmword ptr [rbx + 0x10], xmm1",
+        "49512d movdqa xmm0, xmmword ptr [rip + 0x230085b]",
+        "495135 movdqu xmmword ptr [rsp + 0x48], xmm0",
+        "49513b mov byte ptr [rsp + 0x38], 0",
+        "495140 mov dword ptr [rsp + 0x30], 0xe",
+        "495148 mov rcx, qword ptr [rbx + 0x10]",
+        "49514c mov rdx, qword ptr [rbx + 0x18]",
+        "495150 mov rax, rdx",
+        "495153 sub rax, rcx",
+        "495156 cmp rax, 1",
+        "49515a jb 0x495178",
+        "49515c lea rax, [rcx + 1]",
+        "495160 mov qword ptr [rbx + 0x10], rax",
+        "495164 mov rax, rbx",
+        "495167 cmp rdx, 0xf",
+        "49516b jbe 0x495170",
+        "49516d mov rax, qword ptr [rbx]",
+        "495170 mov word ptr [rax + rcx], 0xa",
+        "495176 jmp 0x49519f",
+        "495178 mov qword ptr [rsp + 0x20], 1",
+        "495181 lea r9, [rip + 0x2301ca8]",
+        "495188 movzx r8d, byte ptr [rsp + 0x88]",
+        "495191 mov edx, 1",
+        "495196 mov rcx, rbx",
+        "495199 call 0x11f240",
+        "49519e nop ",
+        "49519f mov rdx, qword ptr [rsp + 0x50]",
+        "4951a4 cmp rdx, 0xf",
+        "4951a8 jbe 0x4951d8",
+        "4951aa inc rdx",
+        "4951ad mov rcx, qword ptr [rsp + 0x38]",
+        "4951b2 mov rax, rcx",
+        "4951b5 cmp rdx, 0x1000",
+        "4951bc jb 0x4951d3",
+        "4951be add rdx, 0x27",
+        "4951c2 mov rcx, qword ptr [rcx - 8]",
+        "4951c6 sub rax, rcx",
+        "4951c9 add rax, -8",
+        "4951cd cmp rax, 0x1f",
+        "4951d1 ja 0x4951e1",
+        "4951d3 call 0x25a0218",
+        "4951d8 mov rax, rbx",
+        "4951db add rsp, 0x60",
+        "4951df pop rbx",
+        "4951e0 ret ",
+        "4951e1 call 0x25c7db4",
+        "4951e6 int3 "
+      ],
+      "raw_hex": "4889542410534883ec60488bdac744243000000000488d051cdd3902488d1535dd3902443a4958480f44d04533c94533c0488d4c2438e8a599e1019048c743100000000048c74318000000000f104424380f11030f104c24480f114b10660f6f055b083002f30f7f442448c644243800c74424300e000000488b4b10488b5318488bc2482bc14883f801721c488d410148894310488bc34883fa0f7603488b0366c704080a00eb2748c7442420010000004c8d0da81c3002440fb6842488000000ba01000000488bcbe8a2a0c8ff90488b5424504883fa0f762e48ffc2488b4c2438488bc14881fa0010000072154883c227488b49f8482bc14883c0f84883f81f770ee840b01002488bc34883c4605bc3e8ce2b1302cc",
+      "sha256": "4c4b6565924a8abd26467da9ddd4efb8f48cedc2b00aadbb748d1d4fbe6b6bcb",
+      "pdata": [
+        "0x4950d0",
+        "0x4951e7",
+        "0x2ea48e0"
+      ],
+      "literals": [
+        {
+          "site": "0x4950e5",
+          "rva": "0x2832e08",
+          "text": "TRIGGER_IS_NOT_FRONTAGE_FULL"
+        },
+        {
+          "site": "0x4950ec",
+          "rva": "0x2832e28",
+          "text": "TRIGGER_IS_FRONTAGE_FULL"
+        }
+      ]
+    },
+    "0x492740": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x492740",
+      "window_size": 43,
+      "reachable_instruction_count": 16,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x492752",
+          "operand": "0x133e540"
+        }
+      ],
+      "asm": [
+        "492740 push rbx",
+        "492742 sub rsp, 0x20",
+        "492746 mov rbx, rcx",
+        "492749 mov rcx, qword ptr [rdx + 0x60]",
+        "49274d test rcx, rcx",
+        "492750 je 0x492763",
+        "492752 call 0x133e540",
+        "492757 cmp byte ptr [rbx + 0x58], al",
+        "49275a setne al",
+        "49275d add rsp, 0x20",
+        "492761 pop rbx",
+        "492762 ret ",
+        "492763 xor al, al",
+        "492765 add rsp, 0x20",
+        "492769 pop rbx",
+        "49276a ret "
+      ],
+      "raw_hex": "40534883ec20488bd9488b4a604885c97411e8e9bdea003843580f95c04883c4205bc332c04883c4205bc3",
+      "sha256": "825ef0a853c02033489b8cf191ad2574a4c65607640794c757d8ceaf6ad2382c",
+      "pdata": [
+        "0x492740",
+        "0x49276b",
+        "0x2e7a2f4"
+      ],
+      "literals": []
+    }
+  },
+  "stable_dependencies": 5,
+  "promotions": [],
+  "scope": "Factory-derived vtable tail candidates until first metadata; 592130 is boolean parse/validation, not assumed evaluator. Only bound code semantics establish predicate."
+}

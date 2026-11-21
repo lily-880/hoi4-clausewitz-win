@@ -1,0 +1,16 @@
+e68810 movsxd rcx, dword ptr [r14 + 0xc]
+e68814 mov eax, esi
+e68816 sub eax, ecx
+e68818 test eax, eax
+e6881a jle 0xe68831
+e6881c movsxd r8, eax
+e6881f xor edx, edx
+e68821 mov rax, qword ptr [r14]
+e68824 shl r8, 2
+e68828 lea rcx, [rax + rcx*4]
+e6882c call 0x2608070
+e68831 mov dword ptr [r14 + 0xc], esi
+e68835 mov rsi, qword ptr [rsp + 0x40]
+e6883a add rsp, 0x20
+e6883e pop r14
+e68840 ret 

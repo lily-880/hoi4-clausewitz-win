@@ -1,0 +1,45 @@
+e60420 mov qword ptr [rsp + 8], rbx
+e60425 mov qword ptr [rsp + 0x10], rsi
+e6042a push rdi
+e6042b sub rsp, 0x20
+e6042f lea rax, [rip + 0x19f2ee2]
+e60436 mov rbx, rcx
+e60439 mov qword ptr [rcx + 0x2f0], rax
+e60440 mov esi, edx
+e60442 add rcx, 0x300
+e60449 call 0x5916f0
+e6044e lea rdi, [rbx + 0x2b0]
+e60455 mov rcx, qword ptr [rdi + 0x38]
+e60459 test rcx, rcx
+e6045c je 0xe60472
+e6045e mov rax, qword ptr [rcx]
+e60461 cmp rcx, rdi
+e60464 setne dl
+e60467 call qword ptr [rax + 0x20]
+e6046a mov qword ptr [rdi + 0x38], 0
+e60472 lea rdi, [rbx + 0x270]
+e60479 mov rcx, qword ptr [rdi + 0x38]
+e6047d test rcx, rcx
+e60480 je 0xe60496
+e60482 mov rax, qword ptr [rcx]
+e60485 cmp rcx, rdi
+e60488 setne dl
+e6048b call qword ptr [rax + 0x20]
+e6048e mov qword ptr [rdi + 0x38], 0
+e60496 lea rcx, [rbx + 0xf0]
+e6049d call 0xe60360
+e604a2 lea rcx, [rbx + 0x18]
+e604a6 call 0xe593f0
+e604ab mov rcx, rbx
+e604ae call 0x22839a0
+e604b3 test sil, 1
+e604b7 je 0xe604c6
+e604b9 mov edx, 0x328
+e604be mov rcx, rbx
+e604c1 call 0x25a0218
+e604c6 mov rsi, qword ptr [rsp + 0x38]
+e604cb mov rax, rbx
+e604ce mov rbx, qword ptr [rsp + 0x30]
+e604d3 add rsp, 0x20
+e604d7 pop rdi
+e604d8 ret 

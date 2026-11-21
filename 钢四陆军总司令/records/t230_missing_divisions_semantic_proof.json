@@ -1,0 +1,53 @@
+{
+  "promoted_fields": [],
+  "target": "world.shortages.missing_divisions",
+  "promoted": false,
+  "named_consumers": {
+    "desired_force": {
+      "name": "_TotalFrontDesiredNrDivisions",
+      "function": "0x697db0",
+      "status": "independently named, rejected as a substitute for missing_divisions"
+    },
+    "req_divs": {
+      "name": "REQ_DIVS",
+      "function": "0x177d240",
+      "status": "garrison-order UI label in the same window as garrison_order_headline and GARRISON_ORDER_CONF; window remains PARTIAL because of unresolved indirect jump 0x177d3fa; required is not automatically missing"
+    },
+    "rejected_non_staffing": [
+      "VOLUNTEERS_DIVISIONS_REQUIRED",
+      "TRIGGER_IS_FRONTAGE_FULL",
+      "TRIGGER_AI_WANTS_DIVISIONS_*",
+      "desired_nr_divisions",
+      "num_wanted_divisions",
+      "CAIFront BalanceUnitsOnFrontBetweenArmies / SpatializedDistributionOfUnassignedUnits"
+    ]
+  },
+  "own_front_membership": {
+    "official_country_theatre_array_count": 1,
+    "player_theatre": "0x23e02f93b20",
+    "list": "CTheatre+0x50",
+    "front_ids": [
+      1278,
+      76,
+      70,
+      1734,
+      1735
+    ],
+    "kind": 66,
+    "theatre_backpointer": "+0x18 equals the same player theatre for all five",
+    "correction": "Offsets +0x230/+0x410/+0x5f0/+0x7d0 on the first object overlap packed neighboring CTheatre+0x50 lists at stride 0x1e0 (counts 3,73,3,8). Those theatres are real CTheatre objects but are not in the official country+0x168 array of length 1, so they are not current own-theatre membership."
+  },
+  "no_official_missing_field": "No independently named missing/shortfall consumer was found. Desired force, garrison REQ_DIVS, volunteer/AI-wanted/frontage names, and a derived required-minus-assigned quantity are all rejected as official world.shortages.missing_divisions.",
+  "inventory": {
+    "verified": 87,
+    "unverified": 29,
+    "memory_unverified": 17,
+    "nonmemory_unverified": 12,
+    "tables": 14,
+    "fields": 116,
+    "columns": 3,
+    "rows_changed": 0,
+    "sha256": "8213d5be560adf5565e8244f45e16fc2e5aa987ad2dbbc8ccf057939dd18cbf3"
+  },
+  "next_target": "world.crises.severity via an independently named severity consumer on the already-qualified alert/crisis witness; do not infer from alert 3/4 names or supply thresholds, and do not expand the 3/25 member census, notes, or full feed."
+}

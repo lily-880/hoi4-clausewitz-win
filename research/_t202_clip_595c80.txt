@@ -1,0 +1,82 @@
+595c80 mov qword ptr [rsp + 8], rbx
+595c85 mov qword ptr [rsp + 0x10], rsi
+595c8a push rdi
+595c8b sub rsp, 0x50
+595c8f mov rbx, rcx
+595c92 cmp dword ptr [rcx + 0x20], -1
+595c96 jle 0x595ca5
+595c98 mov ecx, dword ptr [rcx + 0x20]
+595c9b call 0x253ecd0
+595ca0 jmp 0x595d7e
+595ca5 cmp qword ptr [rcx + 0x48], 0
+595caa jne 0x595d7a
+595cb0 mov ecx, dword ptr [rip + 0x30fdde2]
+595cb6 mov rax, qword ptr gs:[0x58]
+595cbf mov edx, 0x20ec
+595cc4 mov rax, qword ptr [rax + rcx*8]
+595cc8 lea rsi, [rip + 0x2e48891]
+595ccf mov eax, dword ptr [rdx + rax]
+595cd2 cmp dword ptr [rip + 0x2e48898], eax
+595cd8 jg 0x595d9e
+595cde mov qword ptr [rsp + 0x20], rsi
+595ce3 mov rcx, rsi
+595ce6 call 0x25568f0
+595ceb mov byte ptr [rsp + 0x28], 1
+595cf0 cmp qword ptr [rbx + 0x48], 0
+595cf5 jne 0x595d71
+595cf7 cmp byte ptr [rbx + 0x34], 0
+595cfb je 0x595d5a
+595cfd lea rcx, [rbx + 0x2c]
+595d01 call 0x588d70
+595d06 lea rdx, [rsp + 0x30]
+595d0b mov rcx, rax
+595d0e call 0x2548720
+595d13 mov rdx, rax
+595d16 lea rcx, [rbx + 0x38]
+595d1a call 0x121490
+595d1f mov rdx, qword ptr [rsp + 0x48]
+595d24 cmp rdx, 0xf
+595d28 jbe 0x595d71
+595d2a inc rdx
+595d2d mov rcx, qword ptr [rsp + 0x30]
+595d32 mov rax, rcx
+595d35 cmp rdx, 0x1000
+595d3c jb 0x595d53
+595d3e add rdx, 0x27
+595d42 mov rcx, qword ptr [rcx - 8]
+595d46 sub rax, rcx
+595d49 add rax, -8
+595d4d cmp rax, 0x1f
+595d51 ja 0x595d98
+595d53 call 0x25a0218
+595d58 jmp 0x595d71
+595d5a mov r8d, 1
+595d60 lea rdx, [rip + 0x21feb59]
+595d67 lea rcx, [rbx + 0x38]
+595d6b call 0x12b3c0
+595d70 nop 
+595d71 mov rcx, rsi
+595d74 call 0x2556b20
+595d79 nop 
+595d7a lea rax, [rbx + 0x38]
+595d7e cmp qword ptr [rax + 0x18], 0xf
+595d83 jbe 0x595d88
+595d85 mov rax, qword ptr [rax]
+595d88 mov rbx, qword ptr [rsp + 0x60]
+595d8d mov rsi, qword ptr [rsp + 0x68]
+595d92 add rsp, 0x50
+595d96 pop rdi
+595d97 ret 
+595d98 call 0x25c7db4
+595d9d nop 
+595d9e lea rcx, [rip + 0x2e487cb]
+595da5 call 0x25a0588
+595daa cmp dword ptr [rip + 0x2e487bf], -1
+595db1 jne 0x595cde
+595db7 xor edx, edx
+595db9 mov rcx, rsi
+595dbc call 0x2556650
+595dc1 nop 
+595dc2 lea rcx, [rip + 0x2e487a7]
+595dc9 call 0x25a051c
+595dce jmp 0x595cde

@@ -1,0 +1,47 @@
+{
+  "parser": "0xab3660",
+  "source": "adjacencies.csv type strings",
+  "clip": "research/_t180_clip_0xab3660.txt",
+  "writer_call": "0xab3e39 / 0xab3e9f call 0x14a6540 with movzx r8d, r12b",
+  "types": {
+    "0": {
+      "name": "land",
+      "how": "default xor r12b, r12b at 0xab3868, also bitmap fall-through"
+    },
+    "1": {
+      "name": "sea",
+      "how": "0xab38ea mov r12b, 1 after len-3 'sea' match"
+    },
+    "2": {
+      "name": "river",
+      "how": "0xab3888 sete r12b; 0xab388c add r12b, r12b"
+    },
+    "3": {
+      "name": "river_large",
+      "how": "0xab38ba mov r12b, 3 after len 0xb match"
+    },
+    "4": {
+      "name": "impassable",
+      "how": "0xab391a mov r12b, 4 after len 0xa match"
+    }
+  },
+  "pathfinding_sea_index": {
+    "func": "0xd55250",
+    "clip": "research/_t180_clip_sea_province_pathfinding_0xd55250.txt",
+    "table": "CMap+0x238 i32 per province id; -1 means sea",
+    "assert": "Neighbour is a sea province..."
+  },
+  "live_own_12_provinces": {
+    "proof": "research/t180_landindex_and_edges.json",
+    "edges": 73,
+    "type_hist": {
+      "0": 57,
+      "2": 16
+    },
+    "sea_or_impassable": 0,
+    "land_index_minus1": 0,
+    "internal_reciprocal": "22/22",
+    "self_edges": 0,
+    "note": "ETH sample is landlocked so types 1 and 4 are parser/writer proven, not live-sampled this scene"
+  }
+}

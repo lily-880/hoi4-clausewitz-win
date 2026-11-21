@@ -1,0 +1,88 @@
+e6b835 cmp r14d, dword ptr [rcx + 8]
+e6b839 jg 0xe6b89f
+e6b83b mov rbp, qword ptr [rcx]
+e6b83e mov r15, rax
+e6b841 shl r15, 5
+e6b845 mov rbx, rsi
+e6b848 add r15, rsi
+e6b84b cmp rsi, r15
+e6b84e je 0xe6b872
+e6b850 movups xmm0, xmmword ptr [rbx + 0x10]
+e6b854 mov rax, rbp
+e6b857 xor edx, edx
+e6b859 mov rcx, rbx
+e6b85c add rbp, 0x20
+e6b860 movups xmmword ptr [rax + 0x10], xmm0
+e6b864 mov rax, qword ptr [rbx]
+e6b867 call qword ptr [rax]
+e6b869 add rbx, 0x20
+e6b86d cmp rbx, r15
+e6b870 jne 0xe6b850
+e6b872 movsxd rcx, dword ptr [rdi + 0xc]
+e6b876 mov r8, r14
+e6b879 mov r9, qword ptr [rdi]
+e6b87c shl rcx, 5
+e6b880 shl r8, 5
+e6b884 add r9, rcx
+e6b887 add r8, rsi
+e6b88a lea rdx, [rcx + rsi]
+e6b88e mov rcx, rdi
+e6b891 call 0x6670a0
+e6b896 mov dword ptr [rdi + 0xc], r14d
+e6b89a jmp 0xe6b941
+e6b89f call 0x2010d0
+e6b8a4 movsxd rax, dword ptr [rdi + 0xc]
+e6b8a8 cmp r14d, eax
+e6b8ab jle 0xe6b8f8
+e6b8ad mov eax, dword ptr [rdi + 8]
+e6b8b0 cmp r14d, eax
+e6b8b3 jle 0xe6b8f3
+e6b8b5 mov rcx, qword ptr [rdi + 0x10]
+e6b8b9 mov r8d, 0x10
+e6b8bf movd xmm0, eax
+e6b8c3 cvtdq2ps xmm0, xmm0
+e6b8c6 mov rax, qword ptr [rcx]
+e6b8c9 mulss xmm0, dword ptr [rip + 0x192a0b7]
+e6b8d1 cvttss2si ebx, xmm0
+e6b8d5 cmp r14d, ebx
+e6b8d8 cmovg ebx, r14d
+e6b8dc mov edx, ebx
+e6b8de shl rdx, 5
+e6b8e2 call qword ptr [rax + 8]
+e6b8e5 mov r8d, ebx
+e6b8e8 mov rcx, rdi
+e6b8eb mov rdx, rax
+e6b8ee call 0x667c60
+e6b8f3 mov r15, r14
+e6b8f6 jmp 0xe6b927
+e6b8f8 mov r15, r14
+e6b8fb mov rbp, rax
+e6b8fe cmp r14, rax
+e6b901 jge 0xe6b927
+e6b903 mov rbx, r14
+e6b906 shl rbx, 5
+e6b90a sub rbp, r14
+e6b90d nop dword ptr [rax]
+e6b910 mov rcx, qword ptr [rdi]
+e6b913 xor edx, edx
+e6b915 add rcx, rbx
+e6b918 mov rax, qword ptr [rcx]
+e6b91b call qword ptr [rax]
+e6b91d add rbx, 0x20
+e6b921 sub rbp, 1
+e6b925 jne 0xe6b910
+e6b927 shl r15, 5
+e6b92b mov rdx, rsi
+e6b92e mov dword ptr [rdi + 0xc], r14d
+e6b932 mov rcx, rdi
+e6b935 mov r9, qword ptr [rdi]
+e6b938 lea r8, [rsi + r15]
+e6b93c call 0x6670a0
+e6b941 mov rbx, qword ptr [rsp + 0x48]
+e6b946 mov rbp, qword ptr [rsp + 0x50]
+e6b94b mov rsi, qword ptr [rsp + 0x58]
+e6b950 add rsp, 0x20
+e6b954 pop r15
+e6b956 pop r14
+e6b958 pop rdi
+e6b959 ret 

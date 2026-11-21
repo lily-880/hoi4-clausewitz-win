@@ -1,0 +1,47 @@
+e631d0 mov qword ptr [rsp + 8], rbx
+e631d5 mov qword ptr [rsp + 0x18], rsi
+e631da mov qword ptr [rsp + 0x10], rdx
+e631df push rdi
+e631e0 sub rsp, 0x40
+e631e4 mov rsi, r8
+e631e7 mov rdi, rdx
+e631ea mov rbx, rcx
+e631ed call 0x2f3ba0
+e631f2 cmp byte ptr [rbx + 0x678], 0
+e631f9 je 0xe63253
+e631fb test rsi, rsi
+e631fe je 0xe63210
+e63200 mov r8, rsi
+e63203 mov rdx, rdi
+e63206 mov rcx, rbx
+e63209 call 0x2ee9e0
+e6320e jmp 0xe63263
+e63210 lea rsi, [rip + 0x229b109]
+e63217 mov qword ptr [rsp + 0x28], rsi
+e6321c xor eax, eax
+e6321e mov qword ptr [rsp + 0x30], rax
+e63223 mov byte ptr [rsp + 0x38], al
+e63227 mov dword ptr [rsp + 0x3c], 0x3f666666
+e6322f lea r8, [rsp + 0x20]
+e63234 mov rdx, rdi
+e63237 mov rcx, rbx
+e6323a call 0x2ee9e0
+e6323f movzx ebx, al
+e63242 mov rcx, qword ptr [rsp + 0x28]
+e63247 cmp rcx, rsi
+e6324a je 0xe63266
+e6324c call 0x25a0218
+e63251 jmp 0xe63266
+e63253 lea rcx, [rbx + 0x620]
+e6325a mov rax, qword ptr [rcx]
+e6325d mov rdx, rdi
+e63260 call qword ptr [rax + 0x18]
+e63263 movzx ebx, al
+e63266 mov rcx, rdi
+e63269 call 0x57c5f0
+e6326e movzx eax, bl
+e63271 mov rbx, qword ptr [rsp + 0x50]
+e63276 mov rsi, qword ptr [rsp + 0x60]
+e6327b add rsp, 0x40
+e6327f pop rdi
+e63280 ret 

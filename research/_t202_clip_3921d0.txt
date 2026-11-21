@@ -1,0 +1,166 @@
+3921d0 mov qword ptr [rsp + 8], rbx
+3921d5 mov qword ptr [rsp + 0x10], rdx
+3921da push rbp
+3921db push rsi
+3921dc push rdi
+3921dd push r12
+3921df push r14
+3921e1 lea rbp, [rsp - 0x70]
+3921e6 sub rsp, 0x170
+3921ed mov r14, r8
+3921f0 mov rdi, rdx
+3921f3 mov rsi, rcx
+3921f6 mov dword ptr [rsp + 0x30], 0
+3921fe lea rcx, [r8 + 8]
+392202 call 0xc07eb0
+392207 mov rbx, rax
+39220a lea r12, [rip - 0xdcca1]
+392211 mov qword ptr [rsp + 0x20], r12
+392216 lea r9, [rip - 0xdd1bd]
+39221d mov edx, 0x68
+392222 mov r8d, 2
+392228 lea rcx, [rbp - 0x60]
+39222c call 0x25a0600
+392231 nop 
+392232 mov rdx, rbx
+392235 lea rcx, [rsp + 0x38]
+39223a call 0x11f770
+39223f lea rax, [rip + 0x242a4c2]
+392246 mov qword ptr [rbp - 0x58], rax
+39224a mov dword ptr [rbp - 0x60], 1
+392251 lea rdx, [rsp + 0x38]
+392256 lea rcx, [rbp - 0x30]
+39225a call 0x121490
+39225f mov rdx, qword ptr [rsp + 0x50]
+392264 cmp rdx, 0xf
+392268 jbe 0x39229c
+39226a inc rdx
+39226d mov rcx, qword ptr [rsp + 0x38]
+392272 mov rax, rcx
+392275 cmp rdx, 0x1000
+39227c jb 0x392297
+39227e add rdx, 0x27
+392282 mov rcx, qword ptr [rcx - 8]
+392286 sub rax, rcx
+392289 add rax, -8
+39228d cmp rax, 0x1f
+392291 ja 0x392480
+392297 call 0x25a0218
+39229c lea rdx, [rsi + 0x128]
+3922a3 lea rcx, [rsp + 0x38]
+3922a8 call 0x11f770
+3922ad lea rax, [rip + 0x2454a34]
+3922b4 mov qword ptr [rbp + 0x10], rax
+3922b8 mov dword ptr [rbp + 8], 1
+3922bf lea rdx, [rsp + 0x38]
+3922c4 lea rcx, [rbp + 0x38]
+3922c8 call 0x121490
+3922cd mov rdx, qword ptr [rsp + 0x50]
+3922d2 cmp rdx, 0xf
+3922d6 jbe 0x39230a
+3922d8 inc rdx
+3922db mov rcx, qword ptr [rsp + 0x38]
+3922e0 mov rax, rcx
+3922e3 cmp rdx, 0x1000
+3922ea jb 0x392305
+3922ec add rdx, 0x27
+3922f0 mov rcx, qword ptr [rcx - 8]
+3922f4 sub rax, rcx
+3922f7 add rax, -8
+3922fb cmp rax, 0x1f
+3922ff ja 0x392480
+392305 call 0x25a0218
+39230a mov r9d, 2
+392310 lea r8, [rbp - 0x60]
+392314 lea rdx, [rip + 0x24549dd]
+39231b lea rcx, [rsp + 0x78]
+392320 call 0x22aeab0
+392325 mov dword ptr [rsp + 0x30], 0x1c
+39232d mov r9, r12
+392330 mov edx, 0x68
+392335 mov r8d, 2
+39233b lea rcx, [rbp - 0x60]
+39233f call 0x25a06e4
+392344 nop 
+392345 lea r8, [rsp + 0x78]
+39234a mov rdx, r14
+39234d lea rcx, [rsp + 0x58]
+392352 call 0x116c2c0
+392357 nop 
+392358 mov rdx, qword ptr [rbp - 0x70]
+39235c cmp rdx, 0xf
+392360 jbe 0x392395
+392362 inc rdx
+392365 mov rcx, qword ptr [rsp + 0x78]
+39236a mov rax, rcx
+39236d cmp rdx, 0x1000
+392374 jb 0x39238f
+392376 add rdx, 0x27
+39237a mov rcx, qword ptr [rcx - 8]
+39237e sub rax, rcx
+392381 add rax, -8
+392385 cmp rax, 0x1f
+392389 ja 0x392486
+39238f call 0x25a0218
+392394 nop 
+392395 mov qword ptr [rdi + 0x10], 0
+39239d mov qword ptr [rdi + 0x18], 0
+3923a5 movups xmm0, xmmword ptr [rsp + 0x58]
+3923aa movups xmmword ptr [rdi], xmm0
+3923ad movups xmm1, xmmword ptr [rsp + 0x68]
+3923b2 movups xmmword ptr [rdi + 0x10], xmm1
+3923b6 movdqa xmm0, xmmword ptr [rip + 0x24035d2]
+3923be movdqu xmmword ptr [rsp + 0x68], xmm0
+3923c4 mov byte ptr [rsp + 0x58], 0
+3923c9 mov dword ptr [rsp + 0x30], 0x3a
+3923d1 mov rcx, qword ptr [rdi + 0x10]
+3923d5 mov rdx, qword ptr [rdi + 0x18]
+3923d9 mov rax, rdx
+3923dc sub rax, rcx
+3923df cmp rax, 1
+3923e3 jb 0x392401
+3923e5 lea rax, [rcx + 1]
+3923e9 mov qword ptr [rdi + 0x10], rax
+3923ed mov rax, rdi
+3923f0 cmp rdx, 0xf
+3923f4 jbe 0x3923f9
+3923f6 mov rax, qword ptr [rdi]
+3923f9 mov word ptr [rax + rcx], 0xa
+3923ff jmp 0x392427
+392401 mov qword ptr [rsp + 0x20], 1
+39240a lea r9, [rip + 0x2404a1f]
+392411 movzx r8d, byte ptr [rbp + 0xb0]
+392419 mov edx, 1
+39241e mov rcx, rdi
+392421 call 0x11f240
+392426 nop 
+392427 mov rdx, qword ptr [rsp + 0x70]
+39242c cmp rdx, 0xf
+392430 jbe 0x392460
+392432 inc rdx
+392435 mov rcx, qword ptr [rsp + 0x58]
+39243a mov rax, rcx
+39243d cmp rdx, 0x1000
+392444 jb 0x39245b
+392446 add rdx, 0x27
+39244a mov rcx, qword ptr [rcx - 8]
+39244e sub rax, rcx
+392451 add rax, -8
+392455 cmp rax, 0x1f
+392459 ja 0x39247a
+39245b call 0x25a0218
+392460 mov rax, rdi
+392463 mov rbx, qword ptr [rsp + 0x1a0]
+39246b add rsp, 0x170
+392472 pop r14
+392474 pop r12
+392476 pop rdi
+392477 pop rsi
+392478 pop rbp
+392479 ret 
+39247a call 0x25c7db4
+39247f nop 
+392480 call 0x25c7db4
+392485 nop 
+392486 call 0x25c7db4
+39248b int3 

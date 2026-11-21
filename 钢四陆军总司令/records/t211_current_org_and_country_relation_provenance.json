@@ -1,0 +1,252 @@
+{
+  "guard": {
+    "pid": 6496,
+    "base": "0x7ff758fc0000",
+    "gs": "0x2192f2a29e0",
+    "idler": "0x21997a461f0",
+    "country": "0x2195320b030",
+    "country_index": 3,
+    "pause": 1,
+    "speed_slot": 0,
+    "year": 1938,
+    "day_index": 176,
+    "ui_date": "1938-06-26",
+    "ui_hour": 2,
+    "hour_tick": 60781105,
+    "markers": {
+      "safe_land_tool_gate.OPEN": false,
+      "strategic_only_tool_gate.OPEN": false
+    }
+  },
+  "army_vf120": "0xce4d60",
+  "flows": {
+    "0xce4d60": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xce4d60",
+      "window_size": 384,
+      "reachable_instruction_count": 4,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [],
+      "asm": [
+        "ce4d60 mov rax, qword ptr [rcx + 0x428]",
+        "ce4d67 mov qword ptr [rdx], rax",
+        "ce4d6a mov rax, rdx",
+        "ce4d6d ret "
+      ]
+    },
+    "0x748400": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0x748400",
+      "window_size": 256,
+      "reachable_instruction_count": 43,
+      "unresolved_edges": [],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0x74842a",
+          "operand": "0xc08790"
+        }
+      ],
+      "asm": [
+        "748400 mov qword ptr [rsp + 8], rbx",
+        "748405 mov qword ptr [rsp + 0x10], rsi",
+        "74840a push rdi",
+        "74840b sub rsp, 0x20",
+        "74840f mov eax, dword ptr [rcx + 8]",
+        "748412 mov rdi, rdx",
+        "748415 mov edx, dword ptr [rdx]",
+        "748417 mov rsi, rcx",
+        "74841a cmp edx, eax",
+        "74841c je 0x748476",
+        "74841e test edx, edx",
+        "748420 je 0x748434",
+        "748422 test eax, eax",
+        "748424 je 0x748434",
+        "748426 add rcx, 8",
+        "74842a call 0xc08790",
+        "74842f cmp dword ptr [rdi + 4], eax",
+        "748432 je 0x748476",
+        "748434 cmp dword ptr [rsi + 8], 0",
+        "748438 jle 0x748476",
+        "74843a mov rax, qword ptr [rsi + 0xf88]",
+        "748441 movsxd rdx, dword ptr [rdi + 4]",
+        "748445 mov rcx, qword ptr [rax + 8]",
+        "748449 mov rax, qword ptr [rcx + rdx*8]",
+        "74844d test rax, rax",
+        "748450 je 0x748476",
+        "748452 mov rax, qword ptr [rax + 0x2e8]",
+        "748459 test rax, rax",
+        "74845c je 0x748476",
+        "74845e cmp byte ptr [rax + 0x49], 0",
+        "748462 jne 0x748476",
+        "748464 mov al, 1",
+        "748466 mov rbx, qword ptr [rsp + 0x30]",
+        "74846b mov rsi, qword ptr [rsp + 0x38]",
+        "748470 add rsp, 0x20",
+        "748474 pop rdi",
+        "748475 ret ",
+        "748476 mov rbx, qword ptr [rsp + 0x30]",
+        "74847b xor al, al",
+        "74847d mov rsi, qword ptr [rsp + 0x38]",
+        "748482 add rsp, 0x20",
+        "748486 pop rdi",
+        "748487 ret "
+      ]
+    },
+    "0xc07bf0": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc07bf0",
+      "window_size": 176,
+      "reachable_instruction_count": 37,
+      "unresolved_edges": [
+        {
+          "address": "0xc07c04",
+          "target": "0xc07ce7",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xc07c69",
+          "target": "0xc07ce7",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xc07c72",
+          "target": "0xc07ce7",
+          "reason": "conditional target outside window"
+        },
+        {
+          "address": "0xc07ca0",
+          "reason": "outside window"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc07c4f",
+          "operand": "0x254ab40"
+        },
+        {
+          "site": "0xc07c92",
+          "operand": "0x25a04d0"
+        }
+      ],
+      "asm": [
+        "c07bf0 mov qword ptr [rsp + 0x10], rbx",
+        "c07bf5 push rdi",
+        "c07bf6 sub rsp, 0x30",
+        "c07bfa cmp byte ptr [rip + 0x2a87a10], 0",
+        "c07c01 mov rbx, rcx",
+        "c07c04 je 0xc07ce7",
+        "c07c0a cmp byte ptr [rip + 0x27d551f], 0",
+        "c07c11 jne 0xc07c62",
+        "c07c13 cmp qword ptr [rip + 0x27d5a95], 0",
+        "c07c1b jne 0xc07c62",
+        "c07c1d lea rax, [rip + 0x27d550c]",
+        "c07c24 mov byte ptr [rsp + 0x40], 0",
+        "c07c29 mov qword ptr [rsp + 0x28], rax",
+        "c07c2e lea rdx, [rip + 0x1b8cae8]",
+        "c07c35 lea rax, [rsp + 0x40]",
+        "c07c3a mov r9b, 1",
+        "c07c3d mov r8d, 0x464",
+        "c07c43 mov qword ptr [rsp + 0x20], rax",
+        "c07c48 lea rcx, [rip + 0x1b8cbe9]",
+        "c07c4f call 0x254ab40",
+        "c07c54 cmp byte ptr [rsp + 0x40], 0",
+        "c07c59 mov byte ptr [rip + 0x27d54d1], al",
+        "c07c5f je 0xc07c62",
+        "c07c61 int3 ",
+        "c07c62 cmp byte ptr [rip + 0x2a879a8], 0",
+        "c07c69 je 0xc07ce7",
+        "c07c6b cmp byte ptr [rip + 0x27d54bf], 0",
+        "c07c72 jne 0xc07ce7",
+        "c07c74 mov rax, qword ptr gs:[0x58]",
+        "c07c7d mov ecx, dword ptr [rip + 0x2a8be15]",
+        "c07c83 mov rdi, qword ptr [rax + rcx*8]",
+        "c07c87 mov eax, 0x20e8",
+        "c07c8c cmp byte ptr [rax + rdi], 0",
+        "c07c90 jne 0xc07c97",
+        "c07c92 call 0x25a04d0",
+        "c07c97 mov eax, 0x10",
+        "c07c9c cmp dword ptr [rax + rdi], 0"
+      ]
+    },
+    "0xc08790": {
+      "scope": "direct-control reachability in bounded byte window; calls opaque; no global-write absence claim",
+      "window_start": "0xc08790",
+      "window_size": 176,
+      "reachable_instruction_count": 39,
+      "unresolved_edges": [
+        {
+          "address": "0xc0883e",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xc0883e",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xc0883e",
+          "reason": "decode/end failure"
+        },
+        {
+          "address": "0xc0883e",
+          "reason": "decode/end failure"
+        }
+      ],
+      "external_tails": [],
+      "calls": [
+        {
+          "site": "0xc087e4",
+          "operand": "0x25a04d0"
+        },
+        {
+          "site": "0xc0882b",
+          "operand": "0x254ab40"
+        }
+      ],
+      "asm": [
+        "c08790 push rbx",
+        "c08792 sub rsp, 0x30",
+        "c08796 cmp qword ptr [rip + 0x27d4f12], 0",
+        "c0879e mov rbx, rcx",
+        "c087a1 jne 0xc087ab",
+        "c087a3 mov eax, dword ptr [rcx]",
+        "c087a5 add rsp, 0x30",
+        "c087a9 pop rbx",
+        "c087aa ret ",
+        "c087ab cmp byte ptr [rip + 0x2a86e5f], 0",
+        "c087b2 je 0xc0883e",
+        "c087b8 cmp byte ptr [rip + 0x27d4972], 0",
+        "c087bf jne 0xc0883e",
+        "c087c1 mov rax, qword ptr gs:[0x58]",
+        "c087ca mov ecx, dword ptr [rip + 0x2a8b2c8]",
+        "c087d0 mov qword ptr [rsp + 0x40], rdi",
+        "c087d5 mov rdi, qword ptr [rax + rcx*8]",
+        "c087d9 mov eax, 0x20e8",
+        "c087de cmp byte ptr [rax + rdi], 0",
+        "c087e2 jne 0xc087e9",
+        "c087e4 call 0x25a04d0",
+        "c087e9 mov eax, 0x10",
+        "c087ee cmp dword ptr [rax + rdi], 0",
+        "c087f2 mov rdi, qword ptr [rsp + 0x40]",
+        "c087f7 je 0xc0883e",
+        "c087f9 lea rax, [rip + 0x27d4931]",
+        "c08800 mov byte ptr [rsp + 0x48], 0",
+        "c08805 mov qword ptr [rsp + 0x28], rax",
+        "c0880a lea rdx, [rip + 0x1b8bf0c]",
+        "c08811 lea rax, [rsp + 0x48]",
+        "c08816 mov r9b, 1",
+        "c08819 mov r8d, 0x465",
+        "c0881f mov qword ptr [rsp + 0x20], rax",
+        "c08824 lea rcx, [rip + 0x1b8c035]",
+        "c0882b call 0x254ab40",
+        "c08830 cmp byte ptr [rsp + 0x48], 0",
+        "c08835 mov byte ptr [rip + 0x27d48f6], al",
+        "c0883b je 0xc0883e",
+        "c0883d int3 "
+      ]
+    }
+  },
+  "scope": "candidate end-condition model provenance only, no native execution or field promotion"
+}

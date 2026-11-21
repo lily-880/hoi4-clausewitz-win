@@ -1,0 +1,29 @@
+e6b5c4 mov qword ptr [rsp + 0x48], rbx
+e6b5c9 movzx ebx, byte ptr [rsp + 0x40]
+e6b5ce mov qword ptr [rsp + 0x50], rsi
+e6b5d3 mov esi, ecx
+e6b5d5 nop word ptr [rax + rax]
+e6b5e0 mov rdx, qword ptr [rdi + 0x18]
+e6b5e4 mov rcx, qword ptr [rdi + 0x10]
+e6b5e8 mov rax, rdx
+e6b5eb sub rax, rcx
+e6b5ee cmp rax, 1
+e6b5f2 jb 0xe6b610
+e6b5f4 lea rax, [rcx + 1]
+e6b5f8 mov qword ptr [rdi + 0x10], rax
+e6b5fc mov rax, rdi
+e6b5ff cmp rdx, 0xf
+e6b603 jbe 0xe6b608
+e6b605 mov rax, qword ptr [rdi]
+e6b608 mov word ptr [rax + rcx], 0x20
+e6b60e jmp 0xe6b631
+e6b610 lea r9, [rip + 0x19292a9]
+e6b617 mov qword ptr [rsp + 0x20], 1
+e6b620 movzx r8d, bl
+e6b624 mov edx, 1
+e6b629 mov rcx, rdi
+e6b62c call 0x11f240
+e6b631 sub rsi, 1
+e6b635 jne 0xe6b5e0
+e6b637 mov rsi, qword ptr [rsp + 0x50]
+e6b63c mov rbx, qword ptr [rsp + 0x48]

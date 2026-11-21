@@ -1,0 +1,17 @@
+e6bc10 push rbx
+e6bc12 sub rsp, 0x20
+e6bc16 lea rax, [rcx + 0x10]
+e6bc1a mov rbx, rdx
+e6bc1d cmp rdx, rax
+e6bc20 je 0xe6bc3a
+e6bc22 mov rax, qword ptr [rcx]
+e6bc25 call qword ptr [rax + 0x38]
+e6bc28 mov rdx, rbx
+e6bc2b mov rcx, rax
+e6bc2e mov r8, qword ptr [rax]
+e6bc31 add rsp, 0x20
+e6bc35 pop rbx
+e6bc36 jmp qword ptr [r8 + 0x10]
+e6bc3a add rsp, 0x20
+e6bc3e pop rbx
+e6bc3f ret 

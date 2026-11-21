@@ -1,0 +1,25 @@
+e6b080 mov qword ptr [rsp + 8], rbx
+e6b085 push rdi
+e6b086 sub rsp, 0x20
+e6b08a cmp qword ptr [rcx + 8], 0
+e6b08f mov rdi, rcx
+e6b092 je 0xe6b0b4
+e6b094 add rcx, 8
+e6b098 call 0x2010d0
+e6b09d mov rcx, qword ptr [rdi + 0x18]
+e6b0a1 mov rdx, qword ptr [rdi + 8]
+e6b0a5 mov rax, qword ptr [rcx]
+e6b0a8 call qword ptr [rax + 0x10]
+e6b0ab xor eax, eax
+e6b0ad mov qword ptr [rdi + 8], rax
+e6b0b1 mov dword ptr [rdi + 0x10], eax
+e6b0b4 mov rcx, qword ptr [rdi]
+e6b0b7 test rcx, rcx
+e6b0ba je 0xe6b0c6
+e6b0bc mov rax, qword ptr [rcx]
+e6b0bf mov edx, 1
+e6b0c4 call qword ptr [rax]
+e6b0c6 mov rbx, qword ptr [rsp + 0x30]
+e6b0cb add rsp, 0x20
+e6b0cf pop rdi
+e6b0d0 ret 

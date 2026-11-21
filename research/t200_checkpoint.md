@@ -1,0 +1,30 @@
+# t200 checkpoint（持续严格只读）
+
+授权pt184u继续静态/只读工作；禁止Post/游戏内存写入/远程函数调用/解除暂停/存档/commit/push。开段pid12948，官方暂停，速度槽0，全部已读计划executing=false，闸门关闭。
+
+块1：已将32项剩余内存候选按supply/march_order/visibility/plans/combats/crises/wars/shortages分组落盘t200_candidate_triage.json。优先走此前未拆解的CPauseGame Clone→队列sink/drain→执行回执链、Combat时间字段写入者、计划type2下的fallback标志及tooltip分流，而非重复空快照。
+
+## 块2：暂停对象/队列生命周期的实质纠偏
+工厂0xE53A00初始化+0x48/+0x49为0，+0x1C/+0x20序号为0，没有创建时间戳；失败对象与成功对象工厂VT相同，历史失败对象缺Post前字节，不能伪造对照。CSink0x23F5D40在Post时用server+0xD0原子分配序号（故“先构造导致序号过期”无证据），序列化后在0x23F5F66析构原始对象。Drain0x23F6550 Clone后又析构中间对象；CPauseGame Clone0xE531E0明确复制+0x48/+0x49和name+0x28。Writer0xE581E0和Parser0xE57EF0均将0x308映射+0x48、0x2966映射+0x49，未发现预制对象专用失效机制。
+Post0x22C4250的0x22C471A只调用sink，随后无条件bl=1；返回1只证明sink被调用，不证明Execute。旧post_abi.py的FN_EXECUTE_LOOP=0x22C4710竟位于Post函数内部，不是函数入口；本版真正另表ExecuteLoop=0x22C4780，siteB=0x22C484D。SessionUpdate入口仍0x22C6480，但siteA应0x22C6D0D，旧值少0x70。将修正文档常量并加纯离线回归；这些旧site不是t198 do_post用到的地址，不能把它冒称故障根因。
+已证明采样器的失控遏制逻辑缺陷：_t198_order_sample.py第42行在实际pause回读之前设置unpaused=False，第43行断言pause1失败后，异常处理因该False跳过应急分支。这解释“检测到未暂停却没有当场进入遏制分支”，不解释底层pause命令为何失效。保留历史脚本，不在本段尝试任何应急Post。失败对象序列化payload、drained clone、Execute入口及setter结果均未记录，底层根因尚不能唯一定位。
+
+## 块3：补给重大新线索
+PE的MSVC RTTI class-hierarchy直接证明CArmy公开非虚基类CSupplyConsumer的mdisp=0x10（不是之前猜的+0x688，也不是缺少从CArmy到消费者的指针！）。次级vt0x29D6F78，析构thunk0xCCB4D4先sub rcx,0x10，派生writer0xCED2E0先call0xC5C0A0再call0xF4CA30，进一步证明两套writer共用次级this。真正disrupted_supply在consumer+0xA0即CArmy+0xB0；motorization在consumer+0x1D即CArmy+0x2D。基类虚表只13槽，多数通用序列化，ratio/in_supply不是凭不存在的虚拟getter推断。已保存新一轮0xF40000–0xF4D000短访问器候选与具体字段读取，下一步应追其供应分配/消费调用者，将单位this调整正确后再看ratio与isolated，不能仅凭继承关系升格三项。
+
+## 块4：计划/战斗新语义切入点
+官方tooltip0xFC9880使用this+0x90的UI类别跳表，分流this+0x224=0/1/2到防线/Fallback/进攻线；不能把这里的this+0x224当COrderInstance+0x30，必须继续追UI对象到实例的桥接。引用点0xFCA5F9/0xFCA4FF/0xFCA238均已绑定。COrderInstance官方writer的fallback字节为+0x298、midpoints数组+0x280，计划轴应追ORDER_MOVE子实例与其父/子链接，不能直接把midpoints当轴。
+新扫描定位Combat timer写点0x1348025增主对象+0x44（duration），0x134802E只在+0x40=-1时设0，另0x1348DA5增+0x40（day）。所以day/duration不是同一个字段，也不能由同为23互相替换。基构造0x147C240将day=-1、duration=0。下一步继续追0x1347FD0/0x1348D30的调度调用者与时间单位，不把整数贸然变GameTime。
+
+## 块5：仅本地可靠性修复
+已修正post_abi.py三处旧地址常量（真正Loop/两个Execute site），并将slot+0x58纠正命名为TYPE_TOKEN；CPauseGame在0xE56C30返回0x29EC就是类型token，不是PostExec回调。保留旧名兼容别名但明确禁止当actuator。该模块仍不执行Post。新增纯离线command_receipt.assess_pause_receipt，仅根据提供的实际pause值判定确认，不因queue accepted而写成已暂停；没有任何恢复动作或远程调用。
+补给访问器第一批0xF47840/0xF46B86经进一步反汇编被排除：它们操作按province/state索引的0x78字节行与dirty bits4/8，不是CSupplyConsumer+0x70字段，因此没有把它们冒称isolated。0xC50000–0xC5C000短函数扫描也没有找到可直接命名的ratio getter；下一步应从消费分配调用者/UI标签反向追，而非继续邻近地址猜测。
+
+## 块6：针对新证据的只读活体确认与接续任务
+已只读逐21师确认+0x10处次级vt均为0x29D6F78，COL offset=16且RTTI为CArmy，独立吻合CSupplyConsumer继承和序列化证据。读取motorization/disrupted_supply仅作基类定位证据，不输出到supply三项。已只读读取4实例官方fallback+0x298和midpoints头；证据存t200_new_live_evidence.json。读前后时钟完全不变、官方暂停、全部计划执行false。
+本块未新增字段升格，清单仍14表116字段3列，72/44，32项内存候选不变；SHA4219d8b0fa9c800fdb34ce3f2b12256c0a28490b21cf12da411f8dbe73aba91a。34项离线回归全部通过。全段0Post、0游戏写入、0远程调用，无存档/commit/push。
+工作仍有可执行的新链，未宣称穷尽或终止：
+A. 从CArmy+0x10消费者基类进入补给分配调用者，反查读取consumer+0x20..0x98的getter、公式及UI supply标签；不要继续在错误+0x688或F47840 state dirty结构上找。可先枚举CSupplyConsumer构造器VT引用及其分配者，跟踪0xCED300基类writer的调用前this流。
+B. 从0xFC9880的UI this+0x90/+0x224分流，追该UI对象构建/更新器到真实COrderInstance，再对应fallback+0x298和ORDER_MOVE子实例轴路径。现在桥接函数尚未深查，不应泛称无样本天花板。
+C. Combat从0x1347FD0和0x1348D30的调用者追调度单位，再追constructor0x147C240的生命周期与history写入，分离duration、day和GameTime起讫。
+D. 暂停底层失效还缺失败对象payload/clone/Execute trace，现阶段仅历史数据分析；已确认的遏制bug与地址文档错误不能冒称唯一底层根因。不得为补日志解除暂停或执行指令。
