@@ -1,0 +1,148 @@
+{
+  "title": "t256 two candidate native entrances closed; CO_ARMIES semantic certificate still missing",
+  "at_shanghai": "2026-11-22T19:32:10.7738480+08:00",
+  "timezone": "Asia/Shanghai (UTC+8)",
+  "exe_only": true,
+  "exe_sha256": "709f916afbebcfe64a26678702691aeb40945d206074c2a80de8e9d601fce148",
+  "candidate_entrances": [
+    {
+      "name": "CSetArmyLeaderCommand IsValid (existing cache label only)",
+      "rva": "0x18e0540",
+      "source": "research/_t194_clip_CSetArmyLeaderCommand_isvalid_0x18e0540.txt",
+      "source_scope": "historical cached disassembly, NOT newly fingerprinted name/receiver certificate",
+      "selected_cached_flow": [
+        "18e0554 mov rbp,rcx (command receiver)",
+        "18e0557 add rcx,0x30 -> BBB250",
+        "18e0578 lea rcx,[rbp+0x30] -> 2284870",
+        "18e0602 lea rcx,[rbp+0x28] -> 2284870",
+        "18e060e mov rcx,rsi ->34C290",
+        "18e0621 mov rcx,rsi ->C41310"
+      ],
+      "conclusion": "command/handle path has no independently bound CCountry+290 array traversal in inspected direct body. Opaque callees not chased or claimed globally irrelevant. Closed as certificate entrance."
+    },
+    {
+      "name": "musicplayer_button (actual current-fingerprint EXE literal)",
+      "parent_cached_function": "0x1925690",
+      "branch_rva": "0x1928eb4",
+      "actual_strings": [
+        {
+          "rva": "0x2a8bad0",
+          "text": "musicplayer_button"
+        },
+        {
+          "rva": "0x2a8bae8",
+          "text": "MUSICPLAYER_CLOSE_PLAYER"
+        },
+        {
+          "rva": "0x2a8bb08",
+          "text": "MUSICPLAYER_OPEN_PLAYER"
+        }
+      ],
+      "slice_bytes": 64,
+      "slice_sha256": "00d51710e88aac309ddf5dd656f66862fc8e18146a65cdeb49d95c19e29ca038",
+      "selected_disassembly": [
+        {
+          "rva": "0x1928eb4",
+          "instruction": "lea rdx, [rip + 0x1162c15]"
+        },
+        {
+          "rva": "0x1928ebb",
+          "instruction": "mov rcx, rbx"
+        },
+        {
+          "rva": "0x1928ebe",
+          "instruction": "call 0x121730"
+        },
+        {
+          "rva": "0x1928ec3",
+          "instruction": "test al, al"
+        },
+        {
+          "rva": "0x1928ec5",
+          "instruction": "je 0x1928f51"
+        },
+        {
+          "rva": "0x1928ecb",
+          "instruction": "mov rcx, qword ptr [rdi + 0x40]"
+        },
+        {
+          "rva": "0x1928ecf",
+          "instruction": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": "0x1928ed2",
+          "instruction": "call qword ptr [rax + 0xb8]"
+        },
+        {
+          "rva": "0x1928ed8",
+          "instruction": "mov rcx, qword ptr [rax + 0x290]"
+        },
+        {
+          "rva": "0x1928edf",
+          "instruction": "call 0x183ffb0"
+        },
+        {
+          "rva": "0x1928ee4",
+          "instruction": "xor r9d, r9d"
+        },
+        {
+          "rva": "0x1928ee7",
+          "instruction": "xor r8d, r8d"
+        },
+        {
+          "rva": "0x1928eea",
+          "instruction": "test al, al"
+        },
+        {
+          "rva": "0x1928eec",
+          "instruction": "je 0x1928f23"
+        }
+      ],
+      "receiver_flow": "[rdi+0x40] -> virtual +0xB8 -> RAX; THEN [RAX+0x290] ->183FFB0; RAX not bound CCountry",
+      "conclusion": "Only +290 match in six selected saved evidence files belongs to music-player UI branch; cannot certify country-army list by offset coincidence or containing file name. Not claiming a complete type for returned receiver.",
+      "exact_callee_read": false,
+      "callee_boundary_gap": "Initial attempt did not obtain an exact unwind entry for183FFB0, so omitted callee entirely; no neighboring/unbounded fallback."
+    }
+  ],
+  "cache_queries": {
+    "t199": "existing partial named-string cache; army-count pattern0, broader army/division query9 actual strings, all define/army-group-order/border-war labels; no qualified country->army count consumer",
+    "t197": "existing index identified cached CSetArmyLeaderCommand IsValid source; index metadata not a runtime type proof",
+    "selected_box_native_files": 6,
+    "exact_290_matches": 1,
+    "scope": "Not a global literal/xref census or proof names do not exist in exe."
+  },
+  "references": [
+    "t226_named_national_manpower_consumers.json:9583-9615",
+    "t255_candidate_army_membership.md",
+    "t254_native_country_roles.md"
+  ],
+  "accounting": {
+    "exact_candidate_entrances": 2,
+    "file_collector_starts": 2,
+    "file_collector_completed": 1,
+    "file_collector_failed": 1,
+    "failure": "exact callee entry missing; no successful collector claimed from failed attempt",
+    "live_guards": 0,
+    "live_data_collections": 0,
+    "new_membership_polls": 0,
+    "tests": 0,
+    "test_reruns": 0,
+    "promotions": 0
+  },
+  "inventory": "87/29 (17memory+12nonmemory), unchanged; inventory not rehashed",
+  "inventory_sha256": "8213d5be560adf5565e8244f45e16fc2e5aa987ad2dbbc8ccf057939dd18cbf3",
+  "certificate_still_needed": "Actually named same-fingerprint registration/consumer -> independently typed CCountry receiver -> +290 header/count/stride -> typed CArmy elements with qualified scope; old Haiti layout, hard-coded production name, shape, and t255 literal absence are not substitutes.",
+  "safety": {
+    "game_memory_reads": 0,
+    "game_writes": 0,
+    "Post": 0,
+    "native_game_calls": 0,
+    "save_access": 0,
+    "time_pause_speed_UI_changes": 0,
+    "production_pin_and_gate_access": 0,
+    "full_module_or_process_scan": false,
+    "background_jobs": 0,
+    "retired_D_docs_access": false
+  },
+  "sync": "Only these two new records to C authority/box/checkout; single box sync receipt. No t255 package duplicated. Pending parent unified post-PR1 GitHub submission."
+}
