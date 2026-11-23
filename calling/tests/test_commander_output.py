@@ -304,6 +304,38 @@ class DecideV1(unittest.TestCase):
         self.assertEqual([i["expands_to_order_seqs"] for i in out["intents"]],
                          [[o["order_seq"] for o in out["orders"]]])
 
+    def _battle(self, orgs, stance):
+        units = [{"unit_id": i, "province_id": 10, "organization": o, "in_combat": True}
+                 for i, o in enumerate(orgs, 1)]
+        units.append({"unit_id": 99, "province_id": 11, "organization": 50})
+        return {"meta": {"game_time": GT, "allow_write": True,
+                         "geography_scope": {"kind": "global"},
+                         "player_country": {"index": 44}},
+                "policy": {"stance": stance},
+                "world": {"own_units": units,
+                          "provinces": [{"province_id": 10, "neighbors": [11, 12]},
+                                        {"province_id": 11, "neighbors": [10],
+                                         "controller": {"index": 44}},
+                                        {"province_id": 12, "neighbors": [10],
+                                         "controller": {"index": 7}}],
+                          "combats": [{"combat_id": 1, "province_id": 10,
+                                       "attacker_unit_ids": [500],
+                                       "defender_unit_ids": list(range(1, len(orgs) + 1))}]}}
+
+    def test_collapsing_defender_retreats_to_own_province(self):
+        doc = self._battle([8.0, 40.0], "preserve_force")
+        out = self.v1.decide(doc)
+        self.assertEqual(g.validate_output(out, doc), [])
+        retreats = [o for o in out["orders"] if o["type"] == "retreat"]
+        self.assertEqual([(o["subject"]["unit_ids"], o["to_province_ids"]) for o in retreats],
+                         [([1], [11])])  # never 12: not our controller
+
+    def test_stance_sets_threshold(self):
+        self.assertFalse([o for o in self.v1.decide(self._battle([15.0, 40.0], "annihilate"))["orders"]
+                          if o["type"] == "retreat"])
+        self.assertTrue([o for o in self.v1.decide(self._battle([15.0, 40.0], "preserve_force"))["orders"]
+                         if o["type"] == "retreat"])
+
 
 if __name__ == "__main__":
     unittest.main()

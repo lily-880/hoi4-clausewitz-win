@@ -29,7 +29,7 @@ class Expand(unittest.TestCase):
         self.assertTrue(isinstance(lt._expand(order("cancel", cancel_scope="all_queued")), str))
 
     def test_unverified_types_refused(self):
-        for t in ("attack", "support_attack", "retreat", "create_army", "train"):
+        for t in ("support_attack", "create_army", "train"):
             self.assertTrue(lt._expand(order(t, target_province_ids=[5])).startswith("UNSUPPORTED"))
 
     def test_multi_target_and_army_subject_refused(self):
@@ -39,6 +39,15 @@ class Expand(unittest.TestCase):
         o = order("move", target_province_ids=[5])
         o["subject"] = {"army_ids": [10]}
         self.assertIsInstance(lt._expand(o), str)
+
+    def test_attack_maps_to_attack_executor(self):
+        self.assertEqual(lt._expand(order("attack", target_province_ids=[9])),
+                         [("attack", 1, 9), ("attack", 2, 9)])
+
+    def test_retreat_maps_to_move_out(self):
+        self.assertEqual(lt._expand(order("retreat", to_province_ids=[7])),
+                         [("move", 1, 7), ("move", 2, 7)])
+        self.assertIsInstance(lt._expand(order("retreat")), str)
 
     def test_gate_closed_at_import(self):
         import os

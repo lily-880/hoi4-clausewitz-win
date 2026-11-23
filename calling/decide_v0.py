@@ -112,7 +112,7 @@ def _brief(meta: dict, policy: dict, world: dict, stance: str) -> dict | None:
     plans = world.get("plans", [])
     executing = sum(1 for p in plans if p.get("executing") is True)
     allow = meta.get("allow_write") is True
-    mode = "允许写入，但 v0 不下令" if allow else "观察模式（allow_write=false）"
+    mode = "允许写入，本拍无需下令" if allow else "观察模式（allow_write=false）"
     summary = (f"{mode}。己方 {len(units)} 个师，{len(combats)} 场战斗涉及我方，"
                f"{len(plans)} 条计划（执行中 {executing}）。")
     missing = [b for b in WORLD_BLOCKS if b not in world]

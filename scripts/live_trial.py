@@ -188,6 +188,56 @@ class Session:
         loaded = LoadedReader(self.p.read, cls)
         return province_adjacencies(loaded, self.province_ptr(province_id))
 
+    # ---- countries, controller and war (read-only)
+    def countries(self) -> list[int]:
+        data, cap, size = struct.unpack("<QII", self.p.read(self.gs + 0x310, 16))
+        if not (50 <= size <= cap <= 2048) or not is_ptr(data):
+            raise RuntimeError("country table implausible")
+        return [self.q(data + 8 * i) for i in range(size)]
+
+    def tag(self, index: int) -> str | None:
+        data, cap, n = struct.unpack("<QII", self.p.read(self.gs + 0x358, 16))
+        if not (0 <= index < n <= cap) or not is_ptr(data):
+            return None
+        raw = self.p.read(data + index * 32, 32)
+        size = struct.unpack_from("<Q", raw, 16)[0]
+        text = raw[:size].decode("ascii", "replace") if size <= 15 else None
+        return text if text and len(text) == 3 and text.isalnum() else None
+
+    def controller_of(self, province_id: int) -> int | None:
+        """Index of the country whose CControllerArea list (+0x548) holds the
+        province's controller area (CProvince+0xD0). None if not found."""
+        prov = self.province_ptr(province_id)
+        if not prov:
+            return None
+        area = self.q(prov + 0xD0)
+        for idx, co in enumerate(self.countries()):
+            if not is_ptr(co):
+                continue
+            data, cap, size = struct.unpack("<QII", self.p.read(co + 0x548, 16))
+            if 0 < size <= cap <= 4096 and is_ptr(data):
+                if area in {self.q(data + 8 * j) for j in range(size)}:
+                    return idx
+        return None
+
+    def at_war_with(self, target_index: int) -> bool | None:
+        """Native getter 0x748400 (t225, named TRIGGER_HAS_WAR_WITH):
+        diplomacy=[country+0xF88]; rel=[[diplomacy+8] + target*8];
+        at war <=> [rel+0x2E8] non-null and byte [war+0x49] == 0."""
+        if target_index == self.player.get("player_index"):
+            return False
+        diplomacy = self.q(self.country + 0xF88)
+        if not is_ptr(diplomacy):
+            return None
+        table = self.q(diplomacy + 8)
+        if not is_ptr(table) or not 0 <= target_index < len(self.countries()):
+            return None
+        rel = self.q(table + 8 * target_index)
+        if not is_ptr(rel):
+            return False
+        war = self.q(rel + 0x2E8)
+        return bool(is_ptr(war) and self.p.read(war + 0x49, 1)[0] == 0)
+
     def own_area(self, province_id: int) -> bool:
         data, cap, size = struct.unpack("<QII", self.p.read(self.country + 0x548, 16))
         if not (0 <= size <= cap <= 4096) or (size and not is_ptr(data)):
@@ -204,7 +254,7 @@ def cmd_guard(_args):
 
 
 def cmd_capture(_args):
-    import input_capture_live
+    import live_input as input_capture_live
     import decide_v0
     import generalissimo_output as contract
 
@@ -248,7 +298,7 @@ def _executor(kind):
     import strategic_order as so
     import cancel_order as co
 
-    if kind == "move":
+    if kind in ("move", "attack"):  # an attack is a move into an enemy-held neighbour
         return lambda u, d, dry: mo.move(u, d, dry_run=dry)
     if kind == "strategic_redeploy":
         return lambda u, d, dry: so.strategic_redeploy(u, d, dry_run=dry)
@@ -295,9 +345,17 @@ def run_order(kind: str, unit: int, dest: int | None, live: bool) -> dict:
             return stop("DEST_REQUIRED")
         if before["path"] != [] or before["commandlist_size"] != 0:
             return stop("UNIT_NOT_IDLE")
-        if not s.own_area(args.dest):
+        own = s.own_area(args.dest)
+        if kind == "attack" and own:
+            return stop("ATTACK_TARGET_IS_OWN_PROVINCE")
+        if kind == "attack":
+            ctrl = s.controller_of(args.dest)
+            report["target_controller"] = {"index": ctrl, "tag": s.tag(ctrl) if ctrl is not None else None}
+            if ctrl is None or s.at_war_with(ctrl) is not True:
+                return stop("ATTACK_TARGET_NOT_AT_WAR")
+        if kind != "attack" and not own:
             return stop("DEST_NOT_OWN_AREA")
-        if kind == "move":
+        if kind in ("move", "attack"):
             adj = s.land_neighbors(before["province_id"])
             report["neighbors"] = adj.get("neighbors")
             if args.dest not in (adj.get("neighbors") or []):
@@ -521,7 +579,7 @@ def cmd_clock(args):
 
 
 # ------------------------------------------------------------------ commander tick
-SUPPORTED = {"move", "strategic_redeploy", "cancel"}  # verified end to end on 1.19.5
+SUPPORTED = {"move", "strategic_redeploy", "cancel", "retreat", "attack"}  # retreat = move out of battle
 
 
 def run_hours(hours: int, timeout_s: float = MAX_RUN_SECONDS) -> dict:
@@ -553,6 +611,11 @@ def _expand(order: dict) -> list[tuple[str, int, int | None]] | str:
     units = order["subject"].get("unit_ids")
     if not units or set(order["subject"]) != {"unit_ids"}:
         return "ONLY_UNIT_SUBJECTS_SUPPORTED"
+    if t == "retreat":
+        to = order.get("to_province_ids") or []
+        if len(to) != 1:
+            return "RETREAT_NEEDS_ONE_DESTINATION"
+        return [("move", u, to[0]) for u in units]
     if t == "cancel":
         if order.get("cancel_scope") != "current_movement":
             return "ONLY_CANCEL_CURRENT_MOVEMENT_SUPPORTED"
@@ -567,7 +630,7 @@ def cmd_tick(args):
     import importlib
     import decide_v0
     import generalissimo_output as contract
-    import input_capture_live
+    import live_input as input_capture_live
 
     tick = {"at": now(), "decider": args.decider, "allow_write": args.allow_write}
     s = Session()
@@ -633,7 +696,8 @@ def main(argv=None):
     sub.add_parser("guard")
     sub.add_parser("capture")
     m = sub.add_parser("order")
-    m.add_argument("--type", required=True, choices=["move", "strategic_redeploy", "cancel"])
+    m.add_argument("--type", required=True,
+                   choices=["move", "strategic_redeploy", "cancel", "attack"])
     m.add_argument("--unit", type=int, required=True)
     m.add_argument("--dest", type=int)
     m.add_argument("--live", action="store_true")
