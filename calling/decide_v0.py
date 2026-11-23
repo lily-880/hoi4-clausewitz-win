@@ -36,6 +36,12 @@ WORLD_BLOCKS = ("own_units", "visible_units", "army_groups", "armies", "leaders"
                 "provinces", "plans", "combats", "crises", "wars", "shortages")
 
 
+def label(unit: dict) -> str:
+    """Human-facing name of a division: its in-game name, id only as fallback."""
+    name = (unit.get("name") or "").strip()
+    return name if name else f"#{unit.get('unit_id')}"
+
+
 def _present(d: dict, *keys):
     return {k: d[k] for k in keys if k in d}
 
@@ -147,23 +153,25 @@ def _brief(meta: dict, policy: dict, world: dict, stance: str) -> dict | None:
             risks.append(f"战斗 {c.get('combat_id')}（省份 {c.get('province_id')}）明显不利："
                          f"我方组织度损失 {ours:.1f}，敌方 {theirs:.1f}")
         if dfn:
-            orgs = [unit_by_id[u].get("organization") for u in sorted(dfn)]
-            orgs = [round(o, 1) for o in orgs if isinstance(o, (int, float))]
-            org_text = f"，组织度 {orgs}" if orgs else ""
-            risks.append(f"省份 {c.get('province_id')} 我方 {len(dfn)} 个师正在防守"
-                         f"（战斗 {c.get('combat_id')}，敌方 {len(c.get('attacker_unit_ids', []))} 个单位）"
-                         f"{org_text}")
+            who = "、".join(
+                f"{label(unit_by_id[u])}（组织度 {unit_by_id[u]['organization']:.1f}）"
+                if isinstance(unit_by_id[u].get("organization"), (int, float)) else label(unit_by_id[u])
+                for u in sorted(dfn))
+            risks.append(f"省份 {c.get('province_id')}：{who} 正在防守"
+                         f"（战斗 {c.get('combat_id')}，敌方 {len(c.get('attacker_unit_ids', []))} 个单位）")
     short = sorted((u["unit_id"], u["supply"].get("ratio")) for u in units
                    if u.get("supply", {}).get("in_supply") is False)
     if short:
         # in_supply=false is the engine's out-of-supply flag; it is not isolation.
-        parts = [f"{uid}" + (f"({ratio:.0%})" if isinstance(ratio, (int, float)) else "")
+        parts = [label(unit_by_id.get(uid, {"unit_id": uid}))
+                 + (f"({ratio:.0%})" if isinstance(ratio, (int, float)) else "")
                  for uid, ratio in short]
         risks.append(f"{len(short)} 个师补给不满足（引擎缺补给判定，括号内为补给满足率，"
                      f"不代表被切断）：{'、'.join(parts)}")
     for crisis in world.get("crises", []):
         if crisis.get("kind") in ("org_collapse", "out_of_supply"):
-            risks.append(f"危机 {crisis['kind']}：师 {sorted(crisis.get('unit_ids', []))}")
+            risks.append(f"危机 {crisis['kind']}：" + "、".join(
+                label(unit_by_id.get(x, {"unit_id": x})) for x in sorted(crisis.get("unit_ids", []))))
     for war in world.get("wars", []):
         if war.get("front_invalidated") is True:
             risks.append("战争状态变化导致前线失效，需要重布")

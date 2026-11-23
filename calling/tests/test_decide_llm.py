@@ -99,7 +99,7 @@ class DecideLLM(unittest.TestCase):
     def test_digest_is_compact_and_has_no_evidence(self):
         dig = decide_llm.digest(doc())
         self.assertEqual(dig["stance"], "annihilate")
-        self.assertEqual(dig["own_units"][0], {"id": 1, "prov": 10, "org": 50, "hp": 0})
+        self.assertEqual(dig["own_units"][0], {"id": 1, "name": "#1", "prov": 10, "org": 50, "hp": 0})
 
 
 if __name__ == "__main__":

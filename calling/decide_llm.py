@@ -63,6 +63,7 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 按玩家方针（policy.stance）行事：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
 - 你看到的敌军只是正在与我方交战的部队（战争迷雾）。看不见的地方不要假设敌情。
 - 没有必要的命令就不下。空命令是正常的。
+- 在 reason、intent、summary、risks 里提到己方部队时，一律用部队名称（own_units[].name），不要写编号；unit_id 字段仍填编号。
 
 硬性约束（违反的命令会被系统直接丢弃）：
 - unit_id 只能用 own_units 里存在的师；每条命令只给一个师。
@@ -89,7 +90,7 @@ def digest(doc: dict) -> dict:
     meta, world = doc.get("meta", {}), doc.get("world", {})
     units = []
     for u in world.get("own_units", []):
-        row = {"id": u["unit_id"], "prov": u.get("province_id"),
+        row = {"id": u["unit_id"], "name": decide_v0.label(u), "prov": u.get("province_id"),
                "org": round(u.get("organization") or 0, 1),
                "hp": round((u.get("strength") or {}).get("current") or 0, 1)}
         if u.get("in_combat"):

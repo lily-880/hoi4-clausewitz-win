@@ -213,6 +213,7 @@ def decide(input_doc: dict) -> dict:
         return out
     world = input_doc.get("world", {}) or {}
     stance = (input_doc.get("policy") or {}).get("stance", decide_v0.DEFAULT_STANCE)
+    names = {u["unit_id"]: decide_v0.label(u) for u in world.get("own_units", []) if "unit_id" in u}
     player = (meta.get("player_country") or {}).get("index")
     seq = 0
     for w in _withdrawals(world, player, stance):
@@ -220,7 +221,8 @@ def decide(input_doc: dict) -> dict:
         out["orders"].append({
             "order_seq": seq, "type": "retreat", "subject": {"unit_ids": [w["unit"]]},
             "to_province_ids": [w["to"]],
-            "reason": f"守军组织度 {w['org']:.1f} 低于 {w['floor']:.0f}，撤出省份 {w['from']} 保存兵力",
+            "reason": (f"{names.get(w['unit'], w['unit'])} 组织度 {w['org']:.1f} 低于 {w['floor']:.0f}，"
+                       f"撤出省份 {w['from']} 保存兵力"),
         })
     for plan in _reinforcements(world, max(20.0, 1.5 * ORG_FLOOR.get(stance, 20.0))):
         seqs = []
@@ -230,7 +232,7 @@ def decide(input_doc: dict) -> dict:
             out["orders"].append({
                 "order_seq": seq, "type": "move", "subject": {"unit_ids": [uid]},
                 "target_province_ids": [plan["province"]],
-                "reason": (f"增援省份 {plan['province']} 的防守：敌方 "
+                "reason": (f"{names.get(uid, uid)} 增援省份 {plan['province']} 的防守：敌方 "
                            f"{len(plan['combat'].get('attacker_unit_ids', []))} 个单位对我方 "
                            f"{len(plan['defenders'])} 个师"),
             })
@@ -249,7 +251,7 @@ def decide(input_doc: dict) -> dict:
             out["orders"].append({
                 "order_seq": seq, "type": "attack", "subject": {"unit_ids": [uid]},
                 "target_province_ids": [plan["province"]],
-                "reason": (f"反击省份 {plan['province']}：我方组织度合计 {plan['our_org']:.0f}，"
+                "reason": (f"{names.get(uid, uid)} 反击省份 {plan['province']}：我方组织度合计 {plan['our_org']:.0f}，"
                            f"敌方 {plan['enemies']} 个师合计 {plan['enemy_org']:.0f}"),
             })
         out["intents"].append({
