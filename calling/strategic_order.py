@@ -11,16 +11,17 @@ import ctypes
 import struct
 from ctypes import wintypes as wt
 
+import move_order as mo
 import post_abi
 from config import assert_post_allowed, allow_post
 from handle import HANDLE_TYPE_ARMY, resolve_handle
 from process import Backend, find_pid
 
-FACTORY_RVA = 0x13FB580
-ACTION_ISVALID_RVA = 0x12C2C20
-STRATEGIC_VT = 0x2A2D818
-ACTION_VT = 0x2A1F7E8
-ARMY_VT = 0x29D6D68
+FACTORY_RVA = 0x13FB5F0  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+ACTION_ISVALID_RVA = 0x12C2C90  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+STRATEGIC_VT = 0x2A2DF20  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+ACTION_VT = 0x2A1FC68  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+ARMY_VT = 0x29D6D98  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
 PATH_OFF = 0x200
 PROVINCE_OFF = 0x28
 HANDLE_TYPE = 0x33
@@ -155,14 +156,14 @@ def strategic_redeploy(army_index: int, province_id: int, dry_run: bool = False)
     if not army or _u64(b, army) - base != ARMY_VT:
         return {"ok": False, "result": "ARMY_NOT_FOUND", "army": army_index}
     before = _path(b, base, army)
-    made = _remote(pid, base + FACTORY_RVA)
+    made = mo._remote(pid, base + FACTORY_RVA, wait_ms=5000)
     cmd = made["rax"]
     if made["wait"] != 0 or cmd < 0x10000:
         return {"ok": False, "result": "FACTORY_FAIL", "call": made}
     if _u64(b, cmd) - base != STRATEGIC_VT or _u64(b, cmd + 0x28) - base != ACTION_VT:
         return {"ok": False, "result": "FACTORY_VT_MISMATCH"}
-    _write(pid, cmd + 0x38, struct.pack("<IIIiI", HANDLE_TYPE, army_index, province_id, 1, 2))
-    valid = _remote(pid, base + ACTION_ISVALID_RVA, {"rcx": cmd + 0x28})
+    mo._write(pid, cmd + 0x38, struct.pack("<IIIiI", HANDLE_TYPE, army_index, province_id, 1, 2))
+    valid = mo._remote(pid, base + ACTION_ISVALID_RVA, {"rcx": cmd + 0x28}, wait_ms=5000)
     isvalid = valid["rax"] & 0xFF
     if valid["wait"] != 0 or isvalid != 1:
         return {
@@ -187,7 +188,7 @@ def strategic_redeploy(army_index: int, province_id: int, dry_run: bool = False)
         return {"ok": False, "result": "ALLOW_POST_FALSE"}
 
     sess = _u64(b, base + post_abi.G_SESSION)
-    posted = _remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1})
+    posted = mo._remote(pid, base + post_abi.FN_CMD_QUEUE_POST, {"rcx": sess, "rdx": cmd, "r8": 1}, wait_ms=8000)
     if find_pid() != pid:
         return {"ok": False, "result": "PROCESS_EXITED"}
     b = Backend()
@@ -200,6 +201,7 @@ def strategic_redeploy(army_index: int, province_id: int, dry_run: bool = False)
         "army": army_index,
         "province": province_id,
         "post_rax": posted["rax"] & 0xFF,
+        "post_wait": posted["wait"],
         "path_before": before,
         "path_after": after,
     }

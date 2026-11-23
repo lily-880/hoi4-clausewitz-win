@@ -272,5 +272,38 @@ class DecideV0(unittest.TestCase):
             self.assertNotIn(name, sys.modules)
 
 
+class DecideV1(unittest.TestCase):
+    def setUp(self):
+        import decide_v1
+        self.v1 = decide_v1
+        self.doc = decide_v0.load_input(FIXTURES[0], None, True)
+
+    def test_no_orders_without_write_permission(self):
+        self.assertEqual(self.v1.decide(self.doc)["orders"], [])
+
+    def test_no_orders_without_scope(self):
+        self.doc["meta"]["allow_write"] = True
+        self.doc["meta"]["geography_scope"] = None
+        self.assertEqual(self.v1.decide(self.doc)["orders"], [])
+
+    def test_reinforces_outnumbered_defence(self):
+        self.doc["meta"]["allow_write"] = True
+        out = self.v1.decide(self.doc)
+        self.assertEqual(g.validate_output(out, self.doc), [])
+        world = self.doc["world"]
+        nbrs = {p["province_id"]: set(p.get("neighbors", [])) for p in world["provinces"]}
+        units = {u["unit_id"]: u for u in world["own_units"]}
+        self.assertTrue(out["orders"])
+        for o in out["orders"]:
+            self.assertEqual(o["type"], "move")
+            (uid,), (dest,) = o["subject"]["unit_ids"], o["target_province_ids"]
+            self.assertFalse(units[uid].get("in_combat"))
+            self.assertIn(dest, nbrs[units[uid]["province_id"]])  # engine-read adjacency
+        # 13237: 6 attackers vs 2 defenders -> at most 4 reinforcements
+        self.assertLessEqual(sum(o["target_province_ids"] == [13237] for o in out["orders"]), 4)
+        self.assertEqual([i["expands_to_order_seqs"] for i in out["intents"]],
+                         [[o["order_seq"] for o in out["orders"]]])
+
+
 if __name__ == "__main__":
     unittest.main()

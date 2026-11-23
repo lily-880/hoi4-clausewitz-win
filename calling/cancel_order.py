@@ -17,11 +17,11 @@ from handle import HANDLE_TYPE_ARMY, resolve_handle
 from process import Backend, find_pid
 import move_order as mo
 
-FACTORY_RVA = 0x13FACE0
+FACTORY_RVA = 0x13FAD50  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
 FACTORY_IDX = 1415
-ISVALID_RVA = 0x13FED40
-CANCEL_VT = 0x2A2C9B8
-ARMY_VT = 0x29D6D68
+ISVALID_RVA = 0x13FEDB0  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+CANCEL_VT = 0x2A2D020  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
+ARMY_VT = 0x29D6D98  # 1.19.5.0.7c6c, verified live 2026-11-23 (factory table / RTTI / vt slot)
 HANDLE_TYPE = 0x33
 UNITS_OFF = 0x28
 STICKY_OFF = 0x40
