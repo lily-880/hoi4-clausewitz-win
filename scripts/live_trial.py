@@ -360,10 +360,34 @@ def cmd_order(args):
     return 0 if report.get("ok") else 2
 
 
+MAX_RUN_SECONDS = 180  # hard real-time cap for any unpaused stretch
+
+
 def cmd_watch(args):
+    """Read-only sampling. With --run the clock is started here and is ALWAYS
+    paused again in `finally` (also on error/Ctrl+C), and never runs longer
+    than MAX_RUN_SECONDS of real time."""
+    if not args.run:
+        return _watch(args)
+    started = set_clock(True)
+    if started["result"] not in ("OK", "ALREADY"):
+        emit({"stop": "COULD_NOT_START_CLOCK", "clock": started})
+        set_clock(False)
+        return 2
+    try:
+        return _watch(args, deadline=time.time() + min(args.max_seconds, MAX_RUN_SECONDS))
+    finally:
+        paused = set_clock(False)
+        print(json.dumps({"final_pause": paused["result"], "clock": paused.get("after")
+                          or paused.get("before")}), flush=True)
+
+
+def _watch(args, deadline=None):
     samples = []
     start = None
     for i in range(args.samples):
+        if deadline and time.time() > deadline and samples:
+            break
         s = Session(check_sha=False)
         u = s.unit(args.unit)
         c = s.clock()
@@ -500,7 +524,7 @@ def cmd_clock(args):
 SUPPORTED = {"move", "strategic_redeploy", "cancel"}  # verified end to end on 1.19.5
 
 
-def run_hours(hours: int, timeout_s: float = 400.0) -> dict:
+def run_hours(hours: int, timeout_s: float = MAX_RUN_SECONDS) -> dict:
     """Unpause (space key), wait until the hour tick advanced `hours`, pause again."""
     start = Session(check_sha=False).clock()
     res = {"start": start}
@@ -619,6 +643,9 @@ def main(argv=None):
     w.add_argument("--samples", type=int, default=20)
     w.add_argument("--interval", type=float, default=3.0)
     w.add_argument("--record", action="store_true", help="append observation to the ledger")
+    w.add_argument("--run", action="store_true",
+                   help="unpause for the watch and always pause again at the end")
+    w.add_argument("--max-seconds", type=float, default=MAX_RUN_SECONDS)
     c = sub.add_parser("clock", help="press space in the game window; verify pause flag")
     c.add_argument("state", choices=["run", "pause"])
     k = sub.add_parser("tick", help="one commander beat: capture->decide->execute->run hours")
