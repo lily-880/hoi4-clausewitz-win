@@ -384,6 +384,73 @@ def _capture_once():
                             row[side_]['tag'] = tg
                     wars_seen[war] = row
         observation['world']['wars'] = list(wars_seen.values())
+        # ---- Commander front view (extension, outside the input schema) ----
+        # Controller of every province = owner country of its CControllerArea
+        # (CProvince+0xD0) found in each country's +0x548 list (same proof as the
+        # own-province controller field). Land adjacency as province_adjacencies.
+        area_owner = {}
+        for cidx, cptr in enumerate(country_ptrs):
+            if not ptr(cptr):
+                continue
+            adata, acap, asize = struct.unpack('<QII', p.read(cptr + 0x548, 16))
+            if 0 < asize <= acap <= 4096 and ptr(adata):
+                for aptr in struct.unpack('<' + 'Q' * asize, p.read(adata, asize * 8)):
+                    area_owner[aptr] = cidx
+        n_prov = struct.unpack('<I', p.read(gs + 0x2BC, 4))[0]
+        prov_arr = q(gs + 0x2B0)
+        if not 0 < n_prov < 40000 or not ptr(prov_arr):
+            raise ObservationError('province table implausible')
+        prov_ptrs = struct.unpack('<' + 'Q' * n_prov, p.read(prov_arr, n_prov * 8))
+        controller = {}
+        for pid_, pp_ in enumerate(prov_ptrs):
+            if pid_ and ptr(pp_):
+                cidx = area_owner.get(q(pp_ + 0xD0))
+                if cidx is not None:
+                    controller[pid_] = cidx
+        foes = {c for c in range(len(country_ptrs)) if at_war(c)}
+        me = res['player_index']
+        def land_neighbors(pp_):
+            definition = q(pp_ + 0xB8)
+            dd, dc, dn = struct.unpack('<QII', p.read(definition + 0x70, 16))
+            if not (0 < dn <= dc <= 255) or not ptr(dd):
+                return []
+            rows = p.read(dd, dn * 0x30)
+            out_ = []
+            for k in range(dn):
+                nid, typ = struct.unpack_from('<II', rows, k * 0x30 + 8)
+                if typ in (0, 2, 3):
+                    out_.append(nid)
+            return out_
+        own_border, enemy_border = {}, {}
+        for pid_, cidx in controller.items():
+            if cidx != me:
+                continue
+            nb = land_neighbors(prov_ptrs[pid_])
+            hostile = [n for n in nb if controller.get(n) in foes]
+            if hostile:
+                own_border[pid_] = {'neighbors': nb, 'enemy_neighbors': hostile}
+                for n in hostile:
+                    enemy_border[n] = controller[n]
+        foe_counts = {tag_of(c) or str(c): sum(1 for v in controller.values() if v == c) for c in foes}
+        # Provinces of ours facing countries we are NOT at war with but must not
+        # leave bare (western neighbours); divisions there are kept in place.
+        watch_tags = {'FRA', 'BEL', 'HOL', 'LUX', 'ENG'}
+        watch_idx = {c for c in range(len(country_ptrs)) if tag_of(c) in watch_tags and c not in foes}
+        own_watch = []
+        if watch_idx:
+            for pid_, cidx in controller.items():
+                if cidx == me and any(controller.get(n) in watch_idx
+                                      for n in land_neighbors(prov_ptrs[pid_])):
+                    own_watch.append(pid_)
+        commander_ext = {
+            'own_border': [{'province_id': k, **v} for k, v in sorted(own_border.items())],
+            'enemy_border': [{'province_id': k, 'controller': {'index': v, 'tag': tag_of(v)}}
+                             for k, v in sorted(enemy_border.items())],
+            'enemy_controlled_provinces': foe_counts,
+            'own_controlled_provinces': sum(1 for v in controller.values() if v == me),
+            'own_watch_border': sorted(own_watch),
+            'source': 'CProvince+0xD0 area -> country +0x548 lists; adjacency rows type 0/2/3',
+        }
         mp_missing = sorted(e['unit_id'] for e in manpower_evidence if e['engine_missing_formula'] > 0)
         if mp_missing:
             observation['world']['shortages']['manpower']['affected_unit_ids'] = mp_missing
@@ -419,6 +486,7 @@ def _capture_once():
                             'combats_array':_pdx_array(p,gs+0x268),
                             'coverage':'country CO_ARMIES only; no independent full handle-table sweep',
                             'consistency_limit':'bounded non-atomic observation; template/terrain pointers not frozen'},
+                'commander_ext':commander_ext,
                 'blocking_checks':{'units':[{'unit_id':u['unit_id'],'errors':unit_blockers(u)} for u in first['world']['own_units']],
                                    'provinces':'building levels omitted for damaged/overlay states unaccepted; absent registered type returns native0',
                                    'meta':'policy/config allow_write/geography_scope not supplied by memory',

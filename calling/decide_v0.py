@@ -203,7 +203,10 @@ def decide(input_doc: dict) -> dict:
 def load_input(path: Path, policy_path: Path | None, use_policy: bool) -> dict:
     doc = json.loads(Path(path).read_text(encoding="utf-8"))
     if "observation" in doc and "meta" not in doc:  # capture export wrapper
+        ext = doc.get("commander_ext")
         doc = doc["observation"]
+        if ext:
+            doc["_ext"] = ext  # commander-only extension (front view), not schema input
     if use_policy:
         import commander_config
         doc = commander_config.merge_commander_policy(doc, policy_path)

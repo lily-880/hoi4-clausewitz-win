@@ -307,13 +307,13 @@ def _executor(kind):
     raise ValueError(kind)
 
 
-def run_order(kind: str, unit: int, dest: int | None, live: bool) -> dict:
+def run_order(kind: str, unit: int, dest: int | None, live: bool, check_sha: bool = True) -> dict:
     """One order with all pre/post checks. Returns the report (report["ok"])."""
     from config import allow_post
 
     args = argparse.Namespace(type=kind, unit=unit, dest=dest, live=live)
     _close_gate()
-    s = Session()
+    s = Session(check_sha=check_sha)
     info = s.info()
     target = [args.dest] if args.dest is not None else []
     report = {"step": "order", "type": kind, "live": args.live, "session": info,
@@ -703,7 +703,7 @@ def cmd_tick(args):
                 continue
             halted = False
             for kind, unit, dest in plan:
-                rep = run_order(kind, unit, dest, live=True)
+                rep = run_order(kind, unit, dest, live=True, check_sha=False)  # checked once per tick
                 # Refused before any Post (pre-checks / dry run) is a certain "no":
                 # record and continue. Anything after the Post that is not confirmed
                 # is uncertain: stop the tick, never retry.
