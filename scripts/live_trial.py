@@ -362,10 +362,16 @@ def run_order(kind: str, unit: int, dest: int | None, live: bool) -> dict:
                 return stop("DEST_NOT_LAND_NEIGHBOR")
 
     run = _executor(kind)
-    dry = run(args.unit, args.dest, True)
-    report["dry_run"] = dry
-    if dry.get("result") != "DRY_RUN_VALID":
-        return stop("DRY_RUN_NOT_VALID")
+    if args.live:
+        # No separate dry run before a live order: the live path itself runs
+        # IsValid and posts only when it is true, and every native call into
+        # the game is a risk (2026-11-23 crash followed two dry runs).
+        report["dry_run"] = "skipped: live path checks IsValid before Post"
+    else:
+        dry = run(args.unit, args.dest, True)
+        report["dry_run"] = dry
+        if dry.get("result") != "DRY_RUN_VALID":
+            return stop("DRY_RUN_NOT_VALID")
     if not args.live:
         report["ok"] = True
         record(result="DRY_RUN_VALID", accepted=None, game_clock=clk)
@@ -382,6 +388,9 @@ def run_order(kind: str, unit: int, dest: int | None, live: bool) -> dict:
         posted = run(args.unit, args.dest, False)
     finally:
         _close_gate()
+    if posted.get("result") in ("ISVALID_FALSE", "ARMY_NOT_FOUND", "FACTORY_VT_MISMATCH"):
+        report["refused_before_post"] = posted
+        return stop("ISVALID_FALSE" if posted.get("result") == "ISVALID_FALSE" else posted["result"])
     report["post"] = posted
     time.sleep(1.0)
     health = process_health(s.pid)

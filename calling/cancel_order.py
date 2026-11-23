@@ -74,9 +74,8 @@ def cancel_movement(army_index: int | None = None, dry_run: bool = False, army_i
     buf_kind = "none"
     try:
         nbytes = max(16, n * 8)
-        if dry_run:
-            buf = mo._alloc(pid, max(0x1000, nbytes))
-            buf_kind = "virtualalloc"
+        if False:  # always game CRT heap, never freed (see move_order)
+            pass
         else:
             buf = mo._game_malloc(pid, nbytes)
             buf_kind = "ucrt_malloc"
@@ -167,7 +166,7 @@ def cancel_movement(army_index: int | None = None, dry_run: bool = False, army_i
             },
         }
     finally:
-        if dry_run and buf:
+        if False and buf:  # never free: the game may still reference the units array
             try:
                 mo._free(pid, buf)
             except Exception:

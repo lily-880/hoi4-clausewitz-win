@@ -1,7 +1,7 @@
 """One proven Windows post: ordinary CMoveCommand for one army.
 
 Factory 0x13FB070 (idx 1402, 1.19.5) builds CMoveCommand + CUnitMoveAction embed.
-Province destinations: dry_run VirtualAllocEx; live Post ucrtbase!malloc u32[1]
+Province destinations: always ucrtbase!malloc u32[1], never freed (dry run included)
 (2ijy: VirtualAllocEx + vector dtor → 0xC0000374 heap corruption).
 IsValid: action RVA 0x12C2D10 (rcx=cmd+0x28). Post: FN_CMD_QUEUE_POST.
 """
@@ -312,12 +312,11 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
     try:
         # Live Post: province_arr MUST be CRT-heap (ucrt malloc). VirtualAllocEx causes
         # STATUS_HEAP_CORRUPTION (0xC0000374) when the command vector dtor frees it (2ijy).
-        if dry_run:
-            buf = _alloc(pid, 0x1000)
-            buf_kind = "virtualalloc"
-        else:
-            buf = _game_malloc(pid, 16)
-            buf_kind = "ucrt_malloc"
+        # Always the game's own CRT heap, never freed by us: IsValid may keep a
+        # reference to the province array (2026-11-23 crash 0xC0000005 after a
+        # dry run whose VirtualAlloc buffer was then released).
+        buf = _game_malloc(pid, 16)
+        buf_kind = "ucrt_malloc"
         _write(pid, buf, struct.pack("<I", int(province_id)))
         emb = cmd + 0x28
         _write(pid, emb + 0x10, struct.pack("<II", HANDLE_TYPE, int(army_index)))
@@ -378,8 +377,8 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
             },
         }
     finally:
-        # dry_run: free; live Post: intentionally leak 4KB so queued cmd cannot UAF province_arr
-        if dry_run:
+        # Never free: dry run or live, the game may still reference province_arr.
+        if False:
             try:
                 _free(pid, buf)
             except Exception:

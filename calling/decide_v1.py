@@ -22,7 +22,8 @@ Rule R2 — pull out collapsing defenders
 Rule R3 — counter-attack tired enemy staging provinces
   Enemy divisions we can see (world.visible_units, relation enemy; today:
   the opponents of our own battles) sit in provinces of their own. If idle
-  divisions of ours (organization >= 30, no route, not fighting) border such
+  divisions of ours (organization >= 30, no route, and either not fighting
+  or surplus defenders of a battle we clearly hold) border such
   a province, and their summed organization is at least ATTACK_RATIO times
   the visible enemy's there (annihilate 1.5, others 2.5) with at least as
   many divisions, all of them attack it. The executor re-checks with the
@@ -53,10 +54,38 @@ ORG_FLOOR = {"preserve_force": 20.0, "economize_manpower": 20.0, "hold_line": 20
 
 ATTACK_RATIO = {"annihilate": 1.5, "custom": 1.5}
 MIN_ATTACK_ORG = 30.0
+# Engine rejected (IsValid false) attacks by units that are defending; keep
+# surplus defenders home until a verified way to strike from a battle exists.
+ALLOW_SURPLUS_STRIKE = False
+
+
+def _surplus_defenders(world: dict) -> set[int]:
+    """Defenders not needed to hold: keep the strongest until their org sum is
+    >= 1.5x the visible attackers' org (at least one stays); the rest may strike."""
+    units = {u["unit_id"]: u for u in world.get("own_units", [])}
+    vis = {v["unit_id"]: v for v in world.get("visible_units", [])}
+    free: set[int] = set()
+    for c in world.get("combats", []):
+        ours = sorted((units[x] for x in c.get("defender_unit_ids", []) if x in units),
+                      key=lambda u: -(u.get("organization") or 0))
+        if not ours:
+            continue
+        attackers = [vis[x] for x in c.get("attacker_unit_ids", []) if x in vis]
+        if len(attackers) != len(c.get("attacker_unit_ids", [])):
+            continue  # some attacker unseen: hold everything
+        need = 1.5 * sum(a.get("organization", 0) for a in attackers)
+        kept = 0.0
+        for i, u in enumerate(ours):
+            if i == 0 or kept < need:
+                kept += u.get("organization") or 0
+            else:
+                free.add(u["unit_id"])
+    return free
 
 
 def _counterattacks(world: dict, stance: str, used: set[int]) -> list[dict]:
     ratio = ATTACK_RATIO.get(stance, 2.5)
+    surplus = _surplus_defenders(world)
     own_provs = {u.get("province_id") for u in world.get("own_units", [])}
     enemy_at = {}
     for v in world.get("visible_units", []):
@@ -69,7 +98,8 @@ def _counterattacks(world: dict, stance: str, used: set[int]) -> list[dict]:
                                 key=lambda kv: sum(e.get("organization", 0) for e in kv[1])):
         enemy_org = sum(e.get("organization", 0) for e in enemies)
         ours = [u for u in world.get("own_units", [])
-                if u["unit_id"] not in used and not u.get("in_combat")
+                if u["unit_id"] not in used
+                and (not u.get("in_combat") or (ALLOW_SURPLUS_STRIKE and u["unit_id"] in surplus))
                 and not (u.get("order") or {}).get("path_province_ids")
                 and (u.get("organization") or 0) >= MIN_ATTACK_ORG
                 and prov in neighbors.get(u.get("province_id"), set())]

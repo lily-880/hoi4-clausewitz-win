@@ -370,6 +370,25 @@ class DecideV1(unittest.TestCase):
         doc["world"]["own_units"][-1]["organization"] = 50.0
         self.assertTrue([o for o in self.v1.decide(doc)["orders"] if o["type"] == "move"])
 
+    def test_surplus_defenders_strike_back(self):
+        doc = self._front([50, 45, 40, 35], [20])
+        world = doc["world"]
+        for u in world["own_units"]:
+            u["in_combat"] = True
+        world["combats"] = [{"combat_id": 1, "province_id": 20, "attacker_unit_ids": [900],
+                             "defender_unit_ids": [1, 2, 3, 4]}]
+        # default: defenders never strike out (engine rejected it live)
+        self.assertFalse([o for o in self.v1.decide(doc)["orders"] if o["type"] == "attack"])
+        self.v1.ALLOW_SURPLUS_STRIKE = True
+        self.addCleanup(setattr, self.v1, "ALLOW_SURPLUS_STRIKE", False)
+        out = self.v1.decide(doc)
+        self.assertEqual(g.validate_output(out, doc), [])
+        attackers = sorted(o["subject"]["unit_ids"][0] for o in out["orders"] if o["type"] == "attack")
+        self.assertNotIn(1, attackers)          # the strongest defender always stays
+        self.assertEqual(attackers, [2, 3, 4])  # 50 >= 1.5*20, the rest are free
+        world["combats"][0]["attacker_unit_ids"] = [900, 777]   # one attacker unseen
+        self.assertFalse([o for o in self.v1.decide(doc)["orders"] if o["type"] == "attack"])
+
 
 if __name__ == "__main__":
     unittest.main()
