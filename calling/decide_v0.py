@@ -115,6 +115,12 @@ def _brief(meta: dict, policy: dict, world: dict, stance: str) -> dict | None:
     mode = "允许写入，本拍无需下令" if allow else "观察模式（allow_write=false）"
     summary = (f"{mode}。己方 {len(units)} 个师，{len(combats)} 场战斗涉及我方，"
                f"{len(plans)} 条计划（执行中 {executing}）。")
+    foes = sorted({(w.get(side) or {}).get("tag") or str((w.get(side) or {}).get("index"))
+                   for w in world.get("wars", []) if w.get("state") == "at_war"
+                   for side in ("a", "b")
+                   if (w.get(side) or {}).get("index") != (meta.get("player_country") or {}).get("index")})
+    if foes:
+        summary += "交战对象：" + "、".join(foes) + "。"
     missing = [b for b in WORLD_BLOCKS if b not in world]
     if missing:
         summary += "输入未提供：" + "、".join(missing) + "。"
@@ -135,6 +141,11 @@ def _brief(meta: dict, policy: dict, world: dict, stance: str) -> dict | None:
 
     risks = []
     for c, att, dfn in combats:
+        cas = c.get("casualties") or {}
+        ours, theirs = cas.get("our_org_loss"), cas.get("enemy_org_loss")
+        if isinstance(ours, (int, float)) and isinstance(theirs, (int, float)) and ours > 2 * max(theirs, 0.5):
+            risks.append(f"战斗 {c.get('combat_id')}（省份 {c.get('province_id')}）明显不利："
+                         f"我方组织度损失 {ours:.1f}，敌方 {theirs:.1f}")
         if dfn:
             orgs = [unit_by_id[u].get("organization") for u in sorted(dfn)]
             orgs = [round(o, 1) for o in orgs if isinstance(o, (int, float))]

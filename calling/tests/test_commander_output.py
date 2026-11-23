@@ -262,6 +262,19 @@ class DecideV0(unittest.TestCase):
         self.assertEqual([(a["kind"], a["severity"]) for a in result["alerts"]],
                          [("encircled", "critical")])
 
+    def test_brief_uses_wars_and_casualties(self):
+        doc = {"meta": {"game_time": GT, "player_country": {"index": 44}},
+               "world": {"own_units": [{"unit_id": 1, "organization": 30}],
+                         "wars": [{"a": {"index": 16, "tag": "ITA"}, "b": {"index": 44, "tag": "ETH"},
+                                   "state": "at_war"}],
+                         "combats": [{"combat_id": 2, "province_id": 7, "attacker_unit_ids": [9],
+                                      "defender_unit_ids": [1], "phase": "ongoing",
+                                      "casualties": {"our_org_loss": 11.8, "enemy_org_loss": 0.7}}]}}
+        out = decide_v0.decide(doc)
+        self.assertEqual(g.validate_output(out, doc), [])
+        self.assertIn("ITA", out["brief"]["summary"])
+        self.assertTrue(any("明显不利" in r for r in out["brief"]["risks"]))
+
     def test_empty_input(self):
         result = decide_v0.decide({})
         self.assertEqual(result, {"orders": [], "alerts": [], "intents": []})

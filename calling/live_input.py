@@ -221,6 +221,26 @@ def _capture_once():
         army_groups, army_group_evidence = own_army_groups(loaded, co)
         from input_loaded_fields import unit_supply
         supply_evidence = {}
+        def _edge_progress(ap, next_pid):
+            # t209: C51970/C52C90 = raw(CArmy+0x240)*100000 / C52FD0 edge distance;
+            # consumers divide by 100000.0. Ordinary land edges only (types 0/2/3),
+            # distance = qword at adjacency row+0x18 (stride 0x30, neighbour id +8).
+            pp_ = q(ap + 0x1F0); definition = q(pp_ + 0xB8)
+            data_, cap_, n_ = struct.unpack('<QII', p.read(definition + 0x70, 16))
+            if not (0 < n_ <= cap_ <= 255) or not ptr(data_):
+                return None
+            raw_rows = p.read(data_, n_ * 0x30)
+            for k in range(n_):
+                nid, typ = struct.unpack_from('<II', raw_rows, k * 0x30 + 8)
+                if nid == next_pid:
+                    if typ not in (0, 2, 3):
+                        return None
+                    dist = struct.unpack_from('<q', raw_rows, k * 0x30 + 0x18)[0]
+                    raw = i(ap + 0x240)
+                    if dist <= 0 or raw < 0:
+                        return None
+                    return round(min(raw / dist, 1.0), 4)
+            return None
         for unit, up in zip(first['world']['own_units'], army_ptrs):
             unit['supply'], supply_evidence[unit['unit_id']] = unit_supply(loaded, up, p.base)
             army_id, _ = unit_formation_army_id(loaded, up)
@@ -244,8 +264,32 @@ def _capture_once():
                 unit['order'] = {'type': 'strategic_redeploy' if strategic else 'unknown',
                                  'target_province_ids': [route[-1]],
                                  'path_province_ids': route}
+                prog = _edge_progress(up, route[0])
+                if prog is not None:
+                    unit['order']['eta'] = {'progress': prog}
         plans, plan_evidence = own_plans(loaded, co)
         combats = own_active_combats(loaded, gs, co)
+        own_set = {u['unit_id'] for u in first['world']['own_units']}
+        side_damage = {}
+        for cp in loaded.array(gs + 0x268, 4096):
+            sp = cp + 0x10
+            cid = loaded.i(sp + 0xc)
+            dmg = {}
+            for name, off in (('attacker', 0x18), ('defender', 0x20)):
+                bp = loaded.q(sp + off)
+                loaded.require(bp, 'CLandCombatant')
+                dmg[name] = struct.unpack('<q', p.read(bp + 0x180, 8))[0] / 100000
+            side_damage[cid] = dmg
+        for combat in combats:
+            # Every combat in the official active manager list is ongoing; ended
+            # combats leave the list, so 'ended' is never produced here.
+            combat['phase'] = 'ongoing'
+            dmg = side_damage.get(combat['combat_id'])
+            if dmg:
+                ours_attacking = bool(own_set.intersection(combat['attacker_unit_ids']))
+                ours, theirs = ('attacker', 'defender') if ours_attacking else ('defender', 'attacker')
+                combat['casualties'] = {'our_org_loss': round(dmg[ours], 5),
+                                        'enemy_org_loss': round(dmg[theirs], 5)}
         for unit in first['world']['own_units']:
             for combat in combats:
                 if unit['unit_id'] in combat['attacker_unit_ids'] + combat['defender_unit_ids']:
@@ -320,6 +364,29 @@ def _capture_once():
         observation['world']['plans'] = plans
         observation['world']['combats'] = combats
         observation['world']['visible_units'] = visible
+        # Wars involving the player: CWarRelation at relation+0x2E8 (t186/t225),
+        # first +0x10, second +0x14, ongoing when byte +0x49 == 0. One row per war object.
+        wars_seen = {}
+        diplomacy_ = q(co + 0xF88)
+        table_ = q(diplomacy_ + 8) if ptr(diplomacy_) else 0
+        if ptr(table_):
+            for idx in range(len(country_ptrs)):
+                rel = q(table_ + 8 * idx)
+                if not ptr(rel):
+                    continue
+                war = q(rel + 0x2E8)
+                if ptr(war) and war not in wars_seen and p.read(war + 0x49, 1)[0] == 0:
+                    a_idx, b_idx = i(war + 0x10), i(war + 0x14)
+                    row = {'a': {'index': a_idx}, 'b': {'index': b_idx}, 'state': 'at_war'}
+                    for side_, ix in (('a', a_idx), ('b', b_idx)):
+                        tg = tag_of(ix)
+                        if tg:
+                            row[side_]['tag'] = tg
+                    wars_seen[war] = row
+        observation['world']['wars'] = list(wars_seen.values())
+        mp_missing = sorted(e['unit_id'] for e in manpower_evidence if e['engine_missing_formula'] > 0)
+        if mp_missing:
+            observation['world']['shortages']['manpower']['affected_unit_ids'] = mp_missing
         equipment_rows = {x['equipment_type']: dict(x) for x in equipment_stockpile}
         for name, ids in affected_equipment.items():
             equipment_rows.setdefault(name, {'equipment_type': name})['affected_unit_ids'] = ids
