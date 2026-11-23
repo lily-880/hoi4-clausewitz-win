@@ -177,6 +177,35 @@ def _reinforcements(world: dict, min_org: float = 20.0) -> list[dict]:
     return plans
 
 
+def _drop_repeated_failures(out: dict, feedback: dict) -> dict:
+    """下达→观察→失败则改下法: never repeat an order the engine refused last tick
+    (same type, same division, same target)."""
+    failed = set()
+    for r in feedback.get("last_orders", []):
+        if r.get("accepted") is False:
+            for uid in r.get("subject_ids", []):
+                failed.add((r.get("type"), uid, tuple(r.get("target_province_ids", []))))
+    if not failed:
+        return out
+    keep, dropped = [], set()
+    for o in out["orders"]:
+        key = (o["type"], o["subject"].get("unit_ids", [None])[0],
+               tuple(o.get("target_province_ids") or o.get("to_province_ids") or []))
+        (dropped.add(o["order_seq"]) if key in failed else keep.append(o))
+    out["orders"] = keep
+    intents = []
+    for it in out["intents"]:
+        seqs = [s for s in it["expands_to_order_seqs"] if s not in dropped]
+        if seqs:
+            units = [o["subject"]["unit_ids"][0] for o in keep if o["order_seq"] in seqs]
+            intents.append(dict(it, expands_to_order_seqs=seqs, subject={"unit_ids": units}))
+    out["intents"] = intents
+    if dropped and out.get("brief"):
+        out["brief"].setdefault("risks", []).append(
+            f"上一拍有 {len(dropped)} 条同样的命令被引擎拒绝，本拍不再重复，改由其他部队或方案处理")
+    return out
+
+
 def decide(input_doc: dict) -> dict:
     out = decide_v0.decide(input_doc)
     meta = input_doc.get("meta", {}) or {}
@@ -229,6 +258,7 @@ def decide(input_doc: dict) -> dict:
             "expands_to_order_seqs": seqs,
             "notes": f"以 {len(plan['units'])} 个师打击疲惫的敌军集结地",
         })
+    out = _drop_repeated_failures(out, input_doc.get("feedback") or {})
     if out["orders"] and out.get("brief"):
         out["brief"]["summary"] = out["brief"]["summary"].replace(
             "允许写入，本拍无需下令",

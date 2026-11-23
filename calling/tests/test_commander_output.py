@@ -389,6 +389,18 @@ class DecideV1(unittest.TestCase):
         world["combats"][0]["attacker_unit_ids"] = [900, 777]   # one attacker unseen
         self.assertFalse([o for o in self.v1.decide(doc)["orders"] if o["type"] == "attack"])
 
+    def test_refused_order_not_repeated(self):
+        doc = self._front([50, 50], [30, 30])
+        first = self.v1.decide(doc)
+        self.assertEqual(len(first["orders"]), 2)
+        doc["feedback"] = {"last_orders": [{"order_seq": 1, "type": "attack", "subject_ids": [1],
+                                            "target_province_ids": [30], "accepted": False,
+                                            "error": "ISVALID_FALSE"}], "ticks_since_issue": 1}
+        out = self.v1.decide(doc)
+        self.assertEqual(g.validate_output(out, doc), [])
+        self.assertEqual([o["subject"]["unit_ids"] for o in out["orders"]], [[2]])
+        self.assertEqual(out["intents"][0]["expands_to_order_seqs"], [out["orders"][0]["order_seq"]])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -635,6 +635,33 @@ def _expand(order: dict) -> list[tuple[str, int, int | None]] | str:
     return [(t, u, targets[0]) for u in units]
 
 
+FEEDBACK = OUTDIR / "last_feedback.json"
+FEEDBACK_TYPES = {"move", "strategic_redeploy", "attack", "support_attack", "retreat"}
+
+
+def _feedback(output: dict, executed: list[dict]) -> dict:
+    """GeneralissimoInput.feedback for the next tick. accepted = the engine took
+    the order (IsValid true and the route shows it); False with error when it
+    was refused or could not be confirmed. Types the input schema cannot name
+    (e.g. cancel) are left out rather than mislabelled."""
+    by_seq = {o["order_seq"]: o for o in output.get("orders", [])}
+    rows = []
+    for e in executed:
+        order = by_seq.get(e["order_seq"])
+        if not order or order["type"] not in FEEDBACK_TYPES:
+            continue
+        row = {"order_seq": e["order_seq"], "type": order["type"],
+               "subject_ids": [e["unit"]] if "unit" in e else order["subject"].get("unit_ids", []),
+               "accepted": bool(e.get("ok"))}
+        tgt = order.get("target_province_ids") or order.get("to_province_ids")
+        if tgt:
+            row["target_province_ids"] = tgt
+        if not e.get("ok"):
+            row["error"] = e.get("stop") or e.get("refused") or "unconfirmed"
+        rows.append(row)
+    return {"last_orders": rows, "ticks_since_issue": 1}
+
+
 def cmd_tick(args):
     import importlib
     import decide_v0
@@ -656,6 +683,8 @@ def cmd_tick(args):
     cap_path.write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     doc = decide_v0.load_input(cap_path, None, True)
     doc.setdefault("meta", {})["allow_write"] = bool(args.allow_write)
+    if FEEDBACK.exists():  # receipts of the previous tick (下达→观察→失败则改下法)
+        doc["feedback"] = json.loads(FEEDBACK.read_text(encoding="utf-8"))
     decider = importlib.import_module(args.decider)
     output = decider.decide(doc)
     errors = contract.validate_output(output, doc)
@@ -690,6 +719,8 @@ def cmd_tick(args):
                 tick["halted"] = "ORDER_NOT_CONFIRMED_STOPPING_TICK"
                 break
     tick["executed"] = executed
+    FEEDBACK.write_text(json.dumps(_feedback(output, executed), ensure_ascii=False, indent=2),
+                        encoding="utf-8")
     if args.hours and not tick.get("halted"):
         tick["clock"] = run_hours(args.hours)
     (OUTDIR / f"tick_{stamp}_decide.json").write_text(
