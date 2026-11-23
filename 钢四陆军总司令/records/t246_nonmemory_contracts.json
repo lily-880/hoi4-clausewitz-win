@@ -1,0 +1,442 @@
+{
+  "kind": "Historical exact-schema contract certificate, not runtime configuration/receipt acceptance",
+  "schema_source_box": "/workspace/cli-anything-handoff/calling/tables/generalissimo_input.schema.json",
+  "schema_sha256": "9a941dd3931b635591582b0d2ba3fe7ab1ceb3554a2d30af54154e61071b45ee",
+  "matches_t243_schema_pin": true,
+  "source_evidence": "records/t243_final_seal.json:1122-1126; actual schema hash rechecked on box only, no laptop process access",
+  "fields": {
+    "meta.allow_write": {
+      "required_chain": [
+        {
+          "member": "meta",
+          "required_in_parent": true
+        },
+        {
+          "member": "allow_write",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "type": "boolean"
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "meta.geography_scope": {
+      "required_chain": [
+        {
+          "member": "meta",
+          "required_in_parent": true
+        },
+        {
+          "member": "geography_scope",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "global"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "theater"
+                ]
+              },
+              "province_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "province_ids"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "policy.stance": {
+      "required_chain": [
+        {
+          "member": "policy",
+          "required_in_parent": true
+        },
+        {
+          "member": "stance",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "enum": [
+          "preserve_force",
+          "hold_line",
+          "annihilate",
+          "economize_manpower",
+          "custom"
+        ]
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    },
+    "policy.instructions": {
+      "required_chain": [
+        {
+          "member": "policy",
+          "required_in_parent": true
+        },
+        {
+          "member": "instructions",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "type": "string"
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.order_seq": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "order_seq",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "type": "integer"
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.type": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "type",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/OrderType"
+          },
+          {
+            "enum": [
+              "create_frontline",
+              "create_offensive_line",
+              "create_garrison",
+              "assign_to_plan",
+              "reassign_unit",
+              "create_army",
+              "create_army_group",
+              "assign_leader",
+              "use_leader_ability",
+              "train",
+              "exercise"
+            ]
+          }
+        ]
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.subject_ids": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "subject_ids",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.target_province_ids": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "target_province_ids",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.plan_id": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "plan_id",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "type": "integer"
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.accepted": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "accepted",
+          "required_in_parent": true
+        }
+      ],
+      "contract": {
+        "type": "boolean"
+      },
+      "field_itself_required": true,
+      "schema_default_present": false
+    },
+    "feedback.last_orders.error": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "last_orders",
+          "required_in_parent": true
+        },
+        {
+          "member": "error",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "type": "string"
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    },
+    "feedback.ticks_since_issue": {
+      "required_chain": [
+        {
+          "member": "feedback",
+          "required_in_parent": true
+        },
+        {
+          "member": "ticks_since_issue",
+          "required_in_parent": false
+        }
+      ],
+      "contract": {
+        "type": "integer"
+      },
+      "field_itself_required": false,
+      "schema_default_present": false
+    }
+  },
+  "exact_definitions": {
+    "OrderType": {
+      "enum": [
+        "idle",
+        "move",
+        "strategic_redeploy",
+        "attack",
+        "support_attack",
+        "retreat",
+        "garrison",
+        "training",
+        "exercise",
+        "unknown"
+      ]
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "last_orders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "order_seq": {
+                "type": "integer"
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/OrderType"
+                  },
+                  {
+                    "enum": [
+                      "create_frontline",
+                      "create_offensive_line",
+                      "create_garrison",
+                      "assign_to_plan",
+                      "reassign_unit",
+                      "create_army",
+                      "create_army_group",
+                      "assign_leader",
+                      "use_leader_ability",
+                      "train",
+                      "exercise"
+                    ]
+                  }
+                ]
+              },
+              "subject_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "target_province_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "plan_id": {
+                "type": "integer"
+              },
+              "accepted": {
+                "type": "boolean"
+              },
+              "error": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "order_seq",
+              "type",
+              "subject_ids",
+              "accepted"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "ticks_since_issue": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "last_orders"
+      ],
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "stance": {
+          "enum": [
+            "preserve_force",
+            "hold_line",
+            "annihilate",
+            "economize_manpower",
+            "custom"
+          ]
+        },
+        "instructions": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "counts": {
+    "nonmemory_fields": 12,
+    "field_itself_required": 6,
+    "field_itself_optional": 6,
+    "explicit_schema_defaults": 0
+  },
+  "new_facts": [
+    "policy object is root-required but both stance/instructions are optional, no schema defaults. Empty object structural allowance is not a validated policy implementation.",
+    "geography_scope is required and supports null/global/theater(province_ids required); schema does not select a runtime default or certify containment semantics.",
+    "plan_id/target_province_ids/error/ticks_since_issue are optional but their declared types do not include null. Optional absence is not null.",
+    "Feedback.last_orders is required but no minItems; empty array structural allowance cannot stand in for real receipt acceptance.",
+    "order_seq/ticks_since_issue and subject/province IDs have no nonnegative/uniqueness/monotonicity guarantees in this schema. A schema pass is not a semantic ledger certificate.",
+    "feedback type is a named enum union, not an available native ABI list; retreat enum does not make Retreat executable."
+  ],
+  "cloud_report_not_reinvestigated": {
+    "source": "Parent t215u report, not independently re-run here",
+    "finding": "config accepts strip-normalized1/true/TRUE/yes while backend handle/write accepts exact1; capture does not fill allow_write from memory.",
+    "disposition": "Contract mismatch is not field promotion; parent cloud owner handles general code investigation."
+  },
+  "promotions": [],
+  "game_reads": 0,
+  "game_writes": 0,
+  "runtime_code_executed": false
+}
