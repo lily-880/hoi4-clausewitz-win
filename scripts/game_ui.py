@@ -8,7 +8,8 @@
 
 Used for things outside the commander's own command path: choosing the 1939
 bookmark, the one declare-war click, saving/loading the benchmark start.
-Never captures anything but the game window.
+Screenshots use PrintWindow on the game window itself (never a screen region);
+input is refused unless the game window is really in front.
 """
 from __future__ import annotations
 
@@ -75,12 +76,47 @@ def focus(hwnd: int) -> None:
     time.sleep(0.3)
 
 
-def shot(out: Path | None = None, scale: float = 0.5) -> Path:
-    from PIL import ImageGrab
+def _window_image(hwnd: int):
+    """The game window's OWN pixels via PrintWindow (PW_RENDERFULLCONTENT), never
+    the screen region: a covering window can never end up in the picture."""
+    from PIL import Image
 
-    hwnd = find_window()
+    gdi32 = ctypes.WinDLL("gdi32")
+    r = wt.RECT()
+    user32.GetClientRect(hwnd, ctypes.byref(r))
+    w, h = r.right, r.bottom
+    hdc = user32.GetDC(hwnd)
+    mem = gdi32.CreateCompatibleDC(hdc)
+    bmp = gdi32.CreateCompatibleBitmap(hdc, w, h)
+    gdi32.SelectObject(mem, bmp)
+    ok = user32.PrintWindow(hwnd, mem, 0x1 | 0x2)  # PW_CLIENTONLY | PW_RENDERFULLCONTENT
+
+    class BIH(ctypes.Structure):
+        _fields_ = [("biSize", wt.DWORD), ("biWidth", wt.LONG), ("biHeight", wt.LONG),
+                    ("biPlanes", wt.WORD), ("biBitCount", wt.WORD), ("biCompression", wt.DWORD),
+                    ("biSizeImage", wt.DWORD), ("biXPelsPerMeter", wt.LONG),
+                    ("biYPelsPerMeter", wt.LONG), ("biClrUsed", wt.DWORD), ("biClrImportant", wt.DWORD)]
+
+    bih = BIH(ctypes.sizeof(BIH), w, -h, 1, 32, 0, 0, 0, 0, 0, 0)
+    buf = ctypes.create_string_buffer(w * h * 4)
+    gdi32.GetDIBits(mem, bmp, 0, h, buf, ctypes.byref(bih), 0)
+    gdi32.DeleteObject(bmp)
+    gdi32.DeleteDC(mem)
+    user32.ReleaseDC(hwnd, hdc)
+    if not ok:
+        raise SystemExit("PrintWindow failed; refusing to fall back to a screen grab")
+    return Image.frombuffer("RGBA", (w, h), buf, "raw", "BGRA", 0, 1).convert("RGB")
+
+
+def _require_foreground(hwnd: int) -> None:
     focus(hwnd)
-    img = ImageGrab.grab(bbox=client_rect(hwnd), all_screens=True)
+    if user32.GetForegroundWindow() != hwnd:
+        raise SystemExit("game window is not in front; refusing to send input")
+
+
+def shot(out: Path | None = None, scale: float = 0.5) -> Path:
+    hwnd = find_window()
+    img = _window_image(hwnd)
     if scale != 1:
         img = img.resize((int(img.width * scale), int(img.height * scale)))
     OUT.mkdir(parents=True, exist_ok=True)
@@ -113,7 +149,7 @@ def _send(inp: _INPUT) -> None:
 
 def click(x: int, y: int, right: bool = False) -> None:
     hwnd = find_window()
-    focus(hwnd)
+    _require_foreground(hwnd)
     left, top, _, _ = client_rect(hwnd)
     user32.SetCursorPos(left + int(x), top + int(y))
     time.sleep(0.15)
@@ -131,7 +167,7 @@ SCANS = {"space": 0x39, "esc": 0x01, "enter": 0x1C, "f1": 0x3B, "f2": 0x3C, "tab
 
 def key(name: str) -> None:
     hwnd = find_window()
-    focus(hwnd)
+    _require_foreground(hwnd)
     scan = SCANS[name.lower()]
     for flags in (0x0008, 0x0008 | 0x0002):
         i = _INPUT(type=1)
