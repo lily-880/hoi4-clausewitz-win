@@ -38,7 +38,7 @@ import generalissimo_output as contract  # noqa: E402
 
 VERSION = "decide_llm"
 API_URL = os.environ.get("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions")
-MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
+MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
 TIMEOUT_S = 90
 ALLOWED = ("move", "attack", "retreat", "strategic_redeploy", "cancel")
 ARCHIVE = HERE.parent / "research" / "claude_live" / "llm"
