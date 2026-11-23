@@ -1,0 +1,109 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "retreat",
+        "subject": {
+          "unit_ids": [
+            1810
+          ]
+        },
+        "to_province_ids": [
+          2072
+        ],
+        "reason": "守军组织度 8.9 低于 10，撤出省份 13237 保存兵力"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：12 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            1808,
+            1809,
+            1810,
+            1811,
+            1812,
+            1813,
+            1814,
+            1815,
+            1816,
+            1817,
+            1818,
+            1819
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [],
+    "brief": {
+      "game_time": {
+        "year": 1936,
+        "month": 1,
+        "day": 3,
+        "hour": 24
+      },
+      "summary": "已下达 0 条增援、1 条撤退、0 条进攻命令。己方 13 个师，4 场战斗涉及我方，0 条计划（执行中 0）。输入未提供：crises、wars。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "省份 13237 我方 1 个师正在防守（战斗 1，敌方 6 个单位），组织度 [8.9]",
+        "省份 13238 我方 1 个师正在防守（战斗 2，敌方 4 个单位），组织度 [62.3]",
+        "省份 4995 我方 2 个师正在防守（战斗 3，敌方 2 个单位），组织度 [60.0, 60.0]",
+        "省份 12812 我方 1 个师正在防守（战斗 4，敌方 3 个单位），组织度 [60.0]",
+        "6 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：1808(92%)、1809(92%)、1810(92%)、1812(92%)、1818(89%)、1819(89%)"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 13237",
+        "战斗 2 @ 省份 13238",
+        "战斗 3 @ 省份 4995",
+        "战斗 4 @ 省份 12812"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-23T09:03:43-05:00",
+    "decider": "decide_v1",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：12 个师未满编，库存 0"
+    ],
+    "brief_summary": "已下达 0 条增援、1 条撤退、0 条进攻命令。己方 13 个师，4 场战斗涉及我方，0 条计划（执行中 0）。输入未提供：crises、wars。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "move",
+        "unit": 1810,
+        "dest": 2072,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1936-01-03",
+        "ui_hour": 24,
+        "hour_tick": 60759431
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1936-01-04",
+        "ui_hour": 12,
+        "hour_tick": 60759443
+      }
+    }
+  }
+}
