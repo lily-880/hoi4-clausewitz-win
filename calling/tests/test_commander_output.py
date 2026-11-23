@@ -336,6 +336,40 @@ class DecideV1(unittest.TestCase):
         self.assertTrue([o for o in self.v1.decide(self._battle([15.0, 40.0], "preserve_force"))["orders"]
                          if o["type"] == "retreat"])
 
+    def _front(self, our_orgs, enemy_orgs, stance="annihilate"):
+        units = [{"unit_id": i, "province_id": 20, "organization": o} for i, o in enumerate(our_orgs, 1)]
+        vis = [{"unit_id": 900 + i, "province_id": 30, "relation_to_player": "enemy",
+                "organization": o} for i, o in enumerate(enemy_orgs)]
+        return {"meta": {"game_time": GT, "allow_write": True, "geography_scope": {"kind": "global"},
+                         "player_country": {"index": 44}},
+                "policy": {"stance": stance},
+                "world": {"own_units": units, "visible_units": vis, "combats": [],
+                          "provinces": [{"province_id": 20, "neighbors": [30]}]}}
+
+    def test_counterattack_needs_superiority(self):
+        doc = self._front([50, 50], [30, 30])          # 100 >= 1.5*60
+        out = self.v1.decide(doc)
+        self.assertEqual(g.validate_output(out, doc), [])
+        self.assertEqual(sorted((o["type"], o["target_province_ids"][0]) for o in out["orders"]),
+                         [("attack", 30), ("attack", 30)])
+        self.assertFalse(self.v1.decide(self._front([50, 50], [40, 40]))["orders"])   # 100 < 120
+        self.assertFalse(self.v1.decide(self._front([50, 50], [30, 30], "preserve_force"))["orders"])
+        self.assertFalse(self.v1.decide(self._front([90], [20, 20]))["orders"])       # outnumbered
+        self.assertFalse(self.v1.decide(self._front([25, 25, 25], [5]))["orders"])    # too tired
+
+    def test_no_double_retreat_and_no_tired_reinforcements(self):
+        doc = self._battle([5.0, 40.0], "annihilate")
+        doc["world"]["own_units"][0]["order"] = {"type": "unknown", "target_province_ids": [11],
+                                                  "path_province_ids": [11]}
+        self.assertFalse([o for o in self.v1.decide(doc)["orders"] if o["type"] == "retreat"])
+        doc = self._battle([40.0], "annihilate")
+        doc["world"]["combats"][0]["attacker_unit_ids"] = [500, 501, 502]
+        doc["world"]["provinces"][1]["neighbors"] = [10]
+        doc["world"]["own_units"][-1]["organization"] = 8.0   # tired neighbour stays home
+        self.assertFalse([o for o in self.v1.decide(doc)["orders"] if o["type"] == "move"])
+        doc["world"]["own_units"][-1]["organization"] = 50.0
+        self.assertTrue([o for o in self.v1.decide(doc)["orders"] if o["type"] == "move"])
+
 
 if __name__ == "__main__":
     unittest.main()

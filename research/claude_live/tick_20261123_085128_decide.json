@@ -1,0 +1,201 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "retreat",
+        "subject": {
+          "unit_ids": [
+            1833
+          ]
+        },
+        "to_province_ids": [
+          2072
+        ],
+        "reason": "守军组织度 1.5 低于 10，撤出省份 13238 保存兵力"
+      },
+      {
+        "order_seq": 2,
+        "type": "retreat",
+        "subject": {
+          "unit_ids": [
+            1841
+          ]
+        },
+        "to_province_ids": [
+          2072
+        ],
+        "reason": "守军组织度 8.9 低于 10，撤出省份 13238 保存兵力"
+      },
+      {
+        "order_seq": 3,
+        "type": "retreat",
+        "subject": {
+          "unit_ids": [
+            1849
+          ]
+        },
+        "to_province_ids": [
+          2072
+        ],
+        "reason": "守军组织度 8.5 低于 10，撤出省份 1984 保存兵力"
+      },
+      {
+        "order_seq": 4,
+        "type": "move",
+        "subject": {
+          "unit_ids": [
+            1835
+          ]
+        },
+        "target_province_ids": [
+          1984
+        ],
+        "reason": "增援省份 1984 的防守：敌方 4 个单位对我方 3 个师"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：21 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            1829,
+            1830,
+            1831,
+            1832,
+            1833,
+            1834,
+            1835,
+            1836,
+            1837,
+            1838,
+            1839,
+            1840,
+            1841,
+            1842,
+            1843,
+            1844,
+            1845,
+            1846,
+            1847,
+            1848,
+            1849
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "hold-1984",
+        "kind": "hold_line",
+        "province_ids": [
+          1984
+        ],
+        "subject": {
+          "unit_ids": [
+            1835
+          ]
+        },
+        "expands_to_order_seqs": [
+          4
+        ],
+        "notes": "敌我数量差 1，调入 1 个相邻空闲师"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1936,
+        "month": 1,
+        "day": 17,
+        "hour": 21
+      },
+      "summary": "已下达 1 条增援、3 条撤退、0 条进攻命令。己方 21 个师，4 场战斗涉及我方，0 条计划（执行中 0）。输入未提供：crises、wars。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "省份 4995 我方 2 个师正在防守（战斗 6，敌方 2 个单位），组织度 [30.9, 38.3]",
+        "省份 13238 我方 5 个师正在防守（战斗 2，敌方 5 个单位），组织度 [39.7, 41.4, 1.5, 42.8, 8.9]",
+        "省份 1984 我方 3 个师正在防守（战斗 5，敌方 4 个单位），组织度 [53.5, 28.6, 8.5]",
+        "省份 12812 我方 2 个师正在防守（战斗 9，敌方 1 个单位），组织度 [36.9, 40.7]",
+        "9 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：1831(52%)、1832(52%)、1833(52%)、1834(52%)、1835(52%)、1840(52%)、1841(52%)、1847(92%)、1848(92%)"
+      ],
+      "next_watch": [
+        "战斗 6 @ 省份 4995",
+        "战斗 2 @ 省份 13238",
+        "战斗 5 @ 省份 1984",
+        "战斗 9 @ 省份 12812"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-23T08:51:24-05:00",
+    "decider": "decide_v1",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：21 个师未满编，库存 0"
+    ],
+    "brief_summary": "已下达 1 条增援、3 条撤退、0 条进攻命令。己方 21 个师，4 场战斗涉及我方，0 条计划（执行中 0）。输入未提供：crises、wars。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "move",
+        "unit": 1833,
+        "dest": 2072,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "move",
+        "unit": 1841,
+        "dest": 2072,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "move",
+        "unit": 1849,
+        "dest": 2072,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "move",
+        "unit": 1835,
+        "dest": 1984,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1936-01-17",
+        "ui_hour": 21,
+        "hour_tick": 60759764
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1936-01-18",
+        "ui_hour": 9,
+        "hour_tick": 60759776
+      }
+    }
+  }
+}

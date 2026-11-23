@@ -251,6 +251,58 @@ def _capture_once():
                 if unit['unit_id'] in combat['attacker_unit_ids'] + combat['defender_unit_ids']:
                     unit.update(in_combat=True, combat_id=combat['combat_id'])
                     break
+        # Combat-revealed opponents (fog-honest: a player sees whom they fight).
+        # Only CArmy objects named in our own active combats. relation 'enemy'
+        # only when the native has-war getter 0x748400 path says at war.
+        own_ids = {u['unit_id'] for u in first['world']['own_units']}
+        _, country_ptrs = array(gs + 0x310, 2048)
+        def at_war(idx):
+            diplomacy = q(co + 0xF88)
+            if not ptr(diplomacy) or not 0 <= idx < len(country_ptrs):
+                return None
+            rel = q(q(diplomacy + 8) + 8 * idx)
+            if not ptr(rel):
+                return False
+            war = q(rel + 0x2E8)
+            return bool(ptr(war) and p.read(war + 0x49, 1)[0] == 0)
+        def tag_of(idx):
+            data, cap_, n = struct.unpack('<QII', p.read(gs + 0x358, 16))
+            if not 0 <= idx < n <= cap_:
+                return None
+            raw = p.read(data + idx * 32, 32)
+            size = struct.unpack_from('<Q', raw, 16)[0]
+            t = raw[:size].decode('ascii', 'replace') if size <= 15 else ''
+            return t if len(t) == 3 and t.isalnum() else None
+        visible = []; visible_evidence = []
+        for combat in combats:
+            for side in ('attacker_unit_ids', 'defender_unit_ids'):
+                for uid in combat[side]:
+                    if uid in own_ids or any(v['unit_id'] == uid for v in visible):
+                        continue
+                    ap = resolve_handle(Adapter(), 0x33, uid, p.base)
+                    if not ptr(ap) or q(ap) - p.base != profile['vtable_rvas']['CArmy']:
+                        visible_evidence.append({'unit_id': uid, 'omitted': 'not a primary CArmy'})
+                        continue
+                    owner_idx = i(ap + 0x1E0)
+                    war = at_war(owner_idx)
+                    rdata, rcap, rsize = struct.unpack('<QII', p.read(ap + 0x200, 16))
+                    route = (list(struct.unpack('<' + 'I' * rsize, p.read(rdata, rsize * 4)))
+                             if 0 < rsize <= rcap <= 64 and ptr(rdata) else [])
+                    v = {'unit_id': uid, 'province_id': p.u32(ap + 0x28),
+                         'owner': {'index': owner_idx},
+                         'relation_to_player': 'enemy' if war else 'unknown',
+                         'organization': struct.unpack('<q', p.read(ap + 0x428, 8))[0] / 100000,
+                         'strength': {'current': struct.unpack('<q', p.read(ap + 0x420, 8))[0] / 100000},
+                         'in_combat': True, 'combat_id': combat['combat_id'],
+                         'order': {'type': 'unknown', 'target_province_ids': route[-1:],
+                                   'path_province_ids': route},
+                         'visibility': {'spotted': True}}
+                    t = tag_of(owner_idx)
+                    if t:
+                        v['owner']['tag'] = t
+                    visible.append(v)
+                    visible_evidence.append({'unit_id': uid, 'owner_source': 'CArmy+0x1E0 logical_country',
+                                             'war_source': 'native 0x748400 path', 'at_war': war})
         from input_loaded_fields import own_equipment_affected_units
         affected_equipment, affected_equipment_evidence = own_equipment_affected_units(loaded, co)
         loaded_reads_checked=loaded.stable()
@@ -267,6 +319,7 @@ def _capture_once():
         observation['world']['army_groups'] = army_groups
         observation['world']['plans'] = plans
         observation['world']['combats'] = combats
+        observation['world']['visible_units'] = visible
         equipment_rows = {x['equipment_type']: dict(x) for x in equipment_stockpile}
         for name, ids in affected_equipment.items():
             equipment_rows.setdefault(name, {'equipment_type': name})['affected_unit_ids'] = ids
@@ -292,6 +345,7 @@ def _capture_once():
                             'building_definition_collection':building_definition_evidence,'fort_collection':fort_evidence,'leader_collection':leader_evidence,'infrastructure_collection':infrastructure_evidence,'neighbor_collection':neighbor_evidence,
                             'combat_width_source':'live loaded CSubUnitDefinition+0x58; named combat_width parser; supports empty',
                             'template_handle_registry_checks':len(template_cache),'battalion_crosschecks':extra,
+                            'visible_units_collection':{'scope':'opponents in our own active combats only','rows':visible_evidence},
                             'tolerant_omissions':{'strength_max_units':omitted_max,'templates':template_notes},
                             'registered_self_provinces':{k:len(v) for k,v in area_memberships.items()},
                             'province_relation_scope':'only current country registrations; no contested ownership contrast accepted',

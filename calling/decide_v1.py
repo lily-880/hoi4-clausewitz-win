@@ -19,6 +19,15 @@ Rule R2 — pull out collapsing defenders
   defender there is below the threshold. Emitted as the contract's `retreat`
   command; the executor carries it out as a move out of the battle.
 
+Rule R3 — counter-attack tired enemy staging provinces
+  Enemy divisions we can see (world.visible_units, relation enemy; today:
+  the opponents of our own battles) sit in provinces of their own. If idle
+  divisions of ours (organization >= 30, no route, not fighting) border such
+  a province, and their summed organization is at least ATTACK_RATIO times
+  the visible enemy's there (annihilate 1.5, others 2.5) with at least as
+  many divisions, all of them attack it. The executor re-checks with the
+  native has-war getter before posting.
+
 Orders are only produced when meta.allow_write is true and geography_scope is
 set (the contract rejects writes otherwise). Only commands verified end to end
 on 1.19.5 are used: move.
@@ -42,6 +51,36 @@ ORG_FLOOR = {"preserve_force": 20.0, "economize_manpower": 20.0, "hold_line": 20
              "annihilate": 10.0, "custom": 10.0}
 
 
+ATTACK_RATIO = {"annihilate": 1.5, "custom": 1.5}
+MIN_ATTACK_ORG = 30.0
+
+
+def _counterattacks(world: dict, stance: str, used: set[int]) -> list[dict]:
+    ratio = ATTACK_RATIO.get(stance, 2.5)
+    own_provs = {u.get("province_id") for u in world.get("own_units", [])}
+    enemy_at = {}
+    for v in world.get("visible_units", []):
+        if v.get("relation_to_player") == "enemy" and v.get("province_id") not in own_provs:
+            enemy_at.setdefault(v["province_id"], []).append(v)
+    neighbors = {p["province_id"]: set(p.get("neighbors", []))
+                 for p in world.get("provinces", []) if "province_id" in p}
+    plans = []
+    for prov, enemies in sorted(enemy_at.items(),
+                                key=lambda kv: sum(e.get("organization", 0) for e in kv[1])):
+        enemy_org = sum(e.get("organization", 0) for e in enemies)
+        ours = [u for u in world.get("own_units", [])
+                if u["unit_id"] not in used and not u.get("in_combat")
+                and not (u.get("order") or {}).get("path_province_ids")
+                and (u.get("organization") or 0) >= MIN_ATTACK_ORG
+                and prov in neighbors.get(u.get("province_id"), set())]
+        our_org = sum(u["organization"] for u in ours)
+        if ours and len(ours) >= len(enemies) and our_org >= ratio * enemy_org:
+            used.update(u["unit_id"] for u in ours)
+            plans.append({"province": prov, "units": [u["unit_id"] for u in ours],
+                          "our_org": our_org, "enemy_org": enemy_org, "enemies": len(enemies)})
+    return plans
+
+
 def _withdrawals(world: dict, player_index: int | None, stance: str) -> list[dict]:
     floor = ORG_FLOOR.get(stance, 20.0)
     units = {u["unit_id"]: u for u in world.get("own_units", []) if "unit_id" in u}
@@ -54,7 +93,8 @@ def _withdrawals(world: dict, player_index: int | None, stance: str) -> list[dic
     for c in world.get("combats", []):
         ours = [units[x] for x in c.get("defender_unit_ids", []) if x in units]
         low = [u for u in ours if isinstance(u.get("organization"), (int, float))
-               and u["organization"] < floor]
+               and u["organization"] < floor
+               and not (u.get("order") or {}).get("path_province_ids")]  # not already leaving
         if not low:
             continue
         if True:  # low ones leave; any defender above the floor keeps holding
@@ -73,7 +113,7 @@ def _withdrawals(world: dict, player_index: int | None, stance: str) -> list[dic
     return out
 
 
-def _reinforcements(world: dict) -> list[dict]:
+def _reinforcements(world: dict, min_org: float = 20.0) -> list[dict]:
     units = {u["unit_id"]: u for u in world.get("own_units", []) if "unit_id" in u}
     neighbors = {p["province_id"]: set(p.get("neighbors", []))
                  for p in world.get("provinces", []) if "province_id" in p}
@@ -94,6 +134,7 @@ def _reinforcements(world: dict) -> list[dict]:
             u for uid, u in units.items()
             if uid not in used and not u.get("in_combat")
             and not (u.get("order") or {}).get("path_province_ids")  # already marching
+            and (u.get("organization") or 0) >= min_org  # do not feed exhausted units back in
             and u.get("province_id") not in defended
             and prov in neighbors.get(u.get("province_id"), set())
         ]
@@ -122,7 +163,7 @@ def decide(input_doc: dict) -> dict:
             "to_province_ids": [w["to"]],
             "reason": f"守军组织度 {w['org']:.1f} 低于 {w['floor']:.0f}，撤出省份 {w['from']} 保存兵力",
         })
-    for plan in _reinforcements(world):
+    for plan in _reinforcements(world, max(20.0, 1.5 * ORG_FLOOR.get(stance, 20.0))):
         seqs = []
         for uid in plan["units"]:
             seq += 1
@@ -140,9 +181,28 @@ def decide(input_doc: dict) -> dict:
             "expands_to_order_seqs": seqs,
             "notes": f"敌我数量差 {plan['need']}，调入 {len(plan['units'])} 个相邻空闲师",
         })
+    used = {o["subject"]["unit_ids"][0] for o in out["orders"]}
+    for plan in _counterattacks(world, stance, used):
+        seqs = []
+        for uid in plan["units"]:
+            seq += 1
+            seqs.append(seq)
+            out["orders"].append({
+                "order_seq": seq, "type": "attack", "subject": {"unit_ids": [uid]},
+                "target_province_ids": [plan["province"]],
+                "reason": (f"反击省份 {plan['province']}：我方组织度合计 {plan['our_org']:.0f}，"
+                           f"敌方 {plan['enemies']} 个师合计 {plan['enemy_org']:.0f}"),
+            })
+        out["intents"].append({
+            "intent_id": f"strike-{plan['province']}", "kind": "exploit",
+            "province_ids": [plan["province"]], "subject": {"unit_ids": plan["units"]},
+            "expands_to_order_seqs": seqs,
+            "notes": f"以 {len(plan['units'])} 个师打击疲惫的敌军集结地",
+        })
     if out["orders"] and out.get("brief"):
         out["brief"]["summary"] = out["brief"]["summary"].replace(
             "允许写入，本拍无需下令",
             f"已下达 {sum(o['type'] == 'move' for o in out['orders'])} 条增援、"
-            f"{sum(o['type'] == 'retreat' for o in out['orders'])} 条撤退命令")
+            f"{sum(o['type'] == 'retreat' for o in out['orders'])} 条撤退、"
+            f"{sum(o['type'] == 'attack' for o in out['orders'])} 条进攻命令")
     return out
