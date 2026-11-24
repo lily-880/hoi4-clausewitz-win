@@ -1,4 +1,4 @@
-"""Commander live input: tolerant wrapper around the sealed production capture.
+﻿"""Commander live input: tolerant wrapper around the sealed production capture.
 
 Body copied from calling/input_capture_live.py capture() (sealed file left
 untouched). Differences, all recorded in evidence['tolerant_omissions']:
@@ -192,9 +192,12 @@ def _capture_once():
                     level,fe=province_fort_level(loaded,pp,building_templates[type_name])
                     fort_evidence.append(dict(fe,province_id=pid,field=field))
                     if level is not None:province_cache[pp][field]=level
-                infra,infra_evidence=infrastructure(loaded,pp,building_templates['infrastructure'])
-                infrastructure_evidence.append(dict(infra_evidence,province_id=pid))
-                if infra is not None:province_cache[pp]['infrastructure']=infra
+                try:  # tolerant: a province without a state object (null +0xC0) just omits it
+                    infra,infra_evidence=infrastructure(loaded,pp,building_templates['infrastructure'])
+                    infrastructure_evidence.append(dict(infra_evidence,province_id=pid))
+                    if infra is not None:province_cache[pp]['infrastructure']=infra
+                except OSError:
+                    pass
                 for field,membership in area_memberships.items():
                     if pp in membership:
                         province_cache[pp][field]={'index':res['player_index']}
@@ -223,11 +226,11 @@ def _capture_once():
         # (bound 64) must not abort the whole capture.
         try:
             reinforcement_requests,reinforcement_request_evidence=own_reinforcement_requests(loaded,co,army_ids)
-        except ObservationError as e:
+        except (ObservationError, OSError) as e:
             reinforcement_requests,reinforcement_request_evidence=[],{'omitted':str(e)}
         try:
             official_need,official_need_evidence=official_country_equipment_need_components(loaded,co,army_ids)
-        except ObservationError as e:
+        except (ObservationError, OSError) as e:
             official_need,official_need_evidence={},{'omitted':str(e)}
         from input_loaded_fields import (own_plans, own_active_combats, own_armies,
             own_army_groups, unit_formation_army_id, unit_formation_army_group_id)

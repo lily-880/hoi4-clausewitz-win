@@ -1,4 +1,4 @@
-"""Commander plan orders: order of battle, front lines, offensive lines, execution.
+﻿"""Commander plan orders: order of battle, front lines, offensive lines, execution.
 
 The commander (decide_llm) decides these (user 2026-11-24: drawing front and
 offensive lines is the commander's job). This module only
@@ -94,16 +94,28 @@ def view(doc: dict, session=None) -> dict:
     free_leaders = [{"leader_id": lid, "name": (leader_info.get(lid) or {}).get("name"),
                      "skill": (leader_info.get(lid) or {}).get("skill")}
                     for lid, l in leaders_live.items() if not l["assigned_group"]]
+    me = ((doc.get("meta") or {}).get("player_country") or {}).get("tag")
+    sections = {}
     try:
         import orbat
-        fronts = {k: v for k, v in orbat.front_handles(s).items()}
+        for tag, rows in orbat.front_sections(s).items():
+            for r in rows:
+                own = orbat.own_range(r["controllers"], me) if me else None
+                foreign = sorted({c for c in r["controllers"] if c and c != me})
+                sections.setdefault(tag, []).append({
+                    "section": r["section"], "provinces": len(r["provinces"]),
+                    "ends": [r["provinces"][0], r["provinces"][-1]] if r["provinces"] else [],
+                    "other_countries_on_our_side": foreign,
+                    "own_territory_range_pct": [round(own[0] / 1000), round(own[1] / 1000)] if own else None})
     except Exception:
-        fronts = {}
+        pass
+    fronts = sections
+    at_war = {e["controller"]["tag"] for e in (doc.get("_ext") or {}).get("enemy_border", []) if e.get("controller")}
     wars = {(w.get("opponent") or {}).get("tag") for w in (doc.get("world") or {}).get("wars", [])} if \
         (doc.get("world") or {}).get("wars") else None
     return {"armies": armies, "army_groups": groups,
             "divisions_not_in_any_army": free_units, "unassigned_leaders": free_leaders,
-            "border_fronts_by_country": sorted(fronts)}
+            "border_fronts": {k: v for k, v in fronts.items() if k in at_war}}
 
 
 def validate(order: dict, doc: dict, pview: dict) -> str | None:
@@ -133,6 +145,12 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
     if t == "front_line":
         if order.get("enemy") not in enemies:
             return "只能对正在交战且接壤的国家画前线"
+        secs = (pview.get("border_fronts") or {}).get(order["enemy"]) or []
+        if "section" in order and order["section"] not in {x["section"] for x in secs}:
+            return "该国边境没有这个前线段编号（见 border_fronts）"
+        rng = order.get("range_pct")
+        if rng is not None and not (isinstance(rng, list) and len(rng) == 2 and 0 <= rng[0] < rng[1] <= 100):
+            return "range_pct 须为 [起点百分比, 终点百分比]，0≤起点<终点≤100"
     if t == "offensive_line":
         path = order.get("path")
         if not (isinstance(path, list) and 2 <= len(path) <= 12 and all(type(x) is int for x in path)):
@@ -161,13 +179,42 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
     return None
 
 
-def _remember_front(army_id: int, enemy: str) -> None:
+def _remember_front(army_id: int, spec: dict) -> None:
     try:
         data = json.loads(FRONTS_FILE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         data = {"armies": {}}
-    data.setdefault("armies", {})[str(army_id)] = enemy
+    data.setdefault("armies", {})[str(army_id)] = spec
     FRONTS_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=True, remember=False) -> dict:
+    """Front line on one section of the border with `enemy`. Default section: the one with the most
+    of our own provinces; default range: our own territory only (no allied / neutral stretch)."""
+    import orbat
+    me = s.tag(s.player.get("player_index")) if s.player.get("player_index") is not None else None
+    rows = orbat.front_sections(s).get(enemy) or []
+    if not rows:
+        return {"ok": False, "stop": "该国没有边境前线"}
+    if section is None:
+        row = max(rows, key=lambda r: sum(1 for c in r["controllers"] if c == me))
+    else:
+        row = next((r for r in rows if r["section"] == section), None)
+        if row is None:
+            return {"ok": False, "stop": "没有这个前线段"}
+    if range_pct:
+        rng = (int(range_pct[0] * 1000), int(range_pct[1] * 1000))
+    else:
+        rng = orbat.own_range(row["controllers"], me)
+        if rng is None:
+            return {"ok": False, "stop": "这一段前线不在本国领土上，不画"}
+    res = orbat.front_line(army_id, row["front_id"], unit_ids, live, start=rng[0], end=rng[1],
+                           section=row["section"])
+    if res.get("ok") and remember:
+        _remember_front(army_id, {"enemy": enemy, "section": row["section"],
+                                  "range_pct": [rng[0] / 1000, rng[1] / 1000]})
+    res.update(section=row["section"], range=rng)
+    return res
 
 
 def apply(order: dict, pview: dict, live: bool = True) -> dict:
@@ -178,13 +225,8 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
     snap = orbat.snapshot(s)
     units_of = {a["id"]: a["unit_ids"] for th in snap["theatres"] for a in th["armies"]}
     if t == "front_line":
-        fronts = orbat.front_handles(s).get(order["enemy"]) or []
-        if not fronts:
-            return {"ok": False, "stop": "NO_BORDER_FRONT"}
-        res = orbat.front_line(order["army_id"], fronts[0], units_of.get(order["army_id"], []), live)
-        if res.get("ok"):
-            _remember_front(order["army_id"], order["enemy"])
-        return res
+        return place_front(s, order["army_id"], order["enemy"], order.get("section"), order.get("range_pct"),
+                           units_of.get(order["army_id"], []), live, remember=True)
     if t == "offensive_line":
         a = armies[order["army_id"]]
         front = max(a["fronts"], key=lambda f: f["front_provinces"])
@@ -210,7 +252,7 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         return res
     if t == "create_army":
         before = set(units_of)
-        res = orbat.create_army(1, order["unit_ids"], live)
+        res = orbat.create_army(snap["theatres"][0]["id"], order["unit_ids"], live)
         new = [a["id"] for th in orbat.snapshot(s)["theatres"] for a in th["armies"] if a["id"] not in before]
         if res.get("ok") and new and order.get("leader_id"):
             res["appoint"] = orbat.appoint(order["leader_id"], new[0], live).get("ok")
@@ -218,7 +260,7 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         return res
     if t == "create_army_group":
         before = {g["id"] for th in snap["theatres"] for g in th["army_groups"]}
-        res = orbat.create_army_group(1, order["army_ids"], live)
+        res = orbat.create_army_group(snap["theatres"][0]["id"], order["army_ids"], live)
         new = [g["id"] for th in orbat.snapshot(s)["theatres"] for g in th["army_groups"] if g["id"] not in before]
         if res.get("ok") and new and order.get("leader_id"):
             res["appoint"] = orbat.appoint(order["leader_id"], new[0], live).get("ok")

@@ -1,0 +1,314 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            32
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11260
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            33
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11260
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            25
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11260
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            26
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11260
+        ]
+      },
+      {
+        "order_seq": 5,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            27
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11316
+        ]
+      },
+      {
+        "order_seq": 6,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            28
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          11467
+        ]
+      },
+      {
+        "order_seq": 7,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            29
+          ]
+        },
+        "reason": "中立边境调往波兰前线",
+        "target_province_ids": [
+          9511
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：30 个师未满编",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            65,
+            66,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            90,
+            91,
+            109,
+            115
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            32,
+            33
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "notes": "三路集团军沿波兰边境发起钳形攻势，优先夺取近处胜利点，西线保持不动。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 14,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰战役首拍，第1、2、3集团军已组建完毕并前出至边境。计划以第1集团军从东普鲁士南压、第2集团军中路突破、第3集团军从南方北上，同时将中立国边境空闲师调往波兰前线。西线18个师维持每省至少2个师未动。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "进攻线路径可能因省份不相邻被引擎拒绝",
+        "波兰边境敌军组织度尚整，首轮突破可能受阻",
+        "中立国边境部队战略转移期间前线兵力略有空虚",
+        "7 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：206. Infanterie-Division(97%)、208. Infanterie-Division(97%)、10. Panzer-Division(97%)、Festung Lötzen(94%)、207. Infanterie-Division(97%)、218. Infanterie-Division(97%)、50. Infanterie-Division(91%)",
+        "大模型有 6 条命令不合规，已剔除"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T14:00:30-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：30 个师未满编"
+    ],
+    "brief_summary": "【大模型】波兰战役首拍，第1、2、3集团军已组建完毕并前出至边境。计划以第1集团军从东普鲁士南压、第2集团军中路突破、第3集团军从南方北上，同时将中立国边境空闲师调往波兰前线。西线18个师维持每省至少2个师未动。",
+    "plan_orders": [
+      {
+        "order": {
+          "type": "front_line",
+          "army_id": 1,
+          "enemy": "POL",
+          "reason": "第1集团军沿东普鲁士-波美拉尼亚边境布防"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      },
+      {
+        "order": {
+          "type": "front_line",
+          "army_id": 2,
+          "enemy": "POL",
+          "reason": "第2集团军沿中路边境布防"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      },
+      {
+        "order": {
+          "type": "front_line",
+          "army_id": 3,
+          "enemy": "POL",
+          "reason": "第3集团军沿南方-斯洛伐克方向布防"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      }
+    ],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "unit": 32,
+        "dest": 11260,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "unit": 33,
+        "dest": 11260,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "strategic_redeploy",
+        "unit": 25,
+        "dest": 11260,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "strategic_redeploy",
+        "unit": 26,
+        "dest": 11260,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "strategic_redeploy",
+        "unit": 27,
+        "dest": 11316,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 6,
+        "type": "strategic_redeploy",
+        "unit": 28,
+        "dest": 11467,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 7,
+        "type": "strategic_redeploy",
+        "unit": 29,
+        "dest": 9511,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-14",
+        "ui_hour": 24,
+        "hour_tick": 60791063
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-15",
+        "ui_hour": 12,
+        "hour_tick": 60791075
+      }
+    }
+  }
+}

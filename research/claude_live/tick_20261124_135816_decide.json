@@ -1,0 +1,238 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            30
+          ]
+        },
+        "reason": "填补本土防线6542省至下限",
+        "target_province_ids": [
+          6542
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：30 个师未满编",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            65,
+            66,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            90,
+            91,
+            109,
+            115
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            30
+          ]
+        },
+        "expands_to_order_seqs": [
+          1
+        ],
+        "notes": "三路集团军同时向波兰发起进攻，北路与中路钳形指向华沙，南路压向南部要地，同时补齐西线防线缺口。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 14,
+        "hour": 12
+      },
+      "summary": "【大模型】波军151省，我边境已有56个师到位。组建三个集团军沿波兰全线展开并进攻：北路由东普鲁士与波美拉尼亚夹击华沙，南路自西里西亚与斯洛伐克推进。西线仅6542省少一个师，已从闲置的后备师调补，法国边境其余省份仍保持下限。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "进攻线首拍即执行可能被引擎延迟，下一拍需确认各集团军是否已开火",
+        "南路多山地/丘陵，推进较慢，需注意组织度轮换",
+        "后方师调往6542的路程若被拒，西线下限将不足",
+        "装甲师组织度仅44，长途突击后需休整",
+        "大模型有 9 条命令不合规，已剔除"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T13:58:04-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：30 个师未满编"
+    ],
+    "brief_summary": "【大模型】波军151省，我边境已有56个师到位。组建三个集团军沿波兰全线展开并进攻：北路由东普鲁士与波美拉尼亚夹击华沙，南路自西里西亚与斯洛伐克推进。西线仅6542省少一个师，已从闲置的后备师调补，法国边境其余省份仍保持下限。",
+    "plan_orders": [
+      {
+        "order": {
+          "type": "create_army",
+          "unit_ids": [
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            74,
+            77,
+            73,
+            75,
+            76,
+            78,
+            79,
+            80,
+            69,
+            72,
+            90
+          ],
+          "leader_id": 342,
+          "reason": "北方集团军：东普鲁士+波美拉尼亚，向华沙钳击"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": 1
+      },
+      {
+        "order": {
+          "type": "create_army",
+          "unit_ids": [
+            52,
+            53,
+            54,
+            55,
+            70,
+            71,
+            89,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101
+          ],
+          "leader_id": 339,
+          "reason": "古德里安装甲集群：中路平原突破"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": 2
+      },
+      {
+        "order": {
+          "type": "create_army",
+          "unit_ids": [
+            81,
+            82,
+            83,
+            102,
+            103,
+            104,
+            105,
+            109,
+            110,
+            112,
+            113,
+            116,
+            117,
+            118,
+            111,
+            114,
+            115,
+            119,
+            120,
+            121,
+            86,
+            87,
+            88
+          ],
+          "leader_id": 338,
+          "reason": "南方集团军：西里西亚与斯洛伐克方向"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": 3
+      }
+    ],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "unit": 30,
+        "dest": 6542,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-14",
+        "ui_hour": 12,
+        "hour_tick": 60791051
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-14",
+        "ui_hour": 24,
+        "hour_tick": 60791063
+      }
+    }
+  }
+}

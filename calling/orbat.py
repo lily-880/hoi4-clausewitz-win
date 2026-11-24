@@ -245,13 +245,60 @@ def appoint(leader_id: int, group_id: int, live=True) -> dict:
                            (0x30, struct.pack("<II", T_GROUP, group_id)), (0x38, struct.pack("<I", 0))], [], live)
 
 
-def front_line(group_id: int, front_id: int, unit_ids: list[int], live=True) -> dict:
+def front_sections(session) -> dict:
+    """Border fronts by opposing country, split into sections (CFront +0x58 -> CFrontSection;
+    section number at +0x8 is what COrderNewRootCommand +0x50 selects; +0x30 = our-side
+    provinces in front order, the order the 0..100000 range runs along).
+    {tag: [{"front_id", "section", "provinces": [...], "controllers": [...]}]}"""
+    r = Reader(session)
+    out = {}
+    for tp in r.arr(session.country + 0x168, 64)[:1]:
+        for fp in r.arr(tp + 0x50, 256):
+            d, c, n = struct.unpack("<QII", session.p.read(fp + 0x38, 16))
+            if not n:
+                continue
+            tag = session.tag(session.u32(d))
+            for sp in r.arr(fp + 0x58, 64):
+                provs = [session.u32(x + 0xA4) for x in r.arr(sp + 0x30, 5000) if _ptr(x)]
+                ctrl = []
+                for pid in provs:
+                    ci = session.controller_of(pid)
+                    ctrl.append(session.tag(ci) if ci is not None else None)
+                out.setdefault(tag, []).append({"front_id": r.handle(fp)[1], "section": session.u32(sp + 0x8),
+                                                "provinces": provs, "controllers": ctrl})
+    return out
+
+
+def own_range(controllers: list, me: str) -> tuple[int, int] | None:
+    """Longest run of our own provinces in a section, as a 0..100000 range."""
+    n = len(controllers)
+    best, i = None, 0
+    while i < n:
+        if controllers[i] == me:
+            j = i
+            while j < n and controllers[j] == me:
+                j += 1
+            if best is None or j - i > best[1] - best[0]:
+                best = (i, j)
+            i = j
+        else:
+            i += 1
+    if not best:
+        return None
+    a, b = best
+    return (0 if a == 0 else a * 100000 // n + 1, 100000 if b == n else b * 100000 // n)
+
+
+def front_line(group_id: int, front_id: int, unit_ids: list[int], live=True,
+               start: int | None = None, end: int | None = None, section: int = 1) -> dict:
     """Front line along a border CFront {66,id}. +0x50=1 (copied to plan +0x260) makes the
     engine lay the line along the border; without it the plan has no path and is not drawn
     (compared with a line the user drew in the UI, 2026-11-24)."""
-    return post("new_root", [(0x28, struct.pack("<II", T_GROUP, group_id)),
-                             (0x48, struct.pack("<II", 66, front_id)), (0x50, struct.pack("<I", 1))],
-                [(0x30, [(T_UNIT, u) for u in unit_ids])], live)
+    fields = [(0x28, struct.pack("<II", T_GROUP, group_id)),
+              (0x48, struct.pack("<II", 66, front_id)), (0x50, struct.pack("<I", int(section)))]
+    if start is not None or end is not None:  # +0x58/+0x60: covered range of the front, 0..100000
+        fields.append((0x58, struct.pack("<qq", int(start or 0), int(100000 if end is None else end))))
+    return post("new_root", fields, [(0x30, [(T_UNIT, u) for u in unit_ids])], live)
 
 
 def offensive_line(group_id: int, front_plan_id: int, path: list[int], unit_ids: list[int], live=True) -> dict:
@@ -310,16 +357,19 @@ def ensure_fronts(live=True) -> list[dict]:
     import live_trial as lt
     s = lt.Session(check_sha=False)
     snap = snapshot(s)
-    fronts = front_handles(s)
+    import plan_orders
     done = []
     for t in snap["theatres"]:
         for a in t["armies"]:
-            tag = want.get(str(a["id"]))
+            spec = want.get(str(a["id"]))
+            if isinstance(spec, str):
+                spec = {"enemy": spec}
             has_line = any(p["path"] and p["members"] for p in a["plans"])
-            if not tag or has_line or not a["unit_ids"] or not fronts.get(tag):
+            if not spec or has_line or not a["unit_ids"]:
                 continue
-            res = front_line(a["id"], fronts[tag][0], a["unit_ids"], live)
-            done.append({"army_id": a["id"], "enemy": tag, "front_id": fronts[tag][0], "ok": res.get("ok")})
+            res = plan_orders.place_front(s, a["id"], spec["enemy"], spec.get("section"), spec.get("range_pct"),
+                                          a["unit_ids"], live)
+            done.append({"army_id": a["id"], "enemy": spec["enemy"], "ok": res.get("ok"), "stop": res.get("stop")})
     return done
 
 
