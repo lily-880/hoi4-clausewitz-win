@@ -1,126 +1,150 @@
-# hoi4-clausewitz-win — Path C 阶段验收（Stage Acceptance）
+# 钢四陆军总司令
 
-**Windows 侧 HOI4 1.19.4 陆战陆军代理桥接**（ReadProcessMemory + 已证明 Post ABI）。  
-灵感来自 [smerss/Clausewitz-MCP](https://github.com/smerss/Clausewitz-MCP)（Linux-only）；本仓库是 Windows 后端与偏移工作台，**不是** 107-tool 克隆。
+让 AI 在《钢铁雄心 4》（Hearts of Iron IV，Windows 版）里**接管陆军指挥**。
 
-> **阶段状态（2026-11-02 Asia/Shanghai）：可演示验收。**  
-> Path-C 诚实进度约 **~99%**（相对 ~60% 基线；**已过 70%**）。  
-> 耐久堆叠 hold-through-Attack（stack≥2）已关闭 HIT；进攻目的地口袋 `any_at_1886` / Retreat 仍开放或 PARKED。
+玩家只管定方针、管国家层面的事（科技、生产、外交）；陆战交给「总司令」：它读取战场态势、做出判断、下达命令、核对命令有没有生效，然后进入下一轮。
 
----
-
-## Path C 是什么
-
-目标：在 **战时 ETH** 续跑图上，用已证明 ABI 驱动陆军 **集结 / 进攻 / 取消 / 移动 / 战略转移**，偏向包围（encirclement bias），且：
-
-- 速度 **仅 pause 或 1x（禁止 5x）**
-- 默认 **`allow_post=False`**；开闸需 env + marker + checklist（G4–G6）
-- 不发明 org/str / 邻接 / theater-frontline / Retreat factory
-- Instant 空轮询与 PATH densify：**PARKED**
+> 这是一个研究性质的个人项目，直接读写游戏进程内存，**只适用于特定游戏版本**（见下文「环境要求」）。
 
 ---
 
-## 现在已经能做什么（Works NOW）
+## 现在做到哪一步了（2026-11-24）
 
-| 能力 | ABI / 模块 | 证据 |
-|------|------------|------|
-| **Strategic Redeploy** | type **4753** · `calling/strategic_order.py` | 多军集结 HIT；路径含目的地 |
-| **Move** | type **1402** · `calling/move_order.py`（**ucrt_malloc** 远程缓冲） | PATH_CONTAINS_DEST |
-| **Cancel movement** | type **1415** · `calling/cancel_order.py`（ucrt） | PATH_CLEARED / 锚点 peel 再集结 |
-| **SupportAttack** | type **3620** · `calling/attack_order.py`（inline handle@+0x28 province@+0x30） | ATTACK_POSTED_STABLE |
-| **Durable stack≥2 hold-through-Attack** | Phase **2ikr** hybrid | Post 时 stack=2；hold 窗 depths 全 2；`durable_stack_ge2=true`；early_stop=`DURABLE_STACK_GE2` |
-| **RO 附着 / 科目** | `clausewitz_win.py status` · `army_subjects` | 读省份、路径、标签 |
+### 已经能做的
+- **读懂战场**：从游戏内存直接读出己方各师的位置、组织度、兵力、补给、行军路线，正在进行的战斗及双方损耗，与我方交战的敌军，各省份归属、地形、邻接，整条边界，以及敌方的胜利点要地。
+- **下达命令**：移动、进攻、撤退、战略转移、取消行军，全部在游戏里实测过「下令 → 部队真的执行 → 结果可回读」。
+- **自己做决定**：每一轮先由一组规则给出建议，再交给大模型（DeepSeek）根据玩家方针拍板，命令经过合规检查后执行。
+- **自动连续运行**：一轮接一轮自动推进，直到达成目标；每轮结束游戏都会自动暂停。
 
-**里程碑 SHA：** `8d6bfad` / HEAD `fedef1d`（phase2ikr DURABLE HIT）。报告：`reports/phase2ikr_strategic_anchor_peel_attack_summary.json`。
+### 第一个成绩
+| 测试 | 结果 |
+|---|---|
+| 1939 年剧本，德国开局即对波兰宣战，总司令逐师指挥 | 波兰于 **1939-10-15** 停止抵抗（宣战后 **62 天**），共 124 轮，DeepSeek 费用约 **8 元人民币** |
 
-### 仍开放 / PARKED（勿在演示中宣称已完成）
-
-| 项 | 状态 |
-|----|------|
-| **Retreat** | **HARD_DENY_PARKED** — 无已证明 Post ABI / `retreat_order.py` |
-| **any_at_1886 / 进攻目的地口袋** | 仍开放（2ikr 耐久堆叠 HIT，但未到 1886） |
-| **Instant** | PARKED（禁止空 poll / Instant×PATH densify） |
-| **战斗 densify / 邻接** | **HONEST_EMPTY** — 不发明 |
-| Capstone / 121 | 未作为本阶段目标 |
+### 还不能做的
+- **集团军、前线、进攻线**还没用上：游戏自带的「作战计划」功能还没研究通。现在只能一个师一个师地下令，效率不高。这是下一步的重点。
+- 读取能力尚不完整，比如战斗胜负、补给是否被切断、计划状态等字段还读不到。
+- 只支持一个游戏版本；游戏一更新，内存地址就要重新核对。
 
 ---
 
-## 安全闸门（务必遵守）
+## 它是怎么工作的
 
-1. **速度：** 仅 pause / 1x。禁止写 5x。日历卡住可空格点一下解 pause，或 `launch_into_map.py --start-tag ETH --speed 1 --allow-ai` 自重启。
-2. **`CLAUSEWITZ_ALLOW_POST`：** 默认关。演示 Post 前开闸，结束后立刻关；删除 `research/safe_land_tool_gate.OPEN`（及 legacy strategic-only marker）。
-3. **Checklist：** `research/safe_enable_checklist.json`（UTF-8；读写用 `utf-8-sig` 兼容 BOM）。
-4. **VirtualFreeEx：** Post 线程可能仍在跑时不要急着释放远程缓冲。
-5. **find_pid：** 取 **最大工作集** 的 `hoi4.exe`（防僵尸进程）。
-
----
-
-## 快速开始（Windows）
-
-```powershell
-cd "$env:USERPROFILE\Documents\Paradox Interactive\Hearts of Iron IV\clausewitz_win"
-$env:HOI4_PATH = "D:\STEAM\steam\steamapps\common\Hearts of Iron IV"
-
-# 只读体检（无需开闸）
-python clausewitz_win.py doctor
-python clausewitz_win.py peinfo
-# 游戏已在地图上时：
-python clausewitz_win.py status
-# UI date/hour: docs/CLOCK_ALIGNMENT.md  (+0x478/+0x484 date; (u32(+0x468)%24)+1 hour)
-python clausewitz_win.py redeploy 1042 758 --dry-run
+```text
+          ┌──────────── 每一轮（默认 = 12 个游戏小时）────────────┐
+          │                                                         │
+ 游戏内存 ──读取──▶ 态势数据 ──▶ 规则参谋给建议 ──▶ DeepSeek 拍板     │
+          │                                         │               │
+          │                                   合规检查（部队存在？  │
+          │                                   目标相邻？确实交战？）│
+          │                                         ▼               │
+          │        让游戏走 12 小时，再自动暂停 ◀── 执行命令        │
+          │                    │                                    │
+          └──── 记录回执（命令是否被游戏接受）──▶ 下一轮 ───────────┘
 ```
 
-### 进图 / 自重启（ETH @1x）
+- **读取**：`calling/live_input.py`。单个数据异常时只省略那一项，不会让整轮失败。
+- **决策**：`calling/decide_v2.py`（规则参谋）+ `calling/decide_llm.py`（DeepSeek）。玩家方针写在 `calling/tables/commander_instructions.json`。
+- **执行**：`scripts/live_trial.py`。通过游戏自己的命令通道下令，不模拟鼠标点击。
+- **循环**：`scripts/commander_loop.py`。
 
+---
+
+## 安全规则
+
+这个项目会往游戏进程里写入命令，所以定了几条硬规矩：
+
+1. **只在测试局里下令**，不碰玩家的正式存档。
+2. **每一轮结束必须暂停**；另有一个独立的「看门」进程：游戏连续 4 分钟没有暂停，就自动按暂停。
+3. 游戏速度只用暂停和 1 档，不开高速。
+4. 命令结果不确定时就停下来，不重试。
+5. 不使用作弊指令，也不读写存档文件。
+
+---
+
+## 环境要求
+
+| 项目 | 要求 |
+|---|---|
+| 系统 | Windows 10/11 |
+| 游戏 | Hearts of Iron IV **1.19.5.0.7c6c**（Steam 版）。程序会核对游戏主程序的 SHA256，版本不符时拒绝读取 |
+| Python | 3.13（3.11 以上应该也可以） |
+| 依赖 | `pip install jsonschema pillow` |
+| 大模型（可选） | DeepSeek API 密钥，放在环境变量 `DEEPSEEK_API_KEY`。不配置时，总司令只用规则做决策 |
+
+---
+
+## 快速上手
+
+以下命令都在仓库根目录执行。
+
+**1. 启动游戏**（直接读入一个存档；存档名不能含空格或连字符）
 ```powershell
-python launch_into_map.py --start-tag ETH --speed 1 --allow-ai
-# 等待地图就绪后再 status；速度保持 1x 或 pause
+python scripts/game_ui.py launch --save GER_1939_08_14_base
 ```
 
-### 明日现场演示
+**2. 检查连接**（只读：确认游戏版本、玩家国家、日期、是否暂停）
+```powershell
+python -I scripts/live_trial.py guard
+```
 
-见 **[DEMO_TOMORROW.md](DEMO_TOMORROW.md)** 与 **[DEMO_READY.md](DEMO_READY.md)**。  
-推荐剧本：战时 ETH → Strategic 集结 → 堆叠后 Attack → 观察 durable stack≥2。  
-**不要演示 / 不要宣称：** Retreat、已抵达 1886 口袋（除非当场证据为真）。
+**3. 让总司令连续指挥**，直到目标国投降或无省可控
+```powershell
+python -I scripts/commander_loop.py --decider decide_llm --hours 12
+```
+想中途停下：在 `research/claude_live/` 目录里新建一个叫 `STOP` 的文件，当前这一轮结束后就会停。
 
----
+**4. 看进度和费用**（每轮一行：日期、目标国剩余省数、命令数、DeepSeek 花费）
+```powershell
+python -I scripts/loop_report.py --follow
+```
 
-## 仓库导航
+**5. 战场分析**（只读，汇总兵力分布、战损、要地距离、模型意图）
+```powershell
+python -I scripts/observer.py
+```
 
-| 路径 | 说明 |
-|------|------|
-| `calling/strategic_order.py` | Strategic 4753 |
-| `calling/move_order.py` | Move 1402（ucrt_malloc） |
-| `calling/cancel_order.py` | Cancel 1415 |
-| `calling/attack_order.py` | SupportAttack 3620 |
-| `calling/army_subjects.py` | 陆军索引 / 省份 RO |
-| `docs/LAND_ARMY_AGENT.md` | 陆战代理阶段日志 |
-| `docs/SAFE_LAND_POST.md` | 安全 Post 闸门日志 |
-| `docs/LAND_POST_READINESS.md` | Post 就绪长文 |
-| `docs/PHASE2IKR_STRATEGIC_ANCHOR_PEEL_ATTACK.md` | 2ikr 耐久堆叠 HIT |
-| `scripts/phase2ikr_strategic_anchor_peel_attack.py` | 耐久堆叠演示战役脚本 |
-| `research/WINDOWS_OFFSETS.md` | 偏移再生说明 |
-
----
-
-## Target pin
-
-| Item | Value |
-|------|--------|
-| OS | Windows 11（本机测过 25H2） |
-| Game | `hoi4.exe` **1.19.4.0** Operation Postern |
-| 默认 Steam 路径 | `D:\STEAM\steam\steamapps\common\Hearts of Iron IV` |
-
-游戏小版本更新通常要重生 RVA；Windows 小更新一般不用。
+其他常用：
+| 命令 | 作用 |
+|---|---|
+| `python -I scripts/live_trial.py tick --decider decide_llm --allow-write --hours 12` | 只跑一轮 |
+| `python -I scripts/live_trial.py clock pause` | 立刻暂停游戏 |
+| `python -I calling/decide_v0.py --input 某次采集.json` | 离线：用保存的态势试跑决策，不碰游戏 |
+| `python -I calling/tests/test_commander_output.py` | 离线测试（另有 `test_decide_llm.py`、`test_live_trial_offline.py`） |
 
 ---
 
-## Upstream credit
+## 目录说明
 
-架构与逆向方法受 **Clausewitz-MCP**（MIT, smerss）启发。  
-见其 [research/FINDINGS.md](https://github.com/smerss/Clausewitz-MCP/blob/main/research/FINDINGS.md)。  
-本仓库的 Windows PE 后端与 1.19.4 表是独立工作。
+| 位置 | 内容 |
+|---|---|
+| `calling/` | 核心代码：读取内存、决策、下达命令 |
+| `calling/tables/` | 数据表：输入/输出格式定义（schema）、内存偏移、玩家方针 |
+| `calling/tests/` | 离线测试 |
+| `scripts/` | 可直接运行的工具：单轮执行、自动循环、进度汇报、战场分析、游戏界面控制 |
+| `钢四陆军总司令/` | **项目文档**：能力清单、接口设计、每一阶段的研究记录（`records/`） |
+| `research/` | 逆向研究的原始材料和证据（量很大，一般不用看） |
+| `research/claude_live/` | 实机运行留下的数据：每轮态势、决策、命令回执、DeepSeek 调用记录 |
+| `docs/`、`reports/` | 早期阶段的研究文档和报告 |
 
-## License
+### 想了解项目，建议按这个顺序读
+1. `钢四陆军总司令/陆军总司令函数接口.md`：总司令的完整设计，规定能看到什么、能下什么命令
+2. `钢四陆军总司令/records/claude_c05_RESUME_HERE_poland1939.md`：当前进度和下一步
+3. `钢四陆军总司令/records/claude_c06_observer_poland1939.md`：第一局的战场观察与问题分析
+4. `钢四陆军总司令/态势信息读取能力清单.md`：116 个态势字段中哪些已经证实能读
 
-MIT — 见 [LICENSE](LICENSE)。
+---
+
+## 下一步
+
+1. **用上集团军和作战计划**：建集团军、任命将领、画前线和进攻线，让游戏自己的计划系统去展开兵力、推进正面。
+2. **补足总司令的认知**：战斗宽度（一场战斗能同时上阵的兵力有限）、胜利点与投降进度。
+3. 从同一个存档重跑 1939 年波兰战役，目标是快于 62 天。
+4. 再逐步扩展到更大的战役，最终目标是能在整局游戏中接管陆战。
+
+---
+
+## 历史与致谢
+
+- 早期（2026-11-02 之前）的阶段说明保存在 `docs/README_history_2026-11-02.md`。
+- 思路受到 [smerss/Clausewitz-MCP](https://github.com/smerss/Clausewitz-MCP)（Linux 版）启发；本项目是独立的 Windows 实现。
