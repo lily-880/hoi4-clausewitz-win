@@ -530,6 +530,50 @@ def _capture_once():
                 key_targets.append({'province_id': pid_, 'victory_points': vp,
                                     'owner': tag_of(controller[pid_]), 'hops_from_our_land': depth[pid_]})
         key_targets.sort(key=lambda r: (-r['victory_points'], r['hops_from_our_land']))
+        # ---- encirclement indicators (for key-moment detection) ----
+        # Enemy: connected components of each foe's land, built only from provinces
+        # reachable from our border (bounded). A component cut off from the foe's
+        # largest component is a pocket. Our side: small own regions = our pockets
+        # (the stable exclaves such as East Prussia are reported too; the loop
+        # compares against the previous tick).
+        pockets = []
+        for foe in foes:
+            tag_ = tag_of(foe)
+            if tag_ not in ('POL',) and len([1 for v in controller.values() if v == foe]) > 400:
+                continue  # large overseas empires: skip (cost); front-line foe only
+            members = [pid_ for pid_, c in controller.items() if c == foe]
+            seen_ = {}
+            comps = []
+            for s in members:
+                if s in seen_:
+                    continue
+                cid = len(comps); comp = []
+                dq = deque([s]); seen_[s] = cid
+                while dq:
+                    cur = dq.popleft(); comp.append(cur)
+                    for n in nb_any(cur):
+                        if controller.get(n) == foe and n not in seen_:
+                            seen_[n] = cid; dq.append(n)
+                comps.append(comp)
+            comps.sort(key=len, reverse=True)
+            for comp in comps[1:]:
+                ours_around = set()
+                for x in comp:
+                    for n in nb_any(x):
+                        if controller.get(n) == me:
+                            ours_around.add(n)
+                if ours_around:  # cut off by us, not a natural island/colony
+                    pockets.append({'owner': tag_, 'provinces': len(comp), 'sample': sorted(comp)[:8],
+                                    'our_provinces_around': len(ours_around)})
+        # near-closed: enemy border provinces whose land neighbours are mostly ours
+        near_closed = []
+        for pid_ in enemy_border:
+            nb = nb_any(pid_)
+            if len(nb) >= 3:
+                ours = sum(1 for n in nb if controller.get(n) == me)
+                if ours / len(nb) >= 0.75:
+                    near_closed.append({'province_id': pid_, 'owner': tag_of(controller[pid_]),
+                                        'ours': ours, 'neighbors': len(nb)})
         topology = {
             'regions': [{'region': rid, 'provinces': len(m),
                          'border_provinces': sorted(x for x in m if x in own_border)}
@@ -537,6 +581,9 @@ def _capture_once():
             'region_of_province': region_of,
             'hops_to_border': hops,
             'key_targets': key_targets[:40],
+            'enemy_pockets': pockets,
+            'near_closed': near_closed,
+            'own_region_sizes': sorted((len(m) for m in regions), reverse=True),
             'source': 'BFS over land adjacency (types 0/2/3) of own-controlled provinces; '
                       'enemy depth BFS inside the same enemy controller; VP = CProvince+0x38',
         }

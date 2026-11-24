@@ -67,6 +67,43 @@ def watchdog(parent_pid: int) -> int:
         time.sleep(5)
 
 
+KEY_MOMENTS = OUT / "key_moments.jsonl"
+
+
+def key_moments(prev: dict | None, ext: dict, targets: set[str]) -> list[dict]:
+    """Typical turning points worth saving as practice starts.
+    prev/ext: commander_ext of the previous and current tick."""
+    if not ext:
+        return []
+    top = ext.get("topology") or {}
+    out = []
+    ptop = (prev or {}).get("topology") or {}
+    prev_pockets = {tuple(x["sample"][:3]) for x in ptop.get("enemy_pockets", [])}
+    for pk in top.get("enemy_pockets", []):
+        if pk["owner"] in targets and tuple(pk["sample"][:3]) not in prev_pockets:
+            out.append({"kind": "包围圈形成", "detail": f"{pk['owner']} 有 {pk['provinces']} 个省被我方切断（例如 {pk['sample'][:4]}）"})
+    pn = {x["province_id"] for x in ptop.get("near_closed", [])}
+    new_close = [x for x in top.get("near_closed", []) if x["owner"] in targets and x["province_id"] not in pn]
+    if len(new_close) >= 2:
+        out.append({"kind": "口袋即将合拢", "detail": "敌方省份大部分邻省已在我方手中：" +
+                    "、".join(f"{x['province_id']}({x['ours']}/{x['neighbors']})" for x in new_close[:6])})
+    if prev:
+        for tag in targets:
+            a_ = (prev.get("enemy_controlled_provinces") or {}).get(tag)
+            b_ = (ext.get("enemy_controlled_provinces") or {}).get(tag)
+            if a_ and b_ is not None and a_ - b_ >= 4 and b_ > 0:
+                out.append({"kind": "敌方前线被撕开", "detail": f"{tag} 一拍丢失 {a_ - b_} 个省（{a_}→{b_}）"})
+        def best(tp):
+            kt = [k for k in tp.get("key_targets", []) if k["owner"] in targets]
+            return min((k["hops_from_our_land"] for k in kt if k["victory_points"] >= 20), default=None)
+        hb, ha = best(ptop), best(top)
+        if hb is not None and ha is not None and hb - ha >= 2:
+            out.append({"kind": "逼近要地", "detail": f"离高价值胜利点的最短距离 {hb}→{ha} 个省"})
+        if len(top.get("own_region_sizes", [])) > len(ptop.get("own_region_sizes", [])):
+            out.append({"kind": "我方部队被围", "detail": f"我方陆地块由 {len(ptop.get('own_region_sizes', []))} 块变为 {len(top.get('own_region_sizes', []))} 块"})
+    return out
+
+
 def target_state(targets: set[str]) -> dict:
     import live_trial as lt
 
@@ -85,6 +122,8 @@ def main(argv=None) -> int:
     ap.add_argument("--hours", type=int, default=12)
     ap.add_argument("--max-ticks", type=int, default=200)
     ap.add_argument("--targets", default="POL")
+    ap.add_argument("--key-moments", action="store_true",
+                    help="stop (paused) at typical turning points so the user can save a practice start")
     ap.add_argument("--watchdog", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--parent", type=int, help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
@@ -98,6 +137,7 @@ def main(argv=None) -> int:
     dog = subprocess.Popen([sys.executable, "-I", __file__, "--watchdog", "--parent", str(os.getpid())],
                            cwd=str(ROOT), creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     score = None
+    prev_ext = None
     try:
         done_before = sum(1 for x in PROGRESS.read_text(encoding="utf-8").splitlines() if x.strip())             if PROGRESS.exists() else 0
         for n in range(done_before + 1, done_before + a.max_ticks + 1):
@@ -116,6 +156,8 @@ def main(argv=None) -> int:
             except (IndexError, ValueError, OSError):
                 pass
             counts = {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in targets}
+            moments = key_moments(prev_ext, ext, targets) if a.key_moments else []
+            prev_ext = ext or prev_ext
             war = target_state(targets)
             clock = ((tick.get("clock") or {}).get("end")) or {}
             executed = tick.get("executed") or []
@@ -125,7 +167,8 @@ def main(argv=None) -> int:
                    "orders_ok": sum(1 for e in executed if e.get("ok")),
                    "orders_refused": sum(1 for e in executed if not e.get("ok")),
                    "halted": tick.get("halted"), "error": tick.get("error") or tick.get("stop"),
-                   "seconds": round(time.time() - t0), "summary": (tick.get("brief_summary") or "")[:300]}
+                   "seconds": round(time.time() - t0), "summary": (tick.get("brief_summary") or "")[:300],
+                   "key_moments": moments}
             with PROGRESS.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
             done = [t for t in targets
@@ -138,6 +181,14 @@ def main(argv=None) -> int:
                                               "note": "target stopped resisting: no provinces or not at war"},
                                              ensure_ascii=False, indent=2), encoding="utf-8")
                 break
+            if moments and clock.get("pause") == 1:
+                with KEY_MOMENTS.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps({"tick": n, "game": row["game"], "moments": moments,
+                                        "suggested_save": "practice_" + row["game"].replace("-", "_").replace(" ", "_").replace("h", "")},
+                                       ensure_ascii=False) + chr(10))
+                STATUS.write_text(json.dumps({"last": row, "score": score, "paused_for_key_moment": moments},
+                                             ensure_ascii=False, indent=2), encoding="utf-8")
+                break  # game stays paused so the user can save this position
             if row["error"] or row["halted"] or clock.get("pause") != 1:
                 break  # anything unexpected: stop and let a human/Claude look
             if STOP.exists():
