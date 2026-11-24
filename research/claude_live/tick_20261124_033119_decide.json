@@ -1,0 +1,423 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            30
+          ]
+        },
+        "reason": "生力军加入已完成突破的9532方向",
+        "target_province_ids": [
+          9532
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            31
+          ]
+        },
+        "reason": "增援9532以尽快结束战斗",
+        "target_province_ids": [
+          9532
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            75
+          ]
+        },
+        "reason": "生力军压上巩固9532突破",
+        "target_province_ids": [
+          9532
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            121
+          ]
+        },
+        "reason": "山地师增援11515僵持战",
+        "target_province_ids": [
+          11515
+        ]
+      },
+      {
+        "order_seq": 5,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            123
+          ]
+        },
+        "reason": "增援11515城市争夺",
+        "target_province_ids": [
+          11515
+        ]
+      },
+      {
+        "order_seq": 6,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            125
+          ]
+        },
+        "reason": "山地师压上11515",
+        "target_province_ids": [
+          11515
+        ]
+      },
+      {
+        "order_seq": 7,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            62
+          ]
+        },
+        "reason": "装甲师补强9290不利战局",
+        "target_province_ids": [
+          9290
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：106 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            36,
+            38,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            125
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "38 个师缺人力",
+        "payload": {
+          "available": 2730113,
+          "affected_unit_ids": [
+            7,
+            10,
+            23,
+            36,
+            44,
+            46,
+            49,
+            50,
+            52,
+            56,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            67,
+            68,
+            69,
+            71,
+            73,
+            74,
+            75,
+            76,
+            77,
+            81,
+            84,
+            87,
+            90,
+            91,
+            109,
+            112,
+            114,
+            116,
+            120,
+            121,
+            125
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            30,
+            31,
+            62,
+            75,
+            121,
+            123,
+            125
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "notes": "把波17的生力军投入9532与11515两处主攻方向，装甲师增援9290，加速波兰防线崩溃。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 9,
+        "day": 6,
+        "hour": 12
+      },
+      "summary": "【大模型】全线对波进攻，9532与389方向敌军组织度已明显下滑，胜势在握；9290与9412方向我军组织度损失较大需补强。生力军集中在东普鲁士边境，正投入两处主攻。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "9290方向原攻击部队组织度偏低，装甲师独木难支",
+        "边境生力军补给极差(0.2)，持续作战能力受限",
+        "西线对法边境仅留少量观察部队",
+        "战斗 117（省份 11515）明显不利：我方组织度损失 39.6，敌方 6.9",
+        "64 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：75. Infanterie-Division(91%)、214. Infanterie-Division(93%)、58. Infanterie-Division(70%)、87. Infanterie-Division(20%)、211. Infanterie-Division(79%)、216. Infanterie-Division(54%)、Grenzschutz-Abschnitts-Kommando 9(20%)、253. Infanterie-Division(75%)、254. Infanterie-Division(20%)、262. Infanterie-Division(20%)、263. Infanterie-Division(20%)、268. Infanterie-Division(70%)、206. Infanterie-Division(20%)、208. Infanterie-Division(83%)、10. Panzer-Division(55%)、11. Infanterie-Division(94%)、228. Infanterie-Division(72%)、Festung Lötzen(85%)、23. Infanterie-Division(20%)、207. Infanterie-Division(20%)、218. Infanterie-Division(75%)、Grenzschutz-Abschnitts-Kommando 2(20%)、Grenzschutz-Abschnitts-Kommando 12(26%)、3. Infanterie-Division(20%)、32. Infanterie-Division(20%)、50. Infanterie-Division(20%)、3. Panzer-Division(20%)、252. Infanterie-Division(75%)、258. Infanterie-Division(20%)、27. Infanterie-Division(84%)、68. Infanterie-Division(20%)、62. Infanterie-Division(93%)、213. Infanterie-Division(20%)、30. Infanterie-Division(20%)、Grenzschutz-Abschnitts-Kommando 13(20%)、Grenzschutz-Abschnitts-Kommando 14(20%)、24. Infanterie-Division(20%)、SS Leibstandarte 'Adolf Hitler'(20%)、10. Infanterie-Division(20%)、17. Infanterie-Division(20%)、1. Leichte-Division(88%)、3. Leichte-Division(88%)、4. Infanterie-Division(82%)、46. Infanterie-Division(82%)、13. Infanterie-Division (mot.)(55%)、29. Infanterie-Division (mot.)(55%)、18. Infanterie-Division(20%)、19. Infanterie-Division(20%)、2. Leichte-Division(55%)、1. Panzer-Division(55%)、14. Infanterie-Division(55%)、31. Infanterie-Division(55%)、SS-Standarte 'Germania'(55%)、8. Infanterie-Division(55%)、28. Infanterie-Division(55%)、239. Infanterie-Division(70%)、7. Infanterie-Division(55%)、44. Infanterie-Division(55%)、45. Infanterie-Division(55%)、2. Panzer-Division(20%)、4. Leichte-Division(70%)、56. Infanterie-Division(55%)、57. Infanterie-Division(27%)、2. Gebirgs-Division(20%)",
+        "主攻目标仍控制省份：POL 129"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 400",
+        "战斗 108 @ 省份 3324",
+        "战斗 3 @ 省份 9290",
+        "战斗 5 @ 省份 3254",
+        "战斗 38 @ 省份 9532",
+        "战斗 105 @ 省份 6401",
+        "战斗 116 @ 省份 493",
+        "战斗 117 @ 省份 11515",
+        "战斗 58 @ 省份 389",
+        "战斗 83 @ 省份 548",
+        "战斗 43 @ 省份 584",
+        "战斗 40 @ 省份 11329",
+        "战斗 96 @ 省份 13205",
+        "战斗 104 @ 省份 9412"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T03:31:06-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：106 个师未满编，库存 0",
+      "38 个师缺人力"
+    ],
+    "brief_summary": "【大模型】全线对波进攻，9532与389方向敌军组织度已明显下滑，胜势在握；9290与9412方向我军组织度损失较大需补强。生力军集中在东普鲁士边境，正投入两处主攻。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 30,
+        "dest": 9532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 31,
+        "dest": 9532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 75,
+        "dest": 9532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "unit": 121,
+        "dest": 11515,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "attack",
+        "unit": 123,
+        "dest": 11515,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 6,
+        "type": "attack",
+        "unit": 125,
+        "dest": 11515,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 7,
+        "type": "attack",
+        "unit": 62,
+        "dest": 9290,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-09-06",
+        "ui_hour": 12,
+        "hour_tick": 60791603
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-09-06",
+        "ui_hour": 24,
+        "hour_tick": 60791615
+      }
+    }
+  }
+}

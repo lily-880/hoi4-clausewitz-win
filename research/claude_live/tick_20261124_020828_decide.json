@@ -1,0 +1,200 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            42
+          ]
+        },
+        "reason": "增援东普鲁士对3254进攻",
+        "target_province_ids": [
+          3384
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            52
+          ]
+        },
+        "reason": "加强但泽防御并伺机反击",
+        "target_province_ids": [
+          3380
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：48 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            67,
+            68,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            89,
+            90,
+            91,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            107,
+            108,
+            109,
+            112,
+            113,
+            115,
+            117,
+            118
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            42,
+            52
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2
+        ],
+        "notes": "增援东普鲁士与但泽方向，加速波兰崩溃。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 16,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰全线进攻多数占优，但388与3532方向进展缓慢，调预备队加强关键节点。但泽正遭波军进攻，需确保安全。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "调动期间西线兵力略减",
+        "但泽防御战可能升级",
+        "增援到达前局部可能受挫",
+        "战斗 12（省份 3532）明显不利：我方组织度损失 9.3，敌方 1.8",
+        "战斗 24（省份 3380）明显不利：我方组织度损失 2.7，敌方 1.4",
+        "省份 3380：Grenzkommando Danzig（组织度 90.6） 正在防守（战斗 24，敌方 1 个单位）",
+        "省份 3460：30. Infanterie-Division（组织度 80.6）、24. Infanterie-Division（组织度 80.6）、SS Leibstandarte 'Adolf Hitler'（组织度 57.4）、10. Infanterie-Division（组织度 80.6）、17. Infanterie-Division（组织度 80.6） 正在防守（战斗 22，敌方 1 个单位）",
+        "10 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：Festung Lötzen(73%)、207. Infanterie-Division(60%)、218. Infanterie-Division(94%)、Grenzschutz-Abschnitts-Kommando 2(92%)、50. Infanterie-Division(56%)、30. Infanterie-Division(95%)、24. Infanterie-Division(94%)、SS Leibstandarte 'Adolf Hitler'(94%)、10. Infanterie-Division(94%)、17. Infanterie-Division(94%)",
+        "主攻目标仍控制省份：POL 150"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 400",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 4 @ 省份 3295",
+        "战斗 5 @ 省份 3254",
+        "战斗 6 @ 省份 9316",
+        "战斗 7 @ 省份 334",
+        "战斗 8 @ 省份 9263",
+        "战斗 9 @ 省份 388",
+        "战斗 10 @ 省份 279",
+        "战斗 12 @ 省份 3532",
+        "战斗 13 @ 省份 11558",
+        "战斗 14 @ 省份 6464",
+        "战斗 15 @ 省份 506",
+        "战斗 16 @ 省份 9567",
+        "战斗 24 @ 省份 3380",
+        "战斗 22 @ 省份 3460"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T02:08:14-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：48 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】波兰全线进攻多数占优，但388与3532方向进展缓慢，调预备队加强关键节点。但泽正遭波军进攻，需确保安全。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "strategic_redeploy",
+        "unit": 42,
+        "dest": 3384,
+        "ok": false,
+        "stop": "ISVALID_FALSE",
+        "posted": false
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "unit": 52,
+        "dest": 3380,
+        "ok": false,
+        "stop": "ISVALID_FALSE",
+        "posted": false
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-16",
+        "ui_hour": 24,
+        "hour_tick": 60791111
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-17",
+        "ui_hour": 12,
+        "hour_tick": 60791123
+      }
+    }
+  }
+}

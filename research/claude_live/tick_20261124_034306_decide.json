@@ -1,0 +1,386 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            7
+          ]
+        },
+        "reason": "增援584方向攻势",
+        "target_province_ids": [
+          584
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            72
+          ]
+        },
+        "reason": "预备队东调至9439",
+        "target_province_ids": [
+          9439
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            115
+          ]
+        },
+        "reason": "组织度极低，停止进攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            61
+          ]
+        },
+        "reason": "组织度过低，停止进攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            122
+          ]
+        },
+        "reason": "组织度过低，停止进攻",
+        "cancel_scope": "current_movement"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：115 个师未满编，库存 1",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 1,
+          "affected_unit_ids": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            36,
+            38,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "42 个师缺人力",
+        "payload": {
+          "available": 2728677,
+          "affected_unit_ids": [
+            7,
+            23,
+            25,
+            44,
+            46,
+            49,
+            50,
+            52,
+            56,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            67,
+            68,
+            69,
+            71,
+            73,
+            74,
+            75,
+            76,
+            77,
+            79,
+            80,
+            81,
+            82,
+            84,
+            87,
+            88,
+            90,
+            91,
+            102,
+            109,
+            112,
+            114,
+            116,
+            121,
+            124,
+            125
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            7,
+            72,
+            115,
+            61,
+            122
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "notes": "增援波兰方向薄弱突破口，停止低组织度师的无谓消耗，保持全线压力。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 9,
+        "day": 9,
+        "hour": 24
+      },
+      "summary": "【大模型】波军多处防线动摇，9508等方向接近突破；但9290与11515方向我军组织度损耗过大，已停止部分低组织度师进攻，并调预备队向9439机动。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "低组织度师若不能及时脱离战斗可能被击溃",
+        "9290方向攻势减弱后波军可能稳住防线",
+        "西线兵力未动，法国边境仍空虚",
+        "战略转移可能因道路不通被拒",
+        "战斗 140（省份 9508）明显不利：我方组织度损失 5.0，敌方 2.4",
+        "战斗 117（省份 11515）明显不利：我方组织度损失 96.7，敌方 20.1",
+        "省份 11329：1. Infanterie-Division（组织度 18.9）、12. Infanterie-Division（组织度 69.5） 正在防守（战斗 128，敌方 1 个单位）",
+        "70 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：75. Infanterie-Division(87%)、214. Infanterie-Division(87%)、6. Infanterie-Division(87%)、9. Infanterie-Division(87%)、58. Infanterie-Division(17%)、87. Infanterie-Division(13%)、211. Infanterie-Division(80%)、216. Infanterie-Division(13%)、Grenzschutz-Abschnitts-Kommando 9(13%)、5. Infanterie-Division(87%)、253. Infanterie-Division(80%)、254. Infanterie-Division(13%)、262. Infanterie-Division(13%)、263. Infanterie-Division(13%)、268. Infanterie-Division(16%)、73. Infanterie-Division(89%)、206. Infanterie-Division(13%)、208. Infanterie-Division(55%)、10. Panzer-Division(55%)、11. Infanterie-Division(66%)、21. Infanterie-Division(90%)、228. Infanterie-Division(13%)、Festung Lötzen(84%)、23. Infanterie-Division(13%)、207. Infanterie-Division(13%)、218. Infanterie-Division(80%)、Grenzschutz-Abschnitts-Kommando 2(13%)、Grenzschutz-Abschnitts-Kommando 12(13%)、3. Infanterie-Division(13%)、32. Infanterie-Division(13%)、50. Infanterie-Division(13%)、3. Panzer-Division(13%)、252. Infanterie-Division(80%)、258. Infanterie-Division(13%)、27. Infanterie-Division(55%)、68. Infanterie-Division(13%)、62. Infanterie-Division(87%)、213. Infanterie-Division(13%)、30. Infanterie-Division(13%)、Grenzschutz-Abschnitts-Kommando 13(13%)、Grenzschutz-Abschnitts-Kommando 14(13%)、24. Infanterie-Division(13%)、SS Leibstandarte 'Adolf Hitler'(13%)、10. Infanterie-Division(13%)、17. Infanterie-Division(13%)、1. Leichte-Division(87%)、3. Leichte-Division(87%)、4. Infanterie-Division(55%)、46. Infanterie-Division(55%)、13. Infanterie-Division (mot.)(55%)、29. Infanterie-Division (mot.)(55%)、18. Infanterie-Division(13%)、19. Infanterie-Division(13%)、2. Leichte-Division(55%)、1. Panzer-Division(55%)、14. Infanterie-Division(55%)、31. Infanterie-Division(55%)、SS-Standarte 'Germania'(55%)、8. Infanterie-Division(55%)、28. Infanterie-Division(55%)、239. Infanterie-Division(16%)、7. Infanterie-Division(55%)、44. Infanterie-Division(55%)、45. Infanterie-Division(55%)、2. Panzer-Division(13%)、4. Leichte-Division(16%)、3. Gebirgs-Division(28%)、56. Infanterie-Division(55%)、57. Infanterie-Division(13%)、2. Gebirgs-Division(13%)",
+        "主攻目标仍控制省份：POL 125"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 400",
+        "战斗 131 @ 省份 9551",
+        "战斗 3 @ 省份 9290",
+        "战斗 5 @ 省份 3254",
+        "战斗 38 @ 省份 9532",
+        "战斗 105 @ 省份 6401",
+        "战斗 140 @ 省份 9508",
+        "战斗 117 @ 省份 11515",
+        "战斗 83 @ 省份 548",
+        "战斗 43 @ 省份 584",
+        "战斗 147 @ 省份 6567",
+        "战斗 96 @ 省份 13205",
+        "战斗 104 @ 省份 9412",
+        "战斗 128 @ 省份 11329",
+        "战斗 146 @ 省份 6259"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T03:42:52-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：115 个师未满编，库存 1",
+      "42 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波军多处防线动摇，9508等方向接近突破；但9290与11515方向我军组织度损耗过大，已停止部分低组织度师进攻，并调预备队向9439机动。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 7,
+        "dest": 584,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "strategic_redeploy",
+        "unit": 72,
+        "dest": 9439,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "unit": 115,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "unit": 61,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "unit": 122,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-09-09",
+        "ui_hour": 24,
+        "hour_tick": 60791687
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-09-10",
+        "ui_hour": 12,
+        "hour_tick": 60791699
+      }
+    }
+  }
+}
