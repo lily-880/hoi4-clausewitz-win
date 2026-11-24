@@ -70,6 +70,8 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 玩家方针原文（player_instructions）是你的最高目标，战略取舍（打谁、守哪里、兵力怎么分配）由你自己判断；参谋建议只是参考，可以全部采纳、修改或否决。
 - 方针档位（stance）：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
 - 目前可用的只有逐师命令（移动、进攻、撤退、战略转移、取消）；前线和进攻线命令还在验证中，暂不可用。
+- 地图拓扑：front.regions 是己方控制领土中互不连通的陆地块（例如本土与被敌国隔开的飞地），own_units[].region 是每个师所在的陆地块，hops_to_front 是它离本块最近边境省隔几个省。战略转移和移动只能在同一陆地块内进行，不同陆地块之间陆路不通。
+- front.key_targets 是敌方仍控制的胜利点省份（victory_points 分值、hops_from_our_land 为离我方控制区几个省）。迫使一国投降主要靠占领它的胜利点，分值越高越关键；进攻方向应指向这些要地。
 - front 给出整条边界：own_border 是与交战国接壤的己方省份及其对面省份和控制国；watch_border 是面对未交战邻国的己方省份；enemy_provinces 是各交战国仍控制的省份数（可用来判断战役进度）。
 - 你看到的敌军只是正在与我方交战的部队（战争迷雾）。看不见的地方不要假设敌情。
 - 没有必要的命令就不下。空命令是正常的。
@@ -109,6 +111,16 @@ def digest(doc: dict) -> dict:
             row["combat"] = u.get("combat_id")
         if (u.get("order") or {}).get("path_province_ids"):
             row["route"] = u["order"]["path_province_ids"]
+        top = (doc.get("_ext") or {}).get("topology") or {}
+        reg = (top.get("region_of_province") or {})
+        prov_key = u.get("province_id")
+        r_ = reg.get(prov_key, reg.get(str(prov_key)))
+        if r_ is not None:
+            row["region"] = r_
+        h_ = (top.get("hops_to_border") or {})
+        h_ = h_.get(prov_key, h_.get(str(prov_key)))
+        if h_ is not None:
+            row["hops_to_front"] = h_
         if (u.get("supply") or {}).get("in_supply") is False:
             row["low_supply"] = round((u.get("supply") or {}).get("ratio") or 0, 2)
         units.append(row)
@@ -149,6 +161,9 @@ def _front(doc: dict) -> dict:
         "watch_border": ext.get("own_watch_border", []),
         "enemy_provinces": ext.get("enemy_controlled_provinces", {}),
         "own_provinces": ext.get("own_controlled_provinces"),
+        "regions": [{"region": r["region"], "provinces": r["provinces"], "border_provinces": r["border_provinces"]}
+                    for r in (ext.get("topology") or {}).get("regions", [])],
+        "key_targets": (ext.get("topology") or {}).get("key_targets", []),
     }
 
 

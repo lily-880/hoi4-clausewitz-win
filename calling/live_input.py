@@ -428,16 +428,75 @@ def _capture_once():
                     out_.append(nid)
             return out_
         own_border, enemy_border = {}, {}
+        own_nb = {}
         for pid_, cidx in controller.items():
             if cidx != me:
                 continue
             nb = land_neighbors(prov_ptrs[pid_])
+            own_nb[pid_] = nb
             hostile = [n for n in nb if controller.get(n) in foes]
             if hostile:
                 own_border[pid_] = {'neighbors': nb, 'enemy_neighbors': hostile}
                 for n in hostile:
                     enemy_border[n] = controller[n]
         foe_counts = {tag_of(c) or str(c): sum(1 for v in controller.values() if v == c) for c in foes}
+        # ---- map topology for the commander ----
+        from collections import deque
+        region_of = {}
+        regions = []
+        for start in sorted(own_nb):
+            if start in region_of:
+                continue
+            rid = len(regions)
+            members = []
+            dq = deque([start]); region_of[start] = rid
+            while dq:
+                cur = dq.popleft(); members.append(cur)
+                for n in own_nb.get(cur, []):
+                    if n in own_nb and n not in region_of:
+                        region_of[n] = rid; dq.append(n)
+            regions.append(members)
+        # hops from every own province to the nearest own border province, per region
+        hops = {pid_: 0 for pid_ in own_border}
+        dq = deque(own_border)
+        while dq:
+            cur = dq.popleft()
+            for n in own_nb.get(cur, []):
+                if n in own_nb and n not in hops:
+                    hops[n] = hops[cur] + 1; dq.append(n)
+        # enemy key provinces (victory points) and their distance from our territory
+        enemy_nb_cache = {}
+        def nb_any(pid_):
+            if pid_ in own_nb:
+                return own_nb[pid_]
+            if pid_ not in enemy_nb_cache:
+                enemy_nb_cache[pid_] = land_neighbors(prov_ptrs[pid_]) if ptr(prov_ptrs[pid_]) else []
+            return enemy_nb_cache[pid_]
+        foe_prov = {pid_ for pid_, cidx in controller.items() if cidx in foes}
+        depth = {pid_: 1 for pid_ in enemy_border}
+        dq = deque(enemy_border)
+        while dq:
+            cur = dq.popleft()
+            for n in nb_any(cur):
+                if n in foe_prov and n not in depth and controller.get(n) == controller.get(cur):
+                    depth[n] = depth[cur] + 1; dq.append(n)
+        key_targets = []
+        for pid_ in foe_prov:
+            vp = i(prov_ptrs[pid_] + 0x38)
+            if 0 < vp <= 100000 and pid_ in depth:
+                key_targets.append({'province_id': pid_, 'victory_points': vp,
+                                    'owner': tag_of(controller[pid_]), 'hops_from_our_land': depth[pid_]})
+        key_targets.sort(key=lambda r: (-r['victory_points'], r['hops_from_our_land']))
+        topology = {
+            'regions': [{'region': rid, 'provinces': len(m),
+                         'border_provinces': sorted(x for x in m if x in own_border)}
+                        for rid, m in enumerate(regions)],
+            'region_of_province': region_of,
+            'hops_to_border': hops,
+            'key_targets': key_targets[:40],
+            'source': 'BFS over land adjacency (types 0/2/3) of own-controlled provinces; '
+                      'enemy depth BFS inside the same enemy controller; VP = CProvince+0x38',
+        }
         # Provinces of ours facing countries we are NOT at war with but must not
         # leave bare (western neighbours); divisions there are kept in place.
         watch_tags = {'FRA', 'BEL', 'HOL', 'LUX', 'ENG'}
@@ -455,6 +514,7 @@ def _capture_once():
             'enemy_controlled_provinces': foe_counts,
             'own_controlled_provinces': sum(1 for v in controller.values() if v == me),
             'own_watch_border': sorted(own_watch),
+            'topology': topology,
             'source': 'CProvince+0xD0 area -> country +0x548 lists; adjacency rows type 0/2/3',
         }
         mp_missing = sorted(e['unit_id'] for e in manpower_evidence if e['engine_missing_formula'] > 0)

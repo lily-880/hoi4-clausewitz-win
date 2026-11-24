@@ -46,3 +46,7 @@
 - **战略决策交给 DeepSeek**（用户指示）：参谋规则 decide_v2 只提建议（默认只攻 POL，仅作参考），阶段目标原话存于 `calling/tables/commander_instructions.json`，作为最高方针；DeepSeek 能看到完整边界视图。
 - deepseek-flash 默认深度思考，曾把 8000 输出 token 全部用于思考、正文为空（已自动退回规则）。现设 `reasoning_effort=low`、`max_tokens=32000`。首次成功指挥（08-15 24:00 → 08-16 12:00）：增援受挫的 3532 方向、投入生力军突破 6464，西线维持守备；耗时 80 秒，约 0.1 元/拍。
 - 自动循环：`python -I scripts/commander_loop.py --decider decide_llm --hours 12 --max-ticks 200`。每拍写 `research/claude_live/loop_progress.jsonl`，最新状态在 `loop_status.json`；波兰控制省数为 0 或不再交战时停止，并记录日期为成绩。独立看门进程：游戏连续 240 秒未暂停就自动按暂停。创建 `research/claude_live/STOP` 文件，可在当前拍结束后停止循环。
+- 用户反馈三点（2026-11-24）：
+  1. 每拍写出 token 成本：`calling/llm_cost.py`（官网价，区分高峰/空闲）+ `scripts/loop_report.py --follow` 逐拍输出费用与累计。前 5 拍累计约 0.57 元。
+  2. DeepSeek 缺少地图拓扑：边界视图新增 `topology`：己方连通陆地块（实测本土 277 省、东普鲁士 19 省、孤立 1 省）、每省到前线距离、敌方胜利点要地（实测 11506 胜利点 50，离我方 7 省，应为华沙）。已写入 DeepSeek 态势与提示。
+  3. 集团军/集团军群/前线/进攻线尚未使用：建集团军、任命、建集团军群在 1.19.5 测试局里成功过；**画前线和进攻线至今未成功**（根计划路径为空、NewFront 未产生实例、InsertFront 未确认）。这需要独占游戏做实验，与正在运行的战役冲突。
