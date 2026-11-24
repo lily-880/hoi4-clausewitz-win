@@ -168,6 +168,16 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         free = set(pview.get("divisions_not_in_any_army", []))
         if not (isinstance(ids, list) and 1 <= len(ids) <= ARMY_MAX and set(ids) <= free):
             return f"组建集团军须用 1～{ARMY_MAX} 个尚未编入集团军的师"
+        # player hard rule: the home defense line keeps its garrison (an army would pull them to its front)
+        sections = cv.border_sections(doc)
+        count = {p["prov"]: p["divisions"] for s_ in sections if s_["role"] == "home_defense" for p in s_["provinces"]}
+        where = {u["unit_id"]: u.get("province_id") for u in (doc.get("world") or {}).get("own_units", [])}
+        for uid in ids:
+            pv = where.get(uid)
+            if pv in count:
+                count[pv] -= 1
+                if count[pv] < cv.DEFENSE_MIN:
+                    return f"会让本土防线省 {pv} 少于 {cv.DEFENSE_MIN} 个师；西线守军不能编进对别国作战的集团军"
     if t == "create_army_group":
         ids = order.get("army_ids")
         if not (isinstance(ids, list) and 1 <= len(ids) <= 5 and set(ids) <= set(armies)):
@@ -208,6 +218,12 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
         rng = orbat.own_range(row["controllers"], me)
         if rng is None:
             return {"ok": False, "stop": "这一段前线不在本国领土上，不画"}
+    if live:  # one root plan per army: stacking several roots preceded a game crash (2026-11-24)
+        for th in orbat.snapshot(s)["theatres"]:
+            for g in th["armies"]:
+                if g["id"] == army_id:
+                    for p in g["plans"]:
+                        orbat.delete_plan(army_id, p["plan_id"], live)
     res = orbat.front_line(army_id, row["front_id"], unit_ids, live, start=rng[0], end=rng[1],
                            section=row["section"])
     if res.get("ok") and remember:

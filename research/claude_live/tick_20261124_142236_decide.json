@@ -1,0 +1,306 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            60
+          ]
+        },
+        "reason": "增援对9290的装甲突击",
+        "target_province_ids": [
+          9290
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            107
+          ]
+        },
+        "reason": "增援对6464城市的进攻",
+        "target_province_ids": [
+          6464
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            64
+          ]
+        },
+        "reason": "从3380夹击3295",
+        "target_province_ids": [
+          3295
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            61
+          ]
+        },
+        "reason": "加强9316方向攻势",
+        "target_province_ids": [
+          9316
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：39 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            63,
+            65,
+            66,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            89,
+            90,
+            91,
+            92,
+            93,
+            96,
+            100,
+            106,
+            108,
+            109,
+            115,
+            116
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            60,
+            61,
+            64,
+            107
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "notes": "全线进攻波兰，北中南三路向华沙及关键胜利点推进，同时西线保持防御。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 15,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰前线多处战斗占优，执行三集团军进攻线，重点指向华沙3544与罗兹9427。西线法军边境兵力充足，无需抽调。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 1,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 13 个师，经集团军共 13 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 2,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 9 个"
+        },
+        {
+          "plan_id": 3,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 9 个"
+        },
+        {
+          "plan_id": 4,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 0 个师，经集团军共 24 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 5,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 6,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 3 个"
+        },
+        {
+          "plan_id": 7,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 0 个师，经集团军共 13 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 8,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 13 个师，经集团军共 13 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 9,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 13 个师，经集团军共 13 个师；控制点 2 个"
+        }
+      ],
+      "risks": [
+        "曼施坦因集团军平均组织度偏低，进攻可能乏力",
+        "进攻线路径若邻接校验失败可能被拒",
+        "法军可能趁虚在西线发动试探进攻",
+        "装甲部队组织度低，需注意休整轮换",
+        "8 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：206. Infanterie-Division(97%)、208. Infanterie-Division(97%)、Festung Lötzen(80%)、207. Infanterie-Division(97%)、218. Infanterie-Division(97%)、50. Infanterie-Division(74%)、2. Infanterie-Division (mot.)(96%)、20. Infanterie-Division (mot.)(96%)",
+        "大模型有 1 条命令不合规，已剔除"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 3295",
+        "战斗 2 @ 省份 9290",
+        "战斗 3 @ 省份 9316",
+        "战斗 4 @ 省份 334",
+        "战斗 5 @ 省份 388",
+        "战斗 6 @ 省份 3460",
+        "战斗 7 @ 省份 11558",
+        "战斗 8 @ 省份 9567",
+        "战斗 9 @ 省份 6464"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T14:22:21-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：39 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】波兰前线多处战斗占优，执行三集团军进攻线，重点指向华沙3544与罗兹9427。西线法军边境兵力充足，无需抽调。",
+    "plan_orders": [
+      {
+        "order": {
+          "type": "execute",
+          "army_id": 1,
+          "on": true,
+          "reason": "古德里安集群沿3460-6464推进"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      },
+      {
+        "order": {
+          "type": "execute",
+          "army_id": 3,
+          "on": true,
+          "reason": "霍特集群从东普鲁士南下取362"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      },
+      {
+        "order": {
+          "type": "offensive_line",
+          "army_id": 2,
+          "path": [
+            388,
+            9427,
+            3544
+          ],
+          "reason": "曼施坦因向罗兹/华沙方向钳形突击"
+        },
+        "ok": true,
+        "stop": null,
+        "new_id": null
+      }
+    ],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 60,
+        "dest": 9290,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 107,
+        "dest": 6464,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 64,
+        "dest": 3295,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "unit": 61,
+        "dest": 9316,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-15",
+        "ui_hour": 24,
+        "hour_tick": 60791087
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-16",
+        "ui_hour": 12,
+        "hour_tick": 60791099
+      }
+    }
+  }
+}
