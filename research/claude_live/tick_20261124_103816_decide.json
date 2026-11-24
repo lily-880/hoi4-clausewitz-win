@@ -1,0 +1,214 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            96
+          ]
+        },
+        "reason": "装甲突破9546平原",
+        "target_province_ids": [
+          9546
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            97
+          ]
+        },
+        "reason": "装甲突破9546平原",
+        "target_province_ids": [
+          9546
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            100
+          ]
+        },
+        "reason": "摩托化扩大缺口",
+        "target_province_ids": [
+          9546
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            101
+          ]
+        },
+        "reason": "摩托化扩大缺口",
+        "target_province_ids": [
+          9546
+        ]
+      },
+      {
+        "order_seq": 5,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            93
+          ]
+        },
+        "reason": "党卫军随装甲突入",
+        "target_province_ids": [
+          9546
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：41 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            69,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            90,
+            91,
+            94,
+            95,
+            96,
+            98,
+            99,
+            100,
+            101,
+            107,
+            109,
+            113,
+            115
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            96,
+            97,
+            100,
+            101,
+            93
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "notes": "集中11558的装甲摩托化集团向波兰9546平原打开突破口，加快波军崩溃。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 15,
+        "hour": 12
+      },
+      "summary": "【大模型】各线进攻多数占优，西线法国边境已满员无需调整，东普鲁士稳步推进。本拍把集结于11558的机动兵力投入波兰平原，形成纵深突破；其余行军与战斗师按原令继续。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "9546敌情不明，可能遭遇较强守军",
+        "96师组织度仅51，突破初期或损耗较大",
+        "西线兵力已到下限，无法再抽调增援",
+        "多路并行推进，补给与组织度恢复可能吃紧",
+        "战斗 11（省份 3532）明显不利：我方组织度损失 4.4，敌方 0.8",
+        "3 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：Festung Lötzen(86%)、218. Infanterie-Division(87%)、50. Infanterie-Division(83%)"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 3254",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 4 @ 省份 9316",
+        "战斗 5 @ 省份 3295",
+        "战斗 6 @ 省份 9263",
+        "战斗 7 @ 省份 388",
+        "战斗 8 @ 省份 279",
+        "战斗 9 @ 省份 334",
+        "战斗 10 @ 省份 3460",
+        "战斗 11 @ 省份 3532",
+        "战斗 13 @ 省份 6464",
+        "战斗 14 @ 省份 9567"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T10:38:02-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：41 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】各线进攻多数占优，西线法国边境已满员无需调整，东普鲁士稳步推进。本拍把集结于11558的机动兵力投入波兰平原，形成纵深突破；其余行军与战斗师按原令继续。",
+    "halted": "ORDER_NOT_CONFIRMED_STOPPING_TICK",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 96,
+        "dest": 9546,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 97,
+        "dest": 9546,
+        "ok": false,
+        "stop": null,
+        "posted": true
+      }
+    ]
+  }
+}

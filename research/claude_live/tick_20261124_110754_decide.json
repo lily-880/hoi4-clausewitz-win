@@ -1,0 +1,312 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            69
+          ]
+        },
+        "reason": "从9263直取vp10要地362",
+        "target_province_ids": [
+          362
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            72
+          ]
+        },
+        "reason": "配合夹击362城区",
+        "target_province_ids": [
+          362
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            47
+          ]
+        },
+        "reason": "前出至空省479作进攻基地",
+        "target_province_ids": [
+          479
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            61
+          ]
+        },
+        "reason": "单师攻4师将溃，停止休整",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            58
+          ]
+        },
+        "reason": "单师攻3师将溃，停止休整",
+        "cancel_scope": "current_movement"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：69 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            5,
+            18,
+            23,
+            24,
+            25,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61,
+            65,
+            66,
+            68,
+            69,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            81,
+            82,
+            83,
+            85,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            98,
+            99,
+            100,
+            101,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            112,
+            113,
+            115,
+            116,
+            117,
+            118,
+            123,
+            124
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "11 个师缺人力",
+        "payload": {
+          "available": 2755397,
+          "affected_unit_ids": [
+            57,
+            61,
+            94,
+            95,
+            101,
+            105,
+            106,
+            107,
+            108,
+            112,
+            116
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            69,
+            72,
+            47,
+            61,
+            58
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "notes": "停止两处必败的单师进攻，集中精力拿下362、479方向，继续压缩波兰。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 22,
+        "hour": 12
+      },
+      "summary": "【大模型】波兰各线多为优势战斗，但9290、11428两个师在送死已被叫停。388、6464、334等方向已超宽度，不再增兵。从9263两师直插vp10城市362，262师前出479开辟新进攻基地。西线对法兵力达标未动。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "362为城市攻坚，组织度消耗大",
+        "9290、11428停止进攻后敌军可能反扑",
+        "479暂空，需262师及时到位",
+        "若cancel被引擎拒绝，两个师仍会继续消耗",
+        "战斗 48（省份 506）明显不利：我方组织度损失 23.9，敌方 5.9",
+        "战斗 49（省份 9290）明显不利：我方组织度损失 25.1，敌方 4.8",
+        "战斗 41（省份 493）明显不利：我方组织度损失 22.0，敌方 2.7",
+        "省份 3380：Grenzkommando Danzig（组织度 93.4）、Festung Königsberg（组织度 18.5） 正在防守（战斗 22，敌方 1 个单位）",
+        "战斗 50（省份 11428）明显不利：我方组织度损失 3.0，敌方 1.4",
+        "30 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：214. Infanterie-Division(26%)、223. Infanterie-Division(57%)、Grenzkommando Trier(28%)、251. Infanterie-Division(57%)、256. Infanterie-Division(92%)、Panzer-Division Kempf(92%)、1. Infanterie-Division(92%)、12. Infanterie-Division(92%)、218. Infanterie-Division(26%)、Grenzschutz-Abschnitts-Kommando 2(30%)、3. Infanterie-Division(87%)、32. Infanterie-Division(87%)、50. Infanterie-Division(26%)、27. Infanterie-Division(33%)、30. Infanterie-Division(93%)、SS Leibstandarte 'Adolf Hitler'(86%)、10. Infanterie-Division(62%)、17. Infanterie-Division(62%)、1. Leichte-Division(40%)、3. Leichte-Division(40%)、13. Infanterie-Division (mot.)(40%)、29. Infanterie-Division (mot.)(40%)、2. Leichte-Division(93%)、SS-Standarte 'Germania'(93%)、8. Infanterie-Division(93%)、28. Infanterie-Division(93%)、7. Infanterie-Division(93%)、44. Infanterie-Division(93%)、45. Infanterie-Division(93%)、2. Gebirgs-Division(87%)"
+      ],
+      "next_watch": [
+        "战斗 48 @ 省份 506",
+        "战斗 2 @ 省份 6347",
+        "战斗 49 @ 省份 9290",
+        "战斗 5 @ 省份 3295",
+        "战斗 7 @ 省份 388",
+        "战斗 8 @ 省份 279",
+        "战斗 9 @ 省份 334",
+        "战斗 11 @ 省份 3532",
+        "战斗 13 @ 省份 6464",
+        "战斗 41 @ 省份 493",
+        "战斗 22 @ 省份 3380",
+        "战斗 31 @ 省份 11329",
+        "战斗 38 @ 省份 9532",
+        "战斗 50 @ 省份 11428",
+        "战斗 51 @ 省份 400"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T11:07:30-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：69 个师未满编，库存 0",
+      "11 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰各线多为优势战斗，但9290、11428两个师在送死已被叫停。388、6464、334等方向已超宽度，不再增兵。从9263两师直插vp10城市362，262师前出479开辟新进攻基地。西线对法兵力达标未动。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 69,
+        "dest": 362,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 72,
+        "dest": 362,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "strategic_redeploy",
+        "unit": 47,
+        "dest": 479,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "unit": 61,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "unit": 58,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-22",
+        "ui_hour": 12,
+        "hour_tick": 60791243
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-22",
+        "ui_hour": 24,
+        "hour_tick": 60791255
+      }
+    }
+  }
+}

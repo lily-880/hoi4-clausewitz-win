@@ -458,6 +458,7 @@ def _capture_once():
                     controller[pid_] = cidx
         foes = {c for c in range(len(country_ptrs)) if at_war(c)}
         me = res['player_index']
+        river_pairs = {}
         def land_neighbors(pp_):
             definition = q(pp_ + 0xB8)
             dd, dc, dn = struct.unpack('<QII', p.read(definition + 0x70, 16))
@@ -469,19 +470,49 @@ def _capture_once():
                 nid, typ = struct.unpack_from('<II', rows, k * 0x30 + 8)
                 if typ in (0, 2, 3):
                     out_.append(nid)
+                    if typ in (2, 3):
+                        river_pairs.setdefault(pp_, set()).add(nid)
             return out_
         own_border, enemy_border = {}, {}
         own_nb = {}
+        # Friendly ground: provinces of non-hostile countries where our divisions
+        # stand (allies / subjects, e.g. Slovakia in 1939). Our divisions there
+        # can attack neighbouring enemy provinces; the executor still only lets
+        # move/redeploy end in our own provinces.
+        friendly = {controller.get(u_.get('province_id')) for u_ in first['world']['own_units']} - foes - {me, None}
+        friendly_prov = set()
         for pid_, cidx in controller.items():
-            if cidx != me:
+            if cidx != me and cidx not in friendly:
                 continue
+            if cidx != me:
+                friendly_prov.add(pid_)
             nb = land_neighbors(prov_ptrs[pid_])
             own_nb[pid_] = nb
             hostile = [n for n in nb if controller.get(n) in foes]
             if hostile:
-                own_border[pid_] = {'neighbors': nb, 'enemy_neighbors': hostile}
+                rv = river_pairs.get(prov_ptrs[pid_], set())
+                own_border[pid_] = {'neighbors': nb, 'enemy_neighbors': hostile,
+                                    'river_crossing_to': sorted(n for n in hostile if n in rv)}
+                if cidx != me:
+                    own_border[pid_]['friendly_controller'] = tag_of(cidx)
                 for n in hostile:
                     enemy_border[n] = controller[n]
+        # terrain / fort of the enemy provinces on our border (same readers as own provinces)
+        enemy_terrain = {}
+        for n in enemy_border:
+            try:
+                pp_ = prov_ptrs[n]
+                tptr = q(q(pp_ + 0xB8) + 0xA8)
+                row = {'terrain': string(tptr + 0x18) or None, 'victory_points': i(pp_ + 0x38)}
+                try:
+                    lvl, _fe = province_fort_level(loaded, pp_, building_templates['bunker'])
+                    if lvl is not None:
+                        row['fort_level'] = lvl
+                except Exception:
+                    pass
+                enemy_terrain[n] = row
+            except Exception:
+                continue
         foe_counts = {tag_of(c) or str(c): sum(1 for v in controller.values() if v == c) for c in foes}
         # ---- map topology for the commander ----
         from collections import deque
@@ -592,18 +623,25 @@ def _capture_once():
         watch_tags = {'FRA', 'BEL', 'HOL', 'LUX', 'ENG'}
         watch_idx = {c for c in range(len(country_ptrs)) if tag_of(c) in watch_tags and c not in foes}
         own_watch = []
+        own_watch_detail = {}
         if watch_idx:
             for pid_, cidx in controller.items():
-                if cidx == me and any(controller.get(n) in watch_idx
-                                      for n in land_neighbors(prov_ptrs[pid_])):
+                if cidx != me:
+                    continue
+                facing_tags = sorted({tag_of(controller.get(n)) for n in land_neighbors(prov_ptrs[pid_])
+                                      if controller.get(n) in watch_idx})
+                if facing_tags:
                     own_watch.append(pid_)
+                    own_watch_detail[pid_] = facing_tags
         commander_ext = {
             'own_border': [{'province_id': k, **v} for k, v in sorted(own_border.items())],
-            'enemy_border': [{'province_id': k, 'controller': {'index': v, 'tag': tag_of(v)}}
+            'enemy_border': [dict({'province_id': k, 'controller': {'index': v, 'tag': tag_of(v)}},
+                                  **enemy_terrain.get(k, {}))
                              for k, v in sorted(enemy_border.items())],
             'enemy_controlled_provinces': foe_counts,
             'own_controlled_provinces': sum(1 for v in controller.values() if v == me),
             'own_watch_border': sorted(own_watch),
+            'own_watch_facing': {str(k): v for k, v in sorted(own_watch_detail.items())},
             'topology': topology,
             'source': 'CProvince+0xD0 area -> country +0x548 lists; adjacency rows type 0/2/3',
         }

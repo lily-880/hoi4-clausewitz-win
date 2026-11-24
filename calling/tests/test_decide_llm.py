@@ -105,7 +105,23 @@ class DecideLLM(unittest.TestCase):
     def test_digest_is_compact_and_has_no_evidence(self):
         dig = decide_llm.digest(doc())
         self.assertEqual(dig["stance"], "annihilate")
-        self.assertEqual(dig["own_units"][0], {"id": 1, "name": "#1", "prov": 10, "org": 50, "hp": 0})
+        self.assertEqual(dig["own_units"][0], {"id": 1, "name": "#1", "prov": 10, "kind": "unknown",
+                                               "width": 20.0, "org": 50, "hp": 0})
+
+    def test_home_defense_guard(self):
+        """West-line province 10 faces FRA (not a primary target): with 2 divisions
+        and DEFENSE_MIN 2, moving one of them away is dropped."""
+        d = doc()
+        d["_ext"] = {"own_border": [{"province_id": 10, "neighbors": [11, 30], "enemy_neighbors": [11]}],
+                     "enemy_border": [{"province_id": 11, "controller": {"index": 5, "tag": "FRA"}}],
+                     "topology": {"regions": [{"region": 0, "provinces": 2, "border_provinces": [10]}],
+                                  "region_of_province": {"10": 0, "30": 0}}}
+        orders = [{"order_seq": 1, "type": "move", "subject": {"unit_ids": [1]}, "target_province_ids": [30]},
+                  {"order_seq": 2, "type": "attack", "subject": {"unit_ids": [2]}, "target_province_ids": [11]}]
+        kept, dropped, added = decide_llm.home_defense_guard(orders, d, {"orders": []})
+        self.assertEqual([o["order_seq"] for o in kept], [2])
+        self.assertEqual(len(dropped), 1)
+        self.assertEqual(added, [])
 
 
 if __name__ == "__main__":

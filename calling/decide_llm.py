@@ -32,6 +32,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
+import commander_view as cv  # noqa: E402
 import decide_v0  # noqa: E402
 import decide_v1  # noqa: E402
 import importlib  # noqa: E402
@@ -45,7 +46,9 @@ TIMEOUT_S = 300
 # tokens on reasoning with an empty answer. Keep thinking, at a lower effort.
 REASONING_EFFORT = os.environ.get("DEEPSEEK_REASONING_EFFORT", "low")  # none|low|high|max
 MAX_TOKENS = int(os.environ.get("DEEPSEEK_MAX_TOKENS", "32000"))
-STAFF = os.environ.get("COMMANDER_STAFF", "decide_v2")  # rules that write the staff proposal
+STAFF = os.environ.get("COMMANDER_STAFF", "decide_v3")  # rules that write the staff proposal
+# "1" = give the model the situation only, no staff proposal (anchoring experiment)
+NO_STAFF = os.environ.get("COMMANDER_NO_STAFF") == "1"
 INSTRUCTIONS_FILE = HERE / "tables" / "commander_instructions.json"
 ALLOWED = ("move", "attack", "retreat", "strategic_redeploy", "cancel")
 ARCHIVE = HERE.parent / "research" / "claude_live" / "llm"
@@ -67,13 +70,33 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 
 职责与边界：
 - 只指挥陆军机动：移动、进攻、撤退、战略转移、取消行军。不碰外交、生产、科研、海空军，也不新建或解散部队。
-- 玩家方针原文（player_instructions）是你的最高目标，战略取舍（打谁、守哪里、兵力怎么分配）由你自己判断；参谋建议只是参考，可以全部采纳、修改或否决。
+- 玩家方针原文（player_instructions）是你的最高目标，战略取舍（打谁、守哪里、兵力怎么分配）由你自己判断；参谋建议只是参考，可以全部采纳、修改或否决。参谋规则很机械，不要照单全收，要用下面的打法常识检查它。
 - 方针档位（stance）：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
 - 目前可用的只有逐师命令（移动、进攻、撤退、战略转移、取消）；前线和进攻线命令还在验证中，暂不可用。
+
+本土防御（玩家硬性要求，优先于进攻）：
+- 本国本土绝不能被占领。front.sections 里 role=home_defense 的段落（例如面对法国的西线）每个省至少要有 min_per_province 个师，short_provinces 是当前不够数的省份，要优先补齐（用远离前线的空闲师战略转移过去）。
+- 不要从 home_defense 段落抽调部队，除非同一拍有别的师补上；系统会丢弃会让防线省份低于下限的调动命令。
+- 面对中立国（未交战）的边境不需要驻军，那里的师是白白闲置，应调去有用的地方。
+
+打法常识（这是游戏的机制，请据此判断）：
+- 战斗宽度：每场战斗双方能同时上阵的兵力有限（provinces 的地形决定宽度，平原约 70，森林约 60，丘陵约 80，山地 75，沼泽 50，城市 96；每多一个进攻方向再加约一半）。超出宽度的师只能排队，同一个目标堆十几个师是浪费，应分散去打多个目标。
+- 多方向夹击：从两个以上相邻省份同时进攻同一个省，宽度更大，且有包抄加成。
+- 地形和渡河：进攻山地、丘陵、沼泽、城市和有要塞（fort_level）的省份很吃亏；跨河进攻（river_crossing_to 列出的方向）有大幅惩罚。优先打平原、无河的方向。
+- 装甲和摩托化（kind=armor/motorized）是突破和扩张的拳头：放在平原、无河的方向打开缺口，打开后继续向纵深推进、切断敌军，而不是和步兵一起顶在坚固阵地上。步兵负责正面牵制和填补战线。
+- 包围：敌军被切断补给后会迅速崩溃。两路钳形向敌后合拢比正面平推更快。front.near_closed 是快要被我方包围的敌方省份。
+- 疲兵轮换：组织度低于 30 的师进攻效果很差，应该停下休整，让生力军顶上；组织度不是兵力，休整几天就能恢复。
+- 投降进度：迫使一国投降主要靠占领胜利点（front.key_targets，分值越高越关键，首都最重要）。进攻方向应指向这些要地，不要平均用力。
+- combats 里的 trend 是由连续两拍的组织度变化推算的胜负趋势（winning/losing/even，非游戏原生字段），losing 的战斗要么增援要么停止。
+- 进攻命令下达后，师会留在出发省直到打赢才进入目标省，所以出发省看起来很拥挤是正常的；但同一个出发省的师太多，说明它们在排队，应该改打别的目标。
+
+态势字段说明：
 - 地图拓扑：front.regions 是己方控制领土中互不连通的陆地块（例如本土与被敌国隔开的飞地），own_units[].region 是每个师所在的陆地块，hops_to_front 是它离本块最近边境省隔几个省。战略转移和移动只能在同一陆地块内进行，不同陆地块之间陆路不通。
-- front.forces 按陆地块汇总兵力：战斗中、行军中、空闲（其中组织度≥60 的生力军数、守在西线等观察边境上的数量、离前线几个省的分布）。空闲的生力军是可以调动的预备队，是否投入、投向哪里由你决定。
-- front.key_targets 是敌方仍控制的胜利点省份（victory_points 分值、hops_from_our_land 为离我方控制区几个省）。迫使一国投降主要靠占领它的胜利点，分值越高越关键；进攻方向应指向这些要地。
-- front 给出整条边界：own_border 是与交战国接壤的己方省份及其对面省份和控制国；watch_border 是面对未交战邻国的己方省份；enemy_provinces 是各交战国仍控制的省份数（可用来判断战役进度）。
+- 盟友或附庸国的领土（例如斯洛伐克）里也可能驻有我方部队：own_border 中带 friendly_controller 的省份就是这种盟友省份，那里的师可以直接进攻相邻的敌方省份（例如从斯洛伐克向北进攻波兰，形成南路钳形），但移动和战略转移的目的地只能是本国控制的省份。
+- own_units[].kind 是部队类型（infantry 步兵、armor 装甲、motorized 摩托化、mountain 山地、cavalry 骑兵、paratrooper 伞兵），width 是战斗宽度。
+- front.forces 按陆地块汇总兵力：战斗中、行军中、空闲（其中组织度≥60 的生力军数、离前线几个省的分布）。空闲的生力军是可以调动的预备队，是否投入、投向哪里由你决定。
+- front.key_targets 是敌方仍控制的胜利点省份（victory_points 分值、hops_from_our_land 为离我方控制区几个省）。
+- front.own_border 是与交战国接壤的己方省份；facing 列出对面省份的控制国、地形、要塞等级、胜利点和是否需要渡河；enemy_provinces 是各交战国仍控制的省份数（可用来判断战役进度）。
 - 你看到的敌军只是正在与我方交战的部队（战争迷雾）。看不见的地方不要假设敌情。
 - 没有必要的命令就不下。空命令是正常的。
 - 在 reason、intent、summary、risks 里提到己方部队时，一律用部队名称（own_units[].name），不要写编号；unit_id 字段仍填编号。
@@ -83,8 +106,9 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - move / retreat / attack 的目标必须是该师所在省份的相邻省份（provinces[].neighbors 或 front.own_border[].neighbors），strategic_redeploy 可以远距离但只能去己方省份。
 - attack 只能打与我方交战的国家控制的省份（敌军所在省份）。retreat 只能撤到不在战斗中的己方省份。
 - 不要给已经在行军（order.path_province_ids 非空）的师下新的移动类命令；要改道先用 cancel。
-- 正在战斗中的师不能发起进攻；只能留守或撤退。
+- 正在防守战斗中的师（它所在的省被敌军进攻）下进攻命令曾被引擎拒绝，这类师只能留守或撤退；进攻中的师可以改打别的目标。
 - 组织度很低（< 15）的师不要投入战斗。
+- 不能让 home_defense 段落的任何省份低于 min_per_province 个师。
 - last_orders 里 accepted=false 的命令是上一拍被引擎拒绝的，不要原样重复（同一个师、同一类命令、同一个目标会被系统直接丢弃）。战略转移被拒（ISVALID_FALSE）通常表示陆路不可达，例如被敌国领土隔开的飞地，应换目标或改用其他办法。
 
 只输出一个 JSON 对象，不要输出任何其他文字，格式：
@@ -106,6 +130,7 @@ def digest(doc: dict) -> dict:
     units = []
     for u in world.get("own_units", []):
         row = {"id": u["unit_id"], "name": decide_v0.label(u), "prov": u.get("province_id"),
+               "kind": cv.unit_kind(u), "width": cv.width(u),
                "org": round(u.get("organization") or 0, 1),
                "hp": round((u.get("strength") or {}).get("current") or 0, 1)}
         if u.get("in_combat"):
@@ -139,10 +164,7 @@ def digest(doc: dict) -> dict:
                            "hp": round((v.get("strength") or {}).get("current") or 0, 1),
                            "combat": v.get("combat_id")}
                           for v in world.get("visible_units", [])],
-        "combats": [{"id": c["combat_id"], "prov": c["province_id"],
-                     "we_attack": bool(set(c.get("attacker_unit_ids", [])) & {u["id"] for u in units}),
-                     "attackers": c.get("attacker_unit_ids"), "defenders": c.get("defender_unit_ids"),
-                     "org_loss": c.get("casualties")} for c in world.get("combats", [])],
+        "combats": _combats(doc),
         "wars": world.get("wars", []),
         "player_instructions": (doc.get("policy") or {}).get("instructions"),
         "front": _front(doc),
@@ -150,16 +172,45 @@ def digest(doc: dict) -> dict:
     }
 
 
+def _combats(doc: dict) -> list[dict]:
+    world = doc.get("world") or {}
+    view = {c["id"]: c for c in cv.combat_view(doc, remember=bool((doc.get("meta") or {}).get("allow_write")))}
+    out = []
+    for c in world.get("combats", []):
+        row = {"id": c["combat_id"], "prov": c["province_id"],
+               "attackers": c.get("attacker_unit_ids"), "defenders": c.get("defender_unit_ids")}
+        v = view.get(c["combat_id"]) or {}
+        for k in ("we_attack", "ours", "enemy", "trend", "org_change_since_last_tick", "org_damage_total"):
+            if v.get(k) is not None:
+                row[k] = v[k]
+        out.append(row)
+    return out
+
+
 def _front(doc: dict) -> dict:
     ext = doc.get("_ext") or {}
     if not ext:
         return {}
-    ctrl = {e["province_id"]: (e.get("controller") or {}).get("tag") for e in ext.get("enemy_border", [])}
+    info = {e["province_id"]: e for e in ext.get("enemy_border", [])}
+
+    def facing(b, n):
+        e = info.get(n) or {}
+        row = {"prov": n, "owner": (e.get("controller") or {}).get("tag")}
+        for k in ("terrain", "fort_level"):
+            if e.get(k) is not None:
+                row[k] = e[k]
+        if e.get("victory_points"):
+            row["vp"] = e["victory_points"]
+        if n in (b.get("river_crossing_to") or []):
+            row["river"] = True
+        return row
     return {
         "own_border": [{"prov": b["province_id"], "neighbors": b.get("neighbors", []),
-                        "facing": [{"prov": n, "owner": ctrl.get(n)} for n in b.get("enemy_neighbors", [])]}
+                        "facing": [facing(b, n) for n in b.get("enemy_neighbors", [])]}
                        for b in ext.get("own_border", [])],
-        "watch_border": ext.get("own_watch_border", []),
+        "sections": cv.border_sections(doc),
+        "near_closed": (ext.get("topology") or {}).get("near_closed", []),
+        "enemy_pockets": (ext.get("topology") or {}).get("enemy_pockets", []),
         "enemy_provinces": ext.get("enemy_controlled_provinces", {}),
         "own_provinces": ext.get("own_controlled_provinces"),
         "regions": [{"region": r["region"], "provinces": r["provinces"], "border_provinces": r["border_provinces"]}
@@ -264,9 +315,9 @@ def decide(input_doc: dict) -> dict:
     proposal = [{"type": o["type"], "unit_id": o["subject"]["unit_ids"][0],
                  "target": (o.get("target_province_ids") or o.get("to_province_ids") or [None])[0],
                  "reason": o.get("reason")} for o in rules["orders"]]
+    payload = {"situation": dig} if NO_STAFF else {"situation": dig, "staff_proposal": proposal}
     messages = [{"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": json.dumps(
-                    {"situation": dig, "staff_proposal": proposal}, ensure_ascii=False)}]
+                {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]
     record = {"at": datetime.now().isoformat(timespec="seconds"), "model": MODEL,
               "digest": dig, "staff_proposal": proposal}
     t0 = time.time()
@@ -316,6 +367,15 @@ def decide(input_doc: dict) -> dict:
         if dropped:
             brief["risks"].append(f"大模型有 {len(dropped)} 条命令不合规，已剔除")
         out["brief"] = brief
+    out["orders"], guard_dropped, added = home_defense_guard(out["orders"], input_doc, rules)
+    dropped.extend(guard_dropped)
+    if added:
+        out["intents"].append({"intent_id": "home-defense", "kind": "hold_line",
+                               "subject": {"unit_ids": [o["subject"]["unit_ids"][0] for o in added]},
+                               "expands_to_order_seqs": [o["order_seq"] for o in added],
+                               "notes": "按玩家硬性要求补齐本土防线"})
+        if out.get("brief"):
+            out["brief"]["risks"].append(f"本土防线不足，系统按参谋方案补调 {len(added)} 个师")
     before = {o["order_seq"] for o in out["orders"]}
     out = decide_v1._drop_repeated_failures(out, input_doc.get("feedback") or {})
     for o in out_orders_dropped(before, out):
@@ -329,6 +389,50 @@ def decide(input_doc: dict) -> dict:
         return rules
     _archive(record)
     return out
+
+
+LEAVING = ("move", "retreat", "strategic_redeploy")
+
+
+def home_defense_guard(orders: list[dict], doc: dict, staff: dict) -> tuple[list[dict], list[dict], list[dict]]:
+    """Player hard rule: home-defense border provinces never drop below
+    DEFENSE_MIN divisions. Drops model orders that would strip them, then adds
+    the staff's fill-in redeploys for provinces still short."""
+    sections = cv.border_sections(doc)
+    count = {p["prov"]: p["divisions"] + p["incoming"]
+             for s in sections if s["role"] == "home_defense" for p in s["provinces"]}
+    if not count:
+        return orders, [], []
+    where = {u["unit_id"]: u.get("province_id") for u in (doc.get("world") or {}).get("own_units", [])
+             if not (u.get("order") or {}).get("path_province_ids")}
+    kept, dropped = [], []
+    for o in orders:
+        uid = o["subject"]["unit_ids"][0]
+        src = where.get(uid)
+        tgt = (o.get("target_province_ids") or o.get("to_province_ids") or [None])[0]
+        if o["type"] in LEAVING and src in count and tgt != src:
+            if count[src] - 1 < cv.DEFENSE_MIN:
+                dropped.append({"order": o, "why": f"会让本土防线省 {src} 少于 {cv.DEFENSE_MIN} 个师"})
+                continue
+            count[src] -= 1
+        if o["type"] in LEAVING and tgt in count:
+            count[tgt] += 1
+        kept.append(o)
+    added = []
+    busy = {o["subject"]["unit_ids"][0] for o in kept}
+    seq = max([o["order_seq"] for o in kept], default=0)
+    for o in staff.get("orders", []):
+        tgt = (o.get("target_province_ids") or [None])[0]
+        uid = o["subject"]["unit_ids"][0]
+        if (o["type"] == "strategic_redeploy" and tgt in count and count[tgt] < cv.DEFENSE_MIN
+                and uid not in busy and where.get(uid) not in count):
+            seq += 1
+            new = dict(o, order_seq=seq)
+            kept.append(new)
+            added.append(new)
+            busy.add(uid)
+            count[tgt] += 1
+    return kept, dropped, added
 
 
 def out_orders_dropped(before: set[int], out: dict) -> list[int]:

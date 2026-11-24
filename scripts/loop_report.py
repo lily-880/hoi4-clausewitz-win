@@ -10,7 +10,7 @@ import argparse
 import json
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -65,6 +65,8 @@ def main() -> int:
     prev_at = datetime(2000, 1, 1)
     rows = [json.loads(x) for x in PROGRESS.read_text(encoding="utf-8").splitlines() if x.strip()] \
         if PROGRESS.exists() else []
+    if rows:  # first tick: only calls of this run, not older archived runs
+        prev_at = datetime.fromisoformat(rows[0]["at"]).replace(tzinfo=None) - timedelta(seconds=rows[0].get("seconds") or 900)
     for r in rows:  # silently account for ticks already reported
         line(r, prev_at, total)
         prev_at = datetime.fromisoformat(r["at"]).replace(tzinfo=None)

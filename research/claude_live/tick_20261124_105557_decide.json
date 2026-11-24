@@ -1,0 +1,303 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            61
+          ]
+        },
+        "reason": "61师1对4组织度告急，停止无效进攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            69
+          ]
+        },
+        "reason": "69师与268师两路合攻506森林",
+        "target_province_ids": [
+          506
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            55
+          ]
+        },
+        "reason": "10. Panzer-Division从11558夹击9532平原",
+        "target_province_ids": [
+          9532
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            6
+          ]
+        },
+        "reason": "75. Infanterie-Division填补空置进攻省3460",
+        "target_province_ids": [
+          3460
+        ]
+      },
+      {
+        "order_seq": 5,
+        "type": "strategic_redeploy",
+        "subject": {
+          "unit_ids": [
+            32
+          ]
+        },
+        "reason": "Grenzkommando Aachen填补空置进攻省3460",
+        "target_province_ids": [
+          3460
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：61 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            5,
+            18,
+            25,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            68,
+            69,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            81,
+            82,
+            83,
+            85,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            98,
+            99,
+            100,
+            101,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            112,
+            113,
+            115,
+            116,
+            117,
+            118,
+            123,
+            124
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "6 个师缺人力",
+        "payload": {
+          "available": 2755514,
+          "affected_unit_ids": [
+            94,
+            95,
+            101,
+            106,
+            107,
+            108
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            6,
+            32,
+            55,
+            61,
+            69
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "notes": "东线多方向推进：6464、9263胜利在望，增兵506、9532两路扩大缺口，停止9290的单师消耗战，并补齐空虚的进攻出发省。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 20,
+        "hour": 12
+      },
+      "summary": "【大模型】东线整体占优：6464（5vp）9对2且趋势向好，9263（5vp）4对1即将破敌。3532虽5对1但组织度消耗异常暂维持。9290单师对4师趋势告负，取消保存兵力。西线19师刚够底线，不动。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "3532五对一却持续掉组织度，若继续消耗可能拖累后续突破",
+        "西线19师刚好填满最低要求，无冗余应对法国异动",
+        "9290取消进攻后该方向暂时停滞，波兰可抽调兵力增援他处",
+        "3460填补需要时间，波军可能趁机加固17、6558方向",
+        "省份 9567：2. Leichte-Division（组织度 51.6）、SS-Standarte 'Germania'（组织度 72.0）、8. Infanterie-Division（组织度 80.5）、28. Infanterie-Division（组织度 80.6）、7. Infanterie-Division（组织度 80.4）、44. Infanterie-Division（组织度 80.6）、45. Infanterie-Division（组织度 80.6） 正在防守（战斗 44，敌方 1 个单位）",
+        "战斗 11（省份 3532）明显不利：我方组织度损失 29.3，敌方 6.4",
+        "省份 9439：10. Infanterie-Division（组织度 59.6）、17. Infanterie-Division（组织度 77.9）、1. Leichte-Division（组织度 54.8）、3. Leichte-Division（组织度 63.6）、13. Infanterie-Division (mot.)（组织度 75.6）、29. Infanterie-Division (mot.)（组织度 75.4） 正在防守（战斗 45，敌方 1 个单位）",
+        "战斗 41（省份 493）明显不利：我方组织度损失 9.0，敌方 0.6",
+        "省份 3380：Grenzkommando Danzig（组织度 94.1）、Festung Königsberg（组织度 20.3） 正在防守（战斗 22，敌方 1 个单位）",
+        "17 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：214. Infanterie-Division(59%)、223. Infanterie-Division(94%)、Grenzkommando Trier(67%)、251. Infanterie-Division(94%)、Panzer-Division Kempf(99%)、Festung Lötzen(60%)、1. Infanterie-Division(99%)、12. Infanterie-Division(99%)、218. Infanterie-Division(23%)、Grenzschutz-Abschnitts-Kommando 2(65%)、50. Infanterie-Division(24%)、27. Infanterie-Division(70%)、SS Leibstandarte 'Adolf Hitler'(86%)、1. Leichte-Division(84%)、3. Leichte-Division(84%)、13. Infanterie-Division (mot.)(84%)、29. Infanterie-Division (mot.)(84%)",
+        "大模型有 1 条命令不合规，已剔除"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 3254",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 44 @ 省份 9567",
+        "战斗 5 @ 省份 3295",
+        "战斗 6 @ 省份 9263",
+        "战斗 7 @ 省份 388",
+        "战斗 8 @ 省份 279",
+        "战斗 9 @ 省份 334",
+        "战斗 11 @ 省份 3532",
+        "战斗 45 @ 省份 9439",
+        "战斗 13 @ 省份 6464",
+        "战斗 41 @ 省份 493",
+        "战斗 22 @ 省份 3380",
+        "战斗 31 @ 省份 11329",
+        "战斗 38 @ 省份 9532"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T10:55:43-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：61 个师未满编，库存 0",
+      "6 个师缺人力"
+    ],
+    "brief_summary": "【大模型】东线整体占优：6464（5vp）9对2且趋势向好，9263（5vp）4对1即将破敌。3532虽5对1但组织度消耗异常暂维持。9290单师对4师趋势告负，取消保存兵力。西线19师刚够底线，不动。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "unit": 61,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 69,
+        "dest": 506,
+        "ok": false,
+        "stop": "UNIT_NOT_IDLE",
+        "posted": false
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 55,
+        "dest": 9532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "strategic_redeploy",
+        "unit": 6,
+        "dest": 3460,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "strategic_redeploy",
+        "unit": 32,
+        "dest": 3460,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-20",
+        "ui_hour": 12,
+        "hour_tick": 60791195
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-20",
+        "ui_hour": 24,
+        "hour_tick": 60791207
+      }
+    }
+  }
+}

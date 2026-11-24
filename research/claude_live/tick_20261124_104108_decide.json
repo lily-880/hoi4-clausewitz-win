@@ -1,0 +1,240 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            102
+          ]
+        },
+        "reason": "南线装甲闲置，夹击6590开路",
+        "target_province_ids": [
+          6590
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            103
+          ]
+        },
+        "reason": "满编步兵跟进，合力攻6590",
+        "target_province_ids": [
+          6590
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            104
+          ]
+        },
+        "reason": "满编步兵跟进，合力攻6590",
+        "target_province_ids": [
+          6590
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            111
+          ]
+        },
+        "reason": "自3484向6590第二方向夹击",
+        "target_province_ids": [
+          6590
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：44 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            69,
+            72,
+            73,
+            74,
+            76,
+            81,
+            82,
+            83,
+            90,
+            91,
+            92,
+            94,
+            95,
+            96,
+            98,
+            99,
+            100,
+            101,
+            107,
+            109,
+            113,
+            115,
+            117
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            102,
+            103,
+            104,
+            111
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "notes": "集中南线闲置满编部队从两个方向夹击6590，打开向波兰腹地推进的道路，其余部队维持现有攻势与西线防务。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 15,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰战役总体顺利，多数交战我方伤害占优；西线home_defense已满员无需调整。南线多支新鲜满编部队闲置，遂令其夹击唯一的敌方邻近省6590，避免兵力白坐。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "6590为丘陵，进攻有一定地形惩罚",
+        "装甲师组织度约44，攻坚可能进一步下滑",
+        "南线目标周边敌情不明，需观察后续",
+        "战斗5（3295）趋势偏losing，暂无可及增援需关注",
+        "战斗 11（省份 3532）明显不利：我方组织度损失 6.8，敌方 1.4",
+        "省份 3380：Grenzkommando Danzig（组织度 96.0）、Festung Königsberg（组织度 25.3） 正在防守（战斗 22，敌方 1 个单位）",
+        "3 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：Festung Lötzen(78%)、218. Infanterie-Division(80%)、50. Infanterie-Division(76%)"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 3254",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 4 @ 省份 9316",
+        "战斗 5 @ 省份 3295",
+        "战斗 6 @ 省份 9263",
+        "战斗 7 @ 省份 388",
+        "战斗 8 @ 省份 279",
+        "战斗 9 @ 省份 334",
+        "战斗 10 @ 省份 3460",
+        "战斗 11 @ 省份 3532",
+        "战斗 13 @ 省份 6464",
+        "战斗 14 @ 省份 9567",
+        "战斗 19 @ 省份 9546",
+        "战斗 22 @ 省份 3380"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T10:40:52-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：44 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】波兰战役总体顺利，多数交战我方伤害占优；西线home_defense已满员无需调整。南线多支新鲜满编部队闲置，遂令其夹击唯一的敌方邻近省6590，避免兵力白坐。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 102,
+        "dest": 6590,
+        "ok": false,
+        "stop": "ATTACK_TARGET_NOT_AT_WAR",
+        "posted": false
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 103,
+        "dest": 6590,
+        "ok": false,
+        "stop": "ATTACK_TARGET_NOT_AT_WAR",
+        "posted": false
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 104,
+        "dest": 6590,
+        "ok": false,
+        "stop": "ATTACK_TARGET_NOT_AT_WAR",
+        "posted": false
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "unit": 111,
+        "dest": 6590,
+        "ok": false,
+        "stop": "ATTACK_TARGET_NOT_AT_WAR",
+        "posted": false
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-15",
+        "ui_hour": 24,
+        "hour_tick": 60791087
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-16",
+        "ui_hour": 12,
+        "hour_tick": 60791099
+      }
+    }
+  }
+}

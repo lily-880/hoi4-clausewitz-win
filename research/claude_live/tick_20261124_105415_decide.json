@@ -1,0 +1,308 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            24
+          ]
+        },
+        "reason": "增援失利战斗9263",
+        "target_province_ids": [
+          9263
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            112
+          ]
+        },
+        "reason": "从9567第二方向攻6464",
+        "target_province_ids": [
+          6464
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            116
+          ]
+        },
+        "reason": "从9567第二方向攻6464",
+        "target_province_ids": [
+          6464
+        ]
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            105
+          ]
+        },
+        "reason": "装甲从9567夹击6464",
+        "target_province_ids": [
+          6464
+        ]
+      },
+      {
+        "order_seq": 5,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            52
+          ]
+        },
+        "reason": "增援3532低伤战斗",
+        "target_province_ids": [
+          3532
+        ]
+      },
+      {
+        "order_seq": 6,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            5
+          ]
+        },
+        "reason": "增援3532低伤战斗",
+        "target_province_ids": [
+          3532
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：61 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            5,
+            18,
+            25,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            68,
+            69,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            81,
+            82,
+            83,
+            85,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            112,
+            113,
+            115,
+            116,
+            117,
+            118,
+            124
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            24,
+            112,
+            116,
+            105,
+            52,
+            5
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "notes": "集中增援9263、3532两个失利/僵持战斗，并用9567生力军从第三方向夹击6464（城市胜利点），争取尽快拿下波兰关键据点。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 19,
+        "hour": 24
+      },
+      "summary": "【大模型】西线home_defense仍满编，无抽调。东线多条战斗僵持，9263与3532被我重点增援；9567有7个满组织生力军闲置，取3个从新方向压6464而不盲目堆叠。南段多省兵力偏薄，需后续补强。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "6464为城市地形，进攻仍可能拖慢",
+        "9263仅加一师未必能扭转趋势",
+        "南段及波兰纵深多个方向兵力不足",
+        "生力军从9567前出后该省防线变空",
+        "战斗 11（省份 3532）明显不利：我方组织度损失 27.3，敌方 4.4",
+        "战斗 41（省份 493）明显不利：我方组织度损失 4.7，敌方 0.2",
+        "省份 3380：Grenzkommando Danzig（组织度 94.5）、Festung Königsberg（组织度 21.1） 正在防守（战斗 22，敌方 1 个单位）",
+        "省份 11467：1. Panzer-Division（组织度 42.8）、14. Infanterie-Division（组织度 76.9）、31. Infanterie-Division（组织度 72.2）、57. Infanterie-Division（组织度 25.2） 正在防守（战斗 39，敌方 1 个单位）",
+        "9 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：214. Infanterie-Division(68%)、223. Infanterie-Division(97%)、Grenzkommando Trier(76%)、251. Infanterie-Division(97%)、Festung Lötzen(62%)、218. Infanterie-Division(25%)、Grenzschutz-Abschnitts-Kommando 2(93%)、50. Infanterie-Division(25%)、27. Infanterie-Division(93%)"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 3254",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 23 @ 省份 9439",
+        "战斗 5 @ 省份 3295",
+        "战斗 6 @ 省份 9263",
+        "战斗 7 @ 省份 388",
+        "战斗 8 @ 省份 279",
+        "战斗 9 @ 省份 334",
+        "战斗 11 @ 省份 3532",
+        "战斗 13 @ 省份 6464",
+        "战斗 41 @ 省份 493",
+        "战斗 22 @ 省份 3380",
+        "战斗 39 @ 省份 11467",
+        "战斗 31 @ 省份 11329",
+        "战斗 38 @ 省份 9532"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T10:54:01-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：61 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】西线home_defense仍满编，无抽调。东线多条战斗僵持，9263与3532被我重点增援；9567有7个满组织生力军闲置，取3个从新方向压6464而不盲目堆叠。南段多省兵力偏薄，需后续补强。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 24,
+        "dest": 9263,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 112,
+        "dest": 6464,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 116,
+        "dest": 6464,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "attack",
+        "unit": 105,
+        "dest": 6464,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "attack",
+        "unit": 52,
+        "dest": 3532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 6,
+        "type": "attack",
+        "unit": 5,
+        "dest": 3532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-19",
+        "ui_hour": 24,
+        "hour_tick": 60791183
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-20",
+        "ui_hour": 12,
+        "hour_tick": 60791195
+      }
+    }
+  }
+}
