@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Minimal UI control of the HOI4 window only (user delegated, 2026-11-23).
 
   shot [--out PATH] [--scale S]   capture ONLY the game window's client area

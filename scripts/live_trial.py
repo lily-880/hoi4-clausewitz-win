@@ -676,6 +676,12 @@ def cmd_tick(args):
         tick["clock"] = clk
         emit(tick)
         return 2
+    if args.allow_write:  # front plans are dropped by the engine on border changes: rebuild them
+        try:
+            import orbat
+            tick["fronts_rebuilt"] = orbat.ensure_fronts(live=True)
+        except Exception as e:  # never let plan upkeep block the tick
+            tick["fronts_rebuilt_error"] = f"{type(e).__name__}: {e}"[:200]
     result = input_capture_live.capture()
     OUTDIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")

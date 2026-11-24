@@ -82,7 +82,10 @@ class Reader:
         from gamestate import _rtti_name_from_vtable
         if not _ptr(a):
             return None
-        vt = self.q(a) - self.p.base
+        try:
+            vt = self.q(a) - self.p.base
+        except OSError:
+            return None
         if not 0 < vt < 0x4000000:
             return None
         if vt not in self._cls:
@@ -103,11 +106,15 @@ class Reader:
     def handle(self, a):
         return struct.unpack("<II", self.p.read(a + 0x8, 8))
 
-    def instance(self, ip):
-        return {"plan_id": self.u32(ip + 0x244), "type": self.u32(ip + 0x30),
-                "path": self.u32arr(ip + 0x70), "can_execute": self.p.read(ip + 0x248, 1)[0],
-                "seed": list(struct.unpack("<II", self.p.read(ip + 0x258, 8))),
-                "members": len(self.arr(ip + 0x210)), "class": self.cls(ip)}
+    def instance(self, ip, depth=0):
+        row = {"plan_id": self.u32(ip + 0x244), "type": self.u32(ip + 0x30),
+               "path": self.u32arr(ip + 0x70), "can_execute": self.p.read(ip + 0x248, 1)[0],
+               "seed": list(struct.unpack("<II", self.p.read(ip + 0x258, 8))),
+               "members": len(self.arr(ip + 0x210)), "class": self.cls(ip),
+               "flag_299": self.p.read(ip + 0x299, 1)[0]}
+        if depth < 4:  # +0x2D0 children (front segments / offensive lines), +0x2B8 parents
+            row["children"] = [self.instance(c, depth + 1) for c in self.arr(ip + 0x2D0, 256) if _ptr(c)]
+        return row
 
     def group(self, gp):
         t, gid = self.handle(gp)
@@ -231,9 +238,19 @@ def appoint(leader_id: int, group_id: int, live=True) -> dict:
                            (0x30, struct.pack("<II", T_GROUP, group_id)), (0x38, struct.pack("<I", 0))], [], live)
 
 
-def new_root(group_id: int, own_province: int, enemy_province: int, live=True) -> dict:
+def front_line(group_id: int, front_id: int, unit_ids: list[int], live=True) -> dict:
+    """Front line along a border CFront {66,id}. +0x50=1 (copied to plan +0x260) makes the
+    engine lay the line along the border; without it the plan has no path and is not drawn
+    (compared with a line the user drew in the UI, 2026-11-24)."""
     return post("new_root", [(0x28, struct.pack("<II", T_GROUP, group_id)),
-                             (0x48, struct.pack("<II", own_province, enemy_province))], [], live)
+                             (0x48, struct.pack("<II", 66, front_id)), (0x50, struct.pack("<I", 1))],
+                [(0x30, [(T_UNIT, u) for u in unit_ids])], live)
+
+
+def offensive_line(group_id: int, front_plan_id: int, path: list[int], unit_ids: list[int], live=True) -> dict:
+    """Offensive line (arrow) under a front line: path = enemy provinces, from one touching the
+    front to the objective. Becomes a child plan (+0x2D0) with +0x299=1."""
+    return new_front(group_id, front_plan_id, path, unit_ids=unit_ids, live=live)
 
 
 def execute(group_id: int, plan_id: int, on: bool = True, flag_35: int = 0, live=True) -> dict:
@@ -256,6 +273,47 @@ def new_front(group_id: int, parent_plan_id: int, path: list[int], unit_ids: lis
                               (0x68, struct.pack("<I", parent_plan_id)),
                               (0x6C, bytes([flag_6c, flag_6d, flag_6e, 0]))],
                 [(0x38, [(T_UNIT, u) for u in unit_ids])] if unit_ids else [], live)
+
+
+FRONTS_FILE = HERE / "tables" / "army_fronts.json"
+
+
+def front_handles(session) -> dict:
+    """Border fronts of the first theatre by opposing country tag: {tag: [front ids]}."""
+    r = Reader(session)
+    out = {}
+    for tp in r.arr(session.country + 0x168, 64)[:1]:
+        for fp in r.arr(tp + 0x50, 256):
+            d, c, n = struct.unpack("<QII", session.p.read(fp + 0x38, 16))
+            if n:
+                out.setdefault(session.tag(session.u32(d)), []).append(r.handle(fp)[1])
+    return out
+
+
+def ensure_fronts(live=True) -> list[dict]:
+    """Plans anchored on a CFront are dropped by the engine whenever the border changes
+    (observed 2026-11-24). Re-create the root plan of every army listed in
+    tables/army_fronts.json ({"army_id": "ENEMY_TAG"}) that currently has none."""
+    import json
+    try:
+        want = json.loads(FRONTS_FILE.read_text(encoding="utf-8")).get("armies", {})
+    except (OSError, ValueError):
+        return []
+    sys.path.insert(0, str(HERE.parent / "scripts"))
+    import live_trial as lt
+    s = lt.Session(check_sha=False)
+    snap = snapshot(s)
+    fronts = front_handles(s)
+    done = []
+    for t in snap["theatres"]:
+        for a in t["armies"]:
+            tag = want.get(str(a["id"]))
+            has_line = any(p["path"] and p["members"] for p in a["plans"])
+            if not tag or has_line or not a["unit_ids"] or not fronts.get(tag):
+                continue
+            res = front_line(a["id"], fronts[tag][0], a["unit_ids"], live)
+            done.append({"army_id": a["id"], "enemy": tag, "front_id": fronts[tag][0], "ok": res.get("ok")})
+    return done
 
 
 def snapshot(session=None) -> dict:
