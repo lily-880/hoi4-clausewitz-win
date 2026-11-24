@@ -132,9 +132,14 @@ def _capture_once():
             u['owner']['tag']=live_tag
             current_manpower,mp_evidence=unit_current_manpower(loaded,ap)
             u['strength']['manpower']=current_manpower
-            hp_current,hp_max,hpe=unit_hp(loaded,ap)
+            try:
+                hp_current,hp_max,hpe=unit_hp(loaded,ap)
+            except ObservationError as e:
+                # Tolerant: keep the division, omit only max HP (recorded below).
+                hp_current,hp_max,hpe=u['strength']['current'],None,{'omitted':str(e)}
             if hp_current!=u['strength']['current']:raise ObservationError('current HP changed')
-            u['strength']['max']=hp_max
+            if hp_max is not None:
+                u['strength']['max']=hp_max
             hp_evidence.append(dict(hpe,unit_id=u['unit_id']))
             manpower_evidence.append(dict(mp_evidence,unit_id=u['unit_id']))
             member=q(ap+0x340);require_class(member,'CNameGroupMember')
@@ -168,7 +173,7 @@ def _capture_once():
             template,hp,mean_org=template_cache[tp]
             u['template']=template
             extra.append({'unit_id':u['unit_id'],'template_id':template['template_id'],
-                          'max_hp_matches_loaded_battalions':abs(u['strength']['max']-hp)<0.0001,
+                          'max_hp_matches_loaded_battalions':('max' in u['strength'] and abs(u['strength']['max']-hp)<0.0001),
                           'opening_org_matches_95pct_mean':mean_org is not None and abs(u['organization']-.95*mean_org)<.0001})
             pp=q(ap+0x1f0);require_class(pp,'CProvince')
             if pp not in province_cache:

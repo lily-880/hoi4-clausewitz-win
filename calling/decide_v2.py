@@ -29,6 +29,9 @@ import decide_v0  # noqa: E402
 import decide_v1  # noqa: E402
 
 VERSION = "decide_v2"
+import os
+# Stage goal: only this enemy is attacked; borders facing any other enemy hold.
+PRIMARY_TARGETS = set(filter(None, os.environ.get("COMMANDER_PRIMARY_TARGETS", "POL").split(",")))
 ATTACK_MIN_ORG = 25.0
 MAX_REDEPLOY = 40
 MAX_ATTACK = 80
@@ -42,8 +45,15 @@ def _idle(u: dict) -> bool:
 def offensive_orders(doc: dict, used: set[int]) -> tuple[list[dict], list[str]]:
     ext = doc.get("_ext") or {}
     world = doc.get("world", {}) or {}
-    border = {b["province_id"]: b for b in ext.get("own_border", [])}
-    watch = set(ext.get("own_watch_border", []))
+    target_ctrl = {e["province_id"] for e in ext.get("enemy_border", [])
+                   if (e.get("controller") or {}).get("tag") in PRIMARY_TARGETS}
+    border, watch = {}, set(ext.get("own_watch_border", []))
+    for b in ext.get("own_border", []):
+        hits = [n for n in b["enemy_neighbors"] if n in target_ctrl]
+        if hits:
+            border[b["province_id"]] = dict(b, enemy_neighbors=hits)
+        else:
+            watch.add(b["province_id"])  # faces another enemy (e.g. France): hold
     if not border:
         return [], []
     units = [u for u in world.get("own_units", []) if u["unit_id"] not in used]
@@ -121,5 +131,6 @@ def decide(input_doc: dict) -> dict:
         ext = input_doc.get("_ext") or {}
         if ext.get("enemy_controlled_provinces"):
             out["brief"].setdefault("risks", []).append(
-                "敌方仍控制省份：" + "、".join(f"{k} {v}" for k, v in ext["enemy_controlled_provinces"].items()))
+                "主攻目标仍控制省份：" + "、".join(f"{k} {v}" for k, v in ext["enemy_controlled_provinces"].items()
+                                          if k in PRIMARY_TARGETS))
     return out
