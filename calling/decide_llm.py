@@ -205,7 +205,7 @@ def _instructions() -> str | None:
         return None
 
 
-def _call(messages: list[dict], key: str, retries: int = 1) -> dict:
+def _call(messages: list[dict], key: str, retries: int = 3) -> dict:
     """POST with one retry on transport errors (no game effect, so retrying is safe)."""
     import http.client
     last = None
@@ -214,7 +214,8 @@ def _call(messages: list[dict], key: str, retries: int = 1) -> dict:
             return _call_once(messages, key)
         except (urllib.error.URLError, http.client.HTTPException, ConnectionError, TimeoutError, OSError) as e:
             last = e
-            time.sleep(5)
+            if attempt < retries:
+                time.sleep(10 * 2 ** attempt)  # 10, 20, 40 s: rides out short network drops
     raise last
 
 
