@@ -108,7 +108,21 @@ def _window_image(hwnd: int):
     return Image.frombuffer("RGBA", (w, h), buf, "raw", "BGRA", 0, 1).convert("RGB")
 
 
+def idle_seconds() -> float:
+    """Seconds since the user's last keyboard/mouse input (GetLastInputInfo)."""
+    class LII(ctypes.Structure):
+        _fields_ = [("cbSize", wt.UINT), ("dwTime", wt.DWORD)]
+    lii = LII(ctypes.sizeof(LII), 0)
+    user32.GetLastInputInfo(ctypes.byref(lii))
+    return (ctypes.windll.kernel32.GetTickCount() - lii.dwTime) / 1000.0
+
+
+MIN_IDLE = 120.0  # never take the foreground while the user is active
+
+
 def _require_foreground(hwnd: int) -> None:
+    if user32.GetForegroundWindow() != hwnd and idle_seconds() < MIN_IDLE:
+        raise SystemExit(f"user active {idle_seconds():.0f}s ago; refusing to take the foreground")
     focus(hwnd)
     if user32.GetForegroundWindow() != hwnd:
         raise SystemExit("game window is not in front; refusing to send input")
@@ -161,6 +175,20 @@ def click(x: int, y: int, right: bool = False) -> None:
         time.sleep(0.08)
 
 
+def scroll(x: int, y: int, ticks: int) -> None:
+    """Mouse wheel at a client point; ticks > 0 zooms the map in."""
+    hwnd = find_window()
+    _require_foreground(hwnd)
+    left, top, _, _ = client_rect(hwnd)
+    user32.SetCursorPos(left + int(x), top + int(y))
+    time.sleep(0.15)
+    for _ in range(abs(ticks)):
+        i = _INPUT(type=0)
+        i.mi = _MI(0, 0, ctypes.c_uint32(120 if ticks > 0 else -120).value, 0x0800, 0, 0)
+        _send(i)
+        time.sleep(0.12)
+
+
 SCANS = {"space": 0x39, "esc": 0x01, "enter": 0x1C, "f1": 0x3B, "f2": 0x3C, "tab": 0x0F,
          "1": 0x02, "2": 0x03, "3": 0x04, "4": 0x05, "5": 0x06, "q": 0x10, "w": 0x11}
 
@@ -200,9 +228,18 @@ def main(argv=None) -> int:
     k.add_argument("name")
     l = sub.add_parser("launch")
     l.add_argument("--save")
+    w = sub.add_parser("scroll")
+    w.add_argument("x", type=float)
+    w.add_argument("y", type=float)
+    w.add_argument("ticks", type=int)
+    sub.add_parser("idle")
     a = ap.parse_args(argv)
     if a.cmd == "shot":
         shot(a.out, a.scale)
+    elif a.cmd == "scroll":
+        scroll(a.x, a.y, a.ticks)
+    elif a.cmd == "idle":
+        print(f"user idle {idle_seconds():.0f}s")
     elif a.cmd == "click":
         click(a.x, a.y, a.right)
     elif a.cmd == "key":
