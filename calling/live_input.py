@@ -219,8 +219,16 @@ def _capture_once():
             if current!=original:
                 raise ObservationError('area registration/membership changed in place')
         army_ids={ap:u['unit_id'] for u,ap in zip(first['world']['own_units'],army_ptrs)}
-        reinforcement_requests,reinforcement_request_evidence=own_reinforcement_requests(loaded,co,army_ids)
-        official_need,official_need_evidence=official_country_equipment_need_components(loaded,co,army_ids)
+        # Tolerant: these feed only equipment-need evidence; a long wartime list
+        # (bound 64) must not abort the whole capture.
+        try:
+            reinforcement_requests,reinforcement_request_evidence=own_reinforcement_requests(loaded,co,army_ids)
+        except ObservationError as e:
+            reinforcement_requests,reinforcement_request_evidence=[],{'omitted':str(e)}
+        try:
+            official_need,official_need_evidence=official_country_equipment_need_components(loaded,co,army_ids)
+        except ObservationError as e:
+            official_need,official_need_evidence={},{'omitted':str(e)}
         from input_loaded_fields import (own_plans, own_active_combats, own_armies,
             own_army_groups, unit_formation_army_id, unit_formation_army_group_id)
         armies, army_evidence = own_armies(loaded, co)
@@ -354,7 +362,10 @@ def _capture_once():
                     visible_evidence.append({'unit_id': uid, 'owner_source': 'CArmy+0x1E0 logical_country',
                                              'war_source': 'native 0x748400 path', 'at_war': war})
         from input_loaded_fields import own_equipment_affected_units
-        affected_equipment, affected_equipment_evidence = own_equipment_affected_units(loaded, co)
+        try:
+            affected_equipment, affected_equipment_evidence = own_equipment_affected_units(loaded, co)
+        except ObservationError as e:
+            affected_equipment, affected_equipment_evidence = {}, {'omitted': str(e)}
         loaded_reads_checked=loaded.stable()
         if p.read(idler + 0x6c1, 1) != official_pause:
             raise ObservationError('official pause flag changed during capture')
