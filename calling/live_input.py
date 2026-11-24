@@ -29,7 +29,8 @@ def _capture_once():
     from pe import PE
     from gamestate import _rtti_name_from_vtable,_pdx_array,detect_session,resolve_player_country,read_campaign_summary
     from handle import resolve_handle
-    from input_observation import observe_own_divisions,unit_blockers,ObservationError
+    from live_observation import observe_own_divisions,unit_blockers
+    from input_observation import ObservationError
     from input_loaded_fields import LoadedReader,battalion_width,own_leaders,infrastructure,country_tag,victory_points,unit_current_manpower,country_available_manpower,unit_hp,own_equipment_stockpile,resolve_building_templates,province_fort_level,province_land_neighbors,province_adjacencies,own_reinforcement_requests,official_country_equipment_need_components
     profile=json.loads((HERE/'tables/offsets_input_windows_1.19.5.json').read_text(encoding='utf-8-sig'))
     p=Proc(find_pid('hoi4.exe'))
@@ -90,7 +91,7 @@ def _capture_once():
         if first['world']!=second['world']:raise ObservationError('division scalar observations changed; retry later')
         ar,army_ptrs=array(co+0x290,4096)
         if len(army_ptrs)!=len(first['world']['own_units']):raise ObservationError('division membership changed')
-        template_cache={};province_cache={};extra=[];template_notes={}
+        template_cache={};province_cache={};extra=[];template_notes={};transit_units=[]
         loaded=LoadedReader(p.read,cls);infrastructure_evidence=[];neighbor_evidence=[]
         live_tag=country_tag(loaded,gs,res['player_index'],co)
         manpower_available,manpower_available_evidence=country_available_manpower(loaded,co,res['player_index'])
@@ -198,7 +199,7 @@ def _capture_once():
                     if pp in membership:
                         province_cache[pp][field]={'index':res['player_index']}
             if province_cache[pp]['province_id']!=u['province_id']:
-                raise ObservationError('province identity changed')
+                transit_units.append(u['unit_id'])  # in transit: +0x1F0 object differs from +0x28
         # Tolerant: a unit whose engine max HP no longer equals the plain sum of
         # its loaded battalions keeps its readings, but strength.max is omitted.
         omitted_max=[]
@@ -485,6 +486,7 @@ def _capture_once():
                             'combat_width_source':'live loaded CSubUnitDefinition+0x58; named combat_width parser; supports empty',
                             'template_handle_registry_checks':len(template_cache),'battalion_crosschecks':extra,
                             'visible_units_collection':{'scope':'opponents in our own active combats only','rows':visible_evidence},
+                            'units_in_transit_province_pair_differs':transit_units,
                             'tolerant_omissions':{'strength_max_units':omitted_max,'templates':template_notes},
                             'registered_self_provinces':{k:len(v) for k,v in area_memberships.items()},
                             'province_relation_scope':'only current country registrations; no contested ownership contrast accepted',
