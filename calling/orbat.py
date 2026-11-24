@@ -47,7 +47,14 @@ CMD = {
     "new_front": dict(factory=0x18D03B0, size=0x70, vt=0x2A853A0, isvalid=0x18DF550),
     # +0x28 group, +0x30 plan id, +0x34 execute (1) / stop (0), +0x35 flag
     "execute": dict(factory=0x18D00E0, size=0x38, vt=0x2A85D60, isvalid=0x18DEFB0),
+    # +0x28 group, +0x30 plan id (any plan of that group, e.g. an offensive line)
+    "delete": dict(factory=0x18D0010, size=0x38, vt=0x2A84C20, isvalid=0x18DEF50),
 }
+
+
+def delete_plan(group_id: int, plan_id: int, live=True) -> dict:
+    return post("delete", [(0x28, struct.pack("<II", T_GROUP, group_id)), (0x30, struct.pack("<I", plan_id))],
+                [], live)
 
 
 def _ptr(x):

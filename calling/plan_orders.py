@@ -26,7 +26,8 @@ if str(HERE) not in sys.path:
 
 import commander_view as cv  # noqa: E402
 
-TYPES = ("front_line", "offensive_line", "execute", "create_army", "create_army_group", "appoint")
+TYPES = ("front_line", "offensive_line", "delete_offensive_line", "execute", "create_army",
+         "create_army_group", "appoint")
 MAX_PER_TICK = 12
 ARMY_MAX = 24
 FRONTS_FILE = HERE / "tables" / "army_fronts.json"
@@ -77,6 +78,18 @@ def view(doc: dict, session=None) -> dict:
             lead = leader_info.get(g["leader_id"], {})
             groups.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids"),
                            "leader": lead.get("name") or g["leader_id"]})
+    starts: dict = {}
+    for a in armies:
+        for f in a["fronts"]:
+            for l in f["offensive_lines"]:
+                if l["path"]:
+                    starts.setdefault(l["path"][0], []).append(a["army_id"])
+    for a in armies:
+        for f in a["fronts"]:
+            for l in f["offensive_lines"]:
+                others = [x for x in starts.get(l["path"][0] if l["path"] else None, []) if x != a["army_id"]]
+                if others:
+                    l["same_start_as_armies"] = others
     free_units = [u for u in units if u not in in_army]
     free_leaders = [{"leader_id": lid, "name": (leader_info.get(lid) or {}).get("name"),
                      "skill": (leader_info.get(lid) or {}).get("skill")}
@@ -102,12 +115,21 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
     ext = doc.get("_ext") or {}
     enemies = {e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
     enemy_provs = {e["province_id"]: e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
+    if t == "delete_offensive_line":
+        a = armies.get(order.get("army_id"))
+        lines = {l["plan_id"] for f in (a or {}).get("fronts", []) for l in f["offensive_lines"]}
+        if order.get("plan_id") not in lines:
+            return "要删除的进攻线不属于该集团军"
+        return None
     if t in ("front_line", "offensive_line", "execute"):
         a = armies.get(order.get("army_id"))
         if not a:
             return "集团军不存在"
         if not a["divisions"]:
             return "集团军没有师"
+    if t == "execute" and order.get("on", True):
+        if not any(f["offensive_lines"] for f in a["fronts"]):
+            return "该集团军没有进攻线，执行也不会进攻；先画进攻线"
     if t == "front_line":
         if order.get("enemy") not in enemies:
             return "只能对正在交战且接壤的国家画前线"
@@ -119,6 +141,10 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
             return "该集团军还没有前线，先画前线"
         if path[0] not in enemy_provs:
             return "进攻线起点必须是与我方接壤的敌方省份"
+        taken = {f_line["path"][0] for other in pview.get("armies", []) if other["army_id"] != a["army_id"]
+                 for f in other["fronts"] for f_line in f["offensive_lines"] if f_line["path"]}
+        if path[0] in taken:
+            return "这个起点已被别的集团军的进攻线占用；不同集团军应从不同方向进攻"
     if t == "create_army":
         ids = order.get("unit_ids")
         free = set(pview.get("divisions_not_in_any_army", []))
@@ -162,8 +188,18 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
     if t == "offensive_line":
         a = armies[order["army_id"]]
         front = max(a["fronts"], key=lambda f: f["front_provinces"])
-        return orbat.offensive_line(order["army_id"], front["plan_id"], order["path"],
-                                    units_of.get(order["army_id"], []), live)
+
+        def line_ids():
+            return {c["plan_id"] for th in orbat.snapshot(s)["theatres"] for g in th["armies"]
+                    if g["id"] == order["army_id"] for p in g["plans"] for c in p["children"]}
+        before = line_ids()
+        res = orbat.offensive_line(order["army_id"], front["plan_id"], order["path"],
+                                   units_of.get(order["army_id"], []), live)
+        if res.get("ok") and live and not (line_ids() - before):  # posted, but the engine dropped it
+            res.update(ok=False, stop="游戏没有接受这条进攻线（起点可能已被攻占，或路径不全在敌境内）")
+        return res
+    if t == "delete_offensive_line":
+        return orbat.delete_plan(order["army_id"], order["plan_id"], live)
     if t == "execute":
         a = armies[order["army_id"]]
         res = {"ok": True, "results": []}
