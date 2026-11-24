@@ -282,10 +282,42 @@ def _capture_once():
                 if prog is not None:
                     unit['order']['eta'] = {'progress': prog}
         plans, plan_evidence = own_plans(loaded, co)
-        combats = own_active_combats(loaded, gs, co)
+        # Tolerant copy of own_active_combats: the GS active-combat list can also
+        # hold non-land combats (naval/air) once other powers join the war; those
+        # are skipped instead of aborting the capture.
+        def is_land_combat(cp_):
+            return loaded.class_name(cp_) in ('.?AVCLandCombat@@', '.?AUCLandCombat@@')
+        skipped_non_land = 0
+        combats = []
+        own_ids_ = {u['unit_id'] for u in first['world']['own_units']}
+        for cp in loaded.array(gs + 0x268, 4096):
+            if not is_land_combat(cp):
+                skipped_non_land += 1
+                continue
+            sp = cp + 0x10
+            sides = {}
+            for name, off in (('attacker_unit_ids', 0x18), ('defender_unit_ids', 0x20)):
+                bp = loaded.q(sp + off)
+                loaded.require(bp, 'CLandCombatant')
+                ids = []
+                for up in loaded.array(bp + 0x20, 4096):
+                    loaded.require(up, 'CArmy')
+                    if loaded.i(up + 0x18) != 51:
+                        raise ObservationError('unexpected combat unit handle')
+                    ids.append(loaded.i(up + 0x1c))
+                sides[name] = ids
+            if not own_ids_.intersection(sides['attacker_unit_ids'] + sides['defender_unit_ids']):
+                continue
+            province = loaded.q(sp + 0x28)
+            loaded.require(province, 'CProvince')
+            if loaded.i(sp + 8) != 62:
+                raise ObservationError('unexpected land combat handle')
+            combats.append({'combat_id': loaded.i(sp + 0xc), 'province_id': loaded.i(province + 0xa4), **sides})
         own_set = {u['unit_id'] for u in first['world']['own_units']}
         side_damage = {}
         for cp in loaded.array(gs + 0x268, 4096):
+            if not is_land_combat(cp):
+                continue
             sp = cp + 0x10
             cid = loaded.i(sp + 0xc)
             dmg = {}
@@ -558,6 +590,7 @@ def _capture_once():
                             'template_handle_registry_checks':len(template_cache),'battalion_crosschecks':extra,
                             'visible_units_collection':{'scope':'opponents in our own active combats only','rows':visible_evidence},
                             'units_in_transit_province_pair_differs':transit_units,
+                            'non_land_combats_skipped':skipped_non_land,
                             'tolerant_omissions':{'strength_max_units':omitted_max,'templates':template_notes},
                             'registered_self_provinces':{k:len(v) for k,v in area_memberships.items()},
                             'province_relation_scope':'only current country registrations; no contested ownership contrast accepted',
