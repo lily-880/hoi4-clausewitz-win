@@ -1,0 +1,192 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            85
+          ]
+        },
+        "reason": "增援3532受挫攻势",
+        "target_province_ids": [
+          3532
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            84
+          ]
+        },
+        "reason": "加强6464方向突破",
+        "target_province_ids": [
+          6464
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：41 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            18,
+            31,
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            58,
+            59,
+            60,
+            65,
+            66,
+            67,
+            68,
+            72,
+            73,
+            74,
+            81,
+            82,
+            83,
+            89,
+            90,
+            91,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            109,
+            115
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            84,
+            85
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2
+        ],
+        "notes": "增援唯一受挫的3532攻势，并投入生力军加速6464方向突破，尽快瓦解波军防线。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 8,
+        "day": 15,
+        "hour": 24
+      },
+      "summary": "【大模型】各主要突击方向均占优，唯3532方向仅有边境部队且攻击受挫（我方损失5.0对敌1.4），已调68步兵师增援；6464方向势均力敌，投入27步兵师加速突破。西线对法守备不变。",
+      "stance_applied": "annihilate",
+      "risks": [
+        "增援部队组织度偏低（约22-24），投入战斗可能承受较大损耗",
+        "3532守军满编，增援后仍可能短时僵持",
+        "低组织度部队若被击退将额外损失装备与人力",
+        "战斗 12（省份 3532）明显不利：我方组织度损失 5.0，敌方 1.4",
+        "省份 3460：24. Infanterie-Division（组织度 80.6）、SS Leibstandarte 'Adolf Hitler'（组织度 57.4） 正在防守（战斗 22，敌方 1 个单位）",
+        "省份 3380：Grenzkommando Danzig（组织度 94.4） 正在防守（战斗 24，敌方 1 个单位）",
+        "5 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：Festung Lötzen(85%)、207. Infanterie-Division(78%)、218. Infanterie-Division(98%)、Grenzschutz-Abschnitts-Kommando 2(95%)、50. Infanterie-Division(74%)",
+        "主攻目标仍控制省份：POL 150"
+      ],
+      "next_watch": [
+        "战斗 1 @ 省份 400",
+        "战斗 2 @ 省份 6347",
+        "战斗 3 @ 省份 9290",
+        "战斗 4 @ 省份 3295",
+        "战斗 5 @ 省份 3254",
+        "战斗 6 @ 省份 9316",
+        "战斗 7 @ 省份 334",
+        "战斗 8 @ 省份 9263",
+        "战斗 9 @ 省份 388",
+        "战斗 10 @ 省份 279",
+        "战斗 12 @ 省份 3532",
+        "战斗 13 @ 省份 11558",
+        "战斗 14 @ 省份 6464",
+        "战斗 15 @ 省份 506",
+        "战斗 16 @ 省份 9567",
+        "战斗 22 @ 省份 3460",
+        "战斗 24 @ 省份 3380"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T02:03:03-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：41 个师未满编，库存 0"
+    ],
+    "brief_summary": "【大模型】各主要突击方向均占优，唯3532方向仅有边境部队且攻击受挫（我方损失5.0对敌1.4），已调68步兵师增援；6464方向势均力敌，投入27步兵师加速突破。西线对法守备不变。",
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 85,
+        "dest": 3532,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 84,
+        "dest": 6464,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-15",
+        "ui_hour": 24,
+        "hour_tick": 60791087
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-08-16",
+        "ui_hour": 12,
+        "hour_tick": 60791099
+      }
+    }
+  }
+}

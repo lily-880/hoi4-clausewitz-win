@@ -39,3 +39,10 @@
 - 1939-08-14 12:00 → 24:00（运行 12 小时后自动暂停，已确认 pause=1）。本拍真实耗时约 3 分 20 秒。
 - 下达 78 条命令：**38 条进攻全部成功**；战略转移 24 条成功，16 条被引擎判定无效（ISVALID_FALSE，未下达，属于确定拒绝，原因待查：可能是目标不可达或部队不满足战略转移条件）。0 次中止。
 - 下一拍从 1939-08-14 24:00 继续：`python -I scripts/live_trial.py tick --decider decide_v2 --allow-write --hours 12`。
+
+## 2026-11-24 进展
+- 用户直接启动游戏主程序（不带 DLC），读入昨天的局面：1939-08-14 24:00，英法已对德宣战（履行对波兰的保证）。
+- 容错补强：生命值检查异常只省略该项；战略转移途中 `+0x28` 与 `+0x1F0` 省份不一致不再中止（`calling/live_observation.py` 为封存观测模块的副本）。
+- **战略决策交给 DeepSeek**（用户指示）：参谋规则 decide_v2 只提建议（默认只攻 POL，仅作参考），阶段目标原话存于 `calling/tables/commander_instructions.json`，作为最高方针；DeepSeek 能看到完整边界视图。
+- deepseek-flash 默认深度思考，曾把 8000 输出 token 全部用于思考、正文为空（已自动退回规则）。现设 `reasoning_effort=low`、`max_tokens=32000`。首次成功指挥（08-15 24:00 → 08-16 12:00）：增援受挫的 3532 方向、投入生力军突破 6464，西线维持守备；耗时 80 秒，约 0.1 元/拍。
+- 自动循环：`python -I scripts/commander_loop.py --decider decide_llm --hours 12 --max-ticks 200`。每拍写 `research/claude_live/loop_progress.jsonl`，最新状态在 `loop_status.json`；波兰控制省数为 0 或不再交战时停止，并记录日期为成绩。独立看门进程：游戏连续 240 秒未暂停就自动按暂停。创建 `research/claude_live/STOP` 文件，可在当前拍结束后停止循环。
