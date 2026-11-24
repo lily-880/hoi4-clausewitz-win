@@ -698,6 +698,20 @@ def cmd_tick(args):
     tick["alerts"] = [a["message"] for a in output.get("alerts", [])]
     tick["brief_summary"] = (output.get("brief") or {}).get("summary")
     executed = []
+    plan_results = []
+    pinfo = doc.get("_plan_orders") or {}
+    if args.allow_write and pinfo.get("orders"):  # commander's plan orders first (they set who is where)
+        import plan_orders as po
+        for po_order in pinfo["orders"]:
+            try:
+                rep = po.apply(po_order, pinfo.get("view") or {}, live=True)
+            except Exception as e:
+                rep = {"ok": False, "stop": f"{type(e).__name__}: {e}"[:200]}
+            plan_results.append({"order": po_order, "ok": bool(rep.get("ok")), "stop": rep.get("stop"),
+                                 "new_id": rep.get("army_id") or rep.get("army_group_id")})
+            ledger({"type": "plan_" + po_order.get("type", "?"), "order": po_order,
+                    "accepted": bool(rep.get("ok")), "result": rep.get("stop") or "OK"})
+    tick["plan_orders"] = plan_results
     if not errors:
         for order in sorted(output.get("orders", []), key=lambda o: o["order_seq"]):
             plan = _expand(order)
@@ -725,8 +739,9 @@ def cmd_tick(args):
                 tick["halted"] = "ORDER_NOT_CONFIRMED_STOPPING_TICK"
                 break
     tick["executed"] = executed
-    FEEDBACK.write_text(json.dumps(_feedback(output, executed), ensure_ascii=False, indent=2),
-                        encoding="utf-8")
+    fb = _feedback(output, executed)
+    fb["last_plan_orders"] = plan_results
+    FEEDBACK.write_text(json.dumps(fb, ensure_ascii=False, indent=2), encoding="utf-8")
     if args.hours and not tick.get("halted"):
         tick["clock"] = run_hours(args.hours)
     (OUTDIR / f"tick_{stamp}_decide.json").write_text(

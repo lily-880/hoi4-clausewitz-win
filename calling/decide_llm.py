@@ -72,7 +72,17 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 只指挥陆军机动：移动、进攻、撤退、战略转移、取消行军。不碰外交、生产、科研、海空军，也不新建或解散部队。
 - 玩家方针原文（player_instructions）是你的最高目标，战略取舍（打谁、守哪里、兵力怎么分配）由你自己判断；参谋建议只是参考，可以全部采纳、修改或否决。参谋规则很机械，不要照单全收，要用下面的打法常识检查它。
 - 方针档位（stance）：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
-- 目前可用的只有逐师命令（移动、进攻、撤退、战略转移、取消）；前线和进攻线命令还在验证中，暂不可用。
+- 你有两套指挥手段，都由你决定怎么用：
+  1. 作战计划（plan_orders）：组建集团军/集团军群、任命将领、给集团军画前线、画进攻线、执行或停止计划。挂在前线上的集团军由游戏自动布防、补位；执行后，部队沿进攻线主动进攻、推进。这是大兵团作战的主要手段。
+  2. 逐师命令（orders）：移动、进攻、撤退、战略转移、取消。用于计划照顾不到的地方：机动预备队、抓住战机的穿插、救急。挂在计划上的师接到逐师命令后仍留在计划里，但会暂时偏离计划的自动行为，不要大量微操计划内的师。
+
+作战计划用法（order_of_battle 是当前编制与计划）：
+- 前线（front_line）：指定集团军和交战国，游戏沿整条边境自动铺开。一个集团军最多 24 个师；同一条边境可以由多个集团军分担。前线只守不攻，直到执行。
+- 进攻线（offensive_line）：必须先有前线。path 是敌方省份编号序列：第一个必须是与我方接壤的敌方省份（front.own_border[].facing 里有），最后一个是目标（例如胜利点要地），中间可加途经点，2～12 个。进攻线要指向要地、避开坏地形和渡河，装甲集团军适合打穿插。
+- 执行（execute）：on=true 后，集团军按进攻线发起进攻；on=false 停止。没有进攻线的前线执行后基本不进攻。
+- 组建（create_army）：从 divisions_not_in_any_army 中选不超过 24 个师组成集团军，并指定 unassigned_leaders 中的将领；集团军群（create_army_group）由 1～5 个集团军组成并指定元帅。
+- 边境一变（攻占或丢失省份），游戏会删除前线，系统会自动重建前线，但进攻线会丢失，需要你在 offensive_lines 为空时重新画。
+- 前线不必延伸到盟友或中立国境内；如果某条前线大部分在盟友境内，可以考虑不给那里分配集团军。
 
 本土防御（玩家硬性要求，优先于进攻）：
 - 本国本土绝不能被占领。front.sections 里 role=home_defense 的段落（例如面对法国的西线）每个省至少要有 min_per_province 个师，short_provinces 是当前不够数的省份，要优先补齐（用远离前线的空闲师战略转移过去）。
@@ -113,6 +123,14 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 
 只输出一个 JSON 对象，不要输出任何其他文字，格式：
 {
+  "plan_orders": [
+    {"type": "front_line", "army_id": 534, "enemy": "POL", "reason": "中文简短理由"},
+    {"type": "offensive_line", "army_id": 534, "path": [6567, 3544], "reason": "..."},
+    {"type": "execute", "army_id": 534, "on": true, "reason": "..."},
+    {"type": "create_army", "unit_ids": [1, 2], "leader_id": 349, "reason": "..."},
+    {"type": "create_army_group", "army_ids": [531, 532], "leader_id": 342, "reason": "..."},
+    {"type": "appoint", "leader_id": 349, "group_id": 534, "reason": "..."}
+  ],
   "orders": [
     {"type": "move|attack|retreat|strategic_redeploy|cancel", "unit_id": 1234, "target": 5678, "reason": "中文简短理由"}
   ],
@@ -120,7 +138,7 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
   "summary": "给玩家的态势判断，两三句中文",
   "risks": ["中文风险1", "中文风险2"]
 }
-cancel 不需要 target。没有命令时 orders 为 []。
+cancel 不需要 target。没有命令时 orders 为 []，plan_orders 为 []。plan_orders 每拍最多 12 条，只写需要改变的（已有的前线、进攻线、执行状态不必重复下）。
 回复要精简：只给需要改变行动的师下命令（正在执行合理命令的师不用重复下），每条 reason 不超过 20 个字，summary 不超过 120 字，risks 最多 4 条。"""
 
 
@@ -312,6 +330,10 @@ def decide(input_doc: dict) -> dict:
         rules.setdefault("brief", {}).setdefault("risks", []).append("未配置 DEEPSEEK_API_KEY，本拍按规则决策")
         return rules
     dig = digest(input_doc)
+    import plan_orders as po
+    pview = po.view(input_doc)
+    dig["order_of_battle"] = pview
+    dig["last_plan_orders"] = (input_doc.get("feedback") or {}).get("last_plan_orders", [])
     proposal = [{"type": o["type"], "unit_id": o["subject"]["unit_ids"][0],
                  "target": (o.get("target_province_ids") or o.get("to_province_ids") or [None])[0],
                  "reason": o.get("reason")} for o in rules["orders"]]
@@ -339,6 +361,15 @@ def decide(input_doc: dict) -> dict:
 
     out = {"orders": [], "alerts": rules["alerts"], "intents": []}
     dropped = []
+    accepted_plans = []
+    for raw in (plan.get("plan_orders") or [])[:po.MAX_PER_TICK] if isinstance(plan.get("plan_orders"), list) else []:
+        why = po.validate(raw, input_doc, pview) if isinstance(raw, dict) else "格式错误"
+        if why:
+            dropped.append({"order": raw, "why": why})
+        else:
+            accepted_plans.append(raw)
+    input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
+    record["accepted_plan_orders"] = accepted_plans
     seq = 0
     for raw in plan.get("orders", []) if isinstance(plan.get("orders"), list) else []:
         cand = _to_contract(raw if isinstance(raw, dict) else {}, seq + 1)
