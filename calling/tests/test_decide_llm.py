@@ -96,6 +96,12 @@ class DecideLLM(unittest.TestCase):
         out = decide_llm.decide(doc())
         self.assertEqual(g.validate_output(out, doc()), [])
 
+    def test_incomplete_read_falls_back(self):
+        import http.client
+        self.fake(http.client.IncompleteRead(b"x"))
+        out = decide_llm.decide(doc())
+        self.assertTrue(any("大模型本拍不可用" in r for r in out["brief"]["risks"]))
+
     def test_digest_is_compact_and_has_no_evidence(self):
         dig = decide_llm.digest(doc())
         self.assertEqual(dig["stance"], "annihilate")

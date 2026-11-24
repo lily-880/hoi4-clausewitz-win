@@ -174,7 +174,20 @@ def _instructions() -> str | None:
         return None
 
 
-def _call(messages: list[dict], key: str) -> dict:
+def _call(messages: list[dict], key: str, retries: int = 1) -> dict:
+    """POST with one retry on transport errors (no game effect, so retrying is safe)."""
+    import http.client
+    last = None
+    for attempt in range(retries + 1):
+        try:
+            return _call_once(messages, key)
+        except (urllib.error.URLError, http.client.HTTPException, ConnectionError, TimeoutError, OSError) as e:
+            last = e
+            time.sleep(5)
+    raise last
+
+
+def _call_once(messages: list[dict], key: str) -> dict:
     body = json.dumps({"model": MODEL, "messages": messages, "temperature": 0.3,
                        "response_format": {"type": "json_object"}, "max_tokens": MAX_TOKENS,
                        "reasoning_effort": REASONING_EFFORT}).encode("utf-8")
@@ -234,7 +247,7 @@ def decide(input_doc: dict) -> dict:
         text = choice["message"]["content"]
         record["reply"] = text
         plan = json.loads(text)
-    except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError) as e:
+    except Exception as e:  # any transport/parse failure: this tick falls back to the rules
         record["error"] = f"{type(e).__name__}: {e}"[:300]
         _archive(record)
         rules.setdefault("brief", {}).setdefault("risks", []).append(
