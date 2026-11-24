@@ -40,7 +40,11 @@ import generalissimo_output as contract  # noqa: E402
 VERSION = "decide_llm"
 API_URL = os.environ.get("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions")
 MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
-TIMEOUT_S = 180
+TIMEOUT_S = 300
+# deepseek-flash thinks by default (effort high) and once spent all 8000 output
+# tokens on reasoning with an empty answer. Keep thinking, at a lower effort.
+REASONING_EFFORT = os.environ.get("DEEPSEEK_REASONING_EFFORT", "low")  # none|low|high|max
+MAX_TOKENS = int(os.environ.get("DEEPSEEK_MAX_TOKENS", "32000"))
 STAFF = os.environ.get("COMMANDER_STAFF", "decide_v2")  # rules that write the staff proposal
 INSTRUCTIONS_FILE = HERE / "tables" / "commander_instructions.json"
 ALLOWED = ("move", "attack", "retreat", "strategic_redeploy", "cancel")
@@ -88,7 +92,8 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
   "summary": "给玩家的态势判断，两三句中文",
   "risks": ["中文风险1", "中文风险2"]
 }
-cancel 不需要 target。没有命令时 orders 为 []。"""
+cancel 不需要 target。没有命令时 orders 为 []。
+回复要精简：只给需要改变行动的师下命令（正在执行合理命令的师不用重复下），每条 reason 不超过 20 个字，summary 不超过 120 字，risks 最多 4 条。"""
 
 
 def digest(doc: dict) -> dict:
@@ -155,7 +160,8 @@ def _instructions() -> str | None:
 
 def _call(messages: list[dict], key: str) -> dict:
     body = json.dumps({"model": MODEL, "messages": messages, "temperature": 0.3,
-                       "response_format": {"type": "json_object"}, "max_tokens": 8000}).encode("utf-8")
+                       "response_format": {"type": "json_object"}, "max_tokens": MAX_TOKENS,
+                       "reasoning_effort": REASONING_EFFORT}).encode("utf-8")
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
         "Content-Type": "application/json", "Authorization": f"Bearer {key}"})
     with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
@@ -207,7 +213,9 @@ def decide(input_doc: dict) -> dict:
         resp = _call(messages, key)
         record["latency_s"] = round(time.time() - t0, 1)
         record["usage"] = resp.get("usage")
-        text = resp["choices"][0]["message"]["content"]
+        choice = resp["choices"][0]
+        record["finish_reason"] = choice.get("finish_reason")
+        text = choice["message"]["content"]
         record["reply"] = text
         plan = json.loads(text)
     except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError) as e:
