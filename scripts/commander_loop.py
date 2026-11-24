@@ -99,7 +99,8 @@ def main(argv=None) -> int:
                            cwd=str(ROOT), creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     score = None
     try:
-        for n in range(1, a.max_ticks + 1):
+        done_before = sum(1 for x in PROGRESS.read_text(encoding="utf-8").splitlines() if x.strip())             if PROGRESS.exists() else 0
+        for n in range(done_before + 1, done_before + a.max_ticks + 1):
             t0 = time.time()
             proc = subprocess.run([sys.executable, "-I", str(ROOT / "scripts" / "live_trial.py"), "tick",
                                    "--decider", a.decider, "--allow-write", "--hours", str(a.hours)],
