@@ -82,6 +82,7 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 不要给已经在行军（order.path_province_ids 非空）的师下新的移动类命令；要改道先用 cancel。
 - 正在战斗中的师不能发起进攻；只能留守或撤退。
 - 组织度很低（< 15）的师不要投入战斗。
+- last_orders 里 accepted=false 的命令是上一拍被引擎拒绝的，不要原样重复（同一个师、同一类命令、同一个目标会被系统直接丢弃）。战略转移被拒（ISVALID_FALSE）通常表示陆路不可达，例如被敌国领土隔开的飞地，应换目标或改用其他办法。
 
 只输出一个 JSON 对象，不要输出任何其他文字，格式：
 {
@@ -255,6 +256,10 @@ def decide(input_doc: dict) -> dict:
         if dropped:
             brief["risks"].append(f"大模型有 {len(dropped)} 条命令不合规，已剔除")
         out["brief"] = brief
+    before = {o["order_seq"] for o in out["orders"]}
+    out = decide_v1._drop_repeated_failures(out, input_doc.get("feedback") or {})
+    for o in out_orders_dropped(before, out):
+        dropped.append({"order": o, "why": "上一拍同一命令被引擎拒绝，不重复"})
     record["accepted_orders"] = out["orders"]
     record["dropped"] = dropped
     final_errs = contract.validate_output(out, input_doc)
@@ -264,6 +269,10 @@ def decide(input_doc: dict) -> dict:
         return rules
     _archive(record)
     return out
+
+
+def out_orders_dropped(before: set[int], out: dict) -> list[int]:
+    return sorted(before - {o["order_seq"] for o in out["orders"]})
 
 
 def _archive(record: dict) -> None:
