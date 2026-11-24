@@ -34,12 +34,15 @@ if str(HERE) not in sys.path:
 
 import decide_v0  # noqa: E402
 import decide_v1  # noqa: E402
+import importlib  # noqa: E402
 import generalissimo_output as contract  # noqa: E402
 
 VERSION = "decide_llm"
 API_URL = os.environ.get("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions")
 MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
-TIMEOUT_S = 90
+TIMEOUT_S = 180
+STAFF = os.environ.get("COMMANDER_STAFF", "decide_v2")  # rules that write the staff proposal
+INSTRUCTIONS_FILE = HERE / "tables" / "commander_instructions.json"
 ALLOWED = ("move", "attack", "retreat", "strategic_redeploy", "cancel")
 ARCHIVE = HERE.parent / "research" / "claude_live" / "llm"
 
@@ -60,14 +63,17 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 
 职责与边界：
 - 只指挥陆军机动：移动、进攻、撤退、战略转移、取消行军。不碰外交、生产、科研、海空军，也不新建或解散部队。
-- 按玩家方针（policy.stance）行事：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
+- 玩家方针原文（player_instructions）是你的最高目标，战略取舍（打谁、守哪里、兵力怎么分配）由你自己判断；参谋建议只是参考，可以全部采纳、修改或否决。
+- 方针档位（stance）：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
+- 目前可用的只有逐师命令（移动、进攻、撤退、战略转移、取消）；前线和进攻线命令还在验证中，暂不可用。
+- front 给出整条边界：own_border 是与交战国接壤的己方省份及其对面省份和控制国；watch_border 是面对未交战邻国的己方省份；enemy_provinces 是各交战国仍控制的省份数（可用来判断战役进度）。
 - 你看到的敌军只是正在与我方交战的部队（战争迷雾）。看不见的地方不要假设敌情。
 - 没有必要的命令就不下。空命令是正常的。
 - 在 reason、intent、summary、risks 里提到己方部队时，一律用部队名称（own_units[].name），不要写编号；unit_id 字段仍填编号。
 
 硬性约束（违反的命令会被系统直接丢弃）：
 - unit_id 只能用 own_units 里存在的师；每条命令只给一个师。
-- move / retreat / attack 的目标必须是该师所在省份的相邻省份（provinces[].neighbors），strategic_redeploy 可以远距离但只能去己方省份。
+- move / retreat / attack 的目标必须是该师所在省份的相邻省份（provinces[].neighbors 或 front.own_border[].neighbors），strategic_redeploy 可以远距离但只能去己方省份。
 - attack 只能打与我方交战的国家控制的省份（敌军所在省份）。retreat 只能撤到不在战斗中的己方省份。
 - 不要给已经在行军（order.path_province_ids 非空）的师下新的移动类命令；要改道先用 cancel。
 - 正在战斗中的师不能发起进攻；只能留守或撤退。
@@ -119,13 +125,37 @@ def digest(doc: dict) -> dict:
                      "attackers": c.get("attacker_unit_ids"), "defenders": c.get("defender_unit_ids"),
                      "org_loss": c.get("casualties")} for c in world.get("combats", [])],
         "wars": world.get("wars", []),
+        "player_instructions": (doc.get("policy") or {}).get("instructions"),
+        "front": _front(doc),
         "last_orders": (doc.get("feedback") or {}).get("last_orders", []),
     }
 
 
+def _front(doc: dict) -> dict:
+    ext = doc.get("_ext") or {}
+    if not ext:
+        return {}
+    ctrl = {e["province_id"]: (e.get("controller") or {}).get("tag") for e in ext.get("enemy_border", [])}
+    return {
+        "own_border": [{"prov": b["province_id"], "neighbors": b.get("neighbors", []),
+                        "facing": [{"prov": n, "owner": ctrl.get(n)} for n in b.get("enemy_neighbors", [])]}
+                       for b in ext.get("own_border", [])],
+        "watch_border": ext.get("own_watch_border", []),
+        "enemy_provinces": ext.get("enemy_controlled_provinces", {}),
+        "own_provinces": ext.get("own_controlled_provinces"),
+    }
+
+
+def _instructions() -> str | None:
+    try:
+        return json.loads(INSTRUCTIONS_FILE.read_text(encoding="utf-8")).get("instructions")
+    except (OSError, ValueError):
+        return None
+
+
 def _call(messages: list[dict], key: str) -> dict:
     body = json.dumps({"model": MODEL, "messages": messages, "temperature": 0.3,
-                       "response_format": {"type": "json_object"}, "max_tokens": 2000}).encode("utf-8")
+                       "response_format": {"type": "json_object"}, "max_tokens": 8000}).encode("utf-8")
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
         "Content-Type": "application/json", "Authorization": f"Bearer {key}"})
     with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
@@ -151,7 +181,11 @@ def _to_contract(order: dict, seq: int) -> dict | None:
 
 
 def decide(input_doc: dict) -> dict:
-    rules = decide_v1.decide(input_doc)
+    if not (input_doc.get("policy") or {}).get("instructions"):
+        text = _instructions()
+        if text:
+            input_doc.setdefault("policy", {})["instructions"] = text
+    rules = importlib.import_module(STAFF).decide(input_doc)
     meta = input_doc.get("meta", {}) or {}
     if meta.get("allow_write") is not True:
         return rules  # observation-only ticks never spend tokens

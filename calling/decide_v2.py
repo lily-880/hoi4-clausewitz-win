@@ -30,7 +30,8 @@ import decide_v1  # noqa: E402
 
 VERSION = "decide_v2"
 import os
-# Stage goal: only this enemy is attacked; borders facing any other enemy hold.
+# Staff default only (the commander, e.g. decide_llm, decides the real target):
+# attack this enemy; borders facing any other enemy hold.
 PRIMARY_TARGETS = set(filter(None, os.environ.get("COMMANDER_PRIMARY_TARGETS", "POL").split(",")))
 ATTACK_MIN_ORG = 25.0
 MAX_REDEPLOY = 40
