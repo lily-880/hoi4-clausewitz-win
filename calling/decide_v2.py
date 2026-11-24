@@ -88,14 +88,21 @@ def offensive_orders(doc: dict, used: set[int]) -> tuple[list[dict], list[str]]:
     if n_attack:
         notes.append(f"全线进攻：{n_attack} 个师从边境出击")
 
-    # R4: bring the rest to the front
+    # R4: bring the rest to the front (same land region only: no land route otherwise)
+    top = ext.get("topology") or {}
+    reg = top.get("region_of_province") or {}
+    def region(pid):
+        return reg.get(pid, reg.get(str(pid)))
     load = {p: len(on_ground.get(p, [])) / max(1, len(b["enemy_neighbors"])) for p, b in border.items()}
     movers = [u for u in units if u["unit_id"] not in used and _idle(u)
               and u.get("province_id") not in border and u.get("province_id") not in watch]
     movers.sort(key=lambda u: u["unit_id"])
     n_move = 0
     for u in movers[:MAX_REDEPLOY]:
-        dest = min(load, key=lambda p: (load[p], p))
+        same = [p for p in load if region(p) == region(u.get("province_id"))]
+        if not same:
+            continue
+        dest = min(same, key=lambda p: (load[p], p))
         load[dest] += 1 / max(1, len(border[dest]["enemy_neighbors"]))
         orders.append({"type": "strategic_redeploy", "unit": u["unit_id"], "target": dest,
                        "reason": f"{names.get(u['unit_id'], u['unit_id'])} 战略转移到边境省 {dest}"})

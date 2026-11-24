@@ -71,6 +71,7 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 方针档位（stance）：annihilate=寻机歼灭敌军；preserve_force=保存兵力优先；hold_line=守住防线；economize_manpower=节约人力。
 - 目前可用的只有逐师命令（移动、进攻、撤退、战略转移、取消）；前线和进攻线命令还在验证中，暂不可用。
 - 地图拓扑：front.regions 是己方控制领土中互不连通的陆地块（例如本土与被敌国隔开的飞地），own_units[].region 是每个师所在的陆地块，hops_to_front 是它离本块最近边境省隔几个省。战略转移和移动只能在同一陆地块内进行，不同陆地块之间陆路不通。
+- front.forces 按陆地块汇总兵力：战斗中、行军中、空闲（其中组织度≥60 的生力军数、守在西线等观察边境上的数量、离前线几个省的分布）。空闲的生力军是可以调动的预备队，是否投入、投向哪里由你决定。
 - front.key_targets 是敌方仍控制的胜利点省份（victory_points 分值、hops_from_our_land 为离我方控制区几个省）。迫使一国投降主要靠占领它的胜利点，分值越高越关键；进攻方向应指向这些要地。
 - front 给出整条边界：own_border 是与交战国接壤的己方省份及其对面省份和控制国；watch_border 是面对未交战邻国的己方省份；enemy_provinces 是各交战国仍控制的省份数（可用来判断战役进度）。
 - 你看到的敌军只是正在与我方交战的部队（战争迷雾）。看不见的地方不要假设敌情。
@@ -164,7 +165,37 @@ def _front(doc: dict) -> dict:
         "regions": [{"region": r["region"], "provinces": r["provinces"], "border_provinces": r["border_provinces"]}
                     for r in (ext.get("topology") or {}).get("regions", [])],
         "key_targets": (ext.get("topology") or {}).get("key_targets", []),
+        "forces": _forces(doc),
     }
+
+
+def _forces(doc: dict) -> list[dict]:
+    """Per land region: how many divisions fight, march, or stand idle (and how
+    fresh / how far from the front the idle ones are)."""
+    ext = doc.get("_ext") or {}
+    top = ext.get("topology") or {}
+    reg = top.get("region_of_province") or {}
+    hops = top.get("hops_to_border") or {}
+    watch = set(ext.get("own_watch_border", []))
+    rows: dict = {}
+    for u in (doc.get("world") or {}).get("own_units", []):
+        pid = u.get("province_id")
+        r = reg.get(pid, reg.get(str(pid)))
+        row = rows.setdefault(r, {"region": r, "fighting": 0, "marching": 0, "idle": 0,
+                                  "idle_fresh_org60": 0, "idle_on_watch_border": 0,
+                                  "idle_hops_to_front": {}})
+        if u.get("in_combat"):
+            row["fighting"] += 1
+        elif (u.get("order") or {}).get("path_province_ids"):
+            row["marching"] += 1
+        else:
+            row["idle"] += 1
+            row["idle_fresh_org60"] += (u.get("organization") or 0) >= 60
+            row["idle_on_watch_border"] += pid in watch
+            h = hops.get(pid, hops.get(str(pid)))
+            key = "unknown" if h is None else ("0" if h == 0 else "1-3" if h <= 3 else "4-10" if h <= 10 else ">10")
+            row["idle_hops_to_front"][key] = row["idle_hops_to_front"].get(key, 0) + 1
+    return [rows[k] for k in sorted(rows, key=lambda x: (x is None, x))]
 
 
 def _instructions() -> str | None:
