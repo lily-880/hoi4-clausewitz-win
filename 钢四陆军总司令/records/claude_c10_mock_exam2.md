@@ -1,38 +1,39 @@
-# claude_c10: Second mock exam (commander builds its own ORBAT and draws its own front lines)
+# claude_c10：第二次模拟考（总司令自己组建编制、自己画前线）
 
-2026-11-24, Claude. Continues from c09's from-scratch practice game (opening save `GER_1939_08_14_base`, 1939-08-14 → 08-19, the commander built its own ORBAT). The mock exam continued from 1939-08-19 12:00 at 12 hours per tick.
-Command: `python -I scripts/commander_loop.py --decider decide_llm --hours 12 --max-ticks 200 --key-moments`.
+2026-11-24，Claude。接着 c09 从零练习的那一局继续（开战存档 `GER_1939_08_14_base`，1939-08-14 → 08-19 由总司令自己组建编制），从 1939-08-19 12 时起模拟考，每拍 12 小时。
+命令：`python -I scripts/commander_loop.py --decider decide_llm --hours 12 --max-ticks 200 --key-moments`。
 
-## Result
-| Metric | Baseline game (c06/c07) | This game |
+## 成绩
+| 指标 | 基准局（c06/c07） | 本局 |
 |---|---|---|
-| Date Poland stopped resisting | 1939-10-15 (62 days) | **1939-10-12 (59 days)**: Poland's province count went from 84 straight to 0 between 10-11 24h and 10-12 12h |
-| DeepSeek cost, from war declaration to capitulation | about ¥8.23 | **about ¥6.70** (from-scratch practice ¥0.68 + mock exam ¥6.02, 113 calls, about 4.1 million tokens) |
-| Western front | Commander pulled the West Wall apart itself; by the late stage the French-German border wasn't even fully manned | Never fewer than 2 divisions per province; after Poland's capitulation 87 divisions moved west, 7 to 14 per province |
-| Homeland | — | **Not occupied**. The same 7 French provinces faced Germany throughout; France's province count stayed at 618 |
+| 波兰停止抵抗 | 1939-10-15（62 天） | **1939-10-12（59 天）**：10-11 24 时到 10-12 12 时之间，波兰省数从 84 直接归零 |
+| 宣战到投降的 DeepSeek 费用 | 约 8.23 元 | **约 6.70 元**（从零练习 0.68 元 + 模拟考 6.02 元，113 次调用，约 410 万 token） |
+| 西线 | 总司令自己把西墙抽空，后期法德边境连战线都没填满 | 每省始终不少于 2 个师；波兰投降后西调 87 个师，每省 7～14 个师 |
+| 本土 | — | **没有失地**。对法边境始终是同样 7 个法国省，法国省数一直是 618 |
 
-Poland's province count, sampled every few ticks: 144 → 138 → 134 → 132 → 128 → 126 → 124 → 119 → 117 → 112 → 108 → 103 → 100 → 95 → 90 → 86 → 84 → 0.
+波兰省数（每隔几拍取一次）：144 → 138 → 134 → 132 → 128 → 126 → 124 → 119 → 117 → 112 → 108 → 103 → 100 → 95 → 90 → 86 → 84 → 0。
 
-## Problems found
-1. **The scorer read stale data for the whole run** (fixed).
-   - `commander_loop.py` picked the latest capture by sorting on file name. An old `tick_20261124_practice_0826_capture.json` always sorted last, so `target_provinces` stuck at 136.
-   - As a result, Poland's capitulation was not detected and the loop **ran 90 more ticks (10-12 → 11-27)**, wasting money.
-   - The "key moment" detection used the same data, so **it never fired once this run** (user point 5 was not met this time).
-   - Fix: pick the newest capture by modification time.
-2. **After capitulation the war relation is still "at war"** (Poland's government in exile keeps the war going). Capitulation can't be judged from the war relation; rely on the controlled province count reaching 0.
-3. 74 of our controlled provinces disappeared around 11-07 (445 → 371). The western border was unchanged and France gained no provinces. It's former Polish territory handed over after the capitulation, not the homeland.
-4. After Poland's capitulation the commander correctly switched to the defensive in the west: it judged the French border to be all level-10 forts, probed only province 678 (hills, no forts) with one army, and didn't waste divisions. It also never put a garrison on the Dutch, Belgian, or Luxembourg borders.
+## 发现的问题
+1. **计分器整局都读到了旧数据**（已修）。
+   - `commander_loop.py` 按文件名排序取最新的采集文件，一个旧文件 `tick_20261124_practice_0826_capture.json` 永远排在最后，`target_provinces` 一直停在 136。
+   - 因此没发现波兰已投降，循环**多跑了 90 拍（10-12 → 11-27）**，白花了钱。
+   - "关键时刻"检测用的是同一份数据，所以这一局**一次都没触发**（用户第 5 点这次没做到）。
+   - 修法：改为按修改时间取最新的采集文件。
+2. **投降后战争关系仍是"交战中"**（波兰流亡政府继续作战）。不能靠战争关系判断投降，只能看控制省数是否归零。
+3. 11-07 前后我方控制省份少了 74 个（445 → 371）。西线边境没变，法国也没多拿省份；这是投降后移交出去的原波兰领土，不是本土。
+4. 波兰投降后总司令正确地转入西线防守：判断法国边境全是 10 级要塞，只派一个集团军试探唯一没有要塞的丘陵省 678，没有浪费兵力；荷兰、比利时、卢森堡边境一个师都没放。
 
-## Next steps
-1. Rerun the opening save once with the fixed scorer, to confirm that key moments pause the game as intended and that it stops at capitulation.
-2. Army groups are still unused, and two armies' front ranges overlap. Have the commander bring in army groups and marshals.
-3. In the middle stage (September) each 3 days still took only about 4 to 6 provinces. Next, look at whether the offensive lines are deep enough and whether the armored divisions are concentrated in the main direction.
+## 下一步
+1. 用修好的计分器从开战存档再跑一次，确认关键时刻能按预期暂停、投降时能自动停下。
+2. 两个集团军的前线范围有重叠，要处理。
+3. 九月中段每 3 天只拿下 4～6 个省，下一步看进攻线的纵深够不够、装甲师有没有集中到主攻方向。
 
-## Correction: army groups must be commanded by field marshals (user pointed this out, 2026-11-24)
-- **The problem**: In the mock exam the commander formed "1st Army Group" (5 armies) but appointed General Bock as its commander, and the 6th Army belonged to no army group. Earlier, in c09, I had also had generals Rundstedt, Bock and Leeb command army groups. The game doesn't block this, but it isn't a proper chain of command.
-- **How rank is read**: The game's own triggers `is_field_marshal` / `is_corps_commander` read leader object **+0xE7C**: 0 = field marshal, 1 = general (corps commander). The game follows history, so in 1939 Rundstedt, Bock and Leeb are all generals (historically they weren't promoted until 1940).
-- **Field marshals on the roster but unusable**: Mackensen (only available on the "German Civil War" focus path) and Blomberg (retired in 1938). Tested: the game removes them within an hour of being appointed. They're now in `calling/tables/unavailable_leaders.json`. Any later appointment the game revokes is added to the list automatically, and those leaders are no longer offered as candidates.
-- **Promotion**: CPromoteUnitLeaderCommand (factory 0x13FB150, size 0x30, vtable 0x2A2DDA0, validity check 0x1400CA0; +0x28 = leader handle {4713, id}). Its execution turns a leader with +0xE7C = 1 into a field marshal. Tested: after promoting Bock and appointing him to 1st Army Group, he was still in place 6 hours later.
-- **Hard rules** (`plan_orders.validate`): armies may only be commanded by generals; army groups only by field marshals; only free generals can be promoted. Appointments and promotions are read back from the game afterwards to confirm they took effect.
-- **Situation summary**: shows each leader's rank, `field_marshals_total`, and `command_rule_violations` (armies not in an army group, armies commanded by a field marshal, army groups not commanded by a field marshal). The prompt requires the commander to fix these first, and to promote a general if there aren't enough field marshals.
-- **Practice run** (test game, 1939-11-28 → 11-30): without my involvement, the commander promoted Weichs to field marshal on its own and appointed him to command 2nd Army Group. Bock commands 1st Army Group. The violation list is now empty.
+## 纠正：集团军群必须由元帅指挥（用户指出，2026-11-24）
+- **问题**：模拟考中总司令组建了"第1集团军群"（下辖 5 个集团军），却任命将军博克为司令；第6集团军不属于任何集团军群。c09 里我也让将军伦德施泰特、博克、勒布去带过集团军群。游戏不会拦，但这不是正规的指挥体系。
+- **军衔的读法**：游戏自己的触发器 `is_field_marshal` / `is_corps_commander` 读的是将领对象 **+0xE7C**：0 = 元帅，1 = 将军（军长）。游戏按史实设定，1939 年的伦德施泰特、博克、勒布都还是将军（史实上 1940 年才晋升）。
+- **名单上有、但不能用的元帅**：马肯森（只在"德国内战"国策路线里才能用）和布隆贝格（1938 年退役）。实测任命后一小时内就被游戏撤下。现在记在 `calling/tables/unavailable_leaders.json` 里；以后再有任命被游戏撤销，也会自动加进这份名单，不再作为候选。
+- **注意**：+0xE74 不是"可用"标记。所有元帅（包括刚晋升的）这个字段都是 5，将军都是 -1。
+- **晋升**：CPromoteUnitLeaderCommand（工厂 0x13FB150，大小 0x30，虚表 0x2A2DDA0，合法性检查 0x1400CA0；+0x28 = 将领句柄 {4713, id}）。执行时把 +0xE7C = 1 的将领变成元帅。实测：我手动晋升博克并任命他为第1集团军群司令，6 小时后仍在任。
+- **硬性规则**（`plan_orders.validate`）：集团军只能由将军指挥；集团军群只能由元帅指挥；只能晋升空闲的将军。任命和晋升之后都回读游戏状态，确认真的生效了。
+- **态势摘要**：显示每位将领的军衔、`field_marshals_total`，以及 `command_rule_violations`（不属于集团军群的集团军、由元帅指挥的集团军、不是由元帅指挥的集团军群）。提示词要求总司令优先纠正这些；元帅不够时晋升一位将军。
+- **练习**（测试局，1939-11-28 → 11-30）：总司令自己把魏克斯晋升为元帅，并任命他为第2集团军群司令；第1集团军群由博克指挥。违规清单已清空。
