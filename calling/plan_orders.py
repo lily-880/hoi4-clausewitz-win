@@ -79,6 +79,80 @@ def _session():
     return lt.Session(check_sha=False)
 
 
+LINE_PROGRESS_FILE = HERE / "tables" / "line_progress.json"
+
+
+def _line_progress(s, armies: list) -> None:
+    """Annotate each offensive line with how it is doing (exam 6, 2026-11-25: arrows drawn on
+    08-17 were never redrawn although their start provinces had long been taken, and fronts the
+    game split after a pocket sat without any line):
+      start_taken / target_taken  the line's first / last province is ours now
+      provinces_to_target         land steps from the target to the nearest province we hold
+      no_progress_since           game date since provinces_to_target last changed
+    and each executing front without a line with "needs_offensive_line"."""
+    me = s.player.get("player_index")
+    clk = s.clock()
+    now = f"{clk.get('ui_date')} {clk.get('ui_hour')}h"
+    try:
+        hist = json.loads(LINE_PROGRESS_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        hist = {}
+    nb: dict = {}
+    ctrl: dict = {}
+
+    def c(p):
+        if p not in ctrl:
+            ctrl[p] = s.controller_of(p)
+        return ctrl[p]
+
+    def n(p):
+        if p not in nb:
+            nb[p] = list(s.land_neighbors(p).get("neighbors") or [])
+        return nb[p]
+
+    def hops(target):
+        if c(target) == me:
+            return 0
+        seen, frontier, d = {target}, [target], 0
+        while frontier and d < 40:
+            d += 1
+            nxt = []
+            for x in frontier:
+                for y in n(x):
+                    if y in seen:
+                        continue
+                    if c(y) == me:
+                        return d
+                    seen.add(y)
+                    nxt.append(y)
+            frontier = nxt
+        return None
+
+    live = set()
+    for a in armies:
+        for f in a["fronts"]:
+            if f["executing"] and not f["offensive_lines"]:
+                f["needs_offensive_line"] = True
+            for l in f["offensive_lines"]:
+                if not l["path"]:
+                    continue
+                key = str(l["plan_id"])
+                live.add(key)
+                h = hops(l["path"][-1])
+                l["start_taken"] = c(l["path"][0]) == me
+                l["target_taken"] = c(l["path"][-1]) == me
+                l["provinces_to_target"] = h
+                old = hist.get(key)
+                if not old or old.get("hops") != h:
+                    hist[key] = {"hops": h, "since": now}
+                l["no_progress_since"] = hist[key]["since"]
+    hist = {k: v for k, v in hist.items() if k in live}
+    try:
+        LINE_PROGRESS_FILE.write_text(json.dumps(hist, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+
+
 def view(doc: dict, session=None) -> dict:
     """Order of battle and plans for the model (live read; empty dict if unavailable)."""
     try:
@@ -121,6 +195,10 @@ def view(doc: dict, session=None) -> dict:
                            "avg_org": round(sum((units.get(u, {}).get("organization") or 0) for u in a["unit_ids"])
                                             / max(1, len(a["unit_ids"])), 1),
                            "fronts": fronts})
+        try:
+            _line_progress(s, armies)
+        except Exception:
+            pass
         for g in t["army_groups"]:
             lead = leader_info.get(g["leader_id"], {})
             groups.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids"),
