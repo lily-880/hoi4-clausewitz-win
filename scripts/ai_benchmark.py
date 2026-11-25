@@ -129,8 +129,8 @@ def clock_bg(want_run: bool, tries: int = 3) -> dict:
     import live_trial as lt
     target = 0 if want_run else 1
     c = lt.Session(check_sha=False).clock()
-    if c["speed_slot"] != 0:
-        return {"result": "SPEED_NOT_1X_REFUSED", "clock": c}
+    if c["speed_slot"] > 4:
+        return {"result": "SPEED_UNKNOWN_REFUSED", "clock": c}
     if c["pause"] == target:
         return {"result": "ALREADY", "clock": c}
     hwnd = gu.find_window()

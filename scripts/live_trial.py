@@ -331,7 +331,7 @@ def run_order(kind: str, unit: int, dest: int | None, live: bool, check_sha: boo
     if not (info["health"]["alive"] and info["in_game"] and info["exe_sha256_ok"]):
         return stop("SESSION_NOT_READY")
     clk = info["clock"]
-    if clk["pause"] != 1 or clk["speed_slot"] != 0:
+    if clk["pause"] != 1 or not 0 <= clk["speed_slot"] <= MAX_SPEED_SLOT:
         return stop("NOT_PAUSED_AT_1X", clock=clk)
     before = s.unit(args.unit)
     report["unit_before"] = before
@@ -379,7 +379,7 @@ def run_order(kind: str, unit: int, dest: int | None, live: bool, check_sha: boo
 
     s2 = Session(check_sha=False)  # recheck pause right before the Post
     clk2 = s2.clock()
-    if s2.pid != s.pid or clk2["pause"] != 1 or clk2["speed_slot"] != 0:
+    if s2.pid != s.pid or clk2["pause"] != 1 or not 0 <= clk2["speed_slot"] <= MAX_SPEED_SLOT:
         return stop("CLOCK_CHANGED_BEFORE_POST", clock=clk2)
     try:
         _open_gate()
@@ -550,23 +550,31 @@ def _press_space(pid: int, method: str) -> None:
     send(0x0002)  # KEYUP
 
 
+# Pausing early by rate*latency made 12 h beats land anywhere in 5..10 h (timing jitter);
+# with 0 a beat is 12..16 h at speed slot 3 in ~3 s. Keep 0: a beat is "at least" N hours.
+PAUSE_LATENCY_S = 0.0
+MAX_SPEED_SLOT = 3  # 0..4 = speed 1..5; slot 3 ~8 game h/s, overshoot of a 12 h beat ~1-2 h (measured 2026-11-25)
+
+
 def set_clock(want_run: bool) -> dict:
     """Set pause state via the space key; verify by reading the official flag."""
     s = Session(check_sha=False)
     target = 0 if want_run else 1
     log = {"want": "run" if want_run else "pause", "before": s.clock(), "attempts": []}
-    if log["before"]["speed_slot"] != 0:
-        log["result"] = "SPEED_NOT_1X_REFUSED"
+    if log["before"]["speed_slot"] > MAX_SPEED_SLOT:
+        log["result"] = "SPEED_TOO_HIGH_REFUSED"
         return log
     if log["before"]["pause"] == target:
         log["result"] = "ALREADY"
         return log
-    # running: one try per method; pausing is the safe direction, allow more tries
-    methods = ["post", "input"] if want_run else ["post", "input", "input", "input"]
+    # Background only (user rule 2026-11-25: never bring the game to the front).
+    # A posted space is ignored while the console is open; that is a FAILED, never a
+    # reason to fall back to SetForegroundWindow + SendInput.
+    methods = ["post"] if want_run else ["post"] * 6
     for m in methods:
         _press_space(s.pid, m)
-        for _ in range(10):
-            time.sleep(0.2)
+        for _ in range(40):
+            time.sleep(0.05)
             c = Session(check_sha=False).clock()
             if c["pause"] == target:
                 log["attempts"].append({"method": m, "ok": True})
@@ -593,7 +601,8 @@ SUPPORTED = {"move", "strategic_redeploy", "cancel", "retreat", "attack"}  # ret
 
 def run_hours(hours: int, timeout_s: float = MAX_RUN_SECONDS) -> dict:
     """Unpause (space key), wait until the hour tick advanced `hours`, pause again."""
-    start = Session(check_sha=False).clock()
+    s = Session(check_sha=False)  # one session for polling: building one per poll costs ~0.3 s
+    start = s.clock()
     res = {"start": start}
     run = set_clock(True)
     res["run"] = run["result"]
@@ -601,11 +610,15 @@ def run_hours(hours: int, timeout_s: float = MAX_RUN_SECONDS) -> dict:
     try:
         if run["result"] != "OK":
             return res
+        t_run = time.time()
         while time.time() - t0 < timeout_s:
-            c = Session(check_sha=False).clock()
-            if c["hour_tick"] is not None and c["hour_tick"] - start["hour_tick"] >= hours:
+            c = s.clock()
+            done = c["hour_tick"] - start["hour_tick"] if c["hour_tick"] is not None else 0
+            rate = done / max(time.time() - t_run, 1e-3)  # game hours per second at this speed
+            # press pause early by what the game covers during the pause latency
+            if done + rate * PAUSE_LATENCY_S >= hours:
                 break
-            time.sleep(0.4)
+            time.sleep(0.02)
     finally:
         res["pause"] = set_clock(False)["result"]
         res["end"] = Session(check_sha=False).clock()
@@ -671,7 +684,7 @@ def cmd_tick(args):
     tick = {"at": now(), "decider": args.decider, "allow_write": args.allow_write}
     s = Session()
     clk = s.clock()
-    if not (s.in_game and s.sha_ok and clk["pause"] == 1 and clk["speed_slot"] == 0):
+    if not (s.in_game and s.sha_ok and clk["pause"] == 1 and 0 <= clk["speed_slot"] <= MAX_SPEED_SLOT):
         tick["stop"] = "NOT_READY_OR_NOT_PAUSED_1X"
         tick["clock"] = clk
         emit(tick)
