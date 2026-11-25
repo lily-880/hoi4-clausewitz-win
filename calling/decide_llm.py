@@ -206,13 +206,13 @@ def _instructions() -> str | None:
         return None
 
 
-def _call(messages: list[dict], key: str, retries: int = 3) -> dict:
+def _call(messages: list[dict], key: str, retries: int = 3, effort: str | None = None) -> dict:
     """POST with one retry on transport errors (no game effect, so retrying is safe)."""
     import http.client
     last = None
     for attempt in range(retries + 1):
         try:
-            return _call_once(messages, key)
+            return _call_once(messages, key, effort or REASONING_EFFORT)
         except (urllib.error.URLError, http.client.HTTPException, ConnectionError, TimeoutError, OSError) as e:
             last = e
             if attempt < retries:
@@ -220,10 +220,10 @@ def _call(messages: list[dict], key: str, retries: int = 3) -> dict:
     raise last
 
 
-def _call_once(messages: list[dict], key: str) -> dict:
+def _call_once(messages: list[dict], key: str, effort: str) -> dict:
     body = json.dumps({"model": MODEL, "messages": messages, "temperature": 0.3,
                        "response_format": {"type": "json_object"}, "max_tokens": MAX_TOKENS,
-                       "reasoning_effort": REASONING_EFFORT}).encode("utf-8")
+                       "reasoning_effort": effort}).encode("utf-8")
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
         "Content-Type": "application/json", "Authorization": f"Bearer {key}"})
     with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
@@ -275,31 +275,55 @@ def decide(input_doc: dict) -> dict:
     record = {"at": datetime.now().isoformat(timespec="seconds"), "model": MODEL,
               "digest": dig, "staff_proposal": proposal}
     t0 = time.time()
-    try:
-        resp = _call(messages, key)
-        record["latency_s"] = round(time.time() - t0, 1)
-        record["usage"] = resp.get("usage")
-        choice = resp["choices"][0]
-        record["finish_reason"] = choice.get("finish_reason")
-        text = choice["message"]["content"]
-        record["reply"] = text
-        plan = json.loads(text)
-    except Exception as e:  # any transport/parse failure: this tick falls back to the rules
-        record["error"] = f"{type(e).__name__}: {e}"[:300]
+    plan, attempts = None, []
+    # deepseek-flash once spent all 32000 output tokens thinking and returned no answer;
+    # then retry once with less thinking.
+    for effort in (REASONING_EFFORT, "none"):
+        try:
+            resp = _call(messages, key, effort=effort)
+            choice = resp["choices"][0]
+            text = choice["message"]["content"]
+            attempts.append({"effort": effort, "usage": resp.get("usage"),
+                             "finish_reason": choice.get("finish_reason")})
+            record["reply"] = text
+            plan = json.loads(text)
+            break
+        except Exception as e:
+            attempts.append({"effort": effort, "error": f"{type(e).__name__}: {e}"[:300]})
+    record["latency_s"] = round(time.time() - t0, 1)
+    record["attempts"] = attempts
+    record["usage"] = next((x["usage"] for x in reversed(attempts) if x.get("usage")), None)
+    if plan is None:
+        # No commander decision this beat: keep every current plan running and give no
+        # per-division orders (the rule staff used to send ~95 micro orders here), only
+        # the home-defense fill-ins required by the player's hard rule.
+        record["error"] = attempts[-1].get("error")
+        kept, _, added = home_defense_guard([], input_doc, rules)
         _archive(record)
-        rules.setdefault("brief", {}).setdefault("risks", []).append(
-            f"大模型本拍不可用（{type(e).__name__}），已按规则决策")
-        return rules
+        out = {"orders": kept, "alerts": rules["alerts"], "intents": []}
+        if added:
+            out["intents"].append({"intent_id": "home-defense", "kind": "hold_line",
+                                   "subject": {"unit_ids": [o["subject"]["unit_ids"][0] for o in added]},
+                                   "expands_to_order_seqs": [o["order_seq"] for o in added],
+                                   "notes": "按玩家硬性要求补齐本土防线"})
+        brief = dict(rules.get("brief") or {})
+        if brief:
+            brief["summary"] = "总司令本次没有给出决定，维持现有计划不变"
+            brief["risks"] = [f"大模型两次都没有给出可用答复（{record['error']}）"]
+            out["brief"] = brief
+        return out
 
     out = {"orders": [], "alerts": rules["alerts"], "intents": []}
     dropped = []
     accepted_plans = []
+    projected = json.loads(json.dumps(pview))  # orders of one reply build on each other
     for raw in (plan.get("plan_orders") or [])[:po.MAX_PER_TICK] if isinstance(plan.get("plan_orders"), list) else []:
-        why = po.validate(raw, input_doc, pview) if isinstance(raw, dict) else "格式错误"
+        why = po.validate(raw, input_doc, projected) if isinstance(raw, dict) else "格式错误"
         if why:
             dropped.append({"order": raw, "why": why})
         else:
             accepted_plans.append(raw)
+            _project(projected, raw)
     input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
     record["accepted_plan_orders"] = accepted_plans
     seq = 0
@@ -352,6 +376,36 @@ def decide(input_doc: dict) -> dict:
         return rules
     _archive(record)
     return out
+
+
+def _project(pv: dict, o: dict) -> None:
+    """Apply an accepted plan order to the projected view so the next order of
+    the same reply can rely on it (front -> offensive line -> execute in one beat)."""
+    armies = {a["army_id"]: a for a in pv.get("armies", [])}
+    t = o.get("type")
+    a = armies.get(o.get("army_id"))
+    if t == "front_line" and a is not None and not any(f.get("front_provinces") for f in a["fronts"]):
+        a["fronts"].append({"plan_id": None, "front_provinces": 1, "offensive_lines": [], "projected": True})
+    elif t == "offensive_line" and a is not None and a["fronts"]:
+        max(a["fronts"], key=lambda f: f.get("front_provinces") or 0)["offensive_lines"].append(
+            {"plan_id": None, "path": o.get("path"), "projected": True})
+    elif t == "delete_offensive_line" and a is not None:
+        for f in a["fronts"]:
+            f["offensive_lines"] = [l for l in f["offensive_lines"] if l.get("plan_id") != o.get("plan_id")]
+    free = pv.get("unassigned_leaders", [])
+    if t == "promote":
+        for l in free:
+            if l["leader_id"] == o.get("leader_id"):
+                l["rank"] = "field_marshal"
+    if t in ("create_army", "create_army_group", "appoint") and o.get("leader_id") is not None:
+        pv["unassigned_leaders"] = [l for l in free if l["leader_id"] != o["leader_id"]]
+    if t == "create_army":
+        used = set(o.get("unit_ids") or [])
+        pv["divisions_not_in_any_army"] = [d for d in pv.get("divisions_not_in_any_army", []) if d not in used]
+    if t == "create_army_group":
+        for i in o.get("army_ids") or []:
+            if i in armies:
+                armies[i]["army_group_id"] = -1  # grouped in this reply
 
 
 LEAVING = ("move", "retreat", "strategic_redeploy")

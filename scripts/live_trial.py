@@ -733,9 +733,12 @@ def cmd_tick(args):
     pinfo = doc.get("_plan_orders") or {}
     if args.allow_write and pinfo.get("orders"):  # commander's plan orders first (they set who is where)
         import plan_orders as po
-        for po_order in pinfo["orders"]:
+        view_now = pinfo.get("view") or {}
+        for i_po, po_order in enumerate(pinfo["orders"]):
             try:
-                rep = po.apply(po_order, pinfo.get("view") or {}, live=True)
+                if i_po:  # a front drawn by the previous order gets its plan id only now
+                    view_now = po.view(doc)
+                rep = po.apply(po_order, view_now, live=True)
             except Exception as e:
                 rep = {"ok": False, "stop": f"{type(e).__name__}: {e}"[:200]}
             plan_results.append({"order": po_order, "ok": bool(rep.get("ok")), "stop": rep.get("stop"),

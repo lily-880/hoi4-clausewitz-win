@@ -189,12 +189,18 @@ def main(argv=None) -> int:
                 # newest by write time: a name sort put an old "tick_..._practice_0826" file last forever,
                 # so the score and key moments read stale data for a whole mock exam
                 cap = max(OUT.glob("tick_*_capture.json"), key=lambda p: p.stat().st_mtime)
-                ext = json.loads(cap.read_text(encoding="utf-8")).get("commander_ext") or {}
+                # only a capture written by THIS tick counts: a failed tick once left the
+                # previous run's file newest (Poland 0 provinces) and faked a capitulation
+                if cap.stat().st_mtime >= t0:
+                    ext = json.loads(cap.read_text(encoding="utf-8")).get("commander_ext") or {}
             except (IndexError, ValueError, OSError):
                 pass
             counts = {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in targets}
             moments = key_moments(prev_ext, ext, targets)
-            next_hours = a.event_hours if moments else a.hours
+            built = any(p.get("ok") and (p.get("order") or {}).get("type") in ("create_army", "create_army_group", "promote")
+                        for p in tick.get("plan_orders") or [])
+            # right after a key moment, or after new armies were built (they still need lines), decide sooner
+            next_hours = a.event_hours if (moments or built) else a.hours
             prev_ext = ext or prev_ext
             war = target_state(targets)
             clock = ((tick.get("clock") or {}).get("end")) or {}

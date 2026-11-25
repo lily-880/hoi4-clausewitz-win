@@ -76,7 +76,9 @@ def _capture_once():
             raise ObservationError('current player unresolved')
         co=int(res['country_ptr'],16);require_class(co,'CCountry')
         speed=i(gs+0x4bc)
-        if speed!=0:raise ObservationError('speed setting not 1x; not changed')
+        # speed slots 0..3 allowed since 2026-11-25 (game speed is Claude's call; the
+        # capture itself runs while the game is paused, so the speed does not matter here)
+        if not 0<=speed<=3:raise ObservationError('speed setting outside 0..3; not changed')
         idler = int(session['signals']['idler_ptr'], 16)
         require_class(idler, 'CInGameIdler')
         official_pause = p.read(idler + 0x6c1, 1)

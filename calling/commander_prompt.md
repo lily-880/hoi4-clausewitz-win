@@ -36,6 +36,7 @@
   - 不同集团军的进攻线起点不能相同。
 - **删除进攻线 delete_offensive_line**：给出 army_id 和进攻线的 plan_id（order_of_battle 里 offensive_lines[].plan_id）。方向不对或打不动时，删掉重画。
 - **执行 execute**：on=true 发起进攻，on=false 停止。没有进攻线的集团军不要执行。
+- **同一次决策里的先后**：命令按顺序执行。对已有的集团军，可以在同一次里依次下 front_line、offensive_line、execute，一次完成。新建（create_army）的集团军要到下一次决策才有编号，到时再编入集团军群、画线；系统会在新建部队后提前进行下一次决策。
 - **逐师命令 orders**
   - unit_id 必须在 units 里。
   - move / retreat / attack 的目标必须是该师所在省份的相邻省份。
