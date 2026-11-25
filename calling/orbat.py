@@ -49,7 +49,14 @@ CMD = {
     "execute": dict(factory=0x18D00E0, size=0x38, vt=0x2A85D60, isvalid=0x18DEFB0),
     # +0x28 group, +0x30 plan id (any plan of that group, e.g. an offensive line)
     "delete": dict(factory=0x18D0010, size=0x38, vt=0x2A84C20, isvalid=0x18DEF50),
+    # CPromoteUnitLeaderCommand: +0x28 leader {4713,id}. Execute 0x13FD0F0 turns a general
+    # (CArmyLeader+0xE7C == 1) into a field marshal; costs command power.
+    "promote": dict(factory=0x13FB150, size=0x30, vt=0x2A2DDA0, isvalid=0x1400CA0),
 }
+
+
+def promote(leader_id: int, live=True) -> dict:
+    return post("promote", [(0x28, struct.pack("<II", T_LEADER, leader_id))], [], live)
 
 
 def delete_plan(group_id: int, plan_id: int, live=True) -> dict:
@@ -167,7 +174,13 @@ class Reader:
                 continue
             t, lid = self.handle(lp)
             at = struct.unpack("<II", self.p.read(lp + 0x1048, 8))
+            # rank: the game's own triggers read CArmyLeader+0xE7C —
+            # CIsFieldMarshal (0x4610a0) tests == 0, CIsCorpsCommander (0x460d80) tests == 1
+            role = struct.unpack("<i", self.p.read(lp + 0xE7C, 4))[0]
+            # (+0xE74 is -1 for generals and 5 for every field marshal, including freshly promoted
+            # ones; it is not an availability flag.)
             out.append({"leader_id": lid, "handle_type": t, "key": self.string(lp + 0x20),
+                        "rank": {0: "field_marshal", 1: "general"}.get(role, f"unknown_{role}"),
                         "assigned_group": at[1] if at[0] == T_GROUP else None})
         return out
 

@@ -85,7 +85,12 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
 - 删除进攻线（delete_offensive_line）：给出集团军和进攻线的 plan_id（order_of_battle 里 offensive_lines[].plan_id）。进攻线打不动、方向不对、和别的集团军重复时，先删掉再画新的。
 - 不同集团军必须从不同方向进攻：每条进攻线的起点不能和别的集团军重复（系统会拒绝）。几个集团军挤在同一条线上就是过度堆叠。好的布势是南北两翼钳形对进、中路牵制，装甲集团军走平原快速穿插、绕到敌后切断，步兵集团军正面施压。
 - 执行（execute）：on=true 后，集团军按进攻线发起进攻；on=false 停止。没有进攻线的集团军不要执行（系统会拒绝），它们守住前线即可。
-- 组建（create_army）：从 divisions_not_in_any_army 中选不超过 24 个师组成集团军，并指定 unassigned_leaders 中的将领；集团军群（create_army_group）由 1～5 个集团军组成并指定元帅。
+- 组建（create_army）：从 divisions_not_in_any_army 中选不超过 24 个师组成集团军，并指定 unassigned_leaders 中 rank=general 的将军；集团军群（create_army_group）由 1～5 个尚未编组的集团军组成，并指定 rank=field_marshal 的元帅。
+- 指挥体系（玩家硬性要求，系统会拒绝违规命令）：
+  - 集团军只能由将军（rank=general）指挥；集团军群只能由元帅（rank=field_marshal）指挥。元帅不得直接带集团军，将军不得带集团军群。
+  - 每个集团军都要编入一个由元帅指挥的集团军群。元帅人数有限（field_marshals_total），按战略方向组建集团军群，例如一个负责主攻方向，一个负责本土防线。
+  - 元帅不够时，用 promote 把一位空闲将军晋升为元帅（消耗指挥点数），优先选技能高的。晋升后他就成了空闲元帅，下一步再任命给集团军群。正在带集团军的将军要先换下来才能晋升。
+  - order_of_battle.command_rule_violations 列出当前不合规之处，要优先纠正：集团军由元帅指挥的，用 appoint 改任一位空闲将军；未编组的集团军，用 create_army_group 编组（同一位元帅只能带一个集团军群）。
 - 前线会随边境变化自动调整。进攻线打到终点或起点被攻占后可能消失；执行中的集团军 offensive_lines 为空时，要及时画新的进攻线指向下一个目标，否则它会停下来。
 - 前线不必延伸到盟友或中立国境内；如果某条前线大部分在盟友境内，可以考虑不给那里分配集团军。
 
@@ -135,7 +140,8 @@ SYSTEM_PROMPT = """你是《钢铁雄心4》中玩家国家的陆军总司令。
     {"type": "execute", "army_id": 534, "on": true, "reason": "..."},
     {"type": "create_army", "unit_ids": [1, 2], "leader_id": 349, "reason": "..."},
     {"type": "create_army_group", "army_ids": [531, 532], "leader_id": 342, "reason": "..."},
-    {"type": "appoint", "leader_id": 349, "group_id": 534, "reason": "..."}
+    {"type": "appoint", "leader_id": 349, "group_id": 534, "reason": "..."},
+    {"type": "promote", "leader_id": 342, "reason": "..."}
   ],
   "orders": [
     {"type": "move|attack|retreat|strategic_redeploy|cancel", "unit_id": 1234, "target": 5678, "reason": "中文简短理由"}

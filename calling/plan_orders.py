@@ -1,4 +1,4 @@
-﻿"""Commander plan orders: order of battle, front lines, offensive lines, execution.
+"""Commander plan orders: order of battle, front lines, offensive lines, execution.
 
 The commander (decide_llm) decides these (user 2026-11-24: drawing front and
 offensive lines is the commander's job). This module only
@@ -13,6 +13,7 @@ Plan order shapes (model output, key "plan_orders"):
   {"type": "create_army",    "unit_ids": [..<=24], "leader_id": 349, "reason": "..."}
   {"type": "create_army_group", "army_ids": [..], "leader_id": 342, "reason": "..."}
   {"type": "appoint",        "leader_id": 349, "group_id": 534, "reason": "..."}
+  {"type": "promote",        "leader_id": 342, "reason": "..."}   general -> field marshal (command power)
 """
 from __future__ import annotations
 
@@ -27,10 +28,49 @@ if str(HERE) not in sys.path:
 import commander_view as cv  # noqa: E402
 
 TYPES = ("front_line", "offensive_line", "delete_offensive_line", "execute", "create_army",
-         "create_army_group", "appoint")
+         "create_army_group", "appoint", "promote")
 MAX_PER_TICK = 12
 ARMY_MAX = 24
 FRONTS_FILE = HERE / "tables" / "army_fronts.json"
+# Leaders the game un-assigns right after an appointment (focus-path / retired characters that are
+# still on the roster, e.g. Mackensen and Blomberg in the 1939 historical game). Keyed by character
+# key; filled by observation: an appointment that held at post time but is gone a tick later.
+UNAVAILABLE_FILE = HERE / "tables" / "unavailable_leaders.json"
+
+
+def _load_unavailable() -> dict:
+    try:
+        return json.loads(UNAVAILABLE_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"unavailable": {}, "pending_appointments": {}}
+
+
+def _save_unavailable(data: dict) -> None:
+    UNAVAILABLE_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _pend(leader_id: int, group_id: int) -> None:
+    data = _load_unavailable()
+    data.setdefault("pending_appointments", {})[str(leader_id)] = {"group_id": group_id}
+    _save_unavailable(data)
+
+
+def _check_appointments(leaders_live: dict) -> set:
+    """Mark leaders whose last appointment the game revoked; return the unavailable keys."""
+    data = _load_unavailable()
+    pend = data.get("pending_appointments", {})
+    changed = False
+    for lid_s, p in list(pend.items()):
+        l = leaders_live.get(int(lid_s))
+        if l is None:
+            continue
+        if l["assigned_group"] != p["group_id"]:
+            data["unavailable"][l["key"]] = "任命后被游戏撤销"
+        pend.pop(lid_s)
+        changed = True
+    if changed:
+        _save_unavailable(data)
+    return set(data.get("unavailable", {}))
 
 
 def _session():
@@ -50,6 +90,11 @@ def view(doc: dict, session=None) -> dict:
     units = {u["unit_id"]: u for u in (doc.get("world") or {}).get("own_units", [])}
     leaders_live = {l["leader_id"]: l for l in snap["leaders"]}
     leader_info = {l.get("leader_id"): l for l in (doc.get("world") or {}).get("leaders", [])}
+
+    unavailable = _check_appointments(leaders_live)
+
+    def rank_of(lid):
+        return (leaders_live.get(lid) or {}).get("rank") if lid is not None else None
     in_army = set()
     armies, groups = [], []
     for t in snap["theatres"]:
@@ -70,6 +115,7 @@ def view(doc: dict, session=None) -> dict:
             lead = leader_info.get(a["leader_id"], {})
             armies.append({"army_id": a["id"], "name": a["name"], "army_group_id": a.get("army_group_id"),
                            "leader": lead.get("name") or a["leader_id"], "leader_skill": lead.get("skill"),
+                           "leader_rank": rank_of(a["leader_id"]),
                            "divisions": len(a["unit_ids"]), "kinds": kinds,
                            "avg_org": round(sum((units.get(u, {}).get("organization") or 0) for u in a["unit_ids"])
                                             / max(1, len(a["unit_ids"])), 1),
@@ -77,7 +123,7 @@ def view(doc: dict, session=None) -> dict:
         for g in t["army_groups"]:
             lead = leader_info.get(g["leader_id"], {})
             groups.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids"),
-                           "leader": lead.get("name") or g["leader_id"]})
+                           "leader": lead.get("name") or g["leader_id"], "leader_rank": rank_of(g["leader_id"])})
     starts: dict = {}
     for a in armies:
         for f in a["fronts"]:
@@ -92,8 +138,21 @@ def view(doc: dict, session=None) -> dict:
                     l["same_start_as_armies"] = others
     free_units = [u for u in units if u not in in_army]
     free_leaders = [{"leader_id": lid, "name": (leader_info.get(lid) or {}).get("name"),
-                     "skill": (leader_info.get(lid) or {}).get("skill")}
-                    for lid, l in leaders_live.items() if not l["assigned_group"]]
+                     "skill": (leader_info.get(lid) or {}).get("skill"), "rank": l.get("rank")}
+                    for lid, l in leaders_live.items() if not l["assigned_group"] and l["key"] not in unavailable]
+    # command rules (user 2026-11-24): army groups are led by field marshals, armies by generals,
+    # and every army belongs to an army group
+    violations = []
+    for a in armies:
+        if a["leader_rank"] == "field_marshal":
+            violations.append(f"集团军 {a['name']}（{a['army_id']}）由元帅 {a['leader']} 指挥：元帅只能指挥集团军群，换一位将军")
+        if a["leader_rank"] is None:
+            violations.append(f"集团军 {a['name']}（{a['army_id']}）没有指挥官：任命一位将军")
+        if not a.get("army_group_id"):
+            violations.append(f"集团军 {a['name']}（{a['army_id']}）不属于任何集团军群：编入由元帅指挥的集团军群")
+    for g in groups:
+        if g["leader_rank"] != "field_marshal":
+            violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）不是由元帅指挥：改任元帅")
     me = ((doc.get("meta") or {}).get("player_country") or {}).get("tag")
     sections = {}
     try:
@@ -115,6 +174,9 @@ def view(doc: dict, session=None) -> dict:
         (doc.get("world") or {}).get("wars") else None
     return {"armies": armies, "army_groups": groups,
             "divisions_not_in_any_army": free_units, "unassigned_leaders": free_leaders,
+            "field_marshals_total": sum(1 for l in leaders_live.values()
+                                        if l.get("rank") == "field_marshal" and l["key"] not in unavailable),
+            "command_rule_violations": violations,
             "border_fronts": {k: v for k, v in fronts.items() if k in at_war}}
 
 
@@ -178,14 +240,40 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
                 count[pv] -= 1
                 if count[pv] < cv.DEFENSE_MIN:
                     return f"会让本土防线省 {pv} 少于 {cv.DEFENSE_MIN} 个师；西线守军不能编进对别国作战的集团军"
+    free = {l["leader_id"]: l.get("rank") for l in pview.get("unassigned_leaders", [])}
+    if t == "create_army" and order.get("leader_id") is not None:
+        if order["leader_id"] not in free:
+            return "将领不存在或已有职务"
+        if free[order["leader_id"]] != "general":
+            return "集团军只能由将军指挥；元帅只能指挥集团军群"
     if t == "create_army_group":
         ids = order.get("army_ids")
         if not (isinstance(ids, list) and 1 <= len(ids) <= 5 and set(ids) <= set(armies)):
             return "集团军群须由 1～5 个现有集团军组成"
+        if any(armies[i].get("army_group_id") for i in ids):
+            return "其中有集团军已属于别的集团军群"
+        if order.get("leader_id") not in free:
+            return "集团军群必须指定一位空闲的元帅（unassigned_leaders 中 rank 为 field_marshal）"
+        if free[order["leader_id"]] != "field_marshal":
+            return "集团军群只能由元帅指挥，不能用将军"
+    if t == "promote":
+        if order.get("leader_id") not in free:
+            return "只能晋升空闲的将领（先免去职务或另选）"
+        if free[order["leader_id"]] != "general":
+            return "只有将军可以晋升为元帅"
     if t == "appoint":
-        free = {l["leader_id"] for l in pview.get("unassigned_leaders", [])}
         if order.get("leader_id") not in free:
             return "将领不存在或已有职务"
+        gid = order.get("group_id")
+        groups = {g["army_group_id"] for g in pview.get("army_groups", [])}
+        if gid in groups:
+            if free[order["leader_id"]] != "field_marshal":
+                return "集团军群只能由元帅指挥，不能用将军"
+        elif gid in armies:
+            if free[order["leader_id"]] != "general":
+                return "集团军只能由将军指挥；元帅只能指挥集团军群"
+        else:
+            return "没有这个集团军或集团军群"
     return None
 
 
@@ -272,6 +360,8 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         new = [a["id"] for th in orbat.snapshot(s)["theatres"] for a in th["armies"] if a["id"] not in before]
         if res.get("ok") and new and order.get("leader_id"):
             res["appoint"] = orbat.appoint(order["leader_id"], new[0], live).get("ok")
+            if res["appoint"] and live:
+                _pend(order["leader_id"], new[0])
         res["army_id"] = new[0] if new else None
         return res
     if t == "create_army_group":
@@ -280,8 +370,24 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         new = [g["id"] for th in orbat.snapshot(s)["theatres"] for g in th["army_groups"] if g["id"] not in before]
         if res.get("ok") and new and order.get("leader_id"):
             res["appoint"] = orbat.appoint(order["leader_id"], new[0], live).get("ok")
+            if res["appoint"] and live:
+                _pend(order["leader_id"], new[0])
         res["army_group_id"] = new[0] if new else None
         return res
+    def leader_now(lid):
+        return next((l for l in orbat.snapshot(s)["leaders"] if l["leader_id"] == lid), {})
     if t == "appoint":
-        return orbat.appoint(order["leader_id"], order["group_id"], live)
+        res = orbat.appoint(order["leader_id"], order["group_id"], live)
+        if res.get("ok") and live and leader_now(order["leader_id"]).get("assigned_group") != order["group_id"]:
+            res.update(ok=False, stop="游戏没有接受这次任命")
+        elif res.get("ok") and live:  # checked again next tick: the game may revoke it
+            data = _load_unavailable()
+            data.setdefault("pending_appointments", {})[str(order["leader_id"])] = {"group_id": order["group_id"]}
+            _save_unavailable(data)
+        return res
+    if t == "promote":
+        res = orbat.promote(order["leader_id"], live)
+        if res.get("ok") and live and leader_now(order["leader_id"]).get("rank") != "field_marshal":
+            res.update(ok=False, stop="晋升没有生效（可能指挥点数不足）")
+        return res
     return {"ok": False, "stop": "UNKNOWN"}
