@@ -87,6 +87,34 @@ def console(cmd: str) -> Path:
     return p
 
 
+def console_bg(cmd: str) -> Path:
+    """Same as console(), but posted to the game window without bringing it to
+    the front (the user may be working in other windows)."""
+    u = ctypes.windll.user32
+    hwnd = gu.find_window()
+
+    def key(vk, scan):
+        u.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16))
+        time.sleep(0.05)
+        u.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | (0xC0 << 24))
+        time.sleep(0.08)
+
+    key(0xC0, GRAVE)  # open console
+    time.sleep(0.8)
+    for _ in range(40):
+        key(0x08, 0x0E)  # backspace: clear leftovers
+    for ch in cmd:
+        u.PostMessageW(hwnd, 0x0102, ord(ch), 1)  # WM_CHAR
+        time.sleep(0.05)
+    time.sleep(0.4)
+    key(0x0D, ENTER)
+    time.sleep(2.5)
+    OUT.mkdir(parents=True, exist_ok=True)
+    p = gu.shot(OUT / f"console_bg_{cmd.split()[0]}_{time.strftime('%H%M%S')}.png", scale=0.6)
+    key(0xC0, GRAVE)  # close console
+    return p
+
+
 def poland_state() -> dict:
     import live_input
     cap, err = None, None
@@ -144,6 +172,7 @@ def main(argv=None) -> int:
     sub.add_parser("launch")
     c = sub.add_parser("console")
     c.add_argument("text")
+    c.add_argument("--bg", action="store_true", help="post to the window in the background")
     r = sub.add_parser("run")
     r.add_argument("--hours", type=int, default=12)
     r.add_argument("--max-ticks", type=int, default=140)
@@ -151,7 +180,7 @@ def main(argv=None) -> int:
     if a.cmd == "launch":
         gu.launch(SAVE)
     elif a.cmd == "console":
-        print(console(a.text))
+        print(console_bg(a.text) if a.bg else console(a.text))
     else:
         return run(a.hours, a.max_ticks)
     return 0
