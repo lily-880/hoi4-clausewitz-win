@@ -165,7 +165,11 @@ def _top_targets(targets: list[dict]) -> list[dict]:
         rows = by.setdefault(t.get("owner"), [])
         if len(rows) < KEY_TARGETS_PER_ENEMY:
             rows.append(t)
-    return [t for rows in by.values() for t in rows]
+    # the scenario's primary targets first (exam 6: France's bigger victory points led the list
+    # while the campaign was against Poland)
+    primary = list(getattr(cv, "PRIMARY_TARGETS", None) or [])
+    order = sorted(by, key=lambda o: (primary.index(o) if o in primary else len(primary), str(o)))
+    return [t for o in order for t in by[o]]
 
 
 def _forces(doc: dict) -> list[dict]:
