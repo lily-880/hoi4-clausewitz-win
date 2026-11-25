@@ -2,7 +2,7 @@
 """Benchmark: let the game's own AI play Germany (console `human_ai`) from the
 war-start save and record when Poland stops resisting.
 
-  python -I scripts/ai_benchmark.py launch          # reload GER_1939_08_14_base (kills the game)
+  python -I scripts/ai_benchmark.py launch          # reload CC_GER_1939_08_14_base (kills the game)
   python -I scripts/ai_benchmark.py console human_ai  # type a console command (waits for user idle)
   python -I scripts/ai_benchmark.py run --hours 12 --max-ticks 140
 
@@ -26,7 +26,7 @@ sys.path.insert(0, str(ROOT / "calling"))
 import game_ui as gu  # noqa: E402
 
 OUT = ROOT / "research" / "claude_live" / "ai_bench"
-SAVE = "GER_1939_08_14_base"
+SAVE = "CC_GER_1939_08_14_base"
 
 # scan codes (US layout); "_" = shift + minus
 SC = {**{c: s for c, s in zip("1234567890", range(0x02, 0x0C))},
@@ -90,47 +90,102 @@ def console(cmd: str) -> Path:
 def console_bg(cmd: str) -> Path:
     """Same as console(), but posted to the game window without bringing it to
     the front (the user may be working in other windows)."""
-    u = ctypes.windll.user32
+    # Verified 2026-11-25: letters/digits must be posted as WM_KEYDOWN (a bare WM_CHAR
+    # is ignored); "_" cannot get Shift in the background, so it goes as WM_CHAR, which
+    # the console accepts after a key-down stream. Leaving the console open swallows
+    # every later key (space no longer pauses), so the close is checked by the caller.
     hwnd = gu.find_window()
-
-    def key(vk, scan):
-        u.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16))
-        time.sleep(0.05)
-        u.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | (0xC0 << 24))
-        time.sleep(0.08)
-
-    key(0xC0, GRAVE)  # open console
+    _post_key(hwnd, 0xC0, GRAVE)  # open console
     time.sleep(0.8)
     for _ in range(40):
-        key(0x08, 0x0E)  # backspace: clear leftovers
-    for ch in cmd:
-        u.PostMessageW(hwnd, 0x0102, ord(ch), 1)  # WM_CHAR
-        time.sleep(0.05)
+        _post_key(hwnd, 0x08, 0x0E)  # backspace: clear leftovers
+    for ch in cmd.lower():
+        if ch in SC and ch not in "-":
+            _post_key(hwnd, 0x20 if ch == " " else ord(ch.upper()), SC[ch])
+        else:
+            ctypes.windll.user32.PostMessageW(hwnd, 0x0102, ord(ch), 1)
+            time.sleep(0.08)
     time.sleep(0.4)
-    key(0x0D, ENTER)
+    _post_key(hwnd, 0x0D, ENTER)
     time.sleep(2.5)
     OUT.mkdir(parents=True, exist_ok=True)
     p = gu.shot(OUT / f"console_bg_{cmd.split()[0]}_{time.strftime('%H%M%S')}.png", scale=0.6)
-    key(0xC0, GRAVE)  # close console
+    _post_key(hwnd, 0xC0, GRAVE)  # close console
+    time.sleep(0.8)
     return p
 
 
+def _post_key(hwnd: int, vk: int, scan: int) -> None:
+    u = ctypes.windll.user32
+    u.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16))
+    time.sleep(0.05)
+    u.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | (0xC0 << 24))
+    time.sleep(0.08)
+
+
+def clock_bg(want_run: bool, tries: int = 3) -> dict:
+    """Pause/unpause with a space key posted in the background only. Never brings
+    the game to the front (live_trial.set_clock falls back to SetForegroundWindow)."""
+    import live_trial as lt
+    target = 0 if want_run else 1
+    c = lt.Session(check_sha=False).clock()
+    if c["speed_slot"] != 0:
+        return {"result": "SPEED_NOT_1X_REFUSED", "clock": c}
+    if c["pause"] == target:
+        return {"result": "ALREADY", "clock": c}
+    hwnd = gu.find_window()
+    for _ in range(tries):
+        _post_key(hwnd, 0x20, 0x39)
+        for _ in range(10):
+            time.sleep(0.2)
+            c = lt.Session(check_sha=False).clock()
+            if c["pause"] == target:
+                return {"result": "OK", "clock": c}
+    return {"result": "FAILED", "clock": c}
+
+
+def run_hours_bg(hours: int, timeout_s: float = 600) -> dict:
+    import live_trial as lt
+    start = lt.Session(check_sha=False).clock()
+    res = {"start": start}
+    run = clock_bg(True)
+    res["run"] = run["result"]
+    t0 = time.time()
+    try:
+        if run["result"] != "OK":
+            return res
+        while time.time() - t0 < timeout_s:
+            c = lt.Session(check_sha=False).clock()
+            if c["hour_tick"] is not None and c["hour_tick"] - start["hour_tick"] >= hours:
+                break
+            time.sleep(0.4)
+    finally:
+        res["pause"] = clock_bg(False, tries=6)["result"]
+        res["end"] = lt.Session(check_sha=False).clock()
+    return res
+
+
 def poland_state() -> dict:
-    import live_input
-    cap, err = None, None
-    for _ in range(3):  # the AI reshuffles leaders/armies; a capture can hit a half-updated handle
-        try:
-            cap = live_input.capture()
-            break
-        except Exception as e:
-            err = f"{type(e).__name__}: {e}"[:200]
-            time.sleep(1)
-    if cap is None:
-        return {"enemy": {}, "own": None, "read_error": err}
-    ext = cap.get("commander_ext") or {}
-    return {"enemy": {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items()
-                      if k in ("POL", "FRA", "ENG")},
-            "own": ext.get("own_controlled_provinces")}
+    """Province counts by controller, read province by province (Session.controller_of).
+    The full capture() failed for ten game days in a row once the AI started
+    reshuffling leaders ("assigned_to handle did not resolve"); this does not touch leaders."""
+    import live_trial as lt
+    from collections import Counter
+    try:
+        s = lt.Session(check_sha=False)
+        idx = {s.tag(i): i for i in range(len(s.countries()))}
+        want = {idx[t]: t for t in ("GER", "POL", "FRA") if t in idx}
+        c = Counter()
+        for pid in range(1, 13500):
+            try:
+                v = s.controller_of(pid)
+            except Exception:
+                continue
+            if v in want:
+                c[want[v]] += 1
+        return {"enemy": {"POL": c["POL"], "FRA": c["FRA"]}, "own": c["GER"]}
+    except Exception as e:
+        return {"enemy": {}, "own": None, "read_error": f"{type(e).__name__}: {e}"[:200]}
 
 
 def run(hours: int, max_ticks: int) -> int:
@@ -140,7 +195,7 @@ def run(hours: int, max_ticks: int) -> int:
     score = None
     for n in range(1, max_ticks + 1):
         t0 = time.time()
-        r = lt.run_hours(hours)
+        r = run_hours_bg(hours)
         end = r.get("end") or {}
         st = poland_state()
         row = {"tick": n, "at": datetime.now().isoformat(timespec="seconds"),
@@ -160,9 +215,14 @@ def run(hours: int, max_ticks: int) -> int:
     (OUT / "status.json").write_text(json.dumps({"score": score, "last": row}, ensure_ascii=False, indent=2),
                                      encoding="utf-8")
     try:
-        lt.set_clock(False)
+        clock_bg(False, tries=6)
     except BaseException:
         pass
+    if score:  # keep the end state as a save for the user (prefix CC_ = Claude's saves)
+        try:
+            console_bg("savegame")
+        except BaseException:
+            pass
     return 0
 
 
