@@ -126,6 +126,11 @@ class Reader:
                "seed": list(struct.unpack("<II", self.p.read(ip + 0x258, 8))),
                "members": len(self.arr(ip + 0x210)), "class": self.cls(ip),
                "flag_299": self.p.read(ip + 0x299, 1)[0]}
+        # +0x1F8: the type-1 instances built with each front segment; the divisions hang on THESE.
+        # Executing only the root (+0x248) leaves them at 0 and nobody attacks (exam 3, 2026-11-25).
+        subs = [c for c in self.arr(ip + 0x1F8, 64) if _ptr(c)]
+        row["sub_executing"] = [self.p.read(c + 0x248, 1)[0] for c in subs]
+        row["sub_members"] = [len(self.arr(c + 0x210)) for c in subs]
         if depth < 4:  # +0x2D0 children (front segments / offensive lines), +0x2B8 parents
             row["children"] = [self.instance(c, depth + 1) for c in self.arr(ip + 0x2D0, 256) if _ptr(c)]
         return row
@@ -321,6 +326,11 @@ def offensive_line(group_id: int, front_plan_id: int, path: list[int], unit_ids:
 
 
 def execute(group_id: int, plan_id: int, on: bool = True, flag_35: int = 0, live=True) -> dict:
+    """COrderExecuteCommand (real Execute 0x18D64A0). plan_id 0 = the whole group, as the UI
+    button does: 0x18E5D50 -> 0x10CD7B0 on every root plan, recursing into the +0x1F8 type-1
+    instances that hold the divisions. A non-zero plan_id goes through 0x10CD510, which for a
+    type-2 root only sets that root's flag: the plan shows as executing but no division
+    attacks. flag_35=1 on an army group also executes each of its armies."""
     return post("execute", [(0x28, struct.pack("<II", T_GROUP, group_id)),
                             (0x30, struct.pack("<IBB", plan_id, 1 if on else 0, flag_35))], [], live)
 

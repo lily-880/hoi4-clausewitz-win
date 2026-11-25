@@ -110,7 +110,8 @@ def view(doc: dict, session=None) -> dict:
                     continue
                 fronts.append({"plan_id": p["plan_id"], "front_provinces": len(p["path"]),
                                "front_ends": [p["path"][0], p["path"][-1]] if p["path"] else [],
-                               "divisions_on_plan": p["members"], "executing": bool(p["can_execute"]),
+                               "divisions_on_plan": p["members"],
+                               "executing": bool(p["can_execute"]) and all(p.get("sub_executing") or [1]),
                                "offensive_lines": [{"plan_id": c["plan_id"], "path": c["path"]} for c in p["children"]]})
             lead = leader_info.get(a["leader_id"], {})
             armies.append({"army_id": a["id"], "name": a["name"], "army_group_id": a.get("army_group_id"),
@@ -321,6 +322,83 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
     return res
 
 
+CHAIN_MAX = 60  # provinces in one expanded offensive line (game AI lines seen: 1..22)
+
+
+def chain_path(s, front_path: list[int], waypoints: list[int]) -> list[int] | None:
+    """Expand the commander's waypoints into a chain of ADJACENT provinces, as the game's own
+    lines are (exam 3, 2026-11-25: a 2-point line [border, capital] is drawn and 'executing' but
+    no division ever attacks; the game AI's lines are 5..22 provinces, every step a land
+    neighbour). Steps go through enemy-held provinces (any land province only if no such route).
+    The chain starts at an enemy province touching this army's own front."""
+    nb_cache: dict[int, list[int]] = {}
+    ctrl_cache: dict[int, int | None] = {}
+
+    def nbs(p):
+        if p not in nb_cache:
+            try:
+                nb_cache[p] = list(s.land_neighbors(p).get("neighbors") or [])
+            except Exception:
+                nb_cache[p] = []
+        return nb_cache[p]
+
+    def ctrl(p):
+        if p not in ctrl_cache:
+            try:
+                ctrl_cache[p] = s.controller_of(p)
+            except Exception:
+                ctrl_cache[p] = None
+        return ctrl_cache[p]
+
+    front = set(front_path)
+    own = {ctrl(p) for p in front_path} - {None}
+    enemy = {ctrl(w) for w in waypoints} - own - {None}
+    if not enemy:
+        return None
+
+    def bfs(starts, goal, allow):
+        prev = {x: None for x in starts}
+        queue = list(starts)
+        i = 0
+        while i < len(queue) and len(prev) < 4000:
+            x = queue[i]
+            i += 1
+            if x == goal:
+                out = []
+                while x is not None:
+                    out.append(x)
+                    x = prev[x]
+                return out[::-1]
+            for y in nbs(x):
+                if y not in prev and allow(y):
+                    prev[y] = x
+                    queue.append(y)
+        return None
+
+    def leg(starts, goal):
+        return (bfs(starts, goal, lambda p: ctrl(p) in enemy)
+                or bfs(starts, goal, lambda p: ctrl(p) in enemy or ctrl(p) in own))
+
+    entry = sorted({y for f in front_path for y in nbs(f) if ctrl(y) in enemy})
+    if not entry:
+        return None
+    first = waypoints[0]
+    chain = [first] if first in entry else leg(entry, first)
+    if not chain:
+        return None
+    for w in waypoints[1:]:
+        if w == chain[-1]:
+            continue
+        part = leg([chain[-1]], w)
+        if not part:
+            return None
+        chain += part[1:]
+    # the line must open on an enemy province next to the front
+    while chain and not (ctrl(chain[0]) in enemy and front & set(nbs(chain[0]))):
+        chain.pop(0)
+    return chain[:CHAIN_MAX] if len(chain) >= 1 else None
+
+
 def apply(order: dict, pview: dict, live: bool = True) -> dict:
     import orbat
     t = order["type"]
@@ -339,20 +417,28 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
             return {c["plan_id"] for th in orbat.snapshot(s)["theatres"] for g in th["armies"]
                     if g["id"] == order["army_id"] for p in g["plans"] for c in p["children"]}
         before = line_ids()
-        res = orbat.offensive_line(order["army_id"], front["plan_id"], order["path"],
+        root = next((p for th in snap["theatres"] for g in th["armies"] if g["id"] == order["army_id"]
+                     for p in g["plans"] if p["plan_id"] == front["plan_id"]), None)
+        chain = chain_path(s, (root or {}).get("path") or [], order["path"])
+        if not chain:
+            return {"ok": False, "stop": "无法从该集团军的前线沿相邻的敌方省份连到目标；换一个目标或先画前线"}
+        res = orbat.offensive_line(order["army_id"], front["plan_id"], chain,
                                    units_of.get(order["army_id"], []), live)
+        res["chain"] = chain
         if res.get("ok") and live and not (line_ids() - before):  # posted, but the engine dropped it
             res.update(ok=False, stop="游戏没有接受这条进攻线（起点可能已被攻占，或路径不全在敌境内）")
         return res
     if t == "delete_offensive_line":
         return orbat.delete_plan(order["army_id"], order["plan_id"], live)
     if t == "execute":
-        a = armies[order["army_id"]]
-        res = {"ok": True, "results": []}
-        for f in a["fronts"]:
-            r = orbat.execute(order["army_id"], f["plan_id"], bool(order.get("on", True)), live=live)
-            res["results"].append(r.get("ok"))
-            res["ok"] = res["ok"] and bool(r.get("ok"))
+        # whole-army execute (plan id 0), like the UI button; per-plan execute never moved a division
+        r = orbat.execute(order["army_id"], 0, bool(order.get("on", True)), live=live)
+        res = {"ok": bool(r.get("ok")), "results": [r.get("ok")]}
+        if res["ok"] and live:
+            subs = [x for th in orbat.snapshot(s)["theatres"] for g in th["armies"] if g["id"] == order["army_id"]
+                    for p in g["plans"] for x in p.get("sub_executing", [])]
+            if bool(order.get("on", True)) and subs and not all(subs):
+                res.update(ok=False, stop="执行命令已下达，但挂着部队的计划实例没有进入执行状态")
         return res
     if t == "create_army":
         before = set(units_of)
