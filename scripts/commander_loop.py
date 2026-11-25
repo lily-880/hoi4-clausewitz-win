@@ -196,6 +196,7 @@ def main(argv=None) -> int:
             except (IndexError, ValueError, OSError):
                 pass
             counts = {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in targets}
+            surr = {k: (v or {}).get("progress_pct") for k, v in (ext.get("surrender") or {}).items() if k in targets}
             moments = key_moments(prev_ext, ext, targets)
             built = any(p.get("ok") and (p.get("order") or {}).get("type") in ("create_army", "create_army_group", "promote")
                         for p in tick.get("plan_orders") or [])
@@ -207,7 +208,7 @@ def main(argv=None) -> int:
             executed = tick.get("executed") or []
             row = {"tick": n, "at": datetime.now().isoformat(timespec="seconds"),
                    "game": f"{clock.get('ui_date')} {clock.get('ui_hour')}h", "pause": clock.get("pause"),
-                   "target_provinces": counts, "target_war": war,
+                   "target_provinces": counts, "target_surrender_pct": surr, "target_war": war,
                    "orders_ok": sum(1 for e in executed if e.get("ok")),
                    "orders_refused": sum(1 for e in executed if not e.get("ok")),
                    "halted": tick.get("halted"), "error": tick.get("error") or tick.get("stop"),
@@ -216,7 +217,8 @@ def main(argv=None) -> int:
             with PROGRESS.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
             done = [t for t in targets
-                    if (t in counts and counts[t] == 0) or (t in war and war[t]["at_war"] is False)]
+                    if (t in counts and counts[t] == 0) or (t in war and war[t]["at_war"] is False)
+                    or (surr.get(t) or 0) >= 100]
             STATUS.write_text(json.dumps({"last": row, "score": score, "done": done},
                                          ensure_ascii=False, indent=2), encoding="utf-8")
             if done:

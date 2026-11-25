@@ -519,6 +519,60 @@ def _capture_once():
             except Exception:
                 continue
         foe_counts = {tag_of(c) or str(c): sum(1 for v in controller.values() if v == c) for c in foes}
+        # ---- surrender progress (2026-11-25) ----
+        # Replica of the native getter 0x721c50 behind the surrender_progress trigger
+        # (vtable slot next to TRIGGER_MORE_THAN_X_SURRENDER_PROGRESS); fixed point 1.0 = 100000.
+        #   held/total = CCountry+0x1338/+0x1340 (fallback +0x133c/+0x1344 when total is 0);
+        #   units = 10 per victory point + 1 per province (POL 1939-10-10: 23 VP*10 + 86 provinces = 316);
+        #   raw = 1 - held/total; limit = clamp(define 0.8 + modifier 0x92 surrender_limit,
+        #   floor define 0.2, 1 - modifier 0x94) + modifier 0x93 forced_surrender_limit;
+        #   progress = raw / limit, 1.0 = capitulation. CCountry+0x434 (controlled provinces) 0 -> 1.0.
+        #   The branch on CCountry+0xc > 0 (an extra reduction of the limit) is not replicated: flagged.
+        ONE = 100000
+
+        def _define(rva):
+            return struct.unpack('<q', p.read(p.base + rva, 8))[0]
+
+        def _modifier(co, idx):
+            data, n = q(co + 0x5b8), i(co + 0x5b8 + 0xc)
+            if not ptr(data) or not 0 < n <= 4096:
+                return 0
+            raw = p.read(data, 16 * n)
+            for j in range(n):
+                k, _, v = struct.unpack_from('<IIq', raw, 16 * j)
+                if k == idx:
+                    return v
+            return 0
+
+        def surrender_of(c):
+            co = country_ptrs[c]
+            held, held2, total, total2 = struct.unpack('<4i', p.read(co + 0x1338, 16))
+            floor_ = _define(0x33E5230)
+            lim = _define(0x33E51A0) + _modifier(co, 0x92)
+            if total == 0:
+                lim = lim * _define(0x33E1318) // ONE
+            hi = max(floor_, ONE - _modifier(co, 0x94))
+            lim = floor_ if lim < floor_ else min(lim, hi)
+            lim = min(ONE, lim + _modifier(co, 0x93))
+            if total <= 0:
+                held, total = held2, total2
+            raw = 0 if total <= 0 else min(ONE, max(0, ONE - held * ONE // total))
+            prog = ONE if i(co + 0x434) == 0 else (min(ONE, raw * ONE // lim) if lim > 0 else ONE)
+            need = max(0, held - ((ONE - lim) * total) // ONE) if total > 0 else 0
+            row = {'progress_pct': round(prog / 1000, 1), 'surrender_limit_pct': round(lim / 1000, 1),
+                   'occupied_pct': round(raw / 1000, 1), 'held_units': held, 'total_units': total,
+                   'units_still_needed': need}
+            if i(co + 0xc) > 0:
+                row['approximate'] = True
+            return row, total, lim
+        surrender, _surr_scale = {}, {}
+        for c in foes:
+            try:
+                row, total_, lim_ = surrender_of(c)
+                surrender[tag_of(c) or str(c)] = row
+                _surr_scale[c] = (total_, lim_)
+            except Exception:
+                continue
         # ---- map topology for the commander ----
         from collections import deque
         region_of = {}
@@ -563,8 +617,13 @@ def _capture_once():
         for pid_ in foe_prov:
             vp = i(prov_ptrs[pid_] + 0x38)
             if 0 < vp <= 100000 and pid_ in depth:
-                key_targets.append({'province_id': pid_, 'victory_points': vp,
-                                    'owner': tag_of(controller[pid_]), 'hops_from_our_land': depth[pid_]})
+                row = {'province_id': pid_, 'victory_points': vp,
+                       'owner': tag_of(controller[pid_]), 'hops_from_our_land': depth[pid_]}
+                total_, lim_ = _surr_scale.get(controller[pid_], (0, 0))
+                if total_ > 0 and lim_ > 0:
+                    # what taking this province adds to its controller's surrender progress
+                    row['surrender_gain_pct'] = round((10 * vp + 1) * ONE / total_ / lim_ * 100, 2)
+                key_targets.append(row)
         key_targets.sort(key=lambda r: (-r['victory_points'], r['hops_from_our_land']))
         # ---- encirclement indicators (for key-moment detection) ----
         # Enemy: connected components of each foe's land, built only from provinces
@@ -644,6 +703,7 @@ def _capture_once():
                                   **enemy_terrain.get(k, {}))
                              for k, v in sorted(enemy_border.items())],
             'enemy_controlled_provinces': foe_counts,
+            'surrender': surrender,
             'own_controlled_provinces': sum(1 for v in controller.values() if v == me),
             'own_watch_border': sorted(own_watch),
             'own_watch_facing': {str(k): v for k, v in sorted(own_watch_detail.items())},

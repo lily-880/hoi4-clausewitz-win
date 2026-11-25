@@ -154,9 +154,59 @@ def _front(doc: dict) -> dict:
         "own_provinces": ext.get("own_controlled_provinces"),
         "regions": [{"region": r["region"], "provinces": r["provinces"], "border_provinces": r["border_provinces"]}
                     for r in (ext.get("topology") or {}).get("regions", [])],
-        "key_targets": _top_targets((ext.get("topology") or {}).get("key_targets", [])),
+        "key_targets": _target_costs(doc, _top_targets((ext.get("topology") or {}).get("key_targets", []))),
+        "surrender": _surrender(doc),
         "forces": _forces(doc),
     }
+
+
+def _surrender(doc: dict) -> dict:
+    """Surrender progress of the enemies that matter here: the scenario's primary targets,
+    enemies we share a land border with, and any enemy already losing ground."""
+    ext = doc.get("_ext") or {}
+    rows = ext.get("surrender") or {}
+    bordering = {(e.get("controller") or {}).get("tag") for e in ext.get("enemy_border", [])}
+    primary = set(getattr(cv, "PRIMARY_TARGETS", None) or [])
+    return {t: r for t, r in rows.items()
+            if t in primary or t in bordering or (r.get("progress_pct") or 0) > 0}
+
+
+def _target_costs(doc: dict, targets: list[dict]) -> list[dict]:
+    """Facts for weighing each key target: what taking it is worth (surrender_gain_pct)
+    against what it costs (terrain, fort, our divisions next to it, enemy divisions seen in it).
+    Enemy divisions are only visible in combats with us; 0 seen does not mean undefended."""
+    world = doc.get("world") or {}
+    provs = {p["province_id"]: p for p in world.get("provinces", [])}
+    border = {e["province_id"]: e for e in (doc.get("_ext") or {}).get("enemy_border", [])}
+    at: dict = {}
+    for u in world.get("own_units", []):
+        at[u.get("province_id")] = at.get(u.get("province_id"), 0) + 1
+    seen: dict = {}
+    for u in world.get("visible_units", []):
+        if u.get("relation_to_player") == "enemy":
+            seen[u.get("province_id")] = seen.get(u.get("province_id"), 0) + 1
+    fighting = {c.get("province_id") for c in world.get("combats", [])}
+    rev: dict = {}  # enemy province -> our provinces that border it (enemy rows carry no neighbours)
+    for q in world.get("provinces", []):
+        for n in q.get("neighbors") or []:
+            rev.setdefault(n, set()).add(q["province_id"])
+    out = []
+    for t in targets:
+        row = dict(t)
+        pid = t.get("province_id")
+        p, b = provs.get(pid) or {}, border.get(pid) or {}
+        for k in ("terrain", "fort_level"):
+            v = b.get(k, p.get(k))
+            if v is not None:
+                row[k] = v
+        nbs = set(p.get("neighbors") or []) | rev.get(pid, set())
+        if nbs:
+            row["our_divisions_adjacent"] = sum(at.get(n, 0) for n in nbs)
+        row["enemy_divisions_seen"] = seen.get(pid, 0)
+        if pid in fighting:
+            row["combat_here"] = True
+        out.append(row)
+    return out
 
 
 def _top_targets(targets: list[dict]) -> list[dict]:
