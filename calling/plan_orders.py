@@ -156,9 +156,28 @@ def view(doc: dict, session=None) -> dict:
             violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）不是由元帅指挥：改任元帅")
     me = ((doc.get("meta") or {}).get("player_country") or {}).get("tag")
     sections = {}
+    free_by_pos: dict = {}
     try:
         import orbat
-        for tag, rows in orbat.front_sections(s).items():
+        fs = orbat.front_sections(s)
+        # where the free divisions stand along each border section (0..100 % of the section, in 10 %
+        # bins): an army built from divisions already inside its front's range starts attacking
+        # days earlier than one gathered from all over (exams 5 and 6: about a week of reshuffling)
+        try:
+            where = {u: (units.get(u) or {}).get("province_id") for u in units if u not in in_army}
+            for tag, rows in fs.items():
+                for r in rows:
+                    provs = r["provinces"]
+                    idx = {p: i for i, p in enumerate(provs)}
+                    for u, p in where.items():
+                        if p in idx:
+                            pct = int(100 * idx[p] / max(1, len(provs) - 1))
+                            key = f"{min(90, pct // 10 * 10)}-{min(100, pct // 10 * 10 + 10)}"
+                            free_by_pos.setdefault(tag, {}).setdefault(str(r["section"]), {}) \
+                                .setdefault(key, []).append(u)
+        except Exception:
+            free_by_pos = {}
+        for tag, rows in fs.items():
             for r in rows:
                 own = orbat.own_range(r["controllers"], me) if me else None
                 foreign = sorted({c for c in r["controllers"] if c and c != me})
@@ -178,7 +197,8 @@ def view(doc: dict, session=None) -> dict:
             "field_marshals_total": sum(1 for l in leaders_live.values()
                                         if l.get("rank") == "field_marshal" and l["key"] not in unavailable),
             "command_rule_violations": violations,
-            "border_fronts": {k: v for k, v in fronts.items() if k in at_war}}
+            "border_fronts": {k: v for k, v in fronts.items() if k in at_war},
+            "free_divisions_by_border_position": {k: v for k, v in free_by_pos.items() if k in at_war}}
 
 
 def validate(order: dict, doc: dict, pview: dict) -> str | None:

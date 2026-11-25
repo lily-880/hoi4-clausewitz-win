@@ -19,7 +19,8 @@
 ## 命令规则（系统会拒绝违规命令）
 - **编制**
   - create_army：从 order_of_battle.divisions_not_in_any_army 里选不超过 24 个师组成集团军，指定一位 rank=general 的空闲将军。
-    - 尽量选已经在这个集团军将要负责的那段边境附近的师（看 units 的所在省和 front.sections）。从各处拼凑的集团军，执行后要先花几天把师调到各自的前线位置，才会开始进攻。
+    - 尽量选已经在这个集团军将要负责的那段边境上的师。order_of_battle.free_divisions_by_border_position 按"国家 → 段号 → 百分比区间 → 师编号"列出了站在边境上的空闲师，百分比和 front_line 的 section、range_pct 是同一把尺子。例如要给某集团军画第 2 段 30～60% 的前线，就优先选该段 30-40、40-50、50-60 区间里的师。
+    - 从各处拼凑的集团军，执行后要先花几天把师调到各自的前线位置，才会开始进攻。
   - create_army_group：由 1～5 个尚未编组的集团军组成，指定一位 rank=field_marshal 的空闲元帅。
   - 指挥体系（玩家硬性要求）：
     - 集团军只能由将军指挥，集团军群只能由元帅指挥；
