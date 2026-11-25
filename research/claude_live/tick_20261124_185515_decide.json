@@ -1,0 +1,182 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            23
+          ]
+        },
+        "reason": "组织度仅4.3，撤出678休整，勿浪费兵力",
+        "cancel_scope": "current_movement"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：13 个师未满编，库存 542",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 542,
+          "affected_unit_ids": [
+            24,
+            28,
+            35,
+            37,
+            40,
+            54,
+            58,
+            73,
+            80,
+            85,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "4 个师缺人力",
+        "payload": {
+          "available": 2657582,
+          "affected_unit_ids": [
+            35,
+            40,
+            54,
+            122
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            23
+          ]
+        },
+        "expands_to_order_seqs": [
+          1
+        ],
+        "notes": "波兰已无控制省份实质投降，主力维持西线要塞防御，仅由第1集团军继续经678无要塞缺口对法施压。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 12,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰全境已失（0省），评分目标基本锁定。西线8省驻80师远超最低2师/省，本土安全；仅11640当面678省无要塞，为唯一可攻方向，其余据垒对峙。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "执行中；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 54,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 0 个师，经集团军共 24 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 55,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 2 个"
+        },
+        {
+          "plan_id": 56,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 4 个"
+        }
+      ],
+      "risks": [
+        "678单方向攻坚消耗大，可能长期僵持",
+        "法军要塞群难以突破，进攻收益有限",
+        "需防法军趁我攻678时在西线反击",
+        "低组织度师若继续投入会白白损耗",
+        "战斗 427（省份 678）明显不利：我方组织度损失 257.5，敌方 0.7",
+        "86 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：231. Infanterie-Division(77%)、25. Infanterie-Division(37%)、33. Infanterie-Division(37%)、15. Infanterie-Division(48%)、52. Infanterie-Division(48%)、79. Infanterie-Division(59%)、Grenzkommando St. Wendel(41%)、6. Infanterie-Division(77%)、9. Infanterie-Division(37%)、36. Infanterie-Division(98%)、71. Infanterie-Division(98%)、58. Infanterie-Division(32%)、87. Infanterie-Division(59%)、22. Infanterie-Division(80%)、225. Infanterie-Division(41%)、16. Infanterie-Division(37%)、69. Infanterie-Division(48%)、211. Infanterie-Division(77%)、78. Infanterie-Division(87%)、212. Infanterie-Division(32%)、215. Infanterie-Division(87%)、SS-Standarte 'Der Führer'(77%)、5. Infanterie-Division(32%)、35. Infanterie-Division(41%)、14. Landwehr-Division(32%)、251. Infanterie-Division(59%)、253. Infanterie-Division(42%)、254. Infanterie-Division(37%)、255. Infanterie-Division(41%)、73. Infanterie-Division(86%)、206. Infanterie-Division(41%)、208. Infanterie-Division(32%)、10. Panzer-Division(32%)、23. Infanterie-Division(59%)、207. Infanterie-Division(37%)、218. Infanterie-Division(77%)、Grenzschutz-Abschnitts-Kommando 1(52%)、Grenzschutz-Abschnitts-Kommando 2(37%)、Grenzschutz-Abschnitts-Kommando 12(37%)、3. Infanterie-Division(77%)、50. Infanterie-Division(88%)、3. Panzer-Division(85%)、2. Infanterie-Division (mot.)(48%)、20. Infanterie-Division (mot.)(32%)、252. Infanterie-Division(37%)、257. Infanterie-Division(87%)、258. Infanterie-Division(59%)、27. Infanterie-Division(48%)、68. Infanterie-Division(48%)、62. Infanterie-Division(80%)、213. Infanterie-Division(87%)、221. Infanterie-Division(80%)、30. Infanterie-Division(95%)、Grenzschutz-Abschnitts-Kommando 13(32%)、Grenzschutz-Abschnitts-Kommando 14(77%)、24. Infanterie-Division(59%)、SS Leibstandarte 'Adolf Hitler'(48%)、10. Infanterie-Division(88%)、17. Infanterie-Division(41%)、1. Leichte-Division(77%)、3. Leichte-Division(37%)、4. Infanterie-Division(48%)、46. Infanterie-Division(48%)、13. Infanterie-Division (mot.)(48%)、29. Infanterie-Division (mot.)(95%)、4. Panzer-Division(59%)、18. Infanterie-Division(98%)、19. Infanterie-Division(98%)、2. Leichte-Division(77%)、1. Panzer-Division(37%)、14. Infanterie-Division(41%)、31. Infanterie-Division(41%)、Grenzschutz-Abschnitts-Kommando 30(87%)、SS-Standarte 'Germania'(87%)、5. Panzer-Division(32%)、8. Infanterie-Division(41%)、28. Infanterie-Division(77%)、239. Infanterie-Division(37%)、Grenzschutz-Abschnitts-Kommando 3(37%)、7. Infanterie-Division(41%)、44. Infanterie-Division(48%)、45. Infanterie-Division(77%)、2. Panzer-Division(32%)、4. Leichte-Division(32%)、3. Gebirgs-Division(80%)、56. Infanterie-Division(32%)"
+      ],
+      "next_watch": [
+        "战斗 427 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:55:02-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：13 个师未满编，库存 542",
+      "4 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰全境已失（0省），评分目标基本锁定。西线8省驻80师远超最低2师/省，本土安全；仅11640当面678省无要塞，为唯一可攻方向，其余据垒对峙。",
+    "plan_orders": [],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "unit": 23,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-12",
+        "ui_hour": 24,
+        "hour_tick": 60793223
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-13",
+        "ui_hour": 12,
+        "hour_tick": 60793235
+      }
+    }
+  }
+}

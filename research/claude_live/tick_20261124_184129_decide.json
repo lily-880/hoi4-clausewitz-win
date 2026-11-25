@@ -1,0 +1,222 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            55
+          ]
+        },
+        "reason": "装甲勿在丘陵强攻，撤回待用",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 2,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            111
+          ]
+        },
+        "reason": "装甲勿在丘陵强攻，撤回待用",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            119
+          ]
+        },
+        "reason": "装甲勿在丘陵强攻，撤回待用",
+        "cancel_scope": "current_movement"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：20 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            25,
+            28,
+            33,
+            35,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "5 个师缺人力",
+        "payload": {
+          "available": 2626343,
+          "affected_unit_ids": [
+            25,
+            28,
+            35,
+            40,
+            54
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            55,
+            111,
+            119
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3
+        ],
+        "notes": "波兰已全境占领，转入西线固守；撤回在678丘陵消耗的装甲师，仅留步兵维持压力。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 7,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰0省、主要目标达成。西线8省已驻77个师、满足本土防御下限，无需增调。678是法境唯一无要塞软肋，但单方向丘陵进攻报告losing，故撤下三个装甲师保留突破力量，步兵继续试探。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "678丘陵强攻持续亏损组织度，可能白耗兵力",
+        "玛奇诺防线要塞10，正面扩大进攻代价极高",
+        "11640补给仅0.3，不宜再堆兵",
+        "撤回的装甲师须尽快转用于平原突破",
+        "战斗 427（省份 678）明显不利：我方组织度损失 95.5，敌方 0.4",
+        "65 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：25. Infanterie-Division(30%)、33. Infanterie-Division(30%)、15. Infanterie-Division(71%)、52. Infanterie-Division(71%)、79. Infanterie-Division(82%)、Grenzkommando St. Wendel(78%)、9. Infanterie-Division(50%)、58. Infanterie-Division(30%)、87. Infanterie-Division(82%)、22. Infanterie-Division(72%)、225. Infanterie-Division(43%)、16. Infanterie-Division(30%)、69. Infanterie-Division(38%)、212. Infanterie-Division(30%)、SS-Standarte 'Der Führer'(69%)、5. Infanterie-Division(30%)、35. Infanterie-Division(79%)、14. Landwehr-Division(30%)、251. Infanterie-Division(50%)、254. Infanterie-Division(66%)、255. Infanterie-Division(38%)、206. Infanterie-Division(79%)、208. Infanterie-Division(30%)、10. Panzer-Division(30%)、23. Infanterie-Division(84%)、207. Infanterie-Division(30%)、218. Infanterie-Division(79%)、Grenzschutz-Abschnitts-Kommando 1(83%)、Grenzschutz-Abschnitts-Kommando 2(70%)、Grenzschutz-Abschnitts-Kommando 12(66%)、2. Infanterie-Division (mot.)(40%)、20. Infanterie-Division (mot.)(64%)、252. Infanterie-Division(30%)、258. Infanterie-Division(82%)、27. Infanterie-Division(66%)、68. Infanterie-Division(70%)、62. Infanterie-Division(72%)、213. Infanterie-Division(77%)、221. Infanterie-Division(74%)、Grenzschutz-Abschnitts-Kommando 13(77%)、24. Infanterie-Division(85%)、SS Leibstandarte 'Adolf Hitler'(82%)、17. Infanterie-Division(76%)、3. Leichte-Division(75%)、4. Infanterie-Division(38%)、46. Infanterie-Division(38%)、13. Infanterie-Division (mot.)(74%)、4. Panzer-Division(50%)、2. Leichte-Division(69%)、1. Panzer-Division(77%)、14. Infanterie-Division(64%)、31. Infanterie-Division(84%)、Grenzschutz-Abschnitts-Kommando 30(77%)、SS-Standarte 'Germania'(77%)、5. Panzer-Division(30%)、8. Infanterie-Division(34%)、28. Infanterie-Division(69%)、239. Infanterie-Division(30%)、Grenzschutz-Abschnitts-Kommando 3(30%)、7. Infanterie-Division(38%)、44. Infanterie-Division(38%)、2. Panzer-Division(30%)、4. Leichte-Division(58%)、3. Gebirgs-Division(72%)、56. Infanterie-Division(30%)"
+      ],
+      "next_watch": [
+        "战斗 427 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:41:15-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：20 个师未满编，库存 0",
+      "5 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰0省、主要目标达成。西线8省已驻77个师、满足本土防御下限，无需增调。678是法境唯一无要塞软肋，但单方向丘陵进攻报告losing，故撤下三个装甲师保留突破力量，步兵继续试探。",
+    "plan_orders": [],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "unit": 55,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "cancel",
+        "unit": 111,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "unit": 119,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-07",
+        "ui_hour": 24,
+        "hour_tick": 60793103
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-08",
+        "ui_hour": 12,
+        "hour_tick": 60793115
+      }
+    }
+  }
+}

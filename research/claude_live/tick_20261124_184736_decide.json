@@ -1,0 +1,226 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            90
+          ]
+        },
+        "reason": "生力军增援678无要塞缺口",
+        "target_province_ids": [
+          678
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            40
+          ]
+        },
+        "reason": "轮换疲惫攻击部队",
+        "target_province_ids": [
+          678
+        ]
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            80
+          ]
+        },
+        "reason": "摩托化生力军补入突破点",
+        "target_province_ids": [
+          678
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：20 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            25,
+            28,
+            33,
+            35,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "4 个师缺人力",
+        "payload": {
+          "available": 2624538,
+          "affected_unit_ids": [
+            25,
+            35,
+            40,
+            54
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            40,
+            80,
+            90
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3
+        ],
+        "notes": "波兰全境已占，转入对法作战；集中生力军轮换攻打马奇诺唯一无要塞缺口678。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 9,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰各敌省已归零、投降在即。法边境多数省份要塞10级不可强攻，唯678为丘陵无要塞缺口，现有攻击部队组织偏低，投入生力军维持轮换施压。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "678敌军组织几乎不掉，攻势恐长期胶着",
+        "西线须始终保持每省至少2师",
+        "11640低补给拖累组织恢复",
+        "战斗 427（省份 678）明显不利：我方组织度损失 168.8，敌方 0.6",
+        "73 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：231. Infanterie-Division(94%)、25. Infanterie-Division(35%)、33. Infanterie-Division(35%)、15. Infanterie-Division(45%)、52. Infanterie-Division(45%)、79. Infanterie-Division(57%)、Grenzkommando St. Wendel(46%)、6. Infanterie-Division(94%)、9. Infanterie-Division(35%)、58. Infanterie-Division(31%)、87. Infanterie-Division(57%)、22. Infanterie-Division(76%)、225. Infanterie-Division(39%)、16. Infanterie-Division(35%)、69. Infanterie-Division(45%)、211. Infanterie-Division(92%)、212. Infanterie-Division(31%)、SS-Standarte 'Der Führer'(74%)、5. Infanterie-Division(31%)、35. Infanterie-Division(47%)、14. Landwehr-Division(31%)、251. Infanterie-Division(56%)、253. Infanterie-Division(92%)、254. Infanterie-Division(35%)、255. Infanterie-Division(39%)、206. Infanterie-Division(47%)、208. Infanterie-Division(31%)、10. Panzer-Division(31%)、23. Infanterie-Division(59%)、207. Infanterie-Division(35%)、218. Infanterie-Division(74%)、Grenzschutz-Abschnitts-Kommando 1(79%)、Grenzschutz-Abschnitts-Kommando 2(36%)、Grenzschutz-Abschnitts-Kommando 12(35%)、3. Infanterie-Division(92%)、2. Infanterie-Division (mot.)(45%)、20. Infanterie-Division (mot.)(31%)、252. Infanterie-Division(35%)、258. Infanterie-Division(57%)、27. Infanterie-Division(45%)、68. Infanterie-Division(45%)、62. Infanterie-Division(76%)、213. Infanterie-Division(79%)、221. Infanterie-Division(76%)、Grenzschutz-Abschnitts-Kommando 13(42%)、Grenzschutz-Abschnitts-Kommando 14(94%)、24. Infanterie-Division(59%)、SS Leibstandarte 'Adolf Hitler'(52%)、17. Infanterie-Division(44%)、1. Leichte-Division(92%)、3. Leichte-Division(40%)、4. Infanterie-Division(45%)、46. Infanterie-Division(45%)、13. Infanterie-Division (mot.)(45%)、4. Panzer-Division(56%)、2. Leichte-Division(74%)、1. Panzer-Division(43%)、14. Infanterie-Division(39%)、31. Infanterie-Division(52%)、Grenzschutz-Abschnitts-Kommando 30(79%)、SS-Standarte 'Germania'(79%)、5. Panzer-Division(31%)、8. Infanterie-Division(39%)、28. Infanterie-Division(74%)、239. Infanterie-Division(35%)、Grenzschutz-Abschnitts-Kommando 3(35%)、7. Infanterie-Division(39%)、44. Infanterie-Division(45%)、45. Infanterie-Division(95%)、2. Panzer-Division(31%)、4. Leichte-Division(31%)、3. Gebirgs-Division(76%)、56. Infanterie-Division(31%)"
+      ],
+      "next_watch": [
+        "战斗 427 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:47:23-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：20 个师未满编，库存 0",
+      "4 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰各敌省已归零、投降在即。法边境多数省份要塞10级不可强攻，唯678为丘陵无要塞缺口，现有攻击部队组织偏低，投入生力军维持轮换施压。",
+    "plan_orders": [],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 90,
+        "dest": 678,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 40,
+        "dest": 678,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "attack",
+        "unit": 80,
+        "dest": 678,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-09",
+        "ui_hour": 24,
+        "hour_tick": 60793151
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-10",
+        "ui_hour": 12,
+        "hour_tick": 60793163
+      }
+    }
+  }
+}

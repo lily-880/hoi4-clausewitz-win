@@ -151,7 +151,9 @@ def main(argv=None) -> int:
                 tick = {"error": (proc.stderr or proc.stdout)[-600:]}
             ext = {}
             try:
-                cap = sorted(OUT.glob("tick_*_capture.json"))[-1]
+                # newest by write time: a name sort put an old "tick_..._practice_0826" file last forever,
+                # so the score and key moments read stale data for a whole mock exam
+                cap = max(OUT.glob("tick_*_capture.json"), key=lambda p: p.stat().st_mtime)
                 ext = json.loads(cap.read_text(encoding="utf-8")).get("commander_ext") or {}
             except (IndexError, ValueError, OSError):
                 pass

@@ -1,0 +1,137 @@
+{
+  "output": {
+    "orders": [],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：18 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            28,
+            33,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "2 个师缺人力",
+        "payload": {
+          "available": 2630374,
+          "affected_unit_ids": [
+            28,
+            40
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 2,
+        "hour": 24
+      },
+      "summary": "【大模型】敌方波兰已无控制省份（POL:0），战役目标基本达成。当前唯一交战为11640进攻法国678省（丘陵、无要塞、5胜利点），我方7师对敌6师、敌组织度仅38且我方持续回血，趋势占优。其余法边境（549/9503/6529/9559/11502/3629）均为要塞10，不宜正面硬攻，保持现有填线。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "马奇诺正面（要塞10）强攻将造成重大损失，切勿抽空西线",
+        "678突破后需下一拍及时补画进攻线，否则部队停在原地",
+        "11640已堆7个师超出丘陵战斗宽度，勿再加兵",
+        "低组织度师（如23师org8）不应投入新战斗",
+        "战斗 397（省份 678）明显不利：我方组织度损失 200.0，敌方 0.3",
+        "22 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：58. Infanterie-Division(63%)、22. Infanterie-Division(74%)、16. Infanterie-Division(76%)、69. Infanterie-Division(90%)、SS-Standarte 'Der Führer'(74%)、5. Infanterie-Division(74%)、14. Landwehr-Division(74%)、251. Infanterie-Division(87%)、255. Infanterie-Division(91%)、208. Infanterie-Division(52%)、10. Panzer-Division(69%)、207. Infanterie-Division(85%)、46. Infanterie-Division(87%)、4. Panzer-Division(87%)、5. Panzer-Division(58%)、8. Infanterie-Division(90%)、28. Infanterie-Division(90%)、239. Infanterie-Division(96%)、Grenzschutz-Abschnitts-Kommando 3(97%)、7. Infanterie-Division(91%)、2. Panzer-Division(55%)、56. Infanterie-Division(34%)"
+      ],
+      "next_watch": [
+        "战斗 397 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:27:37-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：18 个师未满编，库存 0",
+      "2 个师缺人力"
+    ],
+    "brief_summary": "【大模型】敌方波兰已无控制省份（POL:0），战役目标基本达成。当前唯一交战为11640进攻法国678省（丘陵、无要塞、5胜利点），我方7师对敌6师、敌组织度仅38且我方持续回血，趋势占优。其余法边境（549/9503/6529/9559/11502/3629）均为要塞10，不宜正面硬攻，保持现有填线。",
+    "plan_orders": [],
+    "executed": [],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-02",
+        "ui_hour": 24,
+        "hour_tick": 60792983
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-03",
+        "ui_hour": 12,
+        "hour_tick": 60792995
+      }
+    }
+  }
+}

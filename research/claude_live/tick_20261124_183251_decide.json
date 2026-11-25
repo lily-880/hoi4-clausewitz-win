@@ -1,0 +1,138 @@
+{
+  "output": {
+    "orders": [],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：20 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            25,
+            28,
+            33,
+            35,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "5 个师缺人力",
+        "payload": {
+          "available": 2628085,
+          "affected_unit_ids": [
+            25,
+            28,
+            35,
+            40,
+            54
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 4,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰已被完全占领（控制省份为0），闪电战目标达成。西线对法防御已满足每省≥2师的最低要求，short_provinces为空。当面法军依托10级要塞与丘陵山地，且我多支主力组织度偏低（集团军1、2平均仅27/35），本拍宜守不宜攻。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "大量师组织度偏低，需数日休整才能恢复战力",
+        "法军若主动出击，疲惫部队防守压力大",
+        "强攻法国要塞+山地地形代价极高，易被拖入消耗",
+        "第3、5集团军闲置但位置不明，暂不轻易调动以免破坏现有防线",
+        "38 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：25. Infanterie-Division(76%)、33. Infanterie-Division(76%)、58. Infanterie-Division(27%)、22. Infanterie-Division(38%)、225. Infanterie-Division(86%)、16. Infanterie-Division(44%)、69. Infanterie-Division(76%)、212. Infanterie-Division(72%)、SS-Standarte 'Der Führer'(70%)、5. Infanterie-Division(38%)、14. Landwehr-Division(38%)、251. Infanterie-Division(63%)、255. Infanterie-Division(63%)、208. Infanterie-Division(26%)、10. Panzer-Division(33%)、207. Infanterie-Division(52%)、2. Infanterie-Division (mot.)(86%)、252. Infanterie-Division(76%)、62. Infanterie-Division(89%)、213. Infanterie-Division(90%)、221. Infanterie-Division(93%)、4. Infanterie-Division(78%)、46. Infanterie-Division(59%)、4. Panzer-Division(63%)、2. Leichte-Division(92%)、Grenzschutz-Abschnitts-Kommando 30(90%)、SS-Standarte 'Germania'(90%)、5. Panzer-Division(26%)、8. Infanterie-Division(56%)、28. Infanterie-Division(74%)、239. Infanterie-Division(64%)、Grenzschutz-Abschnitts-Kommando 3(64%)、7. Infanterie-Division(64%)、44. Infanterie-Division(78%)、2. Panzer-Division(26%)、4. Leichte-Division(90%)、3. Gebirgs-Division(88%)、56. Infanterie-Division(26%)"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:32:38-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：20 个师未满编，库存 0",
+      "5 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰已被完全占领（控制省份为0），闪电战目标达成。西线对法防御已满足每省≥2师的最低要求，short_provinces为空。当面法军依托10级要塞与丘陵山地，且我多支主力组织度偏低（集团军1、2平均仅27/35），本拍宜守不宜攻。",
+    "plan_orders": [],
+    "executed": [],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-04",
+        "ui_hour": 24,
+        "hour_tick": 60793031
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-05",
+        "ui_hour": 12,
+        "hour_tick": 60793043
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "output": {
+    "orders": [],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：18 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            28,
+            33,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "1 个师缺人力",
+        "payload": {
+          "available": 2627328,
+          "affected_unit_ids": [
+            28
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 10,
+        "day": 29,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰已无控制省份，阶段性目标达成。西线四个集团军共约86个师守卫法国边境，home_defense无缺额。大量师仍在长途行军或组织度极低，不宜立即发起攻坚；11640对678（丘陵、无要塞、5点胜利点）的战斗趋势为winning，任其继续。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "大批行军师组织度仅7-8，短期无法投入进攻",
+        "西线正面为10级要塞丘陵/城市，贸然全线进攻会白耗人力",
+        "11640一带集结师过多，可能拥挤排队",
+        "波兰若尚未正式投降，需确认其是否已capitulate",
+        "战斗 397（省份 678）明显不利：我方组织度损失 112.8，敌方 0.3",
+        "10 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：16. Infanterie-Division(93%)、251. Infanterie-Division(87%)、255. Infanterie-Division(87%)、46. Infanterie-Division(87%)、4. Panzer-Division(87%)、8. Infanterie-Division(87%)、28. Infanterie-Division(87%)、7. Infanterie-Division(87%)、4. Leichte-Division(87%)、56. Infanterie-Division(77%)"
+      ],
+      "next_watch": [
+        "战斗 397 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:17:44-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：18 个师未满编，库存 0",
+      "1 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰已无控制省份，阶段性目标达成。西线四个集团军共约86个师守卫法国边境，home_defense无缺额。大量师仍在长途行军或组织度极低，不宜立即发起攻坚；11640对678（丘陵、无要塞、5点胜利点）的战斗趋势为winning，任其继续。",
+    "plan_orders": [],
+    "executed": [],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-10-29",
+        "ui_hour": 24,
+        "hour_tick": 60792887
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-10-30",
+        "ui_hour": 12,
+        "hour_tick": 60792899
+      }
+    }
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            54
+          ]
+        },
+        "reason": "停止对678的失利强攻，回防休整",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 2,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            37
+          ]
+        },
+        "reason": "补给差组织度低，撤出强攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            122
+          ]
+        },
+        "reason": "停止强攻，就地固守",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            25
+          ]
+        },
+        "reason": "组织度仅32，停止攻城",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            38
+          ]
+        },
+        "reason": "停止强攻，保存兵力",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 6,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            23
+          ]
+        },
+        "reason": "补给差，撤出678战斗",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 7,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            35
+          ]
+        },
+        "reason": "组织度下滑，停止进攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 8,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            55
+          ]
+        },
+        "reason": "装甲组织度34，撤出强攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 9,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            111
+          ]
+        },
+        "reason": "补给差，停止对678进攻",
+        "cancel_scope": "current_movement"
+      },
+      {
+        "order_seq": 10,
+        "type": "cancel",
+        "subject": {
+          "unit_ids": [
+            119
+          ]
+        },
+        "reason": "低组织度，撤出失利战斗",
+        "cancel_scope": "current_movement"
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：18 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            28,
+            33,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "2 个师缺人力",
+        "payload": {
+          "available": 2629723,
+          "affected_unit_ids": [
+            28,
+            40
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            23,
+            25,
+            35,
+            37,
+            38,
+            54,
+            55,
+            111,
+            119,
+            122
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "notes": "波兰已全境占领，西线全面转入防御，停止在法国边境的失利强攻、就地休整。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 3,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰敌方省份已为0，闪击战目标达成。西线全程面对法国fort-10筑垒，678战斗趋势失利、我军组织度骤降而敌军几乎无损，应停止强攻、保存兵力固守，本土防御下限已满足。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "678附近补给仅0.3-0.6，部队组织度低，续攻将白白损耗",
+        "法国边境堡垒等级高，正面进攻代价大",
+        "撤出攻击后法军可能反扑11640一带，需保持警惕",
+        "战斗 397（省份 678）明显不利：我方组织度损失 221.5，敌方 0.3",
+        "33 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：25. Infanterie-Division(93%)、33. Infanterie-Division(93%)、58. Infanterie-Division(45%)、22. Infanterie-Division(56%)、16. Infanterie-Division(60%)、69. Infanterie-Division(82%)、212. Infanterie-Division(90%)、SS-Standarte 'Der Führer'(57%)、5. Infanterie-Division(56%)、14. Landwehr-Division(57%)、251. Infanterie-Division(75%)、255. Infanterie-Division(77%)、208. Infanterie-Division(34%)、10. Panzer-Division(51%)、207. Infanterie-Division(69%)、252. Infanterie-Division(93%)、62. Infanterie-Division(94%)、213. Infanterie-Division(96%)、4. Infanterie-Division(93%)、46. Infanterie-Division(74%)、4. Panzer-Division(75%)、Grenzschutz-Abschnitts-Kommando 30(96%)、SS-Standarte 'Germania'(96%)、5. Panzer-Division(40%)、8. Infanterie-Division(74%)、28. Infanterie-Division(82%)、239. Infanterie-Division(81%)、Grenzschutz-Abschnitts-Kommando 3(81%)、7. Infanterie-Division(78%)、44. Infanterie-Division(93%)、2. Panzer-Division(37%)、3. Gebirgs-Division(94%)、56. Infanterie-Division(27%)"
+      ],
+      "next_watch": [
+        "战斗 397 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:29:43-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：18 个师未满编，库存 0",
+      "2 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰敌方省份已为0，闪击战目标达成。西线全程面对法国fort-10筑垒，678战斗趋势失利、我军组织度骤降而敌军几乎无损，应停止强攻、保存兵力固守，本土防御下限已满足。",
+    "plan_orders": [],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "cancel",
+        "unit": 54,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "cancel",
+        "unit": 37,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 3,
+        "type": "cancel",
+        "unit": 122,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 4,
+        "type": "cancel",
+        "unit": 25,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 5,
+        "type": "cancel",
+        "unit": 38,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 6,
+        "type": "cancel",
+        "unit": 23,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 7,
+        "type": "cancel",
+        "unit": 35,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 8,
+        "type": "cancel",
+        "unit": 55,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 9,
+        "type": "cancel",
+        "unit": 111,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 10,
+        "type": "cancel",
+        "unit": 119,
+        "dest": null,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-03",
+        "ui_hour": 24,
+        "hour_tick": 60793007
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-04",
+        "ui_hour": 12,
+        "hour_tick": 60793019
+      }
+    }
+  }
+}

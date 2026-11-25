@@ -1,0 +1,197 @@
+{
+  "output": {
+    "orders": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            23
+          ]
+        },
+        "reason": "生力军增援678唯一突破口",
+        "target_province_ids": [
+          678
+        ]
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "subject": {
+          "unit_ids": [
+            35
+          ]
+        },
+        "reason": "生力军增援678突破口",
+        "target_province_ids": [
+          678
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：18 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            28,
+            33,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "1 个师缺人力",
+        "payload": {
+          "available": 2631005,
+          "affected_unit_ids": [
+            28
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "llm-1",
+        "kind": "custom",
+        "subject": {
+          "unit_ids": [
+            23,
+            35
+          ]
+        },
+        "expands_to_order_seqs": [
+          1,
+          2
+        ],
+        "notes": "集中兵力突破法军唯一无要塞的678方向，西线全线保持要塞防守。"
+      }
+    ],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 11,
+        "day": 1,
+        "hour": 12
+      },
+      "summary": "【大模型】波兰已被占领（0省），重心转向西线。法德边境几乎全是10级要塞，仅678无要塞，是唯一突破口；现有6个师进攻但组织度交换不利，增派两个生力军维持攻势。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "678方向组织度交换不利，攻势可能僵持",
+        "法军全线10级要塞，正面强攻代价高",
+        "后方大量低组织度部队仍在行军途中",
+        "战斗 397（省份 678）明显不利：我方组织度损失 167.8，敌方 0.3",
+        "14 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：58. Infanterie-Division(86%)、22. Infanterie-Division(97%)、16. Infanterie-Division(89%)、69. Infanterie-Division(96%)、SS-Standarte 'Der Führer'(97%)、5. Infanterie-Division(97%)、14. Landwehr-Division(97%)、208. Infanterie-Division(75%)、10. Panzer-Division(92%)、207. Infanterie-Division(97%)、5. Panzer-Division(81%)、2. Panzer-Division(78%)、4. Leichte-Division(99%)、56. Infanterie-Division(48%)"
+      ],
+      "next_watch": [
+        "战斗 397 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:24:10-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：18 个师未满编，库存 0",
+      "1 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰已被占领（0省），重心转向西线。法德边境几乎全是10级要塞，仅678无要塞，是唯一突破口；现有6个师进攻但组织度交换不利，增派两个生力军维持攻势。",
+    "plan_orders": [],
+    "executed": [
+      {
+        "order_seq": 1,
+        "type": "attack",
+        "unit": 23,
+        "dest": 678,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      },
+      {
+        "order_seq": 2,
+        "type": "attack",
+        "unit": 35,
+        "dest": 678,
+        "ok": true,
+        "stop": null,
+        "posted": true
+      }
+    ],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-01",
+        "ui_hour": 12,
+        "hour_tick": 60792947
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-11-01",
+        "ui_hour": 24,
+        "hour_tick": 60792959
+      }
+    }
+  }
+}

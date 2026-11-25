@@ -62,3 +62,7 @@
 ## 2026-11-24 更新：新增本土防御要求，改进已落地
 最新进度见 `records/claude_c08_home_defense_and_practice1.md`。现在默认参谋为 decide_v3，带本土防线硬保护；练习局在 1939-08-26 24 时暂停（领先基准局 3 个省）。
 
+
+## 2026-11-24 Update: second mock exam
+The commander built its own ORBAT and drew its own front lines and offensive lines; **Poland stopped resisting on 1939-10-12 (59 days, 3 days earlier than the baseline game), cost about ¥6.70**, and the homeland was not occupied. See `records/claude_c10_mock_exam2.md`. The scorer's stale-data reading has been fixed (pick the newest capture by modification time).
+

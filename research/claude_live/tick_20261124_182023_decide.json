@@ -1,0 +1,136 @@
+{
+  "output": {
+    "orders": [],
+    "alerts": [
+      {
+        "alert_id": "equipment_shortage-1",
+        "severity": "watch",
+        "kind": "equipment_shortage",
+        "message": "infantry_equipment 不足：18 个师未满编，库存 0",
+        "payload": {
+          "equipment_type": "infantry_equipment",
+          "stockpile": 0,
+          "affected_unit_ids": [
+            24,
+            28,
+            33,
+            37,
+            40,
+            45,
+            52,
+            54,
+            58,
+            73,
+            77,
+            80,
+            82,
+            85,
+            88,
+            97,
+            99,
+            122
+          ]
+        },
+        "suggested_player_action": "调整生产或装备分配（总司令无生产权限）"
+      },
+      {
+        "alert_id": "manpower_shortage-2",
+        "severity": "watch",
+        "kind": "manpower_shortage",
+        "message": "1 个师缺人力",
+        "payload": {
+          "available": 2626675,
+          "affected_unit_ids": [
+            28
+          ]
+        },
+        "suggested_player_action": "检查征兵法与人力（总司令无征兵权限）"
+      }
+    ],
+    "intents": [],
+    "brief": {
+      "game_time": {
+        "year": 1939,
+        "month": 10,
+        "day": 30,
+        "hour": 24
+      },
+      "summary": "【大模型】波兰已0省，战役目标达成。西线8省均达最低驻军（2师/省）且有多支生力军就位，53个师仍在回防途中（组织度普遍仅7-8，暂不可用于进攻）。678方向无要塞战斗持续但趋势持平；第3、5集团军共35个生力军待命。马奇诺沿线均为10级要塞，不宜正面强攻。",
+      "stance_applied": "annihilate",
+      "fronts": [
+        {
+          "plan_id": 50,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 20 个师，经集团军共 20 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 51,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 18 个师，经集团军共 18 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 52,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        },
+        {
+          "plan_id": 53,
+          "assessment": "未执行；绑定 1 个集团军；直接绑定 24 个师，经集团军共 24 个师；控制点 8 个"
+        }
+      ],
+      "risks": [
+        "回防部队组织度极低（约7-8），短期内无法组织有效进攻",
+        "678战斗双方僵持（trend even），持续消耗我方组织度",
+        "马奇诺全线10级要塞，正面突破代价过大",
+        "生力军若贸然投入678会因宽度超限而在后排队浪费",
+        "战斗 397（省份 678）明显不利：我方组织度损失 134.1，敌方 0.3",
+        "3 个师补给不满足（引擎缺补给判定，括号内为补给满足率，不代表被切断）：16. Infanterie-Division(93%)、208. Infanterie-Division(96%)、56. Infanterie-Division(70%)"
+      ],
+      "next_watch": [
+        "战斗 397 @ 省份 678"
+      ]
+    }
+  },
+  "tick": {
+    "at": "2026-11-24T18:20:09-05:00",
+    "decider": "decide_llm",
+    "allow_write": true,
+    "fronts_rebuilt": [
+      {
+        "army_id": 3,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      },
+      {
+        "army_id": 463,
+        "enemy": "POL",
+        "ok": false,
+        "stop": "该国没有边境前线"
+      }
+    ],
+    "validation_errors": [],
+    "alerts": [
+      "infantry_equipment 不足：18 个师未满编，库存 0",
+      "1 个师缺人力"
+    ],
+    "brief_summary": "【大模型】波兰已0省，战役目标达成。西线8省均达最低驻军（2师/省）且有多支生力军就位，53个师仍在回防途中（组织度普遍仅7-8，暂不可用于进攻）。678方向无要塞战斗持续但趋势持平；第3、5集团军共35个生力军待命。马奇诺沿线均为10级要塞，不宜正面强攻。",
+    "plan_orders": [],
+    "executed": [],
+    "clock": {
+      "start": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-10-30",
+        "ui_hour": 24,
+        "hour_tick": 60792911
+      },
+      "run": "OK",
+      "pause": "OK",
+      "end": {
+        "pause": 1,
+        "speed_slot": 0,
+        "ui_date": "1939-10-31",
+        "ui_hour": 12,
+        "hour_tick": 60792923
+      }
+    }
+  }
+}
