@@ -20,12 +20,20 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 MEMORY = HERE.parent / "research" / "claude_live" / "combat_memory.json"
 
+# Scenario parameters live in tables/scenario.json (one file per campaign, the
+# commander prompt stays generic); environment variables still override.
+try:
+    SCENARIO = json.loads((HERE / "tables" / "scenario.json").read_text(encoding="utf-8"))
+except (OSError, ValueError):
+    SCENARIO = {}
 # Staff default (the commander may decide otherwise): the enemy we attack.
-PRIMARY_TARGETS = set(filter(None, os.environ.get("COMMANDER_PRIMARY_TARGETS", "POL").split(",")))
+PRIMARY_TARGETS = set(filter(None, os.environ.get(
+    "COMMANDER_PRIMARY_TARGETS", ",".join(SCENARIO.get("primary_targets", []))).split(",")))
 # Minimum divisions per home-defense border province.
-DEFENSE_MIN = int(os.environ.get("COMMANDER_DEFENSE_MIN", "2"))
+DEFENSE_MIN = int(os.environ.get("COMMANDER_DEFENSE_MIN", str(SCENARIO.get("defense_min_per_province", 2))))
 # Countries not at war yet whose border is still defended (likely to declare).
-THREATS = set(filter(None, os.environ.get("COMMANDER_THREATS", "FRA,ENG").split(",")))
+THREATS = set(filter(None, os.environ.get(
+    "COMMANDER_THREATS", ",".join(SCENARIO.get("threats", []))).split(",")))
 
 ARMOR = {"light_armor", "medium_armor", "heavy_armor", "modern_armor",
          "amphibious_armor", "super_heavy_armor"}

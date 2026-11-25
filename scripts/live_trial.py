@@ -556,6 +556,24 @@ PAUSE_LATENCY_S = 0.0
 MAX_SPEED_SLOT = 3  # 0..4 = speed 1..5; slot 3 ~8 game h/s, overshoot of a 12 h beat ~1-2 h (measured 2026-11-25)
 
 
+def set_speed(slot: int, tries: int = 12) -> dict:
+    """Bring the speed slot to `slot` with numpad +/- posted in the background."""
+    import ctypes
+    s = Session(check_sha=False)
+    hwnd = _hwnds(s.pid)[0]
+    u = ctypes.windll.user32
+    for _ in range(tries):
+        cur = s.clock()["speed_slot"]
+        if cur == slot:
+            return {"result": "OK", "speed_slot": cur}
+        vk, scan = (0x6B, 0x4E) if cur < slot else (0x6D, 0x4A)
+        u.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16))
+        time.sleep(0.05)
+        u.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | (0xC0 << 24))
+        time.sleep(0.4)
+    return {"result": "FAILED", "speed_slot": s.clock()["speed_slot"]}
+
+
 def set_clock(want_run: bool) -> dict:
     """Set pause state via the space key; verify by reading the official flag."""
     s = Session(check_sha=False)

@@ -214,6 +214,36 @@ def launch(save: str | None = None) -> None:
     print("launched:", " ".join(argv[1:]))
 
 
+def launch_bg(save: str | None = None, watch_s: float = 180.0) -> dict:
+    """Relaunch the game without taking the user's foreground (user 2026-11-25):
+    start minimised / not activated, and whenever the game window still grabs the
+    foreground while loading, hand it straight back to the window the user had
+    and push the game to the bottom of the z-order."""
+    prev = user32.GetForegroundWindow()
+    subprocess.run(["taskkill", "/F", "/IM", "hoi4.exe"], capture_output=True)
+    time.sleep(3)
+    argv = [EXE, "-gdpr-compliant"] + ([f"-start_save={save}"] if save else [])
+    si = subprocess.STARTUPINFO()
+    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    si.wShowWindow = 7  # SW_SHOWMINNOACTIVE
+    subprocess.Popen(argv, cwd=str(Path(EXE).parent), close_fds=True, startupinfo=si)
+    grabbed = 0
+    t0 = time.time()
+    while time.time() - t0 < watch_s:
+        time.sleep(0.25)
+        try:
+            hwnd = find_window()
+        except SystemExit:
+            continue
+        if user32.GetForegroundWindow() == hwnd:
+            grabbed += 1
+            # HWND_BOTTOM, SWP_NOSIZE|SWP_NOMOVE|SWP_NOACTIVATE
+            user32.SetWindowPos(hwnd, 1, 0, 0, 0, 0, 0x0001 | 0x0002 | 0x0010)
+            if prev and user32.IsWindow(prev):
+                user32.SetForegroundWindow(prev)
+    return {"launched": argv[1:], "foreground_grabs_returned": grabbed, "previous_foreground": prev}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -228,6 +258,8 @@ def main(argv=None) -> int:
     k.add_argument("name")
     l = sub.add_parser("launch")
     l.add_argument("--save")
+    lb = sub.add_parser("launch-bg", help="relaunch without taking the user's foreground")
+    lb.add_argument("--save")
     w = sub.add_parser("scroll")
     w.add_argument("x", type=float)
     w.add_argument("y", type=float)
@@ -240,6 +272,8 @@ def main(argv=None) -> int:
         scroll(a.x, a.y, a.ticks)
     elif a.cmd == "idle":
         print(f"user idle {idle_seconds():.0f}s")
+    elif a.cmd == "launch-bg":
+        print(launch_bg(a.save))
     elif a.cmd == "click":
         click(a.x, a.y, a.right)
     elif a.cmd == "key":

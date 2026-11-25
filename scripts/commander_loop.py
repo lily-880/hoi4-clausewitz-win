@@ -104,6 +104,30 @@ def key_moments(prev: dict | None, ext: dict, targets: set[str]) -> list[dict]:
     return out
 
 
+SAVES = Path(os.path.expanduser("~")) / "Documents" / "Paradox Interactive" / "Hearts of Iron IV" / "save games"
+
+
+def save_moment(game: str, moments: list[dict]) -> str | None:
+    """Save in the background via the console (`savegame`) and give the file the
+    CC_ prefix (user 2026-11-25: saves made for/by Claude start with CC_)."""
+    import ai_benchmark as ab
+    before = {p.name for p in SAVES.glob("*.hoi4")}
+    t0 = time.time()
+    ab.console_bg("savegame")
+    for _ in range(40):
+        new = [p for p in SAVES.glob("*.hoi4") if p.name not in before and not p.name.startswith("autosave")
+               and p.stat().st_mtime >= t0 - 1]
+        if new:
+            time.sleep(1.5)  # let the writer finish
+            src = max(new, key=lambda p: p.stat().st_mtime)
+            kind = moments[0]["kind"] if moments else "关键时刻"
+            dst = SAVES / f"CC_练习_{kind}_{src.stem}.hoi4"
+            src.rename(dst)
+            return dst.name
+        time.sleep(0.5)
+    return None
+
+
 def target_state(targets: set[str]) -> dict:
     import live_trial as lt
 
@@ -119,7 +143,12 @@ def target_state(targets: set[str]) -> dict:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--decider", default="decide_llm")
-    ap.add_argument("--hours", type=int, default=12)
+    ap.add_argument("--hours", type=int, default=48, help="game hours between decisions in quiet times")
+    ap.add_argument("--event-hours", type=int, default=12,
+                    help="game hours to the next decision right after a key moment")
+    ap.add_argument("--speed-slot", type=int, default=3, help="game speed slot 0..3 (background numpad +/-)")
+    ap.add_argument("--save-moments", action="store_true",
+                    help="at key moments save in the background (CC_ prefix) and keep going")
     ap.add_argument("--max-ticks", type=int, default=200)
     ap.add_argument("--targets", default="POL")
     ap.add_argument("--key-moments", action="store_true",
@@ -138,12 +167,18 @@ def main(argv=None) -> int:
                            cwd=str(ROOT), creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     score = None
     prev_ext = None
+    next_hours = a.hours
     try:
+        import live_trial as lt0
+        spd = lt0.set_speed(a.speed_slot)
+        if spd["result"] != "OK":
+            print(json.dumps({"stop": "SPEED_NOT_SET", **spd}, ensure_ascii=False))
+            return 2
         done_before = sum(1 for x in PROGRESS.read_text(encoding="utf-8").splitlines() if x.strip())             if PROGRESS.exists() else 0
         for n in range(done_before + 1, done_before + a.max_ticks + 1):
             t0 = time.time()
             proc = subprocess.run([sys.executable, "-I", str(ROOT / "scripts" / "live_trial.py"), "tick",
-                                   "--decider", a.decider, "--allow-write", "--hours", str(a.hours)],
+                                   "--decider", a.decider, "--allow-write", "--hours", str(next_hours)],
                                   cwd=str(ROOT), capture_output=True, text=True, encoding="utf-8")
             try:
                 tick = json.loads(proc.stdout)
@@ -158,7 +193,8 @@ def main(argv=None) -> int:
             except (IndexError, ValueError, OSError):
                 pass
             counts = {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in targets}
-            moments = key_moments(prev_ext, ext, targets) if a.key_moments else []
+            moments = key_moments(prev_ext, ext, targets)
+            next_hours = a.event_hours if moments else a.hours
             prev_ext = ext or prev_ext
             war = target_state(targets)
             clock = ((tick.get("clock") or {}).get("end")) or {}
@@ -182,8 +218,15 @@ def main(argv=None) -> int:
                 STATUS.write_text(json.dumps({"last": row, "score": score, "done": done,
                                               "note": "target stopped resisting: no provinces or not at war"},
                                              ensure_ascii=False, indent=2), encoding="utf-8")
+                if a.save_moments and clock.get("pause") == 1:
+                    save_moment(row["game"], [{"kind": "目标停止抵抗"}])
                 break
-            if moments and clock.get("pause") == 1:
+            if moments and clock.get("pause") == 1 and a.save_moments:
+                row["saved_as"] = save_moment(row["game"], moments)
+                with KEY_MOMENTS.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps({"tick": n, "game": row["game"], "moments": moments,
+                                        "saved_as": row["saved_as"]}, ensure_ascii=False) + chr(10))
+            elif moments and clock.get("pause") == 1 and a.key_moments:
                 with KEY_MOMENTS.open("a", encoding="utf-8") as f:
                     f.write(json.dumps({"tick": n, "game": row["game"], "moments": moments,
                                         "suggested_save": "practice_" + row["game"].replace("-", "_").replace(" ", "_").replace("h", "")},
