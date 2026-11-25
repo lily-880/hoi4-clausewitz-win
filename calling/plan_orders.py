@@ -323,6 +323,11 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
 
 
 CHAIN_MAX = 60  # provinces in one expanded offensive line (game AI lines seen: 1..22)
+# "arrow": the commander's points, anchored on the army's own front (drawn by the game as a thrust
+# arrow). "chain": every step a land neighbour (drawn as a spiked line = the front to reach).
+# Exam 5 (2026-11-25) with "chain": Poland 151 -> 147 in two weeks; the exam-3 A/B had 17
+# divisions attacking on a 3-point arrow vs 2 on a chain.
+LINE_MODE = "arrow"
 
 
 def chain_path(s, front_path: list[int], waypoints: list[int]) -> list[int] | None:
@@ -386,6 +391,10 @@ def chain_path(s, front_path: list[int], waypoints: list[int]) -> list[int] | No
     chain = [first] if first in entry else leg(entry, first)
     if not chain:
         return None
+    if LINE_MODE == "arrow":
+        # an arrow (spearhead): only make sure it starts at the army's own front; keep the
+        # commander's points (a full chain is drawn by the game as a line to hold, not a thrust)
+        return ([chain[0]] + [w for w in waypoints if w != chain[0]])[:12]
     for w in waypoints[1:]:
         if w == chain[-1]:
             continue
