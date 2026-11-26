@@ -160,6 +160,118 @@ def _front(doc: dict) -> dict:
     }
 
 
+PLAN_FILE = HERE / "tables" / "campaign_plan.json"
+PLAN_HISTORY = 5
+PLAN_MAX_AGE_DAYS = 20
+
+
+def _game_dt(doc: dict) -> datetime | None:
+    t = (doc.get("meta") or {}).get("game_time") or {}
+    try:
+        return datetime(int(t["year"]), int(t["month"]), int(t["day"]), int(t.get("hour") or 0) % 24)
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
+def _load_plan(doc: dict) -> dict | None:
+    """The commander's own campaign plan from an earlier beat (it has no memory between
+    calls: exam 7 kept overturning its own main effort). Ignored if written 'in the future'
+    (an earlier save was reloaded)."""
+    try:
+        stored = json.loads(PLAN_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    now = _game_dt(doc)
+    try:
+        written = datetime.fromisoformat(stored["written_at"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    if now is None or written > now or (now - written).days > PLAN_MAX_AGE_DAYS:
+        return None  # an earlier save reloaded, or a plan left over from another run
+    return stored
+
+
+def _save_plan(doc: dict, reply: dict) -> None:
+    cp = reply.get("campaign_plan")
+    if not isinstance(cp, dict) or not cp:
+        return  # no new plan: the old one stays in force
+    now = _game_dt(doc)
+    if now is None:
+        return
+    old = _load_plan(doc) or {}
+    # each group keeps the date its main target was first set, so "how long have we been at it"
+    # survives the plan being re-sent every beat
+    since = {(str(g.get("army_group")), g.get("main_target")): g.get("since")
+             for g in (old.get("plan") or {}).get("groups") or [] if isinstance(g, dict)}
+    for g in cp.get("groups") or []:
+        if isinstance(g, dict):
+            g["since"] = since.get((str(g.get("army_group")), g.get("main_target"))) or now.strftime("%m-%d")
+    history = list(old.get("changes") or [])
+    change = reply.get("plan_change")
+    if isinstance(change, dict) and change:
+        history.append({"at": now.isoformat(), **{k: str(v)[:200] for k, v in change.items()}})
+    PLAN_FILE.write_text(json.dumps({"written_at": now.isoformat(), "plan": cp,
+                                     "changes": history[-PLAN_HISTORY:]},
+                                    ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _plan_targets(cp) -> list[int]:
+    out: list[int] = []
+    for g in (cp or {}).get("groups") or []:
+        if not isinstance(g, dict):
+            continue
+        for k in ("main_target", "next_targets"):
+            v = g.get(k)
+            for x in (v if isinstance(v, list) else [v]):
+                if type(x) is int and x not in out:
+                    out.append(x)
+    return out[:20]
+
+
+def _plan_view(doc: dict, combats: list[dict]) -> dict | None:
+    """Last beat's plan as written, plus facts the program computes for each target in it:
+    taken or not, our combats there and how they go, the visible defenders' organisation,
+    days left to the date the commander expected."""
+    stored = _load_plan(doc)
+    if not stored:
+        return None
+    now = _game_dt(doc)
+    written = datetime.fromisoformat(stored["written_at"])
+    world = doc.get("world") or {}
+    me = ((doc.get("meta") or {}).get("player_country") or {}).get("index")
+    ours = {p["province_id"] for p in world.get("provinces", []) if (p.get("controller") or {}).get("index") == me}
+    ext = doc.get("_ext") or {}
+    enemy = {t["province_id"] for t in (ext.get("topology") or {}).get("key_targets", [])}
+    enemy |= {e["province_id"] for e in ext.get("enemy_border", [])}
+    status = []
+    for pid in _plan_targets(stored.get("plan")):
+        row: dict = {"target": pid}
+        row["taken"] = True if pid in ours else (False if pid in enemy else None)
+        here = [c for c in combats if c.get("prov") == pid]
+        if here:
+            row["our_combats_here"] = len(here)
+            trends = [c.get("trend") for c in here if c.get("trend")]
+            if trends:
+                row["combat_trend"] = max(set(trends), key=trends.count)
+        orgs = [u.get("organization") or 0 for u in world.get("visible_units", [])
+                if u.get("province_id") == pid and u.get("relation_to_player") == "enemy"]
+        if orgs:
+            row["enemy_divisions_seen"] = len(orgs)
+            row["enemy_org_avg"] = round(sum(orgs) / len(orgs))
+        for g in (stored.get("plan") or {}).get("groups") or []:
+            if isinstance(g, dict) and g.get("main_target") == pid and isinstance(g.get("expected_by"), str):
+                try:
+                    m, d = (int(x) for x in g["expected_by"].split("-")[-2:])
+                    row["days_to_expected"] = (datetime(now.year, m, d) - now).days
+                except (ValueError, TypeError):
+                    pass
+        status.append(row)
+    return {"written_at": stored["written_at"][:13].replace("T", " ") + "h",
+            "days_since": round((now - written).total_seconds() / 86400, 1),
+            "plan": stored.get("plan"), "recent_changes": stored.get("changes") or [],
+            "status": status}
+
+
 def _surrender(doc: dict) -> dict:
     """Surrender progress of the enemies that matter here: the scenario's primary targets,
     enemies we share a land border with, and any enemy already losing ground."""
@@ -325,6 +437,10 @@ def decide(input_doc: dict) -> dict:
     pview = po.view(input_doc)
     dig["order_of_battle"] = pview
     dig["last_plan_orders"] = (input_doc.get("feedback") or {}).get("last_plan_orders", [])
+    try:
+        dig["your_campaign_plan"] = _plan_view(input_doc, dig.get("combats") or [])
+    except Exception as e:  # never block a beat on this
+        dig["your_campaign_plan"] = {"error": type(e).__name__}
     proposal = [{"type": o["type"], "unit_id": o["subject"]["unit_ids"][0],
                  "target": (o.get("target_province_ids") or o.get("to_province_ids") or [None])[0],
                  "reason": o.get("reason")} for o in rules["orders"]]
@@ -372,6 +488,10 @@ def decide(input_doc: dict) -> dict:
             out["brief"] = brief
         return out
 
+    try:
+        _save_plan(input_doc, plan)
+    except Exception as e:
+        record["plan_save_error"] = type(e).__name__
     out = {"orders": [], "alerts": rules["alerts"], "intents": []}
     dropped = []
     accepted_plans = []

@@ -19,8 +19,28 @@
   - 占领没有胜利点的省份几乎不推动投降。
   - 决定战争长短的是：用多少天、多少兵力拿到足够的胜利点。
 
+## 战役计划（你的记忆）
+- 每次决策都是一次独立的调用，你记不得上一次想过什么。所以每次都要在输出里写一份 campaign_plan：
+  - 每个集团军群的主攻目标、选它的理由、预计拿下的日期；
+  - 拿下后转向哪里；
+  - 在什么情况下才改向。
+- 系统会把它原样保存，下一次放在 situation.your_campaign_plan 里还给你，并附上程序算出的事实（status）：
+  - 目标是否已拿下（taken）；
+  - 那里有几场我方战斗、战况趋势（combat_trend）；
+  - 看到的守军组织度（enemy_org_avg）；
+  - 离你预计的日期还有几天（days_to_expected）。
+  - 每个集团军群的 since 是这个主攻目标最初定下的日期。
+- **先读计划，再做决定**：
+  - 计划内的变化（目标拿下后按计划转向下一个）直接执行。
+  - 计划外的改向（目标没拿下就换、把主攻兵力分去别处）必须同时满足两点：
+    1. 你写下的改向条件已经出现，或者出现了计划时不知道的重大新情况；
+    2. 在 plan_change 里写明改了什么、为什么。
+  - 战况占优、守军组织度在下降、还没到预计日期时，不要因为"几天没拿下"就改向。攻坚本来就要时间，频繁改向会让部队一直在路上。
+- 计划不变时，也照抄一份 campaign_plan（只更新必要的内容）。
+
 ## 每次决策的判断步骤
 按顺序想一遍，把结论写进 intent 和 summary：
+0. **先看 your_campaign_plan**：上一次定的主攻是否仍然成立。
 1. **离投降还差多少**：看主攻对象的 progress_pct 和 units_still_needed。
 2. **给要地算账**：对 key_targets 逐个比较价值和代价。
    - 价值：surrender_gain_pct。
@@ -51,7 +71,7 @@
 - **节奏**：进攻线打到头或者消失后，部队就会停下，要及时画新的进攻线指向下一个目标。组织度普遍很低（低于 30）的集团军，先停止执行、休整几天再进攻。每条进攻线都带有进展信息，按下面的规则处理：
   - target_taken=true：目标已到手，删掉这条线，指向下一个要地重画。
   - start_taken=true：起点已被我方占领，箭头已经脱离战线，删掉后从当前前线对面重画。
-  - no_progress_since 距今超过 4 天，且 provinces_to_target 没有变小：这个方向打不动，换方向或换途经点。
+  - no_progress_since 距今超过 4 天，provinces_to_target 没有变小，而且那里的战斗也不占优（your_campaign_plan.status 的 combat_trend 不是 winning）：这个方向打不动，按计划里的改向条件换方向或换途经点。战斗占优时继续打。
   - 前线带 needs_offensive_line=true：这段前线在执行却没有进攻线（常见于包围后游戏把前线拆成几段），那里的师闲着，要给它补画进攻线。
 - **守住本土**：面对其他交战国（或 role=home_defense 段）的本土边境要有足够兵力填满防线，但只需够用，兵力优先给主攻。面对中立国的边境不需要驻军。
 
@@ -118,6 +138,16 @@
   "orders": [
     {"type": "move|attack|retreat|strategic_redeploy|cancel", "unit_id": 0, "target": 0, "reason": "中文短句"}
   ],
+  "campaign_plan": {
+    "goal": "一句话：要把哪个敌国的投降进度推到多少、靠哪些要地",
+    "groups": [
+      {"army_group": "集团军群名称", "army_ids": [0], "main_target": 0, "target_name": "要地名称或描述",
+       "why": "选它的理由（价值与代价）", "expected_by": "MM-DD", "next_targets": [0],
+       "change_only_if": "什么情况下才改向"}
+    ],
+    "reserve": "预备队和休整部队的安排"
+  },
+  "plan_change": {"what": "改了什么（计划不变时省略这个字段）", "why": "为什么"},
   "intent": "本次作战意图，一句中文",
   "summary": "给玩家的态势判断，两三句中文",
   "risks": ["中文风险"]
@@ -128,5 +158,5 @@
 - 只写需要改变的命令；已有的前线、进攻线、执行状态不必重复。没有命令时两个数组都为 []。
 - plan_orders 每次最多 12 条。
 - cancel 不需要 target。
-- 每条 reason 不超过 20 字，summary 不超过 120 字，risks 最多 4 条。
+- 每条 reason 不超过 20 字，summary 不超过 120 字，risks 最多 4 条；campaign_plan 每个集团军群一项，why 和 change_only_if 各不超过 40 字。
 - 在文字中提到部队时，用集团军名称或师的名称，不要只写编号。
