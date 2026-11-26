@@ -314,15 +314,17 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
             return "range_pct 须为 [起点百分比, 终点百分比]，0≤起点<终点≤100"
     if t == "offensive_line":
         path = order.get("path")
-        if not (isinstance(path, list) and 2 <= len(path) <= 12 and all(type(x) is int for x in path)):
-            return "进攻线路径须为 2～12 个省份编号"
+        if not (isinstance(path, list) and 1 <= len(path) <= 12 and all(type(x) is int for x in path)):
+            return "进攻线路径须为 1～12 个省份编号"
         if not a["fronts"] or not any(f["front_provinces"] for f in a["fronts"]):
             return "该集团军还没有前线，先画前线"
-        if path[0] not in enemy_provs:
+        # a target alone (exam 7, 08-30: [9263] was refused and the army lost its line) or a
+        # start that is not on this army's front: apply() anchors the start on the army's own front
+        if len(path) >= 2 and path[0] not in enemy_provs:
             return "进攻线起点必须是与我方接壤的敌方省份"
         taken = {f_line["path"][0] for other in pview.get("armies", []) if other["army_id"] != a["army_id"]
                  for f in other["fronts"] for f_line in f["offensive_lines"] if f_line["path"]}
-        if path[0] in taken:
+        if len(path) >= 2 and path[0] in taken:
             return "这个起点已被别的集团军的进攻线占用；不同集团军应从不同方向进攻"
     if t == "create_army":
         ids = order.get("unit_ids")
@@ -495,7 +497,17 @@ def chain_path(s, front_path: list[int], waypoints: list[int], taken=frozenset()
     if LINE_MODE == "arrow":
         # an arrow (spearhead): only make sure it starts at the army's own front; keep the
         # commander's points (a full chain is drawn by the game as a line to hold, not a thrust)
-        return ([chain[0]] + [w for w in waypoints if w != chain[0]])[:12]
+        out = []
+        for w in [chain[0]] + [w for w in waypoints if w != chain[0]]:
+            if not out or out[-1] != w:  # [6558, 6558] was drawn in exam 7
+                out.append(w)
+        if len(out) == 1:
+            # the target itself faces our front: aim from another facing province next to it,
+            # otherwise point on into the enemy province behind it
+            side = [y for y in nbs(out[0]) if y in entry and y != out[0]]
+            deeper = [y for y in nbs(out[0]) if ctrl(y) in enemy and y not in entry]
+            out = [side[0], out[0]] if side else (out + deeper[:1])
+        return out[:12] if len(out) >= 2 else None
     for w in waypoints[1:]:
         if w == chain[-1]:
             continue
