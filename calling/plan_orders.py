@@ -347,7 +347,7 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
             if pv in count:
                 count[pv] -= 1
                 if count[pv] < cv.DEFENSE_MIN:
-                    return f"会让本土防线省 {pv} 少于 {cv.DEFENSE_MIN} 个师；西线守军不能编进对别国作战的集团军"
+                    return f"会让本土防线省 {pv} 少于 {cv.DEFENSE_MIN} 个师；本土防线上的守军不能编进对别国作战的集团军"
     free = {l["leader_id"]: l.get("rank") for l in pview.get("unassigned_leaders", [])}
     if t == "create_army" and order.get("leader_id") is not None:
         if order["leader_id"] not in free:
