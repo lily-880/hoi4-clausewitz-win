@@ -232,6 +232,25 @@ def view(doc: dict, session=None) -> dict:
     for g in groups:
         if g["leader_rank"] != "field_marshal":
             violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）不是由元帅指挥：改任元帅")
+    # player rule (2026-11-24): no front on another country's soil
+    try:
+        me_idx = s.player.get("player_index")
+        paths = {a_["id"]: [p_["path"] for p_ in a_["plans"]]
+                 for t_ in snap["theatres"] for a_ in t_["armies"]}
+        for a in armies:
+            foreign = {}
+            for path in paths.get(a["army_id"], []):
+                for pid in path:
+                    c = s.controller_of(pid)
+                    if c is not None and c != me_idx:
+                        tg = s.tag(c) or str(c)
+                        foreign[tg] = foreign.get(tg, 0) + 1
+            if foreign:
+                where = "、".join(f"{k} {v} 个省" for k, v in foreign.items())
+                violations.append(f"集团军 {a['name']}（{a['army_id']}）的前线有一部分在别国境内（{where}）："
+                                  f"按 border_fronts 的 own_territory_range_pct 重画前线")
+    except Exception:
+        pass
     me = ((doc.get("meta") or {}).get("player_country") or {}).get("tag")
     sections = {}
     free_by_pos: dict = {}
@@ -319,6 +338,13 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         rng = order.get("range_pct")
         if rng is not None and not (isinstance(rng, list) and len(rng) == 2 and 0 <= rng[0] < rng[1] <= 100):
             return "range_pct 须为 [起点百分比, 终点百分比]，0≤起点<终点≤100"
+        # no section given: place_front picks the section with most of our own provinces
+        sec = next((x for x in secs if x["section"] == order["section"]), None) if "section" in order else None
+        own = (sec or {}).get("own_territory_range_pct")
+        if sec is not None and own is None:
+            return "这一段边境不在本国领土上；前线不能画在别国境内"
+        if rng is not None and own and not (rng[0] < own[1] and own[0] < rng[1]):
+            return f"这一截不在本国领土上；本国领土是该段的 {own[0]}～{own[1]}%（own_territory_range_pct）"
     if t == "offensive_line":
         path = order.get("path")
         if not (isinstance(path, list) and 1 <= len(path) <= 12 and all(type(x) is int for x in path)):
@@ -408,12 +434,18 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
         row = next((r for r in rows if r["section"] == section), None)
         if row is None:
             return {"ok": False, "stop": "没有这个前线段"}
+    own = orbat.own_range(row["controllers"], me)
+    if own is None:
+        return {"ok": False, "stop": "这一段前线不在本国领土上，不画"}
+    rng = own
     if range_pct:
-        rng = (int(range_pct[0] * 1000), int(range_pct[1] * 1000))
-    else:
-        rng = orbat.own_range(row["controllers"], me)
-        if rng is None:
-            return {"ok": False, "stop": "这一段前线不在本国领土上，不画"}
+        # never on another country's soil (exam 8: a range on the far end of a section put two
+        # armies' fronts on a neutral neighbour's provinces): clip to our own stretch
+        want = (int(range_pct[0] * 1000), int(range_pct[1] * 1000))
+        rng = (max(want[0], own[0]), min(want[1], own[1]))
+        if rng[0] >= rng[1]:
+            return {"ok": False, "stop": f"这一截不在本国领土上；本国领土是该段的 "
+                                         f"{round(own[0] / 1000)}～{round(own[1] / 1000)}%"}
     if live:  # one root plan per army: stacking several roots preceded a game crash (2026-11-24)
         for th in orbat.snapshot(s)["theatres"]:
             for g in th["armies"]:
