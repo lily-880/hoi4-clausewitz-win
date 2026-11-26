@@ -416,13 +416,36 @@ def _call(messages: list[dict], key: str, retries: int = 3, effort: str | None =
 
 
 def _call_once(messages: list[dict], key: str, effort: str) -> dict:
+    """Streamed request, assembled into the usual non-stream response shape. A non-streamed
+    request sits silent for minutes while the model thinks, and the link cut it (exams 7 and 9:
+    SSL UNEXPECTED_EOF on the thinking calls, the quick no-thinking retry got through)."""
     body = json.dumps({"model": MODEL, "messages": messages, "temperature": 0.3,
                        "response_format": {"type": "json_object"}, "max_tokens": MAX_TOKENS,
-                       "reasoning_effort": effort}).encode("utf-8")
+                       "reasoning_effort": effort, "stream": True,
+                       "stream_options": {"include_usage": True}}).encode("utf-8")
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
-        "Content-Type": "application/json", "Authorization": f"Bearer {key}"})
+        "Content-Type": "application/json", "Authorization": f"Bearer {key}",
+        "Accept": "text/event-stream"})
+    content, finish, usage = [], None, None
     with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+        for raw in resp:
+            line = raw.decode("utf-8", "replace").strip()
+            if not line.startswith("data:"):
+                continue
+            data = line[5:].strip()
+            if data == "[DONE]":
+                break
+            chunk = json.loads(data)
+            if chunk.get("usage"):
+                usage = chunk["usage"]
+            for ch in chunk.get("choices") or []:
+                piece = (ch.get("delta") or {}).get("content")
+                if piece:
+                    content.append(piece)
+                if ch.get("finish_reason"):
+                    finish = ch["finish_reason"]
+    return {"choices": [{"message": {"content": "".join(content)}, "finish_reason": finish}],
+            "usage": usage}
 
 
 def _to_contract(order: dict, seq: int) -> dict | None:
