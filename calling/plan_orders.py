@@ -611,6 +611,24 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         taken = {c["path"][0] for th in snap["theatres"] for g in th["armies"] if g["id"] != order["army_id"]
                  for p in g["plans"] for c in p["children"] if c.get("path")}
         chain = chain_path(s, (root or {}).get("path") or [], order["path"], taken)
+        if not chain and str(order.get("reason") or "").startswith("系统"):
+            # a segment cut off from the army's target (it faces a pocket): aim it at the enemy
+            # province it faces, so its divisions fight instead of standing idle
+            seg = (root or {}).get("path") or []
+            facing = []
+            for f_ in seg:
+                try:
+                    nb_ = s.land_neighbors(f_).get("neighbors") or []
+                except Exception:
+                    nb_ = []
+                for y in nb_:
+                    c_ = s.controller_of(y)
+                    if y not in taken and y not in facing and c_ is not None and s.at_war_with(c_):
+                        facing.append(y)
+            for y in facing[:3]:
+                chain = chain_path(s, seg, [y], taken)
+                if chain:
+                    break
         if not chain:
             return {"ok": False, "stop": "该集团军前线对面没有可用的起点（可能都已被别的集团军的进攻线占用），"
                                          "或无法沿相邻的敌方省份连到目标；调整前线范围或换目标"}

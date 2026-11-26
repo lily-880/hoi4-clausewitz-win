@@ -64,7 +64,7 @@
    - 我军师贴着一个没看到守军的要地；
    - 包围圈只差一个省就合拢；
    - 离投降只差最后一两个要地。
-   - 一个要地久攻不下：把贴着它的几个省里的师（包括闲着的）一起下 attack，从几个方向同时打进同一个省，比计划自动分配的兵力集中得多。
+   - 一个要地久攻不下：用 assaults（集中进攻）。
 6. **写清理由**：每条命令的 reason 说明它服务于哪个目标。
 
 ## 战役指挥原则
@@ -107,6 +107,12 @@
 - **删除进攻线 delete_offensive_line**：给出 army_id 和进攻线的 plan_id（order_of_battle 里 offensive_lines[].plan_id）。方向不对或打不动时，删掉重画。
 - **执行 execute**：on=true 发起进攻，on=false 停止。没有进攻线的集团军不要执行。
 - **同一次决策里的先后**：命令按顺序执行。对已有的集团军，可以在同一次里依次下 front_line、offensive_line、execute，一次完成。新建（create_army）的集团军要到下一次决策才有编号，到时再编入集团军群、画线；系统会在新建部队后提前进行下一次决策。
+- **集中进攻 assaults**：给出目标省份（敌方控制、与我方领土相邻）和要投入的师数（1～24）。系统会挑最合适的师：
+  - 已经贴着目标的师直接进攻它；
+  - 再往后一个省的师先移动到目标旁边，下一次你再下同一个 assault 时它们就会进攻；
+  - 不会抽调正在打别的仗、组织度低于 30、或守在本土防线上的师。
+  - 计划会把兵力沿整条前线平摊；要在一点上形成压倒优势、攻下坚固要地或吃掉包围圈，就用 assault。每次最多 4 个。
+  - 结果在下一次的 last_assaults 里（实际进攻几个、前移几个）。要持续压上，就每次重复下同一个 assault。
 - **逐师命令 orders**
   - unit_id 必须在 units 里。
   - move / retreat / attack 的目标必须是该师所在省份的相邻省份。
@@ -144,6 +150,9 @@
     {"type": "create_army_group", "army_ids": [0], "leader_id": 0, "reason": "..."},
     {"type": "appoint", "leader_id": 0, "group_id": 0, "reason": "..."},
     {"type": "promote", "leader_id": 0, "reason": "..."}
+  ],
+  "assaults": [
+    {"target": 0, "divisions": 0, "reason": "中文短句"}
   ],
   "orders": [
     {"type": "move|attack|retreat|strategic_redeploy|cancel", "unit_id": 0, "target": 0, "reason": "中文短句"}

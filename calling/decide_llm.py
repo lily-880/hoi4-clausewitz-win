@@ -462,6 +462,10 @@ def decide(input_doc: dict) -> dict:
     dig["order_of_battle"] = pview
     dig["last_plan_orders"] = (input_doc.get("feedback") or {}).get("last_plan_orders", [])
     try:
+        dig["last_assaults"] = json.loads(ASSAULT_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        dig["last_assaults"] = []
+    try:
         dig["your_campaign_plan"] = _plan_view(input_doc, dig.get("combats") or [], pview)
     except Exception as e:  # never block a beat on this
         dig["your_campaign_plan"] = {"error": type(e).__name__}
@@ -567,7 +571,18 @@ def decide(input_doc: dict) -> dict:
     input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
     record["accepted_plan_orders"] = accepted_plans
     seq = 0
-    for raw in plan.get("orders", []) if isinstance(plan.get("orders"), list) else []:
+    raw_orders = list(plan.get("orders") or []) if isinstance(plan.get("orders"), list) else []
+    assault_report = []
+    if isinstance(plan.get("assaults"), list):
+        extra, assault_report = expand_assaults(input_doc, plan["assaults"][:ASSAULTS_MAX],
+                                                busy={o.get("unit_id") for o in raw_orders if isinstance(o, dict)})
+        raw_orders += extra
+    record["assaults"] = assault_report
+    try:  # shown to the commander next beat as last_assaults
+        ASSAULT_FILE.write_text(json.dumps(assault_report, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+    for raw in raw_orders:
         cand = _to_contract(raw if isinstance(raw, dict) else {}, seq + 1)
         if cand is None:
             dropped.append({"order": raw, "why": "格式或类型不允许"})
@@ -616,6 +631,70 @@ def decide(input_doc: dict) -> dict:
         return rules
     _archive(record)
     return out
+
+
+ASSAULTS_MAX = 4
+ASSAULT_FILE = HERE / "tables" / "last_assaults.json"
+ASSAULT_DIVISIONS_MAX = 24
+ASSAULT_MIN_ORG = 30
+
+
+def expand_assaults(doc: dict, assaults: list, busy: set | None = None) -> tuple[list[dict], list[dict]]:
+    """A concentrated assault: the commander names an enemy province and how many divisions;
+    the program picks the nearest fit ones (exam 8: battles had 1..6 divisions while whole armies
+    stood along the front). Divisions next to the target attack it; divisions one province
+    further move up next to it (they attack on a later beat if the assault is repeated).
+    Skipped: divisions in another fight, below ASSAULT_MIN_ORG organisation, or on the home
+    defence line."""
+    world = doc.get("world") or {}
+    me = ((doc.get("meta") or {}).get("player_country") or {}).get("index")
+    nbs = {p["province_id"]: set(p.get("neighbors") or []) for p in world.get("provinces", [])}
+    ours = {p["province_id"] for p in world.get("provinces", []) if (p.get("controller") or {}).get("index") == me}
+    home = {pp["prov"] for sec in cv.border_sections(doc) if sec["role"] == "home_defense" for pp in sec["provinces"]}
+    fight_at = {}
+    for c in world.get("combats", []):
+        for u in (c.get("attacker_unit_ids") or []) + (c.get("defender_unit_ids") or []):
+            fight_at[u] = (c.get("province_id"), u in (c.get("attacker_unit_ids") or []))
+    used = set(busy or set())
+    orders, report = [], []
+    for a in assaults:
+        if not isinstance(a, dict) or type(a.get("target")) is not int:
+            continue
+        tgt, want = a["target"], max(1, min(int(a.get("divisions") or 6), ASSAULT_DIVISIONS_MAX))
+        reason = str(a.get("reason") or "集中进攻")[:40]
+        ring = {q for q in ours if tgt in nbs.get(q, set())}  # our provinces touching the target
+        if not ring:
+            report.append({"target": tgt, "ok": False, "why": "我方没有与目标相邻的省份"})
+            continue
+        ring2 = {}  # our provinces one step behind the ring -> a ring province next to them
+        for q in ours - ring:
+            nxt = sorted(nbs.get(q, set()) & ring)
+            if nxt:
+                ring2[q] = nxt[0]
+        cands = []
+        for u in world.get("own_units", []):
+            uid, pv = u["unit_id"], u.get("province_id")
+            if uid in used or pv in home or (u.get("organization") or 0) < ASSAULT_MIN_ORG:
+                continue
+            fa = fight_at.get(uid)
+            if fa and not (fa[0] == tgt and fa[1]):
+                continue  # busy in another fight (already attacking the target is fine)
+            if pv in ring:
+                cands.append((0, -(u.get("organization") or 0), uid, "attack", tgt))
+            elif pv in ring2:
+                cands.append((1, -(u.get("organization") or 0), uid, "move", ring2[pv]))
+        cands.sort()
+        picked = cands[:want]
+        for _, _, uid, kind, dest in picked:
+            if kind == "attack" and fight_at.get(uid, (None,))[0] == tgt:
+                continue  # already attacking it
+            orders.append({"type": kind, "unit_id": uid, "target": dest, "reason": f"集中进攻{tgt}：{reason}"[:60]})
+            used.add(uid)
+        already = sum(1 for c in picked if c[3] == "attack" and fight_at.get(c[2], (None,))[0] == tgt)
+        report.append({"target": tgt, "asked": want, "already_attacking": already,
+                       "new_attacks": sum(1 for c in picked if c[3] == "attack") - already,
+                       "moving_up": sum(1 for c in picked if c[3] == "move"), "ok": bool(picked)})
+    return orders, report
 
 
 def _project(pv: dict, o: dict) -> None:
