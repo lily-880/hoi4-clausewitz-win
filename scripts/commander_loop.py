@@ -122,6 +122,10 @@ def save_moment(game: str, moments: list[dict]) -> str | None:
             src = max(new, key=lambda p: p.stat().st_mtime)
             kind = moments[0]["kind"] if moments else "关键时刻"
             dst = SAVES / f"CC_练习_{kind}_{src.stem}.hoi4"
+            k = 2
+            while dst.exists():  # same game date in an earlier run (exam 8 crashed on 10-29 01h)
+                dst = SAVES / f"CC_练习_{kind}_{src.stem}_{k}.hoi4"
+                k += 1
             src.rename(dst)
             return dst.name
         time.sleep(0.5)
