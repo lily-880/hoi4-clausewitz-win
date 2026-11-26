@@ -757,6 +757,22 @@ def cmd_tick(args):
                 continue
             halted = False
             for kind, unit, dest in plan:
+                if kind in ("move", "attack", "retreat", "strategic_redeploy"):
+                    # a division on a plan always has a route; the order needs it idle. Cancel
+                    # first (verified 2026-11-26 on the exam-8 save: cancel then attack in the
+                    # same pause takes effect at once and the plan did not take it back in 34h)
+                    try:
+                        cur = Session(check_sha=False).unit(unit) or {}
+                    except Exception:
+                        cur = {}
+                    if cur.get("path"):
+                        crep = run_order("cancel", unit, None, live=True, check_sha=False)
+                        executed.append({"order_seq": order["order_seq"], "type": "cancel", "unit": unit,
+                                         "dest": None, "ok": crep.get("ok"), "stop": crep.get("stop"),
+                                         "posted": "post" in crep, "auto": "free the division for the order"})
+                        if not crep.get("ok") and "post" in crep:
+                            halted = True
+                            break
                 rep = run_order(kind, unit, dest, live=True, check_sha=False)  # checked once per tick
                 # Refused before any Post (pre-checks / dry run) is a certain "no":
                 # record and continue. Anything after the Post that is not confirmed
