@@ -249,6 +249,16 @@ def view(doc: dict, session=None) -> dict:
     for g in groups:
         if g["leader_rank"] != "field_marshal":
             violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）不是由元帅指挥：改任元帅")
+    # forces doing nothing (exam 9, late October: 3 armies with no front at all and one with a
+    # line it never executed, about 30 divisions idle while the war hung on 3 % surrender)
+    for a in armies:
+        has_front = any(f.get("front_provinces") for f in a.get("fronts", []))
+        has_line = any(f.get("offensive_lines") for f in a.get("fronts", []))
+        executing = any(f.get("executing") for f in a.get("fronts", []))
+        if a["divisions"] and not has_front:
+            violations.append(f"集团军 {a['name']}（{a['army_id']}）有 {a['divisions']} 个师却没有前线：画前线和进攻线投入，或用 assault 调用")
+        elif has_line and not executing:
+            violations.append(f"集团军 {a['name']}（{a['army_id']}）有进攻线但没有执行：下 execute，否则它不会进攻")
     # player rule (2026-11-24): no front on another country's soil
     try:
         me_idx = s.player.get("player_index")
