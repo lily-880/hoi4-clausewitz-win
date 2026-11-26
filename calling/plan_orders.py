@@ -428,7 +428,7 @@ CHAIN_MAX = 60  # provinces in one expanded offensive line (game AI lines seen: 
 LINE_MODE = "arrow"
 
 
-def chain_path(s, front_path: list[int], waypoints: list[int]) -> list[int] | None:
+def chain_path(s, front_path: list[int], waypoints: list[int], taken=frozenset()) -> list[int] | None:
     """Expand the commander's waypoints into a chain of ADJACENT provinces, as the game's own
     lines are (exam 3, 2026-11-25: a 2-point line [border, capital] is drawn and 'executing' but
     no division ever attacks; the game AI's lines are 5..22 provinces, every step a land
@@ -482,7 +482,10 @@ def chain_path(s, front_path: list[int], waypoints: list[int]) -> list[int] | No
         return (bfs(starts, goal, lambda p: ctrl(p) in enemy)
                 or bfs(starts, goal, lambda p: ctrl(p) in enemy or ctrl(p) in own))
 
-    entry = sorted({y for f in front_path for y in nbs(f) if ctrl(y) in enemy})
+    # starts already used by other armies' lines are not entry points: re-anchoring onto one
+    # (exam 7, 08-17..08-19) made the commander see an overlap, delete and redraw the same line
+    # every tick, so the army never advanced
+    entry = sorted({y for f in front_path for y in nbs(f) if ctrl(y) in enemy and y not in taken})
     if not entry:
         return None
     first = waypoints[0]
@@ -526,9 +529,12 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         before = line_ids()
         root = next((p for th in snap["theatres"] for g in th["armies"] if g["id"] == order["army_id"]
                      for p in g["plans"] if p["plan_id"] == front["plan_id"]), None)
-        chain = chain_path(s, (root or {}).get("path") or [], order["path"])
+        taken = {c["path"][0] for th in snap["theatres"] for g in th["armies"] if g["id"] != order["army_id"]
+                 for p in g["plans"] for c in p["children"] if c.get("path")}
+        chain = chain_path(s, (root or {}).get("path") or [], order["path"], taken)
         if not chain:
-            return {"ok": False, "stop": "无法从该集团军的前线沿相邻的敌方省份连到目标；换一个目标或先画前线"}
+            return {"ok": False, "stop": "该集团军前线对面没有可用的起点（可能都已被别的集团军的进攻线占用），"
+                                         "或无法沿相邻的敌方省份连到目标；调整前线范围或换目标"}
         res = orbat.offensive_line(order["army_id"], front["plan_id"], chain,
                                    units_of.get(order["army_id"], []), live)
         res["chain"] = chain
