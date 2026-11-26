@@ -202,7 +202,12 @@ def _target_costs(doc: dict, targets: list[dict]) -> list[dict]:
         nbs = set(p.get("neighbors") or []) | rev.get(pid, set())
         if nbs:
             row["our_divisions_adjacent"] = sum(at.get(n, 0) for n in nbs)
-        row["enemy_divisions_seen"] = seen.get(pid, 0)
+        # only a positive sighting is a fact; "0 seen" was read as "no defenders" (exam 7, 09-11:
+        # the capital was called undefended and four armies were sent at it)
+        if seen.get(pid):
+            row["enemy_divisions_seen"] = seen[pid]
+        else:
+            row["defenders"] = "unknown"
         if pid in fighting:
             row["combat_here"] = True
         out.append(row)

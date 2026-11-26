@@ -27,7 +27,7 @@
    - 代价：
      - hops_from_our_land 越大，要走得越远；
      - 山地、沼泽、城市、要塞（fort_level）、渡河都让进攻变慢；
-     - enemy_divisions_seen 是看到的守军，看不到的地方不等于没有守军；
+     - enemy_divisions_seen 是正在和我军交战、因此看得见的守军师数；defenders="unknown" 表示那里没有交战、看不到，守军多少未知。纵深要地、首都通常有守军和要塞，不能当作空城；
      - our_divisions_adjacent 是已经贴在旁边的我军师数。
    - 选出性价比最高、合计足以达到投降的一组目标。
    - 同样的投降进度，几个便宜的目标往往比一个昂贵的目标快。重兵把守的高价值目标可以先包围、切断，再去拿。
@@ -95,7 +95,7 @@
 - front：
   - own_border：与交战国接壤的己方省份；facing 是对面省份的地形、要塞、胜利点、是否渡河。
   - sections：按敌国分的边境段，每段兵力；role=home_defense 是本土防线，带下限 min_per_province。
-  - key_targets：敌方胜利点。每行有价值（surrender_gain_pct）和代价信息（hops_from_our_land、terrain、fort_level、our_divisions_adjacent、enemy_divisions_seen、combat_here）。
+  - key_targets：敌方胜利点。每行有价值（surrender_gain_pct）和代价信息（hops_from_our_land、terrain、fort_level、our_divisions_adjacent、enemy_divisions_seen 或 defenders、combat_here）。
   - surrender：各敌国的投降进度（见"敌国什么时候投降"）。
   - enemy_provinces：各敌国仍控制的省数。
   - forces：各陆地块的兵力状态。
