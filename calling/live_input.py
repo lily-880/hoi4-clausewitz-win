@@ -570,7 +570,9 @@ def _capture_once():
             need = max(0, held - ((ONE - lim) * total) // ONE) if total > 0 else 0
             row = {'progress_pct': round(prog / 1000, 1), 'surrender_limit_pct': round(lim / 1000, 1),
                    'occupied_pct': round(raw / 1000, 1), 'held_units': held, 'total_units': total,
-                   'units_still_needed': need}
+                   'units_still_needed': need,
+                   # one ordinary province (1 unit); near the end many plain provinces add up
+                   'per_province_gain_pct': round(ONE * 100 / total / lim, 3) if total > 0 and lim > 0 else None}
             if i(co + 0xc) > 0:
                 row['approximate'] = True
             return row, total, lim

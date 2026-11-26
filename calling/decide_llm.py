@@ -593,6 +593,29 @@ def decide(input_doc: dict) -> dict:
                 accepted_plans.append(o)
                 _project(projected, o)
                 told.add(a["army_id"])
+    # An army whose front vanished (the enemy land in front of it was taken, the game drops the
+    # front) stands idle until redrawn; exam 9 had 23 divisions so for two weeks. Give it a front
+    # again against the country it fought (or the scenario's primary target); lines stay the
+    # commander's choice.
+    try:
+        remembered = json.loads(po.FRONTS_FILE.read_text(encoding="utf-8")).get("armies", {})
+    except (OSError, ValueError, AttributeError):
+        remembered = {}
+    fronted = {o["army_id"] for o in accepted_plans if o.get("type") == "front_line"}
+    at_war = set((pview.get("border_fronts") or {}).keys())
+    for a in projected.get("armies", []):
+        if not a.get("divisions") or a["army_id"] in fronted or any(f.get("front_provinces") for f in a.get("fronts", [])):
+            continue
+        enemy = (remembered.get(str(a["army_id"])) or {}).get("enemy")
+        if enemy not in at_war:
+            enemy = next((t for t in sorted(cv.PRIMARY_TARGETS) if t in at_war), None)
+        if not enemy:
+            continue
+        o = {"type": "front_line", "army_id": a["army_id"], "enemy": enemy,
+             "reason": "系统：集团军没有前线，按原来的作战对象重画"}
+        if not po.validate(o, input_doc, projected):
+            accepted_plans.append(o)
+            _project(projected, o)
     input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
     record["accepted_plan_orders"] = accepted_plans
     seq = 0
