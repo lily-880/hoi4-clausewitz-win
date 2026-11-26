@@ -548,6 +548,8 @@ def decide(input_doc: dict) -> dict:
     accepted_plans = []
     projected = json.loads(json.dumps(pview))  # orders of one reply build on each other
     for raw in (plan.get("plan_orders") or [])[:po.MAX_PER_TICK] if isinstance(plan.get("plan_orders"), list) else []:
+        if isinstance(raw, dict):
+            _army_by_name(raw, projected)
         why = po.validate(raw, input_doc, projected) if isinstance(raw, dict) else "格式错误"
         if why:
             dropped.append({"order": raw, "why": why})
@@ -730,6 +732,23 @@ def expand_assaults(doc: dict, assaults: list, busy: set | None = None) -> tuple
                        "moving_up": sum(1 for c in picked if c[3] == "move"), "ok": bool(picked),
                        "unusable_nearby": {k: v for k, v in skipped.items() if v}})
     return orders, report
+
+
+def _army_by_name(order: dict, pv: dict) -> None:
+    """The model keeps writing the number in an army's name as its id ("第9集团军" as 9; the
+    real id was 570, refused, and a 20-division army stood idle for 8 days in exam 9). When the
+    id does not exist and exactly one army is named after that number, use that army."""
+    ids = {a["army_id"] for a in pv.get("armies", [])}
+
+    def fix(i):
+        if i in ids or type(i) is not int:
+            return i
+        named = [a["army_id"] for a in pv.get("armies", []) if f"第{i}集团军" in (a.get("name") or "")]
+        return named[0] if len(named) == 1 else i
+    if "army_id" in order:
+        order["army_id"] = fix(order["army_id"])
+    if isinstance(order.get("army_ids"), list):
+        order["army_ids"] = [fix(i) for i in order["army_ids"]]
 
 
 def _project(pv: dict, o: dict) -> None:
