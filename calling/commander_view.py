@@ -125,6 +125,8 @@ def border_sections(doc: dict, primary: set[str] | None = None) -> list[dict]:
         if defense:
             row["min_per_province"] = DEFENSE_MIN
             row["short_provinces"] = [p for p in provs if present[p] + incoming[p] < DEFENSE_MIN]
+            # divisions above the minimum are free for the main effort (exam 9: 9 spare stood idle)
+            row["surplus_over_min"] = max(0, row["divisions"] - DEFENSE_MIN * len(provs))
         out.append(row)
     return out
 

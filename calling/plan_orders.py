@@ -312,7 +312,25 @@ def view(doc: dict, session=None) -> dict:
                                         if l.get("rank") == "field_marshal" and l["key"] not in unavailable),
             "command_rule_violations": violations,
             "border_fronts": {k: v for k, v in fronts.items() if k in at_war},
-            "free_divisions_by_border_position": {k: v for k, v in free_by_pos.items() if k in at_war}}
+            "free_divisions_by_border_position": {k: v for k, v in free_by_pos.items() if k in at_war},
+            "unused_reserve": _unused_reserve(doc, free_units)}
+
+
+def _unused_reserve(doc: dict, free_units: list) -> dict:
+    """Divisions in no army, summed up (exam 9: 26 fresh divisions stood in the interior for a
+    month, listed only as bare ids). hops_to_front from the capture's own topology."""
+    units = {u["unit_id"]: u for u in (doc.get("world") or {}).get("own_units", [])}
+    hops = ((doc.get("_ext") or {}).get("topology") or {}).get("hops_to_border") or {}
+    home = cv.defense_provinces(doc)
+    rows = [units[i] for i in free_units if i in units]
+    far = {"0": 0, "1-3": 0, "4-10": 0, ">10": 0, "unknown": 0}
+    for u in rows:
+        h = hops.get(u.get("province_id"), hops.get(str(u.get("province_id"))))
+        far["unknown" if h is None else "0" if h == 0 else "1-3" if h <= 3 else "4-10" if h <= 10 else ">10"] += 1
+    return {"divisions": len(rows),
+            "fresh_org60": sum(1 for u in rows if (u.get("organization") or 0) >= 60),
+            "on_home_defense_line": sum(1 for u in rows if u.get("province_id") in home),
+            "hops_to_front": {k: v for k, v in far.items() if v}}
 
 
 def validate(order: dict, doc: dict, pview: dict) -> str | None:
