@@ -695,12 +695,23 @@ def expand_assaults(doc: dict, assaults: list, busy: set | None = None) -> tuple
             if nxt:
                 ring2[q] = nxt[0]
         cands = []
+        skipped = {"other_fight": 0, "low_org": 0, "home_defense": 0, "already_used": 0}
         for u in world.get("own_units", []):
             uid, pv = u["unit_id"], u.get("province_id")
-            if uid in used or pv in home or (u.get("organization") or 0) < ASSAULT_MIN_ORG:
+            if pv not in ring and pv not in ring2:
+                continue
+            if uid in used:
+                skipped["already_used"] += 1
+                continue
+            if pv in home:
+                skipped["home_defense"] += 1
+                continue
+            if (u.get("organization") or 0) < ASSAULT_MIN_ORG:
+                skipped["low_org"] += 1
                 continue
             fa = fight_at.get(uid)
             if fa and not (fa[0] == tgt and fa[1]):
+                skipped["other_fight"] += 1
                 continue  # busy in another fight (already attacking the target is fine)
             if pv in ring:
                 cands.append((0, -(u.get("organization") or 0), uid, "attack", tgt))
@@ -716,7 +727,8 @@ def expand_assaults(doc: dict, assaults: list, busy: set | None = None) -> tuple
         already = sum(1 for c in picked if c[3] == "attack" and fight_at.get(c[2], (None,))[0] == tgt)
         report.append({"target": tgt, "asked": want, "already_attacking": already,
                        "new_attacks": sum(1 for c in picked if c[3] == "attack") - already,
-                       "moving_up": sum(1 for c in picked if c[3] == "move"), "ok": bool(picked)})
+                       "moving_up": sum(1 for c in picked if c[3] == "move"), "ok": bool(picked),
+                       "unusable_nearby": {k: v for k, v in skipped.items() if v}})
     return orders, report
 
 
