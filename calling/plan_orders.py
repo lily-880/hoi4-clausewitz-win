@@ -335,6 +335,22 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         secs = (pview.get("border_fronts") or {}).get(order["enemy"]) or []
         if "section" in order and order["section"] not in {x["section"] for x in secs}:
             return "该国边境没有这个前线段编号（见 border_fronts）"
+        # player hard rule: the home-defense line keeps its garrison. An army is pulled to its own
+        # front, so an army holding garrison troops may only front the country they face.
+        sections = cv.border_sections(doc)
+        count, faces = {}, {}
+        for s_ in sections:
+            if s_["role"] == "home_defense":
+                for p_ in s_["provinces"]:
+                    count[p_["prov"]] = p_["divisions"]
+                    faces.setdefault(p_["prov"], set()).add(str(s_["enemy"]).split("(")[0])
+        for u in (doc.get("world") or {}).get("own_units", []):
+            pv = u.get("province_id")
+            if (u.get("formation") or {}).get("army_id") == order.get("army_id") and pv in count                     and order["enemy"] not in faces[pv]:
+                count[pv] -= 1
+                if count[pv] < cv.DEFENSE_MIN:
+                    return (f"该集团军有守在本土防线省 {pv} 的师（面对 {'、'.join(sorted(faces[pv]))}），对别国画前线会把它们拉走，"
+                            f"使该省少于 {cv.DEFENSE_MIN} 个师；这样的集团军只能对它们面对的国家画前线")
         rng = order.get("range_pct")
         if rng is not None and not (isinstance(rng, list) and len(rng) == 2 and 0 <= rng[0] < rng[1] <= 100):
             return "range_pct 须为 [起点百分比, 终点百分比]，0≤起点<终点≤100"
@@ -364,16 +380,9 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         free = set(pview.get("divisions_not_in_any_army", []))
         if not (isinstance(ids, list) and 1 <= len(ids) <= ARMY_MAX and set(ids) <= free):
             return f"组建集团军须用 1～{ARMY_MAX} 个尚未编入集团军的师"
-        # player hard rule: the home defense line keeps its garrison (an army would pull them to its front)
-        sections = cv.border_sections(doc)
-        count = {p["prov"]: p["divisions"] for s_ in sections if s_["role"] == "home_defense" for p in s_["provinces"]}
-        where = {u["unit_id"]: u.get("province_id") for u in (doc.get("world") or {}).get("own_units", [])}
-        for uid in ids:
-            pv = where.get(uid)
-            if pv in count:
-                count[pv] -= 1
-                if count[pv] < cv.DEFENSE_MIN:
-                    return f"会让本土防线省 {pv} 少于 {cv.DEFENSE_MIN} 个师；本土防线上的守军不能编进对别国作战的集团军"
+        # the home-defense garrison may form an army (exam 8: refusing it left the border with an
+        # at-war neighbour without any front); the check is at front_line: such an army may only
+        # hold a front against the country its garrison faces
     free = {l["leader_id"]: l.get("rank") for l in pview.get("unassigned_leaders", [])}
     if t == "create_army" and order.get("leader_id") is not None:
         if order["leader_id"] not in free:
