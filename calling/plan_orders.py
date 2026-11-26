@@ -28,7 +28,8 @@ if str(HERE) not in sys.path:
 import commander_view as cv  # noqa: E402
 
 TYPES = ("front_line", "offensive_line", "delete_offensive_line", "execute", "create_army",
-         "create_army_group", "appoint", "promote")
+         "create_army_group", "appoint", "promote", "air_attach", "air_mission")
+AIR_MISSIONS = ("air_superiority", "cas")  # the two missions for supporting the land war
 MAX_PER_TICK = 12
 ARMY_MAX = 24
 FRONTS_FILE = HERE / "tables" / "army_fronts.json"
@@ -323,7 +324,16 @@ def view(doc: dict, session=None) -> dict:
             "command_rule_violations": violations,
             "border_fronts": {k: v for k, v in fronts.items() if k in at_war},
             "free_divisions_by_border_position": {k: v for k, v in free_by_pos.items() if k in at_war},
-            "unused_reserve": _unused_reserve(doc, free_units)}
+            "unused_reserve": _unused_reserve(doc, free_units),
+            "air_wings": _air_wings(s)}
+
+
+def _air_wings(s) -> list[dict]:
+    try:
+        import air_orders as ao
+        return ao.own_wings(s, max_id=1500)
+    except Exception as e:  # never block a beat on the air view
+        return [{"error": type(e).__name__}]
 
 
 def _unused_reserve(doc: dict, free_units: list) -> dict:
@@ -444,6 +454,23 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
             return "集团军群必须指定一位空闲的元帅（unassigned_leaders 中 rank 为 field_marshal）"
         if free[order["leader_id"]] != "field_marshal":
             return "集团军群只能由元帅指挥，不能用将军"
+    if t in ("air_attach", "air_mission"):
+        wings = {w["wing_id"]: w for w in pview.get("air_wings", [])}
+        ids = order.get("wing_ids")
+        if not (isinstance(ids, list) and ids and all(type(i) is int for i in ids)):
+            return "wing_ids 须为空军联队编号列表（见 order_of_battle.air_wings）"
+        bad = [i for i in ids if i not in wings]
+        if bad:
+            return f"这些联队不存在或不是我方的：{bad[:6]}"
+        if t == "air_attach":
+            if order.get("army_id") not in armies:
+                return "集团军不存在"
+            cannot = [i for i in ids if not wings[i].get("can_support_army")]
+            if cannot:
+                return f"这些联队不能支援集团军（运输机、海军轰炸机或正在训练）：{cannot[:6]}"
+        if t == "air_mission" and order.get("mission") not in AIR_MISSIONS:
+            return "mission 只能是 air_superiority（制空）或 cas（近距离空中支援）"
+        return None
     if t == "promote":
         if order.get("leader_id") not in free:
             return "只能晋升空闲的将领（先免去职务或另选）"
@@ -708,6 +735,18 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
             data = _load_unavailable()
             data.setdefault("pending_appointments", {})[str(order["leader_id"])] = {"group_id": order["group_id"]}
             _save_unavailable(data)
+        return res
+    if t in ("air_attach", "air_mission"):
+        import air_orders as ao
+        if t == "air_attach":
+            res = ao.attach(order["army_id"], order["wing_ids"], live)
+        else:
+            res = ao.set_mission(order["wing_ids"], order["mission"], True, live)
+        if res.get("ok") and live:
+            now = {w["wing_id"]: w for w in ao.own_wings(s)}
+            if t == "air_mission" and not all(order["mission"] in (now.get(i) or {}).get("missions", [])
+                                              for i in order["wing_ids"]):
+                res.update(ok=False, stop="任务没有在所有联队上生效")
         return res
     if t == "promote":
         res = orbat.promote(order["leader_id"], live)
