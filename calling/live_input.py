@@ -302,6 +302,7 @@ def _capture_once():
         def is_land_combat(cp_):
             return loaded.class_name(cp_) in ('.?AVCLandCombat@@', '.?AUCLandCombat@@')
         skipped_non_land = 0
+        skipped_odd_handles = 0
         combats = []
         own_ids_ = {u['unit_id'] for u in first['world']['own_units']}
         for cp in loaded.array(gs + 0x268, 4096):
@@ -317,7 +318,10 @@ def _capture_once():
                 for up in loaded.array(bp + 0x20, 4096):
                     loaded.require(up, 'CArmy')
                     if loaded.i(up + 0x18) != 51:
-                        raise ObservationError('unexpected combat unit handle')
+                        # an army entry with another handle type (seen once, exam 9 endgame
+                        # short test): leave it out of the combat instead of failing the beat
+                        skipped_odd_handles += 1
+                        continue
                     ids.append(loaded.i(up + 0x1c))
                 sides[name] = ids
             if not own_ids_.intersection(sides['attacker_unit_ids'] + sides['defender_unit_ids']):
