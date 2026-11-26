@@ -288,6 +288,13 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
     ext = doc.get("_ext") or {}
     enemies = {e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
     enemy_provs = {e["province_id"]: e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
+    # the number in an army's name is not its army_id (exam 7, 09-02: "第5集团军" was ordered
+    # as army_id 5, but its id is 463, and the order was refused without saying why)
+    for aid in ([order["army_id"]] if "army_id" in order else []) + list(order.get("army_ids") or []):
+        if aid not in armies:
+            named = [a for a in pview.get("armies", []) if f"第{aid}集团军" in (a.get("name") or "")]
+            hint = f"；名称里的数字不是编号，{named[0]['name']}的 army_id 是 {named[0]['army_id']}" if named else ""
+            return f"army_id {aid} 不存在{hint}"
     if t == "delete_offensive_line":
         a = armies.get(order.get("army_id"))
         lines = {l["plan_id"] for f in (a or {}).get("fronts", []) for l in f["offensive_lines"]}
