@@ -503,6 +503,18 @@ def decide(input_doc: dict) -> dict:
         else:
             accepted_plans.append(raw)
             _project(projected, raw)
+    # Deleting an army's lines stops its execution in the game; a redraw without a new execute
+    # left two healthy armies idle for a beat (exam 8, 08-27). If the army was attacking and the
+    # commander did not order it to stop, keep it attacking after the redraw.
+    was_exec = {a["army_id"] for a in pview.get("armies", []) if any(f.get("executing") for f in a.get("fronts", []))}
+    redrawn = [o["army_id"] for o in accepted_plans if o.get("type") == "offensive_line"]
+    told = {o["army_id"] for o in accepted_plans if o.get("type") == "execute"}
+    for aid in dict.fromkeys(redrawn):
+        if aid in was_exec and aid not in told and len(accepted_plans) < po.MAX_PER_TICK + 6:
+            o = {"type": "execute", "army_id": aid, "on": True, "reason": "系统：重画进攻线后保持进攻"}
+            if not po.validate(o, input_doc, projected):
+                accepted_plans.append(o)
+                _project(projected, o)
     input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
     record["accepted_plan_orders"] = accepted_plans
     seq = 0
