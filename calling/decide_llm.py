@@ -119,7 +119,8 @@ def _combats(doc: dict) -> list[dict]:
         row = {"id": c["combat_id"], "prov": c["province_id"],
                "attackers": len(c.get("attacker_unit_ids") or []), "defenders": len(c.get("defender_unit_ids") or [])}
         v = view.get(c["combat_id"]) or {}
-        for k in ("we_attack", "ours", "enemy", "trend", "org_change_since_last_tick", "org_damage_total"):
+        for k in ("we_attack", "ours", "enemy", "trend", "org_change_since_last_tick", "org_damage_total",
+                  "days_fighting", "enemy_encircled"):
             if v.get(k) is not None:
                 row[k] = v[k]
         out.append(row)
@@ -228,7 +229,7 @@ def _plan_targets(cp) -> list[int]:
     return out[:20]
 
 
-def _plan_view(doc: dict, combats: list[dict]) -> dict | None:
+def _plan_view(doc: dict, combats: list[dict], pview: dict | None = None) -> dict | None:
     """Last beat's plan as written, plus facts the program computes for each target in it:
     taken or not, our combats there and how they go, the visible defenders' organisation,
     days left to the date the commander expected."""
@@ -250,6 +251,12 @@ def _plan_view(doc: dict, combats: list[dict]) -> dict | None:
         here = [c for c in combats if c.get("prov") == pid]
         if here:
             row["our_combats_here"] = len(here)
+            row["our_divisions_fighting_here"] = sum((c.get("ours") or {}).get("n") or 0 for c in here)
+            days = [c["days_fighting"] for c in here if c.get("days_fighting") is not None]
+            if days:
+                row["days_fighting_here"] = max(days)
+            if any(c.get("enemy_encircled") for c in here):
+                row["enemy_encircled"] = True
             trends = [c.get("trend") for c in here if c.get("trend")]
             if trends:
                 row["combat_trend"] = max(set(trends), key=trends.count)
@@ -258,7 +265,24 @@ def _plan_view(doc: dict, combats: list[dict]) -> dict | None:
         if orgs:
             row["enemy_divisions_seen"] = len(orgs)
             row["enemy_org_avg"] = round(sum(orgs) / len(orgs))
+        # the lines aimed at this target: provinces still to go and since when no progress
+        lines = [l for a in (pview or {}).get("armies", []) for f in a.get("fronts", [])
+                 for l in f.get("offensive_lines", []) if (l.get("path") or [None])[-1] == pid]
+        if lines:
+            row["lines_aimed_here"] = len(lines)
+            togo = [l["provinces_to_target"] for l in lines if l.get("provinces_to_target") is not None]
+            if togo:
+                row["provinces_to_go"] = min(togo)
+            stuck = [l["no_progress_since"] for l in lines if l.get("no_progress_since")]
+            if stuck:
+                row["no_progress_since"] = min(stuck)
         for g in (stored.get("plan") or {}).get("groups") or []:
+            if isinstance(g, dict) and g.get("main_target") == pid and isinstance(g.get("since"), str):
+                try:
+                    m, d = (int(x) for x in g["since"].split("-")[-2:])
+                    row["days_on_target"] = (now - datetime(now.year, m, d)).days
+                except (ValueError, TypeError):
+                    pass
             if isinstance(g, dict) and g.get("main_target") == pid and isinstance(g.get("expected_by"), str):
                 try:
                     m, d = (int(x) for x in g["expected_by"].split("-")[-2:])
@@ -438,7 +462,7 @@ def decide(input_doc: dict) -> dict:
     dig["order_of_battle"] = pview
     dig["last_plan_orders"] = (input_doc.get("feedback") or {}).get("last_plan_orders", [])
     try:
-        dig["your_campaign_plan"] = _plan_view(input_doc, dig.get("combats") or [])
+        dig["your_campaign_plan"] = _plan_view(input_doc, dig.get("combats") or [], pview)
     except Exception as e:  # never block a beat on this
         dig["your_campaign_plan"] = {"error": type(e).__name__}
     proposal = [{"type": o["type"], "unit_id": o["subject"]["unit_ids"][0],
@@ -515,6 +539,31 @@ def decide(input_doc: dict) -> dict:
             if not po.validate(o, input_doc, projected):
                 accepted_plans.append(o)
                 _project(projected, o)
+                told.add(aid)
+    # The game splits a front after an encirclement; the new segment has no line and its
+    # divisions stand idle (exam 8: 24 divisions, 1 attacking). Restore the commander's intent:
+    # aim the segment at the target of that army's own line. Armies the commander re-fronts
+    # this beat are left alone.
+    touched = {o["army_id"] for o in accepted_plans if o.get("type") in ("front_line", "delete_offensive_line")}
+    for a in projected.get("armies", []):  # after this reply's own orders
+        if a["army_id"] in touched:
+            continue
+        aims = [l["path"][-1] for f in a.get("fronts", []) for l in f.get("offensive_lines", []) if l.get("path")]
+        bare = [f for f in a.get("fronts", []) if f.get("front_provinces") and not f.get("offensive_lines")]
+        if not aims or not bare:
+            continue
+        for f in bare:
+            o = {"type": "offensive_line", "army_id": a["army_id"], "front_plan_id": f["plan_id"],
+                 "path": [aims[0]], "reason": "系统：被拆出的前线段补线，指向本集团军已有的目标"}
+            if not po.validate(o, input_doc, projected):
+                accepted_plans.append(o)
+                _project(projected, o)
+        if a["army_id"] in was_exec and a["army_id"] not in told:
+            o = {"type": "execute", "army_id": a["army_id"], "on": True, "reason": "系统：补线后保持进攻"}
+            if not po.validate(o, input_doc, projected):
+                accepted_plans.append(o)
+                _project(projected, o)
+                told.add(a["army_id"])
     input_doc["_plan_orders"] = {"orders": accepted_plans, "view": pview}
     record["accepted_plan_orders"] = accepted_plans
     seq = 0
@@ -578,7 +627,9 @@ def _project(pv: dict, o: dict) -> None:
     if t == "front_line" and a is not None and not any(f.get("front_provinces") for f in a["fronts"]):
         a["fronts"].append({"plan_id": None, "front_provinces": 1, "offensive_lines": [], "projected": True})
     elif t == "offensive_line" and a is not None and a["fronts"]:
-        max(a["fronts"], key=lambda f: f.get("front_provinces") or 0)["offensive_lines"].append(
+        seg = next((f for f in a["fronts"] if o.get("front_plan_id") is not None
+                    and f.get("plan_id") == o["front_plan_id"]), None)
+        (seg or max(a["fronts"], key=lambda f: f.get("front_provinces") or 0))["offensive_lines"].append(
             {"plan_id": None, "path": o.get("path"), "projected": True})
     elif t == "delete_offensive_line" and a is not None:
         for f in a["fronts"]:

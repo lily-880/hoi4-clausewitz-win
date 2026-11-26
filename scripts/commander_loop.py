@@ -154,7 +154,11 @@ def main(argv=None) -> int:
     ap.add_argument("--save-moments", action="store_true",
                     help="at key moments save in the background (CC_ prefix) and keep going")
     ap.add_argument("--max-ticks", type=int, default=200)
-    ap.add_argument("--targets", default="POL")
+    try:  # the scenario's primary targets (tables/scenario.json), not a country written here
+        _scn = json.loads((ROOT / "calling" / "tables" / "scenario.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        _scn = {}
+    ap.add_argument("--targets", default=",".join(_scn.get("primary_targets") or []))
     ap.add_argument("--key-moments", action="store_true",
                     help="stop (paused) at typical turning points so the user can save a practice start")
     ap.add_argument("--watchdog", action="store_true", help=argparse.SUPPRESS)

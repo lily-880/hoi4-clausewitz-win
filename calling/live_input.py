@@ -22,6 +22,15 @@ from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
 
+
+def _scenario() -> dict:
+    """Campaign parameters (tables/scenario.json): primary targets and likely enemies come from
+    the player's scenario file, never from country codes written in this code."""
+    try:
+        return json.loads((HERE / "tables" / "scenario.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
 def _capture_once():
     os.environ['CLAUSEWITZ_ALLOW_POST']='0'
     os.environ['CLAUSEWITZ_ALLOW_WRITE']='0'
@@ -634,7 +643,7 @@ def _capture_once():
         pockets = []
         for foe in foes:
             tag_ = tag_of(foe)
-            if tag_ not in ('POL',) and len([1 for v in controller.values() if v == foe]) > 400:
+            if tag_ not in set(_scenario().get('primary_targets') or []) and len([1 for v in controller.values() if v == foe]) > 400:
                 continue  # large overseas empires: skip (cost); front-line foe only
             members = [pid_ for pid_, c in controller.items() if c == foe]
             seen_ = {}
@@ -659,6 +668,7 @@ def _capture_once():
                             ours_around.add(n)
                 if ours_around:  # cut off by us, not a natural island/colony
                     pockets.append({'owner': tag_, 'provinces': len(comp), 'sample': sorted(comp)[:8],
+                                    'province_ids': sorted(comp)[:300],
                                     'our_provinces_around': len(ours_around)})
         # near-closed: enemy border provinces whose land neighbours are mostly ours
         near_closed = []
@@ -682,9 +692,9 @@ def _capture_once():
             'source': 'BFS over land adjacency (types 0/2/3) of own-controlled provinces; '
                       'enemy depth BFS inside the same enemy controller; VP = CProvince+0x38',
         }
-        # Provinces of ours facing countries we are NOT at war with but must not
-        # leave bare (western neighbours); divisions there are kept in place.
-        watch_tags = {'FRA', 'BEL', 'HOL', 'LUX', 'ENG'}
+        # Provinces of ours facing countries we are NOT at war with but must not leave bare:
+        # the scenario's likely enemies (player's scenario file); divisions there are kept in place.
+        watch_tags = set(_scenario().get('threats') or [])
         watch_idx = {c for c in range(len(country_ptrs)) if tag_of(c) in watch_tags and c not in foes}
         own_watch = []
         own_watch_detail = {}

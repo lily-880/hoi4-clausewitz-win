@@ -195,6 +195,23 @@ def view(doc: dict, session=None) -> dict:
                            "avg_org": round(sum((units.get(u, {}).get("organization") or 0) for u in a["unit_ids"])
                                             / max(1, len(a["unit_ids"])), 1),
                            "fronts": fronts})
+        # how each army's divisions are being used (exam 8: 24 divisions with 1 attacking went
+        # unnoticed for days)
+        world_ = doc.get("world") or {}
+        attackers = {u for c in world_.get("combats", []) for u in c.get("attacker_unit_ids") or []}
+        defenders = {u for c in world_.get("combats", []) for u in c.get("defender_unit_ids") or []}
+        use = {}
+        for u in world_.get("own_units", []):
+            aid = (u.get("formation") or {}).get("army_id")
+            if aid is None:
+                continue
+            k = ("attacking" if u["unit_id"] in attackers else "defending" if u["unit_id"] in defenders
+                 else "marching" if (u.get("order") or {}).get("path_province_ids") else
+                 "resting_low_org" if (u.get("organization") or 0) < 30 else "idle")
+            use.setdefault(aid, {}).setdefault(k, 0)
+            use[aid][k] += 1
+        for a_ in armies:
+            a_["divisions_use"] = use.get(a_["army_id"], {})
         try:
             _line_progress(s, armies)
         except Exception:
@@ -582,6 +599,8 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
     if t == "offensive_line":
         a = armies[order["army_id"]]
         front = max(a["fronts"], key=lambda f: f["front_provinces"])
+        if order.get("front_plan_id") is not None:  # a given segment of a split front
+            front = next((f for f in a["fronts"] if f["plan_id"] == order["front_plan_id"]), front)
 
         def line_ids():
             return {c["plan_id"] for th in orbat.snapshot(s)["theatres"] for g in th["armies"]

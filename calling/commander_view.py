@@ -144,6 +144,18 @@ def combat_view(doc: dict, remember: bool = False) -> list[dict]:
         prev = {}
     now_key = json.dumps((doc.get("meta") or {}).get("game_time"), sort_keys=True)
     out, mem = [], {}
+    # enemy provinces cut off by us: defenders there cannot retreat and fight on at zero
+    # organisation until destroyed (exam 8: a pocket held for two weeks at org 2..15)
+    pocket = {pid for pk in ((doc.get("_ext") or {}).get("topology") or {}).get("enemy_pockets", [])
+              for pid in pk.get("province_ids") or []}
+
+    def _hours(key):
+        try:
+            t = json.loads(key)
+            from datetime import datetime as _dt
+            return (_dt(int(t["year"]), int(t["month"]), int(t["day"])) - _dt(1936, 1, 1)).days * 24 + int(t.get("hour") or 0)
+        except (TypeError, ValueError, KeyError):
+            return None
 
     def side(ids):
         rows = [units[i] for i in ids if i in units]
@@ -162,8 +174,12 @@ def combat_view(doc: dict, remember: bool = False) -> list[dict]:
                "ours": o, "enemy": t}
         if o and t:
             key = str(c["combat_id"]) + "@" + str(c.get("province_id"))
-            mem[key] = {"t": now_key, "our_org": o["avg_org"], "enemy_org": t["avg_org"]}
             p = prev.get(key)
+            since = (p or {}).get("since") or (p or {}).get("t") or now_key
+            mem[key] = {"t": now_key, "since": since, "our_org": o["avg_org"], "enemy_org": t["avg_org"]}
+            h0, h1 = _hours(since), _hours(now_key)
+            if h0 is not None and h1 is not None:
+                row["days_fighting"] = round((h1 - h0) / 24, 1)
             if p and p.get("t") != now_key:
                 d_our = o["avg_org"] - p["our_org"]
                 d_en = t["avg_org"] - p["enemy_org"]
@@ -173,6 +189,8 @@ def combat_view(doc: dict, remember: bool = False) -> list[dict]:
                 row["trend"] = "winning"
             elif o["avg_org"] < t["avg_org"] * 0.6:
                 row["trend"] = "losing"
+        if c.get("province_id") in pocket:
+            row["enemy_encircled"] = True
         cas = c.get("casualties") or {}
         if cas:
             row["org_damage_total"] = {"ours": cas.get("our_org_loss"), "enemy": cas.get("enemy_org_loss")}
