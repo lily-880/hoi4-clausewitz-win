@@ -163,7 +163,8 @@ def strategic_redeploy(army_index: int, province_id: int, dry_run: bool = False)
     if _u64(b, cmd) - base != STRATEGIC_VT or _u64(b, cmd + 0x28) - base != ACTION_VT:
         return {"ok": False, "result": "FACTORY_VT_MISMATCH"}
     mo._write(pid, cmd + 0x38, struct.pack("<IIIiI", HANDLE_TYPE, army_index, province_id, 1, 2))
-    valid = mo._remote(pid, base + ACTION_ISVALID_RVA, {"rcx": cmd + 0x28}, wait_ms=5000)
+    # rdx unused by this IsValid; set to null like every other IsValid call (2026-11-27)
+    valid = mo._remote(pid, base + ACTION_ISVALID_RVA, {"rcx": cmd + 0x28, "rdx": 0}, wait_ms=5000)
     isvalid = valid["rax"] & 0xFF
     if valid["wait"] != 0 or isvalid != 1:
         return {

@@ -54,7 +54,8 @@ def support_attack(army_index: int, target_province_id: int, dry_run: bool = Fal
     mo._write(pid, cmd + HANDLE_OFF, struct.pack("<II", HANDLE_TYPE, int(army_index)))
     mo._write(pid, cmd + PROVINCE_OFF, struct.pack("<I", int(target_province_id)))
 
-    valid = mo._remote(pid, base + ISVALID_RVA, {"rcx": cmd}, wait_ms=5000)
+    # rdx = reason buffer; null is checked by the game, a stale value was written to (2026-11-27)
+    valid = mo._remote(pid, base + ISVALID_RVA, {"rcx": cmd, "rdx": 0}, wait_ms=5000)
     # SA IsValid (vt+0x48 / 0x1402270) returns a pointer/object on success (observed
     # non-zero high rax), not necessarily AL==1 like Cancel/Move action IsValid.
     rax = int(valid.get("rax") or 0)

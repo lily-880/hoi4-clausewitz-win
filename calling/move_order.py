@@ -324,7 +324,8 @@ def move(army_index: int, province_id: int, dry_run: bool = False) -> dict:
         _write(pid, emb + 0x50, bytes([1, 0, 0, 0, 0, 0, 0, 0]))
         _write(pid, emb + 0x58, struct.pack("<I", 2))
 
-        valid = _remote(pid, base + ACTION_ISVALID_RVA, {"rcx": emb})
+        # rdx = reason buffer, handed on by the game; null instead of a stale register (2026-11-27)
+        valid = _remote(pid, base + ACTION_ISVALID_RVA, {"rcx": emb, "rdx": 0})
         isvalid = valid["rax"] & 0xFF
         if valid["wait"] != 0 or isvalid != 1:
             return {

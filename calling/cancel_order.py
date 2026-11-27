@@ -84,7 +84,8 @@ def cancel_movement(army_index: int | None = None, dry_run: bool = False, army_i
         mo._write(pid, cmd + UNITS_OFF, struct.pack("<Qii", buf, n, n))
         sticky = b.read(cmd + STICKY_OFF, 1)[0]
 
-        valid = mo._remote(pid, base + ISVALID_RVA, {"rcx": cmd}, wait_ms=5000)
+        # rdx = reason buffer; null is checked by the game, a stale value was written to (2026-11-27)
+        valid = mo._remote(pid, base + ISVALID_RVA, {"rcx": cmd, "rdx": 0}, wait_ms=5000)
         isvalid = valid["rax"] & 0xFF
         if valid["wait"] != 0 or isvalid != 1:
             return {
