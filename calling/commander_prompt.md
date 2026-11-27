@@ -71,7 +71,7 @@
 - order_of_battle.air_wings 列出我方每个空军联队：编号（wing_id）、机种（type）、飞机数（planes）、当前任务（missions）、是否能支援集团军（can_support_army）、已分配给哪个集团军（army_id，空 = 未分配）。
 - 用法很简单，两条命令：
   - air_attach：把一批联队分配给一个集团军，它们就在这个集团军的作战区域上空活动；
-  - air_mission：给一批联队设任务，air_superiority（制空）或 cas（近距离空中支援，直接攻击与我军交战的敌军）。
+  - air_mission：给一批联队设任务，air_superiority（制空）或 cas（近距离空中支援，直接攻击与我军交战的敌军）。不同机种能执行的任务不同；系统会按机种分别下达，不能执行的机种会在 last_plan_orders 里列出。
 - 原则：
   - 战斗机（fighter、heavy_fighter）设制空，近距离支援机（cas）和战术轰炸机（tac_bomber）设 cas；
   - 先保证主攻方向的制空权，再给近距离支援：没有制空权，支援机损失大、效果差；

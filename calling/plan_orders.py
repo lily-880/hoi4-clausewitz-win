@@ -813,12 +813,24 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         if t == "air_attach":
             res = ao.attach(order["army_id"], order["wing_ids"], live)
         else:
-            res = ao.set_mission(order["wing_ids"], order["mission"], True, live)
+            # one command per aircraft type: the game refuses the whole batch if one wing cannot
+            # fly the mission (exam 10: CAS for 41 wings incl. fighters, nothing was set)
+            kinds: dict = {}
+            for w in ao.own_wings(s):
+                if w["wing_id"] in order["wing_ids"]:
+                    kinds.setdefault(w["type"], []).append(w["wing_id"])
+            done, refused = [], []
+            for kind, ids in kinds.items():
+                r_ = ao.set_mission(ids, order["mission"], True, live)
+                (done if r_.get("ok") else refused).append(kind)
+            res = {"ok": bool(done), "set_for": done, "refused_types": refused}
+            if refused:
+                res["stop"] = f"这些机种不能执行 {order['mission']}：{refused}"
         if res.get("ok") and live:
             now = {w["wing_id"]: w for w in ao.own_wings(s)}
-            if t == "air_mission" and not all(order["mission"] in (now.get(i) or {}).get("missions", [])
+            if t == "air_mission" and not any(order["mission"] in (now.get(i) or {}).get("missions", [])
                                               for i in order["wing_ids"]):
-                res.update(ok=False, stop="任务没有在所有联队上生效")
+                res.update(ok=False, stop="任务没有在任何联队上生效")
         return res
     if t == "learn_trait":
         import leader_traits as ltr
