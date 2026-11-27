@@ -288,6 +288,14 @@ def view(doc: dict, session=None) -> dict:
             violations.append(f"集团军 {a['name']}（{a['army_id']}）有 {a['divisions']} 个师却没有前线：画前线和进攻线投入，或用 assault 调用")
         elif has_line and not executing:
             violations.append(f"集团军 {a['name']}（{a['army_id']}）有进攻线但没有执行：下 execute，否则它不会进攻")
+    try:  # player hard rule: the homeland is never occupied
+        import decide_llm as _dl
+        lost = _dl.home_lost(doc)
+        if lost:
+            violations.append(f"本土有 {len(lost)} 个省被敌军占领（{lost[:12]}）：玩家硬性要求本土不能被占领，"
+                              f"立即用 assault 或进攻线夺回，并补满那段边境")
+    except Exception:
+        pass
     for g in groups:
         if any(f.get("offensive_lines") for f in g.get("fronts", [])) and not any(f.get("executing") for f in g.get("fronts", [])):
             violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）有进攻线但没有执行：下 execute，否则它不会进攻")

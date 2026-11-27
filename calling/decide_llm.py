@@ -153,6 +153,7 @@ def _front(doc: dict) -> dict:
         "enemy_pockets": (ext.get("topology") or {}).get("enemy_pockets", []),
         "enemy_provinces": ext.get("enemy_controlled_provinces", {}),
         "own_provinces": ext.get("own_controlled_provinces"),
+        "home_provinces_lost": home_lost(doc),
         "regions": [{"region": r["region"], "provinces": r["provinces"], "border_provinces": r["border_provinces"]}
                     for r in (ext.get("topology") or {}).get("regions", [])],
         "key_targets": _target_costs(doc, _top_targets((ext.get("topology") or {}).get("key_targets", []))),
@@ -294,6 +295,35 @@ def _plan_view(doc: dict, combats: list[dict], pview: dict | None = None) -> dic
             "days_since": round((now - written).total_seconds() / 86400, 1),
             "plan": stored.get("plan"), "recent_changes": stored.get("changes") or [],
             "status": status}
+
+
+HOME_FILE = HERE / "tables" / "home_provinces.json"
+
+
+def home_lost(doc: dict) -> list[int]:
+    """Our home provinces now held by an enemy. Home = what we held (as far as the capture lists
+    our provinces) at the first beat of the campaign; exam 10 lost 13 border provinces in a week
+    and the commander, seeing only a province total, called every battle a win."""
+    world = doc.get("world") or {}
+    ext = doc.get("_ext") or {}
+    me = ((doc.get("meta") or {}).get("player_country") or {}).get("index")
+    now = _game_dt(doc)
+    ours_now = {p["province_id"] for p in world.get("provinces", []) if (p.get("controller") or {}).get("index") == me}
+    ours_now |= {b["province_id"] for b in ext.get("own_border", [])}
+    try:
+        home = json.loads(HOME_FILE.read_text(encoding="utf-8"))
+        if now is not None and datetime.fromisoformat(home["start"]) > now:
+            raise ValueError("an earlier save was loaded")
+    except (OSError, ValueError, KeyError, TypeError):
+        home = {"start": now.isoformat() if now else None, "provinces": sorted(ours_now)}
+        try:
+            HOME_FILE.write_text(json.dumps(home), encoding="utf-8")
+        except OSError:
+            pass
+    enemy_held = {e["province_id"] for e in ext.get("enemy_border", [])}
+    enemy_held |= {p["province_id"] for p in world.get("provinces", [])
+                   if (p.get("controller") or {}).get("index") not in (None, me)}
+    return sorted(set(home.get("provinces") or []) & enemy_held)
 
 
 def _surrender(doc: dict) -> dict:
