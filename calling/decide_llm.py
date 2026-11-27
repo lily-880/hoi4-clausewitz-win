@@ -559,7 +559,7 @@ def decide(input_doc: dict) -> dict:
     # Deleting an army's lines stops its execution in the game; a redraw without a new execute
     # left two healthy armies idle for a beat (exam 8, 08-27). If the army was attacking and the
     # commander did not order it to stop, keep it attacking after the redraw.
-    was_exec = {a["army_id"] for a in pview.get("armies", []) if any(f.get("executing") for f in a.get("fronts", []))}
+    was_exec = {a["army_id"] for a in po.formations(pview).values() if any(f.get("executing") for f in a.get("fronts", []))}
     redrawn = [o["army_id"] for o in accepted_plans if o.get("type") == "offensive_line"]
     told = {o["army_id"] for o in accepted_plans if o.get("type") == "execute"}
     for aid in dict.fromkeys(redrawn):
@@ -574,7 +574,7 @@ def decide(input_doc: dict) -> dict:
     # aim the segment at the target of that army's own line. Armies the commander re-fronts
     # this beat are left alone.
     touched = {o["army_id"] for o in accepted_plans if o.get("type") in ("front_line", "delete_offensive_line")}
-    for a in projected.get("armies", []):  # after this reply's own orders
+    for a in list(po.formations(projected).values()):  # after this reply's own orders; army groups too
         if a["army_id"] in touched:
             continue
         aims = [l["path"][-1] for f in a.get("fronts", []) for l in f.get("offensive_lines", []) if l.get("path")]
@@ -603,9 +603,11 @@ def decide(input_doc: dict) -> dict:
         remembered = {}
     fronted = {o["army_id"] for o in accepted_plans if o.get("type") == "front_line"}
     at_war = set((pview.get("border_fronts") or {}).keys())
+    group_fronted = {i for g in projected.get("army_groups", []) if any(f.get("front_provinces") for f in g.get("fronts", []))
+                     for i in (g.get("army_ids") or [])}
     for a in projected.get("armies", []):
-        if not a.get("divisions") or a["army_id"] in fronted or any(f.get("front_provinces") for f in a.get("fronts", [])):
-            continue
+        if not a.get("divisions") or a["army_id"] in fronted or a["army_id"] in group_fronted                 or any(f.get("front_provinces") for f in a.get("fronts", [])):
+            continue  # an army inside a group that holds the front needs no front of its own
         enemy = (remembered.get(str(a["army_id"])) or {}).get("enemy")
         if enemy not in at_war:
             enemy = next((t for t in sorted(cv.PRIMARY_TARGETS) if t in at_war), None)
@@ -777,7 +779,8 @@ def _army_by_name(order: dict, pv: dict) -> None:
 def _project(pv: dict, o: dict) -> None:
     """Apply an accepted plan order to the projected view so the next order of
     the same reply can rely on it (front -> offensive line -> execute in one beat)."""
-    armies = {a["army_id"]: a for a in pv.get("armies", [])}
+    import plan_orders as po
+    armies = po.formations(pv)
     t = o.get("type")
     a = armies.get(o.get("army_id"))
     if t == "front_line" and a is not None and not any(f.get("front_provinces") for f in a["fronts"]):

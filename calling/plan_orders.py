@@ -83,6 +83,28 @@ def _session():
 LINE_PROGRESS_FILE = HERE / "tables" / "line_progress.json"
 
 
+def _fronts_of(g: dict) -> list[dict]:
+    """Front plans of an army or army group, with their offensive lines."""
+    fronts = []
+    for p in g.get("plans") or []:
+        if not p["path"] and not p["children"]:
+            continue
+        fronts.append({"plan_id": p["plan_id"], "front_provinces": len(p["path"]),
+                       "front_ends": [p["path"][0], p["path"][-1]] if p["path"] else [],
+                       "divisions_on_plan": p["members"],
+                       "executing": bool(p["can_execute"]) and all(p.get("sub_executing") or [1]),
+                       "offensive_lines": [{"plan_id": c["plan_id"], "path": c["path"]} for c in p["children"]]})
+    return fronts
+
+
+def formations(pview: dict) -> dict:
+    """Plan targets by id: armies and army groups (an army group's plan covers all its armies)."""
+    out = {a["army_id"]: a for a in pview.get("armies", [])}
+    for g in pview.get("army_groups", []):
+        out.setdefault(g["army_group_id"], g)  # view rows carry army_id = army_group_id, is_army_group
+    return out
+
+
 def _line_progress(s, armies: list) -> None:
     """Annotate each offensive line with how it is doing (exam 6, 2026-11-25: arrows drawn on
     08-17 were never redrawn although their start provinces had long been taken, and fronts the
@@ -179,15 +201,7 @@ def view(doc: dict, session=None) -> dict:
             for u in a["unit_ids"]:
                 k = cv.unit_kind(units.get(u, {}))
                 kinds[k] = kinds.get(k, 0) + 1
-            fronts = []
-            for p in a["plans"]:
-                if not p["path"] and not p["children"]:
-                    continue
-                fronts.append({"plan_id": p["plan_id"], "front_provinces": len(p["path"]),
-                               "front_ends": [p["path"][0], p["path"][-1]] if p["path"] else [],
-                               "divisions_on_plan": p["members"],
-                               "executing": bool(p["can_execute"]) and all(p.get("sub_executing") or [1]),
-                               "offensive_lines": [{"plan_id": c["plan_id"], "path": c["path"]} for c in p["children"]]})
+            fronts = _fronts_of(a)
             lead = leader_info.get(a["leader_id"], {})
             armies.append({"army_id": a["id"], "name": a["name"], "army_group_id": a.get("army_group_id"),
                            "leader": lead.get("name") or a["leader_id"], "leader_skill": lead.get("skill"),
@@ -213,14 +227,24 @@ def view(doc: dict, session=None) -> dict:
             use[aid][k] += 1
         for a_ in armies:
             a_["divisions_use"] = use.get(a_["army_id"], {})
-        try:
-            _line_progress(s, armies)
-        except Exception:
-            pass
         for g in t["army_groups"]:
             lead = leader_info.get(g["leader_id"], {})
-            groups.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids"),
-                           "leader": lead.get("name") or g["leader_id"], "leader_rank": rank_of(g["leader_id"])})
+            members = [a_ for a_ in armies if a_["army_id"] in (g.get("army_ids") or [])]
+            g_use: dict = {}
+            for a_ in members:
+                for k, v in a_["divisions_use"].items():
+                    g_use[k] = g_use.get(k, 0) + v
+            # an army group can hold its own front and offensive line for all its armies (the
+            # user's 27-day demonstration, 2026-11-27: one group plan, one deep line)
+            groups.append({"army_group_id": g["id"], "army_id": g["id"], "is_army_group": True,
+                           "name": g["name"], "army_ids": g.get("army_ids"),
+                           "leader": lead.get("name") or g["leader_id"], "leader_rank": rank_of(g["leader_id"]),
+                           "divisions": sum(a_["divisions"] for a_ in members), "divisions_use": g_use,
+                           "fronts": _fronts_of(g)})
+        try:
+            _line_progress(s, armies + groups)
+        except Exception:
+            pass
     starts: dict = {}
     for a in armies:
         for f in a["fronts"]:
@@ -256,16 +280,21 @@ def view(doc: dict, session=None) -> dict:
         has_front = any(f.get("front_provinces") for f in a.get("fronts", []))
         has_line = any(f.get("offensive_lines") for f in a.get("fronts", []))
         executing = any(f.get("executing") for f in a.get("fronts", []))
-        if a["divisions"] and not has_front:
+        grp = next((g for g in groups if a["army_id"] in (g.get("army_ids") or [])), None)
+        group_front = bool(grp and any(f.get("front_provinces") for f in grp.get("fronts", [])))
+        if a["divisions"] and not has_front and not group_front:
             violations.append(f"集团军 {a['name']}（{a['army_id']}）有 {a['divisions']} 个师却没有前线：画前线和进攻线投入，或用 assault 调用")
         elif has_line and not executing:
             violations.append(f"集团军 {a['name']}（{a['army_id']}）有进攻线但没有执行：下 execute，否则它不会进攻")
+    for g in groups:
+        if any(f.get("offensive_lines") for f in g.get("fronts", [])) and not any(f.get("executing") for f in g.get("fronts", [])):
+            violations.append(f"集团军群 {g['name']}（{g['army_group_id']}）有进攻线但没有执行：下 execute，否则它不会进攻")
     # player rule (2026-11-24): no front on another country's soil
     try:
         me_idx = s.player.get("player_index")
         paths = {a_["id"]: [p_["path"] for p_ in a_["plans"]]
-                 for t_ in snap["theatres"] for a_ in t_["armies"]}
-        for a in armies:
+                 for t_ in snap["theatres"] for a_ in t_["armies"] + t_["army_groups"]}
+        for a in armies + groups:
             foreign = {}
             for path in paths.get(a["army_id"], []):
                 for pid in path:
@@ -358,7 +387,7 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
     t = order.get("type")
     if t not in TYPES:
         return "未知的计划命令类型"
-    armies = {a["army_id"]: a for a in pview.get("armies", [])}
+    armies = formations(pview) if t in ("front_line", "offensive_line", "delete_offensive_line", "execute")         else {a["army_id"]: a for a in pview.get("armies", [])}
     ext = doc.get("_ext") or {}
     enemies = {e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
     enemy_provs = {e["province_id"]: e["controller"]["tag"] for e in ext.get("enemy_border", []) if e.get("controller")}
@@ -529,7 +558,7 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
                                          f"{round(own[0] / 1000)}～{round(own[1] / 1000)}%"}
     if live:  # one root plan per army: stacking several roots preceded a game crash (2026-11-24)
         for th in orbat.snapshot(s)["theatres"]:
-            for g in th["armies"]:
+            for g in th["armies"] + th["army_groups"]:
                 if g["id"] == army_id:
                     for p in g["plans"]:
                         orbat.delete_plan(army_id, p["plan_id"], live)
@@ -644,10 +673,17 @@ def chain_path(s, front_path: list[int], waypoints: list[int], taken=frozenset()
 def apply(order: dict, pview: dict, live: bool = True) -> dict:
     import orbat
     t = order["type"]
-    armies = {a["army_id"]: a for a in pview.get("armies", [])}
+    armies = formations(pview)
     s = _session()
     snap = orbat.snapshot(s)
     units_of = {a["id"]: a["unit_ids"] for th in snap["theatres"] for a in th["armies"]}
+    for th in snap["theatres"]:  # an army group's plan carries all its armies' divisions
+        for g in th["army_groups"]:
+            units_of[g["id"]] = [u for a_id in g.get("army_ids") or [] for u in units_of.get(a_id, [])]
+
+    def groups_all():
+        return [g for th in orbat.snapshot(s)["theatres"] for g in th["armies"] + th["army_groups"]]
+    snap_groups = [g for th in snap["theatres"] for g in th["armies"] + th["army_groups"]]
     if t == "front_line":
         return place_front(s, order["army_id"], order["enemy"], order.get("section"), order.get("range_pct"),
                            units_of.get(order["army_id"], []), live, remember=True)
@@ -658,14 +694,19 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
             front = next((f for f in a["fronts"] if f["plan_id"] == order["front_plan_id"]), front)
 
         def line_ids():
-            return {c["plan_id"] for th in orbat.snapshot(s)["theatres"] for g in th["armies"]
+            return {c["plan_id"] for g in groups_all()
                     if g["id"] == order["army_id"] for p in g["plans"] for c in p["children"]}
         before = line_ids()
-        root = next((p for th in snap["theatres"] for g in th["armies"] if g["id"] == order["army_id"]
+        root = next((p for g in snap_groups if g["id"] == order["army_id"]
                      for p in g["plans"] if p["plan_id"] == front["plan_id"]), None)
-        taken = {c["path"][0] for th in snap["theatres"] for g in th["armies"] if g["id"] != order["army_id"]
-                 for p in g["plans"] for c in p["children"] if c.get("path")}
-        chain = chain_path(s, (root or {}).get("path") or [], order["path"], taken)
+        taken = {c["path"][0] for g in snap_groups if g["id"] != order["army_id"]
+                 for p in g["plans"] for c in p["children"] if len(c.get("path") or []) >= 2}
+        if len(order["path"]) == 1:
+            # a target alone is posted as it is: the game draws the arrow from the front itself
+            # (the user's 27-day line was [target]; verified on a test save 2026-11-27)
+            chain = list(order["path"])
+        else:
+            chain = chain_path(s, (root or {}).get("path") or [], order["path"], taken)
         if not chain and str(order.get("reason") or "").startswith("系统"):
             # a segment cut off from the army's target (it faces a pocket): aim it at the enemy
             # province it faces, so its divisions fight instead of standing idle
@@ -697,10 +738,12 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
         return orbat.delete_plan(order["army_id"], order["plan_id"], live)
     if t == "execute":
         # whole-army execute (plan id 0), like the UI button; per-plan execute never moved a division
-        r = orbat.execute(order["army_id"], 0, bool(order.get("on", True)), live=live)
+        is_group = bool((armies.get(order["army_id"]) or {}).get("is_army_group"))
+        # an army group: +0x35 = 1 also executes its armies (orbat.execute)
+        r = orbat.execute(order["army_id"], 0, bool(order.get("on", True)), flag_35=1 if is_group else 0, live=live)
         res = {"ok": bool(r.get("ok")), "results": [r.get("ok")]}
         if res["ok"] and live:
-            subs = [x for th in orbat.snapshot(s)["theatres"] for g in th["armies"] if g["id"] == order["army_id"]
+            subs = [x for g in groups_all() if g["id"] == order["army_id"]
                     for p in g["plans"] for x in p.get("sub_executing", [])]
             if bool(order.get("on", True)) and subs and not all(subs):
                 res.update(ok=False, stop="执行命令已下达，但挂着部队的计划实例没有进入执行状态")
