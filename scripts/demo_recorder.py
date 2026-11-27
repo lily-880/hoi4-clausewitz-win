@@ -78,7 +78,7 @@ def air() -> list:
     try:
         import air_orders as ao
         return ao.own_wings(max_id=1500)
-    except Exception as e:
+    except (Exception, SystemExit) as e:
         return [{"error": type(e).__name__}]
 
 
@@ -86,7 +86,7 @@ def shot(tag: str) -> str | None:
     try:
         import game_ui as gu
         return str(gu.shot(OUT / f"shot_{tag}.png", 0.6))
-    except Exception:
+    except (Exception, SystemExit):
         return None
 
 
@@ -101,7 +101,7 @@ def main() -> int:
         try:
             c = clock()
             misses = 0
-        except Exception:
+        except (Exception, SystemExit):
             # game closed, restarting or loading a save: wait up to an hour for it
             misses += 1
             if misses > 360:
@@ -119,13 +119,13 @@ def main() -> int:
                    "speed_slot": c.get("speed_slot"), "pause": c.get("pause")}
             try:
                 row.update(plans())
-            except Exception as e:
+            except (Exception, SystemExit) as e:
                 row["plans_error"] = type(e).__name__
             for _ in range(3):
                 try:
                     row.update(full())
                     break
-                except Exception as e:
+                except (Exception, SystemExit) as e:
                     row["capture_error"] = f"{type(e).__name__}: {e}"[:120]
                     time.sleep(0.3)
             row["air"] = air()
