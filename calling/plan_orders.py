@@ -28,7 +28,7 @@ if str(HERE) not in sys.path:
 import commander_view as cv  # noqa: E402
 
 TYPES = ("front_line", "offensive_line", "delete_offensive_line", "execute", "create_army",
-         "create_army_group", "appoint", "promote", "air_attach", "air_mission")
+         "create_army_group", "appoint", "promote", "air_attach", "air_mission", "learn_trait")
 AIR_MISSIONS = ("air_superiority", "cas")  # the two missions for supporting the land war
 MAX_PER_TICK = 12
 ARMY_MAX = 24
@@ -204,7 +204,8 @@ def view(doc: dict, session=None) -> dict:
             fronts = _fronts_of(a)
             lead = leader_info.get(a["leader_id"], {})
             armies.append({"army_id": a["id"], "name": a["name"], "army_group_id": a.get("army_group_id"),
-                           "leader": lead.get("name") or a["leader_id"], "leader_skill": lead.get("skill"),
+                           "leader": lead.get("name") or a["leader_id"], "leader_id": a["leader_id"],
+                           "leader_skill": lead.get("skill"),
                            "leader_rank": rank_of(a["leader_id"]),
                            "divisions": len(a["unit_ids"]), "kinds": kinds,
                            "avg_org": round(sum((units.get(u, {}).get("organization") or 0) for u in a["unit_ids"])
@@ -238,7 +239,8 @@ def view(doc: dict, session=None) -> dict:
             # user's 27-day demonstration, 2026-11-27: one group plan, one deep line)
             groups.append({"army_group_id": g["id"], "army_id": g["id"], "is_army_group": True,
                            "name": g["name"], "army_ids": g.get("army_ids"),
-                           "leader": lead.get("name") or g["leader_id"], "leader_rank": rank_of(g["leader_id"]),
+                           "leader": lead.get("name") or g["leader_id"], "leader_id": g["leader_id"],
+                           "leader_rank": rank_of(g["leader_id"]),
                            "divisions": sum(a_["divisions"] for a_ in members), "divisions_use": g_use,
                            "fronts": _fronts_of(g)})
         try:
@@ -354,7 +356,27 @@ def view(doc: dict, session=None) -> dict:
             "border_fronts": {k: v for k, v in fronts.items() if k in at_war},
             "free_divisions_by_border_position": {k: v for k, v in free_by_pos.items() if k in at_war},
             "unused_reserve": _unused_reserve(doc, free_units),
-            "air_wings": _air_wings(s)}
+            "air_wings": _air_wings(s),
+            "commanders": _commanders(s, armies, groups)}
+
+
+def _commanders(s, armies: list, groups: list) -> list[dict]:
+    """Leaders of armies and army groups: their traits and what they can learn now."""
+    try:
+        import leader_traits as ltr
+        ids = []
+        for a in armies + groups:
+            snap_leader = a.get("leader_id")
+            if snap_leader is not None and snap_leader not in ids:
+                ids.append(snap_leader)
+        rows = ltr.commanders_view(ids, (s.clock() or {}).get("hour_tick"), s)
+        by = {a.get("leader_id"): a for a in armies + groups}
+        for r in rows:
+            f = by.get(r["leader_id"]) or {}
+            r["commands"] = f.get("name")
+        return rows
+    except Exception as e:  # never block a beat on this
+        return [{"error": type(e).__name__}]
 
 
 def _air_wings(s) -> list[dict]:
@@ -499,6 +521,13 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
                 return f"这些联队不能支援集团军（运输机、海军轰炸机或正在训练）：{cannot[:6]}"
         if t == "air_mission" and order.get("mission") not in AIR_MISSIONS:
             return "mission 只能是 air_superiority（制空）或 cas（近距离空中支援）"
+        return None
+    if t == "learn_trait":
+        row = next((c for c in pview.get("commanders", []) if c.get("leader_id") == order.get("leader_id")), None)
+        if row is None:
+            return "只能给指挥集团军或集团军群的将领加特质（见 order_of_battle.commanders）"
+        if order.get("trait") not in (row.get("learnable_traits") or []):
+            return f"该将领现在不能学这个特质；可学的是：{row.get('learnable_traits')}"
         return None
     if t == "promote":
         if order.get("leader_id") not in free:
@@ -790,6 +819,14 @@ def apply(order: dict, pview: dict, live: bool = True) -> dict:
             if t == "air_mission" and not all(order["mission"] in (now.get(i) or {}).get("missions", [])
                                               for i in order["wing_ids"]):
                 res.update(ok=False, stop="任务没有在所有联队上生效")
+        return res
+    if t == "learn_trait":
+        import leader_traits as ltr
+        res = ltr.learn(order["leader_id"], order["trait"], live)
+        if res.get("ok") and live:
+            ltr.forget(order["leader_id"])
+            if order["trait"] not in (ltr.leader_traits(s).get(order["leader_id"]) or []):
+                res.update(ok=False, stop="特质没有加上")
         return res
     if t == "promote":
         res = orbat.promote(order["leader_id"], live)

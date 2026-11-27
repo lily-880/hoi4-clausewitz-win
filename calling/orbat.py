@@ -223,7 +223,10 @@ def post(kind: str, fields: list[tuple[int, bytes]], vectors: list[tuple[int, li
         mo._write(pid, cmd + off, struct.pack("<QII", buf, len(handles), len(handles)))
     for off, data in fields:
         mo._write(pid, cmd + off, data)
-    valid = mo._remote(pid, base + spec["isvalid"], {"rcx": cmd}, wait_ms=5000)
+    # IsValid(this, std::string* reason): with a failing check the game writes the reason through
+    # rdx; left unset it held a stale register value and the write crashed the game seconds later
+    # (2026-11-27, CLearnTraitCommand). A null rdx makes it return false without writing.
+    valid = mo._remote(pid, base + spec["isvalid"], {"rcx": cmd, "rdx": 0}, wait_ms=5000)
     ok_valid = valid.get("wait") == 0 and (valid.get("rax") or 0) & 0xFF == 1
     rep["isvalid"] = ok_valid
     if not ok_valid or not live:
