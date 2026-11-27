@@ -26,9 +26,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "calling"), str(ROOT / "scripts")]
 
-RECORD_HOURS = 6
+RECORD_HOURS = 1        # plans + every division's position and route (fast reads)
+DETAIL_HOURS = 6        # air wings, leader traits, and a full capture attempt (slow)
 SHOT_HOURS = 24
-POLL_S = 2.0
+POLL_S = 0.3
 OUT = ROOT / "research" / "claude_live" / "demo" / (sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%Y%m%d_%H%M%S"))
 STOP = ROOT / "research" / "claude_live" / "demo" / "STOP_DEMO"
 
@@ -79,6 +80,57 @@ def full() -> dict:
             "enemy_provinces": {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in prim}}
 
 
+_ARMY_PTR: dict[int, int] = {}
+
+
+def fast_units(s, unit_ids: list[int]) -> list:
+    """Each division's province, route and order queue straight from its CArmy object; the object
+    address is resolved once per division and cached (resolving opened a new process handle per
+    division: 25 s per pass in demo 2's setup, so records came days apart)."""
+    import struct
+    from handle import resolve_handle, HANDLE_TYPE_ARMY
+    p = s.p
+
+    class A:
+        read = staticmethod(p.read)
+        image_base = p.base
+    vt = p.base + __import__("live_trial").PROFILE["vtable_rvas"]["CArmy"]
+    out = []
+    for uid in unit_ids:
+        try:
+            a = _ARMY_PTR.get(uid)
+            if not a or struct.unpack("<Q", p.read(a, 8))[0] != vt:
+                a = resolve_handle(A(), HANDLE_TYPE_ARMY, uid, p.base) or 0
+                _ARMY_PTR[uid] = a
+            if not a or struct.unpack("<Q", p.read(a, 8))[0] != vt:
+                continue
+            prov = struct.unpack("<I", p.read(a + 0x28, 4))[0]
+            data, cap, size = struct.unpack("<QII", p.read(a + 0x200, 16))
+            path = list(struct.unpack("<" + "I" * size, p.read(data, 4 * size))) if 0 < size <= 64 and cap >= size else []
+            cmds = struct.unpack("<QII", p.read(a + 0x2C0, 16))[2]
+            out.append({"id": uid, "prov": prov, "path": path, "cmds": cmds})
+        except (Exception, SystemExit):
+            continue
+    return out
+
+
+def quick_surrender(s) -> dict:
+    """Primary targets' held / total surrender units (CCountry +0x1338 / +0x1340) and controlled
+    province count (+0x434): read in microseconds, unlike the full capture."""
+    import struct
+    import commander_view as cv
+    out = {}
+    cs = s.countries()
+    for i, c in enumerate(cs):
+        t = s.tag(i)
+        if c and t in cv.PRIMARY_TARGETS:
+            held, _, total, _ = struct.unpack("<4i", s.p.read(c + 0x1338, 16))
+            out[t] = {"held_units": held, "total_units": total,
+                      "provinces": struct.unpack("<i", s.p.read(c + 0x434, 4))[0],
+                      "occupied_pct": round(100 * (1 - held / total), 1) if total else None}
+    return out
+
+
 def light_units(unit_ids: list[int]) -> list:
     """Per-division position and route read directly, with no consistency checks: the full
     capture needs a still game and failed on every running record of the first demo."""
@@ -125,7 +177,7 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     if STOP.exists():
         STOP.unlink()
-    last_rec = last_shot = None
+    last_rec = last_shot = last_detail = None
     misses = 0
     known_ids: set[int] = set()
     print("recording to", OUT, flush=True)
@@ -145,35 +197,42 @@ def main() -> int:
             time.sleep(POLL_S)
             continue
         if last_rec is not None and h < last_rec:  # a save was (re)loaded
-            last_rec = last_shot = None
+            last_rec = last_shot = last_detail = None
+            _ARMY_PTR.clear()
         if last_rec is None or h - last_rec >= RECORD_HOURS:
             row = {"at": datetime.now().isoformat(timespec="seconds"), "game": f"{c.get('ui_date')} {c.get('ui_hour')}h",
-                   "speed_slot": c.get("speed_slot"), "pause": c.get("pause")}
+                   "hour_tick": h, "speed_slot": c.get("speed_slot"), "pause": c.get("pause")}
             try:
                 row.update(plans())
             except (Exception, SystemExit) as e:
                 row["plans_error"] = type(e).__name__
-            for _ in range(3):
-                try:
-                    row.update(full())
-                    break
-                except (Exception, SystemExit) as e:
-                    row["capture_error"] = f"{type(e).__name__}: {e}"[:120]
-                    time.sleep(0.3)
-            if "units" in row:
-                known_ids.update(u["id"] for u in row["units"])
-            else:  # the full capture failed: keep at least each division's route
+            detail = last_detail is None or h - last_detail >= DETAIL_HOURS
+            if detail:
+                for _ in range(2):
+                    try:
+                        row.update(full())
+                        break
+                    except (Exception, SystemExit) as e:
+                        row["capture_error"] = f"{type(e).__name__}: {e}"[:120]
+                        time.sleep(0.2)
+                if "units" in row:
+                    known_ids.update(u["id"] for u in row["units"])
+                row["air"] = air()
+                row["traits"] = traits()
+                last_detail = h
+            try:
+                import live_trial as lt
+                s_ = lt.Session(check_sha=False)
                 ids = sorted(known_ids | {u for a in row.get("armies", []) for u in a.get("unit_ids", [])})
-                try:
-                    row["units_light"] = light_units(ids)
-                except (Exception, SystemExit) as e:
-                    row["units_light_error"] = type(e).__name__
-            row["air"] = air()
-            row["traits"] = traits()
+                row["units_fast"] = fast_units(s_, ids)
+                row["surrender_fast"] = quick_surrender(s_)
+            except (Exception, SystemExit) as e:
+                row["fast_error"] = f"{type(e).__name__}: {e}"[:120]
             with (OUT / "record.jsonl").open("a", encoding="utf-8") as f:
-                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+                f.write(json.dumps(row, ensure_ascii=False) + chr(10))
             last_rec = h
-            print(row["game"], "surrender", row.get("surrender"), flush=True)
+            print(row["game"], "units", len(row.get("units_fast", [])), "surrender", row.get("surrender_fast"),
+                  "detail" if detail else "", flush=True)
         if last_shot is None or h - last_shot >= SHOT_HOURS:
             shot(str(c.get("ui_date")).replace("-", "") + f"_{c.get('ui_hour')}")
             last_shot = h
