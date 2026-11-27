@@ -104,6 +104,15 @@ def air() -> list:
         return [{"error": type(e).__name__}]
 
 
+def traits() -> dict:
+    """Every leader's traits (pure memory reads; the demo-1 traits had to be found afterwards)."""
+    try:
+        import leader_traits as ltr
+        return {str(k): v for k, v in ltr.leader_traits().items()}
+    except (Exception, SystemExit) as e:
+        return {"error": type(e).__name__}
+
+
 def shot(tag: str) -> str | None:
     try:
         import game_ui as gu
@@ -160,6 +169,7 @@ def main() -> int:
                 except (Exception, SystemExit) as e:
                     row["units_light_error"] = type(e).__name__
             row["air"] = air()
+            row["traits"] = traits()
             with (OUT / "record.jsonl").open("a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
             last_rec = h
