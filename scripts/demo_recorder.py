@@ -95,20 +95,25 @@ def main() -> int:
     if STOP.exists():
         STOP.unlink()
     last_rec = last_shot = None
+    misses = 0
     print("recording to", OUT, flush=True)
     while not STOP.exists():
         try:
             c = clock()
+            misses = 0
         except Exception:
-            time.sleep(5)
-            try:
-                c = clock()
-            except Exception:
-                break  # game closed
+            # game closed, restarting or loading a save: wait up to an hour for it
+            misses += 1
+            if misses > 360:
+                break
+            time.sleep(10)
+            continue
         h = c.get("hour_tick")
         if h is None:
             time.sleep(POLL_S)
             continue
+        if last_rec is not None and h < last_rec:  # a save was (re)loaded
+            last_rec = last_shot = None
         if last_rec is None or h - last_rec >= RECORD_HOURS:
             row = {"at": datetime.now().isoformat(timespec="seconds"), "game": f"{c.get('ui_date')} {c.get('ui_hour')}h",
                    "speed_slot": c.get("speed_slot"), "pause": c.get("pause")}
