@@ -613,8 +613,8 @@ def decide(input_doc: dict) -> dict:
             enemy = next((t for t in sorted(cv.PRIMARY_TARGETS) if t in at_war), None)
         if not enemy:
             continue
-        o = {"type": "front_line", "army_id": a["army_id"], "enemy": enemy,
-             "reason": "系统：集团军没有前线，按原来的作战对象重画"}
+        o = {"type": "front_line", "army_id": a["army_id"], "enemy": enemy, "section": "near_units",
+             "reason": "系统：集团军没有前线，按原来的作战对象、在它的师所在的那段边境重画"}
         if not po.validate(o, input_doc, projected):
             accepted_plans.append(o)
             _project(projected, o)

@@ -439,7 +439,7 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         if order.get("enemy") not in enemies:
             return "只能对正在交战且接壤的国家画前线"
         secs = (pview.get("border_fronts") or {}).get(order["enemy"]) or []
-        if "section" in order and order["section"] not in {x["section"] for x in secs}:
+        if "section" in order and order["section"] != "near_units" and order["section"] not in {x["section"] for x in secs}:
             return "该国边境没有这个前线段编号（见 border_fronts）"
         # player hard rule: the home-defense line keeps its garrison. An army is pulled to its own
         # front, so an army holding garrison troops may only front the country they face.
@@ -461,7 +461,7 @@ def validate(order: dict, doc: dict, pview: dict) -> str | None:
         if rng is not None and not (isinstance(rng, list) and len(rng) == 2 and 0 <= rng[0] < rng[1] <= 100):
             return "range_pct 须为 [起点百分比, 终点百分比]，0≤起点<终点≤100"
         # no section given: place_front picks the section with most of our own provinces
-        sec = next((x for x in secs if x["section"] == order["section"]), None) if "section" in order else None
+        sec = next((x for x in secs if x["section"] == order["section"]), None)             if "section" in order and order["section"] != "near_units" else None
         own = (sec or {}).get("own_territory_range_pct")
         if sec is not None and own is None:
             return "这一段边境不在本国领土上；前线不能画在别国境内"
@@ -567,7 +567,26 @@ def place_front(s, army_id: int, enemy: str, section, range_pct, unit_ids, live=
     rows = orbat.front_sections(s).get(enemy) or []
     if not rows:
         return {"ok": False, "stop": "该国没有边境前线"}
-    if section is None:
+    if section == "near_units":
+        # the section where this army's divisions stand (exam 10: the default "most own provinces"
+        # sent an East-Prussian army marching to the main border)
+        here = []
+        for u in unit_ids:
+            try:
+                here.append((s.unit(u) or {}).get("province_id"))
+            except Exception:
+                pass
+        near = {}
+        for r_ in rows:
+            prov = set(r_["provinces"])
+            for pv in prov:
+                try:
+                    prov = prov | set(s.land_neighbors(pv).get("neighbors") or [])
+                except Exception:
+                    pass
+            near[r_["section"]] = sum(1 for h in here if h in prov)
+        row = max(rows, key=lambda r_: (near.get(r_["section"], 0), sum(1 for c in r_["controllers"] if c == me)))
+    elif section is None:
         row = max(rows, key=lambda r: sum(1 for c in r["controllers"] if c == me))
     else:
         row = next((r for r in rows if r["section"] == section), None)
