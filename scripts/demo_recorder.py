@@ -79,6 +79,23 @@ def full() -> dict:
             "enemy_provinces": {k: v for k, v in (ext.get("enemy_controlled_provinces") or {}).items() if k in prim}}
 
 
+def light_units(unit_ids: list[int]) -> list:
+    """Per-division position and route read directly, with no consistency checks: the full
+    capture needs a still game and failed on every running record of the first demo."""
+    import live_trial as lt
+    s = lt.Session(check_sha=False)
+    out = []
+    for uid in unit_ids:
+        try:
+            u = s.unit(uid)
+        except (Exception, SystemExit):
+            u = None
+        if u:
+            out.append({"id": uid, "prov": u["province_id"], "path": u["path"],
+                        "cmds": u["commandlist_size"], "retreat": u["retreat"]})
+    return out
+
+
 def air() -> list:
     try:
         import air_orders as ao
@@ -101,6 +118,7 @@ def main() -> int:
         STOP.unlink()
     last_rec = last_shot = None
     misses = 0
+    known_ids: set[int] = set()
     print("recording to", OUT, flush=True)
     while not STOP.exists():
         try:
@@ -133,6 +151,14 @@ def main() -> int:
                 except (Exception, SystemExit) as e:
                     row["capture_error"] = f"{type(e).__name__}: {e}"[:120]
                     time.sleep(0.3)
+            if "units" in row:
+                known_ids.update(u["id"] for u in row["units"])
+            else:  # the full capture failed: keep at least each division's route
+                ids = sorted(known_ids | {u for a in row.get("armies", []) for u in a.get("unit_ids", [])})
+                try:
+                    row["units_light"] = light_units(ids)
+                except (Exception, SystemExit) as e:
+                    row["units_light_error"] = type(e).__name__
             row["air"] = air()
             with (OUT / "record.jsonl").open("a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
