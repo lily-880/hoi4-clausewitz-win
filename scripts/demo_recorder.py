@@ -29,7 +29,7 @@ sys.path[:0] = [str(ROOT / "calling"), str(ROOT / "scripts")]
 RECORD_HOURS = 6
 SHOT_HOURS = 24
 POLL_S = 2.0
-OUT = ROOT / "research" / "claude_live" / "demo" / datetime.now().strftime("%Y%m%d_%H%M%S")
+OUT = ROOT / "research" / "claude_live" / "demo" / (sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%Y%m%d_%H%M%S"))
 STOP = ROOT / "research" / "claude_live" / "demo" / "STOP_DEMO"
 
 
@@ -45,12 +45,17 @@ def plans() -> dict:
     for th in snap["theatres"]:
         for a in th["armies"]:
             out.append({"army_id": a["id"], "name": a["name"], "army_group_id": a.get("army_group_id"),
+                        "leader_id": a.get("leader_id"),
                         "divisions": len(a["unit_ids"]), "unit_ids": a["unit_ids"],
                         "plans": [{"plan_id": p["plan_id"], "front": p["path"], "executing": p.get("can_execute"),
                                    "sub_executing": p.get("sub_executing"),
                                    "lines": [c["path"] for c in p["children"]]} for p in a["plans"]]})
         for g in th.get("army_groups", []):
-            out.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids")})
+            out.append({"army_group_id": g["id"], "name": g["name"], "army_ids": g.get("army_ids"),
+                        "leader_id": g.get("leader_id"),
+                        "plans": [{"plan_id": p["plan_id"], "front": p["path"], "executing": p.get("can_execute"),
+                                   "sub_executing": p.get("sub_executing"),
+                                   "lines": [c["path"] for c in p["children"]]} for p in g.get("plans", [])]})
     return {"armies": out}
 
 
